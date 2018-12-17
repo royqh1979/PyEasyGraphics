@@ -27,9 +27,13 @@ class GraphWin(QWidget):
         super().__init__();
         self._width = width;
         self._height = height;
-        self._waitEvent = threading.Event()
-        self._mouseEvent = threading.Event()
-        self._keyEvent = threading.Event()
+        self._wait_event = threading.Event()
+        self._mouse_event = threading.Event()
+        self._key_event = threading.Event()
+        self._char_key_event = threading.Event()
+        self._key_msg = _KeyMsg()
+        self._key_char_msg = _KeyCharMsg()
+        self._mouse_msg = _MouseMsg()
         self.setGeometry(100, 100, width, height)
         self._init_screen(width, height)
         self._is_run = True
@@ -82,21 +86,34 @@ class GraphWin(QWidget):
     def is_immediate(self) -> bool:
         return self._immediate
 
-    def mousePressEvent(self, QMouseEvent):
-        self._waitEvent.set()
-        self._mouseEvent.set()
+    def mousePressEvent(self, e: QMouseEvent):
+        self._wait_event.set()
+        self._mouse_msg.set_event(e)
+        self._mouse_event.set()
 
-    def keyPressEvent(self, QKeyEvent):
-        self._waitEvent.set()
-        self._keyEvent.set()
+    def mouseMoveEvent(self, e: QMouseEvent):
+        self._mouse_msg.set_event(e)
+        self._mouse_event.set()
+
+    def keyPressEvent(self, e: QKeyEvent):
+        self._wait_event.set()
+        if e.key() < 127:
+            # ascii char key pressed
+            self._key_char_msg.set_char(e)
+            self._char_key_event.set()
+        self._key_msg.set_event(e)
+        self._key_event.set()
 
     def pause(self):
-        self._waitEvent.clear()
-        self._waitEvent.wait()
+        self._wait_event.clear()
+        self._wait_event.wait()
 
     def closeEvent(self, QCloseEvent):
         self._is_run = False
-        self._waitEvent.set()
+        self._wait_event.set()
+        self._mouse_event.set()
+        self._key_event.set()
+        self._char_key_event.set()
         self._app.quit()
 
     def is_run(self) -> bool:
@@ -115,14 +132,23 @@ class GraphWin(QWidget):
         self.update()
         self._last_update_time = time.time_ns()
 
-    def delay(self, milliseconds):
-        nanotime = milliseconds * 1000000
+    def delay(self, ms):
+        """
+        delay ms milliseconds
+        :param ms: time to delay (in milliseconds)
+        """
+        nanotime = ms * 1000000
         start_wait_time = time.time_ns()
         self.real_update()
         while time.time_ns() - start_wait_time < nanotime:
             time.time_ns()
 
     def delay_fps(self, fps):
+        """
+        delay to control fps without frame skiping
+
+        never skip frames
+        """
         nanotime = 1000000000 // fps
         if self._last_update_time == 0:
             self._last_update_time = time.time_ns()
@@ -131,6 +157,13 @@ class GraphWin(QWidget):
         self.real_update()
 
     def delay_jfps(self, fps, max_skip_count=10):
+        """
+        delay to control fps with frame skiping
+
+        if we don't have enough time to delay, we'll skip some frames
+        :param fps: frames per second (max is 1000)
+        :param max_skip_count: max num of  frames to skip
+        """
         nanotime = 1000000000 // fps
         if self._last_update_time == 0:
             self._last_update_time = time.time_ns()
@@ -147,3 +180,152 @@ class GraphWin(QWidget):
         while time.time_ns() - self._last_update_time < nanotime:
             time.time_ns()
         self.real_update()
+
+    def get_char(self) -> str:
+        """
+        get the ascii char inputted by keybord
+        if not any char key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+
+        :return: the character inputted by keybord
+        """
+        nt = time.time_ns()
+        if nt - self._key_char_msg.get_time() > 100000000:
+            # if the last char msg is 100ms ago, we wait for a new msg
+            self._char_key_event.clear()
+            self._char_key_event.wait()
+        if not self._is_run:
+            return ' ';
+        ch = self._key_char_msg.get_char()
+        self._key_char_msg.reset()
+        return ch
+
+    def get_key(self) -> (int, int):
+        """
+        get the key inputted by keybord
+        if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+
+        :return: keyboard code (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum) , keyboard modifier codes(see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)
+        """
+        nt = time.time_ns()
+        if nt - self._key_msg.get_time() > 100000000:
+            # if the last key msg is 100ms ago, we wait for a new msg
+            self._key_event.clear()
+            self._key_event.wait()
+        if not self._is_run:
+            return (Qt.Key_Escape, Qt.NoModifier);
+        e = self._key_msg.get_event()
+        self._key_msg.reset()
+        return e.key(), e.modifiers()
+
+    def get_mouse(self) -> (int, int, int):
+        """
+        get the key inputted by keybord
+        if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+
+        :return: x of the cursor, y of the cursor , mouse buttons down ( Qt.LeftButton or Qt.RightButton or Qt.MidButton or Qt.NoButton)
+        """
+        nt = time.time_ns()
+        if nt - self._mouse_msg.get_time() > 100000000:
+            # if the last key msg is 100ms ago, we wait for a new msg
+            self._mouse_event.clear()
+            self._mouse_event.wait()
+        if not self._is_run:
+            return (0, 0, Qt.NoButton);
+        e = self._mouse_msg.get_event()
+        self._mouse_msg.reset()
+        return e.x(), e.y(), e.button()
+
+    def kb_hit(self) -> bool:
+        """
+        see if any ascii char key is hitted in the last 100 ms
+        use it with get_char()
+
+        :return:  True if hitted, False or not
+        """
+        nt = time.time_ns()
+        return nt - self._key_char_msg.get_time() <= 100000000
+
+    def kb_msg(self) -> bool:
+        """
+        see if any key is hitted in the last 100 ms
+        use it with get_key()
+
+        :return:  True if hitted, False or not
+        """
+        nt = time.time_ns()
+        return nt - self._key_char_msg.get_time() <= 100000000
+
+    def mouse_msg(self) -> bool:
+        """
+        see if there's any mouse message(event) in the last 100 ms
+        use it with get_mouse()
+
+        :return:  True if any mouse message, False or not
+        """
+        nt = time.time_ns()
+        return nt - self._mouse_msg.get_time() <= 100000000
+
+
+class _KeyMsg:
+    """
+    class for saving keyboard message
+    """
+
+    def __init__(self):
+        self._time = 0
+        self._key_event = None
+
+    def set_event(self, key_event: QKeyEvent):
+        self._key_event = key_event
+        self._time = time.time_ns()
+
+    def get_event(self) -> QKeyEvent:
+        return self._key_event
+
+    def get_time(self) -> int:
+        return self._time
+
+    def reset(self):
+        self._time = 0
+        self._key_event = None
+
+
+class _KeyCharMsg:
+    """
+    class for saving keyboard hit char
+    """
+
+    def __init__(self):
+        self._time = 0
+        self._key = None
+
+    def set_char(self, key_event: QKeyEvent):
+        self._key = key_event.text()
+        self._time = time.time_ns()
+
+    def get_char(self) -> str:
+        return self._key
+
+    def get_time(self):
+        return self._time
+
+    def reset(self):
+        self._time = 0
+        self._key = None
+
+
+class _MouseMsg:
+    def __init__(self):
+        self._time = 0
+        self._mouse_event = None
+
+    def set_event(self, e: QMouseEvent):
+        self._mouse_event = e
+        self._time = time.time_ns()
+
+    def get_event(self) -> QMouseEvent:
+        return self._mouse_event
+
+    def reset(self):
+        self._time = 0
+        self._mouse_event = None

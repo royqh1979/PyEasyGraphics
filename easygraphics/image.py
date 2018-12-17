@@ -22,6 +22,8 @@ class Image:
         self._write_mode = WriteMode.R2_COPYPEN
         self._x = 0
         self._y = 0
+        self._font = QFont("SansSerif", 14)
+        self._font_metrics = QFontMetrics(self._font)
 
     def get_image(self) -> QImage:
         return self._image
@@ -147,6 +149,8 @@ class Image:
         if self._view_port is not None:
             p.translate(self._view_port.left(), self._view_port.top())
         p.setCompositionMode(self._write_mode)
+        if self._font is not None:
+            p.setFont(self._font)
         p.setPen(pen)
         p.setBrush(brush)
         return p
@@ -400,6 +404,43 @@ class Image:
             queue.append((x, y + 1))
             queue.append((x, y - 1))
 
+    def get_pixel(self, x, y) -> QColor:
+        return QColor(self._image.pixel(x, y))
+
+    def put_pixel(self, x, y, color):
+        self._image.setPixel(x, y, color)
+
+    def draw_text(self, x, y, *args, sep=' '):
+        msgs = map(str, args)
+        msg = sep.join(args)
+        p = self._prepare_painter_for_draw()
+        p.drawText(x, y, msg)
+
+    def draw_rect_text(self, x, y, w, h, flags, *args, sep=' '):
+        msgs = map(str, args)
+        msg = sep.join(args)
+        p = self._prepare_painter_for_draw()
+        p.drawText(x, y, w, h, msg)
+
+    def set_font(self, font: QFont):
+        self._font = font
+        self._font_metrics = QFontMetrics(self._font)
+
+    def get_font(self) -> QFont:
+        return self._font
+
+    def set_font_size(self, size):
+        self._font.setPixelSize(size)
+        self._font_metrics = QFontMetrics(self._font)
+
+    def get_font_size(self):
+        return self._font.pixelSize()
+
+    def text_width(self, str):
+        self._font_metrics.width(str)
+
+    def text_height(self, str):
+        self._font_metrics.height()
 
 def _rotate_angle(angle):
     return angle

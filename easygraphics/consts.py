@@ -1,5 +1,4 @@
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
+from PyQt5 import QtGui, QtCore
 
 
 class RenderMode:
@@ -8,55 +7,55 @@ class RenderMode:
 
 
 class WriteMode:
-    R2_COPYPEN = QPainter.CompositionMode_SourceOver
-    R2_MASKNOTPEN = QPainter.RasterOp_NotSourceAndDestination
-    R2_MASKPEN = QPainter.RasterOp_SourceAndDestination
-    R2_MASKPENNOT = QPainter.RasterOp_SourceAndNotDestination
-    R2_MERGENOTPEN = QPainter.RasterOp_NotSourceOrDestination
-    R2_MERGEPEN = QPainter.RasterOp_SourceOrDestination
-    R2_MERGEPENNOT = QPainter.RasterOp_SourceOrNotDestination
-    R2_NOP = QPainter.CompositionMode_Destination
-    R2_NOT = QPainter.RasterOp_NotDestination
-    R2_NOTCOPYPEN = QPainter.RasterOp_NotSource
-    R2_NOTMASKPEN = QPainter.RasterOp_NotSourceOrNotDestination
-    R2_NOTMERGEPEN = QPainter.RasterOp_NotSourceAndNotDestination
-    R2_NOTXORPEN = QPainter.RasterOp_NotSourceXorDestination
-    R2_XORPEN = QPainter.RasterOp_SourceXorDestination
+    R2_COPYPEN = QtGui.QPainter.CompositionMode_SourceOver
+    R2_MASKNOTPEN = QtGui.QPainter.RasterOp_NotSourceAndDestination
+    R2_MASKPEN = QtGui.QPainter.RasterOp_SourceAndDestination
+    R2_MASKPENNOT = QtGui.QPainter.RasterOp_SourceAndNotDestination
+    R2_MERGENOTPEN = QtGui.QPainter.RasterOp_NotSourceOrDestination
+    R2_MERGEPEN = QtGui.QPainter.RasterOp_SourceOrDestination
+    R2_MERGEPENNOT = QtGui.QPainter.RasterOp_SourceOrNotDestination
+    R2_NOP = QtGui.QPainter.CompositionMode_Destination
+    R2_NOT = QtGui.QPainter.RasterOp_NotDestination
+    R2_NOTCOPYPEN = QtGui.QPainter.RasterOp_NotSource
+    R2_NOTMASKPEN = QtGui.QPainter.RasterOp_NotSourceOrNotDestination
+    R2_NOTMERGEPEN = QtGui.QPainter.RasterOp_NotSourceAndNotDestination
+    R2_NOTXORPEN = QtGui.QPainter.RasterOp_NotSourceXorDestination
+    R2_XORPEN = QtGui.QPainter.RasterOp_SourceXorDestination
 
 
 class LineStyle:
-    SOLID_LINE = Qt.SolidLine
-    CENTER_LINE = Qt.DashLine
-    DOTTED_LINE = Qt.DotLine
-    DASHED_LINE = Qt.DashDotLine
-    NULL_LINE = Qt.NoPen
-    DASH_LINE = Qt.DashLine
-    DOT_LINE = Qt.DotLine
-    DASH_DOT_LINE = Qt.DashDotLine
-    DASH_DOT_DOT_LINE = Qt.DashDotDotLine
-    NO_PEN = Qt.NoPen
+    SOLID_LINE = QtCore.Qt.SolidLine
+    CENTER_LINE = QtCore.Qt.DashLine
+    DOTTED_LINE = QtCore.Qt.DotLine
+    DASHED_LINE = QtCore.Qt.DashDotLine
+    NULL_LINE = QtCore.Qt.NoPen
+    DASH_LINE = QtCore.Qt.DashLine
+    DOT_LINE = QtCore.Qt.DotLine
+    DASH_DOT_LINE = QtCore.Qt.DashDotLine
+    DASH_DOT_DOT_LINE = QtCore.Qt.DashDotDotLine
+    NO_PEN = QtCore.Qt.NoPen
 
 
 class FillStyle:
-    NULL_FILL = Qt.NoBrush
-    SOLID_FILL = Qt.SolidPattern
+    NULL_FILL = QtCore.Qt.NoBrush
+    SOLID_FILL = QtCore.Qt.SolidPattern
 
 
 class Color:
-    BLACK = Qt.black
-    DARKGRAY = Qt.darkGray
-    BLUE = Qt.blue
-    LIGHTBLUE = QColor(0x54, 0x54, 0xFC)
-    GREEN = Qt.green
-    LIGHTGREEN = QColor(0x54, 0xFC, 0x54)
-    CYAN = Qt.cyan
-    LIGHTCYAN = QColor(0x54, 0xFC, 0xFC)
-    RED = Qt.red
-    LIGHTRED = QColor(0xFC, 0x54, 0x54)
-    MAGENTA = QColor(0xA8, 0, 0xA8)
-    LIGHTMAGENTA = QColor(0xFC, 0x54, 0xFC)
-    BROWN = QColor(0xA8, 0xA8, 0)
-    YELLOW = Qt.yellow
-    LIGHTGRAY = QColor(0xA8, 0xA8, 0xA8)
-    WHITE = Qt.white
-    TRANSPARENT = Qt.transparent
+    BLACK = QtCore.Qt.black
+    DARKGRAY = QtCore.Qt.darkGray
+    BLUE = QtCore.Qt.blue
+    LIGHTBLUE = QtGui.QColor(0x54, 0x54, 0xFC)
+    GREEN = QtCore.Qt.green
+    LIGHTGREEN = QtGui.QColor(0x54, 0xFC, 0x54)
+    CYAN = QtCore.Qt.cyan
+    LIGHTCYAN = QtGui.QColor(0x54, 0xFC, 0xFC)
+    RED = QtCore.Qt.red
+    LIGHTRED = QtGui.QColor(0xFC, 0x54, 0x54)
+    MAGENTA = QtGui.QColor(0xA8, 0, 0xA8)
+    LIGHTMAGENTA = QtGui.QColor(0xFC, 0x54, 0xFC)
+    BROWN = QtGui.QColor(0xA8, 0xA8, 0)
+    YELLOW = QtCore.Qt.yellow
+    LIGHTGRAY = QtGui.QColor(0xA8, 0xA8, 0xA8)
+    WHITE = QtCore.Qt.white
+    TRANSPARENT = QtCore.Qt.transparent

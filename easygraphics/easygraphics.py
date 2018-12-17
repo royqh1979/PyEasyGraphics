@@ -3,13 +3,12 @@ import threading
 import sys
 import time
 
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
+from PyQt5 import QtWidgets, QtCore, QtGui
 
-from easygraphics.consts import *
-from easygraphics.graphwin import GraphWin
-from easygraphics.image import Image
+from .consts import *
+from .graphwin import GraphWin
+from .image import Image
+from .dialog._invoke_in_app_thread import init_invoke_in_app
 
 if sys.version_info < (3, 6):
     raise OSError("Only Support Python 3.6 and above")
@@ -75,6 +74,16 @@ def set_background_color(color, image: Image = None):
     image.set_background_color(color)
 
 
+def set_font(font: QtGui.QFont, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.set_font(font)
+
+
+def get_font(image: Image = None) -> QtGui.QFont:
+    image, on_screen = _check_on_screen(image)
+    return image.get_font()
+
+
 def draw_point(x, y, image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.draw_point(x, y)
@@ -82,8 +91,16 @@ def draw_point(x, y, image: Image = None):
         _win.invalid()
 
 
-def put_pixel(x, y, image: Image = None):
-    draw_point(x, y, image)
+def put_pixel(x, y, color, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.put_pixel(x, y, color)
+    if on_screen:
+        _win.invalid()
+
+
+def get_pixel(x, y, image: Image = None) -> QtGui.QColor:
+    image, on_screen = _check_on_screen(image)
+    return image.get_pixel(x, y)
 
 
 def line(x1, y1, x2, y2, image: Image = None):
@@ -336,6 +353,20 @@ def draw_image(x, y, src_image, dst_image: Image = None):
         _win.invalid()
 
 
+def draw_text(x, y, *args, sep=' ', image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.draw_text(x, y, *args, sep=sep)
+    if on_screen:
+        _win.invalid()
+
+
+def draw_rect_text(x, y, w, h, *args, flags=QtCore.Qt.AlignLeft | QtCore.Qt.AlignTop, sep=' ', image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.draw_rect_text(x, y, w, h, flags, *args, sep=sep)
+    if on_screen:
+        _win.invalid()
+
+
 def set_target(image: Image = None):
     global _target_image
     if image is None:
@@ -358,6 +389,16 @@ def get_write_mode(image: Image = None):
     return image.get_write_mode()
 
 
+def set_font_size(size, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.set_font_size(size)
+
+
+def get_write_mode(mode, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    return image.get_font_size(mode)
+
+
 def get_x(image: Image = None):
     image, on_screen = _check_on_screen(image)
     return image.get_x()
@@ -368,10 +409,14 @@ def get_y(image: Image = None):
     return image.get_y()
 
 
-def moveto(x, y, image: Image = None):
+def text_width(s: str, image: Image = None):
     image, on_screen = _check_on_screen(image)
-    image.move_to(x, y)
+    return image.text_width(s)
 
+
+def text_height(s: str, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    return image.text_height(s)
 
 def set_view_port(left, top, right, bottom, clip=True, image: Image = None):
     image, on_screen = _check_on_screen(image)
@@ -403,12 +448,22 @@ def clear_device(image: Image = None):
 
 
 def create_image(width, height) -> Image:
-    image = QImage(width, height, QImage.Format_ARGB32_Premultiplied)
-    image.fill(Qt.transparent)
+    image = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
+    image.fill(QtCore.Qt.transparent)
     return Image(image)
 
 
-def _check_on_screen(image: Image) -> (QImage, bool):
+def rgb(red, green, blue):
+    return QtGui.QColor(red, green, blue)
+
+
+def _check_app_run():
+    if not is_run():
+        raise RuntimeError("Graph window has been closed!")
+
+
+def _check_on_screen(image: Image) -> (QtGui.QImage, bool):
+    _check_app_run()
     if image is None:
         image = _target_image
     on_screen = image is _win.get_canvas()
@@ -420,30 +475,31 @@ def _validate_image(image: Image):
     """ check if image is valid to draw on it"""
     if not isinstance(image, Image):
         raise ValueError("image parameter must be None or an instance return by getimage()!")
-    if not isinstance(image.get_image(), QImage):
+    if not isinstance(image.get_image(), QtGui.QImage):
         raise ValueError("don't have valid image")
-    if not isinstance(image.get_pen(), QPen):
+    if not isinstance(image.get_pen(), QtGui.QPen):
         raise ValueError("don't have valid pen")
-    if not isinstance(image.get_brush(), QBrush):
+    if not isinstance(image.get_brush(), QtGui.QBrush):
         raise ValueError("don't have valid pen")
-    if not isinstance(image.get_background_color(), QColor) and \
-            not isinstance(image.get_background_color(), Qt.GlobalColor):
+    if not isinstance(image.get_background_color(), QtGui.QColor) and \
+            not isinstance(image.get_background_color(), QtCore.Qt.GlobalColor):
         raise ValueError("don't have valid background color")
 
 
 def __start(width, height):
     global _app, _win, _target_image
-    _app = QApplication([])
+    app_exists = False
+    _app = QtWidgets.QApplication([])
     _app.setQuitOnLastWindowClosed(True)
     _win = GraphWin(width, height, _app)
+    init_invoke_in_app()
     _target_image = _win.get_canvas()
     # init finished, can draw now
     _start_event.set()
     _win.show()
-    _app.exec_()
-    os._exit(0)
-    # sys.exit(0) #can't stop main thread
-
+    if not app_exists:
+        _app.exec_()
+        sys.exit(0)
 
 def set_render_mode(mode):
     _win.set_immediate(mode == RenderMode.RENDER_AUTO)
@@ -460,6 +516,18 @@ def is_run():
 
 def delay(milliseconds):
     _win.delay(milliseconds)
+
+
+def delay_fps(fps):
+    _win.delay_fps(fps)
+
+
+def delay_jfps(fps):
+    _win.delay_jfps(fps)
+
+
+def rgb(red, green, blue):
+    return QtGui.QColor(red, green, blue)
 
 
 def set_caption(title: str):
@@ -479,12 +547,42 @@ def init_graph(width, height):
     _start_event.wait()
 
 
+def kb_hit():
+    return _win.kb_hit()
+
+
+def kb_msg():
+    _check_app_run()
+    return _win.kb_msg()
+
+
+def mouse_msg():
+    _check_app_run()
+    return _win.mouse_msg()
+
+
+def get_mouse():
+    _check_app_run()
+    return _win.get_mouse()
+
+
+def get_char():
+    _check_app_run()
+    return _win.get_char()
+
+
+def get_key():
+    _check_app_run()
+    return _win.get_key()
+
+
 def close_graph():
-    _app.quit()
+    _app.exit(0)
 
 
-init_graph(800, 600)
-
+if __name__ == "__main__":
+    pass
+# init_graph(800, 600)
 # set_color(Color.BLACK)
 # circle(300,300,200)
 # circle(400,400,100)
@@ -544,7 +642,4 @@ init_graph(800, 600)
 # circle(100,100,50,image)
 # draw_image(50,50,image)
 # 设置原点 (0, 0) 为屏幕中央（Y轴默认向下为正）
-if __name__ == "__main__":
-    draw_doraamon()
-
 # close_graph()

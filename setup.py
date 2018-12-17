@@ -20,14 +20,14 @@ test_requirements = [
 
 setup(
     name='easygraphics',
-    version='0.1.0',
+    version='0.9.1',
     description='"A TC Graphics style like Graphics Library"',
     long_description=readme + '\n\n' + history,
     author='Roy Qu',
     author_email='royqh1979@gmail.com',
     url='https://github.com/royqh1979/PyEasyGraphics',
     packages=[
-        'easygraphics'
+        'easygraphics', 'easygraphics.dialog'
     ],
     package_dir={'easygraphics':
                      'easygraphics'},
