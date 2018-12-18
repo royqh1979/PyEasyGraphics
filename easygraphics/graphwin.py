@@ -6,6 +6,8 @@ from PyQt5.QtGui import *
 
 from easygraphics.image import Image
 
+__all__ = ['GraphWin']
+
 
 class GraphWin(QWidget):
     """
@@ -23,10 +25,10 @@ class GraphWin(QWidget):
         and this object is synced with self._screen manually
     """
 
-    def __init__(self, width, height, app: QApplication):
-        super().__init__();
-        self._width = width;
-        self._height = height;
+    def __init__(self, width: int, height: int, app: QApplication):
+        super().__init__(flags=Qt.Window | Qt.MSWindowsFixedSizeDialogHint)
+        self._width = width
+        self._height = height
         self._wait_event = threading.Event()
         self._mouse_event = threading.Event()
         self._key_event = threading.Event()
@@ -59,7 +61,7 @@ class GraphWin(QWidget):
         self.real_update()
 
     def get_canvas(self):
-        return self._canvas;
+        return self._canvas
 
     def paintEvent(self, e):
         p = QPainter()
@@ -81,9 +83,26 @@ class GraphWin(QWidget):
             self.update()
 
     def set_immediate(self, immediate: bool):
+        """
+        set if the graphics window will be updated immediately after things are drawn
+
+        possible values:
+
+        * **True** (default, auto mode) update the window immediately after every drawing
+        * **False** (manual mode) only update the window after pause()/delay()/delay_fps()/delay_jfps() is called.
+
+        manual mode is used for animations
+
+        :param immediate:  if the graphics window will be updated immediately
+        """
         self._immediate = immediate
 
     def is_immediate(self) -> bool:
+        """
+        get if the graphics window will be updated immediately after things are drawn
+
+        :return:
+        """
         return self._immediate
 
     def mousePressEvent(self, e: QMouseEvent):
@@ -108,7 +127,7 @@ class GraphWin(QWidget):
         self._wait_event.clear()
         self._wait_event.wait()
 
-    def closeEvent(self, QCloseEvent):
+    def closeEvent(self, e: QCloseEvent):
         self._is_run = False
         self._wait_event.set()
         self._mouse_event.set()
@@ -194,7 +213,7 @@ class GraphWin(QWidget):
             self._char_key_event.clear()
             self._char_key_event.wait()
         if not self._is_run:
-            return ' ';
+            return ' '
         ch = self._key_char_msg.get_char()
         self._key_char_msg.reset()
         return ch
@@ -204,7 +223,8 @@ class GraphWin(QWidget):
         get the key inputted by keybord
         if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
-        :return: keyboard code (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum) , keyboard modifier codes(see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)
+        :return: keyboard code (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum) , keyboard modifier codes
+        (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)
         """
         nt = time.time_ns()
         if nt - self._key_msg.get_time() > 100000000:
@@ -212,7 +232,7 @@ class GraphWin(QWidget):
             self._key_event.clear()
             self._key_event.wait()
         if not self._is_run:
-            return (Qt.Key_Escape, Qt.NoModifier);
+            return Qt.Key_Escape, Qt.NoModifier
         e = self._key_msg.get_event()
         self._key_msg.reset()
         return e.key(), e.modifiers()
@@ -222,7 +242,8 @@ class GraphWin(QWidget):
         get the key inputted by keybord
         if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
-        :return: x of the cursor, y of the cursor , mouse buttons down ( Qt.LeftButton or Qt.RightButton or Qt.MidButton or Qt.NoButton)
+        :return: x of the cursor, y of the cursor , mouse buttons down
+        ( Qt.LeftButton or Qt.RightButton or Qt.MidButton or Qt.NoButton)
         """
         nt = time.time_ns()
         if nt - self._mouse_msg.get_time() > 100000000:
@@ -230,7 +251,7 @@ class GraphWin(QWidget):
             self._mouse_event.clear()
             self._mouse_event.wait()
         if not self._is_run:
-            return (0, 0, Qt.NoButton);
+            return 0, 0, Qt.NoButton
         e = self._mouse_msg.get_event()
         self._mouse_msg.reset()
         return e.x(), e.y(), e.button()
@@ -325,6 +346,9 @@ class _MouseMsg:
 
     def get_event(self) -> QMouseEvent:
         return self._mouse_event
+
+    def get_time(self):
+        return self._time
 
     def reset(self):
         self._time = 0

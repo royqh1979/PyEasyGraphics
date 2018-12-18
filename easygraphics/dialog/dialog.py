@@ -17,9 +17,17 @@ from . import calendar_widget
 from . import multichoice
 from . import multifields
 from . import show_text_window
-from ._invoke_in_app_thread import *
+from .invoke_in_app_thread import *
 
-
+__all__ = [
+    'set_dialog_font_size',
+    'show_message', 'show_text', 'show_code', 'show_file',
+    'get_abort', 'get_choice', 'get_color_hex', 'get_color_rgb', 'get_color_hex',
+    'get_continue_or_cancel', 'get_date', 'get_directory_name', 'get_file_names',
+    'get_float', 'get_int', 'get_integer', 'get_list_of_choices', 'get_many_strings',
+    'get_new_password', 'get_password', 'get_save_file_name', 'get_string',
+    'get_username_password', 'get_yes_or_no'
+]
 # ========== Message Boxes ====================#
 @invoid_in_thread()
 def show_message(message="Message",
@@ -703,6 +711,24 @@ def find_help():
        available on the web.
     '''
     webbrowser.open('http://easygui-qt.readthedocs.org/en/latest/api.html')
+
+
+def set_dialog_font_size(size: int):
+    """
+    set font size of the dialogs
+    :param size: font size
+
+    >>>from easygraphics import *
+    >>>from easygraphics.dialog import *
+    >>>init_graph(800,600)
+    >>>set_dialog_font_size(18)
+    >>>show_message("font setted!")
+    >>>close_graph()
+    """
+    app = QtWidgets.QApplication.instance()
+    f = app.font()
+    f.setPixelSize(size)
+    app.setFont(f)
 
 
 if __name__ == '__main__':

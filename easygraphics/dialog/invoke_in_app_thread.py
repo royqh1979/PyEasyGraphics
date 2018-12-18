@@ -64,9 +64,16 @@ class Caller(QObject):
         return True
 
 
+_caller = None
+
 def init_invoke_in_app():
     global _caller
     _caller = Caller()
+
+
+def destroy_invoke_in_app():
+    global _caller
+    _caller = None
 
 
 def invoke_in_app_thread(fn, *args, **kwargs):
@@ -103,6 +110,8 @@ def _in_app_thread_later(fn, exceptions_in_main, *args, **kwargs):
     will return a list of [result,exception] where exception=[type,value,traceback]
     of the exception.  Functions are guaranteed to be called in the order
     they were requested."""
+    if _caller is None:
+        raise RuntimeError("EasyGraphics is not init or has been closed. Run init_graph() first!")
     queue = Queue()
     QCoreApplication.postEvent(_caller, CallEvent(queue, exceptions_in_main, fn, *args, **kwargs))
     return queue
