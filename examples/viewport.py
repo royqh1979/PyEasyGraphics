@@ -6,7 +6,7 @@ init_graph(800, 600)
 set_color(Color.LIGHTGRAY)
 draw_rect(100, 50, 300, 250)
 set_color(Color.BLACK)
-draw_text(0, 280, "set_view_port() only. Circles are zoomed.")
+draw_text(50, 300, "set_view_port() with clip=True")
 # set the view port , its size is 200*200
 # 设置一个视口，其尺寸为200*200
 set_view_port(100, 50, 300, 250)
@@ -17,6 +17,8 @@ circle(100, 100, 50)
 circle(100, 100, 100)
 circle(100, 100, 120)
 
+pause()
+
 # the circle is zoomed, because we don't set logical window explicitlly,
 # so the logical window's size is the same with the graphics window (800*600).
 # When drawing, circle's radius is value on the logical window. And it's zoomed
@@ -26,33 +28,20 @@ circle(100, 100, 120)
 # 这次我们用set_window()手动将逻辑视窗设置为与视口大小一致
 reset_view_port()
 set_color(Color.LIGHTGRAY)
-draw_rect(400, 50, 600, 250)
+draw_rect(450, 50, 650, 250)
 set_color(Color.BLACK)
-draw_text(200, 320, "both set_view_port() and set_window().Circles are not zoomed ")
-set_view_port(400, 50, 600, 250)
-set_window(0, 0, 200, 200)
+draw_text(400, 300, "set_view_port() with clip=False")
+set_view_port(450, 50, 650, 250, False)
 
 set_color(Color.BLACK)
 circle(100, 100, 50)
 circle(100, 100, 100)
 circle(100, 100, 120)
 
-# now let's add clip
 
-reset_view_port()
-reset_window()
-set_color(Color.LIGHTGRAY)
-draw_rect(100, 350, 300, 550)
-set_color(Color.BLACK)
-draw_text(0, 570, "set_view_port() and set_window() and set_clip_rect(). Circle is clipped")
-set_view_port(100, 350, 300, 550)
-set_window(0, 0, 200, 200)
-set_clip_rect(0, 0, 200, 200)
+pause()
 
-set_color(Color.BLACK)
-circle(100, 100, 50)
-circle(100, 100, 100)
-circle(100, 100, 120)
+clear_view_port()
 
 pause()
 close_graph()

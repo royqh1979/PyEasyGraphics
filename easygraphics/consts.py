@@ -7,7 +7,8 @@ class RenderMode:
 
 
 class WriteMode:
-    R2_COPYPEN = QtGui.QPainter.CompositionMode_SourceOver
+    R2_COPYPEN = QtGui.QPainter.CompositionMode_Source
+    R2_COPYPENA = QtGui.QPainter.CompositionMode_SourceOver
     R2_MASKNOTPEN = QtGui.QPainter.RasterOp_NotSourceAndDestination
     R2_MASKPEN = QtGui.QPainter.RasterOp_SourceAndDestination
     R2_MASKPENNOT = QtGui.QPainter.RasterOp_SourceAndNotDestination

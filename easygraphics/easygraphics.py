@@ -377,22 +377,18 @@ def get_drawing_pos(image: Image = None) -> (float, float):
     return image.get_x(), image.get_y()
 
 
-def set_view_port(left: int, top: int, right: int, bottom: int, image: Image = None):
+def set_view_port(left: int, top: int, right: int, bottom: int, clip: bool = True, image: Image = None):
     """
     set the view port of the the specified image
 
     View port is the drawing zone on the image.
 
-    The drawing outside the view port is not clipped. If you want to clip the drawing ,use set_clip_rect()
 
-    **if view port and "logical window" don't have the same width and height,
-    drawing will get zoomed.** So set_window() is often used with the set_view_port
 
     >>>from easygraphics import *
     >>>init_graph(800,600)
     >>>draw_rect(100,100,300,300)
     >>>set_view_port(100,100,300,300)
-    >>>set_window(0,0,200,200)
     >>>circle(100,100,50)
     >>>circle(100,100,100)
     >>>circle(100,100,120)
@@ -403,22 +399,24 @@ def set_view_port(left: int, top: int, right: int, bottom: int, image: Image = N
     :param top: top of the view port rectangle
     :param right: right of the view port rectangle
     :param bottom: bottom of the view port rectangle
+    :param clip: if True, drawings outside the port rectangle will be cliped
     :param image: the target image whose view port is to be gotten. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
     image.set_view_port(left, top, right, bottom)
+    width = right - left
+    height = bottom - top
+    image.set_window(0, 0, width, height)
+    if clip:
+        image.set_clip_rect(0, 0, width, height)
 
 
 def reset_view_port(image: Image = None):
-    """
-    reset the view port to the whole image
-
-    :param image: the target image whose view port is to be removed. None means it is the target image
-        (see set_target() and get_target()).
-    """
     image, on_screen = _check_on_screen(image)
     image.reset_view_port()
+    image.reset_window()
+    image.disable_clip()
 
 
 def set_clip_rect(left: int, top: int, right: int, bottom: int, image: Image = None):
@@ -462,8 +460,6 @@ def set_window(origin_x: int, origin_y: int, width: int, height: int, image: Ima
     the origin at (-50,50) , then the logical window's origin (0,0) is mapping to view port's (-50,-50), and \
     right-bottom corner (100,100) is mapping to view port's right bottom corner (200,200). All logical points is \
     mapping accordingly.
-
-    This function is often used with set_view_port to keep the drawing with correct aspect ratio.
 
     If you just want to transform the drawing, use set_origin()/translate()/rotate()/scale().
 

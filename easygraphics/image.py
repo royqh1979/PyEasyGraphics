@@ -2,7 +2,7 @@ from PyQt5 import QtGui, QtCore
 from collections import deque
 from typing import List
 
-from easygraphics.consts import FillStyle
+from easygraphics.consts import FillStyle, Color, LineStyle, WriteMode
 
 __all__ = ['Image']
 
@@ -10,12 +10,12 @@ __all__ = ['Image']
 class Image:
     def __init__(self, image: QtGui.QImage):
         self._image = image
-        self._color = QtCore.Qt.black
-        self._line_style = QtCore.Qt.SolidLine
+        self._color = Color.BLACK
+        self._line_style = LineStyle.SOLID_LINE
         self._lineWidth = 1
-        self._fill_color = QtCore.Qt.white
-        self._fill_Style = QtCore.Qt.SolidPattern
-        self._background_color = QtCore.Qt.transparent
+        self._fill_color = Color.WHITE
+        self._fill_Style = FillStyle.SOLID_FILL
+        self._background_color = Color.WHITE
         self._pen = QtGui.QPen()
         self._brush = QtGui.QBrush(QtCore.Qt.white, QtCore.Qt.SolidPattern)
         self._x = 0
@@ -26,6 +26,7 @@ class Image:
     def _init_painter(self):
         p = self._painter
         p.begin(self._image)
+        p.setCompositionMode(WriteMode.R2_COPYPEN)
         # p.setRenderHint(QtGui.QPainter.Antialiasing) # flood fill will not work when anti-aliasing is on
         self._default_rect = p.viewport()
 
@@ -259,8 +260,6 @@ class Image:
         right-bottom corner (100,100) is mapping to view port's right bottom corner (200,200). All logical points is \
         mapping accordingly.
 
-        This function is often used with set_view_port to keep the drawing with correct aspect ratio.
-
         If you just want to transform the drawing, use set_origin()/translate()/rotate()/scale().
 
         The drawing outside the logical window is not clipped. If you want to clip it, use set_clip_rect().
@@ -315,7 +314,10 @@ class Image:
 
     def clear_view_port(self):
         p = self._painter
-        p.fillRect(p.window().left(), p.window().top, self._background_color)
+        mode = p.compositionMode()
+        p.setCompositionMode(QtGui.QPainter.CompositionMode_Source)
+        p.fillRect(1, 1, p.window().width() - 1, p.window().height() - 1, self._background_color)
+        p.setCompositionMode(mode)
 
     def set_write_mode(self, mode):
         """
@@ -791,6 +793,10 @@ class Image:
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
 
     def clear(self):
+        """
+        clear the image with the background color
+
+        """
         self._image.fill(self._background_color)
 
     def draw_image(self, x: int, y: int, image):
