@@ -15,7 +15,7 @@ set_view_port(100, 50, 300, 250)
 set_color(Color.BLACK)
 circle(100, 100, 50)
 circle(100, 100, 100)
-circle(100, 100, 150)
+circle(100, 100, 120)
 
 # the circle is zoomed, because we don't set logical window explicitlly,
 # so the logical window's size is the same with the graphics window (800*600).
@@ -35,7 +35,7 @@ set_window(0, 0, 200, 200)
 set_color(Color.BLACK)
 circle(100, 100, 50)
 circle(100, 100, 100)
-circle(100, 100, 150)
+circle(100, 100, 120)
 
 # now let's add clip
 
@@ -52,7 +52,7 @@ set_clip_rect(0, 0, 200, 200)
 set_color(Color.BLACK)
 circle(100, 100, 50)
 circle(100, 100, 100)
-circle(100, 100, 150)
+circle(100, 100, 120)
 
 pause()
 close_graph()

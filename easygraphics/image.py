@@ -26,16 +26,8 @@ class Image:
     def _init_painter(self):
         p = self._painter
         p.begin(self._image)
-        p.setRenderHint(QtGui.QPainter.Antialiasing)
+        # p.setRenderHint(QtGui.QPainter.Antialiasing) # flood fill will not work when anti-aliasing is on
         self._default_rect = p.viewport()
-        # rect=p.viewport()
-        # print(rect.top(),rect.left(),rect.width(),rect.height())
-        # print(p.viewTransformEnabled())
-        # rect=p.clipBoundingRect()
-        # print(rect.top(), rect.left(), rect.width(), rect.height())
-        # print(p.hasClipping())
-        # rect=p.window()
-        # print(rect.top(), rect.left(), rect.width(), rect.height())
 
     def get_image(self) -> QtGui.QImage:
         """
@@ -234,29 +226,91 @@ class Image:
         self._painter.setViewport(self._default_rect)
 
     def set_clip_rect(self, left: int, top: int, right: int, bottom: int):
+        """
+        set the clip rect
+
+        Drawings outside the clip rect will be clipped.
+
+        :param left: left of the clip rectangle
+        :param top: top of the clip rectangle
+        :param right: right of the clip rectangle
+        :param bottom: bottom of the clip rectangle
+        """
         clip_rect = QtCore.QRect(left, top, right - left, bottom - top)
         self._painter.setClipRect(clip_rect)
 
-    def reset_clip_rect(self):
+    def disable_clip(self):
+        """
+        disable clipping
+
+        drawings will not be clipped
+        """
         self._painter.setClipping(False)
 
-    def set_window(self, left: int, top: int, right: int, bottom: int):
-        window = QtCore.QRect(left, top, right - left, bottom - top)
+    def set_window(self, origin_x: int, origin_y: int, width: int, height: int):
+        """
+        set the logical drawing window
+
+        All your drawing is first drawing on the logical window, then mapping to view port (see set_view_port()).\
+        The logical window's 4 corner points to streched to match the view port.
+
+        If your view port is 200x200，and you use set_window(-50,-50,100,100) to get a 100x100 logical window with \
+        the origin at (-50,50) , then the logical window's origin (0,0) is mapping to view port's (-50,-50), and \
+        right-bottom corner (100,100) is mapping to view port's right bottom corner (200,200). All logical points is \
+        mapping accordingly.
+
+        This function is often used with set_view_port to keep the drawing with correct aspect ratio.
+
+        If you just want to transform the drawing, use set_origin()/translate()/rotate()/scale().
+
+        The drawing outside the logical window is not clipped. If you want to clip it, use set_clip_rect().
+
+        :param origin_x: x pos of the logical window's origin
+        :param origin_y: y pos of the logical window's origin
+        :param width: width of the logical window
+        :param height: height of the logical window
+        """
+        window = QtCore.QRect(origin_x, origin_y, width, height)
         self._painter.setWindow(window)
 
     def reset_window(self):
+        """
+        reset/remove the logical window
+
+        see set_window()
+        """
         self._painter.setWindow(self._default_rect)
 
-    def translate(self, x: float, y: float):
-        self._painter.translate(x, y)
+    def translate(self, offset_x: float, offset_y: float):
+        """
+        Translates the coordinate system by the given offset; i.e. the given offset is added to points.
+
+        :param offset_x: offset on the x coordinate
+        :param offset_y: offset on the y coordinate
+        """
+        self._painter.translate(offset_x, offset_y)
 
     def rotate(self, degree: float):
+        """
+        Rotates the coordinate system the given angle (in degree)clockwise .
+
+        :param degree: the rotate angle (in degree)
+        """
         self._painter.rotate(degree)
 
     def scale(self, sx: float, sy: float):
+        """
+        Scales the coordinate system by (sx, sy).
+
+        :param sx: scale factor on x axis.
+        :param sy: scale factor on y axis.
+        """
         self._painter.scale(sx, sy)
 
     def reset_transform(self):
+        """
+        reset all transforms (translate/rotate/scale)
+        """
         self._painter.resetTransform()
 
     def clear_view_port(self):
@@ -747,27 +801,30 @@ class Image:
         if self._fill_Style == FillStyle.NULL_FILL:  # no need to fill
             return
         queue = deque()
-        new_pos = self._painter.transform().map(QtCore.QPoint(x, y))
+        transform: QtGui.QTransform = self._painter.combinedTransform()
+        new_pos = transform.map(QtCore.QPoint(x, y))
+        print(new_pos.x(), new_pos.y())
         queue.append((new_pos.x(), new_pos.y()))
         bc = QtGui.QColor(border_color)
         sc = QtGui.QColor(self._fill_color).rgba()
-        bits = [0] * (self._image.width() * self._image.height())
+        flags = [0] * (self._image.width() * self._image.height())
         r = None
         if self._painter.hasClipping():
             r = self._painter.clipBoundingRect()
+            r = transform.mapRect(r)
         while len(queue) > 0:
             x, y = queue.popleft()
             if x < 0 or y < 0 or x >= self._image.width() or y >= self._image.height():
                 continue
             if r is not None and not r.contains(x, y):
                 continue
-            if bits[self._image.width() * y + x] == 1:
+            if flags[self._image.width() * y + x] == 1:
                 continue
             c = self._image.pixel(x, y)
             pc = QtGui.QColor(c)
             if bc == pc:
                 continue
-            bits[self._image.width() * y + x] = 1
+            flags[self._image.width() * y + x] = 1
             self._image.setPixel(x, y, sc)
             queue.append((x + 1, y))
             queue.append((x - 1, y))

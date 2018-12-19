@@ -81,10 +81,13 @@ draw_rounded_rect(-112, 178, -2, 205, 24, 24)
 draw_rounded_rect(2, 178, 112, 205, 24, 24)
 delay(DELAY_TIME)
 
+circle(0, 100, 20)
+delay(DELAY_TIME)
+
 # fill body with blue 身体填充蓝色
 set_fill_color(rgb(7, 190, 234))
 flood_fill(0, 100, Color.BLACK)
-delay(DELAY_TIME)
+delay(2000)
 
 # tummy 肚皮
 set_fill_color(Color.WHITE)

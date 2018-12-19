@@ -21,7 +21,7 @@ __all__ = [
     'get_color', 'set_color', 'get_fill_color', 'set_fill_color', 'get_fill_style', 'set_fill_style',
     'get_background_color', 'set_background_color', 'set_font', 'get_font', 'set_font_size', 'get_font_size',
     'set_write_mode', 'get_write_mode', 'get_x', 'get_y', 'set_view_port', 'reset_view_port', 'set_origin',
-    'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'reset_clip_rect',
+    'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'disable_clip',
     'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'reset_transform',
     # drawing functions #
     'draw_point', 'put_pixel', 'get_pixel', 'line', 'draw_line', 'move_to', 'move_rel', 'line_to', 'line_rel',
@@ -424,28 +424,71 @@ def reset_view_port(image: Image = None):
 def set_clip_rect(left: int, top: int, right: int, bottom: int, image: Image = None):
     """
     set the clip rect
-    :param left:
-    :param top:
-    :param right:
-    :param bottom:
-    :param image:
-    :return:
+
+    Drawings outside the clip rect will be clipped.
+
+    :param left: left of the clip rectangle
+    :param top: top of the clip rectangle
+    :param right: right of the clip rectangle
+    :param bottom: bottom of the clip rectangle
+    :param image: the target image whose clip rect is to be gotten. None means it is the target image
+        (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
     image.set_clip_rect(left, top, right, bottom)
 
 
-def reset_clip_rect(image: Image = None):
+def disable_clip(image: Image = None):
+    """
+    disable clipping
+
+    drawings will not be clipped
+
+    :param image: the target image whose clip rect is to be disabled. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
-    image.reset_clip_rect()
+    image.disable_clip()
 
 
-def set_window(left: int, top: int, right: int, bottom: int, image: Image = None):
+def set_window(origin_x: int, origin_y: int, width: int, height: int, image: Image = None):
+    """
+    set the logical drawing window
+
+    All your drawing is first drawing on the logical window, then mapping to view port (see set_view_port()).\
+    The logical window's 4 corner points to streched to match the view port.
+
+    If your view port is 200x200，and you use set_window(-50,-50,100,100) to get a 100x100 logical window with \
+    the origin at (-50,50) , then the logical window's origin (0,0) is mapping to view port's (-50,-50), and \
+    right-bottom corner (100,100) is mapping to view port's right bottom corner (200,200). All logical points is \
+    mapping accordingly.
+
+    This function is often used with set_view_port to keep the drawing with correct aspect ratio.
+
+    If you just want to transform the drawing, use set_origin()/translate()/rotate()/scale().
+
+    The drawing outside the logical window is not clipped. If you want to clip it, use set_clip_rect().
+
+    :param origin_x: x pos of the logical window's origin
+    :param origin_y: y pos of the logical window's origin
+    :param width: width of the logical window
+    :param height: height of the logical window
+    :param image: the target image whose logical window is to be set. None means it is the target image
+    (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
-    image.set_window(left, top, right, bottom)
+    image.set_window(origin_x, origin_y, width, height)
 
 
 def reset_window(image: Image = None):
+    """
+    reset/remove the logical window
+
+    see set_window()
+
+    :param image: the target image whose logical window is to be reset. None means it is the target image
+    (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.reset_window()
 
@@ -453,6 +496,9 @@ def reset_window(image: Image = None):
 def set_origin(x: float, y: float, image: Image = None):
     """
     set the drawing systems' origin(0,0) to (x,y)
+
+    The effect of this function is , when drawing, x and y is added to points coordinates.
+    That is, if you want to draw a point at (x0,y0), it's really drawn at (x0+x,x0+y)
 
     the default origin is on left-top of the specified image
 
@@ -465,22 +511,51 @@ def set_origin(x: float, y: float, image: Image = None):
     image.translate(x, y)
 
 
-def translate(x: float, y: float, image: Image = None):
+def translate(offset_x: float, offset_y: float, image: Image = None):
+    """
+    Translates the coordinate system by the given offset; i.e. the given offset is added to points.
+
+    :param offset_x: offset on the x coordinate
+    :param offset_y: offset on the y coordinate
+    :param image: the target image to be translated. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
-    image.translate(x, y)
+    image.translate(offset_x, offset_y)
 
 
 def rotate(degree: float, image: Image = None):
+    """
+    Rotates the coordinate system the given angle (in degree)clockwise .
+
+    :param degree: the rotate angle (in degree)
+    :param image: the target image to be rotated. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.rotate(degree)
 
 
 def scale(sx: float, sy: float, image: Image = None):
+    """
+    Scales the coordinate system by (sx, sy).
+
+    :param sx: scale factor on x axis.
+    :param sy: scale factor on y axis.
+    :param image: the target image to be scaled. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.scale(sx, sy)
 
 
 def reset_transform(image: Image = None):
+    """
+    reset all transforms (translate/rotate/scale)
+
+    :param image: the target image to be reset. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.reset_transform()
 
@@ -1307,7 +1382,7 @@ def _check_on_screen(image: Image) -> (QtGui.QImage, bool):
     if image is None:
         image = _target_image
     on_screen = image is _win.get_canvas()
-    _validate_image(image)
+    # _validate_image(image)
     return image, on_screen
 
 
@@ -1324,8 +1399,6 @@ def _validate_image(image: Image):
 
 
 _is_run = False
-
-
 def __graphics_thread_func(width: int, height: int):
     global _app, _win, _target_image, _is_run
     _app = QtWidgets.QApplication([])
