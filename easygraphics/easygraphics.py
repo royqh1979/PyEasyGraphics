@@ -383,17 +383,15 @@ def set_view_port(left: int, top: int, right: int, bottom: int, clip: bool = Tru
 
     View port is the drawing zone on the image.
 
-
-
-    >>>from easygraphics import *
-    >>>init_graph(800,600)
-    >>>draw_rect(100,100,300,300)
-    >>>set_view_port(100,100,300,300)
-    >>>circle(100,100,50)
-    >>>circle(100,100,100)
-    >>>circle(100,100,120)
-    >>>pause()
-    >>>close_graph()
+    >>> from easygraphics import *
+    >>> init_graph(800,600)
+    >>> draw_rect(100,100,300,300)
+    >>> set_view_port(100,100,300,300)
+    >>> circle(100,100,50)
+    >>> circle(100,100,100)
+    >>> circle(100,100,120)
+    >>> pause()
+    >>> close_graph()
 
     :param left: left of the view port rectangle
     :param top: top of the view port rectangle
@@ -638,25 +636,6 @@ def get_pixel(x: int, y: int, image: Image = None) -> QtGui.QColor:
     return image.get_pixel(x, y)
 
 
-def line(x1: float, y1: float, x2: float, y2: float, image: Image = None):
-    """
-    Draw a line from (x1,y1) to (x2,y2) on the specified image
-
-    it's the same with draw_line()
-
-    :param x1: x coordinate value of the start point
-    :param y1: y coordinate value of the start point
-    :param x2: x coordinate value of the end point
-    :param y2: y coordinate value of the start point
-    :param image: the target image which will be painted on. None means it is the target image
-        (see set_target() and get_target()).
-    """
-    image, on_screen = _check_on_screen(image)
-    image.line(x1, y1, x2, y2)
-    if on_screen:
-        _win.invalid()
-
-
 def draw_line(x1, y1, x2, y2, image: Image = None):
     """
     Draw a line from (x1,y1) to (x2,y2) on the specified image
@@ -670,7 +649,13 @@ def draw_line(x1, y1, x2, y2, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    line(x1, y1, x2, y2, image)
+    image, on_screen = _check_on_screen(image)
+    image.draw_line(x1, y1, x2, y2)
+    if on_screen:
+        _win.invalid()
+
+
+line = draw_line
 
 
 def move_to(x: float, y: float, image: Image = None):
@@ -847,30 +832,6 @@ def fill_ellipse(x, y, radius_x, radius_y, image: Image = None):
         _win.invalid()
 
 
-def arc(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
-        image: Image = None):
-    """
-    draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
-    which radius on x-axis is radius_x and radius on y-axis is radius_y.
-
-    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
-
-    :param x: x coordinate value of the ellipse's center
-    :param y: y coordinate value of the ellipse's center
-    :param start_angle: start angle of the arc
-    :param end_angle: end angle of the arc
-    :param radius_x: radius on x-axis of the ellipse
-    :param radius_y: radius on y-axis of the ellipse
-    :param image: the target image which will be painted on. None means it is the target image
-        (see set_target() and get_target()).
-    """
-    image, on_screen = _check_on_screen(image)
-    image.arc(x, y, start_angle, end_angle, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
-
-
 def draw_arc(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
              image: Image = None):
     """
@@ -889,7 +850,13 @@ def draw_arc(x: float, y: float, start_angle: float, end_angle: float, radius_x:
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    arc(x, y, start_angle, end_angle, radius_x, radius_y, image)
+    image, on_screen = _check_on_screen(image)
+    image.draw_arc(x, y, start_angle, end_angle, radius_x, radius_y)
+    if on_screen:
+        _win.invalid()
+
+
+arc = draw_arc
 
 
 def pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
@@ -1081,29 +1048,90 @@ def draw_bezier(poly_points: List[float], image: Image = None):
         _win.invalid()
 
 
-def lines(points: List[float], image: Image = None):
-    draw_lines(points, image)
-
-
 def draw_lines(points: List[float], image: Image = None):
+    """
+    draw lines
+    points is a 2D point pair list. It should contain even points, and each 2 points make a point pair.
+    And each point have 2 coordinate values(x,y). So if you have n point pairs, the points list should have 4*n values.
+
+    For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_lines() will draw 3 lines:
+    (50,50) to (550,350), (50,150) to (550,450), (50,250) to (550,550)
+
+    >>> from easygraphics import *
+    >>> init_graph(600,600)
+    >>> points=[50,50,550,350,50,150,550,450,50,250,550,550]
+    >>> draw_lines(points)
+    >>> pause()
+    >>> close_graph()
+
+    :param points: point value list
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.draw_lines(points)
     if on_screen:
         _win.invalid()
 
 
-def poly_line(points: List[float], image: Image = None):
-    draw_poly_line(points, image)
+lines = draw_lines
 
 
 def draw_poly_line(points: List[float], image: Image = None):
+    """
+    draw poly lines
+
+    points is a 2D point list. Each 2 values in the list make a point. A poly line will be drawn to connect adjecent
+    points defined by the the list.
+
+    For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw 5 lines:
+    (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450), (550,540) to (50,250)
+    and(50,250) to (550,550)
+
+    >>> from easygraphics import *
+    >>> init_graph(600,600)
+    >>> points=[50,50,550,350,50,150,550,450,50,250,550,550]
+    >>> draw_poly_line(points)
+    >>> pause()
+    >>> close_graph()
+
+    :param points: point value list
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.draw_poly_line(points)
     if on_screen:
         _win.invalid()
 
 
+poly_line = draw_poly_line
+
+
 def polygon(points: List[float], image: Image = None):
+    """
+    draw polygon outline
+
+    points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+    points defined by the the list.
+
+    For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+    (50,50) , (550,350) and (50,150)
+
+    The polygon is not filled.
+
+    >>> from easygraphics import *
+    >>> init_graph(600,600)
+    >>> set_color(Color.RED)
+    >>> points=[50,50,550,350,50,150]
+    >>> polygon(points)
+    >>> pause()
+    >>> close_graph()
+
+    :param points: point value list
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.polygon(points)
     if on_screen:
@@ -1111,6 +1139,34 @@ def polygon(points: List[float], image: Image = None):
 
 
 def draw_polygon(points: List[float], image: Image = None):
+    """
+    draw polygon
+
+    points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+    points defined by the the list.
+
+    For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+    (50,50) , (550,350) and (50,150)
+
+    The polygon is filled and has outline.
+
+    >>> from easygraphics import *
+    >>> init_graph(600,600)
+    >>> set_color(Color.RED)
+    >>> set_fill_color(Color.LIGHTMAGENTA)
+    >>> points=[50,50,550,350,50,150]
+    >>> draw_polygon(points)
+    >>> pause()
+    >>> close_graph()
+
+    :param points: point value list
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    image, on_screen = _check_on_screen(image)
+    image.polygon(points)
+    if on_screen:
+        _win.invalid()
     image, on_screen = _check_on_screen(image)
     image.draw_polygon(points)
     if on_screen:
@@ -1118,6 +1174,29 @@ def draw_polygon(points: List[float], image: Image = None):
 
 
 def fill_polygon(points: List[float], image: Image = None):
+    """
+    fill polygon
+
+    points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+    points defined by the the list.
+
+    For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+    (50,50) , (550,350) and (50,150)
+
+    The polygon doesn't have outline.
+
+    >>> from easygraphics import *
+    >>> init_graph(600,600)
+    >>> set_fill_color(Color.LIGHTMAGENTA)
+    >>> points=[50,50,550,350,50,150]
+    >>> fill_polygon(points)
+    >>> pause()
+    >>> close_graph()
+
+    :param points: point value list
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.fill_polygon(points)
     if on_screen:
@@ -1125,6 +1204,18 @@ def fill_polygon(points: List[float], image: Image = None):
 
 
 def rect(left: float, top: float, right: float, bottom: float, image: Image = None):
+    """
+    Draws a rectangle outline with upper left corner at (left, top) and lower right corner at (right,bottom)
+
+    the rectangle is not filled
+
+    :param left: x coordinate value of the upper left corner
+    :param top: y coordinate value of the upper left corner
+    :param right: x coordinate value of the lower right corner
+    :param bottom: y coordinate value of the lower right corner
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.rect(left, top, right, bottom)
     if on_screen:
@@ -1132,6 +1223,18 @@ def rect(left: float, top: float, right: float, bottom: float, image: Image = No
 
 
 def draw_rect(left: float, top: float, right: float, bottom: float, image: Image = None):
+    """
+    Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom)
+
+    the rectangle is filled and has outline
+
+    :param left: x coordinate value of the upper left corner
+    :param top: y coordinate value of the upper left corner
+    :param right: x coordinate value of the lower right corner
+    :param bottom: y coordinate value of the lower right corner
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.draw_rect(left, top, right, bottom)
     if on_screen:
@@ -1139,6 +1242,18 @@ def draw_rect(left: float, top: float, right: float, bottom: float, image: Image
 
 
 def fill_rect(left: float, top: float, right: float, bottom: float, image: Image = None):
+    """
+    Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom)
+
+    the rectangle doesn't have outline
+
+    :param left: x coordinate value of the upper left corner
+    :param top: y coordinate value of the upper left corner
+    :param right: x coordinate value of the lower right corner
+    :param bottom: y coordinate value of the lower right corner
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.fill_rect(left, top, right, bottom)
     if on_screen:
@@ -1147,6 +1262,21 @@ def fill_rect(left: float, top: float, right: float, bottom: float, image: Image
 
 def rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
                  image: Image = None):
+    """
+    Draws a rounded rectangle outline with upper left corner at (left, top) , lower right corner at (right,bottom).
+    raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
+
+    the rectangle is not filled
+
+    :param left: x coordinate value of the upper left corner
+    :param top: y coordinate value of the upper left corner
+    :param right: x coordinate value of the lower right corner
+    :param bottom: y coordinate value of the lower right corner
+    :param round_x: raidus on x-axis of the corner ellipse arc
+    :param round_y: radius on y-axis of the corner ellipse arc
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.rounded_rect(left, top, right, bottom, round_x, round_y)
     if on_screen:
@@ -1155,6 +1285,21 @@ def rounded_rect(left: float, top: float, right: float, bottom: float, round_x: 
 
 def draw_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
                       image: Image = None):
+    """
+    Draws a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
+    raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
+
+    the rectangle is filled and has outline
+
+    :param left: x coordinate value of the upper left corner
+    :param top: y coordinate value of the upper left corner
+    :param right: x coordinate value of the lower right corner
+    :param bottom: y coordinate value of the lower right corner
+    :param round_x: raidus on x-axis of the corner ellipse arc
+    :param round_y: radius on y-axis of the corner ellipse arc
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.draw_rounded_rect(left, top, right, bottom, round_x, round_y)
     if on_screen:
@@ -1163,27 +1308,81 @@ def draw_rounded_rect(left: float, top: float, right: float, bottom: float, roun
 
 def fill_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
                       image: Image = None):
+    """
+    Fill a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
+    raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
+
+    the rectangle doesn't have outline
+
+    :param left: x coordinate value of the upper left corner
+    :param top: y coordinate value of the upper left corner
+    :param right: x coordinate value of the lower right corner
+    :param bottom: y coordinate value of the lower right corner
+    :param round_x: raidus on x-axis of the corner ellipse arc
+    :param round_y: radius on y-axis of the corner ellipse arc
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.fill_rounded_rect(left, top, right, bottom, round_x, round_y)
     if on_screen:
         _win.invalid()
 
 
-def flood_fill(x: int, y: int, background_color, image: Image = None):
+def flood_fill(x: int, y: int, border_color, image: Image = None):
+    """
+    flood fill the image starting from(x,y) and ending at borders with border_color
+
+    The fill region border must be closed,or the whole image will be filled!
+
+    :param x: x coordinate value of the start point
+    :param y: y coordinate value of the start point
+    :param border_color: color of the fill region border
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
-    image.flood_fill(x, y, background_color)
+    image.flood_fill(x, y, border_color)
     if on_screen:
         _win.invalid()
 
 
-def draw_image(x: int, y: int, src_image, dst_image: Image = None):
+def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
+               src_height: int = -1, dst_image: Image = None):
+    """
+    copy part of the source image (src_image) to the destination image (self) at (x,y)
+
+    (x, y) specifies the top-left point in the destination image that is to be drawn onto.
+
+    (sx, sy) specifies the top-left point of the part in the source image that is to \
+     be drawn. The default is (0, 0).
+
+    (sw, sh) specifies the size of the part of the source image that is to be drawn.  \
+    The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
+
+    :param x: x coordinate value of the upper left point on the destination image
+    :param y: y coordinate value of the upper left point on the destination image
+    :param src_image: the source image to be copied
+    :param src_x: x coordinate value of the top-left point of of the part to be drawn
+    :param src_y: y coordinate value of the top-left point of of the part to be drawn
+    :param src_width: witdh of the top-left point of of the part to be drawn
+    :param src_height: height of the top-left point of of the part to be drawn
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     dst_image, on_screen = _check_on_screen(dst_image)
-    dst_image.draw_image(x, y, src_image)
+    dst_image.draw_image(x, y, src_image, src_x, src_y, src_width, src_height)
     if on_screen:
         _win.invalid()
 
 
 def clear_device(image: Image = None):
+    """
+    Clear the image with the background color
+
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.clear()
     if on_screen:
@@ -1191,6 +1390,12 @@ def clear_device(image: Image = None):
 
 
 def clear_view_port(image: Image = None):
+    """
+    clear view port with the background color
+
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.clear_view_port()
     if on_screen:
@@ -1199,6 +1404,16 @@ def clear_view_port(image: Image = None):
 
 # text processing
 def draw_text(x, y, *args, sep=' ', image: Image = None):
+    """
+    Prints the given texts beginning at the given position (x,y)
+
+    :param x: x coordinate value of the start point
+    :param y: y coordinate value of the start point
+    :param args: things to be printed
+    :param sep: seperator used to join strings
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.draw_text(x, y, *args, sep=sep)
     if on_screen:
@@ -1244,6 +1459,16 @@ def create_image(width, height) -> Image:
     return Image(image)
 
 
+def save_image(filename: str, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.get_image().save(filename)
+
+
+def create_image_from_file(filename: str) -> Image:
+    image = QtGui.QImage(filename)
+    return Image(image)
+
+
 # utils
 
 def rgb(red, green, blue):
@@ -1253,6 +1478,7 @@ def rgb(red, green, blue):
 def _qpoint_to_point_list_fun(lst: List[float], p: QtCore.QPointF) -> List[float]:
     lst.append(p.x())
     lst.append(p.y())
+    return lst
 
 
 def qpoints_to_point_list(qpoints: List[QtCore.QPointF]) -> List[float]:
@@ -1333,7 +1559,7 @@ def set_caption(title: str):
     _win.setWindowTitle(title)
 
 
-def init_graph(width: int, height: int):
+def init_graph(width: int = 800, height: int = 600):
     """
     init the easygraphics system and show the graphics window
 
@@ -1395,6 +1621,8 @@ def _validate_image(image: Image):
 
 
 _is_run = False
+
+
 def __graphics_thread_func(width: int, height: int):
     global _app, _win, _target_image, _is_run
     _app = QtWidgets.QApplication([])
