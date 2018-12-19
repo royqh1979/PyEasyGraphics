@@ -1,5 +1,6 @@
 from PyQt5 import QtGui, QtCore
 from collections import deque
+from typing import List
 
 from easygraphics.consts import WriteMode, FillStyle
 
@@ -17,14 +18,15 @@ class Image:
         self._background_color = QtCore.Qt.transparent
         self._pen = QtGui.QPen()
         self._brush = QtGui.QBrush(QtCore.Qt.white, QtCore.Qt.SolidPattern)
-        self._clip = False
-        self._view_port = None
-        self._origin = QtCore.QPointF(0, 0)
+        self._clip_rect: QtCore.QRect = None
+        self._view_port: QtCore.QRect = None
+        self._window: QtCore.QRect = None
         self._write_mode = WriteMode.R2_COPYPEN
         self._x = 0
         self._y = 0
         self._font = QtGui.QFont("SansSerif", 14)
         self._font_metrics = QtGui.QFontMetrics(self._font)
+        self._transform = QtGui.QTransform()
 
     def get_image(self) -> QtGui.QImage:
         return self._image
@@ -189,49 +191,53 @@ class Image:
         self._fill_Style = fill_style
         self._brush.setStyle(fill_style)
 
-    def set_view_port(self, left: int, top: int, right: int, bottom: int, clip=True):
+    def set_view_port(self, left: int, top: int, right: int, bottom: int):
         """
-        set the view port rectangle of the the specified image
+        set the view port of the the specified image
 
-        things will be drawing in this rectangle.
+        View port is the drawing zone on the image.
 
-        if clip is True, drawing outside this rectangle will be clipped(omitted).
+        The drawing outside the view port is not clipped. If you want to clip the drawing ,use set_clip_rect()
+
+        **if view port and "logical window" don't have the same width and height,
+        drawing will get zoomed.** So set_window() is often used with the set_view_port
 
         :param left: left of the view port rectangle
         :param top: top of the view port rectangle
         :param right: right of the view port rectangle
         :param bottom: bottom of the view port rectangle
-        :param clip: if drawing outside the view port will be clipped
         """
         self._view_port = QtCore.QRect(left, top, right - left, bottom - top)
-        self._clip = clip
-        # we must keep the drawing pos unchange
-        self._x -= left
-        self._y -= top
 
-    def rest_view_port(self):
+    def reset_view_port(self):
         """
-        remove the view port
-
-        things will be drawn in the whole image
-        :return:
+        reset the view port to the whole image
         """
-        if self._view_port is not None:
-            self._x += self._view_port.left()
-            self._y += self._view_port.right()
         self._view_port = None
-        self._clip = False
 
-    def set_origin(self, x, y):
-        """
-        set the drawing systems' origin(0,0) to (x,y)
+    def set_clip_rect(self, left: int, top: int, right: int, bottom: int):
+        self._clip_rect = QtCore.QRect(left, top, right - left, bottom - top)
 
-        the default origin is on left-top of the specified image
+    def reset_clip_rect(self):
+        self._clip_rect = None
 
-        :param x: x coordinate value the new origin
-        :param y: y coordinate value the new origin
-        """
-        self.set_view_port(x, y, 0, 0, False)
+    def set_window(self, left: int, top: int, right: int, bottom: int):
+        self._window = QtCore.QRect(left, top, right - left, bottom - top)
+
+    def reset_window(self):
+        self._window = None
+
+    def translate(self, x: float, y: float):
+        self._transform.translate(x, y)
+
+    def rotate(self, degree: float):
+        self._transform.rotate(degree)
+
+    def scale(self, sx: float, sy: float):
+        self._transform.scale(sx, sy)
+
+    def reset_transform(self):
+        self._transform.reset()
 
     def clear_view_port(self):
         p = QtGui.QPainter()
@@ -241,9 +247,6 @@ class Image:
 
     def get_view_port(self) -> QtCore.QRect:
         return self._view_port
-
-    def is_clip(self) -> bool:
-        return self._clip
 
     def set_write_mode(self, mode):
         """
@@ -343,10 +346,16 @@ class Image:
     def _prepare_painter(self, pen: QtGui.QPen, brush: QtGui.QBrush) -> QtGui.QPainter:
         p = QtGui.QPainter()
         p.begin(self._image)
-        if self._clip:
-            p.setClipRect(self._view_port)
+        p.setRenderHint(QtGui.QPainter.Antialiasing)
+        if self._clip_rect is not None:
+            p.setClipRect(self._clip_rect)
         if self._view_port is not None:
-            p.translate(self._view_port.left(), self._view_port.top())
+            print(self._view_port.width(), self._view_port.height())
+            p.setViewport(self._view_port)
+        if self._window is not None:
+            p.setWindow(self._window)
+        if self._transform is not None:
+            p.setTransform(self._transform)
         p.setCompositionMode(self._write_mode)
         if self._font is not None:
             p.setFont(self._font)
@@ -446,12 +455,12 @@ class Image:
         p.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
         p.end()
 
-    def arc(self, x, y, start_angle, end_angle, radius_x, radius_y):
+    def arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
         draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
-        which radius on x-axis is radius_x and radius on y-axis is radius_y, \
+        which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        *note*: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
         at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
 
         :param x: x coordinate value of the ellipse's center
@@ -463,76 +472,204 @@ class Image:
         """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
-        p.drawArc(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y, _rotate_angle(start_angle) * 16,
-                  angle_len * 16)
+        p.drawArc(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y),
+                  start_angle * 16, angle_len * 16)
         p.end()
 
-    def draw_arc(self, x, y, start_angle, end_angle, radius_x, radius_y):
+    def draw_arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+        """
+        draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+        :param x: x coordinate value of the ellipse's center
+        :param y: y coordinate value of the ellipse's center
+        :param start_angle: start angle of the arc
+        :param end_angle: end angle of the arc
+        :param radius_x: radius on x-axis of the ellipse
+        :param radius_y: radius on y-axis of the ellipse
+        """
         self.arc(x, y, start_angle, end_angle, radius_x, radius_y)
 
-    def pie(self, x, y, start_angle, end_angle, radius_x, radius_y):
+    def pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+        """
+        draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+        the pie is not filled.
+
+        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+        :param x: x coordinate value of the ellipse's center
+        :param y: y coordinate value of the ellipse's center
+        :param start_angle: start angle of the pie
+        :param end_angle: end angle of the pie
+        :param radius_x: radius on x-axis of the ellipse
+        :param radius_y: radius on y-axis of the ellipse
+        """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
-        p.drawPie(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y, _rotate_angle(start_angle) * 16,
-                  angle_len * 16)
+        p.drawPie(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y),
+                  start_angle * 16, angle_len * 16)
         p.end()
 
-    def draw_pie(self, x, y, start_angle, end_angle, radius_x, radius_y):
+    def draw_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+        """
+        draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+        the pie is filled and has outline.
+
+        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+        :param x: x coordinate value of the ellipse's center
+        :param y: y coordinate value of the ellipse's center
+        :param start_angle: start angle of the pie
+        :param end_angle: end angle of the pie
+        :param radius_x: radius on x-axis of the ellipse
+        :param radius_y: radius on y-axis of the ellipse
+        """
         p = self._prepare_painter_for_draw()
         angle_len = end_angle - start_angle
-        p.drawPie(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y, _rotate_angle(start_angle) * 16,
+        p.drawPie(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                   angle_len * 16)
         p.end()
 
-    def fill_pie(self, x, y, start_angle, end_angle, radius_x, radius_y):
+    def fill_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+        """
+        fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+        the pie dosen't have outline.
+
+        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+        :param x: x coordinate value of the ellipse's center
+        :param y: y coordinate value of the ellipse's center
+        :param start_angle: start angle of the pie
+        :param end_angle: end angle of the pie
+        :param radius_x: radius on x-axis of the ellipse
+        :param radius_y: radius on y-axis of the ellipse
+        """
         p = self._prepare_painter_for_fill()
         angle_len = end_angle - start_angle
-        p.drawPie(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y, _rotate_angle(start_angle) * 16,
+        p.drawPie(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                   angle_len * 16)
         p.end()
 
-    def chord(self, x, y, start_angle, end_angle, radius_x, radius_y):
+    def chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+        """
+         draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+         which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+         the chord is not filled.
+
+         **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+         at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+         :param x: x coordinate value of the ellipse's center
+         :param y: y coordinate value of the ellipse's center
+         :param start_angle: start angle of the chord
+         :param end_angle: end angle of the chord
+         :param radius_x: radius on x-axis of the ellipse
+         :param radius_y: radius on y-axis of the ellipse
+         """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
-        p.drawChord(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y, _rotate_angle(start_angle) * 16,
+        p.drawChord(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                     angle_len * 16)
         p.end()
 
-    def draw_chord(self, x, y, start_angle, end_angle, radius_x, radius_y):
+    def draw_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+        """
+        draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+        the chord is filled and has outline
+
+        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+        :param x: x coordinate value of the ellipse's center
+        :param y: y coordinate value of the ellipse's center
+        :param start_angle: start angle of the chord
+        :param end_angle: end angle of the chord
+        :param radius_x: radius on x-axis of the ellipse
+        :param radius_y: radius on y-axis of the ellipse
+        """
         p = self._prepare_painter_for_draw()
         angle_len = end_angle - start_angle
-        p.drawChord(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y, _rotate_angle(start_angle * 16),
+        p.drawChord(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                     angle_len * 16)
         p.end()
 
-    def fill_chord(self, x, y, start_angle, end_angle, radius_x, radius_y):
+    def fill_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+        """
+        draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+        the chord doesn't have outline.
+
+        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+        :param x: x coordinate value of the ellipse's center
+        :param y: y coordinate value of the ellipse's center
+        :param start_angle: start angle of the chord
+        :param end_angle: end angle of the chord
+        :param radius_x: radius on x-axis of the ellipse
+        :param radius_y: radius on y-axis of the ellipse
+        """
         p = self._prepare_painter_for_fill()
         angle_len = end_angle - start_angle
-        p.drawChord(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y, _rotate_angle(start_angle * 16),
+        p.drawChord(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                     angle_len * 16)
         p.end()
 
-    def bezier(self, polypoints: list):
-        self.draw_bezier(polypoints)
+    def bezier(self, poly_points: list):
+        """
+        draw a bezier curve
 
-    def draw_bezier(self, polypoints: list):
-        if len(polypoints) % 2 != 0:
+        poly_points is a 2D point list. Each point has 2 coordinate values in the list. \
+        So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
+        [x0,y0,x1,y1,x2,y2,x3,y3]
+
+        :param poly_points: point list
+        """
+        self.draw_bezier(poly_points)
+
+    def draw_bezier(self, poly_points: list):
+        """
+        draw a bezier curve
+
+        poly_points is a 2D point list. Each point has 2 coordinate values in the list. \
+        So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
+        [x0,y0,x1,y1,x2,y2,x3,y3]
+
+        :param poly_points: point list
+        """
+        if len(poly_points) % 2 != 0:
             raise ValueError
-        numpoints = len(polypoints) // 2
+        numpoints = len(poly_points) // 2
         if numpoints < 4:
             raise ValueError
 
-        path = QtGui.QPainterPath(QtCore.QPointF(polypoints[0], polypoints[1]))
+        path = QtGui.QPainterPath(QtCore.QPointF(poly_points[0], poly_points[1]))
         for i in range(1, numpoints, 3):
-            path.cubicTo(*polypoints[i * 2:i * 2 + 6])
+            path.cubicTo(*poly_points[i * 2:i * 2 + 6])
         p = self._prepare_painter_for_draw_outline()
         p.drawPath(path)
         p.end()
 
-    def lines(self, points: list):
+    def lines(self, points: List[float]):
         self.draw_lines(points)
 
-    def draw_lines(self, points: list):
+    def draw_lines(self, points: List[float]):
         numpoints = len(points) // 2
         if numpoints < 2:
             raise ValueError
@@ -543,10 +680,10 @@ class Image:
         p.drawLines(*qpoints)
         p.end()
 
-    def poly_line(self, points: list):
+    def poly_line(self, points: List[float]):
         self.draw_poly_line(points)
 
-    def draw_poly_line(self, points: list):
+    def draw_poly_line(self, points: List[float]):
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_draw_outline()
         p.drawPolyline(*qpoints)
@@ -562,19 +699,19 @@ class Image:
             qpoints.append(QtCore.QPointF(points[i * 2], points[i * 2 + 1]))
         return qpoints
 
-    def polygon(self, points: list):
+    def polygon(self, points: List[float]):
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_draw_outline()
         p.drawPolygon(*qpoints)
         p.end()
 
-    def draw_polygon(self, points: list):
+    def draw_polygon(self, points: List[float]):
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_draw()
         p.drawPolygon(*qpoints)
         p.end()
 
-    def fill_polygon(self, points: list):
+    def fill_polygon(self, points: List[float]):
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_fill()
         p.drawPolygon(*qpoints)
@@ -595,32 +732,32 @@ class Image:
         p.drawPath(path)
         p.end()
 
-    def rect(self, left, top, right, bottom):
+    def rect(self, left: float, top: float, right: float, bottom: float):
         p = self._prepare_painter_for_draw_outline()
         p.drawRect(left, top, right - left, bottom - top)
         p.end()
 
-    def draw_rect(self, left, top, right, bottom):
+    def draw_rect(self, left: float, top: float, right: float, bottom: float):
         p = self._prepare_painter_for_draw()
         p.drawRect(left, top, right - left, bottom - top)
         p.end()
 
-    def fill_rect(self, left, top, right, bottom):
+    def fill_rect(self, left: float, top: float, right: float, bottom: float):
         p = self._prepare_painter_for_fill()
         p.drawRect(left, top, right - left, bottom - top)
         p.end()
 
-    def rounded_rect(self, left, top, right, bottom, round_x, round_y):
+    def rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         p = self._prepare_painter_for_draw_outline()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
         p.end()
 
-    def draw_rounded_rect(self, left, top, right, bottom, round_x, round_y):
+    def draw_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         p = self._prepare_painter_for_draw()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
         p.end()
 
-    def fill_rounded_rect(self, left, top, right, bottom, round_x, round_y):
+    def fill_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         p = self._prepare_painter_for_fill()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
         p.end()
@@ -628,21 +765,19 @@ class Image:
     def clear(self):
         self._image.fill(self._background_color)
 
-    def draw_image(self, x, y, image):
+    def draw_image(self, x: int, y: int, image):
         p = QtGui.QPainter()
         p.begin(self._image)
         p.setCompositionMode(self._write_mode)
         p.drawImage(x, y, image.get_image())
         p.end()
 
-    def flood_fill(self, x, y, border_color):
+    def flood_fill(self, x: int, y: int, border_color):
         if self._fill_Style == FillStyle.NULL_FILL:  # no need to fill
             return
         queue = deque()
-        if self._view_port is not None:
-            queue.append((x + self._view_port.left(), y + self._view_port.top()))
-        else:
-            queue.append((x, y))
+        new_pos = self._transform.map(QtCore.QPoint(x, y))
+        queue.append((new_pos.x(), new_pos.y()))
         bc = QtGui.QColor(border_color)
         sc = QtGui.QColor(self._fill_color).rgba()
         bits = [0] * (self._image.width() * self._image.height())
@@ -650,9 +785,9 @@ class Image:
             x, y = queue.popleft()
             if x < 0 or y < 0 or x >= self._image.width() or y >= self._image.height():
                 continue
-            if self._clip and (x < self._view_port.left()
-                               or x > self._view_port.right() or y < self._view_port.top()
-                               or y > self._view_port.bottom()):
+            if self._clip_rect and (x < self._view_port.left()
+                                    or x > self._view_port.right() or y < self._view_port.top()
+                                    or y > self._view_port.bottom()):
                 continue
             if bits[self._image.width() * y + x] == 1:
                 continue
@@ -687,13 +822,13 @@ class Image:
         """
         self._image.setPixel(x, y, color)
 
-    def draw_text(self, x, y, *args, sep=' '):
+    def draw_text(self, x: int, y: int, *args, sep=' '):
         msgs = map(str, args)
         msg = sep.join(msgs)
         p = self._prepare_painter_for_draw()
         p.drawText(x, y, msg)
 
-    def draw_rect_text(self, x, y, w, h, flags, *args, sep=' '):
+    def draw_rect_text(self, x: int, y: int, w: int, h: int, flags, *args, sep=' '):
         msgs = map(str, args)
         msg = sep.join(msgs)
         p = self._prepare_painter_for_draw()
@@ -736,7 +871,3 @@ class Image:
 
     def text_height(self, text: str) -> int:
         self._font_metrics.height()
-
-
-def _rotate_angle(angle):
-    return angle

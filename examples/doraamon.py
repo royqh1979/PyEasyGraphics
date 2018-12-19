@@ -1,6 +1,6 @@
 from easygraphics import *
 
-DELAY_TIME = 1000  # delay in drawing
+DELAY_TIME = 200  # delay in drawing
 
 init_graph(800, 600)
 set_origin(400, 300)
@@ -119,3 +119,6 @@ line(0, 57, 0, 68)
 set_line_width(1)
 line(-16, 40, 16, 40)
 line(-18, 44, 18, 44)
+
+pause()
+close_graph()

@@ -1,5 +1,7 @@
 import threading
 import sys
+from typing import List
+from functools import reduce
 
 from PyQt5 import QtWidgets
 
@@ -19,7 +21,8 @@ __all__ = [
     'get_color', 'set_color', 'get_fill_color', 'set_fill_color', 'get_fill_style', 'set_fill_style',
     'get_background_color', 'set_background_color', 'set_font', 'get_font', 'set_font_size', 'get_font_size',
     'set_write_mode', 'get_write_mode', 'get_x', 'get_y', 'set_view_port', 'reset_view_port', 'set_origin',
-    'set_render_mode', 'get_render_mode', 'get_drawing_pos',
+    'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'reset_clip_rect',
+    'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'reset_transform',
     # drawing functions #
     'draw_point', 'put_pixel', 'get_pixel', 'line', 'draw_line', 'move_to', 'move_rel', 'line_to', 'line_rel',
     'circle', 'draw_circle', 'fill_circle', 'ellipse', 'draw_ellipse', 'fill_ellipse',
@@ -374,40 +377,81 @@ def get_drawing_pos(image: Image = None) -> (float, float):
     return image.get_x(), image.get_y()
 
 
-def set_view_port(left: int, top: int, right: int, bottom: int, clip=True, image: Image = None):
+def set_view_port(left: int, top: int, right: int, bottom: int, image: Image = None):
     """
-    set the view port rectangle of the the specified image
+    set the view port of the the specified image
 
-    things will be drawn in this rectangle.
+    View port is the drawing zone on the image.
 
-    if clip is True, drawing outside this rectangle will be clipped(omitted).
+    The drawing outside the view port is not clipped. If you want to clip the drawing ,use set_clip_rect()
+
+    **if view port and "logical window" don't have the same width and height,
+    drawing will get zoomed.** So set_window() is often used with the set_view_port
+
+    >>>from easygraphics import *
+    >>>init_graph(800,600)
+    >>>draw_rect(100,100,300,300)
+    >>>set_view_port(100,100,300,300)
+    >>>set_window(0,0,200,200)
+    >>>circle(100,100,50)
+    >>>circle(100,100,100)
+    >>>circle(100,100,120)
+    >>>pause()
+    >>>close_graph()
 
     :param left: left of the view port rectangle
     :param top: top of the view port rectangle
     :param right: right of the view port rectangle
     :param bottom: bottom of the view port rectangle
-    :param clip: if drawing outside the view port will be clipped
     :param image: the target image whose view port is to be gotten. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.set_view_port(left, top, right, bottom, clip)
+    image.set_view_port(left, top, right, bottom)
 
 
 def reset_view_port(image: Image = None):
     """
-    remove the view port
-
-    things will be drawn in the whole image
+    reset the view port to the whole image
 
     :param image: the target image whose view port is to be removed. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.rest_view_port()
+    image.reset_view_port()
 
 
-def set_origin(x, y, image: Image = None):
+def set_clip_rect(left: int, top: int, right: int, bottom: int, image: Image = None):
+    """
+    set
+    set the clip rect
+    :param left:
+    :param top:
+    :param right:
+    :param bottom:
+    :param image:
+    :return:
+    """
+    image, on_screen = _check_on_screen(image)
+    image.set_clip_rect(left, top, right, bottom)
+
+
+def reset_clip_rect(image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.reset_clip_rect()
+
+
+def set_window(left: int, top: int, right: int, bottom: int, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.set_window(left, top, right, bottom)
+
+
+def reset_window(image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.reset_window()
+
+
+def set_origin(x: float, y: float, image: Image = None):
     """
     set the drawing systems' origin(0,0) to (x,y)
 
@@ -419,7 +463,27 @@ def set_origin(x, y, image: Image = None):
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.set_origin(x, y)
+    image.translate(x, y)
+
+
+def translate(x: float, y: float, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.translate(x, y)
+
+
+def rotate(degree: float, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.rotate(degree)
+
+
+def scale(sx: float, sy: float, image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.scale(sx, sy)
+
+
+def reset_transform(image: Image = None):
+    image, on_screen = _check_on_screen(image)
+    image.reset_transform()
 
 
 def set_render_mode(mode: int):
@@ -717,9 +781,9 @@ def arc(x: float, y: float, start_angle: float, end_angle: float, radius_x: floa
         image: Image = None):
     """
     draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
-    which radius on x-axis is radius_x and radius on y-axis is radius_y, \
+    which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-    *note*: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
     at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
 
     :param x: x coordinate value of the ellipse's center
@@ -737,156 +801,312 @@ def arc(x: float, y: float, start_angle: float, end_angle: float, radius_x: floa
         _win.invalid()
 
 
-def draw_arc(x, y, start_angle, end_angle, radius_x, radius_y, image: Image = None):
+def draw_arc(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
+             image: Image = None):
+    """
+    draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+    :param x: x coordinate value of the ellipse's center
+    :param y: y coordinate value of the ellipse's center
+    :param start_angle: start angle of the arc
+    :param end_angle: end angle of the arc
+    :param radius_x: radius on x-axis of the ellipse
+    :param radius_y: radius on y-axis of the ellipse
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     arc(x, y, start_angle, end_angle, radius_x, radius_y, image)
 
 
-def pie(x, y, start_angle, end_angle, radius_x, radius_y, image: Image = None):
+def pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
+        image: Image = None):
+    """
+    draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+    the pie is not filled.
+
+    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+    :param x: x coordinate value of the ellipse's center
+    :param y: y coordinate value of the ellipse's center
+    :param start_angle: start angle of the pie
+    :param end_angle: end angle of the pie
+    :param radius_x: radius on x-axis of the ellipse
+    :param radius_y: radius on y-axis of the ellipse
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.pie(x, y, start_angle, end_angle, radius_x, radius_y)
     if on_screen:
         _win.invalid()
 
 
-def draw_pie(x, y, start_angle, end_angle, radius_x, radius_y, image: Image = None):
+def draw_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
+             image: Image = None):
+    """
+    draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+    the pie is filled and has outline.
+
+    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+    :param x: x coordinate value of the ellipse's center
+    :param y: y coordinate value of the ellipse's center
+    :param start_angle: start angle of the pie
+    :param end_angle: end angle of the pie
+    :param radius_x: radius on x-axis of the ellipse
+    :param radius_y: radius on y-axis of the ellipse
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.draw_pie(x, y, start_angle, end_angle, radius_x, radius_y)
     if on_screen:
         _win.invalid()
 
 
-def fill_pie(x, y, start_angle, end_angle, radius_x, radius_y, image: Image = None):
+def fill_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
+             image: Image = None):
+    """
+    fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+    the pie dosen't have outline.
+
+    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+    :param x: x coordinate value of the ellipse's center
+    :param y: y coordinate value of the ellipse's center
+    :param start_angle: start angle of the pie
+    :param end_angle: end angle of the pie
+    :param radius_x: radius on x-axis of the ellipse
+    :param radius_y: radius on y-axis of the ellipse
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.fill_pie(x, y, start_angle, end_angle, radius_x, radius_y)
     if on_screen:
         _win.invalid()
 
 
-def chord(x, y, start_angle, end_angle, radius_x, radius_y, image: Image = None):
+def chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
+          image: Image = None):
+    """
+    draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+    the chord is not filled.
+
+    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+    :param x: x coordinate value of the ellipse's center
+    :param y: y coordinate value of the ellipse's center
+    :param start_angle: start angle of the chord
+    :param end_angle: end angle of the chord
+    :param radius_x: radius on x-axis of the ellipse
+    :param radius_y: radius on y-axis of the ellipse
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.chord(x, y, start_angle, end_angle, radius_x, radius_y)
     if on_screen:
         _win.invalid()
 
 
-def draw_chord(x, y, start_angle, end_angle, radius_x, radius_y, image: Image = None):
+def draw_chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
+               image: Image = None):
+    """
+    draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+    the chord is filled and has outline
+
+    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+    :param x: x coordinate value of the ellipse's center
+    :param y: y coordinate value of the ellipse's center
+    :param start_angle: start angle of the chord
+    :param end_angle: end angle of the chord
+    :param radius_x: radius on x-axis of the ellipse
+    :param radius_y: radius on y-axis of the ellipse
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.draw_chord(x, y, start_angle, end_angle, radius_x, radius_y)
     if on_screen:
         _win.invalid()
 
 
-def fill_chord(x, y, start_angle, end_angle, radius_x, radius_y, image: Image = None):
+def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
+               image: Image = None):
+    """
+    draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+    the chord doesn't have outline.
+
+    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+
+    :param x: x coordinate value of the ellipse's center
+    :param y: y coordinate value of the ellipse's center
+    :param start_angle: start angle of the chord
+    :param end_angle: end angle of the chord
+    :param radius_x: radius on x-axis of the ellipse
+    :param radius_y: radius on y-axis of the ellipse
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.fill_chord(x, y, start_angle, end_angle, radius_x, radius_y)
     if on_screen:
         _win.invalid()
 
 
-def bezier(polypoints: list, image: Image = None):
-    draw_bezier(polypoints, image)
+def bezier(poly_points: List[float], image: Image = None):
+    """
+    draw a bezier curve
+
+    poly_points is a 2D point list. Each point has 2 coordinate values in the list. \
+    So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
+    [x0,y0,x1,y1,x2,y2,x3,y3]
+
+    :param poly_points: point list
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    draw_bezier(poly_points, image)
 
 
-def draw_bezier(polypoints: list, image: Image = None):
+def draw_bezier(poly_points: List[float], image: Image = None):
+    """
+    draw a bezier curve
+
+    poly_points is a 2D point list. Each point has 2 coordinate values in the list. \
+    So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
+    [x0,y0,x1,y1,x2,y2,x3,y3]
+
+    :param poly_points: point list
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
-    image.draw_bezier(polypoints)
+    image.draw_bezier(poly_points)
     if on_screen:
         _win.invalid()
 
 
-def lines(points: list, image: Image = None):
+def lines(points: List[float], image: Image = None):
     draw_lines(points, image)
 
 
-def draw_lines(points: list, image: Image = None):
+def draw_lines(points: List[float], image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.draw_lines(points)
     if on_screen:
         _win.invalid()
 
 
-def poly_line(points: list, image: Image = None):
+def poly_line(points: List[float], image: Image = None):
     draw_poly_line(points, image)
 
 
-def draw_poly_line(points: list, image: Image = None):
+def draw_poly_line(points: List[float], image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.draw_poly_line(points)
     if on_screen:
         _win.invalid()
 
 
-def polygon(points: list, image: Image = None):
+def polygon(points: List[float], image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.polygon(points)
     if on_screen:
         _win.invalid()
 
 
-def draw_polygon(points: list, image: Image = None):
+def draw_polygon(points: List[float], image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.draw_polygon(points)
     if on_screen:
         _win.invalid()
 
 
-def fill_polygon(points: list, image: Image = None):
+def fill_polygon(points: List[float], image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.fill_polygon(points)
     if on_screen:
         _win.invalid()
 
 
-def rect(left, top, right, bottom, image: Image = None):
+def rect(left: float, top: float, right: float, bottom: float, image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.rect(left, top, right, bottom)
     if on_screen:
         _win.invalid()
 
 
-def draw_rect(left, top, right, bottom, image: Image = None):
+def draw_rect(left: float, top: float, right: float, bottom: float, image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.draw_rect(left, top, right, bottom)
     if on_screen:
         _win.invalid()
 
 
-def fill_rect(left, top, right, bottom, image: Image = None):
+def fill_rect(left: float, top: float, right: float, bottom: float, image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.fill_rect(left, top, right, bottom)
     if on_screen:
         _win.invalid()
 
 
-def rounded_rect(left, top, right, bottom, round_x, round_y, image: Image = None):
+def rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
+                 image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.rounded_rect(left, top, right, bottom, round_x, round_y)
     if on_screen:
         _win.invalid()
 
 
-def draw_rounded_rect(left, top, right, bottom, round_x, round_y, image: Image = None):
+def draw_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
+                      image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.draw_rounded_rect(left, top, right, bottom, round_x, round_y)
     if on_screen:
         _win.invalid()
 
 
-def fill_rounded_rect(left, top, right, bottom, round_x, round_y, image: Image = None):
+def fill_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
+                      image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.fill_rounded_rect(left, top, right, bottom, round_x, round_y)
     if on_screen:
         _win.invalid()
 
 
-def flood_fill(x, y, background_color, image: Image = None):
+def flood_fill(x: int, y: int, background_color, image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.flood_fill(x, y, background_color)
     if on_screen:
         _win.invalid()
 
 
-def draw_image(x, y, src_image, dst_image: Image = None):
+def draw_image(x: int, y: int, src_image, dst_image: Image = None):
     dst_image, on_screen = _check_on_screen(dst_image)
     dst_image.draw_image(x, y, src_image)
     if on_screen:
@@ -958,6 +1178,21 @@ def create_image(width, height) -> Image:
 
 def rgb(red, green, blue):
     return QtGui.QColor(red, green, blue)
+
+
+def _qpoint_to_point_list_fun(lst: List[float], p: QtCore.QPointF) -> List[float]:
+    lst.append(p.x())
+    lst.append(p.y())
+
+
+def qpoints_to_point_list(qpoints: List[QtCore.QPointF]) -> List[float]:
+    """
+    convert QPointF list to point list
+
+    :param qpoints:
+    :return:
+    """
+    return reduce(_qpoint_to_point_list_fun, qpoints, [])
 
 
 # time control #
