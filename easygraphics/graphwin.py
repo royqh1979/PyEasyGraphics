@@ -129,6 +129,7 @@ class GraphWin(QWidget):
 
     def closeEvent(self, e: QCloseEvent):
         self._is_run = False
+        self._canvas.close()
         self._wait_event.set()
         self._mouse_event.set()
         self._key_event.set()

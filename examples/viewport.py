@@ -38,6 +38,7 @@ circle(100, 100, 100)
 circle(100, 100, 150)
 
 # now let's add clip
+
 reset_view_port()
 reset_window()
 set_color(Color.LIGHTGRAY)
@@ -45,8 +46,8 @@ draw_rect(100, 350, 300, 550)
 set_color(Color.BLACK)
 draw_text(0, 570, "set_view_port() and set_window() and set_clip_rect(). Circle is clipped")
 set_view_port(100, 350, 300, 550)
-set_clip_rect(100, 350, 300, 550)
 set_window(0, 0, 200, 200)
+set_clip_rect(0, 0, 200, 200)
 
 set_color(Color.BLACK)
 circle(100, 100, 50)

@@ -2,7 +2,7 @@ from PyQt5 import QtGui, QtCore
 from collections import deque
 from typing import List
 
-from easygraphics.consts import WriteMode, FillStyle
+from easygraphics.consts import FillStyle
 
 __all__ = ['Image']
 
@@ -18,17 +18,34 @@ class Image:
         self._background_color = QtCore.Qt.transparent
         self._pen = QtGui.QPen()
         self._brush = QtGui.QBrush(QtCore.Qt.white, QtCore.Qt.SolidPattern)
-        self._clip_rect: QtCore.QRect = None
-        self._view_port: QtCore.QRect = None
-        self._window: QtCore.QRect = None
-        self._write_mode = WriteMode.R2_COPYPEN
         self._x = 0
         self._y = 0
-        self._font = QtGui.QFont("SansSerif", 14)
-        self._font_metrics = QtGui.QFontMetrics(self._font)
-        self._transform = QtGui.QTransform()
+        self._painter = QtGui.QPainter()
+        self._init_painter()
+
+    def _init_painter(self):
+        p = self._painter
+        p.begin(self._image)
+        p.setRenderHint(QtGui.QPainter.Antialiasing)
+        self._default_rect = p.viewport()
+        # rect=p.viewport()
+        # print(rect.top(),rect.left(),rect.width(),rect.height())
+        # print(p.viewTransformEnabled())
+        # rect=p.clipBoundingRect()
+        # print(rect.top(), rect.left(), rect.width(), rect.height())
+        # print(p.hasClipping())
+        # rect=p.window()
+        # print(rect.top(), rect.left(), rect.width(), rect.height())
 
     def get_image(self) -> QtGui.QImage:
+        """
+        get the internal QImage
+
+        **note** EasyGraphics don't require and release qpainter each time. Because there can only be one QPainter \
+        for each QImage at time, so if you want to draw on this image customly, use get_painter() to get \
+        the internal QPainter instance.
+        :return: the QImage instance used internally
+        """
         return self._image
 
     def get_width(self):
@@ -207,46 +224,44 @@ class Image:
         :param right: right of the view port rectangle
         :param bottom: bottom of the view port rectangle
         """
-        self._view_port = QtCore.QRect(left, top, right - left, bottom - top)
+        view_port = QtCore.QRect(left, top, right - left, bottom - top)
+        self._painter.setViewport(view_port)
 
     def reset_view_port(self):
         """
-        reset the view port to the whole image
+        disable the view port setting
         """
-        self._view_port = None
+        self._painter.setViewport(self._default_rect)
 
     def set_clip_rect(self, left: int, top: int, right: int, bottom: int):
-        self._clip_rect = QtCore.QRect(left, top, right - left, bottom - top)
+        clip_rect = QtCore.QRect(left, top, right - left, bottom - top)
+        self._painter.setClipRect(clip_rect)
 
     def reset_clip_rect(self):
-        self._clip_rect = None
+        self._painter.setClipping(False)
 
     def set_window(self, left: int, top: int, right: int, bottom: int):
-        self._window = QtCore.QRect(left, top, right - left, bottom - top)
+        window = QtCore.QRect(left, top, right - left, bottom - top)
+        self._painter.setWindow(window)
 
     def reset_window(self):
-        self._window = None
+        self._painter.setWindow(self._default_rect)
 
     def translate(self, x: float, y: float):
-        self._transform.translate(x, y)
+        self._painter.translate(x, y)
 
     def rotate(self, degree: float):
-        self._transform.rotate(degree)
+        self._painter.rotate(degree)
 
     def scale(self, sx: float, sy: float):
-        self._transform.scale(sx, sy)
+        self._painter.scale(sx, sy)
 
     def reset_transform(self):
-        self._transform.reset()
+        self._painter.resetTransform()
 
     def clear_view_port(self):
-        p = QtGui.QPainter()
-        p.begin(self._image)
-        p.fillRect(self._view_port, self._background_color)
-        p.end()
-
-    def get_view_port(self) -> QtCore.QRect:
-        return self._view_port
+        p = self._painter
+        p.fillRect(p.window().left(), p.window().top, self._background_color)
 
     def set_write_mode(self, mode):
         """
@@ -263,7 +278,7 @@ class Image:
 
         :param mode: write mode
         """
-        self._write_mode = mode
+        self._painter.setCompositionMode(mode)
 
     def get_write_mode(self):
         """
@@ -274,7 +289,7 @@ class Image:
 
         :return: write mode
         """
-        return self._write_mode
+        return self._painter.compositionMode()
 
     def move_to(self, x, y):
         """
@@ -344,21 +359,7 @@ class Image:
         return self._y
 
     def _prepare_painter(self, pen: QtGui.QPen, brush: QtGui.QBrush) -> QtGui.QPainter:
-        p = QtGui.QPainter()
-        p.begin(self._image)
-        p.setRenderHint(QtGui.QPainter.Antialiasing)
-        if self._clip_rect is not None:
-            p.setClipRect(self._clip_rect)
-        if self._view_port is not None:
-            print(self._view_port.width(), self._view_port.height())
-            p.setViewport(self._view_port)
-        if self._window is not None:
-            p.setWindow(self._window)
-        if self._transform is not None:
-            p.setTransform(self._transform)
-        p.setCompositionMode(self._write_mode)
-        if self._font is not None:
-            p.setFont(self._font)
+        p = self._painter
         p.setPen(pen)
         p.setBrush(brush)
         return p
@@ -384,7 +385,6 @@ class Image:
         """
         p = self._prepare_painter_for_draw_outline()
         p.drawPoint(QtCore.QPointF(x, y))
-        p.end()
 
     def draw_line(self, x1: float, y1: float, x2: float, y2: float):
         """
@@ -397,7 +397,6 @@ class Image:
         """
         p = self._prepare_painter_for_draw_outline()
         p.drawLine(QtCore.QPointF(x1, y1), QtCore.QPointF(x2, y2))
-        p.end()
 
     def line(self, x1: float, y1: float, x2: float, y2: float):
         """
@@ -423,7 +422,6 @@ class Image:
         """
         p = self._prepare_painter_for_draw_outline()
         p.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
-        p.end()
 
     def draw_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
@@ -438,7 +436,6 @@ class Image:
         """
         p = self._prepare_painter_for_draw()
         p.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
-        p.end()
 
     def fill_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
@@ -453,7 +450,6 @@ class Image:
         """
         p = self._prepare_painter_for_fill()
         p.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
-        p.end()
 
     def arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -474,7 +470,6 @@ class Image:
         angle_len = end_angle - start_angle
         p.drawArc(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y),
                   start_angle * 16, angle_len * 16)
-        p.end()
 
     def draw_arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -514,7 +509,6 @@ class Image:
         angle_len = end_angle - start_angle
         p.drawPie(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y),
                   start_angle * 16, angle_len * 16)
-        p.end()
 
     def draw_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -537,7 +531,6 @@ class Image:
         angle_len = end_angle - start_angle
         p.drawPie(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                   angle_len * 16)
-        p.end()
 
     def fill_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -560,7 +553,6 @@ class Image:
         angle_len = end_angle - start_angle
         p.drawPie(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                   angle_len * 16)
-        p.end()
 
     def chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -583,7 +575,6 @@ class Image:
         angle_len = end_angle - start_angle
         p.drawChord(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                     angle_len * 16)
-        p.end()
 
     def draw_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -606,7 +597,6 @@ class Image:
         angle_len = end_angle - start_angle
         p.drawChord(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                     angle_len * 16)
-        p.end()
 
     def fill_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -629,7 +619,6 @@ class Image:
         angle_len = end_angle - start_angle
         p.drawChord(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y), start_angle * 16,
                     angle_len * 16)
-        p.end()
 
     def bezier(self, poly_points: list):
         """
@@ -664,7 +653,6 @@ class Image:
             path.cubicTo(*poly_points[i * 2:i * 2 + 6])
         p = self._prepare_painter_for_draw_outline()
         p.drawPath(path)
-        p.end()
 
     def lines(self, points: List[float]):
         self.draw_lines(points)
@@ -678,7 +666,6 @@ class Image:
             qpoints.append(QtCore.QLineF(*points[i * 2:i * 2 + 4]))
         p = self._prepare_painter_for_draw_outline()
         p.drawLines(*qpoints)
-        p.end()
 
     def poly_line(self, points: List[float]):
         self.draw_poly_line(points)
@@ -687,7 +674,6 @@ class Image:
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_draw_outline()
         p.drawPolyline(*qpoints)
-        p.end()
 
     @staticmethod
     def _convert_to_qpoints(points):
@@ -703,91 +689,77 @@ class Image:
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_draw_outline()
         p.drawPolygon(*qpoints)
-        p.end()
 
     def draw_polygon(self, points: List[float]):
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_draw()
         p.drawPolygon(*qpoints)
-        p.end()
 
     def fill_polygon(self, points: List[float]):
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_fill()
         p.drawPolygon(*qpoints)
-        p.end()
 
     def path(self, path: QtGui.QPainterPath):
         p = self._prepare_painter_for_draw_outline()
         p.drawPath(path)
-        p.end()
 
     def draw_path(self, path: QtGui.QPainterPath):
         p = self._prepare_painter_for_draw()
         p.drawPath(path)
-        p.end()
 
     def fill_path(self, path: QtGui.QPainterPath):
         p = self._prepare_painter_for_draw()
         p.drawPath(path)
-        p.end()
 
     def rect(self, left: float, top: float, right: float, bottom: float):
         p = self._prepare_painter_for_draw_outline()
         p.drawRect(left, top, right - left, bottom - top)
-        p.end()
 
     def draw_rect(self, left: float, top: float, right: float, bottom: float):
         p = self._prepare_painter_for_draw()
         p.drawRect(left, top, right - left, bottom - top)
-        p.end()
 
     def fill_rect(self, left: float, top: float, right: float, bottom: float):
         p = self._prepare_painter_for_fill()
         p.drawRect(left, top, right - left, bottom - top)
-        p.end()
 
     def rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         p = self._prepare_painter_for_draw_outline()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
-        p.end()
 
     def draw_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         p = self._prepare_painter_for_draw()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
-        p.end()
 
     def fill_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         p = self._prepare_painter_for_fill()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
-        p.end()
 
     def clear(self):
         self._image.fill(self._background_color)
 
     def draw_image(self, x: int, y: int, image):
-        p = QtGui.QPainter()
-        p.begin(self._image)
-        p.setCompositionMode(self._write_mode)
+        p = self._painter
         p.drawImage(x, y, image.get_image())
-        p.end()
 
     def flood_fill(self, x: int, y: int, border_color):
         if self._fill_Style == FillStyle.NULL_FILL:  # no need to fill
             return
         queue = deque()
-        new_pos = self._transform.map(QtCore.QPoint(x, y))
+        new_pos = self._painter.transform().map(QtCore.QPoint(x, y))
         queue.append((new_pos.x(), new_pos.y()))
         bc = QtGui.QColor(border_color)
         sc = QtGui.QColor(self._fill_color).rgba()
         bits = [0] * (self._image.width() * self._image.height())
+        r = None
+        if self._painter.hasClipping():
+            r = self._painter.clipBoundingRect()
         while len(queue) > 0:
             x, y = queue.popleft()
             if x < 0 or y < 0 or x >= self._image.width() or y >= self._image.height():
                 continue
-            if self._clip_rect and (x < self._view_port.left()
-                                    or x > self._view_port.right() or y < self._view_port.top()
-                                    or y > self._view_port.bottom()):
+            if r is not None and not r.contains(x, y):
                 continue
             if bits[self._image.width() * y + x] == 1:
                 continue
@@ -840,8 +812,7 @@ class Image:
 
         :param font:
         """
-        self._font = font
-        self._font_metrics = QtGui.QFontMetrics(self._font)
+        self._painter.setFont(font)
 
     def get_font(self) -> QtGui.QFont:
         """
@@ -849,25 +820,36 @@ class Image:
 
         :return: the font
         """
-        return self._font
+        return self._painter.font()
 
     def set_font_size(self, size: int):
         """
         set font size of the specified image
         :param size: font size
         """
-        self._font.setPixelSize(size)
-        self._font_metrics = QtGui.QFontMetrics(self._font)
+        font = self._painter.font()
+        font.setPixelSize(size)
+        self._painter.setFont(font)
 
     def get_font_size(self) -> int:
         """
         get font size of the specified image
         :return: font size
         """
-        return self._font.pixelSize()
+        return self._painter.font().pixelSize()
 
     def text_width(self, text: str) -> int:
-        self._font_metrics.width(text)
+        return self._painter.fontMetrics().width(text)
 
     def text_height(self, text: str) -> int:
-        self._font_metrics.height()
+        return self._painter.fontMetrics().height()
+
+    def close(self):
+        self._painter.end()
+
+    def get_painter(self) -> QtGui.QPainter:
+        """
+        get the QPainter instance for drawing the image
+        :return: the painter used internally
+        """
+        return self._painter

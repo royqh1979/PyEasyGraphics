@@ -423,7 +423,6 @@ def reset_view_port(image: Image = None):
 
 def set_clip_rect(left: int, top: int, right: int, bottom: int, image: Image = None):
     """
-    set
     set the clip rect
     :param left:
     :param top:
@@ -1335,6 +1334,7 @@ def __graphics_thread_func(width: int, height: int):
     invoke_in_app_thread.init_invoke_in_app()
     _target_image = _win.get_canvas()
     _is_run = True
+    set_font_size(18)
     # init finished, can draw now
     _start_event.set()
     _win.show()
