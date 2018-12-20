@@ -2,22 +2,21 @@
 Message Dialogs
 most code from EasyGUI_Qt(https://github.com/aroberge/easygui_qt/)
 """
+import datetime
 import os
 import sys
 import traceback
 import webbrowser
-from collections import OrderedDict
+from typing import List, Optional, Union
 
-if sys.version_info < (3,):
-    raise RuntimeError("We don't support Python < 3")
+from PyQt5 import QtCore, QtWidgets
 
-from PyQt5 import QtGui, QtCore, QtWidgets
-
+from ._indexed_order_list import IndexedOrderedDict
 from . import calendar_widget
 from . import multichoice
 from . import multifields
 from . import show_text_window
-from .invoke_in_app_thread import *
+from .invoke_in_app_thread import set_app_font, invoke_in_thread
 
 __all__ = [
     'set_dialog_font_size',
@@ -28,19 +27,22 @@ __all__ = [
     'get_new_password', 'get_password', 'get_save_file_name', 'get_string',
     'get_username_password', 'get_yes_or_no'
 ]
+
+
 # ========== Message Boxes ====================#
-@invoid_in_thread()
-def show_message(message="Message",
-                 title="Title"):
-    """Simple message box.
+@invoke_in_thread()
+def show_message(message: str = "Message",
+                 title: str = "Title"):
+    """
+    Simple message box.
 
-       :param message: message string
-       :param title: window title
+    :param message: message string
+    :param title: window title
 
-       >>> import easygui_qt as easy
-       >>> easy.show_message()
+    >>> from easygraphics.dialog import *
+    >>> show_message()
 
-       .. image:: ../docs/images/show_message.png
+    .. image:: ../../docs/images/show_message.png
     """
     dialog = QtWidgets.QMessageBox(None)
     dialog.setWindowTitle(title)
@@ -55,8 +57,8 @@ def _send_to_front(dialog):
     dialog.activateWindow()
 
 
-@invoid_in_thread()
-def get_yes_or_no(message="Answer this question", title="Title"):
+@invoke_in_thread()
+def get_yes_or_no(question: str = "Answer this question", title: str = "Title") -> Optional[bool]:
     """Simple yes or no question.
 
        :param question: Question (string) asked
@@ -65,27 +67,27 @@ def get_yes_or_no(message="Answer this question", title="Title"):
        :return: ``True`` for "Yes", ``False`` for "No",
                and ``None`` for "Cancel".
 
-       >>> import easygui_qt as easy
-       >>> choice = easy.get_yes_or_no()
+       >>> from easygraphics.dialog import *
+       >>> choice = get_yes_or_no()
 
-       .. image:: ../docs/images/yes_no_question.png
+       .. image:: ../../docs/images/yes_no_question.png
     """
     flags = QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No
     flags |= QtWidgets.QMessageBox.Cancel
 
     dialog = QtWidgets.QMessageBox()
-    _send_to_front(dialog)
-    reply = dialog.question(None, title, message, flags)
+    # _send_to_front(dialog)
+    reply = dialog.question(None, title, question, flags)
     if reply == QtWidgets.QMessageBox.Cancel:
         return None
     return reply == QtWidgets.QMessageBox.Yes
 
 
-@invoid_in_thread()
-def get_continue_or_cancel(message="Processed will be cancelled!",
-                           title="Title",
-                           continue_button_text="Continue",
-                           cancel_button_text="Cancel"):
+@invoke_in_thread()
+def get_continue_or_cancel(question: str = "Processed will be cancelled!",
+                           title: str = "Title",
+                           continue_button_text: str = "Continue",
+                           cancel_button_text: str = "Cancel") -> bool:
     """Continue or cancel question, shown as a warning (i.e. more urgent than
        simple message)
 
@@ -96,12 +98,12 @@ def get_continue_or_cancel(message="Processed will be cancelled!",
 
        :return: True for "Continue", False for "Cancel"
 
-       >>> import easygui_qt as easy
-       >>> choice = easy.get_continue_or_cancel()
+       >>> from easygraphics.dialog import *
+       >>> choice = get_continue_or_cancel()
 
-       .. image:: ../docs/images/get_continue_or_cancel.png
+       .. image:: ../../docs/images/get_continue_or_cancel.png
     """
-    dialog = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, title, message,
+    dialog = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, title, question,
                                    QtWidgets.QMessageBox.NoButton)
     dialog.addButton(continue_button_text, QtWidgets.QMessageBox.AcceptRole)
     dialog.addButton(cancel_button_text, QtWidgets.QMessageBox.RejectRole)
@@ -111,49 +113,48 @@ def get_continue_or_cancel(message="Processed will be cancelled!",
 
 
 # ============= Color dialogs =================
-@invoid_in_thread()
-def get_color_hex():
+@invoke_in_thread()
+def get_color_hex() -> Optional[str]:
     """Using a color _dialog, returns a color in hexadecimal notation
        i.e. a string '#RRGGBB' or "None" if color _dialog is dismissed.
 
-       >>> import easygui_qt as easy
-       >>> color = easy.get_color_hex()
+       >>> from easygraphics.dialog import *
+       >>> color = get_color_hex()
 
-       .. image:: ../docs/images/select_color.png
+       .. image:: ../../docs/images/select_color.png
        """
     color = QtWidgets.QColorDialog.getColor(QtCore.Qt.white, None)
     if color.isValid():
         return color.name()
 
 
-@invoid_in_thread()
-def get_color_rgb(app=None):
+@invoke_in_thread()
+def get_color_rgb() -> (int, int, int):
     """Using a color _dialog, returns a color in rgb notation
        i.e. a tuple (r, g, b)  or "None" if color _dialog is dismissed.
 
-       >>> import easygui_qt as easy
-       >>> easy.set_language('fr')
-       >>> color = easy.get_color_rgb()
+       >>> from easygraphics.dialog import *
+       >>> color = get_color_rgb()
 
-       .. image:: ../docs/images/select_color_fr.png
+       .. image:: ../../docs/images/select_color_fr.png
        """
     color = QtWidgets.QColorDialog.getColor(QtCore.Qt.white, None)
     if color.isValid():
-        return (color.red(), color.green(), color.blue())
+        return color.red(), color.green(), color.blue()
 
 
 # ================ Date ===================
-@invoid_in_thread()
-def get_date(title="Select Date"):
+@invoke_in_thread()
+def get_date(title: str = "Select Date") -> datetime.date:
     """Calendar widget
 
        :param title: window title
        :return: the selected date as a ``datetime.date`` instance
 
-       >>> import easygui_qt as easy
-       >>> date = easy.get_date()
+       >>> from easygraphics.dialog import *
+       >>> date = get_date()
 
-       .. image:: ../docs/images/get_date.png
+       .. image:: ../../docs/images/get_date.png
     """
     cal = calendar_widget.CalendarWidget(title=title)
     date = cal.date.toPyDate()
@@ -161,25 +162,25 @@ def get_date(title="Select Date"):
 
 
 # =========== InputDialogs ========================
-def get_common_input_flags():
-    '''avoiding copying same flags in all functions'''
+def _get_common_input_flags():
+    """avoiding copying same flags in all functions"""
     flags = QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint
     flags |= QtCore.Qt.WindowStaysOnTopHint
     return flags
 
 
 class VisibleInputDialog(QtWidgets.QInputDialog):
-    '''A simple InputDialog class that attempts to make itself automatically
+    """A simple InputDialog class that attempts to make itself automatically
        on all platforms
-    '''
+    """
 
     def __init__(self):
         super(VisibleInputDialog, self).__init__()
 
 
-@invoid_in_thread()
-def get_int(message="Choose a number", title="Title",
-            default_value=1, min_=0, max_=100, step=1):
+@invoke_in_thread()
+def get_int(message: str = "Choose a number", title: str = "Title",
+            default_value: int = 1, min_: int = 0, max_: int = 100, step: int = 1) -> Optional[int]:
     """Simple _dialog to ask a user to select an integer within a certain range.
 
        **Note**: **get_int()** and **get_integer()** are identical.
@@ -197,10 +198,10 @@ def get_int(message="Choose a number", title="Title",
        :return: an integer, or ``None`` if "cancel" is clicked or window
                 is closed.
 
-       >>> import easygui_qt as easy
-       >>> number = easy.get_int()
+       >>> from easygraphics.dialog import *
+       >>> number = get_int()
 
-       .. image:: ../docs/images/get_int.png
+       .. image:: ../../docs/images/get_int.png
 
 
        If ``default_value`` is larger than ``max_``, it is set to ``max_``;
@@ -208,7 +209,7 @@ def get_int(message="Choose a number", title="Title",
 
        >>> number = easy.get_integer("Enter a number", default_value=125)
 
-       .. image:: ../docs/images/get_int2.png
+       .. image:: ../../docs/images/get_int2.png
 
     """
     # converting values to int for launcher demo set_font_size which
@@ -220,7 +221,7 @@ def get_int(message="Choose a number", title="Title",
     max_ = int(max_)
 
     dialog = VisibleInputDialog()
-    flags = get_common_input_flags()
+    flags = _get_common_input_flags()
     number, ok = dialog.getInt(None, title, message,
                                default_value, min_, max_, step,
                                flags)
@@ -232,9 +233,9 @@ def get_int(message="Choose a number", title="Title",
 get_integer = get_int
 
 
-@invoid_in_thread()
-def get_float(message="Choose a number", title="Title", default_value=0.0,
-              min_=-10000, max_=10000, decimals=3):
+@invoke_in_thread()
+def get_float(message: str = "Choose a number", title: str = "Title", default_value: float = 0.0,
+              min_: float = -10000, max_: float = 10000, decimals: int = 3) -> Optional[float]:
     """Simple _dialog to ask a user to select a floating point number
        within a certain range and a maximum precision.
 
@@ -250,10 +251,10 @@ def get_float(message="Choose a number", title="Title", default_value=0.0,
        :return: a floating-point number, or ``None`` if "cancel" is clicked
                 or window is closed.
 
-       >>> import easygui_qt as easy
-       >>> number = easy.get_float()
+       >>> from easygraphics.dialog import *
+       >>> number = get_float()
 
-       .. image:: ../docs/images/get_float.png
+       .. image:: ../../docs/images/get_float.png
 
        **Note:** depending on the locale of the operating system where
        this is used, instead of a period being used for indicating the
@@ -265,7 +266,7 @@ def get_float(message="Choose a number", title="Title", default_value=0.0,
        using the familar notation.
     """
     dialog = VisibleInputDialog()
-    flags = get_common_input_flags()
+    flags = _get_common_input_flags()
     number, ok = dialog.getDouble(None, title, message,
                                   default_value, min_, max_, decimals,
                                   flags)
@@ -273,9 +274,9 @@ def get_float(message="Choose a number", title="Title", default_value=0.0,
         return number
 
 
-@invoid_in_thread()
-def get_string(message="Enter your response", title="Title",
-               default_response=""):
+@invoke_in_thread()
+def get_string(message: str = "Enter your response", title: str = "Title",
+               default_response: str = "") -> Optional[str]:
     """Simple text input box.  Used to query the user and get a string back.
 
        :param message: Message displayed to the user, inviting a response
@@ -285,25 +286,25 @@ def get_string(message="Enter your response", title="Title",
        :return: a string, or ``None`` if "cancel" is clicked or window
                 is closed.
 
-       >>> import easygui_qt as easy
-       >>> reply = easy.get_string()
+       >>> from easygraphics.dialog import *
+       >>> reply = get_string()
 
-       .. image:: ../docs/images/get_string.png
+       .. image:: ../../docs/images/get_string.png
 
-       >>> reply = easy.get_string("new message", default_response="ready")
+       >>> reply = get_string("new message", default_response="ready")
 
-       .. image:: ../docs/images/get_string2.png
+       .. image:: ../../docs/images/get_string2.png
     """
     dialog = VisibleInputDialog()
-    flags = get_common_input_flags()
+    flags = _get_common_input_flags()
     text, ok = dialog.getText(None, title, message, QtWidgets.QLineEdit.Normal,
                               default_response, flags)
     if ok:
         return text
 
 
-@invoid_in_thread()
-def get_password(message="Enter your password", title="Title"):
+@invoke_in_thread()
+def get_password(message: str = "Enter your password", title: str = "Title") -> Optional[str]:
     """Simple password input box.  Used to query the user and get a string back.
 
        :param message: Message displayed to the user, inviting a response
@@ -313,21 +314,21 @@ def get_password(message="Enter your password", title="Title"):
        :return: a string, or ``None`` if "cancel" is clicked or window
                 is closed.
 
-       >>> import easygui_qt as easy
-       >>> password = easy.get_password()
+       >>> from easygraphics.dialog import *
+       >>> password = get_password()
 
-       .. image:: ../docs/images/get_password.png
+       .. image:: ../../docs/images/get_password.png
     """
     dialog = VisibleInputDialog()
-    flags = get_common_input_flags()
+    flags = _get_common_input_flags()
     text, ok = dialog.getText(None, title, message, QtWidgets.QLineEdit.Password,
                               '', flags)
     if ok:
         return text
 
 
-@invoid_in_thread()
-def get_choice(message="Select one item", title="Title", choices=None):
+@invoke_in_thread()
+def get_choice(message: str = "Select one item", title: str = "Title", choices: List[str] = None) -> Optional[str]:
     """Simple _dialog to ask a user to select an item within a drop-down list
 
        :param message: Message displayed to the user, inviting a response
@@ -338,43 +339,43 @@ def get_choice(message="Select one item", title="Title", choices=None):
        :returns: a string, or ``None`` if "cancel" is clicked or window
                 is closed.
 
-       >>> import easygui_qt as easy
+       >>> from easygraphics.dialog import *
        >>> choices = ["CPython", "Pypy", "Jython", "IronPython"]
-       >>> reply = easy.get_choice("What is the best Python implementation",
-       ...                         choices=choices)
+       >>> reply = get_choice("What is the best Python implementation", choices=choices)
 
-       .. image:: ../docs/images/get_choice.png
+       .. image:: ../../docs/images/get_choice.png
     """
     if choices is None:
         choices = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
     dialog = VisibleInputDialog()
-    flags = get_common_input_flags()
+    flags = _get_common_input_flags()
     choice, ok = dialog.getItem(None, title, message, choices, 0, False, flags)
     if ok:
         return choice
 
 
-@invoid_in_thread()
-def get_username_password(title="Title", labels=None):
-    """User name and password input box.
+@invoke_in_thread()
+def get_username_password(title: str = "Title", labels: List[str] = None) -> IndexedOrderedDict:
+    """
+    User name and password input box.
 
-       :param title: Window title
-       :param labels: an iterable containing the labels for "user name"
-                      and "password"; if the value not specified, the
-                      default values will be used.
+    :param title: Window title
+    :param labels: an iterable containing the labels for "user name"
+                  and "password"; if the value not specified, the
+                  default values will be used.
 
-       :return: An ordered dict containing the fields item as keys, and
-                the input from the user (empty string by default) as value
+    :return: An ordered dict containing the fields item as keys, and
+            the input from the user (empty string by default) as value
 
-       Note: this function is a special case of ``get_many_strings`` where
-       the required masks are provided automatically..
+    Note: this function is a special case of ``get_many_strings`` where
+    the required masks are provided automatically..
 
-       >>> import easygui_qt as easy
-       >>> reply = easy.get_username_password()
-       >>> reply
-       OrderedDict([('User name', 'aroberge'), ('Password', 'not a good password')])
+    >>> from easygraphics.dialog import *
+    >>> reply = easy.get_username_password()
+    >>> reply
+    OrderedDict([('User name', 'aroberge'), ('Password', 'not a good password')])
 
-       .. image:: ../docs/images/get_username_password.png
+    .. image:: ../../docs/images/get_username_password.png
     """
     if labels is None:
         labels = ["User name", "Password"]
@@ -386,27 +387,28 @@ def get_username_password(title="Title", labels=None):
     return get_many_strings(title=title, labels=labels, masks=masks)
 
 
-@invoid_in_thread()
-def get_new_password(title="Title", labels=None):
-    """Change password input box.
+@invoke_in_thread()
+def get_new_password(title: str = "Title", labels: List[str] = None) -> IndexedOrderedDict:
+    """
+    Change password input box.
 
-       :param title: Window title
-       :param labels: an iterable containing the labels for "Old password"
-                      and "New password" and "Confirm new password". All
-                      three labels must be different strings as they are used
-                      as keys in a dict - however, they could differ only by
-                      a space.
+    :param title: Window title
+    :param labels: an iterable containing the labels for "Old password"
+                  and "New password" and "Confirm new password". All
+                  three labels must be different strings as they are used
+                  as keys in a dict - however, they could differ only by
+                  a space.
 
-       :return: An ordered dict containing the fields item as keys, and
-                the input from the user as values.
+    :return: An ordered dict containing the fields item as keys, and
+            the input from the user as values.
 
-       Note: this function is a special case of ``get_many_strings`` where
-       the required masks are provided automatically..
+    Note: this function is a special case of ``get_many_strings`` where
+    the required masks are provided automatically..
 
-       >>> import easygui_qt as easy
-       >>> reply = easy.get_new_password()
+    >>> from easygraphics.dialog import *
+    >>> reply = easy.get_new_password()
 
-       .. image:: ../docs/images/get_new_password.png
+    .. image:: ../../docs/images/get_new_password.png
     """
 
     if not labels:  # empty list acceptable for test
@@ -417,83 +419,66 @@ def get_new_password(title="Title", labels=None):
         get_abort(title=_title, message=message)
     masks = [True, True, True]
 
-    class Parent:
-        pass
-
-    parent = Parent()
-    dialog = multifields.MultipleFieldsDialog(labels=labels, masks=masks,
-                                              parent=parent, title=title)
+    dialog = multifields.MultipleFieldsDialog(labels=labels, masks=masks, title=title)
     _send_to_front(dialog)
     dialog.exec_()
-    return parent.o_dict
+    return dialog.enters
 
 
-@invoid_in_thread()
-def get_many_strings(title="Title", labels=None, masks=None):
-    """Multiple strings input
+@invoke_in_thread()
+def get_many_strings(title: str = "Title", labels: List[str] = None, masks: List[bool] = None) -> IndexedOrderedDict:
+    """
+    Multiple strings input
 
-       :param title: Window title
-       :param labels: an iterable containing the labels for to use for the entries
-       :param masks: optional parameter.
+    :param title: Window title
+    :param labels: an iterable containing the labels for to use for the entries
+    :param masks: optional parameter.
 
 
-       :return: An ordered dict containing the labels as keys, and
-                the input from the user (empty string by default) as value
+    :return: An ordered dict containing the labels as keys, and
+            the input from the user (empty string by default) as value
 
-       The parameter ``masks`` if set must be an iterable of the same
-       length as ``choices`` and contain either True or False as entries
-       indicating if the entry of the text is masked or not.  For example,
-       one could ask for a username and password using get_many_strings
-       as follows [note that get_username_password exists and automatically
-       takes care of specifying the masks and is a better choice for this
-       use case.]
+    The parameter ``masks`` if set must be an iterable of the same
+    length as ``choices`` and contain either True or False as entries
+    indicating if the entry of the text is masked or not.  For example,
+    one could ask for a username and password using get_many_strings
+    as follows [note that get_username_password exists and automatically
+    takes care of specifying the masks and is a better choice for this
+    use case.]
 
-       >>> import easygui_qt as easy
-       >>> labels = ["User name", 'Password']
-       >>> masks = [False, True]
-       >>> reply = easy.get_many_strings(labels=labels, masks=masks)
-       >>> reply
-       OrderedDict([('User name', 'aroberge'), ('Password', 'not a good password')])
+    >>> from easygraphics.dialog import *
+    >>> labels = ["User name", 'Password']
+    >>> masks = [False, True]
+    >>> reply = get_many_strings(labels=labels, masks=masks)
+    >>> reply
+    OrderedDict([('User name', 'aroberge'), ('Password', 'not a good password')])
 
-       .. image:: ../docs/images/get_many_strings.png
+    .. image:: ../../docs/images/get_many_strings.png
     """
 
-    class Parent:
-        pass
-
-    parent = Parent()
     dialog = multifields.MultipleFieldsDialog(labels=labels, masks=masks,
-                                              parent=parent, title=title)
+                                              title=title)
     _send_to_front(dialog)
     dialog.exec_()
 
-    class IndexedOrderedDict(OrderedDict):
-        def __getitem__(self, key):
-            if isinstance(key, int):
-                i = 0
-                for v in self.values():
-                    if i == key:
-                        return v
-                    i = i + 1
-            return super().__getitem__(key)
-
-    return IndexedOrderedDict(parent.o_dict)
+    return dialog.enters
 
 
-@invoid_in_thread()
-def get_list_of_choices(title="Title", choices=None):
-    """Show a list of possible choices to be selected.
+@invoke_in_thread()
+def get_list_of_choices(title: str = "Title", choices: List[str] = None) -> IndexedOrderedDict:
+    """
+    Show a list of possible choices to be selected.
 
-       :param title: Window title
-       :param choices: iterable (list, tuple, ...) containing the choices as
-                       strings
+    :param title: Window title
+    :param choices: iterable (list, tuple, ...) containing the choices as
+                   strings
 
-       :returns: a list of selected items, otherwise an empty list.
+    :returns: a list of selected items, otherwise an empty list.
 
-       >>> import easygui_qt as easy
-       >>> choices = easy.get_list_of_choices()
+    >>> from easygraphics.dialog import *
+    >>> choices = get_list_of_choices()
 
-       .. image:: ../docs/images/get_list_of_choices.png
+    .. image:: ../../docs/images/get_list_of_choices.png
     """
     dialog = multichoice.MultipleChoicesDialog(title=title, choices=choices)
     _send_to_front(dialog)
@@ -503,21 +488,22 @@ def get_list_of_choices(title="Title", choices=None):
 
 # ========== Files & directory dialogs
 
-@invoid_in_thread()
-def get_directory_name(title="Get directory"):
-    '''Gets the name (full path) of an existing directory
+@invoke_in_thread()
+def get_directory_name(title: str = "Get directory") -> str:
+    """
+    Gets the name (full path) of an existing directory
 
-       :param title: Window title
-       :return: the name of a directory or an empty string if cancelled.
+    :param title: Window title
+    :return: the name of a directory or an empty string if cancelled.
 
-       >>> import easygui_qt as easy
-       >>> easy.get_directory_name()
+    >>> from easygraphics.dialog import *
+    >>> get_directory_name()
 
-       .. image:: ../docs/images/get_directory_name.png
+    .. image:: ../../docs/images/get_directory_name.png
 
-       By default, this _dialog initially displays the content of the current
-       working directory.
-    '''
+    By default, this _dialog initially displays the content of the current
+    working directory.
+    """
     options = QtWidgets.QFileDialog.Options()
     # Without the following option (i.e. using native dialogs),
     # calling this function twice in a row made Python crash.
@@ -529,22 +515,23 @@ def get_directory_name(title="Get directory"):
     return directory
 
 
-@invoid_in_thread()
-def get_file_names(title="Get existing file names"):
-    '''Gets the names (full path) of existing files
+@invoke_in_thread()
+def get_file_names(title: str = "Get existing file names") -> str:
+    """
+    Gets the names (full path) of existing files
 
-       :param title: Window title
-       :return: the list of names (paths) of files selected.
-               (It can be an empty list.)
+    :param title: Window title
+    :return: the list of names (paths) of files selected.
+           (It can be an empty list.)
 
-       >>> import easygui_qt as easy
-       >>> easy.get_file_names()
+    >>> from easygraphics.dialog import *
+    >>> easy.get_file_names()
 
-       .. image:: ../docs/images/get_file_names.png
+    .. image:: ../../docs/images/get_file_names.png
 
-       By default, this _dialog initially displays the content of the current
-       working directory.
-    '''
+    By default, this _dialog initially displays the content of the current
+    working directory.
+    """
     options = QtWidgets.QFileDialog.Options()
     options |= QtWidgets.QFileDialog.DontUseNativeDialog
     files = QtWidgets.QFileDialog.getOpenFileNames(None, title, os.getcwd(),
@@ -552,25 +539,26 @@ def get_file_names(title="Get existing file names"):
     return files
 
 
-@invoid_in_thread()
-def get_save_file_name(title="File name to save"):
-    '''Gets the name (full path) of of a file to be saved.
+@invoke_in_thread()
+def get_save_file_name(title: str = "File name to save") -> str:
+    """
+    Gets the name (full path) of of a file to be saved.
 
-       :param title: Window title
-       :return: the name (path) of file selected
+    :param title: Window title
+    :return: the name (path) of file selected
 
-       The user is warned if the file already exists and can choose to
-       cancel.  However, this _dialog actually does NOT save any file: it
-       only return a string containing the full path of the chosen file.
+    The user is warned if the file already exists and can choose to
+    cancel.  However, this _dialog actually does NOT save any file: it
+    only return a string containing the full path of the chosen file.
 
-       >>> import easygui_qt as easy
-       >>> easy.get_save_file_name()
+    >>> from easygraphics.dialog import *
+    >>> easy.get_save_file_name()
 
-       .. image:: ../docs/images/get_save_file_name.png
+    .. image:: ../../docs/images/get_save_file_name.png
 
-       By default, this _dialog initially displays the content of the current
-       working directory.
-    '''
+    By default, this _dialog initially displays the content of the current
+    working directory.
+    """
     options = QtWidgets.QFileDialog.Options()
     options |= QtWidgets.QFileDialog.DontUseNativeDialog  # see get_directory_name
     file_name = QtWidgets.QFileDialog.getSaveFileName(None, title, os.getcwd(),
@@ -578,102 +566,107 @@ def get_save_file_name(title="File name to save"):
     return file_name
 
 
-@invoid_in_thread()
-def show_file(file_name=None, title="Title", file_type="text"):
-    '''Displays a file in a window.  While it looks as though the file
-       can be edited, the only changes that happened are in the window
-       and nothing can be saved.
+@invoke_in_thread()
+def show_file(file_name: str = None, title: str = "Title", file_type: str = "text"):
+    """
+    Displays a file in a window.  While it looks as though the file
+    can be edited, the only changes that happened are in the window
+    and nothing can be saved.
 
-       :param title: the window title
-       :param file_name: the file name, (path) relative to the calling program
-       :param file_type: possible values: ``text``, ``code``, ``html``, ``python``.
+    :param title: the window title
+    :param file_name: the file name, (path) relative to the calling program
+    :param file_type: possible values: ``text``, ``code``, ``html``, ``python``.
 
-       By default, file_type is assumed to be ``text``; if set to ``code``,
-       the content is displayed with a monospace font and, if
-       set to ``python``, some code highlighting is done.
-       If the file_type is ``html``, it is processed assuming it follows
-       html syntax.
+    By default, file_type is assumed to be ``text``; if set to ``code``,
+    the content is displayed with a monospace font and, if
+    set to ``python``, some code highlighting is done.
+    If the file_type is ``html``, it is processed assuming it follows
+    html syntax.
 
-       **Note**: a better Python code hightlighter would be most welcome!
+    **Note**: a better Python code hightlighter would be most welcome!
 
-       >>> import easygui_qt as easy
-       >>> easy.show_file()
+    >>> from easygraphics.dialog import *
+    >>> easy.show_file()
 
-       .. image:: ../docs/images/show_file.png
-    '''
+    .. image:: ../../docs/images/show_file.png
+    """
     editor = show_text_window.TextWindow(file_name=file_name,
                                          title=title,
                                          text_type=file_type)
     editor.show()
 
 
-@invoid_in_thread()
-def show_text(title="Title", text=""):
-    '''Displays some text in a window.
+@invoke_in_thread()
+def show_text(title: str = "Title", text: str = ""):
+    """
+    Displays some text in a window.
 
-       :param title: the window title
-       :param code: a string to display in the window.
+    :param title: the window title
+    :param text: a string to display in the window.
 
-       >>> import easygui_qt as easy
-       >>> easy.show_code()
+    >>> from easygraphics.dialog import *
+    >>> easy.show_code()
 
-       .. image:: ../docs/images/show_text.png
-    '''
+    .. image:: ../../docs/images/show_text.png
+    """
     editor = show_text_window.TextWindow(title=title, text_type='text', text=text)
     editor.resize(720, 450)
     editor.show()
 
 
-@invoid_in_thread()
-def show_code(title="Title", text=""):
-    '''Displays some text in a window, in a monospace font.
+@invoke_in_thread()
+def show_code(title: str = "Title", code: str = ""):
+    """
+    Displays some text in a window, in a monospace font.
 
-       :param title: the window title
-       :param code: a string to display in the window.
+    :param title: the window title
+    :param code: a string to display in the window.
 
-       >>> import easygui_qt as easy
-       >>> easy.show_code()
+    >>> from easygraphics.dialog import *
+    >>> show_code()
 
-       .. image:: ../docs/images/show_code.png
-    '''
-    editor = show_text_window.TextWindow(title=title, text_type='code', text=text)
+    .. image:: ../../docs/images/show_code.png
+    """
+    editor = show_text_window.TextWindow(title=title, text_type='code', text=code)
     editor.resize(720, 450)
     editor.show()
 
 
-@invoid_in_thread()
-def show_html(title="Title", text=""):
-    '''Displays some html text in a window.
+@invoke_in_thread()
+def show_html(title: str = "Title", text: str = ""):
+    """
+    Displays some html text in a window.
 
-       :param title: the window title
-       :param code: a string to display in the window.
+    :param title: the window title
+    :param text: a string to display in the window.
 
-       >>> import easygui_qt as easy
-       >>> easy.show_html()
+    >>> from easygraphics.dialog import *
+    >>> show_html()
 
-       .. image:: ../docs/images/show_html.png
-    '''
+    .. image:: ../../docs/images/show_html.png
+    """
     editor = show_text_window.TextWindow(title=title, text_type='html', text=text)
     editor.resize(720, 450)
     editor.show()
 
 
-@invoid_in_thread()
-def get_abort(message="Major problem - or at least we think there is one...",
-              title="Major problem encountered!"):
-    '''Displays a message about a problem.
-       If the user clicks on "abort", sys.exit() is called and the
-       program ends.  If the user clicks on "ignore", the program
-       resumes its execution.
+@invoke_in_thread()
+def get_abort(message: str = "Major problem - or at least we think there is one...",
+              title: str = "Major problem encountered!"):
+    """
+    Displays a message about a problem.
+    If the user clicks on "abort", sys.exit() is called and the
+    program ends.  If the user clicks on "ignore", the program
+    resumes its execution.
 
-       :param title: the window title
-       :param message: the message to display
+    :param title: the window title
+    :param message: the message to display
 
-       >>> import easygui_qt as easy
-       >>> easy.get_abort()
+    >>> from easygraphics.dialog import *
+    >>> get_abort()
 
-       .. image:: ../docs/images/get_abort.png
-    '''
+    .. image:: ../../docs/images/get_abort.png
+    """
 
     reply = QtWidgets.QMessageBox.critical(None, title, message,
                                            QtWidgets.QMessageBox.Abort | QtWidgets.QMessageBox.Ignore)
@@ -686,16 +679,17 @@ def get_abort(message="Major problem - or at least we think there is one...",
         pass
 
 
-def handle_exception(title="Exception raised!"):
-    '''Displays a traceback in a window if an exception is raised.
-       If the user clicks on "abort", sys.exit() is called and the
-       program ends.  If the user clicks on "ignore", the program
-       resumes its execution.
+def handle_exception(title: str = "Exception raised!"):
+    """
+    Displays a traceback in a window if an exception is raised.
+    If the user clicks on "abort", sys.exit() is called and the
+    program ends.  If the user clicks on "ignore", the program
+    resumes its execution.
 
-       :param title: the window title
+    :param title: the window title
 
-       .. image:: ../docs/images/handle_exception.png
-    '''
+    .. image:: ../../docs/images/handle_exception.png
+    """
     try:
         message = "\n".join(traceback.format_exception(sys.exc_info()[0],
                                                        sys.exc_info()[1], sys.exc_info()[2]))
@@ -705,11 +699,12 @@ def handle_exception(title="Exception raised!"):
     get_abort(title=title, message=message)
 
 
-@invoid_in_thread()
+@invoke_in_thread()
 def find_help():
-    '''Opens a web browser, pointing at the documention about EasyGUI_Qt
-       available on the web.
-    '''
+    """
+    Opens a web browser, pointing at the documention about EasyGUI_Qt
+    available on the web.
+    """
     webbrowser.open('http://easygui-qt.readthedocs.org/en/latest/api.html')
 
 
@@ -718,23 +713,9 @@ def set_dialog_font_size(size: int):
     set font size of the dialogs
     :param size: font size
 
-    >>>from easygraphics import *
-    >>>from easygraphics.dialog import *
-    >>>init_graph(800,600)
-    >>>set_dialog_font_size(18)
-    >>>show_message("font setted!")
-    >>>close_graph()
+    >>> from easygraphics.dialog import *
+    >>> set_dialog_font_size(18)
+    >>> show_message("font setted!")
+    >>> close_graph()
     """
-    app = QtWidgets.QApplication.instance()
-    f = app.font()
-    f.setPixelSize(size)
-    app.setFont(f)
-
-
-if __name__ == '__main__':
-    try:
-        from demos import guessing_game
-
-        guessing_game.guessing_game()
-    except ImportError:
-        print("Could not find demo.")
+    set_app_font(size)

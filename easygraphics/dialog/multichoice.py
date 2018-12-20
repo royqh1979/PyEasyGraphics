@@ -1,14 +1,13 @@
-import sys
+from PyQt5 import QtCore
+from PyQt5 import QtWidgets
+from typing import List
 
-from PyQt5 import QtCore, QtGui
-from PyQt5 import QtWidgets as qt_widgets
 
-
-class MultipleChoicesDialog(qt_widgets.QDialog):
+class MultipleChoicesDialog(QtWidgets.QDialog):
     """Dialog with the possibility of selecting one or more
        items from a list"""
 
-    def __init__(self, choices=None, title="Title"):
+    def __init__(self, choices: List[str] = None, title: str = "Title"):
         super(MultipleChoicesDialog, self).__init__(None, QtCore.Qt.WindowSystemMenuHint |
                                                     QtCore.Qt.WindowTitleHint)
         if choices is None:
@@ -16,30 +15,30 @@ class MultipleChoicesDialog(qt_widgets.QDialog):
         self.setWindowTitle(title)
         self.selection = []
 
-        main_widget = qt_widgets.QWidget()
-        main_layout = qt_widgets.QVBoxLayout()
+        main_widget = QtWidgets.QWidget()
+        main_layout = QtWidgets.QVBoxLayout()
         main_widget.setLayout(main_layout)
 
-        self.choices_widget = qt_widgets.QListWidget()
+        self.choices_widget = QtWidgets.QListWidget()
         self.choices_widget.setSelectionMode(
-            qt_widgets.QAbstractItemView.ExtendedSelection)
+            QtWidgets.QAbstractItemView.ExtendedSelection)
         for choice in choices:
-            item = qt_widgets.QListWidgetItem()
+            item = QtWidgets.QListWidgetItem()
             item.setText(choice)
             self.choices_widget.addItem(item)
         main_layout.addWidget(self.choices_widget)
 
-        button_box_layout = qt_widgets.QGridLayout()
-        selection_completed_btn = qt_widgets.QPushButton("Ok")
+        button_box_layout = QtWidgets.QGridLayout()
+        selection_completed_btn = QtWidgets.QPushButton("Ok")
         selection_completed_btn.clicked.connect(self.selection_completed)
-        select_all_btn = qt_widgets.QPushButton("Select all")
+        select_all_btn = QtWidgets.QPushButton("Select all")
         select_all_btn.clicked.connect(self.select_all)
-        clear_all_btn = qt_widgets.QPushButton("Clear all")
+        clear_all_btn = QtWidgets.QPushButton("Clear all")
         clear_all_btn.clicked.connect(self.clear_all)
-        cancel_btn = qt_widgets.QPushButton("Cancel")
+        cancel_btn = QtWidgets.QPushButton("Cancel")
         cancel_btn.clicked.connect(self.cancel)
 
-        button_box = qt_widgets.QWidget()
+        button_box = QtWidgets.QWidget()
         button_box_layout.addWidget(selection_completed_btn, 0, 0)
         button_box_layout.addWidget(cancel_btn, 0, 1)
         button_box_layout.addWidget(select_all_btn, 1, 0)
@@ -83,9 +82,7 @@ class MultipleChoicesDialog(qt_widgets.QDialog):
 
 
 if __name__ == '__main__':
-    app = qt_widgets.QApplication([])
+    app = QtWidgets.QApplication([])
     dialog = MultipleChoicesDialog()
     dialog.exec_()
-    if sys.version_info < (3,):
-        print([unicode(item) for item in dialog.selection])
     print(dialog.selection)

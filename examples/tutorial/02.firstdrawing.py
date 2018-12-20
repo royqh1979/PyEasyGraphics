@@ -1,3 +1,7 @@
+"""
+Fist drawing program
+Let's draw a
+"""
 from easygraphics import *
 
 init_graph(640, 480)

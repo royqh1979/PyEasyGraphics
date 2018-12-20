@@ -15,13 +15,15 @@
 
 # tailored and modified by roy
 import sys
+import time
 
 from queue import Queue
 
 import threading
 import functools
 
-from PyQt5.QtCore import QEvent, QObject, QCoreApplication, QTimer, QThread
+from PyQt5 import QtWidgets, QtGui
+from PyQt5.QtCore import QEvent, QObject, QCoreApplication
 
 
 def _reraise(exc_info):
@@ -66,6 +68,7 @@ class Caller(QObject):
 
 _caller = None
 
+
 def init_invoke_in_app():
     global _caller
     _caller = Caller()
@@ -74,6 +77,40 @@ def init_invoke_in_app():
 def destroy_invoke_in_app():
     global _caller
     _caller = None
+
+
+def __app_thread_func():
+    global _app
+    _app = QtWidgets.QApplication([])
+    font: QtGui.QFont = _app.font()
+    font.setPixelSize(_font_size)
+    _app.setFont(font)
+    _app.setQuitOnLastWindowClosed(True)
+    init_invoke_in_app()
+    # init finished, can draw now
+    _start_event.set()
+    _app.exec_()
+    destroy_invoke_in_app()
+
+
+def _start_app_thread():
+    global _start_event
+    _start_event = threading.Event()
+    _start_event.clear()
+    thread = threading.Thread(target=__app_thread_func, name="non gui app thread")
+    thread.start()
+    _start_event.wait()
+
+
+_app = None
+
+
+def _stop_app_thread():
+    global _app
+    if _app is not None:
+        _app.quit()
+    _app = None
+    time.sleep(0.05)  # wait 50ms for app thread to quit
 
 
 def invoke_in_app_thread(fn, *args, **kwargs):
@@ -101,7 +138,14 @@ def invoke_in_app_thread(fn, *args, **kwargs):
        :code:`(fn(*args, **kwargs), exception)` where
        :code:`exception=[type,value,traceback]`.
     """
-    return get_in_app_thread_result(_in_app_thread_later(fn, True, *args, **kwargs))
+    no_drawing = False  # if graphics's init_graph() is not called
+    if _caller is None:
+        no_drawing = True
+        _start_app_thread()
+    result = get_in_app_thread_result(_in_app_thread_later(fn, True, *args, **kwargs))
+    if no_drawing:
+        _stop_app_thread()
+    return result
 
 
 def _in_app_thread_later(fn, exceptions_in_main, *args, **kwargs):
@@ -110,8 +154,6 @@ def _in_app_thread_later(fn, exceptions_in_main, *args, **kwargs):
     will return a list of [result,exception] where exception=[type,value,traceback]
     of the exception.  Functions are guaranteed to be called in the order
     they were requested."""
-    if _caller is None:
-        raise RuntimeError("EasyGraphics is not init or has been closed. Run init_graph() first!")
     queue = Queue()
     QCoreApplication.postEvent(_caller, CallEvent(queue, exceptions_in_main, fn, *args, **kwargs))
     return queue
@@ -140,7 +182,15 @@ def get_in_app_thread_result(queue):
     return result
 
 
-def invoid_in_thread(wait_for_return=True, exceptions_in_main=True):
+_font_size = 14
+
+
+def set_app_font(size: int):
+    global _font_size
+    _font_size = size
+
+
+def invoke_in_thread(exceptions_in_main=True):
     """ A decorator which enforces the execution of the decorated thread to occur in the MainThread.
 
     This decorator wraps the decorated function or method in either
@@ -148,10 +198,6 @@ def invoid_in_thread(wait_for_return=True, exceptions_in_main=True):
     :func:`qtutils.invoke_in_main.inmain_later`.
 
     Keyword Arguments:
-        wait_for_return: Specifies whether to use :code:`inmain` (if
-                         :code:`True`) or :code:`inmain_later` (if
-                         :code:`False`).
-
         exceptions_in_main: Specifies whether the exceptions should be raised
                             in the main thread or not. This is ignored if
                             :code:`wait_for_return=True`. If this is
@@ -177,9 +223,7 @@ def invoid_in_thread(wait_for_return=True, exceptions_in_main=True):
 
         @functools.wraps(fn)
         def f(*args, **kwargs):
-            if wait_for_return:
-                return invoke_in_app_thread(fn, *args, **kwargs)
-            return _in_app_thread_later(fn, exceptions_in_main, *args, **kwargs)
+            return invoke_in_app_thread(fn, *args, **kwargs)
 
         return f
 

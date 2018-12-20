@@ -7,7 +7,12 @@ class RenderMode:
 
 
 class WriteMode:
-    R2_COPYPEN = QtGui.QPainter.CompositionMode_Source
+    """
+    .. code::python
+        from easygraphics import *
+        init_graph(800,600)
+    """
+    R2_COPYPEN = QtGui.QPainter.CompositionMode_Source  # copy en
     R2_COPYPENA = QtGui.QPainter.CompositionMode_SourceOver
     R2_MASKNOTPEN = QtGui.QPainter.RasterOp_NotSourceAndDestination
     R2_MASKPEN = QtGui.QPainter.RasterOp_SourceAndDestination

@@ -1,5 +1,6 @@
 import threading
 import sys
+import time
 from typing import List
 from functools import reduce
 
@@ -15,7 +16,7 @@ if sys.version_info < (3, 6):
 
 __all__ = [
     'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'WriteMode',  # consts
-    'GraphWin', 'Image',
+    # 'GraphWin', 'Image',
     #  setting functions #
     'set_line_style', 'get_line_style', 'set_line_width', 'get_line_width',
     'get_color', 'set_color', 'get_fill_color', 'set_fill_color', 'get_fill_style', 'set_fill_style',
@@ -1409,7 +1410,7 @@ def draw_text(x, y, *args, sep=' ', image: Image = None):
 
     :param x: x coordinate value of the start point
     :param y: y coordinate value of the start point
-    :param args: things to be printed
+    :param args: things to be printed (like print())
     :param sep: seperator used to join strings
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
@@ -1420,26 +1421,74 @@ def draw_text(x, y, *args, sep=' ', image: Image = None):
         _win.invalid()
 
 
-def draw_rect_text(x, y, w, h, *args, flags=QtCore.Qt.AlignLeft | QtCore.Qt.AlignTop, sep=' ', image: Image = None):
+def draw_rect_text(x: int, y: int, width: int, height: int, *args, flags=QtCore.Qt.AlignCenter, sep: str = ' ',
+                   image: Image = None):
+    """
+    print the given texts in the specified rectangle area
+
+    Available flags are: （Defined in pyqt5's PyQt5.QtCore pacakge)
+
+    * Qt.AlignLeft          Aligns with the left edge.
+    * Qt::AlignRight        Aligns with the right edge.
+    * Qt::AlignHCenter      Centers horizontally in the available space.
+    * Qt::AlignJustify      Justifies the text in the available space.
+    * Qt::AlignTop          Aligns with the top.
+    * Qt::AlignBottom       Aligns with the bottom.
+    * Qt::AlignVCenter      Centers vertically in the available space.
+    * Qt::AlignCenter       Centers in both dimensions.
+    * Qt::TextDontClip      If it's impossible to stay within the given bounds, it prints outside.
+    * Qt::TextSingleLine    Treats all whitespace as spaces and prints just one line.
+    * Qt::TextExpandTabs    Makes the U+0009 (ASCII tab) character move to the next tab stop.
+    * Qt::TextShowMnemonic  Displays the string "&P" as P For an ampersand, use "&&".
+    * Qt::TextWordWrap      Breaks lines at appropriate points, e.g. at word boundaries.
+
+    :param x: x coordinate of the output rectangle's upper left corner
+    :param y: y coordinate of the output rectangle's upper left corner
+    :param width: width of the output rectangle
+    :param height: height of the output rectangle
+    :param args: things to be printed (like print())
+    :param flags: align flags
+    :param sep: seperator used to join strings
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
-    image.draw_rect_text(x, y, w, h, flags, *args, sep=sep)
+    image.draw_rect_text(x, y, width, height, flags, *args, sep=sep)
     if on_screen:
         _win.invalid()
 
 
-def text_width(s: str, image: Image = None):
+def text_width(text: str, image: Image = None):
+    """
+    return width of the text
+
+    :param text: the text
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
-    return image.text_width(s)
+    return image.text_width(text)
 
 
-def text_height(s: str, image: Image = None):
+def text_height(image: Image = None):
+    """
+    return height of the text (font height)
+
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
-    return image.text_height(s)
+    return image.text_height()
 
 
 # image processing #
 
 def set_target(image: Image = None):
+    """
+    set the target image for drawing on
+
+    :param image: the target image which will be painted on. None means paint on the grapchis window.
+    """
     global _target_image
     _check_app_run()
     if image is None:
@@ -1449,30 +1498,64 @@ def set_target(image: Image = None):
 
 
 def get_target() -> Image:
+    """
+    get the target image for drawing on
+
+    :return: the target image which will be painted on. None means paint on the grapchis window.
+    """
     _check_app_run()
     return _target_image
 
 
 def create_image(width, height) -> Image:
+    """
+    create a new image
+
+    :param width: width of the new image
+    :param height: height of the new image
+    :return: the created image
+    """
     image = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
     image.fill(QtCore.Qt.transparent)
     return Image(image)
 
 
 def save_image(filename: str, image: Image = None):
+    """
+    save image to file
+
+    :param filename: path of the file
+    :param image: the target image which will be saved. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.get_image().save(filename)
 
 
 def create_image_from_file(filename: str) -> Image:
+    """
+    load image form the specified file
+
+    :param filename: path of the file
+    :return: loaded image
+    """
     image = QtGui.QImage(filename)
     return Image(image)
 
 
 # utils
 
-def rgb(red, green, blue):
-    return QtGui.QColor(red, green, blue)
+def rgb(red: int, green: int, blue: int, alpha: int = 255):
+    """
+    create a color with r,g,b
+
+    :param red: red value
+    :param green: green value
+    :param blue: blue value
+    :param alpha: alpha value of the color. 255 means fully opaque
+    :return: the color
+    """
+    return QtGui.QColor(red, green, blue, alpha)
 
 
 def _qpoint_to_point_list_fun(lst: List[float], p: QtCore.QPointF) -> List[float]:
@@ -1485,8 +1568,8 @@ def qpoints_to_point_list(qpoints: List[QtCore.QPointF]) -> List[float]:
     """
     convert QPointF list to point list
 
-    :param qpoints:
-    :return:
+    :param qpoints: QPointF list
+    :return: line value list
     """
     return reduce(_qpoint_to_point_list_fun, qpoints, [])
 
@@ -1507,48 +1590,114 @@ def pause():
 
 
 def is_run():
+    """
+    Test if the graphics system is running.(
+    :return:
+    """
     return _is_run
 
 
-def delay(milliseconds):
+def delay(milliseconds: int):
+    """
+    Delay the programm for specified milliseconds
+    :param milliseconds: time to delay
+    """
+    _check_app_run()
     _win.delay(milliseconds)
 
 
-def delay_fps(fps):
+def delay_fps(fps: int):
+    """
+    Delay the program to control fps (Frame pers seconds)
+
+    valid fps value is 1-1000, this value is **not checked** for speed
+
+    this function won't skip frames
+
+    :param fps: the descire fps
+    """
+    _check_app_run()
     _win.delay_fps(fps)
 
 
-def delay_jfps(fps):
-    _win.delay_jfps(fps)
+def delay_jfps(fps, max_skip_count=10):
+    """
+    delay to control fps with frame skiping
+
+    if we don't have enough time to delay, we'll skip some frames
+    :param fps: frames per second (max is 1000)
+    :param max_skip_count: max num of  frames to skip
+    """
+    _check_app_run()
+    _win.delay_jfps(fps, max_skip_count)
 
 
 # mouse and keyboards #
 
 def kb_hit():
+    """
+    see if any ascii char key is hitted in the last 100 ms
+    use it with get_char()
+
+    :return:  True if hitted, False or not
+    """
+    _check_app_run()
     return _win.kb_hit()
 
 
 def kb_msg():
+    """
+    see if any key is hitted in the last 100 ms
+    use it with get_key()
+
+    :return:  True if hitted, False or not
+    """
     _check_app_run()
     return _win.kb_msg()
 
 
 def mouse_msg():
+    """
+    see if there's any mouse message(event) in the last 100 ms
+    use it with get_mouse()
+
+    :return:  True if any mouse message, False or not
+    """
     _check_app_run()
     return _win.mouse_msg()
 
 
 def get_mouse():
+    """
+    get the key inputted by keybord
+    if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+
+    :return: x of the cursor, y of the cursor , mouse buttons down
+    ( Qt.LeftButton or Qt.RightButton or Qt.MidButton or Qt.NoButton)
+    """
     _check_app_run()
     return _win.get_mouse()
 
 
 def get_char():
+    """
+    get the ascii char inputted by keybord
+    if not any char key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+
+    :return: the character inputted by keybord
+    """
     _check_app_run()
     return _win.get_char()
 
 
 def get_key():
+    """
+    get the key inputted by keyboard
+    if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+
+    :return: keyboard code (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum) , keyboard modifier codes
+    (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)
+    """
     _check_app_run()
     return _win.get_key()
 
@@ -1556,6 +1705,10 @@ def get_key():
 # init and close graphics #
 
 def set_caption(title: str):
+    """
+    set the graph window's caption
+    :param title: caption title
+    """
     _win.setWindowTitle(title)
 
 
@@ -1592,6 +1745,7 @@ def close_graph():
     >>>close_graph()
     """
     _app.exit(0)
+    time.sleep(0.05)  # wait 50ms for app thread to exit
 
 
 def _check_app_run():
@@ -1632,9 +1786,10 @@ def __graphics_thread_func(width: int, height: int):
     _target_image = _win.get_canvas()
     _is_run = True
     set_font_size(18)
+    _win.show()
+    set_caption("Python Easy Graphics")
     # init finished, can draw now
     _start_event.set()
-    _win.show()
     _app.exec_()
     _is_run = False
     invoke_in_app_thread.destroy_invoke_in_app()

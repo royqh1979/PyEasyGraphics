@@ -124,6 +124,9 @@ class GraphWin(QWidget):
         self._key_event.set()
 
     def pause(self):
+        """
+        pause and wait for mouse click or keyboard hit
+        """
         self._wait_event.clear()
         self._wait_event.wait()
 
@@ -152,18 +155,18 @@ class GraphWin(QWidget):
         self.update()
         self._last_update_time = time.time_ns()
 
-    def delay(self, ms):
+    def delay(self, milliseconds: float):
         """
-        delay ms milliseconds
-        :param ms: time to delay (in milliseconds)
+        delay for milliseconds
+        :param milliseconds: time to delay
         """
-        nanotime = ms * 1000000
+        nanotime = milliseconds * 1000000
         start_wait_time = time.time_ns()
         self.real_update()
         while time.time_ns() - start_wait_time < nanotime:
             time.time_ns()
 
-    def delay_fps(self, fps):
+    def delay_fps(self, fps: int):
         """
         delay to control fps without frame skiping
 
@@ -176,7 +179,7 @@ class GraphWin(QWidget):
             time.time_ns()
         self.real_update()
 
-    def delay_jfps(self, fps, max_skip_count=10):
+    def delay_jfps(self, fps: int, max_skip_count: int = 10):
         """
         delay to control fps with frame skiping
 
@@ -221,7 +224,7 @@ class GraphWin(QWidget):
 
     def get_key(self) -> (int, int):
         """
-        get the key inputted by keybord
+        get the key inputted by keyboard
         if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
         :return: keyboard code (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum) , keyboard modifier codes
@@ -292,7 +295,6 @@ class _KeyMsg:
     """
     class for saving keyboard message
     """
-
     def __init__(self):
         self._time = 0
         self._key_event = None

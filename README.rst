@@ -1,5 +1,5 @@
 ===============================
-PyEasyGraphics
+Introduction to EasyGraphics
 ===============================
 
 A Borland Graphics Interface like Grahics library for python

@@ -313,6 +313,9 @@ class Image:
         self._painter.resetTransform()
 
     def clear_view_port(self):
+        """
+        clear view port with the background color
+        """
         p = self._painter
         mode = p.compositionMode()
         p.setCompositionMode(QtGui.QPainter.CompositionMode_Source)
@@ -454,16 +457,7 @@ class Image:
         p = self._prepare_painter_for_draw_outline()
         p.drawLine(QtCore.QPointF(x1, y1), QtCore.QPointF(x2, y2))
 
-    def line(self, x1: float, y1: float, x2: float, y2: float):
-        """
-        Draw a line from (x1,y1) to (x2,y2) on the specified image
-
-        :param x1: x coordinate value of the start point
-        :param y1: y coordinate value of the start point
-        :param x2: x coordinate value of the end point
-        :param y2: y coordinate value of the start point
-        """
-        self.draw_line(x1, y1, x2, y2)
+    line = draw_line
 
     def ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
@@ -507,7 +501,7 @@ class Image:
         p = self._prepare_painter_for_fill()
         p.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
 
-    def arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+    def draw_arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
         draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
@@ -527,22 +521,7 @@ class Image:
         p.drawArc(QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y),
                   start_angle * 16, angle_len * 16)
 
-    def draw_arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
-        """
-        draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
-        which radius on x-axis is radius_x and radius on y-axis is radius_y.
-
-        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
-
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
-        :param start_angle: start angle of the arc
-        :param end_angle: end angle of the arc
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
-        """
-        self.arc(x, y, start_angle, end_angle, radius_x, radius_y)
+    arc = draw_arc
 
     def pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -710,26 +689,48 @@ class Image:
         p = self._prepare_painter_for_draw_outline()
         p.drawPath(path)
 
-    def lines(self, points: List[float]):
-        self.draw_lines(points)
-
     def draw_lines(self, points: List[float]):
+        """
+        draw lines
+        points is a 2D point pair list. It should contain even points, and each 2 points make a point pair.
+        And each point have 2 coordinate values(x,y). So if you have n point pairs, the points list should have 4*n
+        values.
+
+        For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_lines() will draw 3 lines:
+        (50,50) to (550,350), (50,150) to (550,450), (50,250) to (550,550)
+
+        :param points: point value list
+        """
         numpoints = len(points) // 2
         if numpoints < 2:
             raise ValueError
-        qpoints = []
+        qlines = []
         for i in range(0, numpoints, 2):
-            qpoints.append(QtCore.QLineF(*points[i * 2:i * 2 + 4]))
+            qlines.append(QtCore.QLineF(*points[i * 2:i * 2 + 4]))
+        print(len(qlines))
         p = self._prepare_painter_for_draw_outline()
-        p.drawLines(*qpoints)
+        p.drawLines(qlines)
 
-    def poly_line(self, points: List[float]):
-        self.draw_poly_line(points)
+    lines = draw_lines
 
     def draw_poly_line(self, points: List[float]):
+        """
+        draw poly lines
+
+        points is a 2D point list. Each 2 values in the list make a point. A poly line will be drawn to connect
+        adjecent points defined by the the list.
+
+        For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw 5 lines:
+        (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450), (550,540) to (50,250)
+        and(50,250) to (550,550)
+
+        :param points: point value list
+        """
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_draw_outline()
         p.drawPolyline(*qpoints)
+
+    poly_line = draw_poly_line
 
     @staticmethod
     def _convert_to_qpoints(points):
@@ -742,16 +743,55 @@ class Image:
         return qpoints
 
     def polygon(self, points: List[float]):
+        """
+        draw polygon outline
+
+        points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+        points defined by the the list.
+
+        For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+        (50,50) , (550,350) and (50,150)
+
+        The polygon is not filled.
+
+        :param points: point value list
+        """
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_draw_outline()
         p.drawPolygon(*qpoints)
 
     def draw_polygon(self, points: List[float]):
+        """
+        draw polygon
+
+        points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+        points defined by the the list.
+
+        For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+        (50,50) , (550,350) and (50,150)
+
+        The polygon is filled and has outline.
+
+        :param points: point value list
+        """
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_draw()
         p.drawPolygon(*qpoints)
 
     def fill_polygon(self, points: List[float]):
+        """
+        fill polygon
+
+        points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+        points defined by the the list.
+
+        For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+        (50,50) , (550,350) and (50,150)
+
+        The polygon doesn't have outline.
+
+        :param points: point value list
+        """
         qpoints = self._convert_to_qpoints(points)
         p = self._prepare_painter_for_fill()
         p.drawPolygon(*qpoints)
@@ -769,41 +809,138 @@ class Image:
         p.drawPath(path)
 
     def rect(self, left: float, top: float, right: float, bottom: float):
+        """
+        Draws a rectangle outline with upper left corner at (left, top) and lower right corner at (right,bottom)
+
+        the rectangle is not filled
+
+        :param left: x coordinate value of the upper left corner
+        :param top: y coordinate value of the upper left corner
+        :param right: x coordinate value of the lower right corner
+        :param bottom: y coordinate value of the lower right corner
+        """
         p = self._prepare_painter_for_draw_outline()
         p.drawRect(left, top, right - left, bottom - top)
 
     def draw_rect(self, left: float, top: float, right: float, bottom: float):
+        """
+        Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom)
+
+        the rectangle is filled and has outline
+
+        :param left: x coordinate value of the upper left corner
+        :param top: y coordinate value of the upper left corner
+        :param right: x coordinate value of the lower right corner
+        :param bottom: y coordinate value of the lower right corner
+        """
         p = self._prepare_painter_for_draw()
         p.drawRect(left, top, right - left, bottom - top)
 
     def fill_rect(self, left: float, top: float, right: float, bottom: float):
+        """
+        Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom)
+
+        the rectangle doesn't have outline
+
+        :param left: x coordinate value of the upper left corner
+        :param top: y coordinate value of the upper left corner
+        :param right: x coordinate value of the lower right corner
+        :param bottom: y coordinate value of the lower right corner
+        """
         p = self._prepare_painter_for_fill()
         p.drawRect(left, top, right - left, bottom - top)
 
     def rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
+        """
+        Draws a rounded rectangle outline with upper left corner at (left, top) , lower right corner at (right,bottom).
+        raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
+
+        the rectangle is not filled
+
+        :param left: x coordinate value of the upper left corner
+        :param top: y coordinate value of the upper left corner
+        :param right: x coordinate value of the lower right corner
+        :param bottom: y coordinate value of the lower right corner
+        :param round_x: raidus on x-axis of the corner ellipse arc
+        :param round_y: radius on y-axis of the corner ellipse arc
+        """
         p = self._prepare_painter_for_draw_outline()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
 
     def draw_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
+        """
+        Draws a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
+        raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
+
+        the rectangle is filled and has outline
+
+        :param left: x coordinate value of the upper left corner
+        :param top: y coordinate value of the upper left corner
+        :param right: x coordinate value of the lower right corner
+        :param bottom: y coordinate value of the lower right corner
+        :param round_x: raidus on x-axis of the corner ellipse arc
+        :param round_y: radius on y-axis of the corner ellipse arc
+        """
         p = self._prepare_painter_for_draw()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
 
     def fill_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
+        """
+        Fill a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
+        raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
+
+        the rectangle doesn't have outline
+
+        :param left: x coordinate value of the upper left corner
+        :param top: y coordinate value of the upper left corner
+        :param right: x coordinate value of the lower right corner
+        :param bottom: y coordinate value of the lower right corner
+        :param round_x: raidus on x-axis of the corner ellipse arc
+        :param round_y: radius on y-axis of the corner ellipse arc
+        """
         p = self._prepare_painter_for_fill()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
 
     def clear(self):
         """
-        clear the image with the background color
-
+        Clear the image with the background color
         """
         self._image.fill(self._background_color)
 
-    def draw_image(self, x: int, y: int, image):
+    def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = -1,
+                   src_height: int = -1):
+        """
+        copy part of the source image (image) to the destination image (self) at (x,y)
+
+        (x, y) specifies the top-left point in the destination image that is to be drawn onto.
+
+        (sx, sy) specifies the top-left point of the part in the source image that is to \
+         be drawn. The default is (0, 0).
+
+        (sw, sh) specifies the size of the part of the source image that is to be drawn.  \
+        The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
+
+        :param x: x coordinate value of the upper left point on the destination image
+        :param y: y coordinate value of the upper left point on the destination image
+        :param image: the source image to be copied
+        :param src_x: x coordinate value of the top-left point of of the part to be drawn
+        :param src_y: y coordinate value of the top-left point of of the part to be drawn
+        :param src_width: witdh of the top-left point of of the part to be drawn
+        :param src_height: height of the top-left point of of the part to be drawn
+        """
         p = self._painter
-        p.drawImage(x, y, image.get_image())
+        p.drawImage(x, y, image.get_image(), src_x, src_y, src_width, src_height)
 
     def flood_fill(self, x: int, y: int, border_color):
+        """
+        flood fill the image starting from(x,y) and ending at borders with border_color
+
+        The fill region border must be closed,or the whole image will be filled!
+
+        :param x: x coordinate value of the start point
+        :param y: y coordinate value of the start point
+        :param border_color: color of the fill region border
+        """
         if self._fill_Style == FillStyle.NULL_FILL:  # no need to fill
             return
         queue = deque()
@@ -858,16 +995,51 @@ class Image:
         self._image.setPixel(x, y, color)
 
     def draw_text(self, x: int, y: int, *args, sep=' '):
+        """
+        Prints the given texts beginning at the given position (x,y)
+
+        :param x: x coordinate value of the start point
+        :param y: y coordinate value of the start point
+        :param args: things to be printed
+        :param sep: seperator used to join strings
+        """
         msgs = map(str, args)
         msg = sep.join(msgs)
         p = self._prepare_painter_for_draw()
         p.drawText(x, y, msg)
 
-    def draw_rect_text(self, x: int, y: int, w: int, h: int, flags, *args, sep=' '):
+    def draw_rect_text(self, x: int, y: int, width: int, height: int, flags=QtCore.Qt.AlignCenter, *args, sep=' '):
+        """
+        print the given texts in the specified rectangle area
+
+        Available flags are: （Defined in pyqt5's PyQt5.QtCore pacakge)
+
+        * Qt.AlignLeft          Aligns with the left edge.
+        * Qt::AlignRight        Aligns with the right edge.
+        * Qt::AlignHCenter      Centers horizontally in the available space.
+        * Qt::AlignJustify      Justifies the text in the available space.
+        * Qt::AlignTop          Aligns with the top.
+        * Qt::AlignBottom       Aligns with the bottom.
+        * Qt::AlignVCenter      Centers vertically in the available space.
+        * Qt::AlignCenter       Centers in both dimensions.
+        * Qt::TextDontClip      If it's impossible to stay within the given bounds, it prints outside.
+        * Qt::TextSingleLine    Treats all whitespace as spaces and prints just one line.
+        * Qt::TextExpandTabs    Makes the U+0009 (ASCII tab) character move to the next tab stop.
+        * Qt::TextShowMnemonic  Displays the string "&P" as P For an ampersand, use "&&".
+        * Qt::TextWordWrap      Breaks lines at appropriate points, e.g. at word boundaries.
+
+        :param x: x coordinate of the output rectangle's upper left corner
+        :param y: y coordinate of the output rectangle's upper left corner
+        :param width: width of the output rectangle
+        :param height: height of the output rectangle
+        :param args: things to be printed (like print())
+        :param flags: align flags
+        :param sep: seperator used to join strings
+        """
         msgs = map(str, args)
         msg = sep.join(msgs)
         p = self._prepare_painter_for_draw()
-        p.drawText(x, y, w, h, flags, msg)
+        p.drawText(x, y, width, height, flags, msg)
 
     def set_font(self, font: QtGui.QFont):
         """
@@ -902,9 +1074,17 @@ class Image:
         return self._painter.font().pixelSize()
 
     def text_width(self, text: str) -> int:
+        """
+        return width of the text
+
+        :param text: the text
+        """
         return self._painter.fontMetrics().width(text)
 
-    def text_height(self, text: str) -> int:
+    def text_height(self) -> int:
+        """
+        return height of the text (font height)
+        """
         return self._painter.fontMetrics().height()
 
     def close(self):
