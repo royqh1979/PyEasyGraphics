@@ -2,6 +2,16 @@
 
 History
 =======
+0.9.2
+---------------------
+ * add: easygraphics functions can run in the interactive mode (eg. IPython) correctly
+ * add: dialogs (in **easygraphics.dialog** package, adopted from
+    `easygui_qt<https://github.com/aroberge/easygui_qt/>`_ )
+ * add: create and save to/from file
+ * add image transforms (translate/rotate/scale)
+ * add view port support
+ * add sphinx docs
+ * upload docs to readthedocs.org
 
 0.9.1
 ---------------------

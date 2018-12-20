@@ -13,7 +13,7 @@ Because it is easy to learn and use, it is very good for using for kids and begi
 computer graphics.
 
 * Free software: GPL v3 license
-* Documentation: https://PyEasyGraphics.readthedocs.org.
+* Documentation: https://pyeasygraphics.readthedocs.io/en/latest/
 
 Sample program
 ----------------------
@@ -39,5 +39,5 @@ Sample program
 
 Special Thanks
 ---------------
-Some code is taken from easygui_qt(https://github.com/aroberge/easygui_qt) and qtutils(https://bitbucket.org/philipstarkey/qtutils),
-thanks a lot!
+Some code is taken from `easygui_qt<https://github.com/aroberge/easygui_qt/>`_ and
+`qtutils <https://bitbucket.org/philipstarkey/qtutils>`_, thanks a lot!
