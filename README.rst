@@ -46,5 +46,5 @@ Sample program
 
 Special Thanks
 ---------------
-Some code is taken from `easygui_qt<https://github.com/aroberge/easygui_qt/>`_ and
+Some code is taken from `easygui_qt <https://github.com/aroberge/easygui_qt/>`_ and
 `qtutils <https://bitbucket.org/philipstarkey/qtutils>`_, thanks a lot!
