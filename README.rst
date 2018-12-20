@@ -1,15 +1,19 @@
 ===============================
-Introduction to EasyGraphics
+Introduction to PyEasyGraphics
 ===============================
 
 A Borland Graphics Interface like Grahics library for python
 
-Borland Graphics Interface( https://en.wikipedia.org/wiki/Borland_Graphics_Interface ),also known
-as Turbo C Graphics(http://www.softwareandfinance.com/Turbo_C/Graphics/), is an easy-to-use graphics library
+
+`Borland Graphics Interface <https://en.wikipedia.org/wiki/Borland_Graphics_Interface />`_, also known
+as `Turbo C Graphics <http://www.softwareandfinance.com/Turbo_C/Graphics/>`_, is an easy-to-use graphics library
 bundled with Turbo C/Turbo C++/Borland C++.
 
 Because it is easy to learn and use, it is very good for using for kids and beginners to learn basic programming ,
 computer graphics.
+
+* Free software: GPL v3 license
+* Documentation: https://PyEasyGraphics.readthedocs.org.
 
 Sample program
 ----------------------

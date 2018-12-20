@@ -42,7 +42,7 @@ def show_message(message: str = "Message",
     >>> from easygraphics.dialog import *
     >>> show_message()
 
-    .. image:: ../../docs/images/show_message.png
+    .. image:: ../../docs/images/dialogs/show_message.png
     """
     dialog = QtWidgets.QMessageBox(None)
     dialog.setWindowTitle(title)
@@ -70,7 +70,7 @@ def get_yes_or_no(question: str = "Answer this question", title: str = "Title") 
        >>> from easygraphics.dialog import *
        >>> choice = get_yes_or_no()
 
-       .. image:: ../../docs/images/yes_no_question.png
+       .. image:: ../../docs/images/dialogs/yes_no_question.png
     """
     flags = QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No
     flags |= QtWidgets.QMessageBox.Cancel
@@ -101,7 +101,7 @@ def get_continue_or_cancel(question: str = "Processed will be cancelled!",
        >>> from easygraphics.dialog import *
        >>> choice = get_continue_or_cancel()
 
-       .. image:: ../../docs/images/get_continue_or_cancel.png
+       .. image:: ../../docs/images/dialogs/get_continue_or_cancel.png
     """
     dialog = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, title, question,
                                    QtWidgets.QMessageBox.NoButton)
@@ -121,7 +121,7 @@ def get_color_hex() -> Optional[str]:
        >>> from easygraphics.dialog import *
        >>> color = get_color_hex()
 
-       .. image:: ../../docs/images/select_color.png
+       .. image:: ../../docs/images/dialogs/select_color.png
        """
     color = QtWidgets.QColorDialog.getColor(QtCore.Qt.white, None)
     if color.isValid():
@@ -136,7 +136,7 @@ def get_color_rgb() -> (int, int, int):
        >>> from easygraphics.dialog import *
        >>> color = get_color_rgb()
 
-       .. image:: ../../docs/images/select_color_fr.png
+       .. image:: ../../docs/images/dialogs/select_color_fr.png
        """
     color = QtWidgets.QColorDialog.getColor(QtCore.Qt.white, None)
     if color.isValid():
@@ -154,7 +154,7 @@ def get_date(title: str = "Select Date") -> datetime.date:
        >>> from easygraphics.dialog import *
        >>> date = get_date()
 
-       .. image:: ../../docs/images/get_date.png
+       .. image:: ../../docs/images/dialogs/get_date.png
     """
     cal = calendar_widget.CalendarWidget(title=title)
     date = cal.date.toPyDate()
@@ -201,7 +201,7 @@ def get_int(message: str = "Choose a number", title: str = "Title",
        >>> from easygraphics.dialog import *
        >>> number = get_int()
 
-       .. image:: ../../docs/images/get_int.png
+       .. image:: ../../docs/images/dialogs/get_int.png
 
 
        If ``default_value`` is larger than ``max_``, it is set to ``max_``;
@@ -209,7 +209,7 @@ def get_int(message: str = "Choose a number", title: str = "Title",
 
        >>> number = easy.get_integer("Enter a number", default_value=125)
 
-       .. image:: ../../docs/images/get_int2.png
+       .. image:: ../../docs/images/dialogs/get_int2.png
 
     """
     # converting values to int for launcher demo set_font_size which
@@ -254,7 +254,7 @@ def get_float(message: str = "Choose a number", title: str = "Title", default_va
        >>> from easygraphics.dialog import *
        >>> number = get_float()
 
-       .. image:: ../../docs/images/get_float.png
+       .. image:: ../../docs/images/dialogs/get_float.png
 
        **Note:** depending on the locale of the operating system where
        this is used, instead of a period being used for indicating the
@@ -289,11 +289,11 @@ def get_string(message: str = "Enter your response", title: str = "Title",
        >>> from easygraphics.dialog import *
        >>> reply = get_string()
 
-       .. image:: ../../docs/images/get_string.png
+       .. image:: ../../docs/images/dialogs/get_string.png
 
        >>> reply = get_string("new message", default_response="ready")
 
-       .. image:: ../../docs/images/get_string2.png
+       .. image:: ../../docs/images/dialogs/get_string2.png
     """
     dialog = VisibleInputDialog()
     flags = _get_common_input_flags()
@@ -317,7 +317,7 @@ def get_password(message: str = "Enter your password", title: str = "Title") -> 
        >>> from easygraphics.dialog import *
        >>> password = get_password()
 
-       .. image:: ../../docs/images/get_password.png
+       .. image:: ../../docs/images/dialogs/get_password.png
     """
     dialog = VisibleInputDialog()
     flags = _get_common_input_flags()
@@ -343,7 +343,7 @@ def get_choice(message: str = "Select one item", title: str = "Title", choices: 
        >>> choices = ["CPython", "Pypy", "Jython", "IronPython"]
        >>> reply = get_choice("What is the best Python implementation", choices=choices)
 
-       .. image:: ../../docs/images/get_choice.png
+       .. image:: ../../docs/images/dialogs/get_choice.png
     """
     if choices is None:
         choices = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
@@ -375,7 +375,7 @@ def get_username_password(title: str = "Title", labels: List[str] = None) -> Ind
     >>> reply
     OrderedDict([('User name', 'aroberge'), ('Password', 'not a good password')])
 
-    .. image:: ../../docs/images/get_username_password.png
+    .. image:: ../../docs/images/dialogs/get_username_password.png
     """
     if labels is None:
         labels = ["User name", "Password"]
@@ -408,7 +408,7 @@ def get_new_password(title: str = "Title", labels: List[str] = None) -> IndexedO
     >>> from easygraphics.dialog import *
     >>> reply = easy.get_new_password()
 
-    .. image:: ../../docs/images/get_new_password.png
+    .. image:: ../../docs/images/dialogs/get_new_password.png
     """
 
     if not labels:  # empty list acceptable for test
@@ -453,7 +453,7 @@ def get_many_strings(title: str = "Title", labels: List[str] = None, masks: List
     >>> reply
     OrderedDict([('User name', 'aroberge'), ('Password', 'not a good password')])
 
-    .. image:: ../../docs/images/get_many_strings.png
+    .. image:: ../../docs/images/dialogs/get_many_strings.png
     """
 
     dialog = multifields.MultipleFieldsDialog(labels=labels, masks=masks,
@@ -478,7 +478,7 @@ def get_list_of_choices(title: str = "Title", choices: List[str] = None) -> Inde
     >>> from easygraphics.dialog import *
     >>> choices = get_list_of_choices()
 
-    .. image:: ../../docs/images/get_list_of_choices.png
+    .. image:: ../../docs/images/dialogs/get_list_of_choices.png
     """
     dialog = multichoice.MultipleChoicesDialog(title=title, choices=choices)
     _send_to_front(dialog)
@@ -499,7 +499,7 @@ def get_directory_name(title: str = "Get directory") -> str:
     >>> from easygraphics.dialog import *
     >>> get_directory_name()
 
-    .. image:: ../../docs/images/get_directory_name.png
+    .. image:: ../../docs/images/dialogs/get_directory_name.png
 
     By default, this _dialog initially displays the content of the current
     working directory.
@@ -527,7 +527,7 @@ def get_file_names(title: str = "Get existing file names") -> str:
     >>> from easygraphics.dialog import *
     >>> easy.get_file_names()
 
-    .. image:: ../../docs/images/get_file_names.png
+    .. image:: ../../docs/images/dialogs/get_file_names.png
 
     By default, this _dialog initially displays the content of the current
     working directory.
@@ -554,7 +554,7 @@ def get_save_file_name(title: str = "File name to save") -> str:
     >>> from easygraphics.dialog import *
     >>> easy.get_save_file_name()
 
-    .. image:: ../../docs/images/get_save_file_name.png
+    .. image:: ../../docs/images/dialogs/get_save_file_name.png
 
     By default, this _dialog initially displays the content of the current
     working directory.
@@ -588,7 +588,7 @@ def show_file(file_name: str = None, title: str = "Title", file_type: str = "tex
     >>> from easygraphics.dialog import *
     >>> easy.show_file()
 
-    .. image:: ../../docs/images/show_file.png
+    .. image:: ../../docs/images/dialogs/show_file.png
     """
     editor = show_text_window.TextWindow(file_name=file_name,
                                          title=title,
@@ -607,7 +607,7 @@ def show_text(title: str = "Title", text: str = ""):
     >>> from easygraphics.dialog import *
     >>> easy.show_code()
 
-    .. image:: ../../docs/images/show_text.png
+    .. image:: ../../docs/images/dialogs/show_text.png
     """
     editor = show_text_window.TextWindow(title=title, text_type='text', text=text)
     editor.resize(720, 450)
@@ -625,7 +625,7 @@ def show_code(title: str = "Title", code: str = ""):
     >>> from easygraphics.dialog import *
     >>> show_code()
 
-    .. image:: ../../docs/images/show_code.png
+    .. image:: ../../docs/images/dialogs/show_code.png
     """
     editor = show_text_window.TextWindow(title=title, text_type='code', text=code)
     editor.resize(720, 450)
@@ -643,7 +643,7 @@ def show_html(title: str = "Title", text: str = ""):
     >>> from easygraphics.dialog import *
     >>> show_html()
 
-    .. image:: ../../docs/images/show_html.png
+    .. image:: ../../docs/images/dialogs/show_html.png
     """
     editor = show_text_window.TextWindow(title=title, text_type='html', text=text)
     editor.resize(720, 450)
@@ -665,7 +665,7 @@ def get_abort(message: str = "Major problem - or at least we think there is one.
     >>> from easygraphics.dialog import *
     >>> get_abort()
 
-    .. image:: ../../docs/images/get_abort.png
+    .. image:: ../../docs/images/dialogs/get_abort.png
     """
 
     reply = QtWidgets.QMessageBox.critical(None, title, message,
@@ -688,7 +688,7 @@ def handle_exception(title: str = "Exception raised!"):
 
     :param title: the window title
 
-    .. image:: ../../docs/images/handle_exception.png
+    .. image:: ../../docs/images/dialogs/handle_exception.png
     """
     try:
         message = "\n".join(traceback.format_exception(sys.exc_info()[0],
