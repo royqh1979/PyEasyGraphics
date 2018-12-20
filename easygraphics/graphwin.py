@@ -1,15 +1,15 @@
 import threading
 import time
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
+from PyQt5 import QtWidgets
+from PyQt5 import QtCore
+from PyQt5 import QtGui
 
 from easygraphics.image import Image
 
 __all__ = ['GraphWin']
 
 
-class GraphWin(QWidget):
+class GraphWin(QtWidgets.QWidget):
     """
     Main Window for painting graphics
 
@@ -25,8 +25,8 @@ class GraphWin(QWidget):
         and this object is synced with self._screen manually
     """
 
-    def __init__(self, width: int, height: int, app: QApplication):
-        super().__init__(flags=Qt.Window | Qt.MSWindowsFixedSizeDialogHint)
+    def __init__(self, width: int, height: int, app: QtWidgets.QApplication):
+        super().__init__(flags=QtCore.Qt.Window | QtCore.Qt.MSWindowsFixedSizeDialogHint)
         self._width = width
         self._height = height
         self._wait_event = threading.Event()
@@ -51,10 +51,10 @@ class GraphWin(QWidget):
         return self._height
 
     def _init_screen(self, width, height):
-        screen_image = QImage(width, height, QImage.Format_ARGB32_Premultiplied)
-        p = QPainter()
+        screen_image = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
+        p = QtGui.QPainter()
         p.begin(screen_image)
-        p.fillRect(0, 0, width, height, Qt.white)
+        p.fillRect(0, 0, width, height, QtCore.Qt.white)
         p.end()
         self._canvas = Image(screen_image)
         self._device_image = screen_image.copy()
@@ -64,7 +64,7 @@ class GraphWin(QWidget):
         return self._canvas
 
     def paintEvent(self, e):
-        p = QPainter()
+        p = QtGui.QPainter()
         p.begin(self)
         if self._immediate:
             p.drawImage(0, 0, self._canvas.get_image())
@@ -105,16 +105,16 @@ class GraphWin(QWidget):
         """
         return self._immediate
 
-    def mousePressEvent(self, e: QMouseEvent):
+    def mousePressEvent(self, e: QtGui.QMouseEvent):
         self._wait_event.set()
         self._mouse_msg.set_event(e)
         self._mouse_event.set()
 
-    def mouseMoveEvent(self, e: QMouseEvent):
+    def mouseMoveEvent(self, e: QtGui.QMouseEvent):
         self._mouse_msg.set_event(e)
         self._mouse_event.set()
 
-    def keyPressEvent(self, e: QKeyEvent):
+    def keyPressEvent(self, e: QtGui.QKeyEvent):
         self._wait_event.set()
         if e.key() < 127:
             # ascii char key pressed
@@ -130,7 +130,7 @@ class GraphWin(QWidget):
         self._wait_event.clear()
         self._wait_event.wait()
 
-    def closeEvent(self, e: QCloseEvent):
+    def closeEvent(self, e: QtGui.QCloseEvent):
         self._is_run = False
         self._canvas.close()
         self._wait_event.set()
@@ -148,7 +148,7 @@ class GraphWin(QWidget):
 
         the intermediary image (self._device_image) is synced with the canvas
         """
-        painter = QPainter()
+        painter = QtGui.QPainter()
         painter.begin(self._device_image)
         painter.drawImage(0, 0, self._canvas.get_image().copy())
         painter.end()
@@ -227,8 +227,8 @@ class GraphWin(QWidget):
         get the key inputted by keyboard
         if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
-        :return: keyboard code (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum) , keyboard modifier codes
-        (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)
+        :return: keyboard code (see http://pyQtCore.Qt.sourceforge.net/Docs/PyQt4/QtCore.Qt.html#Key-enum) , keyboard modifier codes
+        (see http://pyQtCore.Qt.sourceforge.net/Docs/PyQt4/QtCore.Qt.html#KeyboardModifier-enum)
         """
         nt = time.time_ns()
         if nt - self._key_msg.get_time() > 100000000:
@@ -236,7 +236,7 @@ class GraphWin(QWidget):
             self._key_event.clear()
             self._key_event.wait()
         if not self._is_run:
-            return Qt.Key_Escape, Qt.NoModifier
+            return QtCore.Qt.Key_Escape, QtCore.Qt.NoModifier
         e = self._key_msg.get_event()
         self._key_msg.reset()
         return e.key(), e.modifiers()
@@ -247,7 +247,7 @@ class GraphWin(QWidget):
         if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
         :return: x of the cursor, y of the cursor , mouse buttons down
-        ( Qt.LeftButton or Qt.RightButton or Qt.MidButton or Qt.NoButton)
+        ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
         """
         nt = time.time_ns()
         if nt - self._mouse_msg.get_time() > 100000000:
@@ -255,7 +255,7 @@ class GraphWin(QWidget):
             self._mouse_event.clear()
             self._mouse_event.wait()
         if not self._is_run:
-            return 0, 0, Qt.NoButton
+            return 0, 0, QtCore.Qt.NoButton
         e = self._mouse_msg.get_event()
         self._mouse_msg.reset()
         return e.x(), e.y(), e.button()
@@ -299,11 +299,11 @@ class _KeyMsg:
         self._time = 0
         self._key_event = None
 
-    def set_event(self, key_event: QKeyEvent):
+    def set_event(self, key_event: QtGui.QKeyEvent):
         self._key_event = key_event
         self._time = time.time_ns()
 
-    def get_event(self) -> QKeyEvent:
+    def get_event(self) -> QtGui.QKeyEvent:
         return self._key_event
 
     def get_time(self) -> int:
@@ -323,7 +323,7 @@ class _KeyCharMsg:
         self._time = 0
         self._key = None
 
-    def set_char(self, key_event: QKeyEvent):
+    def set_char(self, key_event: QtGui.QKeyEvent):
         self._key = key_event.text()
         self._time = time.time_ns()
 
@@ -343,11 +343,11 @@ class _MouseMsg:
         self._time = 0
         self._mouse_event = None
 
-    def set_event(self, e: QMouseEvent):
+    def set_event(self, e: QtGui.QMouseEvent):
         self._mouse_event = e
         self._time = time.time_ns()
 
-    def get_event(self) -> QMouseEvent:
+    def get_event(self) -> QtGui.QMouseEvent:
         return self._mouse_event
 
     def get_time(self):

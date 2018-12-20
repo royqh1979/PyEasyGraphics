@@ -192,3 +192,5 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+autodoc_mock_imports = ["sip", "PyQt5", "PyQt5.sip", "PyQt5.QtCore", "PyQt5.QtGui", "PyQt5.QtCore"]
