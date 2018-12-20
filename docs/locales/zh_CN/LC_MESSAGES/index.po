@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Roy Qu
+# This file is distributed under the same license as the EasyGraphics
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyGraphics \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-20 10:30+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/index.rst:7
+msgid "Welcome to EasyGraphics's documentation!"
+msgstr ""
+
+#: ../../source/index.rst:14
+msgid "API"
+msgstr ""
+
+#: ../../source/index.rst:19
+msgid "Indices and tables"
+msgstr ""
+
+#: ../../source/index.rst:21
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../source/index.rst:22
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../source/index.rst:23
+msgid ":ref:`search`"
+msgstr ""
+
