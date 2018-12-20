@@ -11,9 +11,6 @@ from .graphwin import GraphWin
 from .image import Image
 from .dialog import invoke_in_app_thread
 
-if sys.version_info < (3, 6):
-    raise OSError("Only Support Python 3.6 and above")
-
 __all__ = [
     'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'WriteMode',  # consts
     # 'GraphWin', 'Image',
