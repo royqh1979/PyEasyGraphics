@@ -12,6 +12,12 @@ bundled with Turbo C/Turbo C++/Borland C++.
 Because it is easy to learn and use, it is very good for using for kids and beginners to learn basic programming ,
 computer graphics.
 
+.. image:: https://badge.fury.io/py/easygraphics.png
+    :target: http://badge.fury.io/py/easygraphics
+
+.. image:: https://pypip.in/d/easygraphics/badge.png
+        :target: https://pypi.python.org/pypi/easygraphics
+
 * Free software: GPL v3 license
 * Documentation: https://pyeasygraphics.readthedocs.io/en/latest/
 
