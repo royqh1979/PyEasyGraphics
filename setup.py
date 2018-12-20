@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='easygraphics',
-    version='0.9.1',
+    version='0.9.1.1',
     description='"A TC Graphics style like Graphics Library"',
     long_description=readme + '\n\n' + history,
     author='Roy Qu',
@@ -32,7 +32,7 @@ setup(
     package_dir={'easygraphics':
                      'easygraphics'},
     include_package_data=True,
-    install_requires=['PyQt5 (<5.10)'],
+    install_requires=['PyQt5'],
     license="GPLv3",
     zip_safe=False,
     keywords=['easygraphics', 'computer graphics', 'Turbo C graphics', 'Borland Graphics Interface'],
