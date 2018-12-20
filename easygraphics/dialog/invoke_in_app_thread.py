@@ -82,7 +82,7 @@ def destroy_invoke_in_app():
 def __app_thread_func():
     global _app
     _app = QtWidgets.QApplication([])
-    font: QtGui.QFont = _app.font()
+    font = _app.font()
     font.setPixelSize(_font_size)
     _app.setFont(font)
     _app.setQuitOnLastWindowClosed(True)

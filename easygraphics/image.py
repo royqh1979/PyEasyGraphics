@@ -944,7 +944,7 @@ class Image:
         if self._fill_Style == FillStyle.NULL_FILL:  # no need to fill
             return
         queue = deque()
-        transform: QtGui.QTransform = self._painter.combinedTransform()
+        transform = self._painter.combinedTransform()
         new_pos = transform.map(QtCore.QPoint(x, y))
         print(new_pos.x(), new_pos.y())
         queue.append((new_pos.x(), new_pos.y()))
