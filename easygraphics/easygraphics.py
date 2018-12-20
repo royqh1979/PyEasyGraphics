@@ -466,7 +466,7 @@ def set_window(origin_x: int, origin_y: int, width: int, height: int, image: Ima
     :param width: width of the logical window
     :param height: height of the logical window
     :param image: the target image whose logical window is to be set. None means it is the target image
-    (see set_target() and get_target()).
+        (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
     image.set_window(origin_x, origin_y, width, height)
@@ -479,7 +479,7 @@ def reset_window(image: Image = None):
     see set_window()
 
     :param image: the target image whose logical window is to be reset. None means it is the target image
-    (see set_target() and get_target()).
+        (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
     image.reset_window()
@@ -1670,7 +1670,7 @@ def get_mouse():
     if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
     :return: x of the cursor, y of the cursor , mouse buttons down
-    ( Qt.LeftButton or Qt.RightButton or Qt.MidButton or Qt.NoButton)
+        ( Qt.LeftButton or Qt.RightButton or Qt.MidButton or Qt.NoButton)
     """
     _check_app_run()
     return _win.get_mouse()
@@ -1693,7 +1693,7 @@ def get_key():
     if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
     :return: keyboard code (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum) , keyboard modifier codes
-    (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)
+        (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)
     """
     _check_app_run()
     return _win.get_key()
@@ -1704,6 +1704,7 @@ def get_key():
 def set_caption(title: str):
     """
     set the graph window's caption
+
     :param title: caption title
     """
     _win.setWindowTitle(title)
