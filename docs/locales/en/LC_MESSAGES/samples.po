@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-20 10:30+0800\n"
+"POT-Creation-Date: 2018-12-20 20:43+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: ../../source/easygraphics.consts.rst:2
-msgid "easygraphics.consts module"
+#: ../../samples/index.rst:3
+msgid "Samples"
 msgstr ""
 
-#: easygraphics.consts.Color:1 easygraphics.consts.FillStyle:1
-#: easygraphics.consts.LineStyle:1 easygraphics.consts.RenderMode:1
-#: easygraphics.consts.WriteMode:1 of
-msgid "Bases: :class:`object`"
+#: ../../samples/index.rst:5
+msgid "This is samples"
 msgstr ""
 

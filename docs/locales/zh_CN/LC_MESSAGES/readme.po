@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Roy Qu
+# This file is distributed under the same license as the EasyGraphics
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyGraphics \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-20 20:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../../README.rst:4
+msgid "Introduction to PyEasyGraphics"
+msgstr ""
+
+#: ../../../README.rst:6
+msgid "A Borland Graphics Interface like Grahics library for python"
+msgstr ""
+
+#: ../../../README.rst:9
+msgid ""
+"`Borland Graphics Interface "
+"<https://en.wikipedia.org/wiki/Borland_Graphics_Interface />`_, also "
+"known as `Turbo C Graphics "
+"<http://www.softwareandfinance.com/Turbo_C/Graphics/>`_, is an easy-to-"
+"use graphics library bundled with Turbo C/Turbo C++/Borland C++."
+msgstr ""
+
+#: ../../../README.rst:13
+msgid ""
+"Because it is easy to learn and use, it is very good for using for kids "
+"and beginners to learn basic programming , computer graphics."
+msgstr ""
+
+#: ../../../README.rst:22
+msgid "Free software: GPL v3 license"
+msgstr ""
+
+#: ../../../README.rst:23
+msgid "Documentation: https://pyeasygraphics.readthedocs.io/en/latest/"
+msgstr ""
+
+#: ../../../README.rst:26
+msgid "Sample program"
+msgstr ""
+
+#: ../../../README.rst:48
+msgid "Special Thanks"
+msgstr ""
+
+#: ../../../README.rst:49
+msgid ""
+"Some code is taken from `easygui_qt "
+"<https://github.com/aroberge/easygui_qt/>`_ and `qtutils "
+"<https://bitbucket.org/philipstarkey/qtutils>`_, thanks a lot!"
+msgstr ""
+

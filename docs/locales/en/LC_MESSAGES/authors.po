@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-20 20:47+0800\n"
+"POT-Creation-Date: 2018-12-20 20:43+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,28 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: ../../index.rst:3
-msgid "Welcome to PyEasyGraphics documentation!"
-msgstr "欢迎阅读PyEasyGraphics文档"
-
-#: ../../index.rst:5
-msgid "Contents:"
-msgstr "目录"
-
-#: ../../index.rst:22
-msgid "Indices and tables"
-msgstr "索引与表格"
-
-#: ../../index.rst:24
-msgid ":ref:`genindex`"
+#: ../../../AUTHORS.rst:3
+msgid "Credits"
 msgstr ""
 
-#: ../../index.rst:25
-msgid ":ref:`modindex`"
+#: ../../../AUTHORS.rst:6
+msgid "Development Lead"
 msgstr ""
 
-#: ../../index.rst:26
-msgid ":ref:`search`"
+#: ../../../AUTHORS.rst:8
+msgid "Roy Qu <royqh1979@gmail.com>"
 msgstr ""
 
+#: ../../../AUTHORS.rst:11
+msgid "Contributors"
+msgstr ""
 

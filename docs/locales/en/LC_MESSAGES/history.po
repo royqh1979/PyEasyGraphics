@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Roy Qu
+# This file is distributed under the same license as the EasyGraphics
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyGraphics \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-20 20:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../../HISTORY.rst:4
+msgid "History"
+msgstr ""
+
+#: ../../../HISTORY.rst:7
+msgid "0.9.3"
+msgstr ""
+
+#: ../../../HISTORY.rst:8
+msgid "fix : Readme"
+msgstr ""
+
+#: ../../../HISTORY.rst:11
+msgid "0.9.2"
+msgstr ""
+
+#: ../../../HISTORY.rst:12
+msgid ""
+"add: easygraphics functions can run in the interactive mode (eg. IPython)"
+" correctly"
+msgstr ""
+
+#: ../../../HISTORY.rst:13
+msgid "add: dialogs (in **easygraphics.dialog** package, adopted from"
+msgstr ""
+
+#: ../../../HISTORY.rst:14
+msgid "`easygui_qt <https://github.com/aroberge/easygui_qt/>`_ )"
+msgstr ""
+
+#: ../../../HISTORY.rst:15
+msgid "add: create and save to/from file"
+msgstr ""
+
+#: ../../../HISTORY.rst:16
+msgid "add image transforms (translate/rotate/scale)"
+msgstr ""
+
+#: ../../../HISTORY.rst:17
+msgid "add view port support"
+msgstr ""
+
+#: ../../../HISTORY.rst:18
+msgid "add sphinx docs"
+msgstr ""
+
+#: ../../../HISTORY.rst:19
+msgid "upload docs to readthedocs.org"
+msgstr ""
+
+#: ../../../HISTORY.rst:22
+msgid "0.9.1"
+msgstr ""
+
+#: ../../../HISTORY.rst:23
+msgid "add readme text"
+msgstr ""
+
+#: ../../../HISTORY.rst:24
+msgid "add delay_fps() and rgb() functions"
+msgstr ""
+
+#: ../../../HISTORY.rst:27
+msgid "0.9.0"
+msgstr ""
+
+#: ../../../HISTORY.rst:28
+msgid "add keyboard and mouse message check and handle"
+msgstr ""
+
+#: ../../../HISTORY.rst:29
+msgid ""
+"add simple dialogs ( from EasyGUI-Qt "
+"(https://github.com/aroberge/easygui_qt) and qtutils "
+"(https://bitbucket.org/philipstarkey/qtutils))"
+msgstr ""
+
+#: ../../../HISTORY.rst:33
+msgid "0.1.0"
+msgstr ""
+
+#: ../../../HISTORY.rst:34
+msgid "First release on github"
+msgstr ""
+

@@ -1,6 +1,5 @@
-
-Welcome to EasyGraphics documentation!
-======================================
+Welcome to PyEasyGraphics documentation!
+========================================
 
 Contents:
 
@@ -11,7 +10,7 @@ Contents:
    installation
    usage
    api
-   tutorial
+   tutorials
    examples
    naming
    contributing

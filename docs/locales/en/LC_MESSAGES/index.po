@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-20 10:30+0800\n"
+"POT-Creation-Date: 2018-12-20 20:47+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,27 +18,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: ../../source/index.rst:7
-msgid "Welcome to EasyGraphics's documentation!"
+#: ../../index.rst:3
+msgid "Welcome to PyEasyGraphics documentation!"
 msgstr ""
 
-#: ../../source/index.rst:14
-msgid "API"
+#: ../../index.rst:5
+msgid "Contents:"
 msgstr ""
 
-#: ../../source/index.rst:19
+#: ../../index.rst:22
 msgid "Indices and tables"
 msgstr ""
 
-#: ../../source/index.rst:21
+#: ../../index.rst:24
 msgid ":ref:`genindex`"
 msgstr ""
 
-#: ../../source/index.rst:22
+#: ../../index.rst:25
 msgid ":ref:`modindex`"
 msgstr ""
 
-#: ../../source/index.rst:23
+#: ../../index.rst:26
 msgid ":ref:`search`"
 msgstr ""
+
+#~ msgid "Welcome to EasyGraphics documentation!"
+#~ msgstr ""
 

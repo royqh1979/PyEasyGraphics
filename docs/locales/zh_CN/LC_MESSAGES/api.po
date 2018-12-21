@@ -1,0 +1,1660 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Roy Qu
+# This file is distributed under the same license as the EasyGraphics
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyGraphics \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-20 20:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../api.rst:3
+msgid "EasyGraphics package"
+msgstr ""
+
+#: ../../api.rst:6
+msgid "Subpackages"
+msgstr ""
+
+#: ../../api.rst:13
+msgid "Submodules"
+msgstr ""
+
+#: ../../api.rst:21
+msgid "APIs"
+msgstr ""
+
+#: easygraphics.Color:1 easygraphics.FillStyle:1 easygraphics.LineStyle:1
+#: easygraphics.RenderMode:1 easygraphics.WriteMode:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: easygraphics.Color.BLACK:1 easygraphics.Color.BLUE:1
+#: easygraphics.Color.BROWN:1 easygraphics.Color.CYAN:1
+#: easygraphics.Color.DARKGRAY:1 easygraphics.Color.GREEN:1
+#: easygraphics.Color.LIGHTBLUE:1 easygraphics.Color.LIGHTCYAN:1
+#: easygraphics.Color.LIGHTGRAY:1 easygraphics.Color.LIGHTGREEN:1
+#: easygraphics.Color.LIGHTMAGENTA:1 easygraphics.Color.LIGHTRED:1
+#: easygraphics.Color.MAGENTA:1 easygraphics.Color.RED:1
+#: easygraphics.Color.TRANSPARENT:1 easygraphics.Color.WHITE:1
+#: easygraphics.Color.YELLOW:1 easygraphics.FillStyle.NULL_FILL:1
+#: easygraphics.FillStyle.SOLID_FILL:1 easygraphics.LineStyle.CENTER_LINE:1
+#: easygraphics.LineStyle.DASHED_LINE:1
+#: easygraphics.LineStyle.DASH_DOT_DOT_LINE:1
+#: easygraphics.LineStyle.DASH_DOT_LINE:1 easygraphics.LineStyle.DASH_LINE:1
+#: easygraphics.LineStyle.DOTTED_LINE:1 easygraphics.LineStyle.DOT_LINE:1
+#: easygraphics.LineStyle.NO_PEN:1 easygraphics.LineStyle.NULL_LINE:1
+#: easygraphics.LineStyle.SOLID_LINE:1 easygraphics.WriteMode.R2_COPYPEN:1
+#: easygraphics.WriteMode.R2_COPYPENA:1 easygraphics.WriteMode.R2_MASKNOTPEN:1
+#: easygraphics.WriteMode.R2_MASKPEN:1 easygraphics.WriteMode.R2_MASKPENNOT:1
+#: easygraphics.WriteMode.R2_MERGENOTPEN:1 easygraphics.WriteMode.R2_MERGEPEN:1
+#: easygraphics.WriteMode.R2_MERGEPENNOT:1 easygraphics.WriteMode.R2_NOP:1
+#: easygraphics.WriteMode.R2_NOT:1 easygraphics.WriteMode.R2_NOTCOPYPEN:1
+#: easygraphics.WriteMode.R2_NOTMASKPEN:1
+#: easygraphics.WriteMode.R2_NOTMERGEPEN:1
+#: easygraphics.WriteMode.R2_NOTXORPEN:1 easygraphics.WriteMode.R2_XORPEN:1 of
+msgid "Used by autodoc_mock_imports."
+msgstr ""
+
+#: easygraphics.set_line_style:1 of
+msgid "set line style of the specified image"
+msgstr "为指定的image设置**线形**"
+
+#: easygraphics.set_line_style:3 of
+msgid ""
+"The line style will be used when drawing lines and shape outlines. "
+"Possible value is one of the consts defined in LineStyle."
+msgstr "**线型**用于画线和形状轮廓。在LineStyle中定义了可用的线型常量，如LineStyle.SOLID_LINE等"
+
+#: easygraphics.arc easygraphics.bezier easygraphics.chord easygraphics.circle
+#: easygraphics.clear_device easygraphics.clear_view_port
+#: easygraphics.create_image easygraphics.delay_fps easygraphics.disable_clip
+#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
+#: easygraphics.draw_circle easygraphics.draw_ellipse easygraphics.draw_image
+#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
+#: easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.draw_polygon easygraphics.draw_rect easygraphics.draw_rect_text
+#: easygraphics.draw_rounded_rect easygraphics.draw_text easygraphics.ellipse
+#: easygraphics.fill_chord easygraphics.fill_circle easygraphics.fill_ellipse
+#: easygraphics.fill_pie easygraphics.fill_polygon easygraphics.fill_rect
+#: easygraphics.fill_rounded_rect easygraphics.flood_fill
+#: easygraphics.get_background_color easygraphics.get_color
+#: easygraphics.get_drawing_pos easygraphics.get_fill_color
+#: easygraphics.get_fill_style easygraphics.get_font easygraphics.get_font_size
+#: easygraphics.get_line_style easygraphics.get_line_width
+#: easygraphics.get_pixel easygraphics.get_write_mode easygraphics.get_x
+#: easygraphics.get_y easygraphics.init_graph easygraphics.line
+#: easygraphics.line_rel easygraphics.line_to easygraphics.lines
+#: easygraphics.move_rel easygraphics.move_to easygraphics.pie
+#: easygraphics.poly_line easygraphics.polygon easygraphics.put_pixel
+#: easygraphics.rect easygraphics.reset_transform easygraphics.reset_window
+#: easygraphics.rgb easygraphics.rotate easygraphics.rounded_rect
+#: easygraphics.scale easygraphics.set_background_color
+#: easygraphics.set_caption easygraphics.set_clip_rect easygraphics.set_color
+#: easygraphics.set_fill_color easygraphics.set_fill_style
+#: easygraphics.set_font easygraphics.set_font_size easygraphics.set_line_style
+#: easygraphics.set_line_width easygraphics.set_origin
+#: easygraphics.set_render_mode easygraphics.set_target
+#: easygraphics.set_view_port easygraphics.set_window
+#: easygraphics.set_write_mode easygraphics.text_height easygraphics.text_width
+#: easygraphics.translate of
+msgid "Parameters"
+msgstr "参数"
+
+#: easygraphics.set_line_style:6 of
+msgid "line style"
+msgstr "线型"
+
+#: easygraphics.set_line_style:7 of
+msgid ""
+"the target image whose line style is to be set. None means it is the "
+"default target image (see set_target() and get_target())"
+msgstr ""
+
+#: easygraphics.get_line_style:1 of
+msgid "get line style of the specified image"
+msgstr ""
+
+#: easygraphics.get_line_style:3 of
+msgid "The line style will be used when drawing lines or shape outlines."
+msgstr ""
+
+#: easygraphics.get_line_style:5 of
+msgid ""
+"the target image whose line style is to be gotten. None means it is the "
+"target image (see set_target() and get_target())"
+msgstr ""
+
+#: easygraphics.create_image easygraphics.get_background_color
+#: easygraphics.get_char easygraphics.get_color easygraphics.get_drawing_pos
+#: easygraphics.get_fill_color easygraphics.get_fill_style
+#: easygraphics.get_font easygraphics.get_font_size easygraphics.get_key
+#: easygraphics.get_line_style easygraphics.get_line_width
+#: easygraphics.get_mouse easygraphics.get_pixel easygraphics.get_render_mode
+#: easygraphics.get_target easygraphics.get_write_mode easygraphics.get_x
+#: easygraphics.get_y easygraphics.kb_hit easygraphics.kb_msg
+#: easygraphics.mouse_msg easygraphics.rgb easygraphics.set_fill_style of
+msgid "Returns"
+msgstr ""
+
+#: easygraphics.get_line_style:7 of
+msgid "line style used by the specified image"
+msgstr ""
+
+#: easygraphics.set_line_width:1 of
+msgid "set line width (thickness) of the specified image"
+msgstr ""
+
+#: easygraphics.get_line_width:3 easygraphics.set_line_width:3 of
+msgid "It will be used when drawing lines or shape outlines"
+msgstr ""
+
+#: easygraphics.set_line_width:5 of
+msgid "line width (line thickness)"
+msgstr ""
+
+#: easygraphics.set_line_width:6 of
+msgid ""
+"the target image whose line width is to be set. None means it is the "
+"target image (see set_target() and get_target())"
+msgstr ""
+
+#: easygraphics.get_line_width:1 of
+msgid "get line width (thinkness) of the specified image"
+msgstr ""
+
+#: easygraphics.get_line_width:5 of
+msgid ""
+"the target image whose line width is to be gotten. None means it is the "
+"target image (see set_target() and get_target())"
+msgstr ""
+
+#: easygraphics.get_line_width:7 of
+msgid "line width (line thickness) of the specified image"
+msgstr ""
+
+#: easygraphics.get_color:1 of
+msgid "get the foreground (drawing) color of the specified image"
+msgstr ""
+
+#: easygraphics.get_color:3 of
+msgid "it will be used when drawing lines or shape outlines"
+msgstr ""
+
+#: easygraphics.get_color:5 of
+msgid ""
+"the target image whose foreground color is to be gotten. None means it is"
+" the target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_color:7 of
+msgid "foreground color of the specified image"
+msgstr ""
+
+#: easygraphics.set_color:1 of
+msgid "set the foreground (drawing) color of the specified image."
+msgstr ""
+
+#: easygraphics.set_color:3 of
+msgid "it will be used when drawing lines or shape outlines."
+msgstr ""
+
+#: easygraphics.set_background_color:5 easygraphics.set_color:5
+#: easygraphics.set_fill_color:5 of
+msgid ""
+"the possible color could be consts defined in Color class, or the color "
+"created by rgb() function, or PyQt5's QColor , QGradient object or "
+"Qt.GlobalColor consts (see the pyqt reference)."
+msgstr ""
+
+#: easygraphics.set_color:9 of
+msgid "the foreground color"
+msgstr ""
+
+#: easygraphics.set_color:10 of
+msgid ""
+"the target image whose foreground color is to be set. None means it is "
+"the target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_fill_color:1 of
+msgid "get the fill color of the specified image"
+msgstr ""
+
+#: easygraphics.get_fill_color:3 easygraphics.get_fill_style:3
+#: easygraphics.set_fill_color:3 of
+msgid "it will be used when drawing and fill shapes."
+msgstr ""
+
+#: easygraphics.get_fill_color:5 of
+msgid ""
+"the target image whose fill color is to be gotten. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_fill_color:7 of
+msgid "fill color of the specified image"
+msgstr ""
+
+#: easygraphics.set_fill_color:1 of
+msgid "set the fill (drawing) color of the specified image"
+msgstr ""
+
+#: easygraphics.set_fill_color:9 of
+msgid "the fill color"
+msgstr ""
+
+#: easygraphics.set_fill_color:10 of
+msgid ""
+"the target image whose fill color is to be set. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_fill_style:1 of
+msgid "get fill style of the specified image"
+msgstr ""
+
+#: easygraphics.get_fill_style:5 of
+msgid ""
+"the target image whose fill style is to be gotten. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_fill_style:7 of
+msgid "fill style of the specified image"
+msgstr ""
+
+#: easygraphics.set_fill_style:1 of
+msgid "set fill style of the specified image"
+msgstr ""
+
+#: easygraphics.set_fill_style:3 of
+msgid ""
+"it will be used when drawing and fill shapes. Valid values are the consts"
+" defined in FillStyle"
+msgstr ""
+
+#: easygraphics.set_fill_style:6 of
+msgid "fill style"
+msgstr ""
+
+#: easygraphics.set_fill_style:7 of
+msgid ""
+"the target image whose fill style is to be set. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_background_color:1 of
+msgid "get the background color of the image"
+msgstr ""
+
+#: easygraphics.get_background_color:3 easygraphics.set_background_color:3 of
+msgid "it will be used when the image is cleared. (see clear_device())"
+msgstr ""
+
+#: easygraphics.get_background_color:5 of
+msgid ""
+"the target image whose background color is to be gotten. None means it is"
+" the target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_background_color:7 of
+msgid "background color of the specified image"
+msgstr ""
+
+#: easygraphics.set_background_color:1 of
+msgid "set the background  color of the image"
+msgstr ""
+
+#: easygraphics.set_background_color:9 of
+msgid "the background color"
+msgstr ""
+
+#: easygraphics.set_background_color:10 of
+msgid ""
+"the target image whose background color is to be set. None means it is "
+"the target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.set_font:1 of
+msgid "set font of the specified image"
+msgstr ""
+
+#: easygraphics.set_font:3 of
+msgid "the font will be used"
+msgstr ""
+
+#: easygraphics.set_font:4 of
+msgid ""
+"the target image whose font is to be set. None means it is the target "
+"image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_font:1 of
+msgid "get font of the specified image"
+msgstr ""
+
+#: easygraphics.get_font:3 of
+msgid ""
+"the target image whose font is to be gotten. None means it is the target "
+"image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_font:5 of
+msgid "the font used by the specified image"
+msgstr ""
+
+#: easygraphics.set_font_size:1 of
+msgid "set font size of the specified image"
+msgstr ""
+
+#: easygraphics.get_font_size:5 easygraphics.set_font_size:3 of
+msgid "font size of the specified image"
+msgstr ""
+
+#: easygraphics.get_font_size:3 easygraphics.get_write_mode:6
+#: easygraphics.set_font_size:4 of
+msgid ""
+"the target image whose write mode is to be gotten. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_font_size:1 of
+msgid "get font size of the specified image"
+msgstr ""
+
+#: easygraphics.set_write_mode:1 of
+msgid "set write mode of the specified image"
+msgstr ""
+
+#: easygraphics.get_write_mode:4 easygraphics.set_write_mode:4 of
+msgid ""
+"When drawing ,the wrtie mode will decide how the result pixel color will "
+"be computed"
+msgstr ""
+
+#: easygraphics.get_write_mode:4 easygraphics.set_write_mode:4 of
+msgid "(using source color and color of the destination)"
+msgstr ""
+
+#: easygraphics.set_write_mode:6 of
+msgid "source color is the color of the pen/brush."
+msgstr ""
+
+#: easygraphics.set_write_mode:8 of
+msgid "destination color is the color of the pixel will be painted on."
+msgstr ""
+
+#: easygraphics.set_write_mode:10 of
+msgid "the result color will be computed by bitwise operations"
+msgstr ""
+
+#: easygraphics.set_write_mode:12 of
+msgid "possibly modes are consts defined in the WriteMode:"
+msgstr ""
+
+#: easygraphics.set_write_mode:14 of
+msgid "WriteMode.R2_COPYPEN （The default mode) just use the source color"
+msgstr ""
+
+#: easygraphics.set_write_mode:15 of
+msgid "WriteMOde.R2_MASKNOTPEN   （not source color) and (destination color)"
+msgstr ""
+
+#: easygraphics.set_write_mode:16 of
+msgid "WriteMOde.R2_MASKPEN   （source color ) and (destination color)"
+msgstr ""
+
+#: easygraphics.set_write_mode:17 of
+msgid "WriteMOde.R2_MASKPENNOT   (source color) and (not destination color)"
+msgstr ""
+
+#: easygraphics.set_write_mode:18 of
+msgid "WriteMOde.R2_MERGENOTPEN   (not source color) or (destination color)"
+msgstr ""
+
+#: easygraphics.set_write_mode:19 of
+msgid "WriteMOde.R2_MERGEPEN   (source color) or (destination color)"
+msgstr ""
+
+#: easygraphics.set_write_mode:20 of
+msgid "WriteMOde.R2_MERGEPENNOT   (source color) or (not destination color)"
+msgstr ""
+
+#: easygraphics.set_write_mode:21 of
+msgid "WriteMOde.R2_NOP   just use the destination color (nothing really painted)"
+msgstr ""
+
+#: easygraphics.set_write_mode:22 of
+msgid "WriteMOde.R2_NOT   (not desination color)"
+msgstr ""
+
+#: easygraphics.set_write_mode:23 of
+msgid "WriteMOde.R2_NOTCOPYPEN   (not source color)"
+msgstr ""
+
+#: easygraphics.set_write_mode:24 of
+msgid "WriteMOde.R2_NOTMASKPEN   (not source) or (not destination)"
+msgstr ""
+
+#: easygraphics.set_write_mode:25 of
+msgid "WriteMOde.R2_NOTMERGEPEN   (not source) and (not destination)"
+msgstr ""
+
+#: easygraphics.set_write_mode:26 of
+msgid "WriteMOde.R2_NOTXORPEN   (not source) xor (destination)"
+msgstr ""
+
+#: easygraphics.set_write_mode:27 of
+msgid "WriteMOde.R2_XORPEN   (source) xor (destination)"
+msgstr ""
+
+#: easygraphics.get_write_mode:8 easygraphics.set_write_mode:29 of
+msgid "write mode"
+msgstr ""
+
+#: easygraphics.set_write_mode:30 of
+msgid ""
+"the target image whose write mode is to be set. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_write_mode:1 of
+msgid "get write mode of the specified image"
+msgstr ""
+
+#: easygraphics.get_x:1 of
+msgid "get the x coordinate value of the current drawing position (x,y)"
+msgstr ""
+
+#: easygraphics.get_drawing_pos:3 easygraphics.get_x:3 easygraphics.get_y:3 of
+msgid ""
+"some drawing functions will use the current pos to draw.(see "
+"line_to(),line_rel(),move_to(),move_rel())"
+msgstr ""
+
+#: easygraphics.get_drawing_pos:5 easygraphics.get_x:5 easygraphics.get_y:5 of
+msgid ""
+"the target image whose drawing pos is to be gotten. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_x:7 of
+msgid "the x coordinate value of the current drawing position"
+msgstr ""
+
+#: easygraphics.get_y:1 of
+msgid "get the y coordinate value of the current drawing position (x,y)"
+msgstr ""
+
+#: easygraphics.get_y:7 of
+msgid "the y coordinate value of the current drawing position"
+msgstr ""
+
+#: easygraphics.set_view_port:1 of
+msgid "set the view port of the the specified image"
+msgstr ""
+
+#: easygraphics.set_view_port:3 of
+msgid "View port is the drawing zone on the image."
+msgstr ""
+
+#: easygraphics.set_view_port:15 of
+msgid "left of the view port rectangle"
+msgstr ""
+
+#: easygraphics.set_view_port:16 of
+msgid "top of the view port rectangle"
+msgstr ""
+
+#: easygraphics.set_view_port:17 of
+msgid "right of the view port rectangle"
+msgstr ""
+
+#: easygraphics.set_view_port:18 of
+msgid "bottom of the view port rectangle"
+msgstr ""
+
+#: easygraphics.set_view_port:19 of
+msgid "if True, drawings outside the port rectangle will be cliped"
+msgstr ""
+
+#: easygraphics.set_view_port:20 of
+msgid ""
+"the target image whose view port is to be gotten. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.set_origin:1 of
+msgid "set the drawing systems' origin(0,0) to (x,y)"
+msgstr ""
+
+#: easygraphics.set_origin:3 of
+msgid ""
+"The effect of this function is , when drawing, x and y is added to points"
+" coordinates. That is, if you want to draw a point at (x0,y0), it's "
+"really drawn at (x0+x,x0+y)"
+msgstr ""
+
+#: easygraphics.set_origin:6 of
+msgid "the default origin is on left-top of the specified image"
+msgstr ""
+
+#: easygraphics.set_origin:8 of
+msgid "x coordinate value the new origin"
+msgstr ""
+
+#: easygraphics.set_origin:9 of
+msgid "y coordinate value the new origin"
+msgstr ""
+
+#: easygraphics.set_origin:10 of
+msgid ""
+"the target image whose origin is to be removed. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_render_mode:1 easygraphics.set_render_mode:1 of
+msgid "set render mode of the graphics window"
+msgstr ""
+
+#: easygraphics.set_render_mode:3 of
+msgid "this mode will control how the graphics window is updated."
+msgstr ""
+
+#: easygraphics.set_render_mode:5 of
+msgid "possible values:"
+msgstr ""
+
+#: easygraphics.set_render_mode:7 of
+msgid ""
+"RenderMode.RENDER_AUTO   (default) update the window immediately after "
+"every drawing"
+msgstr ""
+
+#: easygraphics.set_render_mode:8 of
+msgid ""
+"RenderMode.MANUAL   only update the window after "
+"pause()/delay()/delay_fps()/delay_jfps() is called."
+msgstr ""
+
+#: easygraphics.set_render_mode:10 of
+msgid "RenderMode.MANUAL is used for animations"
+msgstr ""
+
+#: easygraphics.get_render_mode:6 easygraphics.set_render_mode:12 of
+msgid "render mode"
+msgstr ""
+
+#: easygraphics.get_render_mode:3 of
+msgid ""
+"this mode will control how the graphics window is updated. see "
+"**set_render_mode()**"
+msgstr ""
+
+#: easygraphics.get_drawing_pos:1 of
+msgid "get the current drawing position (x,y)"
+msgstr ""
+
+#: easygraphics.get_drawing_pos:7 of
+msgid "the current drawing position (x,y)"
+msgstr ""
+
+#: easygraphics.set_clip_rect:1 of
+msgid "set the clip rect"
+msgstr ""
+
+#: easygraphics.set_clip_rect:3 of
+msgid "Drawings outside the clip rect will be clipped."
+msgstr ""
+
+#: easygraphics.set_clip_rect:5 of
+msgid "left of the clip rectangle"
+msgstr ""
+
+#: easygraphics.set_clip_rect:6 of
+msgid "top of the clip rectangle"
+msgstr ""
+
+#: easygraphics.set_clip_rect:7 of
+msgid "right of the clip rectangle"
+msgstr ""
+
+#: easygraphics.set_clip_rect:8 of
+msgid "bottom of the clip rectangle"
+msgstr ""
+
+#: easygraphics.set_clip_rect:9 of
+msgid ""
+"the target image whose clip rect is to be gotten. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.disable_clip:1 of
+msgid "disable clipping"
+msgstr ""
+
+#: easygraphics.disable_clip:3 of
+msgid "drawings will not be clipped"
+msgstr ""
+
+#: easygraphics.disable_clip:5 of
+msgid ""
+"the target image whose clip rect is to be disabled. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.set_window:1 of
+msgid "set the logical drawing window"
+msgstr ""
+
+#: easygraphics.set_window:3 of
+msgid ""
+"All your drawing is first drawing on the logical window, then mapping to "
+"view port (see set_view_port()).    The logical window's 4 corner points "
+"to streched to match the view port."
+msgstr ""
+
+#: easygraphics.set_window:5 of
+msgid ""
+"If your view port is 200x200，and you use set_window(-50,-50,100,100) to "
+"get a 100x100 logical window with     the origin at (-50,50) , then the "
+"logical window's origin (0,0) is mapping to view port's (-50,-50), and"
+"     right-bottom corner (100,100) is mapping to view port's right bottom"
+" corner (200,200). All logical points is     mapping accordingly."
+msgstr ""
+
+#: easygraphics.set_window:7 of
+msgid ""
+"If you just want to transform the drawing, use "
+"set_origin()/translate()/rotate()/scale()."
+msgstr ""
+
+#: easygraphics.set_window:9 of
+msgid ""
+"The drawing outside the logical window is not clipped. If you want to "
+"clip it, use set_clip_rect()."
+msgstr ""
+
+#: easygraphics.set_window:11 of
+msgid "x pos of the logical window's origin"
+msgstr ""
+
+#: easygraphics.set_window:12 of
+msgid "y pos of the logical window's origin"
+msgstr ""
+
+#: easygraphics.set_window:13 of
+msgid "width of the logical window"
+msgstr ""
+
+#: easygraphics.set_window:14 of
+msgid "height of the logical window"
+msgstr ""
+
+#: easygraphics.set_window:15 of
+msgid ""
+"the target image whose logical window is to be set. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.reset_window:1 of
+msgid "reset/remove the logical window"
+msgstr ""
+
+#: easygraphics.reset_window:3 of
+msgid "see set_window()"
+msgstr ""
+
+#: easygraphics.reset_window:5 of
+msgid ""
+"the target image whose logical window is to be reset. None means it is "
+"the target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.translate:1 of
+msgid ""
+"Translates the coordinate system by the given offset; i.e. the given "
+"offset is added to points."
+msgstr ""
+
+#: easygraphics.translate:3 of
+msgid "offset on the x coordinate"
+msgstr ""
+
+#: easygraphics.translate:4 of
+msgid "offset on the y coordinate"
+msgstr ""
+
+#: easygraphics.translate:5 of
+msgid ""
+"the target image to be translated. None means it is the target image (see"
+" set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.rotate:1 of
+msgid "Rotates the coordinate system the given angle (in degree)clockwise ."
+msgstr ""
+
+#: easygraphics.rotate:3 of
+msgid "the rotate angle (in degree)"
+msgstr ""
+
+#: easygraphics.rotate:4 of
+msgid ""
+"the target image to be rotated. None means it is the target image (see "
+"set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.scale:1 of
+msgid "Scales the coordinate system by (sx, sy)."
+msgstr ""
+
+#: easygraphics.scale:3 of
+msgid "scale factor on x axis."
+msgstr ""
+
+#: easygraphics.scale:4 of
+msgid "scale factor on y axis."
+msgstr ""
+
+#: easygraphics.scale:5 of
+msgid ""
+"the target image to be scaled. None means it is the target image (see "
+"set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.reset_transform:1 of
+msgid "reset all transforms (translate/rotate/scale)"
+msgstr ""
+
+#: easygraphics.reset_transform:3 of
+msgid ""
+"the target image to be reset. None means it is the target image (see "
+"set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.draw_point:1 of
+msgid "draw a point at (x,y) on the specified image"
+msgstr ""
+
+#: easygraphics.draw_point:3 of
+msgid "x coordinate value of the drawing point"
+msgstr ""
+
+#: easygraphics.draw_point:4 of
+msgid "y coordinate value of the drawing point"
+msgstr ""
+
+#: easygraphics.arc:11 easygraphics.bezier:6 easygraphics.chord:13
+#: easygraphics.circle:8 easygraphics.clear_device:3
+#: easygraphics.clear_view_port:3 easygraphics.draw_arc:11
+#: easygraphics.draw_bezier:6 easygraphics.draw_chord:13
+#: easygraphics.draw_circle:8 easygraphics.draw_ellipse:9
+#: easygraphics.draw_image:16 easygraphics.draw_line:9
+#: easygraphics.draw_lines:16 easygraphics.draw_pie:13
+#: easygraphics.draw_point:5 easygraphics.draw_poly_line:18
+#: easygraphics.draw_polygon:21 easygraphics.draw_rect:9
+#: easygraphics.draw_rect_text:26 easygraphics.draw_rounded_rect:12
+#: easygraphics.draw_text:7 easygraphics.ellipse:9 easygraphics.fill_chord:13
+#: easygraphics.fill_circle:8 easygraphics.fill_ellipse:9
+#: easygraphics.fill_pie:13 easygraphics.fill_polygon:20
+#: easygraphics.fill_rect:9 easygraphics.fill_rounded_rect:12
+#: easygraphics.flood_fill:8 easygraphics.get_pixel:5 easygraphics.line:9
+#: easygraphics.line_rel:5 easygraphics.line_to:5 easygraphics.lines:16
+#: easygraphics.move_rel:9 easygraphics.move_to:7 easygraphics.pie:13
+#: easygraphics.poly_line:18 easygraphics.polygon:20 easygraphics.put_pixel:6
+#: easygraphics.rect:9 easygraphics.rounded_rect:12 easygraphics.text_height:3
+#: easygraphics.text_width:4 of
+msgid ""
+"the target image which will be painted on. None means it is the target "
+"image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.put_pixel:1 of
+msgid "set a pixel's color on the specified image"
+msgstr ""
+
+#: easygraphics.get_pixel:3 easygraphics.put_pixel:3 of
+msgid "x coordinate value of the pixel"
+msgstr ""
+
+#: easygraphics.get_pixel:4 easygraphics.put_pixel:4 of
+msgid "y coordinate value of the pixel"
+msgstr ""
+
+#: easygraphics.put_pixel:5 easygraphics.rgb:7 of
+msgid "the color"
+msgstr ""
+
+#: easygraphics.get_pixel:1 of
+msgid "get a pixel's color on the specified image"
+msgstr ""
+
+#: easygraphics.get_pixel:7 of
+msgid "color of the pixel"
+msgstr ""
+
+#: easygraphics.draw_line:1 easygraphics.line:1 of
+msgid "Draw a line from (x1,y1) to (x2,y2) on the specified image"
+msgstr ""
+
+#: easygraphics.draw_line:3 easygraphics.line:3 of
+msgid "it's the same with line()"
+msgstr ""
+
+#: easygraphics.draw_line:5 easygraphics.draw_text:3 easygraphics.flood_fill:5
+#: easygraphics.line:5 of
+msgid "x coordinate value of the start point"
+msgstr ""
+
+#: easygraphics.draw_line:6 easygraphics.draw_line:8 easygraphics.draw_text:4
+#: easygraphics.flood_fill:6 easygraphics.line:6 easygraphics.line:8 of
+msgid "y coordinate value of the start point"
+msgstr ""
+
+#: easygraphics.draw_line:7 easygraphics.line:7 of
+msgid "x coordinate value of the end point"
+msgstr ""
+
+#: easygraphics.move_to:1 of
+msgid "set the drawing position to (x,y)"
+msgstr ""
+
+#: easygraphics.move_to:3 of
+msgid "the drawing position is used by line_to(), line_rel() and move_rel()"
+msgstr ""
+
+#: easygraphics.line_to:3 easygraphics.move_to:5 of
+msgid "x coordinate value of the new drawing position"
+msgstr ""
+
+#: easygraphics.line_to:4 easygraphics.move_to:6 of
+msgid "y coordinate value of the new drawing position"
+msgstr ""
+
+#: easygraphics.move_rel:1 of
+msgid "move the drawing position by (dx,dy)"
+msgstr ""
+
+#: easygraphics.move_rel:3 of
+msgid "if the old position is (x,y), then the new position will be (x+dx,y+dy)"
+msgstr ""
+
+#: easygraphics.move_rel:5 of
+msgid "the drawing position is used by line_to(), line_rel()"
+msgstr ""
+
+#: easygraphics.line_rel:3 easygraphics.move_rel:7 of
+msgid "x coordinate offset of the new drawing position"
+msgstr ""
+
+#: easygraphics.line_rel:4 easygraphics.move_rel:8 of
+msgid "y coordinate offset of the new drawing position"
+msgstr ""
+
+#: easygraphics.line_to:1 of
+msgid ""
+"draw a line from the current drawing position to (x,y), then set the "
+"drawing position is set to (x,y)"
+msgstr ""
+
+#: easygraphics.line_rel:1 of
+msgid ""
+"draw a line from the current drawing position (x,y) to (x+dx,y+dy),      "
+"then set the drawing position is set to (x+d,y+dy)"
+msgstr ""
+
+#: easygraphics.circle:1 of
+msgid "draw a circle outline centered at (x,y) with radius r"
+msgstr ""
+
+#: easygraphics.circle:3 of
+msgid "the circle is not filled"
+msgstr ""
+
+#: easygraphics.circle:5 easygraphics.draw_circle:5 easygraphics.fill_circle:5
+#: of
+msgid "x coordinate value of the circle's center"
+msgstr ""
+
+#: easygraphics.circle:6 easygraphics.draw_circle:6 easygraphics.fill_circle:6
+#: of
+msgid "y coordinate value of the circle's center"
+msgstr ""
+
+#: easygraphics.circle:7 easygraphics.draw_circle:7 easygraphics.fill_circle:7
+#: of
+msgid "radius of the circle"
+msgstr ""
+
+#: easygraphics.draw_circle:1 of
+msgid "draw a circle centered at (x,y) with radius r"
+msgstr ""
+
+#: easygraphics.draw_circle:3 of
+msgid "the circle is filled and has outline"
+msgstr ""
+
+#: easygraphics.fill_circle:1 of
+msgid "fill a circle centered at (x,y) with radius r"
+msgstr ""
+
+#: easygraphics.fill_circle:3 of
+msgid "the circle dosen't has outline"
+msgstr ""
+
+#: easygraphics.ellipse:1 of
+msgid ""
+"draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x,"
+" radius on y-axis is radius_y"
+msgstr ""
+
+#: easygraphics.ellipse:3 of
+msgid "the ellipse is not filled"
+msgstr ""
+
+#: easygraphics.arc:5 easygraphics.chord:7 easygraphics.draw_arc:5
+#: easygraphics.draw_chord:7 easygraphics.draw_ellipse:5
+#: easygraphics.draw_pie:7 easygraphics.ellipse:5 easygraphics.fill_chord:7
+#: easygraphics.fill_ellipse:5 easygraphics.fill_pie:7 easygraphics.pie:7 of
+msgid "x coordinate value of the ellipse's center"
+msgstr ""
+
+#: easygraphics.arc:6 easygraphics.chord:8 easygraphics.draw_arc:6
+#: easygraphics.draw_chord:8 easygraphics.draw_ellipse:6
+#: easygraphics.draw_pie:8 easygraphics.ellipse:6 easygraphics.fill_chord:8
+#: easygraphics.fill_ellipse:6 easygraphics.fill_pie:8 easygraphics.pie:8 of
+msgid "y coordinate value of the ellipse's center"
+msgstr ""
+
+#: easygraphics.arc:9 easygraphics.chord:11 easygraphics.draw_arc:9
+#: easygraphics.draw_chord:11 easygraphics.draw_ellipse:7
+#: easygraphics.draw_pie:11 easygraphics.ellipse:7 easygraphics.fill_chord:11
+#: easygraphics.fill_ellipse:7 easygraphics.fill_pie:11 easygraphics.pie:11 of
+msgid "radius on x-axis of the ellipse"
+msgstr ""
+
+#: easygraphics.arc:10 easygraphics.chord:12 easygraphics.draw_arc:10
+#: easygraphics.draw_chord:12 easygraphics.draw_ellipse:8
+#: easygraphics.draw_pie:12 easygraphics.ellipse:8 easygraphics.fill_chord:12
+#: easygraphics.fill_ellipse:8 easygraphics.fill_pie:12 easygraphics.pie:12 of
+msgid "radius on y-axis of the ellipse"
+msgstr ""
+
+#: easygraphics.draw_ellipse:1 of
+msgid ""
+"draw an ellipse centered at (x,y) , radius on x-axis is radius_x, radius "
+"on y-axis is radius_y"
+msgstr ""
+
+#: easygraphics.draw_ellipse:3 of
+msgid "the ellipse is filled and has outline"
+msgstr ""
+
+#: easygraphics.fill_ellipse:1 of
+msgid ""
+"fill an ellipse centered at (x,y) , radius on x-axis is radius_x, radius "
+"on y-axis is radius_y"
+msgstr ""
+
+#: easygraphics.fill_ellipse:3 of
+msgid "the ellipse dosen't has outline"
+msgstr ""
+
+#: easygraphics.arc:1 easygraphics.draw_arc:1 of
+msgid ""
+"draw an elliptical arc from start_angle to end_angle. The base ellipse is"
+" centered at (x,y)      which radius on x-axis is radius_x and radius on "
+"y-axis is radius_y."
+msgstr ""
+
+#: easygraphics.arc:3 easygraphics.chord:5 easygraphics.draw_arc:3
+#: easygraphics.draw_chord:5 easygraphics.draw_pie:5 easygraphics.fill_chord:5
+#: easygraphics.fill_pie:5 easygraphics.pie:5 of
+msgid ""
+"**note**: degree 0 is at 3 o'clock position, and is increasing "
+"clockwisely. That is, degree 90 is     at 12 o'click , degree 180 is at 9"
+" o'clock , degree 270 is at 6 o'clock, etc."
+msgstr ""
+
+#: easygraphics.arc:7 easygraphics.draw_arc:7 of
+msgid "start angle of the arc"
+msgstr ""
+
+#: easygraphics.arc:8 easygraphics.draw_arc:8 of
+msgid "end angle of the arc"
+msgstr ""
+
+#: easygraphics.pie:1 of
+msgid ""
+"draw an elliptical pie outline from start_angle to end_angle. The base "
+"ellipse is centered at (x,y)      which radius on x-axis is radius_x and "
+"radius on y-axis is radius_y."
+msgstr ""
+
+#: easygraphics.pie:3 of
+msgid "the pie is not filled."
+msgstr ""
+
+#: easygraphics.draw_pie:9 easygraphics.fill_pie:9 easygraphics.pie:9 of
+msgid "start angle of the pie"
+msgstr ""
+
+#: easygraphics.draw_pie:10 easygraphics.fill_pie:10 easygraphics.pie:10 of
+msgid "end angle of the pie"
+msgstr ""
+
+#: easygraphics.draw_pie:1 of
+msgid ""
+"draw an elliptical pie from start_angle to end_angle. The base ellipse is"
+" centered at (x,y)      which radius on x-axis is radius_x and radius on "
+"y-axis is radius_y."
+msgstr ""
+
+#: easygraphics.draw_pie:3 of
+msgid "the pie is filled and has outline."
+msgstr ""
+
+#: easygraphics.fill_pie:1 of
+msgid ""
+"fill an elliptical pie from start_angle to end_angle. The base ellipse is"
+" centered at (x,y)      which radius on x-axis is radius_x and radius on "
+"y-axis is radius_y."
+msgstr ""
+
+#: easygraphics.fill_pie:3 of
+msgid "the pie dosen't have outline."
+msgstr ""
+
+#: easygraphics.chord:1 easygraphics.draw_chord:1 easygraphics.fill_chord:1 of
+msgid ""
+"draw an elliptical chord outline from start_angle to end_angle. The base "
+"ellipse is centered at (x,y)      which radius on x-axis is radius_x and "
+"radius on y-axis is radius_y."
+msgstr ""
+
+#: easygraphics.chord:3 of
+msgid "the chord is not filled."
+msgstr ""
+
+#: easygraphics.chord:9 easygraphics.draw_chord:9 easygraphics.fill_chord:9 of
+msgid "start angle of the chord"
+msgstr ""
+
+#: easygraphics.chord:10 easygraphics.draw_chord:10 easygraphics.fill_chord:10
+#: of
+msgid "end angle of the chord"
+msgstr ""
+
+#: easygraphics.draw_chord:3 of
+msgid "the chord is filled and has outline"
+msgstr ""
+
+#: easygraphics.fill_chord:3 of
+msgid "the chord doesn't have outline."
+msgstr ""
+
+#: easygraphics.bezier:1 easygraphics.draw_bezier:1 of
+msgid "draw a bezier curve"
+msgstr ""
+
+#: easygraphics.bezier:3 easygraphics.draw_bezier:3 of
+msgid ""
+"poly_points is a 2D point list. Each point has 2 coordinate values in the"
+" list.     So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the "
+"list should be      [x0,y0,x1,y1,x2,y2,x3,y3]"
+msgstr ""
+
+#: easygraphics.bezier:5 easygraphics.draw_bezier:5 of
+msgid "point list"
+msgstr ""
+
+#: easygraphics.draw_lines:1 easygraphics.lines:1 of
+msgid ""
+"draw lines points is a 2D point pair list. It should contain even points,"
+" and each 2 points make a point pair. And each point have 2 coordinate "
+"values(x,y). So if you have n point pairs, the points list should have "
+"4*n values."
+msgstr ""
+
+#: easygraphics.draw_lines:5 easygraphics.lines:5 of
+msgid ""
+"For examples , if points is [50,50,550,350, 50,150,550,450, "
+"50,250,550,550], draw_lines() will draw 3 lines: (50,50) to (550,350), "
+"(50,150) to (550,450), (50,250) to (550,550)"
+msgstr ""
+
+#: easygraphics.draw_lines:15 easygraphics.draw_poly_line:17
+#: easygraphics.draw_polygon:20 easygraphics.fill_polygon:19
+#: easygraphics.lines:15 easygraphics.poly_line:17 easygraphics.polygon:19 of
+msgid "point value list"
+msgstr ""
+
+#: easygraphics.draw_poly_line:1 easygraphics.poly_line:1 of
+msgid "draw poly lines"
+msgstr ""
+
+#: easygraphics.draw_poly_line:3 easygraphics.poly_line:3 of
+msgid ""
+"points is a 2D point list. Each 2 values in the list make a point. A poly"
+" line will be drawn to connect adjecent points defined by the the list."
+msgstr ""
+
+#: easygraphics.draw_poly_line:6 easygraphics.poly_line:6 of
+msgid ""
+"For examples , if points is [50,50,550,350, 50,150,550,450, "
+"50,250,550,550], draw_poly_line() will draw 5 lines: (50,50) to "
+"(550,350), (550,350) to (50,150), (50,150) to (550,450), (550,540) to "
+"(50,250) and(50,250) to (550,550)"
+msgstr ""
+
+#: easygraphics.polygon:1 of
+msgid "draw polygon outline"
+msgstr ""
+
+#: easygraphics.draw_polygon:3 easygraphics.fill_polygon:3
+#: easygraphics.polygon:3 of
+msgid ""
+"points is a 2D point list. Each 2 values in the list make a point. A "
+"polygon will be drawn to connect adjecent points defined by the the list."
+msgstr ""
+
+#: easygraphics.draw_polygon:6 easygraphics.fill_polygon:6
+#: easygraphics.polygon:6 of
+msgid ""
+"For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw"
+" a triangle with vertices at (50,50) , (550,350) and (50,150)"
+msgstr ""
+
+#: easygraphics.polygon:9 of
+msgid "The polygon is not filled."
+msgstr ""
+
+#: easygraphics.draw_polygon:1 of
+msgid "draw polygon"
+msgstr ""
+
+#: easygraphics.draw_polygon:9 of
+msgid "The polygon is filled and has outline."
+msgstr ""
+
+#: easygraphics.fill_polygon:1 of
+msgid "fill polygon"
+msgstr ""
+
+#: easygraphics.fill_polygon:9 of
+msgid "The polygon doesn't have outline."
+msgstr ""
+
+#: easygraphics.rect:1 of
+msgid ""
+"Draws a rectangle outline with upper left corner at (left, top) and lower"
+" right corner at (right,bottom)"
+msgstr ""
+
+#: easygraphics.rect:3 easygraphics.rounded_rect:4 of
+msgid "the rectangle is not filled"
+msgstr ""
+
+#: easygraphics.draw_rect:5 easygraphics.draw_rounded_rect:6
+#: easygraphics.fill_rect:5 easygraphics.fill_rounded_rect:6
+#: easygraphics.rect:5 easygraphics.rounded_rect:6 of
+msgid "x coordinate value of the upper left corner"
+msgstr ""
+
+#: easygraphics.draw_rect:6 easygraphics.draw_rounded_rect:7
+#: easygraphics.fill_rect:6 easygraphics.fill_rounded_rect:7
+#: easygraphics.rect:6 easygraphics.rounded_rect:7 of
+msgid "y coordinate value of the upper left corner"
+msgstr ""
+
+#: easygraphics.draw_rect:7 easygraphics.draw_rounded_rect:8
+#: easygraphics.fill_rect:7 easygraphics.fill_rounded_rect:8
+#: easygraphics.rect:7 easygraphics.rounded_rect:8 of
+msgid "x coordinate value of the lower right corner"
+msgstr ""
+
+#: easygraphics.draw_rect:8 easygraphics.draw_rounded_rect:9
+#: easygraphics.fill_rect:8 easygraphics.fill_rounded_rect:9
+#: easygraphics.rect:8 easygraphics.rounded_rect:9 of
+msgid "y coordinate value of the lower right corner"
+msgstr ""
+
+#: easygraphics.draw_rect:1 easygraphics.fill_rect:1 of
+msgid ""
+"Draws a rectangle with upper left corner at (left, top) and lower right "
+"corner at (right,bottom)"
+msgstr ""
+
+#: easygraphics.draw_rect:3 easygraphics.draw_rounded_rect:4 of
+msgid "the rectangle is filled and has outline"
+msgstr ""
+
+#: easygraphics.fill_rect:3 easygraphics.fill_rounded_rect:4 of
+msgid "the rectangle doesn't have outline"
+msgstr ""
+
+#: easygraphics.rounded_rect:1 of
+msgid ""
+"Draws a rounded rectangle outline with upper left corner at (left, top) ,"
+" lower right corner at (right,bottom). raidus on x-axis of the corner "
+"ellipse arc is round_x, radius on y-axis of the corner ellipse arc is "
+"round_y."
+msgstr ""
+
+#: easygraphics.draw_rounded_rect:10 easygraphics.fill_rounded_rect:10
+#: easygraphics.rounded_rect:10 of
+msgid "raidus on x-axis of the corner ellipse arc"
+msgstr ""
+
+#: easygraphics.draw_rounded_rect:11 easygraphics.fill_rounded_rect:11
+#: easygraphics.rounded_rect:11 of
+msgid "radius on y-axis of the corner ellipse arc"
+msgstr ""
+
+#: easygraphics.draw_rounded_rect:1 of
+msgid ""
+"Draws a rounded rectangle with upper left corner at (left, top) , lower "
+"right corner at (right,bottom). raidus on x-axis of the corner ellipse "
+"arc is round_x, radius on y-axis of the corner ellipse arc is round_y."
+msgstr ""
+
+#: easygraphics.fill_rounded_rect:1 of
+msgid ""
+"Fill a rounded rectangle with upper left corner at (left, top) , lower "
+"right corner at (right,bottom). raidus on x-axis of the corner ellipse "
+"arc is round_x, radius on y-axis of the corner ellipse arc is round_y."
+msgstr ""
+
+#: easygraphics.flood_fill:1 of
+msgid ""
+"flood fill the image starting from(x,y) and ending at borders with "
+"border_color"
+msgstr ""
+
+#: easygraphics.flood_fill:3 of
+msgid "The fill region border must be closed,or the whole image will be filled!"
+msgstr ""
+
+#: easygraphics.flood_fill:7 of
+msgid "color of the fill region border"
+msgstr ""
+
+#: easygraphics.draw_image:1 of
+msgid ""
+"copy part of the source image (src_image) to the destination image (self)"
+" at (x,y)"
+msgstr ""
+
+#: easygraphics.draw_image:3 of
+msgid ""
+"(x, y) specifies the top-left point in the destination image that is to "
+"be drawn onto."
+msgstr ""
+
+#: easygraphics.draw_image:5 of
+msgid ""
+"(sx, sy) specifies the top-left point of the part in the source image "
+"that is to      be drawn. The default is (0, 0)."
+msgstr ""
+
+#: easygraphics.draw_image:7 of
+msgid ""
+"(sw, sh) specifies the size of the part of the source image that is to be"
+" drawn.      The default, (0, 0) (and negative) means all the way to the "
+"bottom-right of the image."
+msgstr ""
+
+#: easygraphics.draw_image:9 of
+msgid "x coordinate value of the upper left point on the destination image"
+msgstr ""
+
+#: easygraphics.draw_image:10 of
+msgid "y coordinate value of the upper left point on the destination image"
+msgstr ""
+
+#: easygraphics.draw_image:11 of
+msgid "the source image to be copied"
+msgstr ""
+
+#: easygraphics.draw_image:12 of
+msgid "x coordinate value of the top-left point of of the part to be drawn"
+msgstr ""
+
+#: easygraphics.draw_image:13 of
+msgid "y coordinate value of the top-left point of of the part to be drawn"
+msgstr ""
+
+#: easygraphics.draw_image:14 of
+msgid "witdh of the top-left point of of the part to be drawn"
+msgstr ""
+
+#: easygraphics.draw_image:15 of
+msgid "height of the top-left point of of the part to be drawn"
+msgstr ""
+
+#: easygraphics.clear_device:1 of
+msgid "Clear the image with the background color"
+msgstr ""
+
+#: easygraphics.clear_view_port:1 of
+msgid "clear view port with the background color"
+msgstr ""
+
+#: easygraphics.draw_text:1 of
+msgid "Prints the given texts beginning at the given position (x,y)"
+msgstr ""
+
+#: easygraphics.draw_rect_text:23 easygraphics.draw_text:5 of
+msgid "things to be printed (like print())"
+msgstr ""
+
+#: easygraphics.draw_rect_text:25 easygraphics.draw_text:6 of
+msgid "seperator used to join strings"
+msgstr ""
+
+#: easygraphics.draw_rect_text:1 of
+msgid "print the given texts in the specified rectangle area"
+msgstr ""
+
+#: easygraphics.draw_rect_text:3 of
+msgid "Available flags are: （Defined in pyqt5's PyQt5.QtCore pacakge)"
+msgstr ""
+
+#: easygraphics.draw_rect_text:5 of
+msgid "Qt.AlignLeft          Aligns with the left edge."
+msgstr ""
+
+#: easygraphics.draw_rect_text:6 of
+msgid "Qt::AlignRight        Aligns with the right edge."
+msgstr ""
+
+#: easygraphics.draw_rect_text:7 of
+msgid "Qt::AlignHCenter      Centers horizontally in the available space."
+msgstr ""
+
+#: easygraphics.draw_rect_text:8 of
+msgid "Qt::AlignJustify      Justifies the text in the available space."
+msgstr ""
+
+#: easygraphics.draw_rect_text:9 of
+msgid "Qt::AlignTop          Aligns with the top."
+msgstr ""
+
+#: easygraphics.draw_rect_text:10 of
+msgid "Qt::AlignBottom       Aligns with the bottom."
+msgstr ""
+
+#: easygraphics.draw_rect_text:11 of
+msgid "Qt::AlignVCenter      Centers vertically in the available space."
+msgstr ""
+
+#: easygraphics.draw_rect_text:12 of
+msgid "Qt::AlignCenter       Centers in both dimensions."
+msgstr ""
+
+#: easygraphics.draw_rect_text:13 of
+msgid ""
+"Qt::TextDontClip      If it's impossible to stay within the given bounds,"
+" it prints outside."
+msgstr ""
+
+#: easygraphics.draw_rect_text:14 of
+msgid ""
+"Qt::TextSingleLine    Treats all whitespace as spaces and prints just one"
+" line."
+msgstr ""
+
+#: easygraphics.draw_rect_text:15 of
+msgid ""
+"Qt::TextExpandTabs    Makes the U+0009 (ASCII tab) character move to the "
+"next tab stop."
+msgstr ""
+
+#: easygraphics.draw_rect_text:16 of
+msgid ""
+"Qt::TextShowMnemonic  Displays the string \"&P\" as P For an ampersand, "
+"use \"&&\"."
+msgstr ""
+
+#: easygraphics.draw_rect_text:17 of
+msgid ""
+"Qt::TextWordWrap      Breaks lines at appropriate points, e.g. at word "
+"boundaries."
+msgstr ""
+
+#: easygraphics.draw_rect_text:19 of
+msgid "x coordinate of the output rectangle's upper left corner"
+msgstr ""
+
+#: easygraphics.draw_rect_text:20 of
+msgid "y coordinate of the output rectangle's upper left corner"
+msgstr ""
+
+#: easygraphics.draw_rect_text:21 of
+msgid "width of the output rectangle"
+msgstr ""
+
+#: easygraphics.draw_rect_text:22 of
+msgid "height of the output rectangle"
+msgstr ""
+
+#: easygraphics.draw_rect_text:24 of
+msgid "align flags"
+msgstr ""
+
+#: easygraphics.text_width:1 of
+msgid "return width of the text"
+msgstr ""
+
+#: easygraphics.text_width:3 of
+msgid "the text"
+msgstr ""
+
+#: easygraphics.text_height:1 of
+msgid "return height of the text (font height)"
+msgstr ""
+
+#: easygraphics.set_target:1 of
+msgid "set the target image for drawing on"
+msgstr ""
+
+#: easygraphics.get_target:3 easygraphics.set_target:3 of
+msgid ""
+"the target image which will be painted on. None means paint on the "
+"grapchis window."
+msgstr ""
+
+#: easygraphics.get_target:1 of
+msgid "get the target image for drawing on"
+msgstr ""
+
+#: easygraphics.create_image:1 of
+msgid "create a new image"
+msgstr ""
+
+#: easygraphics.create_image:3 of
+msgid "width of the new image"
+msgstr ""
+
+#: easygraphics.create_image:4 of
+msgid "height of the new image"
+msgstr ""
+
+#: easygraphics.create_image:5 of
+msgid "the created image"
+msgstr ""
+
+#: easygraphics.pause:1 of
+msgid "pause the grogram and wait for mouse clicking or keyboard hiting"
+msgstr ""
+
+#: easygraphics.pause:3 of
+msgid ""
+">>>from easygraphics import * >>>init_graph(800,600) >>>pause() "
+">>>close_graph()"
+msgstr ""
+
+#: easygraphics.delay:1 of
+msgid ""
+"Delay the programm for specified milliseconds :param milliseconds: time "
+"to delay"
+msgstr ""
+
+#: easygraphics.delay_fps:1 of
+msgid "Delay the program to control fps (Frame pers seconds)"
+msgstr ""
+
+#: easygraphics.delay_fps:3 of
+msgid "valid fps value is 1-1000, this value is **not checked** for speed"
+msgstr ""
+
+#: easygraphics.delay_fps:5 of
+msgid "this function won't skip frames"
+msgstr ""
+
+#: easygraphics.delay_fps:7 of
+msgid "the descire fps"
+msgstr ""
+
+#: easygraphics.delay_jfps:1 of
+msgid "delay to control fps with frame skiping"
+msgstr ""
+
+#: easygraphics.delay_jfps:3 of
+msgid ""
+"if we don't have enough time to delay, we'll skip some frames :param fps:"
+" frames per second (max is 1000) :param max_skip_count: max num of  "
+"frames to skip"
+msgstr ""
+
+#: easygraphics.is_run:1 of
+msgid "Test if the graphics system is running.( :return:"
+msgstr ""
+
+#: easygraphics.kb_msg:1 of
+msgid "see if any key is hitted in the last 100 ms use it with get_key()"
+msgstr ""
+
+#: easygraphics.kb_hit:4 easygraphics.kb_msg:4 of
+msgid "True if hitted, False or not"
+msgstr ""
+
+#: easygraphics.kb_hit:1 of
+msgid ""
+"see if any ascii char key is hitted in the last 100 ms use it with "
+"get_char()"
+msgstr ""
+
+#: easygraphics.mouse_msg:1 of
+msgid ""
+"see if there's any mouse message(event) in the last 100 ms use it with "
+"get_mouse()"
+msgstr ""
+
+#: easygraphics.mouse_msg:4 of
+msgid "True if any mouse message, False or not"
+msgstr ""
+
+#: easygraphics.get_key:1 of
+msgid ""
+"get the key inputted by keyboard if not any  key is pressed in last 100 "
+"ms, the program will stop and wait for the next key hitting"
+msgstr ""
+
+#: easygraphics.get_key:4 of
+msgid ""
+"keyboard code (see http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-"
+"enum) , keyboard modifier codes (see "
+"http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)"
+msgstr ""
+
+#: easygraphics.get_char:1 of
+msgid ""
+"get the ascii char inputted by keybord if not any char key is pressed in "
+"last 100 ms, the program will stop and wait for the next key hitting"
+msgstr ""
+
+#: easygraphics.get_char:4 of
+msgid "the character inputted by keybord"
+msgstr ""
+
+#: easygraphics.get_mouse:1 of
+msgid ""
+"get the key inputted by keybord if not any  key is pressed in last 100 "
+"ms, the program will stop and wait for the next key hitting"
+msgstr ""
+
+#: easygraphics.get_mouse:4 of
+msgid ""
+"x of the cursor, y of the cursor , mouse buttons down ( Qt.LeftButton or "
+"Qt.RightButton or Qt.MidButton or Qt.NoButton)"
+msgstr ""
+
+#: easygraphics.init_graph:1 of
+msgid "init the easygraphics system and show the graphics window"
+msgstr ""
+
+#: easygraphics.init_graph:3 of
+msgid "width of the graphics window (in pixels)"
+msgstr ""
+
+#: easygraphics.init_graph:4 of
+msgid "height of the graphics window (in pixels)"
+msgstr ""
+
+#: easygraphics.init_graph:7 of
+msgid ""
+">>>from easygraphics import * >>>init_graph(800,600) #prepare and show a "
+"800*600 window"
+msgstr ""
+
+#: easygraphics.close_graph:1 of
+msgid "close the graphics windows"
+msgstr ""
+
+#: easygraphics.close_graph:3 of
+msgid ""
+"the program will exit too >>>from easygraphics import * "
+">>>init_graph(800,600) >>>pause() >>>close_graph()"
+msgstr ""
+
+#: easygraphics.set_caption:1 of
+msgid "set the graph window's caption"
+msgstr ""
+
+#: easygraphics.set_caption:3 of
+msgid "caption title"
+msgstr ""
+
+#: easygraphics.rgb:1 of
+msgid "create a color with r,g,b"
+msgstr ""
+
+#: easygraphics.rgb:3 of
+msgid "red value"
+msgstr ""
+
+#: easygraphics.rgb:4 of
+msgid "green value"
+msgstr ""
+
+#: easygraphics.rgb:5 of
+msgid "blue value"
+msgstr ""
+
+#: easygraphics.rgb:6 of
+msgid "alpha value of the color. 255 means fully opaque"
+msgstr ""
+

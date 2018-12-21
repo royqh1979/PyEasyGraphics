@@ -13,16 +13,16 @@ class GraphWin(QtWidgets.QWidget):
     """
     Main Window for painting graphics
 
-
     we use an Image object (self._canvas) to save the painted contents
 
     how to process repaint event:
-    if we are in immediate mode (RENDER_AUTO, self._immediate=True) ,
-        we directly paint the saved contents to the window
-    if we are in manual refresh mode (RENDER_MANUAL, self._immediate=False),
-        we use another image object( self._device_image) as an intermediary
-        the contents on this object is painted to the window
-        and this object is synced with self._screen manually
+
+    if we are in immediate mode (RENDER_AUTO, self._immediate=True) , \
+    we directly paint the saved contents to the window
+
+    if we are in manual refresh mode (RENDER_MANUAL, self._immediate=False), \
+    we use another image object( self._device_image) as an intermediary .\
+    The contents on this object is painted to the window  and this object is synced with self._screen manually
     """
 
     def __init__(self, width: int, height: int, app: QtWidgets.QApplication):
@@ -227,8 +227,8 @@ class GraphWin(QtWidgets.QWidget):
         get the key inputted by keyboard
         if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
-        :return: keyboard code (see http://pyQtCore.Qt.sourceforge.net/Docs/PyQt4/QtCore.Qt.html#Key-enum) , keyboard modifier codes
-        (see http://pyQtCore.Qt.sourceforge.net/Docs/PyQt4/QtCore.Qt.html#KeyboardModifier-enum)
+    :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
+        `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
         """
         nt = time.time_ns()
         if nt - self._key_msg.get_time() > 100000000:
@@ -247,7 +247,7 @@ class GraphWin(QtWidgets.QWidget):
         if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
         :return: x of the cursor, y of the cursor , mouse buttons down
-        ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
+            ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
         """
         nt = time.time_ns()
         if nt - self._mouse_msg.get_time() > 100000000:

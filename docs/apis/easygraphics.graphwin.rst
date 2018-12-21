@@ -1,5 +1,5 @@
 easygraphics.graphwin module
-==========================
+============================
 
 .. automodule:: easygraphics.graphwin
     :members:

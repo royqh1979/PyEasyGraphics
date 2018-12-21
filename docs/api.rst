@@ -9,6 +9,7 @@ Subpackages
 
     apis/easygraphics.dialog
 
+
 Submodules
 ----------
 
@@ -19,6 +20,10 @@ Submodules
 
 APIs
 ______
+
+.. currentmodule:: easygraphics
+
+.. autosummary::
 
 .. automodule:: easygraphics
     :members:
