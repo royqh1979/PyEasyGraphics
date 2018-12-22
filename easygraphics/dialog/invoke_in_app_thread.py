@@ -13,27 +13,25 @@
 #                                                                   #
 #####################################################################
 
+import functools
 # tailored and modified by roy
 import sys
+import threading
 import time
-
 from queue import Queue
 
-import threading
-import functools
-
-from PyQt5 import QtWidgets, QtGui
+from PyQt5 import QtWidgets
 from PyQt5.QtCore import QEvent, QObject, QCoreApplication
 
 
 def _reraise(exc_info):
-    type, value, traceback = exc_info
+    exc_type, value, traceback = exc_info
     raise value.with_traceback(traceback)
 
 
 class CallEvent(QEvent):
     """An event containing a request for a function call."""
-    EVENT_TYPE = QEvent.Type(QEvent.registerEventType())
+    EVENT_TYPE = QEvent(QEvent.registerEventType())
 
     def __init__(self, queue, exceptions_in_main, fn, *args, **kwargs):
         QEvent.__init__(self, self.EVENT_TYPE)

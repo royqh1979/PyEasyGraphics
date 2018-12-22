@@ -12,23 +12,24 @@ from .image import Image
 from .dialog import invoke_in_app_thread
 
 __all__ = [
-    'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'WriteMode',  # consts
+    'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'CompositionMode',  # consts
     # 'GraphWin', 'Image',
     #  setting functions #
     'set_line_style', 'get_line_style', 'set_line_width', 'get_line_width',
     'get_color', 'set_color', 'get_fill_color', 'set_fill_color', 'get_fill_style', 'set_fill_style',
     'get_background_color', 'set_background_color', 'set_font', 'get_font', 'set_font_size', 'get_font_size',
-    'set_write_mode', 'get_write_mode', 'get_x', 'get_y', 'set_view_port', 'reset_view_port', 'set_origin',
+    'set_composition_mode', 'get_composition_mode', 'get_x', 'get_y', 'set_view_port', 'reset_view_port', 'set_origin',
     'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'disable_clip',
     'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'reset_transform',
+    'get_width', 'get_height', 'get_write_mode', 'set_write_mode',
     # drawing functions #
     'draw_point', 'put_pixel', 'get_pixel', 'line', 'draw_line', 'move_to', 'move_rel', 'line_to', 'line_rel',
     'circle', 'draw_circle', 'fill_circle', 'ellipse', 'draw_ellipse', 'fill_ellipse',
     'arc', 'draw_arc', 'pie', 'draw_pie', 'fill_pie', 'chord', 'draw_chord', 'fill_chord',
     'bezier', 'draw_bezier', 'lines', 'draw_lines', 'poly_line', 'draw_poly_line', 'polygon', 'draw_polygon',
-    'fill_polygon',
+    'fill_polygon', 'draw_image_transparent',
     'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect', 'flood_fill',
-    'draw_image',
+    'draw_image', 'capture_screen',
     'clear_device', 'clear_view_port',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
@@ -102,6 +103,30 @@ def get_line_width(image: Image = None) -> float:
     """
     image, on_screen = _check_on_screen(image)
     return image.get_line_width()
+
+
+def get_width(image: Image = None) -> int:
+    """
+    get width of the specified image
+
+    :param image: the target image whose width is to be gotten. None means it is the target image
+        (see set_target() and get_target()).
+    :return: width of the specified image
+    """
+    image, on_screen = _check_on_screen(image)
+    return image.get_width()
+
+
+def get_height(image: Image = None) -> int:
+    """
+    get height of the specified image
+
+    :param image: the target image whose width is to be gotten. None means it is the target image
+        (see set_target() and get_target()).
+    :return: height of the specified image
+    """
+    image, on_screen = _check_on_screen(image)
+    return image.get_height()
 
 
 def get_color(image: Image = None):
@@ -215,9 +240,7 @@ def get_background_color(image: Image = None):
 
 def set_background_color(color, image: Image = None):
     """
-    set the background  color of the image
-
-    it will be used when the image is cleared. (see clear_device())
+    Set and change the background color
 
     the possible color could be consts defined in Color class,
     or the color created by rgb() function,
@@ -229,6 +252,8 @@ def set_background_color(color, image: Image = None):
     """
     image, on_screen = _check_on_screen(image)
     image.set_background_color(color)
+    if on_screen:
+        _win.invalid()
 
 
 def set_font(font: QtGui.QFont, image: Image = None):
@@ -255,58 +280,39 @@ def get_font(image: Image = None) -> QtGui.QFont:
     return image.get_font()
 
 
-def set_write_mode(mode, image: Image = None):
+def set_composition_mode(mode, image: Image = None):
     """
-    set write mode of the specified image
+    Get composition mode of the specified image.
 
-    When drawing ,the wrtie mode will decide how the result pixel color will be computed
-     (using source color and color of the destination)
+    Composition modes are used to specify how the pixels in the source (image/pen/brush),
+    are merged with the pixel in the destination image.
 
-    source color is the color of the pen/brush.
-
-    destination color is the color of the pixel will be painted on.
-
-    the result color will be computed by bitwise operations
-
-    possibly modes are consts defined in the WriteMode:
-
-    * WriteMode.R2_COPYPEN （The default mode) just use the source color
-    * WriteMOde.R2_MASKNOTPEN   （not source color) and (destination color)
-    * WriteMOde.R2_MASKPEN   （source color ) and (destination color)
-    * WriteMOde.R2_MASKPENNOT   (source color) and (not destination color)
-    * WriteMOde.R2_MERGENOTPEN   (not source color) or (destination color)
-    * WriteMOde.R2_MERGEPEN   (source color) or (destination color)
-    * WriteMOde.R2_MERGEPENNOT   (source color) or (not destination color)
-    * WriteMOde.R2_NOP   just use the destination color (nothing really painted)
-    * WriteMOde.R2_NOT   (not desination color)
-    * WriteMOde.R2_NOTCOPYPEN   (not source color)
-    * WriteMOde.R2_NOTMASKPEN   (not source) or (not destination)
-    * WriteMOde.R2_NOTMERGEPEN   (not source) and (not destination)
-    * WriteMOde.R2_NOTXORPEN   (not source) xor (destination)
-    * WriteMOde.R2_XORPEN   (source) xor (destination)
-
-    :param mode: write mode
-    :param image: the target image whose write mode is to be set. None means it is the target image
+    :param mode: composition mode
+    :param image: the target image whose composition mode is to be set. None means it is the target image
          (see set_target() and get_target()).
-
     """
     image, on_screen = _check_on_screen(image)
-    image.set_write_mode(mode)
+    image.set_composition_mode(mode)
 
 
-def get_write_mode(image: Image = None):
+def get_composition_mode(image: Image = None):
     """
-    get write mode of the specified image
+    get composition mode of the specified image
 
-    When drawing ,the wrtie mode will decide how the result pixel color will be computed
+    When drawing ,the composition mode will decide how the result pixel color will be computed
      (using source color and color of the destination)
 
-    :param image: the target image whose write mode is to be gotten. None means it is the target image
+    :param image: the target image whose composition mode is to be gotten. None means it is the target image
         (see set_target() and get_target()).
-    :return: write mode
+    :return: composition mode
     """
     image, on_screen = _check_on_screen(image)
-    return image.get_write_mode()
+    return image.get_composition_mode()
+
+
+get_write_mode = get_composition_mode
+
+set_write_mode = set_composition_mode
 
 
 def set_font_size(size: int, image: Image = None):
@@ -1346,9 +1352,9 @@ def flood_fill(x: int, y: int, border_color, image: Image = None):
 
 
 def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
-               src_height: int = -1, dst_image: Image = None):
+               src_height: int = -1, with_background: bool = True, composition_mode=None, dst_image: Image = None):
     """
-    copy part of the source image (src_image) to the destination image (self) at (x,y)
+    Copy part of the source image (src_image) to the destination image (self) at (x,y)
 
     (x, y) specifies the top-left point in the destination image that is to be drawn onto.
 
@@ -1358,6 +1364,13 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
     (sw, sh) specifies the size of the part of the source image that is to be drawn.  \
     The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
 
+    if with_background is False, the source image's background will not be copied.
+
+    The final result will depend on the composition mode and the source image's background.
+    In the default mode (CompositionMode.SOURCE), the source will fully overwrite the destination).
+
+    If you want to get a transparent copy, you should use draw_image_transparent()
+
     :param x: x coordinate value of the upper left point on the destination image
     :param y: y coordinate value of the upper left point on the destination image
     :param src_image: the source image to be copied
@@ -1365,18 +1378,66 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
     :param src_y: y coordinate value of the top-left point of of the part to be drawn
     :param src_width: witdh of the top-left point of of the part to be drawn
     :param src_height: height of the top-left point of of the part to be drawn
-    :param image: the target image which will be painted on. None means it is the target image
+    :param with_background: if the source image's background should be drawn together
+    :param composition_mode: if is None, use dst image's composition mode to copy.
+    :param dst_image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
     dst_image, on_screen = _check_on_screen(dst_image)
-    dst_image.draw_image(x, y, src_image, src_x, src_y, src_width, src_height)
+    dst_image.draw_image(x, y, src_image, src_x, src_y, src_width, src_height, with_background, composition_mode)
+    if on_screen:
+        _win.invalid()
+
+
+def capture_screen(left: int, top: int, right: int, bottom: int, target_img: Image):
+    """
+    Caputre specified region on the graphics windows to target image
+
+    :param left: x coordinate of the capture region\'s upper left corner
+    :param top: y coordinate of the capture region\'s upper left corner
+    :param right: x coordinate of the capture region\'s bottom right corner
+    :param bottom: y coordinate of the capture region\'s bottom right corner
+    :param target_img: image to save the capture
+    """
+    draw_image(0, 0, _win.get_canvas(), src_x=left, src_y=top,
+               src_width=right - left, src_height=bottom - top, dst_image=target_img)
+
+
+def draw_image_transparent(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
+                           src_height: int = -1, dst_image: Image = None):
+    """
+    Copy part of the source image (src_image) to the destination image (self) at (x,y)
+
+    The source image's background will not be copied.
+
+    (x, y) specifies the top-left point in the destination image that is to be drawn onto.
+
+    (sx, sy) specifies the top-left point of the part in the source image that is to \
+     be drawn. The default is (0, 0).
+
+    (sw, sh) specifies the size of the part of the source image that is to be drawn.  \
+    The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
+
+
+    :param x: x coordinate value of the upper left point on the destination image
+    :param y: y coordinate value of the upper left point on the destination image
+    :param src_image: the source image to be copied
+    :param src_x: x coordinate value of the top-left point of of the part to be drawn
+    :param src_y: y coordinate value of the top-left point of of the part to be drawn
+    :param src_width: witdh of the top-left point of of the part to be drawn
+    :param src_height: height of the top-left point of of the part to be drawn
+    :param dst_image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    dst_image, on_screen = _check_on_screen(dst_image)
+    dst_image.draw_image(x, y, src_image, src_x, src_y, src_width, src_height, False, CompositionMode.SOURCE_OVER)
     if on_screen:
         _win.invalid()
 
 
 def clear_device(image: Image = None):
     """
-    Clear the image with the background color
+    Clear the image to show the background
 
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
@@ -1389,7 +1450,7 @@ def clear_device(image: Image = None):
 
 def clear_view_port(image: Image = None):
     """
-    clear view port with the background color
+    clear view port to show the background
 
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
@@ -1517,16 +1578,25 @@ def create_image(width, height) -> Image:
     return Image(image)
 
 
-def save_image(filename: str, image: Image = None):
+def save_image(filename: str, with_background=True, image: Image = None):
     """
-    save image to file
+    Save image to file
 
+    Set with_background to False to get a transparent background image.
+
+    Note that JPEG format doesn\'t support transparent. Use PNG format.
     :param filename: path of the file
+    :param with_background: True to save the background together. False not
     :param image: the target image which will be saved. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.get_image().save(filename)
+    if with_background:
+        img = QtGui.QImage(image.get_width(), image.get_height(), QtGui.QImage.Format_ARGB32_Premultiplied)
+        image.draw_to_device(img)
+        img.save(filename)
+    else:
+        image.get_image().save(filename)
 
 
 def create_image_from_file(filename: str) -> Image:
@@ -1661,6 +1731,7 @@ def mouse_msg():
     :return:  True if any mouse message, False or not
     """
     _check_app_run()
+    _win.real_update()
     return _win.mouse_msg()
 
 
@@ -1684,6 +1755,7 @@ def get_char():
     :return: the character inputted by keybord
     """
     _check_app_run()
+    _win.real_update()
     return _win.get_char()
 
 
@@ -1696,6 +1768,7 @@ def get_key():
         `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
     """
     _check_app_run()
+    _win.real_update()
     return _win.get_key()
 
 

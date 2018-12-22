@@ -5,6 +5,7 @@ from PyQt5 import QtCore
 from PyQt5 import QtGui
 
 from easygraphics.image import Image
+from easygraphics.consts import Color
 
 __all__ = ['GraphWin']
 
@@ -22,7 +23,7 @@ class GraphWin(QtWidgets.QWidget):
 
     if we are in manual refresh mode (RENDER_MANUAL, self._immediate=False), \
     we use another image object( self._device_image) as an intermediary .\
-    The contents on this object is painted to the window  and this object is synced with self._screen manually
+    The contents on this object is painted to the window  and this object is synced with self._canvas manually
     """
 
     def __init__(self, width: int, height: int, app: QtWidgets.QApplication):
@@ -52,10 +53,6 @@ class GraphWin(QtWidgets.QWidget):
 
     def _init_screen(self, width, height):
         screen_image = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
-        p = QtGui.QPainter()
-        p.begin(screen_image)
-        p.fillRect(0, 0, width, height, QtCore.Qt.white)
-        p.end()
         self._canvas = Image(screen_image)
         self._device_image = screen_image.copy()
         self.real_update()
@@ -64,13 +61,13 @@ class GraphWin(QtWidgets.QWidget):
         return self._canvas
 
     def paintEvent(self, e):
-        p = QtGui.QPainter()
-        p.begin(self)
         if self._immediate:
-            p.drawImage(0, 0, self._canvas.get_image())
+            self._canvas.draw_to_device(self)
         else:
+            p = QtGui.QPainter()
+            p.begin(self)
             p.drawImage(0, 0, self._device_image)
-        p.end()
+            p.end()
 
     def invalid(self):
         """
@@ -148,10 +145,7 @@ class GraphWin(QtWidgets.QWidget):
 
         the intermediary image (self._device_image) is synced with the canvas
         """
-        painter = QtGui.QPainter()
-        painter.begin(self._device_image)
-        painter.drawImage(0, 0, self._canvas.get_image().copy())
-        painter.end()
+        self._canvas.draw_to_device(self._device_image)
         self.update()
         self._last_update_time = time.time_ns()
 

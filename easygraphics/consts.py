@@ -2,53 +2,158 @@ from PyQt5 import QtGui, QtCore
 
 
 class RenderMode:
+    """
+    These are the graphics window drawing mode.
+    """
     RENDER_AUTO = 0
+    """The graphics window is updated after each drawn."""
     RENDER_MANUAL = 1
+    """The graphics window only updated after functions that wait or delay."""
 
 
-class WriteMode:
+class CompositionMode:
     """
-    .. code::python
-        from easygraphics import *
-        init_graph(800,600)
-    """
-    R2_COPYPEN = QtGui.QPainter.CompositionMode_Source  # copy en
-    R2_COPYPENA = QtGui.QPainter.CompositionMode_SourceOver
-    R2_MASKNOTPEN = QtGui.QPainter.RasterOp_NotSourceAndDestination
-    R2_MASKPEN = QtGui.QPainter.RasterOp_SourceAndDestination
-    R2_MASKPENNOT = QtGui.QPainter.RasterOp_SourceAndNotDestination
-    R2_MERGENOTPEN = QtGui.QPainter.RasterOp_NotSourceOrDestination
-    R2_MERGEPEN = QtGui.QPainter.RasterOp_SourceOrDestination
-    R2_MERGEPENNOT = QtGui.QPainter.RasterOp_SourceOrNotDestination
-    R2_NOP = QtGui.QPainter.CompositionMode_Destination
-    R2_NOT = QtGui.QPainter.RasterOp_NotDestination
-    R2_NOTCOPYPEN = QtGui.QPainter.RasterOp_NotSource
-    R2_NOTMASKPEN = QtGui.QPainter.RasterOp_NotSourceOrNotDestination
-    R2_NOTMERGEPEN = QtGui.QPainter.RasterOp_NotSourceAndNotDestination
-    R2_NOTXORPEN = QtGui.QPainter.RasterOp_NotSourceXorDestination
-    R2_XORPEN = QtGui.QPainter.RasterOp_SourceXorDestination
+    Defines the modes supported for digital image compositing.
 
+    Composition modes are used to specify how the pixels in one image, the source, are merged \
+    with the pixel in another image, the destination.
+
+    Please note that the bitwise operation modes are not supported for pens and brushes with alpha components.
+
+    """
+    SOURCE = QtGui.QPainter.CompositionMode_Source
+    """This is the default mode. The output is the source pixel."""
+    SOURCE_OVER = QtGui.QPainter.CompositionMode_SourceOver
+    """The alpha of the source is used to blend the pixel on top of the destination."""
+    DESTINATION_OVER = QtGui.QPainter.CompositionMode_DestinationOver
+    """The alpha of the destination is used to blend it on top of the source pixels."""
+    CLEAR = QtGui.QPainter.CompositionMode_Clear
+    """The pixels in the destination are cleared (set to fully transparent) independent of the source."""
+    DESTINATION = QtGui.QPainter.CompositionMode_Destination
+    """The output is the destination pixel. This means that the blending has no effect."""
+    SOURCE_IN = QtGui.QPainter.CompositionMode_SourceIn
+    """The output is the source, where the alpha is reduced by that of the destination."""
+    DESTINATION_IN = QtGui.QPainter.CompositionMode_DestinationIn
+    """The output is the destination, where the alpha is reduced by that of the source."""
+    SOURCE_OUT = QtGui.QPainter.CompositionMode_SourceOut
+    """The output is the source, where the alpha is reduced by the inverse of destination."""
+    DESTINATION_OUT = QtGui.QPainter.CompositionMode_DestinationOut
+    """The output is the destination, where the alpha is reduced by the inverse of the source."""
+    SOURCE_AT_TOP = QtGui.QPainter.CompositionMode_SourceAtop
+    """The source pixel is blended on top of the destination, with the alpha of the source pixel reduced by the alpha of the destination pixel."""
+    DESTINATION_AT_TOP = QtGui.QPainter.CompositionMode_DestinationAtop
+    """The destination pixel is blended on top of the source, with the alpha of the destination pixel is reduced by the alpha of the destination pixel."""
+    XOR = QtGui.QPainter.CompositionMode_Xor
+    """The source, whose alpha is reduced with the inverse of the destination alpha, is merged with the destination, whose alpha is reduced by the inverse of the source alpha. CompositionMode_Xor is not the same as the bitwise Xor."""
+    Plus = QtGui.QPainter.CompositionMode_Plus
+    """Both the alpha and color of the source and destination pixels are added together."""
+    MULTIPLY = QtGui.QPainter.CompositionMode_Multiply
+    """The output is the source color multiplied by the destination. Multiplying a color with white leaves the color unchanged, while multiplying a color with black produces black."""
+    SCREEN = QtGui.QPainter.CompositionMode_Screen
+    """The source and destination colors are inverted and then multiplied. Screening a color with white produces white, whereas screening a color with black leaves the color unchanged."""
+    OVERLAY = QtGui.QPainter.CompositionMode_Overlay
+    """Multiplies or screens the colors depending on the destination color. The destination color is mixed with the source color to reflect the lightness or darkness of the destination."""
+    DARKEN = QtGui.QPainter.CompositionMode_Darken
+    """The darker of the source and destination colors is selected."""
+    LIGHTEN = QtGui.QPainter.CompositionMode_Lighten
+    """he lighter of the source and destination colors is selected."""
+    COLOR_DODGE = QtGui.QPainter.CompositionMode_ColorDodge
+    """The destination color is brightened to reflect the source color. A black source color leaves the destination color unchanged."""
+    COLOR_BURN = QtGui.QPainter.CompositionMode_ColorBurn
+    """The destination color is darkened to reflect the source color. A white source color leaves the destination color unchanged."""
+    HARD_LIGHT = QtGui.QPainter.CompositionMode_HardLight
+    """Multiplies or screens the colors depending on the source color. A light source color will lighten the destination color, whereas a dark source color will darken the destination color."""
+    SOFT_LIGHT = QtGui.QPainter.CompositionMode_SoftLight
+    """Darkens or lightens the colors depending on the source color. Similar to HARD_LIGHT."""
+    DIFFERENCE = QtGui.QPainter.CompositionMode_Difference
+    """Subtracts the darker of the colors from the lighter. Painting with white inverts the destination color, whereas painting with black leaves the destination color unchanged."""
+    EXCLUSION = QtGui.QPainter.CompositionMode_Exclusion
+    """Similar to DIFFERENCE, but with a lower contrast. Painting with white inverts the destination color, whereas painting with black leaves the destination color unchanged."""
+    SRC_OR_DEST = QtGui.QPainter.RasterOp_SourceOrDestination
+    """Does a bitwise OR operation on the source and destination pixels (src OR dst)."""
+    SRC_AND_DEST = QtGui.QPainter.RasterOp_SourceAndDestination
+    """Does a bitwise AND operation on the source and destination pixels (src AND dst)."""
+    SRC_XOR_DEST = QtGui.QPainter.RasterOp_SourceXorDestination
+    """Does a bitwise XOR operation on the source and destination pixels (src XOR dst)."""
+    NOT_SRC_AND_NOT_DEST = QtGui.QPainter.RasterOp_NotSourceAndNotDestination
+    """Does a bitwise NOR operation on the source and destination pixels ((NOT src) AND (NOT dst))."""
+    NOT_SRC_OR_NOT_DEST = QtGui.QPainter.RasterOp_NotSourceOrNotDestination
+    """Does a bitwise NAND operation on the source and destination pixels ((NOT src) OR (NOT dst))."""
+    NOT_SRC_XOR_DEST = QtGui.QPainter.RasterOp_NotSourceXorDestination
+    """Does a bitwise operation where the source pixels are inverted and then XOR'ed with the destination ((NOT src) XOR dst)."""
+    NOT_SRC = QtGui.QPainter.RasterOp_NotSource
+    """Does a bitwise operation where the source pixels are inverted (NOT src)."""
+    NOT_SRC_AND_DEST = QtGui.QPainter.RasterOp_NotSourceAndDestination
+    """Does a bitwise operation where the source is inverted and then AND'ed with the destination ((NOT src) AND dst)."""
+    SRC_AND_NOT_DEST = QtGui.QPainter.RasterOp_SourceAndNotDestination
+    """Does a bitwise operation where the source is AND'ed with the inverted destination pixels (src AND (NOT dst))."""
+    NOT_SRC_OR_DEST = QtGui.QPainter.RasterOp_NotSourceOrDestination
+    """Does a bitwise operation where the source is inverted and then OR'ed with the destination ((NOT src) OR dst)."""
+    CLEAR_DEST = QtGui.QPainter.RasterOp_ClearDestination
+    """The pixels in the destination are cleared (set to 0) independent of the source."""
+    SET_DEST = QtGui.QPainter.RasterOp_SetDestination
+    """The pixels in the destination are set (set to 1) independent of the source."""
+    NOT_DEST = QtGui.QPainter.RasterOp_NotDestination
+    """Does a bitwise operation where the destination pixels are inverted (NOT dst)."""
+    SRC_OR_NOT_DEST = QtGui.QPainter.RasterOp_SourceOrNotDestination
+    """Does a bitwise operation where the source is OR'ed with the inverted destination pixels (src OR (NOT dst))."""
+    
 
 class LineStyle:
+    """
+    These are the line styles that can be drawn. The styles are:
+
+    .. list-table::
+
+        * - |qpen-solid|
+          - |qpen-dash|
+          - |qpen-dot|
+        * - LineStyle.SOLID_LINE
+          - LineStyle.DASH_LINE
+          - LineStyle.DOT_LINE
+        * - |qpen-dashdot|
+          - |qpen-dashdotdot|
+          -
+        * - LineStyle.DASH_DOT_LINE
+          - LineStyle.DASH_DOT_DOT_LINE
+          - LineStyle.NO_PEN
+
+    .. |qpen-solid| image:: ../docs/images/graphics/qpen-solid.png
+    .. |qpen-dash| image:: ../docs/images/graphics/qpen-dash.png
+    .. |qpen-dot| image:: ../docs/images/graphics/qpen-dot.png
+    .. |qpen-dashdot| image:: ../docs/images/graphics/qpen-dashdot.png
+    .. |qpen-dashdotdot| image:: ../docs/images/graphics/qpen-dashdotdot.png
+    """
     SOLID_LINE = QtCore.Qt.SolidLine
-    CENTER_LINE = QtCore.Qt.DashLine
-    DOTTED_LINE = QtCore.Qt.DotLine
-    DASHED_LINE = QtCore.Qt.DashDotLine
-    NULL_LINE = QtCore.Qt.NoPen
+    """A plain line"""
     DASH_LINE = QtCore.Qt.DashLine
+    """Dashes separated by a few pixels."""
     DOT_LINE = QtCore.Qt.DotLine
+    """Dots separated by a few pixels."""
     DASH_DOT_LINE = QtCore.Qt.DashDotLine
+    """Alternate dots and dashes."""
     DASH_DOT_DOT_LINE = QtCore.Qt.DashDotDotLine
+    """One dash, two dots, one dash, two dots."""
     NO_PEN = QtCore.Qt.NoPen
+    """no line at all. For example, draw_circle fills but does not draw any boundary line."""
 
 
 class FillStyle:
+    """
+    These are the fille style used by draw and fill functions.
+    """
     NULL_FILL = QtCore.Qt.NoBrush
+    """Not fill at all. For example, draw_circle() will not fill."""
     SOLID_FILL = QtCore.Qt.SolidPattern
+    """Fill with solid color. see set_fill_color()."""
 
 
 class Color:
+    """
+    These are the predefined Color constants.
+    """
     BLACK = QtCore.Qt.black
+    """Black color"""
     DARKGRAY = QtCore.Qt.darkGray
     BLUE = QtCore.Qt.blue
     LIGHTBLUE = QtGui.QColor(0x54, 0x54, 0xFC)

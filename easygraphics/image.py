@@ -1,8 +1,8 @@
 from PyQt5 import QtGui, QtCore
 from collections import deque
-from typing import List
+from typing import List, Optional
 
-from easygraphics.consts import FillStyle, Color, LineStyle, WriteMode
+from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode
 
 __all__ = ['Image']
 
@@ -16,8 +16,10 @@ class Image:
         self._fill_color = Color.WHITE
         self._fill_Style = FillStyle.SOLID_FILL
         self._background_color = Color.WHITE
+        self._background = QtGui.QImage(image.width(), image.height(), QtGui.QImage.Format_ARGB32_Premultiplied)
+        self.set_background_color(Color.WHITE)
         self._pen = QtGui.QPen()
-        self._brush = QtGui.QBrush(QtCore.Qt.white, QtCore.Qt.SolidPattern)
+        self._brush = QtGui.QBrush(Color.WHITE, FillStyle.SOLID_FILL)
         self._x = 0
         self._y = 0
         self._painter = QtGui.QPainter()
@@ -26,7 +28,7 @@ class Image:
     def _init_painter(self):
         p = self._painter
         p.begin(self._image)
-        p.setCompositionMode(WriteMode.R2_COPYPEN)
+        p.setCompositionMode(CompositionMode.R2_COPYPEN)
         # p.setRenderHint(QtGui.QPainter.Antialiasing) # flood fill will not work when anti-aliasing is on
         self._default_rect = p.viewport()
 
@@ -121,9 +123,7 @@ class Image:
 
     def set_background_color(self, background_color):
         """
-        set the background  color of the image
-
-        it will be used when the image is cleared. (see clear_device())
+        Set and change the background color
 
         the possible color could be consts defined in Color class,
         or the color created by rgb() function,
@@ -132,6 +132,7 @@ class Image:
         :param background_color: background color
         """
         self._background_color = background_color
+        self._background.fill(background_color)
 
     def get_line_style(self):
         """
@@ -314,39 +315,33 @@ class Image:
 
     def clear_view_port(self):
         """
-        clear view port with the background color
+        clear view port to show the background
         """
         p = self._painter
         mode = p.compositionMode()
         p.setCompositionMode(QtGui.QPainter.CompositionMode_Source)
-        p.fillRect(1, 1, p.window().width() - 1, p.window().height() - 1, self._background_color)
+        p.fillRect(1, 1, p.window().width() - 1, p.window().height() - 1, Color.TRANSPARENT)
         p.setCompositionMode(mode)
 
-    def set_write_mode(self, mode):
+    def set_composition_mode(self, mode):
         """
-        set write mode of the specified image
+        Get composition mode of the specified image.
 
-        When drawing ,the write mode will decide how the result pixel color will be computed (using source color and
-        color of the destination)
+        Composition modes are used to specify how the pixels in the source (image/pen/brush),
+        are merged with the pixel in the destination image.
 
-        source color is the color of the pen/brush
-
-        destination color is the color of the pixel will be painted on
-
-        the result color will be computed by bitwise operations
-
-        :param mode: write mode
+        :param mode: composition mode
         """
         self._painter.setCompositionMode(mode)
 
-    def get_write_mode(self):
+    def get_composition_mode(self):
         """
-        get write mode of the specified image
+        get composition mode of the specified image
 
-        When drawing ,the write mode will decide how the result pixel color will be computed
+        When drawing ,the composition mode will decide how the result pixel color will be computed
          (using source color and color of the destination)
 
-        :return: write mode
+        :return: composition mode
         """
         return self._painter.compositionMode()
 
@@ -425,7 +420,7 @@ class Image:
 
     def _prepare_painter_for_draw_outline(self) -> QtGui.QPainter:
         """ prepare painter for draw outline """
-        return self._prepare_painter(self._pen, QtCore.Qt.NoBrush)
+        return self._prepare_painter(self._pen, FillStyle.NULL_FILL)
 
     def _prepare_painter_for_draw(self) -> QtGui.QPainter:
         """ prepare painter for draw (with outline and fill)"""
@@ -433,7 +428,7 @@ class Image:
 
     def _prepare_painter_for_fill(self) -> QtGui.QPainter:
         """ prepare painter for fill (without outline)"""
-        return self._prepare_painter(QtCore.Qt.NoPen, self._brush)
+        return self._prepare_painter(LineStyle.NO_PEN, self._brush)
 
     def draw_point(self, x: float, y: float):
         """
@@ -903,12 +898,12 @@ class Image:
 
     def clear(self):
         """
-        Clear the image with the background color
+        Clear the image to show the background
         """
-        self._image.fill(self._background_color)
+        self._image.fill(QtCore.Qt.transparent)
 
     def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = -1,
-                   src_height: int = -1):
+                   src_height: int = -1, with_background: bool = True, composition_mode=None):
         """
         copy part of the source image (image) to the destination image (self) at (x,y)
 
@@ -920,6 +915,13 @@ class Image:
         (sw, sh) specifies the size of the part of the source image that is to be drawn.  \
         The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
 
+        If with_background is False, the source image's background will not be copied.
+
+        The final result will depend on the composition mode and the source image's background.
+        In the default mode (CompositionMode.SOURCE), the source will fully overwrite the destination).
+
+        If you want to get a transparent copy, you should use CompositionMode.SOURCE_OVER and with_background = False.
+
         :param x: x coordinate value of the upper left point on the destination image
         :param y: y coordinate value of the upper left point on the destination image
         :param image: the source image to be copied
@@ -927,9 +929,31 @@ class Image:
         :param src_y: y coordinate value of the top-left point of of the part to be drawn
         :param src_width: witdh of the top-left point of of the part to be drawn
         :param src_height: height of the top-left point of of the part to be drawn
+        :param with_background: if the source image's background should be drawn together
+        :param composition_mode: if is None, use dst image's composition mode to copy.
         """
         p = self._painter
+        if composition_mode is not None:
+            old_mode = p.compositionMode()
+            p.setCompositionMode(composition_mode)
+        if not with_background or image.get_background_color() != Color.TRANSPARENT:
+            p.drawImage(x, y, image.get_background(), src_x, src_y, src_width, src_height)
         p.drawImage(x, y, image.get_image(), src_x, src_y, src_width, src_height)
+        if composition_mode is not None:
+            p.compositionMode(old_mode)
+
+    def draw_to_device(self, device: QtGui.QPaintDevice):
+        """
+        draw the whole image to the specified device
+
+        :param device: the device to be drawn on
+        """
+        p = QtGui.QPainter()
+        p.begin(device)
+        if self._background_color != Color.TRANSPARENT:
+            p.drawImage(0, 0, self._background)
+        p.drawImage(0, 0, self._image)
+        p.end()
 
     def flood_fill(self, x: int, y: int, border_color):
         """
@@ -946,10 +970,9 @@ class Image:
         queue = deque()
         transform = self._painter.combinedTransform()
         new_pos = transform.map(QtCore.QPoint(x, y))
-        print(new_pos.x(), new_pos.y())
         queue.append((new_pos.x(), new_pos.y()))
-        bc = QtGui.QColor(border_color)
-        sc = QtGui.QColor(self._fill_color).rgba()
+        bc = QtGui.QColor(border_color).rgba()
+        sc = QtGui.QColor(self._fill_color)
         flags = [0] * (self._image.width() * self._image.height())
         r = None
         if self._painter.hasClipping():
@@ -963,12 +986,11 @@ class Image:
                 continue
             if flags[self._image.width() * y + x] == 1:
                 continue
-            c = self._image.pixel(x, y)
-            pc = QtGui.QColor(c)
+            pc = self._image.pixel(x, y)
             if bc == pc:
                 continue
             flags[self._image.width() * y + x] = 1
-            self._image.setPixel(x, y, sc)
+            self._image.setPixelColor(x, y, sc)
             queue.append((x + 1, y))
             queue.append((x - 1, y))
             queue.append((x, y + 1))
@@ -1096,3 +1118,10 @@ class Image:
         :return: the painter used internally
         """
         return self._painter
+
+    def get_background(self) -> QtGui.QImage:
+        """
+        get the internal background QImage instance
+        :return:
+        """
+        return self._background
