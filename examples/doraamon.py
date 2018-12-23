@@ -9,7 +9,7 @@ set_background_color(Color.WHITE)
 clear_device()
 
 # head 头
-set_fill_color(rgb(7, 190, 234))
+set_fill_color(color_rgb(7, 190, 234))
 set_color(Color.BLACK)
 draw_rounded_rect(-135, -206, 135, 54, 248, 248)
 delay(DELAY_TIME)
@@ -36,7 +36,7 @@ draw_circle(16, -116, 6)
 delay(DELAY_TIME)
 
 # nose 鼻子
-set_fill_color(rgb(201, 62, 0))
+set_fill_color(color_rgb(201, 62, 0))
 draw_circle(0, -92, 15)
 delay(DELAY_TIME)
 
@@ -82,7 +82,7 @@ draw_rounded_rect(2, 178, 112, 205, 24, 24)
 delay(DELAY_TIME)
 
 # fill body with blue 身体填充蓝色
-set_fill_color(rgb(7, 190, 234))
+set_fill_color(color_rgb(7, 190, 234))
 flood_fill(0, 100, Color.BLACK)
 delay(DELAY_TIME)
 
@@ -99,12 +99,12 @@ delay(DELAY_TIME)
 # bell 铃铛
 
 #  rope 绳子
-set_fill_color(rgb(169, 38, 0))
+set_fill_color(color_rgb(169, 38, 0))
 draw_rounded_rect(-100, 23, 100, 42, 12, 12)
 delay(DELAY_TIME)
 
 # outline of the bell 铃铛外形
-set_fill_color(rgb(245, 237, 38))
+set_fill_color(color_rgb(245, 237, 38))
 draw_circle(0, 49, 19)
 delay(DELAY_TIME)
 

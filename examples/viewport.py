@@ -3,7 +3,7 @@ from easygraphics import *
 init_graph(800, 600)
 # draw view port's border, to better see the effect of view port
 # 给视口（view port)画个边框，以便观察视口的效果
-set_color(Color.LIGHTGRAY)
+set_color(Color.LIGHT_GRAY)
 draw_rect(100, 50, 300, 250)
 set_color(Color.BLACK)
 draw_text(50, 300, "set_view_port() with clip=True")
@@ -27,7 +27,7 @@ pause()
 # now let's try set_window() with the logical window set in accordance with the view port
 # 这次我们用set_window()手动将逻辑视窗设置为与视口大小一致
 reset_view_port()
-set_color(Color.LIGHTGRAY)
+set_color(Color.LIGHT_GRAY)
 draw_rect(450, 50, 650, 250)
 set_color(Color.BLACK)
 draw_text(400, 300, "set_view_port() with clip=False")

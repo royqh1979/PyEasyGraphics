@@ -1,6 +1,6 @@
 from PyQt5 import QtGui, QtCore
 from collections import deque
-from typing import List, Optional
+from typing import List, Optional, Union
 
 from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode
 
@@ -28,44 +28,76 @@ class Image:
     def _init_painter(self):
         p = self._painter
         p.begin(self._image)
-        p.setCompositionMode(CompositionMode.R2_COPYPEN)
+        p.setCompositionMode(CompositionMode.SOURCE)
         # p.setRenderHint(QtGui.QPainter.Antialiasing) # flood fill will not work when anti-aliasing is on
         self._default_rect = p.viewport()
 
     def get_image(self) -> QtGui.QImage:
         """
-        get the internal QImage
+        Get the internal QImage.
 
         **note** EasyGraphics don't require and release qpainter each time. Because there can only be one QPainter \
         for each QImage at time, so if you want to draw on this image customly, use get_painter() to get \
         the internal QPainter instance.
+
         :return: the QImage instance used internally
         """
         return self._image
 
-    def get_width(self):
+    def get_width(self) -> int:
+        """
+        Get the width of the image.
+
+        :return: image width
+        """
         return self._image.width()
 
     def get_height(self):
+        """
+        Get the height  of the image.
+
+        :return: image height
+        """
         return self._image.height()
 
     def get_pen(self) -> QtGui.QPen:
+        """
+        Get the pen of the image
+
+        :return: pen
+        """
         return self._pen
 
-    def set_pen(self, pen):
+    def set_pen(self, pen: QtGui.QPen):
+        """
+        Set pen
+
+        :param pen: the pen to use.
+        :return:
+        """
         self._pen = pen
 
     def get_brush(self) -> QtGui.QBrush:
+        """
+        Get brush of the image
+
+        :return: the brush
+        """
         return self._brush
 
-    def set_brush(self, brush):
+    def set_brush(self, brush: QtGui.QBrush):
+        """
+        Set brush
+
+        :param brush: the brush
+        """
         self._brush = brush
 
     def get_color(self):
         """
-        get the foreground (drawing) color of the specified image
+        Get the foreground (drawing) color of the specified image.
 
-        it will be used when drawing lines or shape outlines
+        It will be used when drawing lines or shape outlines.
 
         :return: foreground color
         """
@@ -73,24 +105,25 @@ class Image:
 
     def set_color(self, color):
         """
-        set the foreground (drawing) color of the specified image
+        Set the foreground (drawing) color of the specified image.
 
-        it will be used when drawing lines or shape outlines
+        It will be used when drawing lines or shape outlines.
 
-        the possible color could be consts defined in Color class,
+        The possible color could be consts defined in Color class,
         or the color created by rgb() function,
         or PyQt5's QColor , QGradient object or QtCore.Qt.GlobalColor consts (see the pyqt reference).
 
         :param color: foreground color
         """
+        color = _to_qcolor(color)
         self._color = color
         self._pen.setColor(color)
 
     def get_fill_color(self):
         """
-        get the fill color of the specified image
+        Get the fill color of the specified image.
 
-        it will be used when drawing and fill shapes.
+        It will be used when drawing and fill shapes.
 
         :return: fill color
         """
@@ -98,24 +131,25 @@ class Image:
 
     def set_fill_color(self, fill_color):
         """
-        set the fill (drawing) color of the specified image
+        Set the fill (drawing) color of the specified image.
 
-        it will be used when drawing and fill shapes.
+        It will be used when drawing and fill shapes.
 
-        the possible color could be consts defined in Color class,
+        The possible color could be consts defined in Color class,
         or the color created by rgb() function,
         or PyQt5's QColor , QGradient object or QtCore.Qt.GlobalColor consts (see the pyqt reference).
 
         :param fill_color: fill color
         """
+        fill_color = _to_qcolor(fill_color)
         self._fill_color = fill_color
         self._brush.setColor(fill_color)
 
     def get_background_color(self):
         """
-        get the background color of the image
+        Get the background color of the image.
 
-        it will be used when the image is cleared. (see clear_device())
+        It will be used when the image is cleared. (see clear_device())
 
         :return: background color
         """
@@ -123,20 +157,21 @@ class Image:
 
     def set_background_color(self, background_color):
         """
-        Set and change the background color
+        Set and change the background color.
 
-        the possible color could be consts defined in Color class,
+        The possible color could be consts defined in Color class,
         or the color created by rgb() function,
         or PyQt5's QColor , QGradient object or QtCore.Qt.GlobalColor consts (see the pyqt reference).
 
         :param background_color: background color
         """
+        background_color = _to_qcolor(background_color)
         self._background_color = background_color
         self._background.fill(background_color)
 
     def get_line_style(self):
         """
-        get line style
+        Get line style.
 
         The line style will be used when drawing lines and shape outlines.
 
@@ -146,7 +181,7 @@ class Image:
 
     def set_line_style(self, line_style):
         """
-        set line style
+        Set line style.
 
         The line style will be used when drawing lines and shape outlines.
         Possible value is one of the consts defined in LineStyle.
@@ -158,9 +193,9 @@ class Image:
 
     def get_line_width(self) -> float:
         """
-        get line width (thickness)
+        Get line width (thickness).
 
-        It will be used when drawing lines or shape outlines
+        It will be used when drawing lines or shape outlines.
 
         :return: line width
         """
@@ -168,9 +203,9 @@ class Image:
 
     def set_line_width(self, width: float):
         """
-        set line width (thinkness) of the specified image
+        Set line width (thinkness) of the specified image.
 
-        It will be used when drawing lines or shape outlines
+        It will be used when drawing lines or shape outlines.
 
         :param width: line width
         """
@@ -182,9 +217,9 @@ class Image:
 
     def get_fill_style(self):
         """
-        get fill style of the specified image
+        Get fill style of the specified image.
 
-        it will be used when drawing and fill shapes.
+        It will be used when drawing and fill shapes.
 
         :return: fill style
         """
@@ -192,9 +227,9 @@ class Image:
 
     def set_fill_style(self, fill_style):
         """
-        set fill style of the specified image
+        Set fill style of the specified image.
 
-        it will be used when drawing and fill shapes.
+        It will be used when drawing and fill shapes.
         Valid values are the consts defined in FillStyle
 
         :param fill_style: fill style
@@ -204,7 +239,7 @@ class Image:
 
     def set_view_port(self, left: int, top: int, right: int, bottom: int):
         """
-        set the view port of the the specified image
+        Set the view port of the the specified image.
 
         View port is the drawing zone on the image.
 
@@ -223,13 +258,13 @@ class Image:
 
     def reset_view_port(self):
         """
-        disable the view port setting
+        Disable the view port setting.
         """
         self._painter.setViewport(self._default_rect)
 
     def set_clip_rect(self, left: int, top: int, right: int, bottom: int):
         """
-        set the clip rect
+        Set the clip rect.
 
         Drawings outside the clip rect will be clipped.
 
@@ -243,15 +278,15 @@ class Image:
 
     def disable_clip(self):
         """
-        disable clipping
+        Disable clipping.
 
-        drawings will not be clipped
+        Drawings will not be clipped.
         """
         self._painter.setClipping(False)
 
     def set_window(self, origin_x: int, origin_y: int, width: int, height: int):
         """
-        set the logical drawing window
+        Set the logical drawing window.
 
         All your drawing is first drawing on the logical window, then mapping to view port (see set_view_port()).\
         The logical window's 4 corner points to streched to match the view port.
@@ -275,9 +310,7 @@ class Image:
 
     def reset_window(self):
         """
-        reset/remove the logical window
-
-        see set_window()
+        Reset/remove the logical window.(see set_window())
         """
         self._painter.setWindow(self._default_rect)
 
@@ -292,7 +325,7 @@ class Image:
 
     def rotate(self, degree: float):
         """
-        Rotates the coordinate system the given angle (in degree)clockwise .
+        Rotates the coordinate system the given angle (in degree) clockwise.
 
         :param degree: the rotate angle (in degree)
         """
@@ -309,13 +342,13 @@ class Image:
 
     def reset_transform(self):
         """
-        reset all transforms (translate/rotate/scale)
+        Reset all transforms (translate/rotate/scale).
         """
         self._painter.resetTransform()
 
     def clear_view_port(self):
         """
-        clear view port to show the background
+        Clear view port to show the background.
         """
         p = self._painter
         mode = p.compositionMode()
@@ -336,10 +369,10 @@ class Image:
 
     def get_composition_mode(self):
         """
-        get composition mode of the specified image
+        Get composition mode of the specified image.
 
         When drawing ,the composition mode will decide how the result pixel color will be computed
-         (using source color and color of the destination)
+         (using source color and color of the destination).
 
         :return: composition mode
         """
@@ -347,9 +380,9 @@ class Image:
 
     def move_to(self, x, y):
         """
-        set the drawing position to (x,y)
+        Set the drawing position to (x,y).
 
-        the drawing position is used by line_to(), line_rel() and move_rel()
+        The drawing position is used by line_to(), line_rel() and move_rel().
 
         :param x: x coordinate value of the new drawing position
         :param y: y coordinate value of the new drawing position
@@ -359,11 +392,11 @@ class Image:
 
     def move_rel(self, dx: float, dy: float):
         """
-        move the drawing position by (dx,dy)
+        Move the drawing position by (dx,dy).
 
-        if the old position is (x,y), then the new position will be (x+dx,y+dy)
+        If the old position is (x,y), then the new position will be (x+dx,y+dy).
 
-        the drawing position is used by line_to(), line_rel()
+        The drawing position is used by line_to(), line_rel().
 
         :param dx: x coordinate offset of the new drawing position
         :param dy: y coordinate offset of the new drawing position
@@ -373,7 +406,7 @@ class Image:
 
     def line_to(self, x: float, y: float):
         """
-        draw a line from the current drawing position to (x,y), then set the drawing position is set to (x,y)
+        Draw a line from the current drawing position to (x,y), then set the drawing position is set to (x,y).
 
         :param x: x coordinate value of the new drawing position
         :param y: y coordinate value of the new drawing position
@@ -383,8 +416,8 @@ class Image:
 
     def line_rel(self, dx: float, dy: float):
         """
-         draw a line from the current drawing position (x,y) to (x+dx,y+dy), \
-         then set the drawing position is set to (x+d,y+dy)
+         Draw a line from the current drawing position (x,y) to (x+dx,y+dy), \
+         then set the drawing position is set to (x+d,y+dy).
 
         :param dx: x coordinate offset of the new drawing position
         :param dy: y coordinate offset of the new drawing position
@@ -394,9 +427,9 @@ class Image:
 
     def get_x(self) -> float:
         """
-        get the x coordinate value of the current drawing position (x,y)
+        Get the x coordinate value of the current drawing position (x,y).
 
-        some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel())
+        Some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel()).
 
         :return: the x coordinate value of the current drawing position
         """
@@ -404,9 +437,9 @@ class Image:
 
     def get_y(self) -> float:
         """
-        get the y coordinate value of the current drawing position (x,y)
+        Get the y coordinate value of the current drawing position (x,y).
 
-        some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel())
+        Some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel())
 
         :return: the y coordinate value of the current drawing position
         """
@@ -432,7 +465,7 @@ class Image:
 
     def draw_point(self, x: float, y: float):
         """
-        draw a point at (x,y) on the specified image
+        Draw a point at (x,y) on the specified image.
 
         :param x: x coordinate value of the drawing point
         :param y: y coordinate value of the drawing point
@@ -442,7 +475,7 @@ class Image:
 
     def draw_line(self, x1: float, y1: float, x2: float, y2: float):
         """
-        Draw a line from (x1,y1) to (x2,y2) on the specified image
+        Draw a line from (x1,y1) to (x2,y2) on the specified image.
 
         :param x1: x coordinate value of the start point
         :param y1: y coordinate value of the start point
@@ -456,9 +489,9 @@ class Image:
 
     def ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
-        draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y
+        Draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.
 
-        the ellipse is not filled
+        The ellipse is not filled.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -470,9 +503,9 @@ class Image:
 
     def draw_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
-        draw an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y
+        Draw an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.
 
-        the ellipse is filled and has outline.
+        The ellipse is filled and has outline.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -484,9 +517,9 @@ class Image:
 
     def fill_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
-        fill an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y
+        Fill an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.
 
-        the ellipse dosen't has outline
+        The ellipse dosen't has outline.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -498,10 +531,10 @@ class Image:
 
     def draw_arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+        **note**: Degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
         at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
 
         :param x: x coordinate value of the ellipse's center
@@ -520,10 +553,10 @@ class Image:
 
     def pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        the pie is not filled.
+        The pie is not filled.
 
         **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
         at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -542,10 +575,10 @@ class Image:
 
     def draw_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        the pie is filled and has outline.
+        The pie is filled and has outline.
 
         **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
         at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -564,10 +597,10 @@ class Image:
 
     def fill_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        the pie dosen't have outline.
+        The pie doesn\'t have outline.
 
         **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
         at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -586,10 +619,10 @@ class Image:
 
     def chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-         draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+         Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
          which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-         the chord is not filled.
+         The chord is not filled.
 
          **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
          at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -608,10 +641,10 @@ class Image:
 
     def draw_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        the chord is filled and has outline
+        The chord is filled and has outline.
 
         **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
         at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -630,10 +663,10 @@ class Image:
 
     def fill_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        the chord doesn't have outline.
+        The chord doesn't have outline.
 
         **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
         at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -652,11 +685,11 @@ class Image:
 
     def bezier(self, poly_points: list):
         """
-        draw a bezier curve
+        Draw a bezier curve.
 
-        poly_points is a 2D point list. Each point has 2 coordinate values in the list. \
+        "poly_points" is a 2D point list. Each point has 2 coordinate values in the list. \
         So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
-        [x0,y0,x1,y1,x2,y2,x3,y3]
+        [x0,y0,x1,y1,x2,y2,x3,y3] .
 
         :param poly_points: point list
         """
@@ -664,11 +697,11 @@ class Image:
 
     def draw_bezier(self, poly_points: list):
         """
-        draw a bezier curve
+        Draw a bezier curve.
 
-        poly_points is a 2D point list. Each point has 2 coordinate values in the list. \
+        "poly_points" is a 2D point list. Each point has 2 coordinate values in the list. \
         So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
-        [x0,y0,x1,y1,x2,y2,x3,y3]
+        [x0,y0,x1,y1,x2,y2,x3,y3] .
 
         :param poly_points: point list
         """
@@ -686,8 +719,9 @@ class Image:
 
     def draw_lines(self, points: List[float]):
         """
-        draw lines
-        points is a 2D point pair list. It should contain even points, and each 2 points make a point pair.
+        Draw lines.
+
+        "points" is a 2D point pair list. It should contain even points, and each 2 points make a point pair.
         And each point have 2 coordinate values(x,y). So if you have n point pairs, the points list should have 4*n
         values.
 
@@ -710,9 +744,9 @@ class Image:
 
     def draw_poly_line(self, points: List[float]):
         """
-        draw poly lines
+        Draw poly lines.
 
-        points is a 2D point list. Each 2 values in the list make a point. A poly line will be drawn to connect
+        "points" is a 2D point list. Each 2 values in the list make a point. A poly line will be drawn to connect
         adjecent points defined by the the list.
 
         For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw 5 lines:
@@ -739,9 +773,9 @@ class Image:
 
     def polygon(self, points: List[float]):
         """
-        draw polygon outline
+        Draw polygon outline.
 
-        points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+        "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
         points defined by the the list.
 
         For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
@@ -757,9 +791,9 @@ class Image:
 
     def draw_polygon(self, points: List[float]):
         """
-        draw polygon
+        Draw polygon
 
-        points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+        "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
         points defined by the the list.
 
         For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
@@ -775,9 +809,9 @@ class Image:
 
     def fill_polygon(self, points: List[float]):
         """
-        fill polygon
+        Fill polygon
 
-        points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+        "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
         points defined by the the list.
 
         For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
@@ -792,22 +826,37 @@ class Image:
         p.drawPolygon(*qpoints)
 
     def path(self, path: QtGui.QPainterPath):
+        """
+        Draw a path.
+
+        :param path: path to be drawn
+        """
         p = self._prepare_painter_for_draw_outline()
         p.drawPath(path)
 
     def draw_path(self, path: QtGui.QPainterPath):
+        """
+        Draw and fill a path.
+
+        :param path: path to drawn and fill
+        """
         p = self._prepare_painter_for_draw()
         p.drawPath(path)
 
     def fill_path(self, path: QtGui.QPainterPath):
-        p = self._prepare_painter_for_draw()
-        p.drawPath(path)
+        """
+        Fill the region enclosed by the path
+
+        :param path: the path enclosing the region
+        """
+        p = self._painter
+        p.fillPath(path, self._brush)
 
     def rect(self, left: float, top: float, right: float, bottom: float):
         """
-        Draws a rectangle outline with upper left corner at (left, top) and lower right corner at (right,bottom)
+        Draws a rectangle outline with upper left corner at (left, top) and lower right corner at (right,bottom).
 
-        the rectangle is not filled
+        The rectangle is not filled.
 
         :param left: x coordinate value of the upper left corner
         :param top: y coordinate value of the upper left corner
@@ -819,9 +868,9 @@ class Image:
 
     def draw_rect(self, left: float, top: float, right: float, bottom: float):
         """
-        Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom)
+        Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom).
 
-        the rectangle is filled and has outline
+        The rectangle is filled and has outline.
 
         :param left: x coordinate value of the upper left corner
         :param top: y coordinate value of the upper left corner
@@ -833,9 +882,9 @@ class Image:
 
     def fill_rect(self, left: float, top: float, right: float, bottom: float):
         """
-        Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom)
+        Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom).
 
-        the rectangle doesn't have outline
+        The rectangle doesn't have outline.
 
         :param left: x coordinate value of the upper left corner
         :param top: y coordinate value of the upper left corner
@@ -850,7 +899,7 @@ class Image:
         Draws a rounded rectangle outline with upper left corner at (left, top) , lower right corner at (right,bottom).
         raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
 
-        the rectangle is not filled
+        The rectangle is not filled.
 
         :param left: x coordinate value of the upper left corner
         :param top: y coordinate value of the upper left corner
@@ -867,7 +916,7 @@ class Image:
         Draws a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
         raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
 
-        the rectangle is filled and has outline
+        The rectangle is filled and has outline.
 
         :param left: x coordinate value of the upper left corner
         :param top: y coordinate value of the upper left corner
@@ -884,13 +933,13 @@ class Image:
         Fill a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
         raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
 
-        the rectangle doesn't have outline
+        The rectangle doesn't have outline.
 
         :param left: x coordinate value of the upper left corner
         :param top: y coordinate value of the upper left corner
         :param right: x coordinate value of the lower right corner
         :param bottom: y coordinate value of the lower right corner
-        :param round_x: raidus on x-axis of the corner ellipse arc
+        :param round_x: radius on x-axis of the corner ellipse arc
         :param round_y: radius on y-axis of the corner ellipse arc
         """
         p = self._prepare_painter_for_fill()
@@ -898,14 +947,14 @@ class Image:
 
     def clear(self):
         """
-        Clear the image to show the background
+        Clear the image to show the background.
         """
         self._image.fill(QtCore.Qt.transparent)
 
     def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = -1,
                    src_height: int = -1, with_background: bool = True, composition_mode=None):
         """
-        copy part of the source image (image) to the destination image (self) at (x,y)
+        Copy part of the source image (image) to the destination image (self) at (x,y).
 
         (x, y) specifies the top-left point in the destination image that is to be drawn onto.
 
@@ -944,7 +993,7 @@ class Image:
 
     def draw_to_device(self, device: QtGui.QPaintDevice):
         """
-        draw the whole image to the specified device
+        Draw the whole image to the specified device.
 
         :param device: the device to be drawn on
         """
@@ -957,7 +1006,7 @@ class Image:
 
     def flood_fill(self, x: int, y: int, border_color):
         """
-        flood fill the image starting from(x,y) and ending at borders with border_color
+        Flood fill the image starting from(x,y) and ending at borders with border_color.
 
         The fill region border must be closed,or the whole image will be filled!
 
@@ -998,7 +1047,7 @@ class Image:
 
     def get_pixel(self, x: int, y: int) -> QtGui.QColor:
         """
-        get a pixel's color on the specified image
+        Get a pixel's color on the specified image.
 
         :param x: x coordinate value of the pixel
         :param y: y coordinate value of the pixel
@@ -1008,7 +1057,7 @@ class Image:
 
     def put_pixel(self, x: int, y: int, color):
         """
-        set a pixel's color on the specified image
+        Set a pixel's color on the specified image.
 
         :param x: x coordinate value of the pixel
         :param y: y coordinate value of the pixel
@@ -1018,7 +1067,7 @@ class Image:
 
     def draw_text(self, x: int, y: int, *args, sep=' '):
         """
-        Prints the given texts beginning at the given position (x,y)
+        Prints the given texts beginning at the given position (x,y).
 
         :param x: x coordinate value of the start point
         :param y: y coordinate value of the start point
@@ -1125,3 +1174,14 @@ class Image:
         :return:
         """
         return self._background
+
+
+def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
+    if isinstance(val, str) or type(val) == int:
+        # don't use isinstance(val,int), because predefined Color values (eg. Color.RED) will also make it True!
+        color = QtGui.QColor(val)
+        if not color.isValid():
+            raise ValueError(f"{str(val)} is not a valid color!")
+    else:
+        color = val
+    return color

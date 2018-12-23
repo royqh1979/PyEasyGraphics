@@ -1,5 +1,4 @@
-
-EasyGraphics package
+API
 ====================
 
 Subpackages
@@ -8,6 +7,7 @@ Subpackages
 .. toctree::
 
     apis/easygraphics.dialog
+    apis/easygraphics.legacy
 
 
 Submodules
@@ -16,10 +16,9 @@ Submodules
 .. toctree::
 
     apis/easygraphics.image
-    apis/easygraphics.graphwin
 
-APIs
-______
+EasyGraphics package
+--------------------
 
 .. currentmodule:: easygraphics
 

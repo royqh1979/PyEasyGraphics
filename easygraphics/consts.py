@@ -97,7 +97,7 @@ class CompositionMode:
     """Does a bitwise operation where the destination pixels are inverted (NOT dst)."""
     SRC_OR_NOT_DEST = QtGui.QPainter.RasterOp_SourceOrNotDestination
     """Does a bitwise operation where the source is OR'ed with the inverted destination pixels (src OR (NOT dst))."""
-    
+
 
 class LineStyle:
     """
@@ -154,19 +154,76 @@ class Color:
     """
     BLACK = QtCore.Qt.black
     """Black color"""
-    DARKGRAY = QtCore.Qt.darkGray
+    DARK_GRAY = QtCore.Qt.darkGray
+    """Dark Gray color"""
+    LIGHT_GRAY = QtGui.QColor(0xA8, 0xA8, 0xA8)
+    """Light Gray"""
     BLUE = QtCore.Qt.blue
-    LIGHTBLUE = QtGui.QColor(0x54, 0x54, 0xFC)
+    """Blue"""
+    LIGHT_BLUE = QtGui.QColor(0x54, 0x54, 0xFC)
+    """Light blue"""
+    DARK_BLUE = QtCore.Qt.darkBlue
+    """dark blue"""
     GREEN = QtCore.Qt.green
-    LIGHTGREEN = QtGui.QColor(0x54, 0xFC, 0x54)
+    """Green"""
+    LIGHT_GREEN = QtGui.QColor(0x54, 0xFC, 0x54)
+    """Light green"""
+    DARK_GREEN = QtCore.Qt.darkGreen
+    """dark green"""
     CYAN = QtCore.Qt.cyan
-    LIGHTCYAN = QtGui.QColor(0x54, 0xFC, 0xFC)
+    """cyan"""
+    LIGHT_CYAN = QtGui.QColor(0x54, 0xFC, 0xFC)
+    """light cyan"""
+    DARK_CYAN = QtCore.Qt.darkCyan
+    """dark cyan"""
     RED = QtCore.Qt.red
-    LIGHTRED = QtGui.QColor(0xFC, 0x54, 0x54)
+    """red"""
+    LIGHT_RED = QtGui.QColor(0xFC, 0x54, 0x54)
+    """light red"""
+    DARK_RED = QtCore.Qt.darkRed
+    """dark red"""
     MAGENTA = QtGui.QColor(0xA8, 0, 0xA8)
-    LIGHTMAGENTA = QtGui.QColor(0xFC, 0x54, 0xFC)
+    """magenta"""
+    LIGHT_MAGENTA = QtGui.QColor(0xFC, 0x54, 0xFC)
+    """light magenta"""
+    DARK_MAGENTA = QtCore.Qt.darkMagenta
+    """dark magenta"""
     BROWN = QtGui.QColor(0xA8, 0xA8, 0)
+    """brown"""
     YELLOW = QtCore.Qt.yellow
-    LIGHTGRAY = QtGui.QColor(0xA8, 0xA8, 0xA8)
+    """yellow"""
+    LIGHT_YELLOW = QtGui.QColor(0xFC, 0xFC, 0x54)
+    """light yellow"""
+    DARK_YELLOW = QtCore.Qt.darkYellow
+    """dark yellow"""
     WHITE = QtCore.Qt.white
+    """White"""
     TRANSPARENT = QtCore.Qt.transparent
+    """Transparent"""
+
+
+class TextFlags:
+    ALIGN_LEFT = QtCore.Qt.AlignLeft
+    """Aligns with the left edge."""
+    ALIGN_RIGHT = QtCore.Qt.AlignRight
+    """Aligns with the right edge."""
+    ALIGN_HCENTER = QtCore.Qt.AlignHCenter
+    """Centers horizontally in the available space."""
+    ALIGN_JUSTIFY = QtCore.Qt.AlignJustify
+    """Justifies the text in the available space."""
+    ALIGN_TOP = QtCore.Qt.AlignTop
+    """Aligns with the top."""
+    ALIGN_BOTTOM = QtCore.Qt.AlignBottom
+    """Aligns with the bottom."""
+    ALIGN_VCENTER = QtCore.Qt.AlignVCenter
+    """Centers vertically in the available space."""
+    ALIGN_CENTER = QtCore.Qt.AlignCenter
+    """Centers in both dimensions."""
+    TEXT_DONT_CLIP = QtCore.Qt.TextDontClip
+    """If it\'s impossible to stay within the given bounds, it prints outside."""
+    TEXT_SINGLE_LINE = QtCore.Qt.TextSingleLine
+    """Treats all whitespace as spaces and prints just one line."""
+    TEXT_EXPAND_TABS = QtCore.Qt.TextExpandTabs
+    """Makes the U+0009 (ASCII tab) character move to the next tab stop."""
+    TEXT_WORD_WRAP = QtCore.Qt.TextWordWrap
+    """Breaks lines at appropriate points, e.g. at word boundaries."""

@@ -53,6 +53,7 @@ class GraphWin(QtWidgets.QWidget):
 
     def _init_screen(self, width, height):
         screen_image = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
+        screen_image.fill(QtCore.Qt.transparent)
         self._canvas = Image(screen_image)
         self._device_image = screen_image.copy()
         self.real_update()
@@ -221,8 +222,8 @@ class GraphWin(QtWidgets.QWidget):
         get the key inputted by keyboard
         if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
 
-    :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
-        `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
+        :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
+            `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
         """
         nt = time.time_ns()
         if nt - self._key_msg.get_time() > 100000000:

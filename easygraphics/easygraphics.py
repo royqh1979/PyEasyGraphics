@@ -1,18 +1,19 @@
-import threading
 import sys
+import threading
 import time
-from typing import List
 from functools import reduce
+from typing import List
 
 from PyQt5 import QtWidgets
 
 from .consts import *
+from .dialog import invoke_in_app_thread
 from .graphwin import GraphWin
 from .image import Image
-from .dialog import invoke_in_app_thread
 
 __all__ = [
-    'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'CompositionMode',  # consts
+    # consts
+    'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'CompositionMode', 'TextFlags',
     # 'GraphWin', 'Image',
     #  setting functions #
     'set_line_style', 'get_line_style', 'set_line_width', 'get_line_width',
@@ -34,7 +35,7 @@ __all__ = [
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
-    'set_target', 'get_target', 'create_image',
+    'set_target', 'get_target', 'create_image', 'save_image',
     # time control functions#
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
     # keyboard and mouse functions #
@@ -42,7 +43,7 @@ __all__ = [
     # init and close graph window #
     'init_graph', 'close_graph', 'set_caption',
     # utility functions #
-    'rgb'
+    'color_rgb', 'color_cmyk', 'color_hsv', 'rgb',
 ]
 
 
@@ -50,7 +51,7 @@ __all__ = [
 
 def set_line_style(line_style, image: Image = None):
     """
-    set line style of the specified image
+    Set line style of the specified image.
 
     The line style will be used when drawing lines and shape outlines.
     Possible value is one of the consts defined in LineStyle.
@@ -65,7 +66,7 @@ def set_line_style(line_style, image: Image = None):
 
 def get_line_style(image: Image = None):
     """
-    get line style of the specified image
+    Get line style of the specified image.
 
     The line style will be used when drawing lines or shape outlines.
 
@@ -79,7 +80,7 @@ def get_line_style(image: Image = None):
 
 def set_line_width(width: float, image: Image = None):
     """
-    set line width (thickness) of the specified image
+    Set line width (thickness) of the specified image.
 
     It will be used when drawing lines or shape outlines
 
@@ -93,7 +94,7 @@ def set_line_width(width: float, image: Image = None):
 
 def get_line_width(image: Image = None) -> float:
     """
-    get line width (thinkness) of the specified image
+    Get line width (thinkness) of the specified image.
 
     It will be used when drawing lines or shape outlines
 
@@ -107,7 +108,7 @@ def get_line_width(image: Image = None) -> float:
 
 def get_width(image: Image = None) -> int:
     """
-    get width of the specified image
+    Get width of the specified image.
 
     :param image: the target image whose width is to be gotten. None means it is the target image
         (see set_target() and get_target()).
@@ -119,7 +120,7 @@ def get_width(image: Image = None) -> int:
 
 def get_height(image: Image = None) -> int:
     """
-    get height of the specified image
+    Get height of the specified image.
 
     :param image: the target image whose width is to be gotten. None means it is the target image
         (see set_target() and get_target()).
@@ -131,7 +132,7 @@ def get_height(image: Image = None) -> int:
 
 def get_color(image: Image = None):
     """
-    get the foreground (drawing) color of the specified image
+    Get the foreground (drawing) color of the specified image.
 
     it will be used when drawing lines or shape outlines
 
@@ -145,7 +146,7 @@ def get_color(image: Image = None):
 
 def set_color(color, image: Image = None):
     """
-    set the foreground (drawing) color of the specified image.
+    Set the foreground (drawing) color of the specified image.
 
     it will be used when drawing lines or shape outlines.
 
@@ -163,7 +164,7 @@ def set_color(color, image: Image = None):
 
 def get_fill_color(image: Image = None):
     """
-    get the fill color of the specified image
+    Get the fill color of the specified image.
 
     it will be used when drawing and fill shapes.
 
@@ -177,9 +178,9 @@ def get_fill_color(image: Image = None):
 
 def set_fill_color(color, image: Image = None):
     """
-    set the fill (drawing) color of the specified image
+    Set the fill (drawing) color of the specified image.
 
-    it will be used when drawing and fill shapes.
+    It will be used when drawing and fill shapes.
 
     the possible color could be consts defined in Color class,
     or the color created by rgb() function,
@@ -195,7 +196,7 @@ def set_fill_color(color, image: Image = None):
 
 def get_fill_style(image: Image = None):
     """
-    get fill style of the specified image
+    Get fill style of the specified image.
 
     it will be used when drawing and fill shapes.
 
@@ -209,7 +210,7 @@ def get_fill_style(image: Image = None):
 
 def set_fill_style(style, image: Image = None):
     """
-     set fill style of the specified image
+     Set fill style of the specified image.
 
     it will be used when drawing and fill shapes.
     Valid values are the consts defined in FillStyle
@@ -225,7 +226,7 @@ def set_fill_style(style, image: Image = None):
 
 def get_background_color(image: Image = None):
     """
-    get the background color of the image
+    Get the background color of the image.
 
     it will be used when the image is cleared. (see clear_device())
 
@@ -240,7 +241,7 @@ def get_background_color(image: Image = None):
 
 def set_background_color(color, image: Image = None):
     """
-    Set and change the background color
+    Set and change the background color.
 
     the possible color could be consts defined in Color class,
     or the color created by rgb() function,
@@ -258,7 +259,7 @@ def set_background_color(color, image: Image = None):
 
 def set_font(font: QtGui.QFont, image: Image = None):
     """
-    set font of the specified image
+    Set font of the specified image.
 
     :param font: the font will be used
     :param image: the target image whose font is to be set. None means it is the target image
@@ -270,7 +271,7 @@ def set_font(font: QtGui.QFont, image: Image = None):
 
 def get_font(image: Image = None) -> QtGui.QFont:
     """
-    get font of the specified image
+    Get font of the specified image.
 
     :param image: the target image whose font is to be gotten. None means it is the target image
          (see set_target() and get_target()).
@@ -297,7 +298,7 @@ def set_composition_mode(mode, image: Image = None):
 
 def get_composition_mode(image: Image = None):
     """
-    get composition mode of the specified image
+    Get composition mode of the specified image
 
     When drawing ,the composition mode will decide how the result pixel color will be computed
      (using source color and color of the destination)
@@ -317,7 +318,7 @@ set_write_mode = set_composition_mode
 
 def set_font_size(size: int, image: Image = None):
     """
-    set font size of the specified image
+    Set font size of the specified image.
 
     :param size: font size of the specified image
     :param image: the target image whose write mode is to be gotten. None means it is the target image
@@ -329,7 +330,7 @@ def set_font_size(size: int, image: Image = None):
 
 def get_font_size(image: Image = None) -> int:
     """
-    get font size of the specified image
+    Get font size of the specified image.
 
     :param image: the target image whose write mode is to be gotten. None means it is the target image
         (see set_target() and get_target()).
@@ -341,7 +342,7 @@ def get_font_size(image: Image = None) -> int:
 
 def get_x(image: Image = None) -> float:
     """
-    get the x coordinate value of the current drawing position (x,y)
+    Get the x coordinate value of the current drawing position (x,y).
 
     some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel())
 
@@ -355,7 +356,7 @@ def get_x(image: Image = None) -> float:
 
 def get_y(image: Image = None) -> float:
     """
-    get the y coordinate value of the current drawing position (x,y)
+    Get the y coordinate value of the current drawing position (x,y).
 
     some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel())
 
@@ -369,7 +370,7 @@ def get_y(image: Image = None) -> float:
 
 def get_drawing_pos(image: Image = None) -> (float, float):
     """
-    get the current drawing position (x,y)
+    Get the current drawing position (x,y).
 
     some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel())
 
@@ -383,7 +384,7 @@ def get_drawing_pos(image: Image = None) -> (float, float):
 
 def set_view_port(left: int, top: int, right: int, bottom: int, clip: bool = True, image: Image = None):
     """
-    set the view port of the the specified image
+    Set the view port of the the specified image.
 
     View port is the drawing zone on the image.
 
@@ -401,7 +402,7 @@ def set_view_port(left: int, top: int, right: int, bottom: int, clip: bool = Tru
     :param top: top of the view port rectangle
     :param right: right of the view port rectangle
     :param bottom: bottom of the view port rectangle
-    :param clip: if True, drawings outside the port rectangle will be cliped
+    :param clip: if True, drawings outside the port rectangle will be clipped
     :param image: the target image whose view port is to be gotten. None means it is the target image
         (see set_target() and get_target()).
     """
@@ -415,6 +416,12 @@ def set_view_port(left: int, top: int, right: int, bottom: int, clip: bool = Tru
 
 
 def reset_view_port(image: Image = None):
+    """
+    Reset the view port setting.
+
+    :param image: the target image whose view port is to be reset. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image, on_screen = _check_on_screen(image)
     image.reset_view_port()
     image.reset_window()
@@ -423,7 +430,7 @@ def reset_view_port(image: Image = None):
 
 def set_clip_rect(left: int, top: int, right: int, bottom: int, image: Image = None):
     """
-    set the clip rect
+    Set the clip rect.
 
     Drawings outside the clip rect will be clipped.
 
@@ -440,9 +447,9 @@ def set_clip_rect(left: int, top: int, right: int, bottom: int, image: Image = N
 
 def disable_clip(image: Image = None):
     """
-    disable clipping
+    Disable clipping.
 
-    drawings will not be clipped
+    Drawings will not be clipped.
 
     :param image: the target image whose clip rect is to be disabled. None means it is the target image
         (see set_target() and get_target()).
@@ -453,7 +460,7 @@ def disable_clip(image: Image = None):
 
 def set_window(origin_x: int, origin_y: int, width: int, height: int, image: Image = None):
     """
-    set the logical drawing window
+    Set the logical drawing window.
 
     All your drawing is first drawing on the logical window, then mapping to view port (see set_view_port()).\
     The logical window\'s 4 corner points to streched to match the view port.
@@ -480,9 +487,9 @@ def set_window(origin_x: int, origin_y: int, width: int, height: int, image: Ima
 
 def reset_window(image: Image = None):
     """
-    reset/remove the logical window
+    Reset/remove the logical window.
 
-    see set_window()
+    See set_window().
 
     :param image: the target image whose logical window is to be reset. None means it is the target image
         (see set_target() and get_target()).
@@ -493,7 +500,7 @@ def reset_window(image: Image = None):
 
 def set_origin(x: float, y: float, image: Image = None):
     """
-    set the drawing systems' origin(0,0) to (x,y)
+    Set the drawing systems' origin(0,0) to (x,y).
 
     The effect of this function is , when drawing, x and y is added to points coordinates.
     That is, if you want to draw a point at (x0,y0), it\'s really drawn at (x0+x,x0+y)
@@ -524,7 +531,7 @@ def translate(offset_x: float, offset_y: float, image: Image = None):
 
 def rotate(degree: float, image: Image = None):
     """
-    Rotates the coordinate system the given angle (in degree)clockwise .
+    Rotates the coordinate system the given angle (in degree) clockwise.
 
     :param degree: the rotate angle (in degree)
     :param image: the target image to be rotated. None means it is the target image
@@ -549,7 +556,7 @@ def scale(sx: float, sy: float, image: Image = None):
 
 def reset_transform(image: Image = None):
     """
-    reset all transforms (translate/rotate/scale)
+    Reset all transforms (translate/rotate/scale).
 
     :param image: the target image to be reset. None means it is the target image
         (see set_target() and get_target()).
@@ -560,9 +567,9 @@ def reset_transform(image: Image = None):
 
 def set_render_mode(mode: int):
     """
-    set render mode of the graphics window
+    Set render mode of the graphics window.
 
-    this mode will control how the graphics window is updated.
+    This mode will control how the graphics window is updated.
 
     possible values:
 
@@ -579,10 +586,10 @@ def set_render_mode(mode: int):
 
 def get_render_mode():
     """
-    set render mode of the graphics window
+    Set render mode of the graphics window.
 
-    this mode will control how the graphics window is updated.
-    see **set_render_mode()**
+    This mode will control how the graphics window is updated.
+    See **set_render_mode()**
 
     :return: render mode
     """
@@ -597,7 +604,7 @@ def get_render_mode():
 
 def draw_point(x: float, y: float, image: Image = None):
     """
-    draw a point at (x,y) on the specified image
+    Draw a point at (x,y) on the specified image.
 
     :param x: x coordinate value of the drawing point
     :param y: y coordinate value of the drawing point
@@ -612,7 +619,7 @@ def draw_point(x: float, y: float, image: Image = None):
 
 def put_pixel(x: int, y: int, color, image: Image = None):
     """
-    set a pixel\'s color on the specified image
+    Set a pixel\'s color on the specified image.
 
     :param x: x coordinate value of the pixel
     :param y: y coordinate value of the pixel
@@ -628,7 +635,7 @@ def put_pixel(x: int, y: int, color, image: Image = None):
 
 def get_pixel(x: int, y: int, image: Image = None) -> QtGui.QColor:
     """
-    get a pixel\'s color on the specified image
+    Get a pixel\'s color on the specified image.
 
     :param x: x coordinate value of the pixel
     :param y: y coordinate value of the pixel
@@ -642,9 +649,9 @@ def get_pixel(x: int, y: int, image: Image = None) -> QtGui.QColor:
 
 def draw_line(x1, y1, x2, y2, image: Image = None):
     """
-    Draw a line from (x1,y1) to (x2,y2) on the specified image
+    Draw a line from (x1,y1) to (x2,y2) on the specified image.
 
-    it\'s the same with line()
+    It\'s the same with line().
 
     :param x1: x coordinate value of the start point
     :param y1: y coordinate value of the start point
@@ -664,9 +671,9 @@ line = draw_line
 
 def move_to(x: float, y: float, image: Image = None):
     """
-    set the drawing position to (x,y)
+    Set the drawing position to (x,y).
 
-    the drawing position is used by line_to(), line_rel() and move_rel()
+    The drawing position is used by line_to(), line_rel() and move_rel().
 
     :param x: x coordinate value of the new drawing position
     :param y: y coordinate value of the new drawing position
@@ -679,11 +686,11 @@ def move_to(x: float, y: float, image: Image = None):
 
 def move_rel(dx: float, dy: float, image: Image = None):
     """
-    move the drawing position by (dx,dy)
+    Move the drawing position by (dx,dy).
 
-    if the old position is (x,y), then the new position will be (x+dx,y+dy)
+    If the old position is (x,y), then the new position will be (x+dx,y+dy).
 
-    the drawing position is used by line_to(), line_rel()
+    The drawing position is used by line_to(), line_rel().
 
     :param dx: x coordinate offset of the new drawing position
     :param dy: y coordinate offset of the new drawing position
@@ -696,7 +703,7 @@ def move_rel(dx: float, dy: float, image: Image = None):
 
 def line_to(x: float, y: float, image: Image = None):
     """
-    draw a line from the current drawing position to (x,y), then set the drawing position is set to (x,y)
+    Draw a line from the current drawing position to (x,y), then set the drawing position is set to (x,y).
 
     :param x: x coordinate value of the new drawing position
     :param y: y coordinate value of the new drawing position
@@ -711,8 +718,8 @@ def line_to(x: float, y: float, image: Image = None):
 
 def line_rel(dx: float, dy: float, image: Image = None):
     """
-     draw a line from the current drawing position (x,y) to (x+dx,y+dy), \
-     then set the drawing position is set to (x+d,y+dy)
+    Draw a line from the current drawing position (x,y) to (x+dx,y+dy), \
+    then set the drawing position is set to (x+d,y+dy).
 
     :param dx: x coordinate offset of the new drawing position
     :param dy: y coordinate offset of the new drawing position
@@ -727,9 +734,9 @@ def line_rel(dx: float, dy: float, image: Image = None):
 
 def circle(x: float, y: float, r: float, image: Image = None):
     """
-    draw a circle outline centered at (x,y) with radius r
+    Draw a circle outline centered at (x,y) with radius r.
 
-    the circle is not filled
+    The circle is not filled.
 
     :param x: x coordinate value of the circle\'s center
     :param y: y coordinate value of the circle\'s center
@@ -745,9 +752,9 @@ def circle(x: float, y: float, r: float, image: Image = None):
 
 def draw_circle(x: float, y: float, r: float, image: Image = None):
     """
-    draw a circle centered at (x,y) with radius r
+    Draw a circle centered at (x,y) with radius r.
 
-    the circle is filled and has outline
+    The circle is filled and has outline.
 
     :param x: x coordinate value of the circle\'s center
     :param y: y coordinate value of the circle\'s center
@@ -763,9 +770,9 @@ def draw_circle(x: float, y: float, r: float, image: Image = None):
 
 def fill_circle(x: float, y: float, r: float, image: Image = None):
     """
-    fill a circle centered at (x,y) with radius r
+    Fill a circle centered at (x,y) with radius r.
 
-    the circle doesn\'t has outline
+    The circle doesn\'t has outline.
 
     :param x: x coordinate value of the circle\'s center
     :param y: y coordinate value of the circle\'s center
@@ -781,9 +788,9 @@ def fill_circle(x: float, y: float, r: float, image: Image = None):
 
 def ellipse(x, y, radius_x, radius_y, image: Image = None):
     """
-    draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y
+    Draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.
 
-    the ellipse is not filled
+    The ellipse is not filled.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -800,9 +807,9 @@ def ellipse(x, y, radius_x, radius_y, image: Image = None):
 
 def draw_ellipse(x, y, radius_x, radius_y, image: Image = None):
     """
-    draw an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y
+    Draw an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.
 
-    the ellipse is filled and has outline
+    The ellipse is filled and has outline.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -819,9 +826,9 @@ def draw_ellipse(x, y, radius_x, radius_y, image: Image = None):
 
 def fill_ellipse(x, y, radius_x, radius_y, image: Image = None):
     """
-    fill an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y
+    Fill an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.
 
-    the ellipse doesn\'t has outline
+    The ellipse doesn\'t has outline.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -839,10 +846,10 @@ def fill_ellipse(x, y, radius_x, radius_y, image: Image = None):
 def draw_arc(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
              image: Image = None):
     """
-    draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
+    **note**: Degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
     at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
 
     :param x: x coordinate value of the ellipse\'s center
@@ -866,10 +873,10 @@ arc = draw_arc
 def pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
         image: Image = None):
     """
-    draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-    the pie is not filled.
+    The pie is not filled.
 
     **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
     at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -892,10 +899,10 @@ def pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: floa
 def draw_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
              image: Image = None):
     """
-    draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-    the pie is filled and has outline.
+    The pie is filled and has outline.
 
     **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
     at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -918,10 +925,10 @@ def draw_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x:
 def fill_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
              image: Image = None):
     """
-    fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-    the pie doesn\'t have outline.
+    The pie doesn\'t have outline.
 
     **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
     at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -944,10 +951,10 @@ def fill_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x:
 def chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
           image: Image = None):
     """
-    draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-    the chord is not filled.
+    The chord is not filled.
 
     **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
     at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -970,10 +977,10 @@ def chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: fl
 def draw_chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
                image: Image = None):
     """
-    draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-    the chord is filled and has outline
+    The chord is filled and has outline
 
     **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
     at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -996,10 +1003,10 @@ def draw_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
 def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
                image: Image = None):
     """
-    draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-    the chord doesn\'t have outline.
+    The chord doesn\'t have outline.
 
     **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
     at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
@@ -1021,11 +1028,11 @@ def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
 
 def bezier(poly_points: List[float], image: Image = None):
     """
-    draw a bezier curve
+    Draw a bezier curve.
 
-    poly_points is a 2D point list. Each point has 2 coordinate values in the list. \
+    "poly_points" is a 2D point list. Each point has 2 coordinate values in the list. \
     So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
-    [x0,y0,x1,y1,x2,y2,x3,y3]
+    [x0,y0,x1,y1,x2,y2,x3,y3] .
 
     :param poly_points: point list
     :param image: the target image which will be painted on. None means it is the target image
@@ -1036,11 +1043,11 @@ def bezier(poly_points: List[float], image: Image = None):
 
 def draw_bezier(poly_points: List[float], image: Image = None):
     """
-    draw a bezier curve
+    Draw a bezier curve.
 
-    poly_points is a 2D point list. Each point has 2 coordinate values in the list. \
+    "poly_points" is a 2D point list. Each point has 2 coordinate values in the list. \
     So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
-    [x0,y0,x1,y1,x2,y2,x3,y3]
+    [x0,y0,x1,y1,x2,y2,x3,y3] .
 
     :param poly_points: point list
     :param image: the target image which will be painted on. None means it is the target image
@@ -1054,8 +1061,9 @@ def draw_bezier(poly_points: List[float], image: Image = None):
 
 def draw_lines(points: List[float], image: Image = None):
     """
-    draw lines
-    points is a 2D point pair list. It should contain even points, and each 2 points make a point pair.
+    Draw lines
+
+    "points" is a 2D point pair list. It should contain even points, and each 2 points make a point pair.
     And each point have 2 coordinate values(x,y). So if you have n point pairs, the points list should have 4*n values.
 
     For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_lines() will draw 3 lines:
@@ -1083,9 +1091,9 @@ lines = draw_lines
 
 def draw_poly_line(points: List[float], image: Image = None):
     """
-    draw poly lines
+    Draw poly lines.
 
-    points is a 2D point list. Each 2 values in the list make a point. A poly line will be drawn to connect adjecent
+    "points" is a 2D point list. Each 2 values in the list make a point. A poly line will be drawn to connect adjacent
     points defined by the the list.
 
     For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw 5 lines:
@@ -1114,9 +1122,9 @@ poly_line = draw_poly_line
 
 def polygon(points: List[float], image: Image = None):
     """
-    draw polygon outline
+    Draw polygon outline.
 
-    points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+    "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
     points defined by the the list.
 
     For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
@@ -1144,9 +1152,9 @@ def polygon(points: List[float], image: Image = None):
 
 def draw_polygon(points: List[float], image: Image = None):
     """
-    draw polygon
+    Draw a polygon.
 
-    points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+    "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
     points defined by the the list.
 
     For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
@@ -1157,7 +1165,7 @@ def draw_polygon(points: List[float], image: Image = None):
     >>> from easygraphics import *
     >>> init_graph(600,600)
     >>> set_color(Color.RED)
-    >>> set_fill_color(Color.LIGHTMAGENTA)
+    >>> set_fill_color(Color.LIGHT_MAGENTA)
     >>> points=[50,50,550,350,50,150]
     >>> draw_polygon(points)
     >>> pause()
@@ -1181,7 +1189,7 @@ def fill_polygon(points: List[float], image: Image = None):
     """
     fill polygon
 
-    points is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjecent
+    "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
     points defined by the the list.
 
     For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
@@ -1191,7 +1199,7 @@ def fill_polygon(points: List[float], image: Image = None):
 
     >>> from easygraphics import *
     >>> init_graph(600,600)
-    >>> set_fill_color(Color.LIGHTMAGENTA)
+    >>> set_fill_color(Color.LIGHT_MAGENTA)
     >>> points=[50,50,550,350,50,150]
     >>> fill_polygon(points)
     >>> pause()
@@ -1209,9 +1217,9 @@ def fill_polygon(points: List[float], image: Image = None):
 
 def rect(left: float, top: float, right: float, bottom: float, image: Image = None):
     """
-    Draws a rectangle outline with upper left corner at (left, top) and lower right corner at (right,bottom)
+    Draws a rectangle outline with upper left corner at (left, top) and lower right corner at (right,bottom).
 
-    the rectangle is not filled
+    The rectangle is not filled.
 
     :param left: x coordinate value of the upper left corner
     :param top: y coordinate value of the upper left corner
@@ -1228,9 +1236,9 @@ def rect(left: float, top: float, right: float, bottom: float, image: Image = No
 
 def draw_rect(left: float, top: float, right: float, bottom: float, image: Image = None):
     """
-    Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom)
+    Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom).
 
-    the rectangle is filled and has outline
+    The rectangle is filled and has outline.
 
     :param left: x coordinate value of the upper left corner
     :param top: y coordinate value of the upper left corner
@@ -1247,9 +1255,9 @@ def draw_rect(left: float, top: float, right: float, bottom: float, image: Image
 
 def fill_rect(left: float, top: float, right: float, bottom: float, image: Image = None):
     """
-    Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom)
+    Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom).
 
-    the rectangle doesn\'t have outline
+    The rectangle doesn\'t have outline.
 
     :param left: x coordinate value of the upper left corner
     :param top: y coordinate value of the upper left corner
@@ -1270,7 +1278,7 @@ def rounded_rect(left: float, top: float, right: float, bottom: float, round_x: 
     Draws a rounded rectangle outline with upper left corner at (left, top) , lower right corner at (right,bottom).
     raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
 
-    the rectangle is not filled
+    The rectangle is not filled.
 
     :param left: x coordinate value of the upper left corner
     :param top: y coordinate value of the upper left corner
@@ -1293,7 +1301,7 @@ def draw_rounded_rect(left: float, top: float, right: float, bottom: float, roun
     Draws a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
     raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
 
-    the rectangle is filled and has outline
+    The rectangle is filled and has outline.
 
     :param left: x coordinate value of the upper left corner
     :param top: y coordinate value of the upper left corner
@@ -1316,7 +1324,7 @@ def fill_rounded_rect(left: float, top: float, right: float, bottom: float, roun
     Fill a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
     raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
 
-    the rectangle doesn\'t have outline
+    The rectangle doesn\'t have outline.
 
     :param left: x coordinate value of the upper left corner
     :param top: y coordinate value of the upper left corner
@@ -1335,7 +1343,7 @@ def fill_rounded_rect(left: float, top: float, right: float, bottom: float, roun
 
 def flood_fill(x: int, y: int, border_color, image: Image = None):
     """
-    flood fill the image starting from(x,y) and ending at borders with border_color
+    Flood fill the image starting from(x,y) and ending at borders with border_color.
 
     The fill region border must be closed,or the whole image will be filled!
 
@@ -1354,7 +1362,7 @@ def flood_fill(x: int, y: int, border_color, image: Image = None):
 def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
                src_height: int = -1, with_background: bool = True, composition_mode=None, dst_image: Image = None):
     """
-    Copy part of the source image (src_image) to the destination image (self) at (x,y)
+    Copy part of the source image (src_image) to the destination image (self) at (x,y).
 
     (x, y) specifies the top-left point in the destination image that is to be drawn onto.
 
@@ -1369,7 +1377,7 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
     The final result will depend on the composition mode and the source image's background.
     In the default mode (CompositionMode.SOURCE), the source will fully overwrite the destination).
 
-    If you want to get a transparent copy, you should use draw_image_transparent()
+    If you want to get a transparent copy, you should use draw_image_transparent().
 
     :param x: x coordinate value of the upper left point on the destination image
     :param y: y coordinate value of the upper left point on the destination image
@@ -1391,7 +1399,7 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
 
 def capture_screen(left: int, top: int, right: int, bottom: int, target_img: Image):
     """
-    Caputre specified region on the graphics windows to target image
+    Caputre specified region on the graphics windows to target image.
 
     :param left: x coordinate of the capture region\'s upper left corner
     :param top: y coordinate of the capture region\'s upper left corner
@@ -1406,7 +1414,7 @@ def capture_screen(left: int, top: int, right: int, bottom: int, target_img: Ima
 def draw_image_transparent(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
                            src_height: int = -1, dst_image: Image = None):
     """
-    Copy part of the source image (src_image) to the destination image (self) at (x,y)
+    Copy part of the source image (src_image) to the destination image (self) at (x,y).
 
     The source image's background will not be copied.
 
@@ -1437,7 +1445,7 @@ def draw_image_transparent(x: int, y: int, src_image: Image, src_x: int = 0, src
 
 def clear_device(image: Image = None):
     """
-    Clear the image to show the background
+    Clear the image to show the background.
 
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
@@ -1450,7 +1458,7 @@ def clear_device(image: Image = None):
 
 def clear_view_port(image: Image = None):
     """
-    clear view port to show the background
+    clear view port to show the background.
 
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
@@ -1464,7 +1472,7 @@ def clear_view_port(image: Image = None):
 # text processing
 def draw_text(x, y, *args, sep=' ', image: Image = None):
     """
-    Prints the given texts beginning at the given position (x,y)
+    Prints the given texts beginning at the given position (x,y).
 
     :param x: x coordinate value of the start point
     :param y: y coordinate value of the start point
@@ -1482,26 +1490,12 @@ def draw_text(x, y, *args, sep=' ', image: Image = None):
 def draw_rect_text(x: int, y: int, width: int, height: int, *args, flags=QtCore.Qt.AlignCenter, sep: str = ' ',
                    image: Image = None):
     """
-    print the given texts in the specified rectangle area
+    Print the given texts in the specified rectangle area.
 
-    Available flags are: （Defined in pyqt5\'s PyQt5.QtCore pacakge)
+    Flags are defined as TextFlag const.
 
-    * Qt.AlignLeft          Aligns with the left edge.
-    * Qt::AlignRight        Aligns with the right edge.
-    * Qt::AlignHCenter      Centers horizontally in the available space.
-    * Qt::AlignJustify      Justifies the text in the available space.
-    * Qt::AlignTop          Aligns with the top.
-    * Qt::AlignBottom       Aligns with the bottom.
-    * Qt::AlignVCenter      Centers vertically in the available space.
-    * Qt::AlignCenter       Centers in both dimensions.
-    * Qt::TextDontClip      If it\'s impossible to stay within the given bounds, it prints outside.
-    * Qt::TextSingleLine    Treats all whitespace as spaces and prints just one line.
-    * Qt::TextExpandTabs    Makes the U+0009 (ASCII tab) character move to the next tab stop.
-    * Qt::TextShowMnemonic  Displays the string "&P" as P For an ampersand, use "&&".
-    * Qt::TextWordWrap      Breaks lines at appropriate points, e.g. at word boundaries.
-
-    :param x: x coordinate of the output rectangle\'s upper left corner
-    :param y: y coordinate of the output rectangle\'s upper left corner
+    :param x: x coordinate of the output rectangle's upper left corner
+    :param y: y coordinate of the output rectangle's upper left corner
     :param width: width of the output rectangle
     :param height: height of the output rectangle
     :param args: things to be printed (like print())
@@ -1518,7 +1512,7 @@ def draw_rect_text(x: int, y: int, width: int, height: int, *args, flags=QtCore.
 
 def text_width(text: str, image: Image = None):
     """
-    return width of the text
+    Return width of the text.
 
     :param text: the text
     :param image: the target image which will be painted on. None means it is the target image
@@ -1530,7 +1524,7 @@ def text_width(text: str, image: Image = None):
 
 def text_height(image: Image = None):
     """
-    return height of the text (font height)
+    Return height of the text (font height).
 
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
@@ -1543,7 +1537,7 @@ def text_height(image: Image = None):
 
 def set_target(image: Image = None):
     """
-    set the target image for drawing on
+    Set the target image for drawing on.
 
     :param image: the target image which will be painted on. None means paint on the grapchis window.
     """
@@ -1557,7 +1551,7 @@ def set_target(image: Image = None):
 
 def get_target() -> Image:
     """
-    get the target image for drawing on
+    Get the target image for drawing on.
 
     :return: the target image which will be painted on. None means paint on the grapchis window.
     """
@@ -1567,7 +1561,7 @@ def get_target() -> Image:
 
 def create_image(width, height) -> Image:
     """
-    create a new image
+    Create a new image.
 
     :param width: width of the new image
     :param height: height of the new image
@@ -1580,7 +1574,7 @@ def create_image(width, height) -> Image:
 
 def save_image(filename: str, with_background=True, image: Image = None):
     """
-    Save image to file
+    Save image to file.
 
     Set with_background to False to get a transparent background image.
 
@@ -1601,7 +1595,7 @@ def save_image(filename: str, with_background=True, image: Image = None):
 
 def create_image_from_file(filename: str) -> Image:
     """
-    load image form the specified file
+    Load image form the specified file.
 
     :param filename: path of the file
     :return: loaded image
@@ -1612,17 +1606,47 @@ def create_image_from_file(filename: str) -> Image:
 
 # utils
 
-def rgb(red: int, green: int, blue: int, alpha: int = 255):
+def color_rgb(red: int, green: int, blue: int, alpha: int = 255) -> QtGui.QColor:
     """
-    create a color with r,g,b
+    Create a color with RGB color values r,g,b.
 
     :param red: red value
     :param green: green value
     :param blue: blue value
-    :param alpha: alpha value of the color. 255 means fully opaque
+    :param alpha: alpha channel value of the color. 255 means fully opaque
     :return: the color
     """
     return QtGui.QColor(red, green, blue, alpha)
+
+
+rgb = color_rgb
+
+
+def color_cmyk(c: int, m: int, y: int, k: int, alpha: int = 255) -> QtGui.QColor:
+    """
+    Create a color with CMYK color values c,m,y,k.
+
+    :param c: cyan value
+    :param m: magenta value
+    :param y: yellow value
+    :param k: black value
+    :param alpha: alpha channel value of the color. 255 means fully opaque
+    :return: the color
+    """
+    return QtGui.QColor.fromCmyk(c, m, y, k, alpha)
+
+
+def color_hsv(h: int, s: int, v: int, alpha: int = 255) -> QtGui.QColor:
+    """
+    Create a color with HSV color values h,s,v.
+
+    :param h: hue value
+    :param s: saturation value
+    :param v: lightness value
+    :param alpha: alpha channel value of the color. 255 means fully opaque
+    :return: the color
+    """
+    return QtGui.QColor.fromHsv(h, s, v, alpha)
 
 
 def _qpoint_to_point_list_fun(lst: List[float], p: QtCore.QPointF) -> List[float]:
@@ -1645,7 +1669,7 @@ def qpoints_to_point_list(qpoints: List[QtCore.QPointF]) -> List[float]:
 
 def pause():
     """
-    pause the grogram and wait for mouse clicking or keyboard hiting
+    Pause the grogram and wait for mouse clicking or keyboard hitting.
 
     >>> from easygraphics import *
     >>> init_graph(800,600)
@@ -1656,10 +1680,11 @@ def pause():
     _win.pause()
 
 
-def is_run():
+def is_run() -> bool:
     """
-    Test if the graphics system is running.(
-    :return:
+    Test if the graphics system is running.
+
+    :return: True if the graphics system is running.
     """
     return _is_run
 
@@ -1667,6 +1692,7 @@ def is_run():
 def delay(milliseconds: int):
     """
     Delay the programm for specified milliseconds
+
     :param milliseconds: time to delay
     """
     _check_app_run()
@@ -1675,11 +1701,11 @@ def delay(milliseconds: int):
 
 def delay_fps(fps: int):
     """
-    Delay the program to control fps (Frame pers seconds)
+    Delay the program to control fps (Frame pers seconds).
 
-    valid fps value is 1-1000, this value is **not checked** for speed
+    Valid fps value is 1-1000, this value is **not checked** for speed.
 
-    this function won\'t skip frames
+    This function won\'t skip frames.
 
     :param fps: the descire fps
     """
@@ -1689,9 +1715,10 @@ def delay_fps(fps: int):
 
 def delay_jfps(fps, max_skip_count=10):
     """
-    delay to control fps with frame skiping
+    Delay to control fps with frame skiping.
 
-    if we don't have enough time to delay, we\'ll skip some frames
+    If we don't have enough time to delay, we\'ll skip some frames.
+
     :param fps: frames per second (max is 1000)
     :param max_skip_count: max num of  frames to skip
     """
@@ -1701,10 +1728,10 @@ def delay_jfps(fps, max_skip_count=10):
 
 # mouse and keyboards #
 
-def kb_hit():
+def kb_hit() -> bool:
     """
-    see if any ascii char key is hitted in the last 100 ms
-    use it with get_char()
+    See if any ascii char key is hitted in the last 100 ms.
+    Use it with get_char().
 
     :return:  True if hitted, False or not
     """
@@ -1712,10 +1739,10 @@ def kb_hit():
     return _win.kb_hit()
 
 
-def kb_msg():
+def kb_msg() -> bool:
     """
-    see if any key is hitted in the last 100 ms
-    use it with get_key()
+    See if any key is hitted in the last 100 ms.
+    Use it with get_key().
 
     :return:  True if hitted, False or not
     """
@@ -1723,7 +1750,7 @@ def kb_msg():
     return _win.kb_msg()
 
 
-def mouse_msg():
+def mouse_msg() -> bool:
     """
     see if there\'s any mouse message(event) in the last 100 ms
     use it with get_mouse()
@@ -1735,10 +1762,11 @@ def mouse_msg():
     return _win.mouse_msg()
 
 
-def get_mouse():
+def get_mouse() -> (int, int, int):
     """
-    get the key inputted by keybord
-    if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+    Get the key inputted by keyboard.
+
+    If there is not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting.
 
     :return: x of the cursor, y of the cursor , mouse buttons down
         ( Qt.LeftButton or Qt.RightButton or Qt.MidButton or Qt.NoButton)
@@ -1747,22 +1775,24 @@ def get_mouse():
     return _win.get_mouse()
 
 
-def get_char():
+def get_char() -> str:
     """
-    get the ascii char inputted by keybord
-    if not any char key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+    Get the ascii char inputted by keyboard.
 
-    :return: the character inputted by keybord
+    If not any char key is pressed in last 100 ms, the program will stop and wait for the next key hitting.
+
+    :return: the character inputted by keyboard
     """
     _check_app_run()
     _win.real_update()
     return _win.get_char()
 
 
-def get_key():
+def get_key() -> (int, int):
     """
-    get the key inputted by keyboard
-    if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+    Get the key inputted by keyboard.
+
+    If not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting.
 
     :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
         `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
@@ -1776,7 +1806,7 @@ def get_key():
 
 def set_caption(title: str):
     """
-    set the graph window\'s caption
+    Set the graph window\'s caption
 
     :param title: caption title
     """
@@ -1785,7 +1815,7 @@ def set_caption(title: str):
 
 def init_graph(width: int = 800, height: int = 600):
     """
-    init the easygraphics system and show the graphics window
+    Init the easygraphics system and show the graphics window.
 
     :param width: width of the graphics window (in pixels)
     :param height:  height of the graphics window (in pixels)
@@ -1806,15 +1836,17 @@ def init_graph(width: int = 800, height: int = 600):
 
 def close_graph():
     """
-    close the graphics windows
+    Close the graphics windows.
 
-    the program will exit too
+    The program will exit too.
+
     >>>from easygraphics import *
     >>>init_graph(800,600)
     >>>pause()
     >>>close_graph()
     """
-    _app.exit(0)
+    if _app is not None:
+        _app.exit(0)
     time.sleep(0.05)  # wait 50ms for app thread to exit
 
 

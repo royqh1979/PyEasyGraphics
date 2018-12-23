@@ -5,6 +5,23 @@ This module defines all the functions in the BGI
 """
 import easygraphics as eg
 
+from easygraphics.image import Image
+
+__all__ = [
+    'SOLID_LINE', 'DOTTED_LINE', 'CENTER_LINE', 'DASHED_LINE', 'USERBIT_LINE', 'NULL_LINE',
+    'NORM_WIDTH', 'THICK_WIDTH',
+    'COPY_PUT', 'XOR_PUT', 'AND_PUT', 'OR_PUT', 'NOT_PUT',
+    'LEFT_TEXT', 'CENTER_TEXT', 'RIGHT_TEXT', 'TOP_TEXT', 'BOTTOM_TEXT',
+    'arc', 'bar', 'circle', 'cleardevice', 'clearviewport', 'closegraph',
+    'drawpoly', 'ellipse', 'fillellipse', 'fillpoly', 'floodfill',
+    'getbkcolor', 'getcolor', 'getfillsettings', 'getimage', 'getlinesettings',
+    'getmaxx', 'getmaxy', 'getpixel', 'getx', 'gety', 'initgraph', 'line',
+    'linerel', 'lineto', 'moverel', 'moveto', 'outtext', 'outtextxy',
+    'pieslice', 'putimage', 'putpixel', 'rectangle', 'sector', 'setbkcolor',
+    'setcolor', 'setfillstyle', 'setlinestyle', 'settextjustify', 'setviewport',
+    'setwritemode', 'textheight', 'textwidth'
+]
+
 SOLID_LINE = eg.LineStyle.SOLID_LINE
 """Solid line"""
 DOTTED_LINE = eg.LineStyle.DOT_LINE
@@ -44,7 +61,7 @@ _text_v_align = LEFT_TEXT
 _text_h_align = TOP_TEXT
 
 
-def arc(x: int, y: int, start: int, end: int, rad: int, img: eg.Image = None):
+def arc(x: int, y: int, start: int, end: int, rad: int, img: Image = None):
     """
     Draw a Circular Arc
 
@@ -65,9 +82,13 @@ def bar3d():
     pass
 
 
+circle = eg.circle
+
 cleardevice = eg.clear_device
 
 clearviewport = eg.clear_view_port
+
+closegraph = eg.close_graph
 
 drawpoly = eg.draw_poly_line
 
@@ -84,7 +105,7 @@ getbkcolor = eg.get_background_color
 getcolor = eg.get_color
 
 
-def getfillsettings(img: eg.Image = None):
+def getfillsettings(img: Image = None):
     """
     get fill settings
 
@@ -96,7 +117,7 @@ def getfillsettings(img: eg.Image = None):
 getimage = eg.capture_screen
 
 
-def getlinesettings(img: eg.Image = None):
+def getlinesettings(img: Image = None):
     """
     Get line settings
 
@@ -105,7 +126,7 @@ def getlinesettings(img: eg.Image = None):
     return eg.get_line_style(img), eg.get_line_width(img)
 
 
-def getmaxx(img: eg.Image = None) -> int:
+def getmaxx(img: Image = None) -> int:
     """
     Get the maximum x value of graphics screen
 
@@ -114,7 +135,7 @@ def getmaxx(img: eg.Image = None) -> int:
     return eg.get_width(img) - 1
 
 
-def getmaxy(img: eg.Image = None):
+def getmaxy(img: Image = None):
     """
     Get the maximum y value of graphics screen
 
@@ -139,10 +160,10 @@ lineto = eg.line_to
 
 moverel = eg.move_rel
 
-moveto = eg.mouse_to
+moveto = eg.move_to
 
 
-def outtext(text: str, img: eg.Image = None):
+def outtext(text: str, img: Image = None):
     """
     Display the given text on the current position
 
@@ -151,7 +172,7 @@ def outtext(text: str, img: eg.Image = None):
     outtextxy(eg.get_x(), eg.get_y(), text, image=img)
 
 
-def outtextxy(x: int, y: int, text: str, img: eg.Image = None):
+def outtextxy(x: int, y: int, text: str, img: Image = None):
     """
     Display the given text on the specified position
 
@@ -172,11 +193,11 @@ def outtextxy(x: int, y: int, text: str, img: eg.Image = None):
     eg.draw_text(x + x_offset, y + y_offset, text, image=img)
 
 
-def pieslice(x: float, y: float, start_angle: int, end_angle: int, r: float, img: eg.Image = None):
+def pieslice(x: float, y: float, start_angle: int, end_angle: int, r: float, img: Image = None):
     eg.draw_pie(x, y, start_angle, end_angle, r, r, image=img)
 
 
-def putimage(left: int, top: int, src_image: eg.Image, op: int, dst_image: eg.Image = None):
+def putimage(left: int, top: int, src_image: Image, mode: int, dst_image: Image = None):
     """
     Puts a previously-saved bit image back onto the screen.
 
@@ -194,10 +215,7 @@ def putimage(left: int, top: int, src_image: eg.Image, op: int, dst_image: eg.Im
     :param src_image: the image to be copied
     :param op: copy operation
     """
-    old_mode = eg.get_composition_mode(dst_image)
-    eg.set_composition_mode(mode, dst_image)
-    eg.draw_image(left, top, src_image, dst_image=dst_image)
-    eg.set_composition_mode(old_mode, dst_image)
+    eg.draw_image(left, top, src_image, composition_mode=mode, dst_image=dst_image)
 
 
 putpixel = eg.put_pixel
@@ -211,7 +229,7 @@ setbkcolor = eg.set_background_color
 setcolor = eg.set_color
 
 
-def setfillstyle(pattern, color, img: eg.Image = None):
+def setfillstyle(pattern, color, img: Image = None):
     """
     Set fill pattern
     :param pattern: fill style
@@ -221,7 +239,7 @@ def setfillstyle(pattern, color, img: eg.Image = None):
     eg.set_fill_color(color, img)
 
 
-def setlinestyle(linstyle, upattern, thickness, img: eg.Image = None):
+def setlinestyle(linstyle, upattern, thickness, img: Image = None):
     """
     Set line style
     :param linstyle: line style
@@ -253,7 +271,7 @@ def settextjustify(horiz: int, vert: int):
 setviewport = eg.set_view_port
 
 
-def setwritemode(mode, img: eg.Image = None):
+def setwritemode(mode, img: Image = None):
     """
     Set Write Mode for Line Drawing
 

@@ -5,11 +5,11 @@ Tutorials
 
     tutorials/01_first_window
 
-    tutorials/02_first_drawings
+    tutorials/02_first_drawing
 
     tutorials/03_colors
 
-    tutorials/04_basic_shapes
+    tutorials/04_shapes
 
     tutorials/05_line_styles_and_width
 

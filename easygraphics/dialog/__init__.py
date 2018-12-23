@@ -1,3 +1,3 @@
 from .dialog import *
 
-__all = dialog.__all__
+__all__ = dialog.__all__

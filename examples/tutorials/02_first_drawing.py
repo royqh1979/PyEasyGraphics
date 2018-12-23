@@ -9,7 +9,9 @@ In computer graphics, we normally use a screen coordinate system as below:
 
 In this system, the origin (0,0) is at screen\'s upper left corner, and y-axis is growing top-down.
 
-So in this sample we are drawing a line from upper left corner to lower right corner.
+So the result is a line from upper left corner to lower right corner.
+
+.. image:: ../../docs/images/tutorials/02_first_drawing.png
 
 """
 if __name__ == '__main__':
