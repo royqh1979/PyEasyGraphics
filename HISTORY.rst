@@ -3,6 +3,10 @@
 History
 =======
 
+0.9.5
+---------------------
+* add: headless mode support (no graphics window mode, use it to draw pictures)
+
 0.9.4
 ---------------------
 * add: easygraphics.legacy package to better compatible with old BGI programs.

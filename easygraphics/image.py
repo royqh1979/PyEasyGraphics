@@ -802,7 +802,6 @@ class Image:
         qlines = []
         for i in range(0, numpoints, 2):
             qlines.append(QtCore.QLineF(*points[i * 2:i * 2 + 4]))
-        print(len(qlines))
         p = self._prepare_painter_for_draw_outline()
         p.drawLines(qlines)
         self._mask_painter.drawLines(qlines)

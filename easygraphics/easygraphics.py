@@ -1538,6 +1538,8 @@ def text_height(image: Image = None):
 
 _is_target_on_screen = True
 
+_target_image = None
+
 def set_target(image: Image = None):
     """
     Set the target image for drawing on.
@@ -1545,8 +1547,8 @@ def set_target(image: Image = None):
     :param image: the target image which will be painted on. None means paint on the grapchis window.
     """
     global _target_image, _is_target_on_screen
+    _check_app_run()
     if image is None:
-        _check_app_run()
         if _headless:
             raise RuntimeError("Can't set target to graphics window in headless mode!")
         _is_target_on_screen = True
@@ -1915,6 +1917,9 @@ def _check_on_screen(image: Image) -> (QtGui.QImage, bool):
         on_screen = _is_target_on_screen
         if _is_target_on_screen and _headless:
             raise RuntimeError("There are no graphics window in headless mode!")
+        else:
+            if _target_image is None:
+                raise RuntimeError("No target image. Use set_target() to set default target image first!")
     else:
         if not _headless:
             on_screen = image is _win.get_canvas()
@@ -1959,6 +1964,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     else:
         _is_run = True
         _is_target_on_screen = False
+        _target_image = None
     # init finished, can draw now
     _start_event.set()
     _app.exec_()
