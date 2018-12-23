@@ -1569,7 +1569,7 @@ def create_image(width, height) -> Image:
     :return: the created image
     """
     image = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
-    image.fill(QtCore.Qt.transparent)
+    image.fill(Color.WHITE)
     return Image(image)
 
 

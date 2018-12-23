@@ -53,7 +53,7 @@ class GraphWin(QtWidgets.QWidget):
 
     def _init_screen(self, width, height):
         screen_image = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
-        screen_image.fill(QtCore.Qt.transparent)
+        screen_image.fill(Color.WHITE)
         self._canvas = Image(screen_image)
         self._device_image = screen_image.copy()
         self.real_update()

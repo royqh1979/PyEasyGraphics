@@ -4,10 +4,6 @@ if __name__ == "__main__":
 
     init_graph(800, 600)
 
-    # we must fill the whole foreground with color,
-    # otherwise it will be transparent, and composition will not work
-    fill_rect(0, 0, get_width(), get_height())
-
     x1, y1, buttons = get_click()
     circle(x1, y1, 3)
     x2, y2, buttons = get_click()
@@ -51,7 +47,7 @@ if __name__ == "__main__":
 
                 set_color(Color.BLACK)
                 set_composition_mode(CompositionMode.SOURCE)
-                fill_rect(0, 0, get_width(), get_height())
+                clear_device()
                 draw_line(x1, y1, x3, y3)
                 draw_line(x2, y2, x4, y4)
                 circle(x1, y1, 3)
