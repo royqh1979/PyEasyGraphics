@@ -3,6 +3,16 @@
 History
 =======
 
+0.9.4
+---------------------
+* add: easygraphics.legacy package to better compatible with old BGI programs.
+* add: get_click() function to get mouse click event
+* change: background implementation to make set_background_color() work correctly
+* add: now can use name ("red"), color string ("#ff0000), integer color rgb value (0xff0000) \
+    in set_color(), set_fill_color(), set_background_color() functions
+* add: cymk() and hsv() to get CYMK and HSV format color
+* more tutorials
+
 0.9.3
 ---------------------
 * fix : Readme
