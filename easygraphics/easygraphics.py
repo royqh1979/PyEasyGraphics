@@ -36,7 +36,7 @@ __all__ = [
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
-    'set_target', 'get_target', 'create_image', 'save_image',
+    'set_target', 'get_target', 'create_image', 'save_image', 'close_image',
     # time control functions#
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
     # keyboard and mouse functions #
@@ -1536,17 +1536,23 @@ def text_height(image: Image = None):
 
 # image processing #
 
+_is_target_on_screen = True
+
 def set_target(image: Image = None):
     """
     Set the target image for drawing on.
 
     :param image: the target image which will be painted on. None means paint on the grapchis window.
     """
-    global _target_image
-    _check_app_run()
+    global _target_image, _is_target_on_screen
     if image is None:
+        _check_app_run()
+        if _headless:
+            raise RuntimeError("Can't set target to graphics window in headless mode!")
+        _is_target_on_screen = True
         _target_image = _win.get_canvas()
     else:
+        _is_target_on_screen = False
         _target_image = image
 
 
@@ -1556,7 +1562,8 @@ def get_target() -> Image:
 
     :return: the target image which will be painted on. None means paint on the grapchis window.
     """
-    _check_app_run()
+    if _is_target_on_screen:
+        _check_app_run()
     return _target_image
 
 
@@ -1571,6 +1578,14 @@ def create_image(width, height) -> Image:
     image = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
     image.fill(Color.WHITE)
     return Image(image)
+
+
+def close_image(image: Image):
+    """
+    Close the specied image
+    :param image: the image to be closed
+    """
+    image.close()
 
 
 def save_image(filename: str, with_background=True, image: Image = None):
@@ -1677,6 +1692,7 @@ def pause():
     >>> pause()
     >>> close_graph()
     """
+    _check_app_run(True)
     _win.real_update()
     _win.pause()
 
@@ -1696,7 +1712,7 @@ def delay(milliseconds: int):
 
     :param milliseconds: time to delay
     """
-    _check_app_run()
+    _check_app_run(True)
     _win.delay(milliseconds)
 
 
@@ -1710,7 +1726,7 @@ def delay_fps(fps: int):
 
     :param fps: the descire fps
     """
-    _check_app_run()
+    _check_app_run(True)
     _win.delay_fps(fps)
 
 
@@ -1723,7 +1739,7 @@ def delay_jfps(fps, max_skip_count=10):
     :param fps: frames per second (max is 1000)
     :param max_skip_count: max num of  frames to skip
     """
-    _check_app_run()
+    _check_app_run(True)
     _win.delay_jfps(fps, max_skip_count)
 
 
@@ -1736,7 +1752,7 @@ def kb_hit() -> bool:
 
     :return:  True if hitted, False or not
     """
-    _check_app_run()
+    _check_app_run(True)
     return _win.kb_hit()
 
 
@@ -1747,7 +1763,7 @@ def kb_msg() -> bool:
 
     :return:  True if hitted, False or not
     """
-    _check_app_run()
+    _check_app_run(True)
     return _win.kb_msg()
 
 
@@ -1758,7 +1774,7 @@ def mouse_msg() -> bool:
 
     :return:  True if any mouse message, False or not
     """
-    _check_app_run()
+    _check_app_run(True)
     _win.real_update()
     return _win.mouse_msg()
 
@@ -1773,7 +1789,7 @@ def get_mouse() -> (int, int, int, int):
         ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
 
     """
-    _check_app_run()
+    _check_app_run(True)
     return _win.get_mouse()
 
 
@@ -1788,7 +1804,7 @@ def get_click() -> (int, int, int):
         ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
     """
     while True:
-        _check_app_run()
+        _check_app_run(True)
         x, y, type, buttons = _win.get_mouse()
         if type == MouseMessageType.RELEASE_MESSAGE:
             return x, y, buttons
@@ -1802,7 +1818,7 @@ def get_char() -> str:
 
     :return: the character inputted by keyboard
     """
-    _check_app_run()
+    _check_app_run(True)
     _win.real_update()
     return _win.get_char()
 
@@ -1816,7 +1832,7 @@ def get_key() -> (int, int):
     :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
         `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
     """
-    _check_app_run()
+    _check_app_run(True)
     _win.real_update()
     return _win.get_key()
 
@@ -1827,6 +1843,7 @@ def get_cursor_pos() -> (int, int):
 
     :return: position's coordinate values (x,y)
     """
+    _check_app_run(True)
     return _win.get_cursor_pos()
 
 
@@ -1841,7 +1858,7 @@ def set_caption(title: str):
     _win.setWindowTitle(title)
 
 
-def init_graph(width: int = 800, height: int = 600):
+def init_graph(width: int = 800, height: int = 600, headless=False):
     """
     Init the easygraphics system and show the graphics window.
 
@@ -1853,10 +1870,12 @@ def init_graph(width: int = 800, height: int = 600):
     """
     global _start_event
     # prepare Events
+    if is_run():
+        raise RuntimeError("The Graphics Windows is already inited!")
     _start_event = threading.Event()
     _start_event.clear()
     # start GUI thread
-    thread = threading.Thread(target=__graphics_thread_func, args=(width, height))
+    thread = threading.Thread(target=__graphics_thread_func, args=(width, height, headless))
     thread.start()
     # wait GUI initiation finished
     _start_event.wait()
@@ -1873,21 +1892,34 @@ def close_graph():
     >>>pause()
     >>>close_graph()
     """
+    for image in _created_images:
+        image.close()
+    _created_images.clear()
     if _app is not None:
         _app.exit(0)
     time.sleep(0.05)  # wait 50ms for app thread to exit
 
 
-def _check_app_run():
+def _check_app_run(check_not_headless: bool = False):
     if not is_run():
-        raise RuntimeError("Easygrphics is not inited or has been closed! Run init_graph() first!")
+        raise RuntimeError("Easygraphics is not inited or has been closed! Run init_graph() first!")
+    if check_not_headless and _headless:
+        raise RuntimeError("Easygraphics is running in headless mode!")
+
 
 
 def _check_on_screen(image: Image) -> (QtGui.QImage, bool):
     _check_app_run()
     if image is None:
         image = _target_image
-    on_screen = image is _win.get_canvas()
+        on_screen = _is_target_on_screen
+        if _is_target_on_screen and _headless:
+            raise RuntimeError("There are no graphics window in headless mode!")
+    else:
+        if not _headless:
+            on_screen = image is _win.get_canvas()
+        else:
+            on_screen = False
     # _validate_image(image)
     return image, on_screen
 
@@ -1905,26 +1937,36 @@ def _validate_image(image: Image):
 
 
 _is_run = False
+_headless = False
+
+_created_images = []
 
 
-def __graphics_thread_func(width: int, height: int):
-    global _app, _win, _target_image, _is_run
+def __graphics_thread_func(width: int, height: int, headless=False):
+    global _app, _win, _target_image, _is_run, _headless, _is_target_on_screen
+    _headless = headless
     _app = QtWidgets.QApplication([])
     _app.setQuitOnLastWindowClosed(True)
-    _win = GraphWin(width, height, _app)
     invoke_in_app_thread.init_invoke_in_app()
-    _target_image = _win.get_canvas()
-    _is_run = True
-    set_font_size(18)
-    _win.show()
-    set_caption("Python Easy Graphics")
+    if not _headless:
+        _win = GraphWin(width, height, _app)
+        _is_target_on_screen = True
+        _target_image = _win.get_canvas()
+        _win.show()
+        set_caption("Python Easy Graphics")
+        _is_run = True
+        set_font_size(18)
+    else:
+        _is_run = True
+        _is_target_on_screen = False
     # init finished, can draw now
     _start_event.set()
     _app.exec_()
     _is_run = False
     invoke_in_app_thread.destroy_invoke_in_app()
-    _win.close()
-    _win = None
+    if not _headless:
+        _win.close()
+        _win = None
     _app.quit()
     _app = None
     in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)

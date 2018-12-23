@@ -29,4 +29,7 @@ if __name__ == "__main__":
         draw_image(0, 0, background)
         draw_image_transparent(x, 380, foreground)
         delay_fps(60)
+
+    background.close()
+    foreground.close()
     close_graph()
