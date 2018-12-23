@@ -227,3 +227,9 @@ class TextFlags:
     """Makes the U+0009 (ASCII tab) character move to the next tab stop."""
     TEXT_WORD_WRAP = QtCore.Qt.TextWordWrap
     """Breaks lines at appropriate points, e.g. at word boundaries."""
+
+
+class MouseMessageType:
+    NO_MESSAGE = 0
+    PRESS_MESSAGE = 1
+    RELEASE_MESSAGE = 2

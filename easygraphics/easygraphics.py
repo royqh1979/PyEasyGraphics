@@ -14,6 +14,7 @@ from .image import Image
 __all__ = [
     # consts
     'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'CompositionMode', 'TextFlags',
+    'MouseMessageType',
     # 'GraphWin', 'Image',
     #  setting functions #
     'set_line_style', 'get_line_style', 'set_line_width', 'get_line_width',
@@ -39,7 +40,7 @@ __all__ = [
     # time control functions#
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
     # keyboard and mouse functions #
-    'kb_msg', 'kb_hit', 'mouse_msg', 'get_key', 'get_char', 'get_mouse',
+    'kb_msg', 'kb_hit', 'mouse_msg', 'get_key', 'get_char', 'get_mouse', 'get_cursor_pos', 'get_click',
     # init and close graph window #
     'init_graph', 'close_graph', 'set_caption',
     # utility functions #
@@ -1762,17 +1763,35 @@ def mouse_msg() -> bool:
     return _win.mouse_msg()
 
 
-def get_mouse() -> (int, int, int):
+def get_mouse() -> (int, int, int, int):
     """
-    Get the key inputted by keyboard.
+    Get the mouse message.
 
-    If there is not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting.
+    If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait for the next key hitting.
 
-    :return: x of the cursor, y of the cursor , mouse buttons down
-        ( Qt.LeftButton or Qt.RightButton or Qt.MidButton or Qt.NoButton)
+    :return: x of the cursor, y of the cursor , type, mouse buttons down
+        ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
+
     """
     _check_app_run()
     return _win.get_mouse()
+
+
+def get_click() -> (int, int, int):
+    """
+    Get the mouse click message.
+
+    If there is not any  mouse button is clicked in last 100 ms, the program will stop and wait for
+    the next key hitting.
+
+    :return: x of the cursor, y of the cursor , mouse buttons down
+        ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
+    """
+    while True:
+        _check_app_run()
+        x, y, type, buttons = _win.get_mouse()
+        if type == MouseMessageType.RELEASE_MESSAGE:
+            return x, y, buttons
 
 
 def get_char() -> str:
@@ -1800,6 +1819,15 @@ def get_key() -> (int, int):
     _check_app_run()
     _win.real_update()
     return _win.get_key()
+
+
+def get_cursor_pos() -> (int, int):
+    """
+    Get position of the mouse cursor
+
+    :return: position's coordinate values (x,y)
+    """
+    return _win.get_cursor_pos()
 
 
 # init and close graphics #

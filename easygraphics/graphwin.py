@@ -5,7 +5,7 @@ from PyQt5 import QtCore
 from PyQt5 import QtGui
 
 from easygraphics.image import Image
-from easygraphics.consts import Color
+from easygraphics.consts import Color, MouseMessageType
 
 __all__ = ['GraphWin']
 
@@ -105,11 +105,11 @@ class GraphWin(QtWidgets.QWidget):
 
     def mousePressEvent(self, e: QtGui.QMouseEvent):
         self._wait_event.set()
-        self._mouse_msg.set_event(e)
+        self._mouse_msg.set_event(e, MouseMessageType.PRESS_MESSAGE)
         self._mouse_event.set()
 
-    def mouseMoveEvent(self, e: QtGui.QMouseEvent):
-        self._mouse_msg.set_event(e)
+    def mouseReleaseEvent(self, e: QtGui.QMouseEvent):
+        self._mouse_msg.set_event(e, MouseMessageType.RELEASE_MESSAGE)
         self._mouse_event.set()
 
     def keyPressEvent(self, e: QtGui.QKeyEvent):
@@ -236,12 +236,15 @@ class GraphWin(QtWidgets.QWidget):
         self._key_msg.reset()
         return e.key(), e.modifiers()
 
-    def get_mouse(self) -> (int, int, int):
+    def get_mouse(self) -> (int, int, int, int):
         """
-        get the key inputted by keybord
-        if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+        Get the mouse message.
 
-        :return: x of the cursor, y of the cursor , mouse buttons down
+        If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait
+        for the next key hitting.
+
+
+        :return: x of the cursor, y of the cursor , type, mouse buttons down
             ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
         """
         nt = time.time_ns()
@@ -252,8 +255,9 @@ class GraphWin(QtWidgets.QWidget):
         if not self._is_run:
             return 0, 0, QtCore.Qt.NoButton
         e = self._mouse_msg.get_event()
+        type = self._mouse_msg.get_type()
         self._mouse_msg.reset()
-        return e.x(), e.y(), e.button()
+        return e.x(), e.y(), type, e.button()
 
     def kb_hit(self) -> bool:
         """
@@ -285,11 +289,21 @@ class GraphWin(QtWidgets.QWidget):
         nt = time.time_ns()
         return nt - self._mouse_msg.get_time() <= 100000000
 
+    def get_cursor_pos(self) -> (int, int):
+        """
+        Get position of the mouse cursor
+
+        :return: position's coordinate values (x,y)
+        """
+        p = self.mapFromGlobal(QtGui.QCursor.pos())
+        return p.x(), p.y()
+
 
 class _KeyMsg:
     """
     class for saving keyboard message
     """
+
     def __init__(self):
         self._time = 0
         self._key_event = None
@@ -337,10 +351,12 @@ class _MouseMsg:
     def __init__(self):
         self._time = 0
         self._mouse_event = None
+        self._type = MouseMessageType.NO_MESSAGE
 
-    def set_event(self, e: QtGui.QMouseEvent):
+    def set_event(self, e: QtGui.QMouseEvent, type: int):
         self._mouse_event = e
         self._time = time.time_ns()
+        self._type = type
 
     def get_event(self) -> QtGui.QMouseEvent:
         return self._mouse_event
@@ -348,6 +364,10 @@ class _MouseMsg:
     def get_time(self):
         return self._time
 
+    def get_type(self):
+        return self._type
+
     def reset(self):
         self._time = 0
         self._mouse_event = None
+        self._type = MouseMessageType.NO_MESSAGE
