@@ -1361,7 +1361,7 @@ def flood_fill(x: int, y: int, border_color, image: Image = None):
 
 
 def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
-               src_height: int = -1, with_background: bool = True, composition_mode=None, dst_image: Image = None):
+               src_height: int = -1, with_background=True, composition_mode=None, dst_image: Image = None):
     """
     Copy part of the source image (src_image) to the destination image (self) at (x,y).
 
@@ -1387,7 +1387,7 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
     :param src_y: y coordinate value of the top-left point of of the part to be drawn
     :param src_width: witdh of the top-left point of of the part to be drawn
     :param src_height: height of the top-left point of of the part to be drawn
-    :param with_background: if the source image's background should be drawn together
+    :param with_background: if the background should be copied.
     :param composition_mode: if is None, use dst image's composition mode to copy.
     :param dst_image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
