@@ -1181,7 +1181,7 @@ def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
         # don't use isinstance(val,int), because predefined Color values (eg. Color.RED) will also make it True!
         color = QtGui.QColor(val)
         if not color.isValid():
-            raise ValueError(f"{str(val)} is not a valid color!")
+            raise ValueError("%s is not a valid color!" % str(val))
     else:
         color = val
     return color
