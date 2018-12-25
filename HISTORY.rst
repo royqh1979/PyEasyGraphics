@@ -3,6 +3,10 @@
 History
 =======
 
+0.9.6
+---------------------
+* add: reflection (mirror/flip) and shear (skew) operations.
+
 0.9.5
 ---------------------
 * add: headless mode support (no graphics window mode, use it to draw pictures)
