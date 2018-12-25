@@ -21,15 +21,13 @@ Tutorials
 
     tutorials/09_transforms
 
-    tutorials/10_copy_image
+    tutorials/10_image
 
-    tutorials/11_image_load_and_save
+    tutorials/11_animations
 
-    tutorials/12_animations
+    tutorials/12_keyborad
 
-    tutorials/13_keyborad
-
-    tutorials/14_mouse
+    tutorials/13_mouse
 
     tutorials/15_headless_mode
 

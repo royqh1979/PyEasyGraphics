@@ -266,7 +266,7 @@ we first draw a non-transformed bus, a mirror line, then draw the flipped bus.
 
 
 Compound Transforms
-===================
+-------------------
 Transforms can be compounded.
 
 In the following example, we first translate the origin to the image center, then rotate the bus around its center,
