@@ -22,7 +22,8 @@ __all__ = [
     'get_background_color', 'set_background_color', 'set_font', 'get_font', 'set_font_size', 'get_font_size',
     'set_composition_mode', 'get_composition_mode', 'get_x', 'get_y', 'set_view_port', 'reset_view_port', 'set_origin',
     'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'set_clipping',
-    'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'reset_transform',
+    'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'skew', 'shear',
+    'reflect', 'flip', 'mirror', 'reset_transform',
     'get_width', 'get_height', 'get_write_mode', 'set_write_mode',
     # drawing functions #
     'draw_point', 'put_pixel', 'get_pixel', 'line', 'draw_line', 'move_to', 'move_rel', 'line_to', 'line_rel',
@@ -556,6 +557,40 @@ def scale(sx: float, sy: float, image: Image = None):
     """
     image, on_screen = _check_on_screen(image)
     image.scale(sx, sy)
+
+
+def shear(sh: float, sv: float, image: Image = None):
+    """
+    Shear (skew) the coordinates around the origin by sh,sv
+
+    :param sh: shear ratio on the x-axis
+    :param sv: shear ratio on the y-axis
+    :param image: the target image to be sheared. None means it is the target image
+    (see set_target() and get_target()).
+    """
+    image, on_screen = _check_on_screen(image)
+    image.shear(sh, sv)
+
+
+skew = shear
+
+
+def reflect(x: float, y: float, image: Image = None):
+    """
+    Reflect the coordinates against the line passing (0,0) and (x,y)
+
+    :param x:
+    :param y:
+    :param image: the target image to be sheared. None means it is the target image
+    (see set_target() and get_target()).
+    """
+    image, on_screen = _check_on_screen(image)
+    image.reflect(x, y)
+
+
+mirror = reflect
+
+flip = reflect
 
 
 def reset_transform(image: Image = None):

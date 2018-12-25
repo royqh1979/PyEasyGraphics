@@ -4,6 +4,7 @@ from typing import List, Union
 from PyQt5 import QtGui, QtCore
 
 from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode
+import math as m
 
 __all__ = ['Image']
 
@@ -374,6 +375,39 @@ class Image:
         """
         self._painter.scale(sx, sy)
         self._mask_painter.scale(sx, sy)
+
+    def shear(self, sh: float, sv: float):
+        """
+        Shear (skew) the coordinates around the origin by sh,sv
+
+        :param sh: shear ratio on the x-axis
+        :param sv: shear ratio on the y-axis
+        """
+        self._painter.shear(sh, sv)
+        self._mask_painter.shear(sh, sv)
+
+    skew = shear
+
+    def reflect(self, x: float, y: float):
+        """
+        Reflect the coordinates against the line passing (0,0) and (x,y)
+
+        :param x:
+        :param y:
+        """
+        if x == 0 and y == 0:
+            raise ValueError("point(x,y) must not be (0,0)!")
+        xx = x * x
+        yy = y * y
+        ll = xx + yy
+        xy2 = 2 * x * y
+        transform = QtGui.QTransform((xx - yy) / ll, xy2 / ll, xy2 / ll, (yy - xx) / ll, 0, 0)
+        self._painter.setTransform(transform, True)
+        self._mask_painter.setTransform(transform, True)
+
+    flip = reflect
+
+    mirror = reflect
 
     def reset_transform(self):
         """

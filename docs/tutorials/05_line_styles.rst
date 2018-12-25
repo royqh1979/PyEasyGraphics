@@ -70,8 +70,8 @@ To do this, you should:
 
 1. use get_target() or create_image() to get the Image object you want to draw.
 2. use the Image object\'s get_pen() to get the pen. It\'s a PyQt\'s
-    `QPen <http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html/>`_ object.
-3. Use the pen\'s `setDashPattern() <http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html#setDashPattern/>`_
+    `QPen <http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html>`_ object.
+3. Use the pen\'s `setDashPattern() <http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html#setDashPattern>`_
     to set custom line shape.
 
 .. code-block:: python
@@ -89,5 +89,5 @@ To do this, you should:
 More Line Styles
 ----------------
 After getting the pen object, you can set other pen attributes to get more
-line styles. See `QPen's documentation <http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html/>`_.
+line styles. See `QPen's documentation <http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html>`_.
 

@@ -32,7 +32,7 @@ setup(
     package_dir={'easygraphics':
                      'easygraphics'},
     include_package_data=True,
-    install_requires=['', 'PyQt5', 'pygame'],
+    install_requires=['', 'PyQt5', 'pygame', 'qimage2ndarray'],
     license="GPLv3",
     zip_safe=False,
     keywords=['easygraphics', 'computer graphics', 'Turbo C graphics', 'Borland Graphics Interface'],

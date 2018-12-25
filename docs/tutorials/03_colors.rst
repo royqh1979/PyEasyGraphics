@@ -3,7 +3,7 @@ Color System
 
 Color System Description
 ------------------------
-Easy Graphics uses `Qt's Color System <http://doc.qt.io/qt-5/qcolor.html#details/>`_
+Easy Graphics uses `Qt's Color System <http://doc.qt.io/qt-5/qcolor.html#details>`_
 
 A color is normally specified in terms of RGB (red, green, and blue) components ( using color_rgb()),
 but it is also possible to specify it in terms of HSV (hue, saturation, and value) (using color_hsv())and CMYK
@@ -26,7 +26,7 @@ In addition a color can be specified using a color name. The color name can be a
 
 Instead of RGB, HSV or CMYK values, A color can be set by passing an RGB string (such as "#112233"),
 or an ARGB string (such as "#ff112233") or a color name (such as "blue"), use color().
-The color names are taken from the `SVG 1.0 color names <https://www.w3.org/TR/SVG10/types.html#ColorKeywords/>`_.
+The color names are taken from the `SVG 1.0 color names <https://www.w3.org/TR/SVG10/types.html#ColorKeywords>`_.
 
 The color components can be retrieved individually, e.g with red(), hue() and cyan() member functions.
 The values of the color components can also be retrieved in one go using the getRgb(),

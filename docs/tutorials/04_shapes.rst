@@ -94,7 +94,7 @@ Using poly_line() or draw_poly_line(), we can draw polylines.
 
 .. image:: ../images/graphics/polyline.gif
 
-A `polyline <https://www.webopedia.com/TERM/P/polyline.html/>`_ is a continuous line composed of one or more
+A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a continuous line composed of one or more
 line segments. So to draw a polyline, we should specify the endpoints connecting
 each line segment.
 
@@ -116,7 +116,7 @@ The following example draws a polyline connecting (50,50), (550,350), (50,150), 
 
 Bézier curve
 ------------
-`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve/>`_ is a parametric curve that uses the Bernstein polynomials as a basis.
+`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve>`_ is a parametric curve that uses the Bernstein polynomials as a basis.
 
 A Bézier curve is defined by a set of control points P0 through Pn, where n is called its order (n = 1 for linear,
 2 for quadratic, 3 for cubic etc.). The first and last control points are always the end points of the curve;
@@ -178,7 +178,7 @@ Advanced Drawing
 ----------------
 
 EasyGraphics supports drawing all the basic shape: point, line, circle, ellipse, rectangle, polygon, rectangle with
-rounded corner, etc. If you need more advanced drawing, you can use :doc:`Image <../apis/easygraphics.image/>` object's get_painter() method
-to get the `QPainter <http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html/>`_ instance and draw.
+rounded corner, etc. If you need more advanced drawing, you can use :doc:`Image <../apis/easygraphics.image>` object's get_painter() method
+to get the `QPainter <http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ instance and draw.
 
 
