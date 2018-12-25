@@ -11,11 +11,11 @@ Tutorials
 
     tutorials/04_shapes
 
-    tutorials/05_line_styles_and_width
+    tutorials/05_line_styles
 
-    tutorials/06_polygon_and_polylines
+    tutorials/06_line_to
 
-    tutorials/07_draw_text
+    tutorials/07_texts
 
     tutorials/08_view_port
 
@@ -30,6 +30,8 @@ Tutorials
     tutorials/13_keyborad
 
     tutorials/14_mouse
+
+    tutorials/15_headless_mode
 
 
 

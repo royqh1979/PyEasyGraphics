@@ -7,6 +7,7 @@ from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode
 
 __all__ = ['Image']
 
+
 class Image:
     def __init__(self, image: QtGui.QImage):
         self._image = image
@@ -19,6 +20,9 @@ class Image:
         self._mask = QtGui.QBitmap(image.width(), image.height())
         self._mask.fill(QtCore.Qt.color1)
         self._pen = QtGui.QPen()
+        self._pen.setCapStyle(QtCore.Qt.RoundCap)
+        self._pen.setJoinStyle(QtCore.Qt.RoundJoin)
+        self._pen.setCosmetic(True)
         self._brush = QtGui.QBrush(Color.WHITE, FillStyle.SOLID_FILL)
         self._x = 0
         self._y = 0
@@ -299,14 +303,16 @@ class Image:
         self._painter.setClipRect(clip_rect)
         self._mask_painter.setClipRect(clip_rect)
 
-    def disable_clip(self):
+    def set_clipping(self, clipping: bool):
         """
-        Disable clipping.
+        Set clipping.
 
-        Drawings will not be clipped.
+        Use set_clip_rect() to set the clip rectangle.
+
+        :param clipping:  True will turn on clipping, False will turn off clipping
         """
-        self._painter.setClipping(False)
-        self._mask_painter.setClipping(False)
+        self._painter.setClipping(clipping)
+        self._mask_painter.setClipping(clipping)
 
     def set_window(self, origin_x: int, origin_y: int, width: int, height: int):
         """
@@ -758,25 +764,22 @@ class Image:
         p.drawChord(rect, s, al)
         self._mask_painter.drawChord(rect, s, al)
 
-    def draw_bezier(self, poly_points: list):
+    def draw_bezier(self, control_points: list):
         """
-        Draw a bezier curve.
+        Draw a cubic bezier curve.
 
-        "poly_points" is a 2D point list. Each point has 2 coordinate values in the list. \
-        So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
+        "control_points" is a list of 4 control points. Each point has 2 coordinate values in the list ,
+        so there should be 8 values int the list.
+
+        That is , if your 4 control points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "control_points" should be  \
         [x0,y0,x1,y1,x2,y2,x3,y3] .
 
-        :param poly_points: point list
+        :param control_points: the control points list
         """
-        if len(poly_points) % 2 != 0:
+        if len(control_points) != 8:
             raise ValueError
-        numpoints = len(poly_points) // 2
-        if numpoints < 4:
-            raise ValueError
-
-        path = QtGui.QPainterPath(QtCore.QPointF(poly_points[0], poly_points[1]))
-        for i in range(1, numpoints, 3):
-            path.cubicTo(*poly_points[i * 2:i * 2 + 6])
+        path = QtGui.QPainterPath(QtCore.QPointF(control_points[0], control_points[1]))
+        path.cubicTo(*control_points[2:])
         p = self._prepare_painter_for_draw_outline()
         p.drawPath(path)
         self._mask_painter.drawPath(path)
@@ -808,20 +811,20 @@ class Image:
 
     lines = draw_lines
 
-    def draw_poly_line(self, points: List[float]):
+    def draw_poly_line(self, end_points: List[float]):
         """
         Draw poly lines.
 
-        "points" is a 2D point list. Each 2 values in the list make a point. A poly line will be drawn to connect
-        adjecent points defined by the the list.
+        "end_points" is a 2D points list. Each 2 values in the list make a point. A poly line will be drawn to connect
+        adjacent end_points defined by the the list.
 
-        For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw 5 lines:
-        (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450), (550,540) to (50,250)
+        For examples , if "end_points" is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw
+        5 lines: (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450), (550,540) to (50,250)
         and(50,250) to (550,550)
 
-        :param points: point value list
+        :param end_points: point value list
         """
-        qpoints = self._convert_to_qpoints(points)
+        qpoints = self._convert_to_qpoints(end_points)
         p = self._prepare_painter_for_draw_outline()
         p.drawPolyline(*qpoints)
         self._mask_painter.drawPolyline(*qpoints)
@@ -830,6 +833,11 @@ class Image:
 
     @staticmethod
     def _convert_to_qpoints(points):
+        """
+        Convert point list to QPoint list
+        :param points:
+        :return:
+        """
         numpoints = len(points) // 2
         if numpoints < 2:
             raise ValueError
@@ -838,59 +846,59 @@ class Image:
             qpoints.append(QtCore.QPointF(points[i * 2], points[i * 2 + 1]))
         return qpoints
 
-    def polygon(self, points: List[float]):
+    def polygon(self, vertices: List[float]):
         """
         Draw polygon outline.
 
-        "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
-        points defined by the the list.
+        "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect
+        adjacent points defined by the the list.
 
-        For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+        For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
         (50,50) , (550,350) and (50,150)
 
         The polygon is not filled.
 
-        :param points: point value list
+        :param vertices: point value list
         """
-        qpoints = self._convert_to_qpoints(points)
+        qpoints = self._convert_to_qpoints(vertices)
         p = self._prepare_painter_for_draw_outline()
         p.drawPolygon(*qpoints)
         self._mask_painter.drawPolygon(*qpoints)
 
-    def draw_polygon(self, points: List[float]):
+    def draw_polygon(self, vertices: List[float]):
         """
         Draw polygon
 
-        "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
-        points defined by the the list.
+        "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect
+        adjacent points defined by the the list.
 
-        For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+        For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
         (50,50) , (550,350) and (50,150)
 
         The polygon is filled and has outline.
 
-        :param points: point value list
+        :param vertices: point value list
         """
-        qpoints = self._convert_to_qpoints(points)
+        qpoints = self._convert_to_qpoints(vertices)
         p = self._prepare_painter_for_draw()
         p.drawPolygon(*qpoints)
         self._mask_painter.drawPolygon(*qpoints)
 
-    def fill_polygon(self, points: List[float]):
+    def fill_polygon(self, vertices: List[float]):
         """
         Fill polygon
 
-        "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
-        points defined by the the list.
+        "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect
+        adjacent points defined by the the list.
 
-        For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+        For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
         (50,50) , (550,350) and (50,150)
 
         The polygon doesn't have outline.
 
-        :param points: point value list
+        :param vertices: point value list
         """
-        qpoints = self._convert_to_qpoints(points)
+        qpoints = self._convert_to_qpoints(vertices)
         p = self._prepare_painter_for_fill()
         p.drawPolygon(*qpoints)
         self._mask_painter.drawPolygon(*qpoints)
@@ -1067,22 +1075,19 @@ class Image:
         if composition_mode is not None:
             old_mode = p.compositionMode()
             p.setCompositionMode(composition_mode)
-        img = image.get_image()
-        if not with_background:
-            img = QtGui.QImage(image.get_width(), image.get_height(), QtGui.QImage.Format_ARGB32_Premultiplied)
-            img.fill(Color.TRANSPARENT)
-            painter = QtGui.QPainter()
-            painter.begin(img)
-            region = QtGui.QRegion(image._mask)
-            full_region = QtGui.QRegion(0, 0, image.get_width(), image.get_height())
-            new_region = full_region.subtracted(region)
-            painter.setClipRegion(new_region)
-            painter.drawImage(0, 0, image.get_image())
-            painter.end()
+        img = _prepare_image_for_copy(image, with_background)
         p.drawImage(x, y, img, src_x, src_y, src_width, src_height)
         self._mask_painter.fillRect(x, y, src_width, src_height, QtCore.Qt.color0)
         if composition_mode is not None:
             p.setCompositionMode(old_mode)
+
+    def get_mask(self) -> QtGui.QBitmap:
+        """
+        Get background mask bitmap
+
+        :return: background mask
+        """
+        return self._mask
 
     def draw_to_device(self, device: QtGui.QPaintDevice):
         """
@@ -1256,6 +1261,10 @@ class Image:
         return self._painter.fontMetrics().height()
 
     def close(self):
+        """
+        Clean up the images
+        :return:
+        """
         self._painter.end()
         self._mask_painter.end()
 
@@ -1265,6 +1274,22 @@ class Image:
         :return: the painter used internally
         """
         return self._painter
+
+    def save(self, filename: str, with_background=True):
+        """
+        Save image to file.
+
+        Set with_background to False to get a transparent background image.
+
+        Note that JPEG format doesn\'t support transparent. Use PNG format.
+        :param filename: path of the file
+        :param with_background: True to save the background together. False not
+        """
+        img = _prepare_image_for_copy(self, with_background)
+        img.save(filename)
+
+    def __del__(self):
+        self.close()
 
 
 def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
@@ -1276,3 +1301,19 @@ def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
     else:
         color = val
     return color
+
+
+def _prepare_image_for_copy(image: Image, with_background: bool) -> QtGui.QImage:
+    img = image.get_image()
+    if not with_background:
+        img = QtGui.QImage(image.get_width(), image.get_height(), QtGui.QImage.Format_ARGB32_Premultiplied)
+        img.fill(Color.TRANSPARENT)
+        painter = QtGui.QPainter()
+        painter.begin(img)
+        region = QtGui.QRegion(image.get_mask())
+        full_region = QtGui.QRegion(0, 0, image.get_width(), image.get_height())
+        new_region = full_region.subtracted(region)
+        painter.setClipRegion(new_region)
+        painter.drawImage(0, 0, image.get_image())
+        painter.end()
+    return img

@@ -21,7 +21,7 @@ __all__ = [
     'get_color', 'set_color', 'get_fill_color', 'set_fill_color', 'get_fill_style', 'set_fill_style',
     'get_background_color', 'set_background_color', 'set_font', 'get_font', 'set_font_size', 'get_font_size',
     'set_composition_mode', 'get_composition_mode', 'get_x', 'get_y', 'set_view_port', 'reset_view_port', 'set_origin',
-    'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'disable_clip',
+    'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'set_clipping',
     'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'reset_transform',
     'get_width', 'get_height', 'get_write_mode', 'set_write_mode',
     # drawing functions #
@@ -414,6 +414,8 @@ def set_view_port(left: int, top: int, right: int, bottom: int, clip: bool = Tru
     image.set_window(0, 0, width, height)
     if clip:
         image.set_clip_rect(0, 0, width, height)
+    else:
+        image.set_clipping(False)
 
 
 def reset_view_port(image: Image = None):
@@ -426,7 +428,7 @@ def reset_view_port(image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.reset_view_port()
     image.reset_window()
-    image.disable_clip()
+    image.set_clipping(False)
 
 
 def set_clip_rect(left: int, top: int, right: int, bottom: int, image: Image = None):
@@ -446,17 +448,18 @@ def set_clip_rect(left: int, top: int, right: int, bottom: int, image: Image = N
     image.set_clip_rect(left, top, right, bottom)
 
 
-def disable_clip(image: Image = None):
+def set_clipping(clipping: bool, image: Image = None):
     """
-    Disable clipping.
+    Set clipping.
 
-    Drawings will not be clipped.
+    Use set_clip_rect() to set the clip rectangle.
 
+    :param clipping:  True will turn on clipping, False will turn off clipping
     :param image: the target image whose clip rect is to be disabled. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.disable_clip()
+    image.set_clipping(clipping)
 
 
 def set_window(origin_x: int, origin_y: int, width: int, height: int, image: Image = None):
@@ -1027,37 +1030,34 @@ def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
         _win.invalid()
 
 
-def bezier(poly_points: List[float], image: Image = None):
+def draw_bezier(control_points: List[float], image: Image = None):
     """
-    Draw a bezier curve.
+    Draw a cubic bezier curve.
 
-    "poly_points" is a 2D point list. Each point has 2 coordinate values in the list. \
-    So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
+    "control_points" is a list of 4 control points. Each point has 2 coordinate values in the list ,
+    so there should be 8 values int the list.
+
+    That is , if your 4 control points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "control_points" should be  \
     [x0,y0,x1,y1,x2,y2,x3,y3] .
 
-    :param poly_points: point list
-    :param image: the target image which will be painted on. None means it is the target image
-        (see set_target() and get_target()).
-    """
-    draw_bezier(poly_points, image)
+    >>> from easygraphics import *
+    >>> init_graph(600,400)
+    >>> points=[300,50,200,50,200,200,100,200]
+    >>> draw_bezier(points)
+    >>> pause()
+    >>> close_graph()
 
-
-def draw_bezier(poly_points: List[float], image: Image = None):
-    """
-    Draw a bezier curve.
-
-    "poly_points" is a 2D point list. Each point has 2 coordinate values in the list. \
-    So if you have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the list should be  \
-    [x0,y0,x1,y1,x2,y2,x3,y3] .
-
-    :param poly_points: point list
+    :param control_points: the control points list
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.draw_bezier(poly_points)
+    image.draw_bezier(control_points)
     if on_screen:
         _win.invalid()
+
+
+bezier = draw_bezier
 
 
 def draw_lines(points: List[float], image: Image = None):
@@ -1090,15 +1090,15 @@ def draw_lines(points: List[float], image: Image = None):
 lines = draw_lines
 
 
-def draw_poly_line(points: List[float], image: Image = None):
+def draw_poly_line(end_points: List[float], image: Image = None):
     """
     Draw poly lines.
 
-    "points" is a 2D point list. Each 2 values in the list make a point. A poly line will be drawn to connect adjacent
-    points defined by the the list.
+    "end_points" is a 2D points list. Each 2 values in the list make a point. A poly line will be drawn to connect
+    adjacent end_points defined by the the list.
 
-    For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw 5 lines:
-    (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450), (550,540) to (50,250)
+    For examples , if "end_points" is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw
+    5 lines: (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450), (550,540) to (50,250)
     and(50,250) to (550,550)
 
     >>> from easygraphics import *
@@ -1108,12 +1108,12 @@ def draw_poly_line(points: List[float], image: Image = None):
     >>> pause()
     >>> close_graph()
 
-    :param points: point value list
+    :param end_points: point value list
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.draw_poly_line(points)
+    image.draw_poly_line(end_points)
     if on_screen:
         _win.invalid()
 
@@ -1121,14 +1121,14 @@ def draw_poly_line(points: List[float], image: Image = None):
 poly_line = draw_poly_line
 
 
-def polygon(points: List[float], image: Image = None):
+def polygon(vertices: List[float], image: Image = None):
     """
     Draw polygon outline.
 
-    "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
+    "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
     points defined by the the list.
 
-    For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+    For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
     (50,50) , (550,350) and (50,150)
 
     The polygon is not filled.
@@ -1141,24 +1141,24 @@ def polygon(points: List[float], image: Image = None):
     >>> pause()
     >>> close_graph()
 
-    :param points: point value list
+    :param vertices: point value list
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.polygon(points)
+    image.polygon(vertices)
     if on_screen:
         _win.invalid()
 
 
-def draw_polygon(points: List[float], image: Image = None):
+def draw_polygon(vertices: List[float], image: Image = None):
     """
     Draw a polygon.
 
-    "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
+    "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
     points defined by the the list.
 
-    For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
+    For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
     (50,50) , (550,350) and (50,150)
 
     The polygon is filled and has outline.
@@ -1172,21 +1172,21 @@ def draw_polygon(points: List[float], image: Image = None):
     >>> pause()
     >>> close_graph()
 
-    :param points: point value list
+    :param vertices: point value list
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.polygon(points)
+    image.polygon(vertices)
     if on_screen:
         _win.invalid()
     image, on_screen = _check_on_screen(image)
-    image.draw_polygon(points)
+    image.draw_polygon(vertices)
     if on_screen:
         _win.invalid()
 
 
-def fill_polygon(points: List[float], image: Image = None):
+def fill_polygon(vertices: List[float], image: Image = None):
     """
     fill polygon
 
@@ -1206,12 +1206,12 @@ def fill_polygon(points: List[float], image: Image = None):
     >>> pause()
     >>> close_graph()
 
-    :param points: point value list
+    :param vertices: point value list
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.fill_polygon(points)
+    image.fill_polygon(vertices)
     if on_screen:
         _win.invalid()
 
@@ -1540,6 +1540,7 @@ _is_target_on_screen = True
 
 _target_image = None
 
+
 def set_target(image: Image = None):
     """
     Set the target image for drawing on.
@@ -1603,12 +1604,7 @@ def save_image(filename: str, with_background=True, image: Image = None):
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    if with_background:
-        img = QtGui.QImage(image.get_width(), image.get_height(), QtGui.QImage.Format_ARGB32_Premultiplied)
-        image.draw_to_device(img)
-        img.save(filename)
-    else:
-        image.get_image().save(filename)
+    image.save(filename, with_background)
 
 
 def create_image_from_file(filename: str) -> Image:
@@ -1860,12 +1856,17 @@ def set_caption(title: str):
     _win.setWindowTitle(title)
 
 
-def init_graph(width: int = 800, height: int = 600, headless=False):
+def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     """
     Init the easygraphics system and show the graphics window.
 
+    If "headless" is True, easygraphics will run in headless mode, which means
+    there will be no graphics window. Use this mode if you want to draw and
+    save image to files.
+
     :param width: width of the graphics window (in pixels)
     :param height:  height of the graphics window (in pixels)
+    :param headless: True to run in headless mode.
 
     >>> from easygraphics import *
     >>> init_graph(800,600) #prepare and show a 800*600 window
@@ -1907,7 +1908,6 @@ def _check_app_run(check_not_headless: bool = False):
         raise RuntimeError("Easygraphics is not inited or has been closed! Run init_graph() first!")
     if check_not_headless and _headless:
         raise RuntimeError("Easygraphics is running in headless mode!")
-
 
 
 def _check_on_screen(image: Image) -> (QtGui.QImage, bool):

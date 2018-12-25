@@ -8,6 +8,7 @@ Subpackages
 
     apis/easygraphics.dialog
     apis/easygraphics.legacy
+    apis/easygraphics.music
 
 
 Submodules
@@ -20,9 +21,15 @@ Submodules
 EasyGraphics package
 --------------------
 
+Package Summary
+^^^^^^^^^^^^^^^
+
 .. currentmodule:: easygraphics
 
 .. autosummary::
+
+Package APIs
+^^^^^^^^^^^^
 
 .. automodule:: easygraphics
     :members:
