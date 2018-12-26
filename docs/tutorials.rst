@@ -23,13 +23,15 @@ Tutorials
 
     tutorials/10_image
 
-    tutorials/11_animations
+    tutorials/11_animation
 
     tutorials/12_keyborad
 
     tutorials/13_mouse
 
-    tutorials/15_headless_mode
+    tutorials/14_headless_mode
+
+    tutorials/15_music
 
 
 

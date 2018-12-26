@@ -4,7 +4,7 @@ from typing import List, Union
 from PyQt5 import QtGui, QtCore
 
 from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode
-import math as m
+import qimage2ndarray as qn
 
 __all__ = ['Image']
 
@@ -12,14 +12,16 @@ __all__ = ['Image']
 class Image:
     def __init__(self, image: QtGui.QImage):
         self._image = image
-        self._color = Color.BLACK
+        self._image_view = qn.raw_view(image)
+        self._color = _to_qcolor(Color.BLACK)
         self._line_style = LineStyle.SOLID_LINE
         self._lineWidth = 1
-        self._fill_color = Color.WHITE
+        self._fill_color = _to_qcolor(Color.WHITE)
         self._fill_Style = FillStyle.SOLID_FILL
-        self._background_color = Color.WHITE
-        self._mask = QtGui.QBitmap(image.width(), image.height())
-        self._mask.fill(QtCore.Qt.color1)
+        self._background_color = _to_qcolor(Color.WHITE)
+        self._mask = QtGui.QImage(image.width(), image.height(), QtGui.QImage.Format_ARGB32_Premultiplied)
+        self._mask_view = qn.raw_view(self._mask)
+        self._mask.fill(MASK_WHITE)
         self._pen = QtGui.QPen()
         self._pen.setCapStyle(QtCore.Qt.RoundCap)
         self._pen.setJoinStyle(QtCore.Qt.RoundJoin)
@@ -178,21 +180,16 @@ class Image:
 
         :param background_color: background color
         """
+
         background_color = _to_qcolor(background_color)
         self._background_color = background_color
-        if self._painter.hasClipping():
-            old_clip_region = self._painter.clipRegion()
-            is_clipping = True
-        else:
-            is_clipping = False
-        region = QtGui.QRegion(self._mask)
-        self._painter.setClipping(True)
-        self._painter.setClipRegion(region)
-        self._painter.fillRect(0, 0, self.get_width(), self.get_height(), self._background_color)
-        if is_clipping:
-            self._painter.setClipRegion(old_clip_region)
-        else:
-            self._painter.setClipping(False)
+        foreground = _get_foreground(self)
+        self._image.fill(background_color)
+        self._painter.save()
+        self._painter.resetTransform()
+        self._painter.setCompositionMode(CompositionMode.SOURCE_OVER)
+        self._painter.drawImage(0, 0, foreground)
+        self._painter.restore()
 
     def get_line_style(self):
         """
@@ -423,9 +420,9 @@ class Image:
         p = self._painter
         mode = p.compositionMode()
         p.setCompositionMode(QtGui.QPainter.CompositionMode_Source)
-        p.fillRect(1, 1, p.window().width() - 1, p.window().height() - 1, Color.TRANSPARENT)
+        p.fillRect(1, 1, p.window().width() - 1, p.window().height() - 1, self._background_color)
         p.setCompositionMode(mode)
-        self._mask_painter.fillRect(1, 1, p.window().width() - 1, p.window().height() - 1, QtCore.Qt.color1)
+        self._mask_painter.fillRect(1, 1, p.window().width() - 1, p.window().height() - 1, MASK_WHITE)
 
     def set_composition_mode(self, mode):
         """
@@ -520,14 +517,14 @@ class Image:
         p = self._painter
         p.setPen(pen)
         p.setBrush(brush)
-        if self._pen_transparent():
-            self._mask_painter.setPen(QtCore.Qt.color1)
+        if self._no_pen():
+            self._mask_painter.setPen(LineStyle.NO_PEN)
         else:
-            self._mask_painter.setPen(QtCore.Qt.color0)
-        if self._brush_transparent():
-            self._mask_painter.setBrush(QtCore.Qt.color1)
+            self._mask_painter.setPen(MASK_BLACK)
+        if self._no_brush():
+            self._mask_painter.setBrush(FillStyle.NULL_FILL)
         else:
-            self._mask_painter.setBrush(QtCore.Qt.color0)
+            self._mask_painter.setBrush(MASK_BLACK)
         return p
 
     def _prepare_painter_for_draw_outline(self) -> QtGui.QPainter:
@@ -554,11 +551,11 @@ class Image:
         p.drawPoint(point)
         self._mask_painter.drawPoint(point)
 
-    def _pen_transparent(self):
-        return self._painter.pen().style() == LineStyle.NO_PEN or self._painter.pen().color().alpha == 0
+    def _no_pen(self):
+        return self._painter.pen().style() == LineStyle.NO_PEN
 
-    def _brush_transparent(self):
-        return self._painter.brush().style() == FillStyle.NULL_FILL or self._painter.pen().color().alpha == 1
+    def _no_brush(self):
+        return self._painter.brush().style() == FillStyle.NULL_FILL
 
     def draw_line(self, x1: float, y1: float, x2: float, y2: float):
         """
@@ -1072,7 +1069,7 @@ class Image:
         Clear the image to show the background.
         """
         self._image.fill(self._background_color)
-        self._mask.fill(QtCore.Qt.color1)
+        self._mask.fill(MASK_WHITE)
 
     def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = -1,
                    src_height: int = -1, with_background=True, composition_mode=None):
@@ -1115,7 +1112,7 @@ class Image:
         if composition_mode is not None:
             p.setCompositionMode(old_mode)
 
-    def get_mask(self) -> QtGui.QBitmap:
+    def get_mask(self) -> QtGui.QImage:
         """
         Get background mask bitmap
 
@@ -1150,8 +1147,8 @@ class Image:
         transform = self._painter.combinedTransform()
         new_pos = transform.map(QtCore.QPoint(x, y))
         queue.append((new_pos.x(), new_pos.y()))
-        bc = QtGui.QColor(border_color).rgba()
-        sc = QtGui.QColor(self._fill_color)
+        bc = _to_qcolor(border_color).rgba()
+        fc = _to_qcolor(self._fill_color).rgba()
         flags = [0] * (self._image.width() * self._image.height())
         r = None
         if self._painter.hasClipping():
@@ -1170,8 +1167,8 @@ class Image:
             if bc == pc:
                 continue
             flags[self._image.width() * y + x] = 1
-            self._image.setPixelColor(x, y, sc)
-            self._mask_painter.drawPoint(x, y)
+            self._image_view[y, x] = fc
+            self._mask_view[y, x] = MASK_BLACK.rgba()
             queue.append((x + 1, y))
             queue.append((x - 1, y))
             queue.append((x, y + 1))
@@ -1195,7 +1192,9 @@ class Image:
         :param y: y coordinate value of the pixel
         :param color: the color
         """
-        self._image.setPixel(x, y, color)
+        qcolor = _to_qcolor(color)
+        self._image.setPixel(x, y, qcolor)
+        self._mask.setPixel(x, y, MASK_BLACK)
 
     def draw_text(self, x: int, y: int, *args, sep=' '):
         """
@@ -1327,27 +1326,34 @@ class Image:
 
 
 def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
-    if isinstance(val, str) or type(val) == int:
-        # don't use isinstance(val,int), because predefined Color values (eg. Color.RED) will also make it True!
-        color = QtGui.QColor(val)
-        if not color.isValid():
-            raise ValueError("%s is not a valid color!" % str(val))
-    else:
+    if isinstance(val, QtGui.QColor):
         color = val
+    else:
+        color = QtGui.QColor(val)
+    if not color.isValid():
+        raise ValueError("%s is not a valid color!" % str(val))
     return color
 
 
 def _prepare_image_for_copy(image: Image, with_background: bool) -> QtGui.QImage:
     img = image.get_image()
     if not with_background:
-        img = QtGui.QImage(image.get_width(), image.get_height(), QtGui.QImage.Format_ARGB32_Premultiplied)
-        img.fill(Color.TRANSPARENT)
-        painter = QtGui.QPainter()
-        painter.begin(img)
-        region = QtGui.QRegion(image.get_mask())
-        full_region = QtGui.QRegion(0, 0, image.get_width(), image.get_height())
-        new_region = full_region.subtracted(region)
-        painter.setClipRegion(new_region)
-        painter.drawImage(0, 0, image.get_image())
-        painter.end()
+        img = _get_foreground(image)
     return img
+
+
+def _get_foreground(image):
+    img = QtGui.QImage(image.get_width(), image.get_height(), QtGui.QImage.Format_ARGB32_Premultiplied)
+    img.fill(Color.TRANSPARENT)
+    painter = QtGui.QPainter()
+    painter.begin(img)
+    mask = QtGui.QBitmap.fromImage(image.get_mask().createMaskFromColor(MASK_WHITE.rgba()))
+    region = QtGui.QRegion(mask)
+    painter.setClipRegion(region)
+    painter.drawImage(0, 0, image.get_image())
+    painter.end()
+    return img
+
+
+MASK_WHITE = _to_qcolor(Color.WHITE)
+MASK_BLACK = _to_qcolor(Color.BLACK)

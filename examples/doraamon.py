@@ -14,6 +14,7 @@ set_color(Color.BLACK)
 draw_rounded_rect(-135, -206, 135, 54, 248, 248)
 delay(DELAY_TIME)
 
+
 ## face 脸
 set_fill_color(Color.WHITE)
 draw_ellipse(0, -46, 115, 95)
@@ -120,5 +121,6 @@ set_line_width(1)
 line(-16, 40, 16, 40)
 line(-18, 44, 18, 44)
 
+set_background_color(Color.LIGHT_RED)
 pause()
 close_graph()
