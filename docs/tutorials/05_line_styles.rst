@@ -49,7 +49,7 @@ Use set_line_style()/get_line_style() to set line shape.
 .. |dot_line| image:: ../images/graphics/dot_line.png
 .. |dash_dot_line| image:: ../images/graphics/dash_dot_line.png
 .. |dash_dot_dot_line| image:: ../images/graphics/dash_dot_dot_line.png
-.. |no_pen| image: ../images/graphics/no_pen.png
+.. |no_pen| image:: ../images/graphics/no_pen.png
 
 The following program draws a rectangle with dash outlines.
 

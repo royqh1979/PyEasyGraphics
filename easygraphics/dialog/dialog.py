@@ -7,25 +7,26 @@ import os
 import sys
 import traceback
 import webbrowser
-from typing import List, Optional, Union
+from typing import List, Optional
 
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets, QtGui
 
-from ._indexed_order_list import IndexedOrderedDict
 from . import calendar_widget
 from . import multichoice
 from . import multifields
 from . import show_text_window
+from . import tableview
+from ._indexed_order_list import IndexedOrderedDict
 from .invoke_in_app_thread import set_app_font, invoke_in_thread
 
 __all__ = [
     'set_dialog_font_size',
-    'show_message', 'show_text', 'show_code', 'show_file',
-    'get_abort', 'get_choice', 'get_color_hex', 'get_color_rgb', 'get_color_hex',
+    'show_message', 'show_text', 'show_code', 'show_file', 'show_table',
+    'get_abort', 'get_choice', 'get_color_hex', 'get_color_rgb', 'get_color',
     'get_continue_or_cancel', 'get_date', 'get_directory_name', 'get_file_names',
     'get_float', 'get_int', 'get_integer', 'get_list_of_choices', 'get_many_strings',
     'get_new_password', 'get_password', 'get_save_file_name', 'get_string',
-    'get_username_password', 'get_yes_or_no'
+    'get_username_password', 'get_yes_or_no',
 ]
 
 
@@ -114,8 +115,8 @@ def get_continue_or_cancel(question: str = "Processed will be cancelled!",
 
 # ============= Color dialogs =================
 @invoke_in_thread()
-def get_color_hex() -> Optional[str]:
-    """Using a color _dialog, returns a color in hexadecimal notation
+def get_color_hex(color="white") -> Optional[str]:
+    """Using a color dialog, returns a color in hexadecimal notation
        i.e. a string '#RRGGBB' or "None" if color _dialog is dismissed.
 
        >>> from easygraphics.dialog import *
@@ -123,14 +124,30 @@ def get_color_hex() -> Optional[str]:
 
        .. image:: ../../docs/images/dialogs/select_color.png
        """
-    color = QtWidgets.QColorDialog.getColor(QtCore.Qt.white, None)
+    color = QtWidgets.QColorDialog.getColor(color, None)
     if color.isValid():
         return color.name()
 
 
 @invoke_in_thread()
-def get_color_rgb() -> (int, int, int):
-    """Using a color _dialog, returns a color in rgb notation
+def get_color(color="white") -> QtGui.QColor:
+    """
+    Display a color picker and return the selected color
+
+    >>> from easygraphics.dialog import *
+    >>> color = get_color()
+
+    .. image:: ../../docs/images/dialogs/select_color_fr.png
+
+    :return: the color selected
+    """
+    color = QtWidgets.QColorDialog.getColor(color, None)
+    if color.isValid():
+        return color
+
+@invoke_in_thread()
+def get_color_rgb(color="white") -> (int, int, int):
+    """Using a color dialog, returns a color in rgb notation
        i.e. a tuple (r, g, b)  or "None" if color _dialog is dismissed.
 
        >>> from easygraphics.dialog import *
@@ -138,7 +155,7 @@ def get_color_rgb() -> (int, int, int):
 
        .. image:: ../../docs/images/dialogs/select_color_fr.png
        """
-    color = QtWidgets.QColorDialog.getColor(QtCore.Qt.white, None)
+    color = QtWidgets.QColorDialog.getColor(color, None)
     if color.isValid():
         return color.red(), color.green(), color.blue()
 
@@ -329,7 +346,7 @@ def get_password(message: str = "Enter your password", title: str = "Title") -> 
 
 @invoke_in_thread()
 def get_choice(message: str = "Select one item", title: str = "Title", choices: List[str] = None) -> Optional[str]:
-    """Simple _dialog to ask a user to select an item within a drop-down list
+    """Simple dialog to ask a user to select an item within a drop-down list
 
        :param message: Message displayed to the user, inviting a response
        :param title: Window title
@@ -597,48 +614,51 @@ def show_file(file_name: str = None, title: str = "Title", file_type: str = "tex
 
 
 @invoke_in_thread()
-def show_text(title: str = "Title", text: str = ""):
+def show_text(title: str = "Title", text: str = "", width: int = 720, height: int = 450):
     """
     Displays some text in a window.
 
     :param title: the window title
     :param text: a string to display in the window.
+    :param width: width of the dialog window
+    :param height:  height of the dialog window
 
     >>> from easygraphics.dialog import *
-    >>> easy.show_code()
+    >>> show_text("Hello","Hello world!")
 
     .. image:: ../../docs/images/dialogs/show_text.png
     """
     editor = show_text_window.TextWindow(title=title, text_type='text', text=text)
-    editor.resize(720, 450)
+    editor.resize(width, height)
     editor.show()
 
 
 @invoke_in_thread()
-def show_code(title: str = "Title", code: str = ""):
+def show_code(title: str = "Title", code: str = "", width: int = 720, height: int = 450):
     """
     Displays some text in a window, in a monospace font.
 
     :param title: the window title
     :param code: a string to display in the window.
-
-    >>> from easygraphics.dialog import *
-    >>> show_code()
+    :param width: width of the dialog window
+    :param height:  height of the dialog window
 
     .. image:: ../../docs/images/dialogs/show_code.png
     """
     editor = show_text_window.TextWindow(title=title, text_type='code', text=code)
-    editor.resize(720, 450)
+    editor.resize(width, height)
     editor.show()
 
 
 @invoke_in_thread()
-def show_html(title: str = "Title", text: str = ""):
+def show_html(title: str = "Title", text: str = "", width: int = 720, height: int = 450):
     """
     Displays some html text in a window.
 
     :param title: the window title
     :param text: a string to display in the window.
+    :param width: width of the dialog window
+    :param height:  height of the dialog window
 
     >>> from easygraphics.dialog import *
     >>> show_html()
@@ -646,8 +666,8 @@ def show_html(title: str = "Title", text: str = ""):
     .. image:: ../../docs/images/dialogs/show_html.png
     """
     editor = show_text_window.TextWindow(title=title, text_type='html', text=text)
-    editor.resize(720, 450)
-    editor.show()
+    editor.resize(width, height)
+    _send_to_front(editor)
 
 
 @invoke_in_thread()
@@ -677,6 +697,38 @@ def get_abort(message: str = "Major problem - or at least we think there is one.
             sys.exit()
     else:
         pass
+
+
+@invoke_in_thread()
+def show_table(datas: List, fields: List[str] = None, field_names: List[str] = None, title: str = "Title",
+               width: int = 720, height: int = 450):
+    """
+    Displays list of objects in a table
+
+    >>> from easygraphics.dialog import *
+    >>> class Person:
+    >>>     def __init__(self,name,age,sex):
+    >>>         self.name=name
+    >>>         self.age = age
+    >>>         self.sex = sex
+
+    >>> objs = [Person("Jack", 22, "M"), Person("Micheal", 40, "F"), Person("David", 24, "M")]
+    >>> show_table(title="peoples",datas=objs,fields=["name","age","sex"],field_names=["NAME","AGE","SEX"])
+
+    .. image:: ../../docs/images/dialogs/show_table.png
+
+    :param datas: the object list to show
+    :param fields: fields to show of the object
+    :param field_names: the field names displayed on the table header
+    :param title: title of the dialog window
+    :param width: width of the dialog window
+    :param height: height of the dialog window
+    """
+
+    dialog = tableview.TableViewDialog(title=title, datas=datas, fields=fields, field_names=field_names)
+    dialog.resize(width, height)
+    _send_to_front(dialog)
+    dialog.exec()
 
 
 def handle_exception(title: str = "Exception raised!"):
@@ -716,6 +768,5 @@ def set_dialog_font_size(size: int):
     >>> from easygraphics.dialog import *
     >>> set_dialog_font_size(18)
     >>> show_message("font setted!")
-    >>> close_graph()
     """
     set_app_font(size)

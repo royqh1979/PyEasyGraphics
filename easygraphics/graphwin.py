@@ -114,7 +114,7 @@ class GraphWin(QtWidgets.QWidget):
 
     def keyPressEvent(self, e: QtGui.QKeyEvent):
         self._wait_event.set()
-        if e.key() < 127:
+        if e.key() < 127 or e.key() == QtCore.Qt.Key_Return:
             # ascii char key pressed
             self._key_char_msg.set_char(e)
             self._char_key_event.set()
@@ -236,7 +236,7 @@ class GraphWin(QtWidgets.QWidget):
         self._key_msg.reset()
         return e.key(), e.modifiers()
 
-    def get_mouse(self) -> (int, int, int, int):
+    def get_mouse_msg(self) -> (int, int, int, int):
         """
         Get the mouse message.
 
@@ -253,13 +253,13 @@ class GraphWin(QtWidgets.QWidget):
             self._mouse_event.clear()
             self._mouse_event.wait()
         if not self._is_run:
-            return 0, 0, QtCore.Qt.NoButton
+            return 0, 0, 0, QtCore.Qt.NoButton
         e = self._mouse_msg.get_event()
         type = self._mouse_msg.get_type()
         self._mouse_msg.reset()
         return e.x(), e.y(), type, e.button()
 
-    def kb_hit(self) -> bool:
+    def has_kb_hit(self) -> bool:
         """
         see if any ascii char key is hitted in the last 100 ms
         use it with get_char()
@@ -269,7 +269,7 @@ class GraphWin(QtWidgets.QWidget):
         nt = time.time_ns()
         return nt - self._key_char_msg.get_time() <= 100000000
 
-    def kb_msg(self) -> bool:
+    def has_kb_msg(self) -> bool:
         """
         see if any key is hitted in the last 100 ms
         use it with get_key()
@@ -279,10 +279,10 @@ class GraphWin(QtWidgets.QWidget):
         nt = time.time_ns()
         return nt - self._key_char_msg.get_time() <= 100000000
 
-    def mouse_msg(self) -> bool:
+    def has_mouse_msg(self) -> bool:
         """
         see if there's any mouse message(event) in the last 100 ms
-        use it with get_mouse()
+        use it with get_mouse_msg()
 
         :return:  True if any mouse message, False or not
         """
@@ -333,6 +333,7 @@ class _KeyCharMsg:
         self._key = None
 
     def set_char(self, key_event: QtGui.QKeyEvent):
+        key_event.key()
         self._key = key_event.text()
         self._time = time.time_ns()
 

@@ -2,6 +2,18 @@
 
 History
 =======
+0.9.7
+---------------------
+ * add: load_image() to load image from files
+ * add: to_alpha() to make a transparently color
+ * change: use Source Over as the default composition mode (the same with Qt)
+ * more tutorials
+ * add: show_table() to display table infomation in a dialog
+ * change: rename mouse_msg() to has_mouse_msg()
+ * change: rename kb_hit() to has_kb_hit()
+ * change: rename get_mouse() to get_mouse_msg()
+ * change: rename kb_msg() to has_kb_msg()
+ * finish the tutorials.
 
 0.9.6
 ---------------------

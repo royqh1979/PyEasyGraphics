@@ -8,15 +8,15 @@ if __name__ == "__main__":
     # otherwise it will be transparent, and composition will not work
     fill_rect(0, 0, get_width(), get_height())
 
-    x1, y1, type, buttons = get_mouse()
+    x1, y1, type, buttons = get_mouse_msg()
     circle(x1, y1, 3)
     set_color(Color.WHITE)
     set_composition_mode(CompositionMode.SRC_XOR_DEST)
     x2, y2 = x1, y1
     while is_run():
-        if mouse_msg():
+        if has_mouse_msg():
             draw_line(x1, y1, x2, y2)
-            x2, y2, type, buttons = get_mouse()
+            x2, y2, type, buttons = get_mouse_msg()
             if type == MouseMessageType.RELEASE_MESSAGE:
                 set_color(Color.BLACK)
                 set_composition_mode(CompositionMode.SOURCE)

@@ -52,7 +52,7 @@ So to set the pen's color to red , we can:
 
  2. Use RGB values and rgb() function
 
-    >>> set_color(rgb(255,0,0))
+    >>> set_color(color_rgb(255,0,0))
 
  3. Use a color name
 
@@ -65,6 +65,22 @@ So to set the pen's color to red , we can:
  5. Use a rgb integer
 
     >>> set_color(0xff0000)
+
+Transparency (Alpha Value)
+--------------------------
+Like most morden graphic systems, Easygraphics ( and its underlying Qt System) use a alpha component to represent
+the transparency of a pixel on the image. When the alpha value is 255, the pixel is fully opaque; when the alpha
+value is 0, the pixel is fully tranparent.
+
+All the color functions (color_rgb()/color_hsv()/color_cmyk()) has an optional parameter "alpha" to make a
+color with transparency. The default value of this parameter is 255, which means the color is fully opaque.
+
+You can use to_alpha() function to make a tranparency color by string or rgb integers.
+
+The following code set the foreground color to a red with 150 as alpha value ( about half transparent)
+
+>>> set_color(to_alpha("red",150))
+
 
 
 

@@ -37,7 +37,7 @@ class Image:
     def _init_painter(self):
         p = self._painter
         p.begin(self._image)
-        p.setCompositionMode(CompositionMode.SOURCE)
+        p.setCompositionMode(CompositionMode.SOURCE_OVER)
         # p.setRenderHint(QtGui.QPainter.Antialiasing) # flood fill will not work when anti-aliasing is on
         self._default_rect = p.viewport()
 
@@ -1087,7 +1087,7 @@ class Image:
         If with_background is False, the source image's background will not be copied.
 
         The final result will depend on the composition mode and the source image's background.
-        In the default mode (CompositionMode.SOURCE), the source will fully overwrite the destination).
+        In the default mode (CompositionMode.SOURCE_OVER), the source will fully overwrite the destination).
 
         If you want to get a transparent copy, you should use CompositionMode.SOURCE_OVER and with_background = False.
 
@@ -1102,7 +1102,7 @@ class Image:
         :param composition_mode: if is None, use dst image's composition mode to copy.
         """
         p = self._painter
-        old_mode = CompositionMode.SOURCE
+        old_mode = CompositionMode.SOURCE_OVER
         if composition_mode is not None:
             old_mode = p.compositionMode()
             p.setCompositionMode(composition_mode)
@@ -1308,13 +1308,37 @@ class Image:
         """
         return self._painter
 
+    def save_settings(self):
+        """
+        Save current drawing settings.
+
+        See restore_settings().
+
+        Note: background_color and current position won't  be saved and restored.
+
+        """
+        self._painter.save()
+        self._mask_painter.save()
+
+    def restore_settings(self):
+        """
+        Restore previously saved drawing settings.
+
+        See save_settings().
+
+        Note: background_color and current position won't  be saved and restored.
+        """
+        self._painter.restore()
+        self._mask_painter.restore()
+
     def save(self, filename: str, with_background=True):
         """
         Save image to file.
 
         Set with_background to False to get a transparent background image.
 
-        Note that JPEG format doesn\'t support transparent. Use PNG format.
+        Note that JPEG format doesn\'t support transparent. Use PNG format if you want a transparent background.
+        
         :param filename: path of the file
         :param with_background: True to save the background together. False not
         """
@@ -1326,12 +1350,10 @@ class Image:
 
 
 def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
-    if isinstance(val, QtGui.QColor):
+    if isinstance(val, type(QtGui.QColor)):
         color = val
     else:
         color = QtGui.QColor(val)
-    if not color.isValid():
-        raise ValueError("%s is not a valid color!" % str(val))
     return color
 
 

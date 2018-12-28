@@ -86,10 +86,11 @@ the coordinates are translated.
 
 The following example move the logical origin to the center, and zoom the drawing 100 times on
 x and y axis:
+
 * the default view port is 600 width, 400 height. and the window is 6 width, 4 height,
-    so on x-axis we gets 600/6=100 times zoom, and on y-axis we gets 400/4=100 times zoom.
+  so on x-axis we gets 600/6=100 times zoom, and on y-axis we gets 400/4=100 times zoom.
 * the window is 6 width, 4 height, and we put the left-top corner at (-3,-2), so we get
-    (0,0) at the center.
+  (0,0) at the center.
 
 .. code-block:: python
 

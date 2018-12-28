@@ -21,15 +21,15 @@ Tutorials
 
     tutorials/09_transforms
 
-    tutorials/10_image
+    tutorials/10_composition_mode
 
-    tutorials/11_animation
+    tutorials/11_image
 
-    tutorials/12_keyborad
+    tutorials/12_animation
 
-    tutorials/13_mouse
+    tutorials/13_mouse_and_keyboard
 
-    tutorials/14_headless_mode
+    tutorials/14_dialogs
 
     tutorials/15_music
 

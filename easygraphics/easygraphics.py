@@ -1,6 +1,7 @@
 import sys
 import threading
 import time
+import math
 from functools import reduce
 from typing import List
 
@@ -23,7 +24,7 @@ __all__ = [
     'set_composition_mode', 'get_composition_mode', 'get_x', 'get_y', 'set_view_port', 'reset_view_port', 'set_origin',
     'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'set_clipping',
     'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'skew', 'shear',
-    'reflect', 'flip', 'mirror', 'reset_transform',
+    'reflect', 'flip', 'mirror', 'reset_transform', 'save_settings', 'restore_settings',
     'get_width', 'get_height', 'get_write_mode', 'set_write_mode',
     # drawing functions #
     'draw_point', 'put_pixel', 'get_pixel', 'line', 'draw_line', 'move_to', 'move_rel', 'line_to', 'line_rel',
@@ -37,15 +38,16 @@ __all__ = [
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
-    'set_target', 'get_target', 'create_image', 'save_image', 'close_image',
+    'set_target', 'get_target', 'create_image', 'save_image', 'close_image', 'load_image', 'put_image',
     # time control functions#
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
     # keyboard and mouse functions #
-    'kb_msg', 'kb_hit', 'mouse_msg', 'get_key', 'get_char', 'get_mouse', 'get_cursor_pos', 'get_click',
+    'has_kb_msg', 'has_kb_hit', 'has_mouse_msg', 'get_key', 'get_char', 'get_mouse_msg', 'get_cursor_pos', 'get_click',
+    "contains_left_button", "contains_right_button", "contains_mid_button",
     # init and close graph window #
     'init_graph', 'close_graph', 'set_caption',
     # utility functions #
-    'color_rgb', 'color_cmyk', 'color_hsv', 'rgb',
+    'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol'
 ]
 
 
@@ -566,7 +568,7 @@ def shear(sh: float, sv: float, image: Image = None):
     :param sh: shear ratio on the x-axis
     :param sv: shear ratio on the y-axis
     :param image: the target image to be sheared. None means it is the target image
-    (see set_target() and get_target()).
+        (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
     image.shear(sh, sv)
@@ -582,7 +584,7 @@ def reflect(x: float, y: float, image: Image = None):
     :param x:
     :param y:
     :param image: the target image to be sheared. None means it is the target image
-    (see set_target() and get_target()).
+        (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
     image.reflect(x, y)
@@ -602,6 +604,37 @@ def reset_transform(image: Image = None):
     """
     image, on_screen = _check_on_screen(image)
     image.reset_transform()
+
+
+def save_settings(image: Image = None):
+    """
+    Save current drawing settings.
+
+    See restore_settings().
+
+    Note: background_color and current position won't  be saved and restored.
+
+
+    :param image: the target image whose drawing settings is to be saved. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    image, on_screen = _check_on_screen(image)
+    image.save_settings()
+
+
+def restore_settings(image: Image = None):
+    """
+    Restore previously saved drawing settings.
+
+    See save_settings().
+
+    Note: background_color and current position won't  be saved and restored.
+
+    :param image: the target image whose drawing settings is to be restored. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    image, on_screen = _check_on_screen(image)
+    image.restore_settings()
 
 
 def set_render_mode(mode: int):
@@ -1411,7 +1444,7 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
     if with_background is False, the source image's background will not be copied.
 
     The final result will depend on the composition mode and the source image's background.
-    In the default mode (CompositionMode.SOURCE), the source will fully overwrite the destination).
+    In the default mode (CompositionMode.SOURCE_OVER), the source will fully overwrite the destination).
 
     If you want to get a transparent copy, you should use draw_image_transparent().
 
@@ -1431,6 +1464,9 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
     dst_image.draw_image(x, y, src_image, src_x, src_y, src_width, src_height, with_background, composition_mode)
     if on_screen:
         _win.invalid()
+
+
+put_image = draw_image
 
 
 def capture_screen(left: int, top: int, right: int, bottom: int, target_img: Image):
@@ -1626,13 +1662,25 @@ def close_image(image: Image):
     image.close()
 
 
+def load_image(filename: str) -> Image:
+    """
+    Load a image from the file
+
+    :param filename: the image file
+    :return: the loaded image
+    """
+    image = QtGui.QImage(filename)
+    return Image(image)
+
+
 def save_image(filename: str, with_background=True, image: Image = None):
     """
     Save image to file.
 
     Set with_background to False to get a transparent background image.
 
-    Note that JPEG format doesn\'t support transparent. Use PNG format.
+    Note that JPEG format doesn\'t support transparent. Use PNG format if you want a transparent background.
+
     :param filename: path of the file
     :param with_background: True to save the background together. False not
     :param image: the target image which will be saved. None means it is the target image
@@ -1698,6 +1746,46 @@ def color_hsv(h: int, s: int, v: int, alpha: int = 255) -> QtGui.QColor:
     return QtGui.QColor.fromHsv(h, s, v, alpha)
 
 
+def to_alpha(new_color, alpha: int = None) -> QtGui.QColor:
+    """
+    Get new color based on the given color and alpha
+
+    :param new_color: the base color
+    :param alpha:  new color's alpha
+    :return: new color with base color and the given alpha value
+    """
+    """
+    """
+    new_color = QtGui.QColor(new_color)
+    if not new_color.isValid():
+        raise ValueError(str(new_color) + " is not a valid color!")
+    new_color.setAlpha(alpha)
+    return new_color
+
+
+def cart2pol(x, y):
+    """
+    Transform a point from cartesian coordinates to polar coordinates.
+
+    :param x: x coordinate value of the point
+    :param y: y coordinate value of the point
+    :return: rho (distance from the pole (origin) to the point),
+        theta (the angle between the polar-axis and the line connecting the pole and the point, in radians)
+    """
+    return math.hypot(x, y), math.atan2(y, x)
+
+
+def pol2cart(rho, theta):
+    """
+    Transform a point from polar coordinates to cartesian coordinates.
+
+    :param rho: rho coordinate value of the point
+    :param theta: theta coordinate value of the point (in radians)
+    :return: x,y coordinate value of the point
+    """
+    return rho * math.cos(theta), rho * math.sin(theta)
+
+
 def _qpoint_to_point_list_fun(lst: List[float], p: QtCore.QPointF) -> List[float]:
     lst.append(p.x())
     lst.append(p.y())
@@ -1725,7 +1813,9 @@ def pause():
     >>> pause()
     >>> close_graph()
     """
-    _check_app_run(True)
+    if not is_run():
+        return
+    _check_not_headless()
     _win.real_update()
     _win.pause()
 
@@ -1778,7 +1868,7 @@ def delay_jfps(fps, max_skip_count=10):
 
 # mouse and keyboards #
 
-def kb_hit() -> bool:
+def has_kb_hit() -> bool:
     """
     See if any ascii char key is hitted in the last 100 ms.
     Use it with get_char().
@@ -1786,10 +1876,10 @@ def kb_hit() -> bool:
     :return:  True if hitted, False or not
     """
     _check_app_run(True)
-    return _win.kb_hit()
+    return _win.has_kb_hit()
 
 
-def kb_msg() -> bool:
+def has_kb_msg() -> bool:
     """
     See if any key is hitted in the last 100 ms.
     Use it with get_key().
@@ -1797,22 +1887,22 @@ def kb_msg() -> bool:
     :return:  True if hitted, False or not
     """
     _check_app_run(True)
-    return _win.kb_msg()
+    return _win.has_kb_msg()
 
 
-def mouse_msg() -> bool:
+def has_mouse_msg() -> bool:
     """
     see if there\'s any mouse message(event) in the last 100 ms
-    use it with get_mouse()
+    use it with get_mouse_msg()
 
     :return:  True if any mouse message, False or not
     """
     _check_app_run(True)
     _win.real_update()
-    return _win.mouse_msg()
+    return _win.has_mouse_msg()
 
 
-def get_mouse() -> (int, int, int, int):
+def get_mouse_msg() -> (int, int, int, int):
     """
     Get the mouse message.
 
@@ -1823,7 +1913,7 @@ def get_mouse() -> (int, int, int, int):
 
     """
     _check_app_run(True)
-    return _win.get_mouse()
+    return _win.get_mouse_msg()
 
 
 def get_click() -> (int, int, int):
@@ -1838,9 +1928,45 @@ def get_click() -> (int, int, int):
     """
     while True:
         _check_app_run(True)
-        x, y, type, buttons = _win.get_mouse()
+        x, y, type, buttons = _win.get_mouse_msg()
         if type == MouseMessageType.RELEASE_MESSAGE:
             return x, y, buttons
+
+
+def contains_left_button(buttons) -> bool:
+    """
+    Test if the buttons contains the left mouse button.
+
+    The "buttons" should be values returned by get_click() or get_mouse()
+
+    :param buttons: the buttons to be tested
+    :return: if the buttons contains the left mouse button
+    """
+    return (buttons & QtCore.Qt.LeftButton) > 0
+
+
+def contains_right_button(buttons) -> bool:
+    """
+    Test if the buttons contains the right mouse button.
+
+    The "buttons" should be values returned by get_click() or get_mouse()
+
+    :param buttons: the buttons to be tested
+    :return: if the buttons contains the right mouse button
+    """
+    return (buttons & QtCore.Qt.RightButton) > 0
+
+
+def contains_mid_button(buttons) -> bool:
+    """
+    Test if the buttons contains the middle mouse button.
+
+    The "buttons" should be values returned by get_click() or get_mouse()
+
+    :param buttons: the buttons to be tested
+    :return: if the buttons contains the middle mouse button
+    """
+    return (buttons & QtCore.Qt.MidButton) > 0
 
 
 def get_char() -> str:
@@ -1941,7 +2067,12 @@ def close_graph():
 def _check_app_run(check_not_headless: bool = False):
     if not is_run():
         raise RuntimeError("Easygraphics is not inited or has been closed! Run init_graph() first!")
-    if check_not_headless and _headless:
+    if check_not_headless:
+        _check_not_headless()
+
+
+def _check_not_headless():
+    if _headless:
         raise RuntimeError("Easygraphics is running in headless mode!")
 
 

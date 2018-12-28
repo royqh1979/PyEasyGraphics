@@ -57,6 +57,8 @@ class Caller(QObject):
             exception = sys.exc_info()
             result = None
 
+            print(exception)
+
             if not event._exceptions_in_main:
                 raise
         finally:
@@ -180,7 +182,7 @@ def get_in_app_thread_result(queue):
     return result
 
 
-_font_size = 14
+_font_size = 18
 
 
 def set_app_font(size: int):
