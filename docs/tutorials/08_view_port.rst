@@ -106,5 +106,5 @@ x and y axis:
 
 .. image:: ../images/tutorials/08_window.png
 
-**Note:**  Obviously the window is default to understand and use. We can use :doc:`transform <09_transforms>` to
+**Note:**  Obviously the logical window is difficult to understand and use. We can use :doc:`transform <09_transforms>` to
 achieve the same result.

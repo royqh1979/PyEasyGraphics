@@ -5,9 +5,18 @@ In easygraphics, each image (including the graphics window) stores "a current po
 Use this position, we can draw lines relatively.
 
 The related functions are:
-* functions to get the current position: get_x()/get_y/get_drawing_pos()
-* functions to set the current position: move_to()/move_rel()
-* functions to draw a line using the current position: line_to()/line_rel()
+
+.. currentmodule:: easygraphics
+
+.. autosummary::
+
+    get_x
+    get_y
+    get_drawing_pos
+    move_to
+    move_rel
+    line_to
+    line_rel
 
 The following program draws a dash line by using the current position.
 
@@ -33,7 +42,7 @@ For example, to plot the function f(x)=sin(x)\'s curve on [-3,3] ,we can use man
 approximate the curve:
 
 1. divide [-3,3] into n equal intervals, to get n+1 values evenly distributed on [-3,3]:
-   x0,x1,x2,x3,..., and x0=-3, x1=3
+   x0,x1,x2,x3,...,xn, and x0=-3, xn=3
 2. cacluate function values f(x0),f(x1),f(x2),f(x3), ..., f(xn).
 3. draw n line segements:  (x0,f(x0)) to (x1,f(x1)), (x1,f(x1)) to (x2,f(x2)) ..., (xn-1,f(xn-1)) to (xn,f(xn))
 4. the resulting line segments is the curve approximation we need.

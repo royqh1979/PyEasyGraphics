@@ -485,7 +485,7 @@ class Image:
     def line_rel(self, dx: float, dy: float):
         """
          Draw a line from the current drawing position (x,y) to (x+dx,y+dy), \
-         then set the drawing position is set to (x+d,y+dy).
+         then set the drawing position is set to (x+dx,y+dy).
 
         :param dx: x coordinate offset of the new drawing position
         :param dy: y coordinate offset of the new drawing position

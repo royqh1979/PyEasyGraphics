@@ -1,5 +1,5 @@
-easygraphics.legacy package
-===========================
+easygraphics.music package
+==========================
 
 Function List
 -------------

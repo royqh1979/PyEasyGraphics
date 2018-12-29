@@ -7,8 +7,7 @@ Three Types of Drawing Functions
 In EasyGraphics, there are three types of functions to draw shapes:
 
 * Functions that only draw shape outlines. These functions are named like \'xxx()\' (\"xxx\" is the shape\'s name). \
-
-    The example below draw a circle with a blue outline.
+  The example below draw a circle with a blue outline.
 
 .. code:: python
 
@@ -21,7 +20,7 @@ In EasyGraphics, there are three types of functions to draw shapes:
     close_graph()
 
 * Functions that both draw and fill a shape. These functions are named like \'draw_xxx()\'(\"xxx\" is the shape\'s name).
-    The example below draw a red circle with a blue outline.
+  The example below draw a red circle with a blue outline.
 
 .. code:: python
 
@@ -34,8 +33,7 @@ In EasyGraphics, there are three types of functions to draw shapes:
     close_graph()
 
 * Functions that only fill a shape. These functions are named like \'fill_xxx()\'( \"xxx\" is the shape\'s name).
-
-    The example below draw a red circle without outline.
+  The example below draw a red circle without outline.
 
 .. code:: python
 
@@ -95,10 +93,9 @@ Using poly_line() or draw_poly_line(), we can draw polylines.
 .. image:: ../images/graphics/polyline.gif
 
 A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a continuous line composed of one or more
-line segments. So to draw a polyline, we should specify the endpoints connecting
-each line segment.
+line segments. So to draw a polyline, we should specify the endpoints connecting each line segment.
 
-poly_line() and draw_poly_line expect a list as the endpoint\'s postions. In the list,
+poly_line() and draw_poly_line() expect a list as the endpoint\'s postions. In the list,
 each endpoint is represented as 2 values (x and y). So n endpoints is represented by a
 list with 2n values.
 

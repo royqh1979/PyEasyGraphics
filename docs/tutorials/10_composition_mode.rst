@@ -14,7 +14,7 @@ Easygraphics (and the underlying Qt system) support three types of compositions:
 * `Blend <https://en.wikipedia.org/wiki/Blend_modes>`_ : is used in digital image editing and computer graphics
   to determine how two layers are blended into each other.
 
-These 3 types is not strictly orthogonal, and some compositions have different names in each type.
+These three types is not strictly orthogonal, and some compositions have different names in each type.
 
 Bit Blit (Raster Operations)
 ----------------------------

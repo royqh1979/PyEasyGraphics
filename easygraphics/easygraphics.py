@@ -348,7 +348,7 @@ def get_x(image: Image = None) -> float:
     """
     Get the x coordinate value of the current drawing position (x,y).
 
-    some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel())
+    Some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel()).
 
     :param image: the target image whose drawing pos is to be gotten. None means it is the target image
         (see set_target() and get_target()).
@@ -362,7 +362,7 @@ def get_y(image: Image = None) -> float:
     """
     Get the y coordinate value of the current drawing position (x,y).
 
-    some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel())
+    Some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel()).
 
     :param image: the target image whose drawing pos is to be gotten. None means it is the target image
         (see set_target() and get_target()).
@@ -376,7 +376,7 @@ def get_drawing_pos(image: Image = None) -> (float, float):
     """
     Get the current drawing position (x,y).
 
-    some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel())
+    Some drawing functions will use the current pos to draw.(see line_to(),line_rel(),move_to(),move_rel()).
 
     :param image: the target image whose drawing pos is to be gotten. None means it is the target image
         (see set_target() and get_target()).
@@ -791,7 +791,7 @@ def line_to(x: float, y: float, image: Image = None):
 def line_rel(dx: float, dy: float, image: Image = None):
     """
     Draw a line from the current drawing position (x,y) to (x+dx,y+dy), \
-    then set the drawing position is set to (x+d,y+dy).
+    then set the drawing position is set to (x+dx,y+dy).
 
     :param dx: x coordinate offset of the new drawing position
     :param dy: y coordinate offset of the new drawing position

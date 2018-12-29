@@ -78,12 +78,12 @@ then draw the bus.
 **Note:** set_origin() is an alias of translate()
 
   **Note**: Because rotation and skew are both respective to the origin, so we want rotate or skew
-  around a point (x,y) other than the origin, we can:
+  around a point (x,y) other than the origin, we should:
 
   1. translate the origin to the (x,y)
   2. do rotate/skew
-  3. do the drawing
-  4. translate the origin back
+  3. translate the origin back
+  4. do the drawing
 
 Rotation
 --------
@@ -200,7 +200,7 @@ passing (0,0) and its parameter (x,y).
 
   To reflect againt lines not passing the origin, first translate the origin to that line, reflect, then translate back.
 
-Reflection agaisn the y-axis
+Reflection against the y-axis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following program flip the bus horizontally ( reflection against the bus\'s vertical center line x=105 ) :
 
@@ -219,7 +219,7 @@ The following program flip the bus horizontally ( reflection against the bus\'s 
 
 .. image:: ../images/tutorials/09_flip_h.png
 
-Reflection agaisn the x-axis
+Reflection against the x-axis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following program flip the bus vertically ( reflection against the bus\'s horizontal center line y=65 ) :
 
@@ -239,9 +239,9 @@ The following program flip the bus vertically ( reflection against the bus\'s ho
 
 .. image:: ../images/tutorials/09_flip_v.png
 
-Reflection agaisn other lines
+Reflection against other lines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following program flip the bus again the line passing (0,0) and (500,300). To clearly see the result,
+The following program flip the bus against the line passing (0,0) and (500,300). To clearly see the result,
 we first draw a non-transformed bus, a mirror line, then draw the flipped bus.
 
 .. code-block:: python
