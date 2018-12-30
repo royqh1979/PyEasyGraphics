@@ -2014,10 +2014,10 @@ def close_graph():
 
     The program will exit too.
 
-    >>>from easygraphics import *
-    >>>init_graph(800,600)
-    >>>pause()
-    >>>close_graph()
+    >>> from easygraphics import *
+    >>> init_graph(800,600)
+    >>> pause()
+    >>> close_graph()
     """
     for image in _created_images:
         image.close()

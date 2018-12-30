@@ -221,7 +221,7 @@ Constants
     TextFlags
 
 API Details
-^^^^^^^^^^^
+-----------
 
 .. automodule:: easygraphics
     :members:

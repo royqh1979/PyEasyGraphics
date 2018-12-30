@@ -24,7 +24,7 @@ Function List
 
 Functions
 ---------
-.. automodule:: easygraphics.legacy
+.. automodule:: easygraphics.music
     :members:
     :undoc-members:
     :show-inheritance:
