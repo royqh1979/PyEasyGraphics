@@ -11,6 +11,7 @@ if __name__ == "__main__":
     from PyQt5 import QtCore
 
     init_graph(800, 600)
+    set_render_mode(RenderMode.RENDER_MANUAL)
 
     x1, y1, buttons = get_click()
     circle(x1, y1, 3)
@@ -61,7 +62,6 @@ if __name__ == "__main__":
                 circle(x1, y1, 3)
                 circle(x2, y2, 3)
                 draw_bezier((x1, y1, x3, y3, x4, y4, x2, y2))
-
         else:
             if draging_which_point == 1:
                 x, y = get_cursor_pos()
@@ -71,6 +71,6 @@ if __name__ == "__main__":
                 x, y = get_cursor_pos()
                 draw_line(x2, y2, x, y)
                 draw_bezier((x1, y1, x3, y3, x, y, x2, y2))
-            delay_fps(60)
+        delay_fps(60)
 
     close_graph()

@@ -2,6 +2,7 @@ Animation
 =========
 By rapidly change the painting (frames) on the graphics window, we can make an animation.
 
+
 Time Control
 ------------
 Because the computer can draw very fast, we must let it to wait some time
@@ -19,13 +20,21 @@ to control the speed is by using the delay_fps() function.
 FPS is the abbreviation of "frames per second".delay_fps() will calculate each
 frame's drawing time, and wait to make each frame displays evenly.
 
-Skipping Frames
-^^^^^^^^^^^^^^^
-Sometimes a drawing can be complicated slow, and we can't finish a frame's drawing
-in the specified frame time. This will create lags in the animation.
+Render Mode
+-----------
+There are two render mode in EasyGraphics:
 
-The delay_jfps() can skip some frames ( if a frame is using too mush time, the successive frames
-will be skipped to keep up with the specified fps)
+1. **RenderMode.AUTO**: All drawings on the graphics window will show immediately.
+   This is the default mode, and is for normal drawing.
+2. **RenderMode.Manual**: Drawings will not show on the graphics window. Only time control,
+   keyboard or mouse functions like pause()/delay()/delay_fps()/get_mouse_msg() will update the graphics window.
+   This mode can speed up the animation frames drawing.
+
+It's a good practice to set the render mode to manual when your want to show an animation.
+
+You can use set_render_mode() to set the render mode.
+
+    **Note:** If you are not drawing on the graphics window, this render mode has no effect.
 
 Background
 ----------
@@ -42,6 +51,7 @@ The following program draws a moving bus on the road (background).Note the use o
     from easygraphics import *
 
     init_graph(800, 600)
+    set_render_mode(RenderMode.RENDER_MANUAL)
 
     background = create_image(800, 600)
     set_target(background)
@@ -67,11 +77,19 @@ The following program draws a moving bus on the road (background).Note the use o
     set_target()
     x = 0
     while is_run():
-        x = (x + 3) % 750
+        x = (x + 2) % 750
         draw_image(0, 0, background)
         draw_image(x, 350, car)
-        delay_fps(60)
+        delay_fps(100)
 
     background.close()
     car.close()
     close_graph()
+
+Skipping Frames
+^^^^^^^^^^^^^^^
+Sometimes a drawing can be complicated and slow, and we can't finish a frame's drawing
+in the specified frame time. This will create lags in the animation.
+
+The delay_jfps() can skip some frames ( if a frame is using too mush time, the successive frames
+will be skipped to keep up with the specified fps).

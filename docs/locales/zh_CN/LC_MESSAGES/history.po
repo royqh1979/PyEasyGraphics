@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../../HISTORY.rst:4
 msgid "History"
-msgstr ""
+msgstr "更新记录"
 
 #: ../../../HISTORY.rst:6
 msgid "0.9.7"

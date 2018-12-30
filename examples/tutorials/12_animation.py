@@ -5,6 +5,7 @@ if __name__ == "__main__":
     from easygraphics import *
 
     init_graph(800, 600)
+    set_render_mode(RenderMode.RENDER_MANUAL)
 
     background = create_image(800, 600)
     set_target(background)
@@ -30,10 +31,10 @@ if __name__ == "__main__":
     set_target()
     x = 0
     while is_run():
-        x = (x + 3) % 750
+        x = (x + 2) % 750
         draw_image(0, 0, background)
         draw_image(x, 350, car)
-        delay_fps(60)
+        delay_fps(100)
 
     background.close()
     car.close()

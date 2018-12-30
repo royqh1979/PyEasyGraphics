@@ -20,11 +20,11 @@ msgstr ""
 
 #: ../../usage.rst:2
 msgid "Usage"
-msgstr ""
+msgstr "用途"
 
 #: ../../usage.rst:4
 msgid ""
 "PyEasyGraphics is suitable for beginners to learn programming, Computer "
 "Graphics, and basic game design."
 msgstr ""
-
+"PyEasyGraphics适合初学者学习编程、计算机图形学以及游戏开发。"

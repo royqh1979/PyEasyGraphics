@@ -2,6 +2,7 @@ from easygraphics import *
 from easygraphics.dialog import *
 
 init_graph(600, 400)
+set_render_mode(RenderMode.RENDER_MANUAL)
 
 while is_run():
     if has_mouse_msg():

@@ -2,6 +2,11 @@
 
 History
 =======
+0.9.8
+---------------------
+* fix: delay_fps() now work properly in Manual render mode
+* finish chinese translations for tutorials
+
 0.9.7
 ---------------------
  * add: load_image() to load image from files

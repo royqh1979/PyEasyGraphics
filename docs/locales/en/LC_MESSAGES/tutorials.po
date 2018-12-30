@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 21:22+0800\n"
+"POT-Creation-Date: 2018-12-30 22:32+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1389,14 +1389,14 @@ msgstr ""
 
 #: ../../tutorials/11_image.rst:14
 msgid ""
-"1. the OOP way: Use the image's method. The image created by "
-"create_image() is an Image object. we can use it's method directly."
+"the OOP way: Use the image's method. The image created by create_image() "
+"is an Image object. we can use it's method directly."
 msgstr ""
 
 #: ../../tutorials/11_image.rst:22
 msgid ""
-"2. the traditional way: Use the drawing functions mentioned in the "
-"previous chapters, and provide the image as an additional parameter."
+"the traditional way: Use the drawing functions mentioned in the previous "
+"chapters, and provide the image as an additional parameter."
 msgstr ""
 
 #: ../../tutorials/11_image.rst:31
@@ -1442,7 +1442,7 @@ msgid "Saving Image"
 msgstr ""
 
 #: ../../tutorials/11_image.rst:55
-msgid "We use use save_image() to save a image to the disk."
+msgid "We can use save_image() to save a image to the disk."
 msgstr ""
 
 #: ../../tutorials/11_image.rst:57
@@ -1456,11 +1456,11 @@ msgid "Note that because:"
 msgstr ""
 
 #: ../../tutorials/11_image.rst:61
-msgid "by save_image() will save the default image;"
+msgid "By default save_image() will save the drawing target image;"
 msgstr ""
 
 #: ../../tutorials/11_image.rst:62
-msgid "by default the target image is the graphics window."
+msgid "By default the target image is the graphics window."
 msgstr ""
 
 #: ../../tutorials/11_image.rst:64
@@ -1496,7 +1496,7 @@ msgid "set drawing target back to the graphics window"
 msgstr ""
 
 #: ../../tutorials/11_image.rst:86
-msgid "copy the content on \"img\" to the graphics window's different portions."
+msgid "copy the content on \"img\" to the graphics window's different positions."
 msgstr ""
 
 #: ../../tutorials/11_image.rst:108
@@ -1517,8 +1517,7 @@ msgstr ""
 #: ../../tutorials/11_image.rst:117
 msgid ""
 "The following example is identical to the above example, expect that it "
-"set the source image's background to transparent before drawing the bus. "
-"And note"
+"set the source image's background to transparent before drawing the bus."
 msgstr ""
 
 #: ../../tutorials/11_image.rst:141
@@ -1611,80 +1610,118 @@ msgid ""
 "make an animation."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:6
+#: ../../tutorials/12_animation.rst:7
 msgid "Time Control"
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:7
+#: ../../tutorials/12_animation.rst:8
 msgid ""
 "Because the computer can draw very fast, we must let it to wait some time"
 " between two frames."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:10
+#: ../../tutorials/12_animation.rst:11
 msgid "**Note:** Functions used in this section won't work in the headless mode."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:12
+#: ../../tutorials/12_animation.rst:13
 msgid ""
 "In easygraphics, we can use delay() to pause the program from the "
 "specified milliseconds."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:15
+#: ../../tutorials/12_animation.rst:16
 msgid "Control the FPS"
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:16
+#: ../../tutorials/12_animation.rst:17
 msgid ""
 "Because the actual drawing time can be different each time drawing, a "
 "better way to control the speed is by using the delay_fps() function."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:19
+#: ../../tutorials/12_animation.rst:20
 msgid ""
 "FPS is the abbreviation of \"frames per second\".delay_fps() will "
 "calculate each frame's drawing time, and wait to make each frame displays"
 " evenly."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:23
+#: ../../tutorials/12_animation.rst:24
 msgid "Skipping Frames"
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:24
+#: ../../tutorials/12_animation.rst:25
 msgid ""
-"Sometimes a drawing can be complicated slow, and we can't finish a "
+"Sometimes a drawing can be complicated and slow, and we can't finish a "
 "frame's drawing in the specified frame time. This will create lags in the"
 " animation."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:27
+#: ../../tutorials/12_animation.rst:28
 msgid ""
 "The delay_jfps() can skip some frames ( if a frame is using too mush "
 "time, the successive frames will be skipped to keep up with the specified"
-" fps)"
-msgstr ""
-
-#: ../../tutorials/12_animation.rst:31
-msgid "Background"
+" fps)."
 msgstr ""
 
 #: ../../tutorials/12_animation.rst:32
+msgid "Render Mode"
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:33
+msgid "There are two render mode in EasyGraphics:"
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:35
+msgid ""
+"**RenderMode.AUTO**: All drawings on the graphics window will show "
+"immediately. This is the default mode, and is for normal drawing."
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:37
+msgid ""
+"**RenderMode.Manual**: Drawings will not show on the graphics window. "
+"Only time control, keyboard or mouse functions like "
+"pause()/delay()/delay_fps()/get_mouse_msg() will update the graphics "
+"window. This mode can speed up the animation frames drawing."
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:41
+msgid ""
+"It's a good practice to set the render mode to manual when your want to "
+"show an animation."
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:43
+msgid "You can use set_render_mode() to set the render mode."
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:45
+msgid ""
+"**Note:** If you are not drawing on the graphics window, this render mode"
+" has no effect."
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:48
+msgid "Background"
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:49
 msgid ""
 "Ofter we need to make an object move in a background. If the background "
 "is complicated, it's not a good idea to recreate the background in each "
 "frame."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:35
+#: ../../tutorials/12_animation.rst:52
 msgid ""
 "A common solution is to draw background in one image , and the moving "
 "object in another transparent image. The final result is made by merge "
 "the two images."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:38
+#: ../../tutorials/12_animation.rst:55
 msgid ""
 "The following program draws a moving bus on the road (background).Note "
 "the use of the is_run() function."
@@ -1737,7 +1774,7 @@ msgid "The following program continuously displays mouse cursor's position."
 msgstr ""
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:57
-msgid "Mouse Button Down and Up"
+msgid "Mouse Button Press and Release"
 msgstr ""
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:58
@@ -1818,7 +1855,7 @@ msgid ""
 msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:6
-msgid "Input Dialogs"
+msgid "Output Dialogs"
 msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
@@ -1872,7 +1909,7 @@ msgid "Displays a file in a window."
 msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:18
-msgid "Output Dialogs"
+msgid "Input Dialogs"
 msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
@@ -1938,7 +1975,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
-"Simple _dialog to ask a user to select a floating point number within a "
+"Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
 msgstr ""
 
@@ -1949,7 +1986,7 @@ msgid ""
 msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
-msgid "Simple _dialog to ask a user to select an integer within a certain range."
+msgid "Simple dialog to ask a user to select an integer within a certain range."
 msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
@@ -2049,7 +2086,7 @@ msgstr ""
 #: ../../tutorials/15_music.rst:5
 msgid ""
 "The following program shows how to use the functions in "
-"easygraphics.music to play music:"
+":doc:`easygraphics.music <../apis/easygraphics.music>` to play music:"
 msgstr ""
 
 #~ msgid "Color System Description"
@@ -2245,5 +2282,88 @@ msgstr ""
 #~ "These 3 types is not strictly "
 #~ "orthogonal, and some compositions have "
 #~ "different names in each type."
+#~ msgstr ""
+
+#~ msgid "We use use save_image() to save a image to the disk."
+#~ msgstr ""
+
+#~ msgid "by save_image() will save the default image;"
+#~ msgstr ""
+
+#~ msgid "by default the target image is the graphics window."
+#~ msgstr ""
+
+#~ msgid "By default save_image() will save the default image;"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "copy the content on \"img\" to the"
+#~ " graphics window's different portions."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following example is identical to"
+#~ " the above example, expect that it"
+#~ " set the source image's background to"
+#~ " transparent before drawing the bus. "
+#~ "And note"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "1. the OOP way: Use the image's"
+#~ " method. The image created by "
+#~ "create_image() is an Image object. we"
+#~ " can use it's method directly."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "2. the traditional way: Use the "
+#~ "drawing functions mentioned in the "
+#~ "previous chapters, and provide the image"
+#~ " as an additional parameter."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Sometimes a drawing can be complicated"
+#~ " slow, and we can't finish a "
+#~ "frame's drawing in the specified frame"
+#~ " time. This will create lags in "
+#~ "the animation."
+#~ msgstr ""
+
+#~ msgid "Mouse Button Down and Up"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Simple _dialog to ask a user to"
+#~ " select a floating point number "
+#~ "within a certain range and a "
+#~ "maximum precision."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Simple _dialog to ask a user to"
+#~ " select an integer within a certain"
+#~ " range."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following program shows how to "
+#~ "use the functions in easygraphics.music "
+#~ "to play music:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The delay_jfps() can skip some frames"
+#~ " ( if a frame is using too "
+#~ "mush time, the successive frames will"
+#~ " be skipped to keep up with the"
+#~ " specified fps)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**RenderMode.AUTO**: All drawings on the "
+#~ "graphics window will show immediately. "
+#~ "This is for normal drawing."
 #~ msgstr ""
 

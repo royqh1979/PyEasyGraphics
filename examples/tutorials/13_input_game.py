@@ -33,6 +33,7 @@ def show_goodbye():
 
 if __name__ == "__main__":
     init_graph(640, 480)
+    set_render_mode(RenderMode.RENDER_MANUAL)
     set_background_color("black")
 
     show_welcome()

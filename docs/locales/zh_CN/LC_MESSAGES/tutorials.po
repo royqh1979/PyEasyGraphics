@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 21:22+0800\n"
+"POT-Creation-Date: 2018-12-30 22:32+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1221,8 +1221,7 @@ msgstr ""
 msgid ""
 "These three types is not strictly orthogonal, and some compositions have "
 "different names in each type."
-msgstr ""
-"这三类操作并非严格正交，某些叠加操作同时属于上述类型中的两类或三类。"
+msgstr "这三类操作并非严格正交，某些叠加操作同时属于上述类型中的两类或三类。"
 
 #: ../../tutorials/10_composition_mode.rst:20
 msgid "Bit Blit (Raster Operations)"
@@ -1233,25 +1232,19 @@ msgid ""
 "Bit Blit is the classic composition operation used in old graphic "
 "systems. Because it requires both the source color and the destination "
 "color to be opaque, it's of limited use in modern graphics systems."
-msgstr ""
-"在计算机发展的早期，图形系统尚不支持透明时，主要使用光栅运算进行色彩的叠加。"
-"因为它只支持对不透明的颜色进行叠加，因此现代图形系统中已经很少使用了。"
+msgstr "在计算机发展的早期，图形系统尚不支持透明时，主要使用光栅运算进行色彩的叠加。因为它只支持对不透明的颜色进行叠加，因此现代图形系统中已经很少使用了。"
 
 #: ../../tutorials/10_composition_mode.rst:24
 msgid ""
 "A classic usage of the raster operation is using bitwise XOR to draw and "
 "clear a shape, so as to create an animation."
-msgstr ""
-"一个典型的例子是反复使用按位XOR叠加运算在同一个位置重复绘制一个图形。"
-"第二次绘制时，原有图形会被擦除。这样就可以实现动画的效果。"
+msgstr "一个典型的例子是反复使用按位XOR叠加运算在同一个位置重复绘制一个图形。第二次绘制时，原有图形会被擦除。这样就可以实现动画的效果。"
 
 #: ../../tutorials/10_composition_mode.rst:27
 msgid ""
 "The following example use bitwise XOR to draw and clear the ellipse. Note"
 " that other colors will not do the job."
-msgstr ""
-"在下面的例子中，使用按位XOR运算来绘制和清除一个椭圆。"
-"注意，如果换成其他的颜色，将无法产生本例中的效果。"
+msgstr "在下面的例子中，使用按位XOR运算来绘制和清除一个椭圆。注意，如果换成其他的颜色，将无法产生本例中的效果。"
 
 #: ../../tutorials/10_composition_mode.rst:48
 msgid "Alpha Compositing"
@@ -1430,16 +1423,15 @@ msgstr "混合（Blend）"
 
 #: ../../tutorials/10_composition_mode.rst:148
 msgid ""
-"Blend is mainly used for image or photo processing. "
-"See `wikipedia <https://en.wikipedia.org/wiki/Blend_modes>`_ for more details about it."
+"Blend is mainly used for image or photo processing. See `wikipedia "
+"<https://en.wikipedia.org/wiki/Blend_modes>`_ for more details about it."
 msgstr ""
-"混合主要用于数字图像或照片处理。请阅读 `维基百科 "
-"<https://en.wikipedia.org/wiki/Blend_modes>`_ 中的相关条目。"
+"混合主要用于数字图像或照片处理。请阅读 `维基百科 <https://en.wikipedia.org/wiki/Blend_modes>`_ "
+"中的相关条目。"
 
 #: ../../tutorials/11_image.rst:2
 msgid "Image Processing"
-msgstr ""
-"图片处理"
+msgstr "图片处理"
 
 #: ../../tutorials/11_image.rst:4
 msgid ""
@@ -1447,9 +1439,7 @@ msgid ""
 "very cumbersome and time consuming if we start the drawing from scratch "
 "each time. A better solution is to first draw it on a seperate image, and"
 " reuse the image."
-msgstr ""
-"有时我们需要反复绘制一个复杂的图形。如果每次我们都从头开始绘制，显然费时费力。"
-"更好的解决方法是先把它单独绘制到一个图片（Image）上，然后重复使用该图片进行绘制。"
+msgstr "有时我们需要反复绘制一个复杂的图形。如果每次我们都从头开始绘制，显然费时费力。更好的解决方法是先把它单独绘制到一个图片（Image）上，然后重复使用该图片进行绘制。"
 
 #: ../../tutorials/11_image.rst:9
 msgid "Create and Draw on a Image"
@@ -1465,17 +1455,15 @@ msgstr "有两种方法来在图片上绘制图形："
 
 #: ../../tutorials/11_image.rst:14
 msgid ""
-"1. the OOP way: Use the image's method. The image created by "
-"create_image() is an Image object. we can use it's method directly."
-msgstr ""
-"1. 面向对象方式：使用图片对象的成员方法。create_image()创建的是一个图片对象。我们可以直接使用它的成员方法。"
+"the OOP way: Use the image's method. The image created by create_image() "
+"is an Image object. we can use it's method directly."
+msgstr "面向对象方式：使用图片对象的成员方法。create_image()创建的是一个图片对象。我们可以直接使用它的成员方法。"
 
 #: ../../tutorials/11_image.rst:22
 msgid ""
-"2. the traditional way: Use the drawing functions mentioned in the "
-"previous chapters, and provide the image as an additional parameter."
-msgstr ""
-"2. 传统方式：使用前面章节中的绘图函数，同时指明在哪个图片上绘制（缺省在绘图窗口中绘制）"
+"the traditional way: Use the drawing functions mentioned in the previous "
+"chapters, and provide the image as an additional parameter."
+msgstr "传统方式：使用前面章节中的绘图函数，同时指明在哪个图片上绘制（缺省在绘图窗口中绘制）"
 
 #: ../../tutorials/11_image.rst:31
 msgid "The Graphics Window and The Drawing Target"
@@ -1492,32 +1480,26 @@ msgid ""
 "if it's not provided, the target image will be where the drawing happens."
 " By default the target image is setting to the graphics window."
 msgstr ""
-"为了减少编写程序的难度，Easy Graphics系统内部包含一个“绘制目标”属性。大多数"
-"绘图函数都有一个缺省的\"image\"或\"dst_image\"参数，如果未提供该参数，"
-"就会在系统的“绘制目标”上绘图。缺省的绘制目标就是绘图窗口。"
+"为了减少编写程序的难度，Easy "
+"Graphics系统内部包含一个“绘制目标”属性。大多数绘图函数都有一个缺省的\"image\"或\"dst_image\"参数，如果未提供该参数，就会在系统的“绘制目标”上绘图。缺省的绘制目标就是绘图窗口。"
 
 #: ../../tutorials/11_image.rst:38
 msgid ""
 "So you call drawing functions without specifying which image is to draw, "
 "the graphics window will get drawn."
-msgstr ""
-"所以，如果你没有修改过系统的“绘制目标”，在调用绘图函数时也没有指明在哪儿绘制，"
-"图形就会被绘制在绘图窗口里。"
+msgstr "所以，如果你没有修改过系统的“绘制目标”，在调用绘图函数时也没有指明在哪儿绘制，图形就会被绘制在绘图窗口里。"
 
 #: ../../tutorials/11_image.rst:41
 msgid ""
 "You can use set_target() to change the drawing target, and use "
 "get_target() to get the drawing target."
-msgstr ""
-"可以使用set_target()函数来改变系统的“绘图目标”，以及使用get_target()函数来获取当前的绘图目标。"
+msgstr "可以使用set_target()函数来改变系统的“绘图目标”，以及使用get_target()函数来获取当前的绘图目标。"
 
 #: ../../tutorials/11_image.rst:43
 msgid ""
 "the following code use set_target() to change drawing target to a image, "
 "and draw on it:"
-msgstr ""
-"下面的代码使用set_target()函数来将系统的“绘图目标设置”为一个图片, "
-"然后在上面绘图:"
+msgstr "下面的代码使用set_target()函数来将系统的“绘图目标设置”为一个图片, 然后在上面绘图:"
 
 #: ../../tutorials/11_image.rst:45
 msgid "**Note:** Remember to use close_image() to close the unused images."
@@ -1525,153 +1507,152 @@ msgstr "**注意**：使用close_image()函数来关闭用完的图片。"
 
 #: ../../tutorials/11_image.rst:54
 msgid "Saving Image"
-msgstr ""
+msgstr "保存图片"
 
 #: ../../tutorials/11_image.rst:55
-msgid "We use use save_image() to save a image to the disk."
-msgstr ""
+msgid "We can use save_image() to save a image to the disk."
+msgstr "可以使用save_image()函数来将图片保存到文件中。"
 
 #: ../../tutorials/11_image.rst:57
 msgid ""
 "The following program draw a bus and save it to \"bus_screen.png\" in the"
 " current folder."
-msgstr ""
+msgstr "下面的程序绘制一辆公共汽车，并将其保存到当前文件夹的\"bus_screen.png\"文件中。"
 
 #: ../../tutorials/11_image.rst:59
 msgid "Note that because:"
-msgstr ""
+msgstr "注意，因为："
 
 #: ../../tutorials/11_image.rst:61
-msgid "by save_image() will save the default image;"
-msgstr ""
+msgid "By default save_image() will save the drawing target image;"
+msgstr "save_image()缺省保存“绘制目标”图片；"
 
 #: ../../tutorials/11_image.rst:62
-msgid "by default the target image is the graphics window."
-msgstr ""
+msgid "By default the target image is the graphics window."
+msgstr "缺省的“绘制目标”是绘图窗口。"
 
 #: ../../tutorials/11_image.rst:64
 msgid "So we are saving the graphics window."
-msgstr ""
+msgstr "因此我们保存到文件中的是绘图窗口中的内容。"
 
 #: ../../tutorials/11_image.rst:77
 msgid "Copy Image"
-msgstr ""
+msgstr "复制图片"
 
 #: ../../tutorials/11_image.rst:78
 msgid "We can use draw_image() to copy part of one image to another image."
-msgstr ""
+msgstr "我们可以使用draw_image()函数来复制一个图片（或它的一部分）到另一张图片上。"
 
 #: ../../tutorials/11_image.rst:80
 msgid "In the following example, we:"
-msgstr ""
+msgstr "在下面的例子中，我们将："
 
 #: ../../tutorials/11_image.rst:82
 msgid "create a image and save it to variable \"img\""
-msgstr ""
+msgstr "创建一个图片对象，保存到变量\"img\"中。"
 
 #: ../../tutorials/11_image.rst:83
 msgid "set drawing target to \"img\""
-msgstr ""
+msgstr "将“绘制目标”设为\"img\"。"
 
 #: ../../tutorials/11_image.rst:84
 msgid "draw a bus to \"img\" (the drawing target)"
-msgstr ""
+msgstr "在“绘制目标”（\"img\"图片）上画一辆公共汽车"
 
 #: ../../tutorials/11_image.rst:85
 msgid "set drawing target back to the graphics window"
-msgstr ""
+msgstr "将“绘制目标”设为绘图窗口"
 
 #: ../../tutorials/11_image.rst:86
-msgid "copy the content on \"img\" to the graphics window's different portions."
-msgstr ""
+msgid "copy the content on \"img\" to the graphics window's different positions."
+msgstr "将\"img\"中的内容复制到绘图窗口的不同位置"
 
 #: ../../tutorials/11_image.rst:108
 msgid "The result:"
-msgstr ""
+msgstr "结果："
 
 #: ../../tutorials/11_image.rst:113
 msgid "Image Transparency and Composition Mode"
-msgstr ""
+msgstr "图片透明和叠加"
 
 #: ../../tutorials/11_image.rst:114
 msgid ""
 "put_image() copy a rectangle area to the destination image. If you want "
 "to copy things that are not rectanglely outlined, you can draw it on a "
 "image with fully transparent background, then copy"
-msgstr ""
+msgstr "put_image()从源图片复制一个矩形区域到目标图片上。如果你需要复制一个外形轮廓不是矩形的图像，可以先将其画在一个背景完全透明的图片上，然后再复制。"
 
 #: ../../tutorials/11_image.rst:117
 msgid ""
 "The following example is identical to the above example, expect that it "
-"set the source image's background to transparent before drawing the bus. "
-"And note"
-msgstr ""
+"set the source image's background to transparent before drawing the bus."
+msgstr "下面的例子中大部分代码和上一个例子相同，除了在画公共汽车之前，先把源图片的背景设成了透明。"
 
 #: ../../tutorials/11_image.rst:141
 msgid "The result is :"
-msgstr ""
+msgstr "结果是："
 
 #: ../../tutorials/11_image.rst:146
 msgid "Copy Image without the Background"
-msgstr ""
+msgstr "复制图片时忽略背景"
 
 #: ../../tutorials/11_image.rst:147
 msgid ""
 "If you can't draw with a transparent background, you can copy the image "
 "without the background, by set the parameter \"with_background\" to "
 "False."
-msgstr ""
+msgstr "如果你不喜欢使用透明背景，那么也可以在复制时将参数\"with_background\"设为False，这样在复制时将不会复制背景。"
 
 #: ../../tutorials/11_image.rst:150
 msgid ""
 "In the following example, we don't use a transparent backround, and we do"
 " the copy without background."
-msgstr ""
+msgstr "在下面的例子中，我们没有使用透明背景，而是直接不复制背景。"
 
 #: ../../tutorials/11_image.rst:176
 msgid "Copy Image with transforms"
-msgstr ""
+msgstr "带几何变换的图片复制"
 
 #: ../../tutorials/11_image.rst:177
 msgid ""
 "If you want to copy a image with transforms such as rotation, you should "
 "set the transforms before the copy."
-msgstr ""
+msgstr "如果你需要在复制图片的同时对其进行几何变换（如复制一张旋转后的图片），那你应该在复制前先在目标图片上设置变换。"
 
 #: ../../tutorials/11_image.rst:179
 msgid ""
 "The following program copy images with rotation. Note the use of "
 "save_settings() and restore_settings(), we use it to save and restore "
 "image's transforms."
-msgstr ""
+msgstr "下面的程序进行了旋转复制。请注意save_settings()和restore_settings()函数，它们被用来保存和恢复图片的设置（包括几何变换设置）。"
 
 #: ../../tutorials/11_image.rst:182
 msgid ""
 "**Note:** It's a good practice to save the old transfrom before doing any"
 " transforms before copy, and restore the old settings after the copy."
-msgstr ""
+msgstr "**注意**：在变换和复制图片前先保存旧的设置，然后在复制完成后恢复原有设置是个非常好的习惯。"
 
 #: ../../tutorials/11_image.rst:215
 msgid "Load Image"
-msgstr ""
+msgstr "入图片文件"
 
 #: ../../tutorials/11_image.rst:216
 msgid "We can load image from files."
-msgstr ""
+msgstr "我们可以从文件中读入图片。"
 
 #: ../../tutorials/11_image.rst:218
 msgid ""
 "**Note:** JPEG format doesn't support transparency. So use the PNG format"
 " if you want to save and load image with transparent backgrounds."
-msgstr ""
+msgstr "**注意**：JPEG格式图片不支持透明。因此如果你需要保存和载入带透明背景的图片，请使用PNG格式。"
 
 #: ../../tutorials/11_image.rst:222
 msgid "The following example load and display a image."
-msgstr ""
+msgstr "下面的例子从文件中读入图片，然后显示在绘图窗口中。"
 
 #: ../../tutorials/11_image.rst:236
 msgid "Headless Mode"
-msgstr ""
+msgstr "无窗口（headless）模式"
 
 #: ../../tutorials/11_image.rst:237
 msgid ""
@@ -1679,162 +1660,209 @@ msgid ""
 "display it on the screen. Easygraphics provides a headless mode to do the"
 " jobs. In this mode, no graphics window is displayed, and functions for "
 "animations such as pause() won't work."
-msgstr ""
+msgstr "有时我们只需要绘制和保存图片，并不需要在屏幕窗口上显示。为此，Easygraphics提供了无窗口(headless)模式，来完成这类工作。在该模式下，不显示绘图窗口，pause()、get_click()等为动画和交互服务的的函数也无法使用。"
 
 #: ../../tutorials/11_image.rst:241
 msgid ""
 "The following program shows how to use init_graph() to create a headless "
 "mode."
-msgstr ""
+msgstr "下面的程序展示了如何使用init_graph()函数进行无窗口模式。"
 
 #: ../../tutorials/12_animation.rst:2
 msgid "Animation"
-msgstr ""
+msgstr "动画"
 
 #: ../../tutorials/12_animation.rst:3
 msgid ""
 "By rapidly change the painting (frames) on the graphics window, we can "
 "make an animation."
-msgstr ""
-
-#: ../../tutorials/12_animation.rst:6
-msgid "Time Control"
-msgstr ""
+msgstr "通过在动画窗口上快速改变绘图（帧），我们可以制作动画。"
 
 #: ../../tutorials/12_animation.rst:7
+msgid "Time Control"
+msgstr "时间控制"
+
+#: ../../tutorials/12_animation.rst:8
 msgid ""
 "Because the computer can draw very fast, we must let it to wait some time"
 " between two frames."
-msgstr ""
+msgstr "因为计算机能够以很快的速度画图，因此我们通常需要在两帧间停顿一些时间。"
 
-#: ../../tutorials/12_animation.rst:10
+#: ../../tutorials/12_animation.rst:11
 msgid "**Note:** Functions used in this section won't work in the headless mode."
-msgstr ""
+msgstr "**注意**：在这节中使用的函数都无法在无窗口模式（Headless模式）中工作。"
 
-#: ../../tutorials/12_animation.rst:12
+#: ../../tutorials/12_animation.rst:13
 msgid ""
 "In easygraphics, we can use delay() to pause the program from the "
 "specified milliseconds."
-msgstr ""
-
-#: ../../tutorials/12_animation.rst:15
-msgid "Control the FPS"
-msgstr ""
+msgstr "在Easy Graphics中，我们可以使用delay()函数来让程序暂停指定的微秒（milliseconds或ms）数。"
 
 #: ../../tutorials/12_animation.rst:16
+msgid "Control the FPS"
+msgstr "控制FPS"
+
+#: ../../tutorials/12_animation.rst:17
 msgid ""
 "Because the actual drawing time can be different each time drawing, a "
 "better way to control the speed is by using the delay_fps() function."
-msgstr ""
+msgstr "因为每次绘图的实际用时都有可能不一样，因此更好的控制每帧时长的方法是使用delay_fps()函数。"
 
-#: ../../tutorials/12_animation.rst:19
+#: ../../tutorials/12_animation.rst:20
 msgid ""
 "FPS is the abbreviation of \"frames per second\".delay_fps() will "
 "calculate each frame's drawing time, and wait to make each frame displays"
 " evenly."
 msgstr ""
-
-#: ../../tutorials/12_animation.rst:23
-msgid "Skipping Frames"
-msgstr ""
+"FPS是\"frames per "
+"second\"（每秒钟帧数）的缩写。delay_fps()会计算每一帧的实际绘制时长，将程序暂停对应的时长，以保证每帧的总时长一致。"
 
 #: ../../tutorials/12_animation.rst:24
+msgid "Skipping Frames"
+msgstr "跳帧"
+
+#: ../../tutorials/12_animation.rst:25
 msgid ""
-"Sometimes a drawing can be complicated slow, and we can't finish a "
+"Sometimes a drawing can be complicated and slow, and we can't finish a "
 "frame's drawing in the specified frame time. This will create lags in the"
 " animation."
-msgstr ""
+msgstr "有时，一帧的绘制可能会比较复杂，因此较慢，导致该帧无法在指定的帧时长内完成绘制。这会导致动画出现延迟。"
 
-#: ../../tutorials/12_animation.rst:27
+#: ../../tutorials/12_animation.rst:28
+#, fuzzy
 msgid ""
 "The delay_jfps() can skip some frames ( if a frame is using too mush "
 "time, the successive frames will be skipped to keep up with the specified"
-" fps)"
-msgstr ""
-
-#: ../../tutorials/12_animation.rst:31
-msgid "Background"
-msgstr ""
+" fps)."
+msgstr "delay_jfps()函数通过跳帧来保证动画的平稳。跳帧是指，如果某帧绘制的时长太长后续的帧就会被跳过不进行绘制（但是算成是已完成绘制的帧数），从而保证达到指定的FPS。"
 
 #: ../../tutorials/12_animation.rst:32
+msgid "Render Mode"
+msgstr "渲染模式（Render Mode）"
+
+#: ../../tutorials/12_animation.rst:33
+msgid "There are two render mode in EasyGraphics:"
+msgstr "在EasyGraphics中有两种渲染模式"
+
+#: ../../tutorials/12_animation.rst:35
+msgid ""
+"**RenderMode.AUTO**: All drawings on the graphics window will show "
+"immediately. This is the default mode, and is for normal drawing."
+msgstr ""
+"**自动模式(RenderMode.AUTO)**：所有的在绘图窗口中的绘制都会导致窗口立即刷新。"
+"这是缺省工作模式，用于普通的绘图。"
+
+#: ../../tutorials/12_animation.rst:37
+msgid ""
+"**RenderMode.Manual**: Drawings will not show on the graphics window. "
+"Only time control, keyboard or mouse functions like "
+"pause()/delay()/delay_fps()/get_mouse_msg() will update the graphics "
+"window. This mode can speed up the animation frames drawing."
+msgstr ""
+"**手动模式(RenderMode.Manual)**：绘制的内容不会立即刷新显示在绘图窗口中。"
+"要一直等到pause()/delay()/delay_fps()/get_mouse_msg()等时间控制和鼠标键盘函数被"
+"调用时，窗口才会刷新。这个模式用来加速动画帧的绘制。"
+
+#: ../../tutorials/12_animation.rst:41
+msgid ""
+"It's a good practice to set the render mode to manual when your want to "
+"show an animation."
+msgstr "在显示动画前，将渲染模式设置为手动是个好习惯。"
+
+#: ../../tutorials/12_animation.rst:43
+msgid "You can use set_render_mode() to set the render mode."
+msgstr "可以使用set_render_mode()函数来设置渲染模式。"
+
+#: ../../tutorials/12_animation.rst:45
+msgid ""
+"**Note:** If you are not drawing on the graphics window, this render mode"
+" has no effect."
+msgstr ""
+"**注意**：如果你不是在绘图窗口中进行绘制，那么渲染模式没有任何效果。"
+
+#: ../../tutorials/12_animation.rst:48
+msgid "Background"
+msgstr "背景处理"
+
+#: ../../tutorials/12_animation.rst:49
 msgid ""
 "Ofter we need to make an object move in a background. If the background "
 "is complicated, it's not a good idea to recreate the background in each "
 "frame."
-msgstr ""
+msgstr "在动画中，我们经常需要某个物体在特定背景下移动。如果背景较为复杂，那么每帧都从头绘制一遍背景会严重影响绘制的速度。"
 
-#: ../../tutorials/12_animation.rst:35
+#: ../../tutorials/12_animation.rst:52
 msgid ""
 "A common solution is to draw background in one image , and the moving "
 "object in another transparent image. The final result is made by merge "
 "the two images."
-msgstr ""
+msgstr "在这种情况下，一般的处理方式是将背景预先单独绘制在一个图片上，要动的物体绘制在另一个图片上。通过对两张图片进行合成，来得到最终的结果。"
 
-#: ../../tutorials/12_animation.rst:38
+#: ../../tutorials/12_animation.rst:55
 msgid ""
 "The following program draws a moving bus on the road (background).Note "
 "the use of the is_run() function."
-msgstr ""
+msgstr "下面的程序绘制了一辆在道路背景上移动的公共汽车。注意is_run()函数的使用。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:2
 msgid "Mouse and Keyboard"
-msgstr ""
+msgstr "键盘与鼠标"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:3
 msgid ""
 "Often we need to get input from the user in the programs. Easygrphics "
 "provides simple ways to get user's input from keyboard and mouse."
-msgstr ""
+msgstr "在程序进行过程中，我们经常需要获取用户的输入来控制程序的行为。Easygraphics提供了获取用户鼠标和键盘输入的基本方法。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:7
 msgid "Pause for input"
-msgstr ""
+msgstr "暂停等待"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:8
 msgid ""
 "The most used user input function in Easygraphics is pause(). This "
 "function pause the program, and wait for user to click on the graphics "
 "window, or press any key, then continue the program."
-msgstr ""
+msgstr "Easygraphics中，最常见的用户输入函数就是pause()。这个函数暂停程序，等待用户在图形窗口中点击鼠标或者按下键盘按键来继续程序运行。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:12
 msgid "Mouse Clicking"
-msgstr ""
+msgstr "鼠标点击"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:13
 msgid ""
 "We can use get_click() to pause the program and wait for a mouse "
 "clicking. This function will return the x,y coordinates of the position "
 "clicked, and buttons that are pressed when clicking."
-msgstr ""
+msgstr "我们可以使用get_click()函数来暂停程序，等待鼠标点击。该函数会返回被点击位置的x,y坐标，和点击时按下了哪些鼠标键。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:36
 msgid "Cursor Positions"
-msgstr ""
+msgstr "光标位置"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:37
 msgid ""
 "Sometimes we need to get the position of the cursor. We can use "
 "get_cursor_pos() to get this job done."
-msgstr ""
+msgstr "get_cursor_pos()函数返回光标所在的位置。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:39
 msgid "The following program continuously displays mouse cursor's position."
-msgstr ""
+msgstr "下面的程序持续在绘图窗口中更新光标的位置。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:57
-msgid "Mouse Button Down and Up"
+msgid "Mouse Button Press and Release"
 msgstr ""
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:58
 msgid ""
 "You can use get_mouse_msg() to get mouse button press and release "
 "messages."
-msgstr ""
+msgstr "可以使用get_mouse_msg()来获取鼠标按钮按下和松开的信息。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:61
 msgid "Non-Blocking mouse processing"
-msgstr ""
+msgstr "非阻塞（Non-Blocking）鼠标处理"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:62
 msgid ""
@@ -1843,21 +1871,21 @@ msgid ""
 "non-blockly, you could use the non-blocking function has_mouse_msg() to "
 "see if there are any mouse messages, and then use get_mouse_msg() to get "
 "the mouse message."
-msgstr ""
+msgstr "如果在之前的100毫秒内没有鼠标操作，get_click()/get_mouse_msg()函数会阻塞程序（暂停程序执行），等待鼠标操作。如果你希望程序能够在检查鼠标操作后不要等待立即继续执行，那么可以先使用非阻塞函数has_mouse_msg()来检查是否有待处理的鼠标操作，然后再使用get_mouse_msg()来获取鼠标信息。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:66
 msgid ""
 "The following program continuously check display cursor's postion and "
 "mouse button press/release events."
-msgstr ""
+msgstr "下面的程序持续检查并更新鼠标的位置和鼠标按钮的按下和松开。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:91
 msgid "Mouse Message Demo"
-msgstr ""
+msgstr "鼠标消息示例"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:93
 msgid "The following program draws a bezier curve interactively"
-msgstr ""
+msgstr "下面的程序演示了如何通过处理鼠标操作来交互式的绘制一条贝塞尔曲线。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:95
 msgid ""
@@ -1865,47 +1893,47 @@ msgid ""
 "Then click on the window to set the second control point of the curve. "
 "Then drag from any of the above two control points to set the third and "
 "the fourth control point."
-msgstr ""
+msgstr "首先，在绘图窗口中点击，设置曲线第一个控制点的位置；然后，在窗口中再次点击，设置第四个控制点的位置；然后，从这两个点中任意一个开始使用鼠标的拖拽操作（在控制点上按下鼠标左键，不放开，拖动鼠标光标到想要的位置上再松开）设置第二和第三个控制点。程序会实时动态显示生成的贝塞尔曲线。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:170
 msgid "Char Input"
-msgstr ""
+msgstr "字符输入"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:171
 msgid ""
 "We can use has_kb_hit() to see if there is any ascii char pressed, and "
 "use get_char() to get the inputted char. has_kb_hit() is non-blocking, "
 "and get_char() is blocking."
-msgstr ""
+msgstr "我们可以使用has_kb_hit()函数（非阻塞）来检查是否有任意的ascii可见字符被输入，然后使用get_char()函数（阻塞）来读取输入的字符。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:174
 msgid "The following program is a simple print game."
-msgstr ""
+msgstr "下面的程序是一个简单的打字游戏"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:236
 msgid "Key Pressed"
-msgstr ""
+msgstr "按键消息"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:237
 msgid ""
 "We can use has_kb_msg() to see if there is any key pressed, and use "
 "get_key() to get the pressed key. has_kb_msg() is non-blocking, and "
 "get_key() is blocking."
-msgstr ""
+msgstr "可以使用has_kb_msg()函数（非阻塞）来检查是否有任意键被按下，然后使用get_key()函数来读取按下的键。"
 
 #: ../../tutorials/14_dialogs.rst:2
 msgid "Dialogs"
-msgstr ""
+msgstr "对话框（Dialog）"
 
 #: ../../tutorials/14_dialogs.rst:3
 msgid ""
 "Easygraphics provides many predefined dialogs to communicate with user "
 "interactively."
-msgstr ""
+msgstr "Easygraphics提供了许多预定义的对话框函数，来与用户进行交互。"
 
 #: ../../tutorials/14_dialogs.rst:6
-msgid "Input Dialogs"
-msgstr ""
+msgid "Output Dialogs"
+msgstr "输出对话框"
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid ""
@@ -1915,7 +1943,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid "Simple message box."
-msgstr ""
+msgstr "显示一个简单消息框。"
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid ""
@@ -1925,7 +1953,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid "Displays some text in a window."
-msgstr ""
+msgstr "在窗口中显示一大段文字。"
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid ""
@@ -1935,7 +1963,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid "Displays list of objects in a table"
-msgstr ""
+msgstr "以表格形式显示一组对象。"
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid ""
@@ -1945,7 +1973,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid "Displays some text in a window, in a monospace font."
-msgstr ""
+msgstr "在窗口中显示代码。"
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid ""
@@ -1955,11 +1983,11 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
 msgid "Displays a file in a window."
-msgstr ""
+msgstr "在窗口中显示文件内容。"
 
 #: ../../tutorials/14_dialogs.rst:18
-msgid "Output Dialogs"
-msgstr ""
+msgid "Input Dialogs"
+msgstr "输入对话框"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -1969,7 +1997,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Simple dialog to ask a user to select an item within a drop-down list"
-msgstr ""
+msgstr "显示一个对话框，让用户从下拉列表中选择一项"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
@@ -1977,7 +2005,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Display a color picker and return the selected color"
-msgstr ""
+msgstr "显示一个色彩选择对话框，返回用户选择的颜色"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -1988,7 +2016,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Continue or cancel question, shown as a warning (i.e."
-msgstr ""
+msgstr "选择继续或者取消"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
@@ -1996,7 +2024,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Calendar widget"
-msgstr ""
+msgstr "选择日期"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2006,7 +2034,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Gets the name (full path) of an existing directory"
-msgstr ""
+msgstr "选择一个目录"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
@@ -2014,7 +2042,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Gets the names (full path) of existing files"
-msgstr ""
+msgstr "选择文件"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2024,9 +2052,9 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
-"Simple _dialog to ask a user to select a floating point number within a "
+"Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
-msgstr ""
+msgstr "显示一个对话框，让用户在指定范围和精度下选择一个浮点数"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2035,8 +2063,8 @@ msgid ""
 msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
-msgid "Simple _dialog to ask a user to select an integer within a certain range."
-msgstr ""
+msgid "Simple dialog to ask a user to select an integer within a certain range."
+msgstr "显示一个对话框，让用户从下拉列表中选择一项"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2046,7 +2074,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Show a list of possible choices to be selected."
-msgstr ""
+msgstr "显示一个列表让用户选择（可复选）"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2056,7 +2084,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Multiple strings input"
-msgstr ""
+msgstr "同时输入多个字符串"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2066,7 +2094,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Change password input box."
-msgstr ""
+msgstr "修改密码对话框"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2076,7 +2104,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Simple password input box."
-msgstr ""
+msgstr "输入密码对话框"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2086,7 +2114,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Gets the name (full path) of of a file to be saved."
-msgstr ""
+msgstr "打开文件并保存对话框"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2096,7 +2124,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Simple text input box."
-msgstr ""
+msgstr "简单的文本输入对话框"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2106,7 +2134,7 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "User name and password input box."
-msgstr ""
+msgstr "获取用户名和密码"
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid ""
@@ -2116,27 +2144,29 @@ msgstr ""
 
 #: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
 msgid "Simple yes or no question."
-msgstr ""
+msgstr "让用户选择yes或no"
 
 #: ../../tutorials/14_dialogs.rst:41
 msgid ""
 "In the following program, click the graphics window to open a color "
 "dialog, select a color and set it as the background."
-msgstr ""
+msgstr "在下面的程序中，点击绘图窗口，打开颜色对话框，选择一个颜色，将其设置为背景。"
 
 #: ../../tutorials/15_music.rst:2
 msgid "Music(Audio)"
-msgstr ""
+msgstr "音乐（声音）"
 
 #: ../../tutorials/15_music.rst:3
 msgid "Easygraphics provides simple ways to play musics."
-msgstr ""
+msgstr "Easygraphics提供了简便的方法来播放音乐文件。"
 
 #: ../../tutorials/15_music.rst:5
 msgid ""
 "The following program shows how to use the functions in "
-"easygraphics.music to play music:"
+":doc:`easygraphics.music <../apis/easygraphics.music>` to play music:"
 msgstr ""
+"下面的程序展示了如何使用 :doc:`easygraphics.music <../apis/easygraphics.music>` "
+"中的函数播放音乐："
 
 #~ msgid "Color System Summary"
 #~ msgstr "颜色体系概述"
@@ -2275,5 +2305,39 @@ msgstr ""
 #~ "These 3 types is not strictly "
 #~ "orthogonal, and some compositions have "
 #~ "different names in each type."
+#~ msgstr ""
+
+#~ msgid "We use use save_image() to save a image to the disk."
+#~ msgstr ""
+
+#~ msgid "by default the target image is the graphics window."
+#~ msgstr ""
+
+#~ msgid "Mouse Button Down and Up"
+#~ msgstr "鼠标键的按下和松开"
+
+#~ msgid ""
+#~ "Simple _dialog to ask a user to"
+#~ " select a floating point number "
+#~ "within a certain range and a "
+#~ "maximum precision."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Simple _dialog to ask a user to"
+#~ " select an integer within a certain"
+#~ " range."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following program shows how to "
+#~ "use the functions in easygraphics.music "
+#~ "to play music:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**RenderMode.AUTO**: All drawings on the "
+#~ "graphics window will show immediately. "
+#~ "This is for normal drawing."
 #~ msgstr ""
 

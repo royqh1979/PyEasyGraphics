@@ -20,11 +20,11 @@ msgstr ""
 
 #: ../../../README.rst:4
 msgid "Introduction to PyEasyGraphics"
-msgstr ""
+msgstr "PyEasyGraphics 简介"
 
 #: ../../../README.rst:6
 msgid "A Borland Graphics Interface like Grahics library for python"
-msgstr ""
+msgstr "模仿Borland Graphics Interface(BGI)的python绘图库"
 
 #: ../../../README.rst:9
 msgid ""
@@ -34,28 +34,34 @@ msgid ""
 "<http://www.softwareandfinance.com/Turbo_C/Graphics/>`_, is an easy-to-"
 "use graphics library bundled with Turbo C/Turbo C++/Borland C++."
 msgstr ""
+"`Borland Graphics Interface "
+"<https://en.wikipedia.org/wiki/Borland_Graphics_Interface />`_ ,或者 "
+"`Turbo C Graphics <http://www.softwareandfinance.com/Turbo_C/Graphics/>`_ ，"
+"是上世纪八九十年代Borland公司出品的Turbo C/Turbo C++/Borland C++等C语言产品中自带的"
+"绘图库。因为其简单易用而广受欢迎。"
 
 #: ../../../README.rst:13
 msgid ""
 "Because it is easy to learn and use, it is very good for using for kids "
 "and beginners to learn basic programming , computer graphics."
 msgstr ""
+"因为它简单易学，因此非常适合初学者用于学习编程和计算机图形学。"
 
 #: ../../../README.rst:22
 msgid "Free software: GPL v3 license"
-msgstr ""
+msgstr "本软件为自由软件：使用GPL v3授权"
 
 #: ../../../README.rst:23
 msgid "Documentation: https://pyeasygraphics.readthedocs.io/en/latest/"
-msgstr ""
+msgstr "文档：https://pyeasygraphics.readthedocs.io/zh-CN/latest/"
 
 #: ../../../README.rst:26
 msgid "Sample program"
-msgstr ""
+msgstr "范例程序"
 
 #: ../../../README.rst:48
 msgid "Special Thanks"
-msgstr ""
+msgstr "特别感谢"
 
 #: ../../../README.rst:49
 msgid ""
@@ -63,4 +69,6 @@ msgid ""
 "<https://github.com/aroberge/easygui_qt/>`_ and `qtutils "
 "<https://bitbucket.org/philipstarkey/qtutils>`_, thanks a lot!"
 msgstr ""
-
+"部分代码来源于`easygui_qt "
+"<https://github.com/aroberge/easygui_qt/>`_ 和 `qtutils "
+"<https://bitbucket.org/philipstarkey/qtutils>`_ ，在这里对原作者表示衷心的感谢！"

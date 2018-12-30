@@ -2,7 +2,7 @@ Dialogs
 =======
 Easygraphics provides many predefined dialogs to communicate with user interactively.
 
-Input Dialogs
+Output Dialogs
 -------------
 .. currentmodule:: easygraphics.dialog
 
@@ -14,7 +14,7 @@ Input Dialogs
     show_code
     show_file
 
-Output Dialogs
+Input Dialogs
 --------------
 .. currentmodule:: easygraphics.dialog
 
@@ -46,6 +46,7 @@ In the following program, click the graphics window to open a color dialog, sele
     from easygraphics.dialog import *
 
     init_graph(600,400)
+    set_render_mode(RenderMode.RENDER_MANUAL)
 
     while is_run():
         if has_mouse_msg():

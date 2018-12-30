@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 12:39+0800\n"
+"POT-Creation-Date: 2018-12-30 21:24+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,7 +115,7 @@ msgstr ""
 #: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
 #: easygraphics.dialog.get_float:1 of
 msgid ""
-"Simple _dialog to ask a user to select a floating point number within a "
+"Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
 msgstr ""
 
@@ -127,7 +127,7 @@ msgstr ""
 
 #: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
 #: easygraphics.dialog.get_int:1 easygraphics.dialog.get_integer:1 of
-msgid "Simple _dialog to ask a user to select an integer within a certain range."
+msgid "Simple dialog to ask a user to select an integer within a certain range."
 msgstr ""
 
 #: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
@@ -492,13 +492,13 @@ msgstr ""
 #: easygraphics.dialog.get_color_hex:1 of
 msgid ""
 "Using a color dialog, returns a color in hexadecimal notation i.e. a "
-"string '#RRGGBB' or \"None\" if color _dialog is dismissed."
+"string '#RRGGBB' or \"None\" if color dialog is dismissed."
 msgstr ""
 
 #: easygraphics.dialog.get_color_rgb:1 of
 msgid ""
 "Using a color dialog, returns a color in rgb notation i.e. a tuple (r, g,"
-" b)  or \"None\" if color _dialog is dismissed."
+" b) or \"None\" if color dialog is dismissed."
 msgstr ""
 
 #: easygraphics.dialog.get_color:8 of
@@ -511,22 +511,22 @@ msgid ""
 "simple message)"
 msgstr ""
 
-#: easygraphics.dialog.get_continue_or_cancel:4
+#: easygraphics.dialog.get_continue_or_cancel:3
 #: easygraphics.dialog.get_yes_or_no:3 of
 msgid "Question (string) asked"
 msgstr ""
 
-#: easygraphics.dialog.get_continue_or_cancel:5
+#: easygraphics.dialog.get_continue_or_cancel:4
 #: easygraphics.dialog.get_yes_or_no:4 of
 msgid "Window title (string)"
 msgstr ""
 
-#: easygraphics.dialog.get_continue_or_cancel:6
-#: easygraphics.dialog.get_continue_or_cancel:7 of
+#: easygraphics.dialog.get_continue_or_cancel:5
+#: easygraphics.dialog.get_continue_or_cancel:6 of
 msgid "text to display on button"
 msgstr ""
 
-#: easygraphics.dialog.get_continue_or_cancel:9 of
+#: easygraphics.dialog.get_continue_or_cancel:8 of
 msgid "True for \"Continue\", False for \"Cancel\""
 msgstr ""
 
@@ -542,7 +542,7 @@ msgstr ""
 #: easygraphics.dialog.get_file_names:12
 #: easygraphics.dialog.get_save_file_name:15 of
 msgid ""
-"By default, this _dialog initially displays the content of the current "
+"By default, this dialog initially displays the content of the current "
 "working directory."
 msgstr ""
 
@@ -683,7 +683,7 @@ msgstr ""
 #: easygraphics.dialog.get_save_file_name:6 of
 msgid ""
 "The user is warned if the file already exists and can choose to cancel.  "
-"However, this _dialog actually does NOT save any file: it only return a "
+"However, this dialog actually does NOT save any file: it only return a "
 "string containing the full path of the chosen file."
 msgstr ""
 
@@ -2195,12 +2195,6 @@ msgstr ""
 msgid "the maximum y value"
 msgstr ""
 
-#: easygraphics.legacy.getx:3 easygraphics.legacy.gety:3 of
-msgid ""
-"some drawing functions will use the current pos to draw.(see "
-"line_to(),line_rel(),move_to(),move_rel())"
-msgstr ""
-
 #: easygraphics.legacy.getx:5 easygraphics.legacy.gety:5 of
 msgid ""
 "the target image whose drawing pos is to be gotten. None means it is the "
@@ -2237,7 +2231,7 @@ msgstr ""
 #: easygraphics.legacy.linerel:1 of
 msgid ""
 "Draw a line from the current drawing position (x,y) to (x+dx,y+dy),     "
-"then set the drawing position is set to (x+d,y+dy)."
+"then set the drawing position is set to (x+dx,y+dy)."
 msgstr ""
 
 #: easygraphics.legacy.outtext:1 of
@@ -3070,5 +3064,60 @@ msgstr ""
 #~ "drawing position (x,y) to (x+dx,y+dy),"
 #~ "          then set the drawing position "
 #~ "is set to (x+d,y+dy)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "some drawing functions will use the "
+#~ "current pos to draw.(see "
+#~ "line_to(),line_rel(),move_to(),move_rel())"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Draw a line from the current "
+#~ "drawing position (x,y) to (x+dx,y+dy),     "
+#~ "then set the drawing position is "
+#~ "set to (x+d,y+dy)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Simple _dialog to ask a user to"
+#~ " select a floating point number "
+#~ "within a certain range and a "
+#~ "maximum precision."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Simple _dialog to ask a user to"
+#~ " select an integer within a certain"
+#~ " range."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Using a color dialog, returns a "
+#~ "color in hexadecimal notation i.e. a "
+#~ "string '#RRGGBB' or \"None\" if color"
+#~ " _dialog is dismissed."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Using a color dialog, returns a "
+#~ "color in rgb notation i.e. a tuple"
+#~ " (r, g, b)  or \"None\" if "
+#~ "color _dialog is dismissed."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "By default, this _dialog initially "
+#~ "displays the content of the current "
+#~ "working directory."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The user is warned if the file "
+#~ "already exists and can choose to "
+#~ "cancel.  However, this _dialog actually "
+#~ "does NOT save any file: it only"
+#~ " return a string containing the full"
+#~ " path of the chosen file."
 #~ msgstr ""
 

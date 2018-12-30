@@ -89,20 +89,20 @@ def get_continue_or_cancel(question: str = "Processed will be cancelled!",
                            title: str = "Title",
                            continue_button_text: str = "Continue",
                            cancel_button_text: str = "Cancel") -> bool:
-    """Continue or cancel question, shown as a warning (i.e. more urgent than
-       simple message)
+    """
+    Continue or cancel question, shown as a warning (i.e. more urgent than simple message)
 
-       :param question: Question (string) asked
-       :param title: Window title (string)
-       :param continue_button_text: text to display on button
-       :param cancel_button_text: text to display on button
+    :param question: Question (string) asked
+    :param title: Window title (string)
+    :param continue_button_text: text to display on button
+    :param cancel_button_text: text to display on button
 
-       :return: True for "Continue", False for "Cancel"
+    :return: True for "Continue", False for "Cancel"
 
-       >>> from easygraphics.dialog import *
-       >>> choice = get_continue_or_cancel()
+    >>> from easygraphics.dialog import *
+    >>> choice = get_continue_or_cancel()
 
-       .. image:: ../../docs/images/dialogs/get_continue_or_cancel.png
+    .. image:: ../../docs/images/dialogs/get_continue_or_cancel.png
     """
     dialog = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, title, question,
                                    QtWidgets.QMessageBox.NoButton)
@@ -117,7 +117,7 @@ def get_continue_or_cancel(question: str = "Processed will be cancelled!",
 @invoke_in_thread()
 def get_color_hex(color="white") -> Optional[str]:
     """Using a color dialog, returns a color in hexadecimal notation
-       i.e. a string '#RRGGBB' or "None" if color _dialog is dismissed.
+       i.e. a string '#RRGGBB' or "None" if color dialog is dismissed.
 
        >>> from easygraphics.dialog import *
        >>> color = get_color_hex()
@@ -147,14 +147,15 @@ def get_color(color="white") -> QtGui.QColor:
 
 @invoke_in_thread()
 def get_color_rgb(color="white") -> (int, int, int):
-    """Using a color dialog, returns a color in rgb notation
-       i.e. a tuple (r, g, b)  or "None" if color _dialog is dismissed.
+    """
+    Using a color dialog, returns a color in rgb notation i.e. a tuple (r, g, b)
+    or "None" if color dialog is dismissed.
 
-       >>> from easygraphics.dialog import *
-       >>> color = get_color_rgb()
+    >>> from easygraphics.dialog import *
+    >>> color = get_color_rgb()
 
-       .. image:: ../../docs/images/dialogs/select_color_fr.png
-       """
+    .. image:: ../../docs/images/dialogs/select_color_fr.png
+    """
     color = QtWidgets.QColorDialog.getColor(color, None)
     if color.isValid():
         return color.red(), color.green(), color.blue()
@@ -198,7 +199,7 @@ class VisibleInputDialog(QtWidgets.QInputDialog):
 @invoke_in_thread()
 def get_int(message: str = "Choose a number", title: str = "Title",
             default_value: int = 1, min_: int = 0, max_: int = 100, step: int = 1) -> Optional[int]:
-    """Simple _dialog to ask a user to select an integer within a certain range.
+    """Simple dialog to ask a user to select an integer within a certain range.
 
        **Note**: **get_int()** and **get_integer()** are identical.
 
@@ -253,34 +254,35 @@ get_integer = get_int
 @invoke_in_thread()
 def get_float(message: str = "Choose a number", title: str = "Title", default_value: float = 0.0,
               min_: float = -10000, max_: float = 10000, decimals: int = 3) -> Optional[float]:
-    """Simple _dialog to ask a user to select a floating point number
-       within a certain range and a maximum precision.
+    """
+    Simple dialog to ask a user to select a floating point number
+    within a certain range and a maximum precision.
 
-       :param message: Message displayed to the user, inviting a response
-       :param title: Window title
-       :param default_value: Default value for value appearing in the text
-                             box; set to the closest of ``min_`` or ``max_``
-                             if outside of allowed range.
-       :param min_: Minimum value allowed
-       :param max_: Maximum value allowed
-       :param decimals: Indicate the maximum decimal precision allowed
+    :param message: Message displayed to the user, inviting a response
+    :param title: Window title
+    :param default_value: Default value for value appearing in the text
+                         box; set to the closest of ``min_`` or ``max_``
+                         if outside of allowed range.
+    :param min_: Minimum value allowed
+    :param max_: Maximum value allowed
+    :param decimals: Indicate the maximum decimal precision allowed
 
-       :return: a floating-point number, or ``None`` if "cancel" is clicked
-                or window is closed.
+    :return: a floating-point number, or ``None`` if "cancel" is clicked
+            or window is closed.
 
-       >>> from easygraphics.dialog import *
-       >>> number = get_float()
+    >>> from easygraphics.dialog import *
+    >>> number = get_float()
 
-       .. image:: ../../docs/images/dialogs/get_float.png
+    .. image:: ../../docs/images/dialogs/get_float.png
 
-       **Note:** depending on the locale of the operating system where
-       this is used, instead of a period being used for indicating the
-       decimals, a comma may appear instead; this is the case for
-       the French version of Windows for example.  Therefore, entry of
-       floating point values in this situation will require the use
-       of a comma instead of a period.  However, the internal representation
-       will still be the same, and the number passed to Python will be
-       using the familar notation.
+    **Note:** depending on the locale of the operating system where
+    this is used, instead of a period being used for indicating the
+    decimals, a comma may appear instead; this is the case for
+    the French version of Windows for example.  Therefore, entry of
+    floating point values in this situation will require the use
+    of a comma instead of a period.  However, the internal representation
+    will still be the same, and the number passed to Python will be
+    using the familar notation.
     """
     dialog = VisibleInputDialog()
     flags = _get_common_input_flags()
@@ -518,7 +520,7 @@ def get_directory_name(title: str = "Get directory") -> str:
 
     .. image:: ../../docs/images/dialogs/get_directory_name.png
 
-    By default, this _dialog initially displays the content of the current
+    By default, this dialog initially displays the content of the current
     working directory.
     """
     options = QtWidgets.QFileDialog.Options()
@@ -546,7 +548,7 @@ def get_file_names(title: str = "Get existing file names") -> str:
 
     .. image:: ../../docs/images/dialogs/get_file_names.png
 
-    By default, this _dialog initially displays the content of the current
+    By default, this dialog initially displays the content of the current
     working directory.
     """
     options = QtWidgets.QFileDialog.Options()
@@ -565,7 +567,7 @@ def get_save_file_name(title: str = "File name to save") -> str:
     :return: the name (path) of file selected
 
     The user is warned if the file already exists and can choose to
-    cancel.  However, this _dialog actually does NOT save any file: it
+    cancel.  However, this dialog actually does NOT save any file: it
     only return a string containing the full path of the chosen file.
 
     >>> from easygraphics.dialog import *
@@ -573,7 +575,7 @@ def get_save_file_name(title: str = "File name to save") -> str:
 
     .. image:: ../../docs/images/dialogs/get_save_file_name.png
 
-    By default, this _dialog initially displays the content of the current
+    By default, this dialog initially displays the content of the current
     working directory.
     """
     options = QtWidgets.QFileDialog.Options()

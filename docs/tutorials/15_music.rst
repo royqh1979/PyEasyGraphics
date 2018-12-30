@@ -2,7 +2,7 @@ Music(Audio)
 ============
 Easygraphics provides simple ways to play musics.
 
-The following program shows how to use the functions in easygraphics.music to play music:
+The following program shows how to use the functions in :doc:`easygraphics.music <../apis/easygraphics.music>` to play music:
 
 .. code-block:: python
 

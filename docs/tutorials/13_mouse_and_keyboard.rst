@@ -17,6 +17,7 @@ return the x,y coordinates of the position clicked, and buttons that are pressed
 
     from easygraphics import *
     init_graph(800,600)
+    set_render_mode(RenderMode.RENDER_MANUAL)
 
     while is_run():
         x,y,buttons=get_click()
@@ -42,6 +43,7 @@ The following program continuously displays mouse cursor's position.
 
     from easygraphics import *
     init_graph(800,600)
+    set_render_mode(RenderMode.RENDER_MANUAL)
 
     while is_run():
         x,y=get_cursor_pos()
@@ -53,8 +55,8 @@ The following program continuously displays mouse cursor's position.
 
 
 
-Mouse Button Down and Up
-------------------------
+Mouse Button Press and Release
+------------------------------
 You can use get_mouse_msg() to get mouse button press and release messages.
 
 Non-Blocking mouse processing
@@ -69,6 +71,7 @@ The following program continuously check display cursor's postion and mouse butt
 
     from easygraphics import *
     init_graph(800,600)
+    set_render_mode(RenderMode.RENDER_MANUAL)
 
     set_fill_color("white")
     while is_run():
@@ -102,6 +105,7 @@ Then drag from any of the above two control points to set the third and the four
     from PyQt5 import QtCore
 
     init_graph(800, 600)
+    set_render_mode(RenderMode.RENDER_MANUAL)
 
     x1, y1, buttons = get_click()
     circle(x1, y1, 3)
@@ -204,6 +208,7 @@ The following program is a simple print game.
 
     if __name__ == "__main__":
         init_graph(640, 480)
+        set_render_mode(RenderMode.RENDER_MANUAL)
         set_background_color("black")
 
         show_welcome()

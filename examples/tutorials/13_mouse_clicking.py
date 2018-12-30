@@ -1,6 +1,7 @@
 from easygraphics import *
 
 init_graph(800, 600)
+set_render_mode(RenderMode.RENDER_MANUAL)
 
 while is_run():
     x, y, buttons = get_click()

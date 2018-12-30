@@ -12,7 +12,7 @@ Use create_image()  to create a new image instance.
 There are two ways to draw on a image:
 
 1. the OOP way: Use the image's method. The image created by create_image() is an Image object.
-we can use it's method directly.
+   we can use it's method directly.
 
 .. code-block:: python
 
@@ -20,7 +20,7 @@ we can use it's method directly.
     img.draw_circle(100,100,50)
 
 2. the traditional way: Use the drawing functions mentioned in the previous chapters, and provide the
-image as an additional parameter.
+   image as an additional parameter.
 
 .. code-block:: python
 
@@ -52,14 +52,14 @@ the following code use set_target() to change drawing target to a image, and dra
 
 Saving Image
 ------------
-We use use save_image() to save a image to the disk.
+We can use save_image() to save a image to the disk.
 
 The following program draw a bus and save it to "bus_screen.png" in the current folder.
 
   Note that because:
 
-  1. by save_image() will save the default image;
-  2. by default the target image is the graphics window.
+  1. By default save_image() will save the drawing target image;
+  2. By default the target image is the graphics window.
 
   So we are saving the graphics window.
 
@@ -83,7 +83,7 @@ In the following example, we:
 2. set drawing target to "img"
 3. draw a bus to "img" (the drawing target)
 4. set drawing target back to the graphics window
-5. copy the content on "img" to the graphics window's different portions.
+5. copy the content on "img" to the graphics window's different positions.
 
 .. code-block:: python
 
@@ -115,7 +115,7 @@ put_image() copy a rectangle area to the destination image. If you want to copy 
 you can draw it on a image with fully transparent background, then copy
 
 The following example is identical to the above example, expect that it set the source image's background to transparent
-before drawing the bus. And note
+before drawing the bus.
 
 .. code-block:: python
 

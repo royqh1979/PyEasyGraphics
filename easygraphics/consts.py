@@ -203,6 +203,9 @@ class Color:
 
 
 class TextFlags:
+    """
+    These are the text drawing flags.
+    """
     ALIGN_LEFT = QtCore.Qt.AlignLeft
     """Aligns with the left edge."""
     ALIGN_RIGHT = QtCore.Qt.AlignRight
@@ -230,6 +233,9 @@ class TextFlags:
 
 
 class MouseMessageType:
+    """
+    These are the mouse message types.
+    """
     NO_MESSAGE = 0
     PRESS_MESSAGE = 1
     RELEASE_MESSAGE = 2

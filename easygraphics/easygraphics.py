@@ -31,10 +31,8 @@ __all__ = [
     'circle', 'draw_circle', 'fill_circle', 'ellipse', 'draw_ellipse', 'fill_ellipse',
     'arc', 'draw_arc', 'pie', 'draw_pie', 'fill_pie', 'chord', 'draw_chord', 'fill_chord',
     'bezier', 'draw_bezier', 'lines', 'draw_lines', 'poly_line', 'draw_poly_line', 'polygon', 'draw_polygon',
-    'fill_polygon', 'draw_image_transparent',
-    'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect', 'flood_fill',
-    'draw_image', 'capture_screen',
-    'clear_device', 'clear_view_port',
+    'fill_polygon', 'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect',
+    'flood_fill', 'draw_image', 'capture_screen', 'clear_device', 'clear_view_port',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
@@ -1483,38 +1481,6 @@ def capture_screen(left: int, top: int, right: int, bottom: int, target_img: Ima
                src_width=right - left, src_height=bottom - top, dst_image=target_img)
 
 
-def draw_image_transparent(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
-                           src_height: int = -1, dst_image: Image = None):
-    """
-    Copy part of the source image (src_image) to the destination image (self) at (x,y).
-
-    The source image's background will not be copied.
-
-    (x, y) specifies the top-left point in the destination image that is to be drawn onto.
-
-    (sx, sy) specifies the top-left point of the part in the source image that is to \
-     be drawn. The default is (0, 0).
-
-    (sw, sh) specifies the size of the part of the source image that is to be drawn.  \
-    The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
-
-
-    :param x: x coordinate value of the upper left point on the destination image
-    :param y: y coordinate value of the upper left point on the destination image
-    :param src_image: the source image to be copied
-    :param src_x: x coordinate value of the top-left point of of the part to be drawn
-    :param src_y: y coordinate value of the top-left point of of the part to be drawn
-    :param src_width: witdh of the top-left point of of the part to be drawn
-    :param src_height: height of the top-left point of of the part to be drawn
-    :param dst_image: the target image which will be painted on. None means it is the target image
-        (see set_target() and get_target()).
-    """
-    dst_image, on_screen = _check_on_screen(dst_image)
-    dst_image.draw_image(x, y, src_image, src_x, src_y, src_width, src_height, False, CompositionMode.SOURCE_OVER)
-    if on_screen:
-        _win.invalid()
-
-
 def clear_device(image: Image = None):
     """
     Clear the image to show the background.
@@ -1816,7 +1782,6 @@ def pause():
     if not is_run():
         return
     _check_not_headless()
-    _win.real_update()
     _win.pause()
 
 
@@ -1847,7 +1812,7 @@ def delay_fps(fps: int):
 
     This function won\'t skip frames.
 
-    :param fps: the descire fps
+    :param fps: the desire fps
     """
     _check_app_run(True)
     _win.delay_fps(fps)
@@ -1861,9 +1826,10 @@ def delay_jfps(fps, max_skip_count=10):
 
     :param fps: frames per second (max is 1000)
     :param max_skip_count: max num of  frames to skip
+    :return: True if this frame should not be skipped
     """
     _check_app_run(True)
-    _win.delay_jfps(fps, max_skip_count)
+    return _win.delay_jfps(fps, max_skip_count)
 
 
 # mouse and keyboards #
@@ -1898,7 +1864,6 @@ def has_mouse_msg() -> bool:
     :return:  True if any mouse message, False or not
     """
     _check_app_run(True)
-    _win.real_update()
     return _win.has_mouse_msg()
 
 
@@ -1978,7 +1943,6 @@ def get_char() -> str:
     :return: the character inputted by keyboard
     """
     _check_app_run(True)
-    _win.real_update()
     return _win.get_char()
 
 
@@ -1992,7 +1956,6 @@ def get_key() -> (int, int):
         `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
     """
     _check_app_run(True)
-    _win.real_update()
     return _win.get_key()
 
 

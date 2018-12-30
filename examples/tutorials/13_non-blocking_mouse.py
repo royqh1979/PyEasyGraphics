@@ -1,6 +1,7 @@
 from easygraphics import *
 
 init_graph(800, 600)
+set_render_mode(RenderMode.RENDER_MANUAL)
 
 set_fill_color("white")
 while is_run():

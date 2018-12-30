@@ -1,5 +1,6 @@
 import threading
 import time
+import math
 from PyQt5 import QtWidgets
 from PyQt5 import QtCore
 from PyQt5 import QtGui
@@ -41,9 +42,11 @@ class GraphWin(QtWidgets.QWidget):
         self._init_screen(width, height)
         self._is_run = True
         self._immediate = True
-        self._last_update_time = time.time_ns()
         self._skip_count = 0
         self._app = app
+        self._frames_to_skip_count = 0
+        self._last_fps_time = 0
+        self._frames_skipped = 0
 
     def get_width(self):
         return self._width
@@ -125,6 +128,7 @@ class GraphWin(QtWidgets.QWidget):
         """
         pause and wait for mouse click or keyboard hit
         """
+        self.real_update()
         self._wait_event.clear()
         self._wait_event.wait()
 
@@ -148,7 +152,6 @@ class GraphWin(QtWidgets.QWidget):
         """
         self._canvas.draw_to_device(self._device_image)
         self.update()
-        self._last_update_time = time.time_ns()
 
     def delay(self, milliseconds: float):
         """
@@ -166,38 +169,53 @@ class GraphWin(QtWidgets.QWidget):
         delay to control fps without frame skiping
 
         never skip frames
+
+        :param fps: the desire fps
         """
         nanotime = 1000000000 // fps
-        if self._last_update_time == 0:
-            self._last_update_time = time.time_ns()
-        while time.time_ns() - self._last_update_time < nanotime:
-            time.time_ns()
+        if self._last_fps_time == 0:
+            self._last_fps_time = time.time_ns()
         self.real_update()
+        tt = time.time_ns()
+        while tt - self._last_fps_time < nanotime:
+            tt = time.time_ns()
+        self._last_fps_time = tt
 
-    def delay_jfps(self, fps: int, max_skip_count: int = 10):
+    def delay_jfps(self, fps: int, max_skip_count: int = 10) -> bool:
         """
         delay to control fps with frame skiping
 
         if we don't have enough time to delay, we'll skip some frames
+
         :param fps: frames per second (max is 1000)
         :param max_skip_count: max num of  frames to skip
+        :return: True if this frame should not be skipped
         """
         nanotime = 1000000000 // fps
-        if self._last_update_time == 0:
-            self._last_update_time = time.time_ns()
+        if self._frames_to_skip_count > 0:
+            self._frames_to_skip_count -= 1
+            self._frames_skipped += 1
+            return False
+        if self._last_fps_time == 0:
+            self._last_fps_time = time.time_ns()
+
         nowtime = time.time_ns()
-        if self._last_update_time + nanotime < nowtime:
-            # we don't have to draw this frame, so let's skip it
-            self._skip_count += 1
-            if self._skip_count < max_skip_count:
-                self._last_update_time = time.time_ns()
-                return
+        if self._last_fps_time + nanotime < nowtime:
+            if self._frames_skipped <= max_skip_count:
+                # we don't have to draw this frame, so let's skip it
+                self._frames_to_skip_count = round((nowtime - self._last_fps_time) // nanotime)
+                if self._frames_to_skip_count > max_skip_count - self._frames_skipped:
+                    self._frames_to_skip_count = (max_skip_count - self._frames_skipped) - 1
+                    self._frames_skipped += 1
+                    return False
             else:
-                # we have skipped too many frames, draw this frame
-                self._skip_count = 0
-        while time.time_ns() - self._last_update_time < nanotime:
-            time.time_ns()
+                self._frames_skipped = 0
         self.real_update()
+        tt = time.time_ns()
+        while tt - self._last_fps_time < nanotime:
+            tt = time.time_ns()
+        self._last_fps_time = tt
+        return True
 
     def get_char(self) -> str:
         """
@@ -207,6 +225,7 @@ class GraphWin(QtWidgets.QWidget):
         :return: the character inputted by keybord
         """
         nt = time.time_ns()
+        self.real_update()
         if nt - self._key_char_msg.get_time() > 100000000:
             # if the last char msg is 100ms ago, we wait for a new msg
             self._char_key_event.clear()
@@ -226,6 +245,7 @@ class GraphWin(QtWidgets.QWidget):
             `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
         """
         nt = time.time_ns()
+        self.real_update()
         if nt - self._key_msg.get_time() > 100000000:
             # if the last key msg is 100ms ago, we wait for a new msg
             self._key_event.clear()
@@ -248,6 +268,7 @@ class GraphWin(QtWidgets.QWidget):
             ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
         """
         nt = time.time_ns()
+        self.real_update()
         if nt - self._mouse_msg.get_time() > 100000000:
             # if the last key msg is 100ms ago, we wait for a new msg
             self._mouse_event.clear()
