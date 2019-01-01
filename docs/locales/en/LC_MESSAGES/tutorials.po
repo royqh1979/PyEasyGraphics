@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 22:32+0800\n"
+"POT-Creation-Date: 2018-12-31 09:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1648,38 +1648,20 @@ msgid ""
 msgstr ""
 
 #: ../../tutorials/12_animation.rst:24
-msgid "Skipping Frames"
-msgstr ""
-
-#: ../../tutorials/12_animation.rst:25
-msgid ""
-"Sometimes a drawing can be complicated and slow, and we can't finish a "
-"frame's drawing in the specified frame time. This will create lags in the"
-" animation."
-msgstr ""
-
-#: ../../tutorials/12_animation.rst:28
-msgid ""
-"The delay_jfps() can skip some frames ( if a frame is using too mush "
-"time, the successive frames will be skipped to keep up with the specified"
-" fps)."
-msgstr ""
-
-#: ../../tutorials/12_animation.rst:32
 msgid "Render Mode"
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:33
+#: ../../tutorials/12_animation.rst:25
 msgid "There are two render mode in EasyGraphics:"
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:35
+#: ../../tutorials/12_animation.rst:27
 msgid ""
 "**RenderMode.AUTO**: All drawings on the graphics window will show "
 "immediately. This is the default mode, and is for normal drawing."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:37
+#: ../../tutorials/12_animation.rst:29
 msgid ""
 "**RenderMode.Manual**: Drawings will not show on the graphics window. "
 "Only time control, keyboard or mouse functions like "
@@ -1687,44 +1669,68 @@ msgid ""
 "window. This mode can speed up the animation frames drawing."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:41
+#: ../../tutorials/12_animation.rst:33
 msgid ""
 "It's a good practice to set the render mode to manual when your want to "
 "show an animation."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:43
+#: ../../tutorials/12_animation.rst:35
 msgid "You can use set_render_mode() to set the render mode."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:45
+#: ../../tutorials/12_animation.rst:37
 msgid ""
 "**Note:** If you are not drawing on the graphics window, this render mode"
 " has no effect."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:48
+#: ../../tutorials/12_animation.rst:40
 msgid "Background"
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:49
+#: ../../tutorials/12_animation.rst:41
 msgid ""
 "Ofter we need to make an object move in a background. If the background "
 "is complicated, it's not a good idea to recreate the background in each "
 "frame."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:52
+#: ../../tutorials/12_animation.rst:44
 msgid ""
 "A common solution is to draw background in one image , and the moving "
 "object in another transparent image. The final result is made by merge "
 "the two images."
 msgstr ""
 
-#: ../../tutorials/12_animation.rst:55
+#: ../../tutorials/12_animation.rst:47
 msgid ""
 "The following program draws a moving bus on the road (background).Note "
 "the use of the is_run() function."
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:90
+msgid "Skipping Frames"
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:91
+msgid ""
+"Sometimes a drawing can be complicated and slow, and we can't finish a "
+"frame's drawing in the specified frame time. This will create lags in the"
+" animation."
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:94
+msgid ""
+"The delay_jfps() can skip some frames ( if a frame is using too mush "
+"time, the successive frames will be skipped to keep up with the specified"
+" fps)."
+msgstr ""
+
+#: ../../tutorials/12_animation.rst:97
+msgid ""
+"The following example shows how to use delay_jfps() to control time. Note"
+" that we use sleep() to simulate a long-time drawing operation."
 msgstr ""
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:2
@@ -1759,35 +1765,35 @@ msgid ""
 "clicked, and buttons that are pressed when clicking."
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:36
+#: ../../tutorials/13_mouse_and_keyboard.rst:37
 msgid "Cursor Positions"
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:37
+#: ../../tutorials/13_mouse_and_keyboard.rst:38
 msgid ""
 "Sometimes we need to get the position of the cursor. We can use "
 "get_cursor_pos() to get this job done."
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:39
+#: ../../tutorials/13_mouse_and_keyboard.rst:40
 msgid "The following program continuously displays mouse cursor's position."
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:57
+#: ../../tutorials/13_mouse_and_keyboard.rst:59
 msgid "Mouse Button Press and Release"
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:58
+#: ../../tutorials/13_mouse_and_keyboard.rst:60
 msgid ""
 "You can use get_mouse_msg() to get mouse button press and release "
 "messages."
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:61
+#: ../../tutorials/13_mouse_and_keyboard.rst:63
 msgid "Non-Blocking mouse processing"
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:62
+#: ../../tutorials/13_mouse_and_keyboard.rst:64
 msgid ""
 "get_click()/get_mouse_msg() will block the program if there are no mouse "
 "press/click in the last 100ms. If you want to check the mouse operation "
@@ -1796,21 +1802,21 @@ msgid ""
 "the mouse message."
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:66
+#: ../../tutorials/13_mouse_and_keyboard.rst:68
 msgid ""
 "The following program continuously check display cursor's postion and "
 "mouse button press/release events."
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:91
+#: ../../tutorials/13_mouse_and_keyboard.rst:94
 msgid "Mouse Message Demo"
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:93
+#: ../../tutorials/13_mouse_and_keyboard.rst:96
 msgid "The following program draws a bezier curve interactively"
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:95
+#: ../../tutorials/13_mouse_and_keyboard.rst:98
 msgid ""
 "First click on the window to set the first control point of the curve. "
 "Then click on the window to set the second control point of the curve. "
@@ -1818,26 +1824,26 @@ msgid ""
 "the fourth control point."
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:170
+#: ../../tutorials/13_mouse_and_keyboard.rst:174
 msgid "Char Input"
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:171
+#: ../../tutorials/13_mouse_and_keyboard.rst:175
 msgid ""
 "We can use has_kb_hit() to see if there is any ascii char pressed, and "
 "use get_char() to get the inputted char. has_kb_hit() is non-blocking, "
 "and get_char() is blocking."
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:174
+#: ../../tutorials/13_mouse_and_keyboard.rst:178
 msgid "The following program is a simple print game."
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:236
+#: ../../tutorials/13_mouse_and_keyboard.rst:241
 msgid "Key Pressed"
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:237
+#: ../../tutorials/13_mouse_and_keyboard.rst:242
 msgid ""
 "We can use has_kb_msg() to see if there is any key pressed, and use "
 "get_key() to get the pressed key. has_kb_msg() is non-blocking, and "

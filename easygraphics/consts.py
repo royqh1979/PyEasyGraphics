@@ -3,7 +3,7 @@ from PyQt5 import QtGui, QtCore
 
 class RenderMode:
     """
-    These are the graphics window drawing mode.
+    These are the graphics window render mode.
     """
     RENDER_AUTO = 0
     """The graphics window is updated after each drawn."""
@@ -140,7 +140,7 @@ class LineStyle:
 
 class FillStyle:
     """
-    These are the fille style used by draw and fill functions.
+    These are the fill style used by draw and fill functions.
     """
     NULL_FILL = QtCore.Qt.NoBrush
     """Not fill at all. For example, draw_circle() will not fill."""

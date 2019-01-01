@@ -29,6 +29,8 @@ class Image:
         self._brush = QtGui.QBrush(Color.WHITE, FillStyle.SOLID_FILL)
         self._x = 0
         self._y = 0
+        self._flip_y = False
+        self._old_flip_y = False
         self._painter = QtGui.QPainter()
         self._mask_painter = QtGui.QPainter()
         self._init_painter()
@@ -387,24 +389,52 @@ class Image:
 
     def reflect(self, x: float, y: float):
         """
-        Reflect the coordinates against the line passing (0,0) and (x,y)
+        Reflect the coordinates against the line passing (0,0) and (x,y).
 
-        :param x:
-        :param y:
+        **Note that all things will get reflected, including text!**
+        If you just want to draw on a normal coordinate system with the y-axis grows bottom up,
+        use flip_y().
+
+        :param x: x coordinate value
+        :param y: y coordinate value
         """
         if x == 0 and y == 0:
             raise ValueError("point(x,y) must not be (0,0)!")
+        transform = self._get_reflect_transform(x, y)
+        self._painter.setTransform(transform, True)
+        self._mask_painter.setTransform(transform, True)
+
+    def _get_reflect_transform(self, x, y):
         xx = x * x
         yy = y * y
         ll = xx + yy
         xy2 = 2 * x * y
         transform = QtGui.QTransform((xx - yy) / ll, xy2 / ll, xy2 / ll, (yy - xx) / ll, 0, 0)
-        self._painter.setTransform(transform, True)
-        self._mask_painter.setTransform(transform, True)
+        return transform
 
     flip = reflect
 
     mirror = reflect
+
+    def set_flip_y(self, flip_y: bool) -> None:
+        """
+        Reflect with x-aixs as the axis (upside down). Texts will not flip.
+
+        **Don't translate the origin to other points**(but you can translate and then translate back)
+        before drawing any text. Or the text position's calculation will get wrong! So if you want to
+        set the origin to the image/image's center, call set_flip_y() after the set_origin() or
+        translate()!
+
+        **Note**: Use this functions instead of the reflect()/flip()/mirror(),if you only
+        want to draw on an ordinary coordinate system with y-axis grows bottom-up.
+
+        :param flip_y: True to turn on the flip, False to turn off.
+        """
+        if flip_y == self._flip_y:  # do nothing if flip not changed
+            return
+        # translate around the x-axis ( if the image is already flipped, this will flip the image back).
+        self.reflect(1, 0)
+        self._flip_y = flip_y
 
     def reset_transform(self):
         """
@@ -844,7 +874,7 @@ class Image:
 
     def draw_poly_line(self, end_points: List[float]):
         """
-        Draw poly lines.
+        Draw a poly line.
 
         "end_points" is a 2D points list. Each 2 values in the list make a point. A poly line will be drawn to connect
         adjacent end_points defined by the the list.
@@ -898,7 +928,7 @@ class Image:
 
     def draw_polygon(self, vertices: List[float]):
         """
-        Draw polygon
+        Draw a polygon.
 
         "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect
         adjacent points defined by the the list.
@@ -917,7 +947,7 @@ class Image:
 
     def fill_polygon(self, vertices: List[float]):
         """
-        Fill polygon
+        Fill a polygon.
 
         "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect
         adjacent points defined by the the list.
@@ -1074,7 +1104,7 @@ class Image:
     def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = -1,
                    src_height: int = -1, with_background=True, composition_mode=None):
         """
-        Copy part of the source image (image) to the destination image (self) at (x,y).
+        Copy part of the source image (image) to the destination image (self).
 
         (x, y) specifies the top-left point in the destination image that is to be drawn onto.
 
@@ -1208,8 +1238,17 @@ class Image:
         msgs = map(str, args)
         msg = sep.join(msgs)
         p = self._prepare_painter_for_draw()
-        p.drawText(x, y, msg)
-        self._mask_painter.drawText(x, y, msg)
+        if self._flip_y:
+            transform = self._painter.transform()
+            self.reflect(1, 0)
+            y = -(y - self.text_height())
+            p.drawText(x, y, msg)
+            self._mask_painter.drawText(x, y, msg)
+            self._painter.setTransform(transform)
+            self._mask_painter.setTransform(transform)
+        else:
+            p.drawText(x, y, msg)
+            self._mask_painter.drawText(x, y, msg)
 
     def draw_rect_text(self, x: int, y: int, width: int, height: int, flags=QtCore.Qt.AlignCenter, *args, sep=' '):
         """
@@ -1242,8 +1281,17 @@ class Image:
         msgs = map(str, args)
         msg = sep.join(msgs)
         p = self._prepare_painter_for_draw()
-        p.drawText(x, y, width, height, flags, msg)
-        self._mask_painter.drawText(x, y, width, height, flags, msg)
+        if self._flip_y:
+            transform = self._painter.transform()
+            self.reflect(1, 0)
+            y = -(y + height)
+            p.drawText(x, y, width, height, flags, msg)
+            self._mask_painter.drawText(x, y, width, height, flags, msg)
+            self._painter.setTransform(transform)
+            self._mask_painter.setTransform(transform)
+        else:
+            p.drawText(x, y, width, height, flags, msg)
+            self._mask_painter.drawText(x, y, width, height, flags, msg)
 
     def set_font(self, font: QtGui.QFont):
         """
@@ -1295,8 +1343,7 @@ class Image:
 
     def close(self):
         """
-        Clean up the images
-        :return:
+        Close and clean up the image.
         """
         self._painter.end()
         self._mask_painter.end()
@@ -1319,6 +1366,7 @@ class Image:
         """
         self._painter.save()
         self._mask_painter.save()
+        self._old_flip_y = self._flip_y
 
     def restore_settings(self):
         """
@@ -1330,6 +1378,7 @@ class Image:
         """
         self._painter.restore()
         self._mask_painter.restore()
+        self._flip_y = self._old_flip_y
 
     def save(self, filename: str, with_background=True):
         """

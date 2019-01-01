@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 21:24+0800\n"
+"POT-Creation-Date: 2019-01-01 11:48+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -348,7 +348,10 @@ msgstr ""
 #: easygraphics.legacy.putpixel easygraphics.legacy.rectangle
 #: easygraphics.legacy.sector easygraphics.legacy.setbkcolor
 #: easygraphics.legacy.setcolor easygraphics.legacy.setviewport
-#: easygraphics.legacy.textheight easygraphics.legacy.textwidth of
+#: easygraphics.legacy.textheight easygraphics.legacy.textwidth
+#: easygraphics.music.fade_out_music easygraphics.music.load_music
+#: easygraphics.music.play_music easygraphics.music.queue_music
+#: easygraphics.music.set_music_pos easygraphics.music.set_music_volume of
 msgid "Parameters"
 msgstr ""
 
@@ -480,7 +483,8 @@ msgstr ""
 #: easygraphics.legacy.getfillsettings easygraphics.legacy.getlinesettings
 #: easygraphics.legacy.getmaxx easygraphics.legacy.getmaxy
 #: easygraphics.legacy.getpixel easygraphics.legacy.getx
-#: easygraphics.legacy.gety of
+#: easygraphics.legacy.gety easygraphics.music.get_music_pos
+#: easygraphics.music.get_music_volume easygraphics.music.is_music_playing of
 msgid "Returns"
 msgstr ""
 
@@ -840,7 +844,7 @@ msgid "Clear view port to show the background."
 msgstr ""
 
 #: easygraphics.image.Image.close:1 of
-msgid "Clean up the images :return:"
+msgid "Close and clean up the image."
 msgstr ""
 
 #: easygraphics.image.Image.draw_chord:1 easygraphics.image.Image.fill_chord:1
@@ -875,9 +879,7 @@ msgid "The ellipse is filled and has outline."
 msgstr ""
 
 #: easygraphics.image.Image.draw_image:1 of
-msgid ""
-"Copy part of the source image (image) to the destination image (self) at "
-"(x,y)."
+msgid "Copy part of the source image (image) to the destination image (self)."
 msgstr ""
 
 #: easygraphics.image.Image.draw_image:3 of
@@ -1049,7 +1051,7 @@ msgstr ""
 
 #: easygraphics.image.Image.draw_poly_line:1
 #: easygraphics.image.Image.poly_line:1 easygraphics.legacy.drawpoly:1 of
-msgid "Draw poly lines."
+msgid "Draw a poly line."
 msgstr ""
 
 #: easygraphics.image.Image.draw_poly_line:3
@@ -1070,7 +1072,7 @@ msgid ""
 msgstr ""
 
 #: easygraphics.image.Image.draw_polygon:1 of
-msgid "Draw polygon"
+msgid "Draw a polygon."
 msgstr ""
 
 #: easygraphics.image.Image.draw_polygon:3
@@ -1318,8 +1320,8 @@ msgstr ""
 msgid "The pie doesn't have outline."
 msgstr ""
 
-#: easygraphics.image.Image.fill_polygon:1 of
-msgid "Fill polygon"
+#: easygraphics.image.Image.fill_polygon:1 easygraphics.legacy.fillpoly:1 of
+msgid "Fill a polygon."
 msgstr ""
 
 #: easygraphics.image.Image.fill_polygon:9 easygraphics.legacy.fillpoly:9 of
@@ -2000,15 +2002,6 @@ msgstr ""
 msgid "easygraphics.legacy package"
 msgstr ""
 
-#: easygraphics.legacy.AND_PUT:1 easygraphics.legacy.CENTER_LINE:1
-#: easygraphics.legacy.COPY_PUT:1 easygraphics.legacy.DASHED_LINE:1
-#: easygraphics.legacy.DOTTED_LINE:1 easygraphics.legacy.NOT_PUT:1
-#: easygraphics.legacy.NULL_LINE:1 easygraphics.legacy.OR_PUT:1
-#: easygraphics.legacy.SOLID_LINE:1 easygraphics.legacy.USERBIT_LINE:1
-#: easygraphics.legacy.XOR_PUT:1 of
-msgid "Used by autodoc_mock_imports."
-msgstr ""
-
 #: easygraphics.legacy.arc:1 of
 msgid "Draw a Circular Arc"
 msgstr ""
@@ -2075,12 +2068,6 @@ msgstr ""
 msgid "The program will exit too."
 msgstr ""
 
-#: easygraphics.legacy.closegraph:5 of
-msgid ""
-">>>from easygraphics import * >>>init_graph(800,600) >>>pause() "
-">>>close_graph()"
-msgstr ""
-
 #: easygraphics.legacy.ellipse:1 of
 msgid ""
 "Draw an elliptical arc from start_angle to end_angle. The base ellipse is"
@@ -2093,10 +2080,6 @@ msgid ""
 "**note**: Degree 0 is at 3 o'clock position, and is increasing "
 "clockwisely. That is, degree 90 is     at 12 o'click , degree 180 is at 9"
 " o'clock , degree 270 is at 6 o'clock, etc."
-msgstr ""
-
-#: easygraphics.legacy.fillpoly:1 of
-msgid "fill polygon"
 msgstr ""
 
 #: easygraphics.legacy.fillpoly:3 of
@@ -2409,6 +2392,7 @@ msgid ":obj:`load_music <easygraphics.music.load_music>`\\ \\(filename\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.load_music:1 of
 msgid "Load a music file for playback."
 msgstr ""
 
@@ -2417,6 +2401,7 @@ msgid ":obj:`close_music <easygraphics.music.close_music>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.close_music:1 of
 msgid "Close the music playback device."
 msgstr ""
 
@@ -2425,6 +2410,7 @@ msgid ":obj:`play_music <easygraphics.music.play_music>`\\ \\(loops\\, start\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.play_music:1 of
 msgid "Play the music."
 msgstr ""
 
@@ -2433,6 +2419,7 @@ msgid ":obj:`pause_music <easygraphics.music.pause_music>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.pause_music:1 of
 msgid "Pause the music playback."
 msgstr ""
 
@@ -2441,6 +2428,7 @@ msgid ":obj:`unpause_music <easygraphics.music.unpause_music>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.unpause_music:1 of
 msgid "Unpause the music playback."
 msgstr ""
 
@@ -2449,6 +2437,7 @@ msgid ":obj:`stop_music <easygraphics.music.stop_music>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.stop_music:1 of
 msgid "Stop the music playback."
 msgstr ""
 
@@ -2457,6 +2446,7 @@ msgid ":obj:`queue_music <easygraphics.music.queue_music>`\\ \\(filename\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.queue_music:1 of
 msgid "Add music to the playing queue."
 msgstr ""
 
@@ -2465,6 +2455,7 @@ msgid ":obj:`is_music_playing <easygraphics.music.is_music_playing>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.is_music_playing:1 of
 msgid "Get if the music is playing."
 msgstr ""
 
@@ -2473,6 +2464,7 @@ msgid ":obj:`get_music_pos <easygraphics.music.get_music_pos>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.get_music_pos:1 of
 msgid "Get current music playback position ."
 msgstr ""
 
@@ -2481,6 +2473,7 @@ msgid ":obj:`get_music_volume <easygraphics.music.get_music_volume>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.get_music_volume:1 of
 msgid "Return the music playback volume."
 msgstr ""
 
@@ -2489,6 +2482,7 @@ msgid ":obj:`set_music_pos <easygraphics.music.set_music_pos>`\\ \\(pos\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.set_music_pos:1 of
 msgid "Set current music play position."
 msgstr ""
 
@@ -2499,6 +2493,7 @@ msgid ""
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.set_music_volume:1 of
 msgid "Set volume of the music playback."
 msgstr ""
 
@@ -2507,7 +2502,58 @@ msgid ":obj:`fade_out_music <easygraphics.music.fade_out_music>`\\ \\(time\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: easygraphics.music.fade_out_music:1 of
 msgid "Fade out and stop the music."
+msgstr ""
+
+#: easygraphics.music.load_music:3 of
+msgid ""
+"If music playback device is note initialized, it will be initialized "
+"automatically."
+msgstr ""
+
+#: easygraphics.music.load_music:5 of
+msgid "Use play_music() to play the music."
+msgstr ""
+
+#: easygraphics.music.load_music:7 of
+msgid "the music file to play"
+msgstr ""
+
+#: easygraphics.music.play_music:3 of
+msgid "loops. 0 means no loop"
+msgstr ""
+
+#: easygraphics.music.play_music:4 of
+msgid "start position of the music"
+msgstr ""
+
+#: easygraphics.music.queue_music:3 of
+msgid "the music file to be queued."
+msgstr ""
+
+#: easygraphics.music.is_music_playing:3 of
+msgid "True if is playing, False if is not."
+msgstr ""
+
+#: easygraphics.music.get_music_pos:3 of
+msgid "current position"
+msgstr ""
+
+#: easygraphics.music.get_music_volume:3 of
+msgid "the playback volume."
+msgstr ""
+
+#: easygraphics.music.set_music_pos:3 of
+msgid "the position to set."
+msgstr ""
+
+#: easygraphics.music.set_music_volume:3 of
+msgid "volume of the playback"
+msgstr ""
+
+#: easygraphics.music.fade_out_music:3 of
+msgid "fade out time (in milliseconds)"
 msgstr ""
 
 #~ msgid "easygraphics.graphwin module"
@@ -3119,5 +3165,34 @@ msgstr ""
 #~ "does NOT save any file: it only"
 #~ " return a string containing the full"
 #~ " path of the chosen file."
+#~ msgstr ""
+
+#~ msgid "Used by autodoc_mock_imports."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ">>>from easygraphics import * "
+#~ ">>>init_graph(800,600) >>>pause() >>>close_graph()"
+#~ msgstr ""
+
+#~ msgid "Draw polygon"
+#~ msgstr ""
+
+#~ msgid "Fill polygon"
+#~ msgstr ""
+
+#~ msgid "Draw poly lines."
+#~ msgstr ""
+
+#~ msgid "fill polygon"
+#~ msgstr ""
+
+#~ msgid "Clean up the images :return:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Copy part of the source image "
+#~ "(image) to the destination image (self)"
+#~ " at (x,y)."
 #~ msgstr ""
 

@@ -17,7 +17,7 @@ from . import multifields
 from . import show_text_window
 from . import tableview
 from ._indexed_order_list import IndexedOrderedDict
-from .invoke_in_app_thread import set_app_font, invoke_in_thread
+from easygraphics._utils.invoke_in_app_thread import set_app_font, invoke_in_thread
 
 __all__ = [
     'set_dialog_font_size',

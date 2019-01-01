@@ -240,7 +240,7 @@ The following program flip the bus vertically ( reflection against the bus\'s ho
 .. image:: ../images/tutorials/09_flip_v.png
 
 Reflection against other lines
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following program flip the bus against the line passing (0,0) and (500,300). To clearly see the result,
 we first draw a non-transformed bus, a mirror line, then draw the flipped bus.
 
@@ -299,3 +299,73 @@ then shear it around its center, then scale it by a factor of 1.2 .
 
 .. image:: ../images/tutorials/09_compound.png
 
+Drawing with Y-Axis Grows Bottom-Up
+-----------------------------------
+You may have noticed that when you reflect the image, the texts drawing on the image will
+also get reflected. When what you want is to draw on an ordinary coordinate system whose
+Y-axis grows bottom-up, this will not be what you what.
+
+Easygraphics provides a set_flip_y() function to used in this situation.
+
+Also notice that if you turn on the set_flip_y(), all the angles parameters used in the
+drawing functions should be mirrored too. That is, if the docs said a positive angle means
+turn clock-wise, after the set_flip_y() is on, a positive angle will mean turn counter-clockwise.
+
+Compare the following two programs. The first one use set_flip_y() to make y-axis grows bottom-up;
+and the second one use reflect(1,0) to do that job. See the results.
+
+Use set_flip_y() to make y-axis grows bottom-up:
+
+.. code-block:: python
+
+    from easygraphics import *
+    import draw_bus
+
+    init_graph(500, 300)
+
+    translate(250, 150)
+    translate(105,65)
+    rotate(-45)
+    translate(-105,-65)
+
+    set_flip_y(True)
+
+    translate(105, -65)
+    shear(0.2,0.2)
+    translate(-105, 65)
+
+    draw_bus.draw_bus()
+    set_color("blue")
+    draw_rect_text(0,0,210,130,"This is a very good day!")
+    pause()
+    close_graph()
+
+.. image:: ../images/tutorials/09_y_set.png
+
+Use reflect(1,0) to make y-axis grows bottom-up:
+
+.. code-block:: python
+
+    from easygraphics import *
+    import draw_bus
+
+    init_graph(500, 300)
+
+    translate(250, 150)
+    translate(105,65)
+    rotate(-45)
+    translate(-105,-65)
+
+    reflect(1,0)
+
+    translate(105, -65)
+    shear(0.2,0.2)
+    translate(-105, 65)
+
+    draw_bus.draw_bus()
+    set_color("blue")
+    draw_rect_text(0,0,210,130,"This is a very good day!")
+    pause()
+    close_graph()
+
+.. image:: ../images/tutorials/09_y_reflect.png

@@ -137,6 +137,7 @@ Transform
     reset_transform
     rotate
     scale
+    set_flip_y
     set_origin
     shear
     skew

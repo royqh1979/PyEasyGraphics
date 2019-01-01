@@ -2,6 +2,16 @@
 
 History
 =======
+0.9.9
+-------------------
+* add set_flip_y() to make y-axis grows bottom-up. (use reflect() will make texts
+get reflected too.)
+
+
+0.9.8.1
+-------------------
+* fix: legacy and music subpackage not packed in the binary distributions.
+
 0.9.8
 ---------------------
 * fix: delay_fps() now work properly in Manual render mode

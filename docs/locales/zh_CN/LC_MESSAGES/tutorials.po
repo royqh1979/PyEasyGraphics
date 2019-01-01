@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 22:32+0800\n"
+"POT-Creation-Date: 2018-12-31 09:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -299,7 +299,7 @@ msgstr ""
 
 #: ../../tutorials/04_shapes.rst:65
 msgid "Polygon"
-msgstr ""
+msgstr "多边形(Polygon)"
 
 #: ../../tutorials/04_shapes.rst:66
 msgid ""
@@ -326,7 +326,7 @@ msgstr "下面的程序绘制了一个三角形，它的三个顶点分别位于
 
 #: ../../tutorials/04_shapes.rst:90
 msgid "Polylines"
-msgstr "折现（Polylines）"
+msgstr "折线（Polylines）"
 
 #: ../../tutorials/04_shapes.rst:91
 msgid "Using poly_line() or draw_poly_line(), we can draw polylines."
@@ -593,7 +593,7 @@ msgstr "相对于当前位置画线"
 msgid ""
 "In easygraphics, each image (including the graphics window) stores \"a "
 "current position\". Use this position, we can draw lines relatively."
-msgstr "在Easy Graphics中，每个绘图对象（包括绘图窗口）都保存着一个\"当前位置\"。可以使用该位置来进行相对绘画。"
+msgstr "在Easy Graphics中，每个绘图对象（包括绘图窗口）都保存着一个\"当前绘图位置\"。可以使用该位置来进行相对绘画。"
 
 #: ../../tutorials/06_line_to.rst:7
 msgid "The related functions are:"
@@ -605,7 +605,7 @@ msgstr ""
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid "Get the x coordinate value of the current drawing position (x,y)."
-msgstr "获取当前位置(x,y)的x坐标值"
+msgstr "获取当前绘图位置(x,y)的x坐标值"
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid ":obj:`get_y <easygraphics.get_y>`\\ \\(image\\)"
@@ -613,7 +613,7 @@ msgstr ""
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid "Get the y coordinate value of the current drawing position (x,y)."
-msgstr "获取当前位置(x,y)的y坐标值"
+msgstr "获取当前绘图位置(x,y)的y坐标值"
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid ":obj:`get_drawing_pos <easygraphics.get_drawing_pos>`\\ \\(image\\)"
@@ -621,7 +621,7 @@ msgstr ""
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid "Get the current drawing position (x,y)."
-msgstr "获取当前位置(x,y)的坐标值"
+msgstr "获取当前绘图位置(x,y)的坐标值"
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid ":obj:`move_to <easygraphics.move_to>`\\ \\(x\\, y\\, image\\)"
@@ -629,7 +629,7 @@ msgstr ""
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid "Set the drawing position to (x,y)."
-msgstr "设置当前绘图位置到(x,y)"
+msgstr "设置当前绘图位置到(x,y)。"
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid ":obj:`move_rel <easygraphics.move_rel>`\\ \\(dx\\, dy\\, image\\)"
@@ -637,7 +637,7 @@ msgstr ""
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid "Move the drawing position by (dx,dy)."
-msgstr "将绘图位置在x轴方向移动dx，在y轴方向移动dy"
+msgstr "将绘图位置在x轴方向移动dx，在y轴方向移动dy。"
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid ":obj:`line_to <easygraphics.line_to>`\\ \\(x\\, y\\, image\\)"
@@ -647,7 +647,7 @@ msgstr ""
 msgid ""
 "Draw a line from the current drawing position to (x,y), then set the "
 "drawing position is set to (x,y)."
-msgstr "从当前位置到(x,y)画线，然后将当前绘图位置更新为(x,y)"
+msgstr "从当前绘图位置到(x,y)画线，然后将当前绘图位置更新为(x,y)"
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid ":obj:`line_rel <easygraphics.line_rel>`\\ \\(dx\\, dy\\, image\\)"
@@ -661,7 +661,7 @@ msgstr "从当前绘图位置(x,y)到(x+dx,y+dy)画线，然后将当前绘图�
 
 #: ../../tutorials/06_line_to.rst:21
 msgid "The following program draws a dash line by using the current position."
-msgstr "下面的程序使用当前位置画了一条虚线。"
+msgstr "下面的程序使用当前绘图位置画了一条虚线。"
 
 #: ../../tutorials/06_line_to.rst:37
 msgid "Approximate a function curve"
@@ -1169,7 +1169,7 @@ msgstr "在下面的例子中，我们首先将原点移动到绘图窗口的正
 
 #: ../../tutorials/10_composition_mode.rst:2
 msgid "Compositions"
-msgstr "叠加（Compositions）"
+msgstr "合成（Compositions）"
 
 #: ../../tutorials/10_composition_mode.rst:3
 msgid ""
@@ -1178,14 +1178,14 @@ msgid ""
 " decided by both the source and the destination's (old) color. This is "
 "where the composition modes come in."
 msgstr ""
-"我们在计算机中绘图，实际就是在改变目标点（像素）的色彩。除了最简单的直接复制来源（画笔）色彩外，可以通过对来源色彩（画笔的色彩）和目标色彩（目的点的原有色彩）进行叠加运算来决定目标点的最终色彩。叠加模式（Composition"
-" mode）的作用就是控制如何对来源色彩和目标色彩进行叠加。"
+"我们在计算机中绘图，实际就是在改变目标点（像素）的色彩。除了最简单的直接复制来源（画笔）色彩外，可以通过对来源色彩（画笔的色彩）和目标色彩（目的点的原有色彩）进行合成运算来决定目标点的最终色彩。合成模式（Composition"
+" mode）的作用就是控制如何对来源色彩和目标色彩进行合成。"
 
 #: ../../tutorials/10_composition_mode.rst:7
 msgid ""
 "Easygraphics (and the underlying Qt system) support three types of "
 "compositions:"
-msgstr "Easygraphics (以及它使用的Qt系统）支持三种类型的叠加运算："
+msgstr "Easygraphics (以及它使用的Qt系统）支持三种类型的合成运算："
 
 #: ../../tutorials/10_composition_mode.rst:9
 msgid ""
@@ -1196,7 +1196,7 @@ msgid ""
 msgstr ""
 "`光栅运算 <https://en.wikipedia.org/wiki/Bit_blit>`_ (Raster Operation "
 "(ROP)，也称为位运算(Bitwise Operation)或者位块传输(Bit "
-"Blit)）：使用位运算对来源色彩和目标色彩进行叠加。此运算要求来源色彩和目标色彩都是不透明的（alpha值为255）。"
+"Blit)）：使用位运算对来源色彩和目标色彩进行合成。此运算要求来源色彩和目标色彩都是不透明的（alpha值为255）。"
 
 #: ../../tutorials/10_composition_mode.rst:12
 msgid ""
@@ -1204,9 +1204,9 @@ msgid ""
 "is the process of combining the source with the destination to create the"
 " appearance of partial or full transparency."
 msgstr ""
-"`Alpha叠加(Alpha compositing) "
+"`Alpha合成(Alpha compositing) "
 "<https://en.wikipedia.org/wiki/Alpha_compositing>`_ : "
-"将包含透明信息的来源色彩和目标色彩进行叠加，从而产生带透明效果的色彩叠加操作。"
+"将包含透明信息的来源色彩和目标色彩进行合成，从而产生带透明效果的色彩合成操作。"
 
 #: ../../tutorials/10_composition_mode.rst:14
 msgid ""
@@ -1221,7 +1221,7 @@ msgstr ""
 msgid ""
 "These three types is not strictly orthogonal, and some compositions have "
 "different names in each type."
-msgstr "这三类操作并非严格正交，某些叠加操作同时属于上述类型中的两类或三类。"
+msgstr "这三类操作并非严格正交，某些合成操作同时属于上述类型中的两类或三类。"
 
 #: ../../tutorials/10_composition_mode.rst:20
 msgid "Bit Blit (Raster Operations)"
@@ -1232,13 +1232,13 @@ msgid ""
 "Bit Blit is the classic composition operation used in old graphic "
 "systems. Because it requires both the source color and the destination "
 "color to be opaque, it's of limited use in modern graphics systems."
-msgstr "在计算机发展的早期，图形系统尚不支持透明时，主要使用光栅运算进行色彩的叠加。因为它只支持对不透明的颜色进行叠加，因此现代图形系统中已经很少使用了。"
+msgstr "在计算机发展的早期，图形系统尚不支持透明时，主要使用光栅运算进行色彩的合成。因为它只支持对不透明的颜色进行合成，因此现代图形系统中已经很少使用了。"
 
 #: ../../tutorials/10_composition_mode.rst:24
 msgid ""
 "A classic usage of the raster operation is using bitwise XOR to draw and "
 "clear a shape, so as to create an animation."
-msgstr "一个典型的例子是反复使用按位XOR叠加运算在同一个位置重复绘制一个图形。第二次绘制时，原有图形会被擦除。这样就可以实现动画的效果。"
+msgstr "一个典型的例子是反复使用按位XOR合成运算在同一个位置重复绘制一个图形。第二次绘制时，原有图形会被擦除。这样就可以实现动画的效果。"
 
 #: ../../tutorials/10_composition_mode.rst:27
 msgid ""
@@ -1248,19 +1248,19 @@ msgstr "在下面的例子中，使用按位XOR运算来绘制和清除一个椭
 
 #: ../../tutorials/10_composition_mode.rst:48
 msgid "Alpha Compositing"
-msgstr "Alpha叠加（Alpha Comositing）"
+msgstr "Alpha合成（Alpha Comositing）"
 
 #: ../../tutorials/10_composition_mode.rst:49
 msgid "Alpha Compositing is the mostly used composition type."
-msgstr "Alpha叠加是目前应用最多的叠加运算类型。"
+msgstr "Alpha合成是目前应用最多的合成运算类型。"
 
 #: ../../tutorials/10_composition_mode.rst:51
 msgid "The following table shows the result of the alpha compositings."
-msgstr "下表展示了alpha叠加的效果："
+msgstr "下表展示了alpha合成的效果："
 
 #: ../../tutorials/10_composition_mode.rst:53
 msgid "Source and Source Over is the mostly used compistings."
-msgstr "Source和Source Over是用的最多的两种叠加运算。"
+msgstr "Source和Source Over是用的最多的两种合成运算。"
 
 #: ../../tutorials/10_composition_mode.rst:58
 msgid "Source and Destination are opaque"
@@ -1573,7 +1573,7 @@ msgstr "结果："
 
 #: ../../tutorials/11_image.rst:113
 msgid "Image Transparency and Composition Mode"
-msgstr "图片透明和叠加"
+msgstr "图片透明和合成"
 
 #: ../../tutorials/11_image.rst:114
 msgid ""
@@ -1696,7 +1696,7 @@ msgstr "**注意**：在这节中使用的函数都无法在无窗口模式（He
 msgid ""
 "In easygraphics, we can use delay() to pause the program from the "
 "specified milliseconds."
-msgstr "在Easy Graphics中，我们可以使用delay()函数来让程序暂停指定的微秒（milliseconds或ms）数。"
+msgstr "在Easy Graphics中，我们可以使用delay()函数来让程序暂停指定的毫秒（milliseconds或ms）数。"
 
 #: ../../tutorials/12_animation.rst:16
 msgid "Control the FPS"
@@ -1718,17 +1718,79 @@ msgstr ""
 "second\"（每秒钟帧数）的缩写。delay_fps()会计算每一帧的实际绘制时长，将程序暂停对应的时长，以保证每帧的总时长一致。"
 
 #: ../../tutorials/12_animation.rst:24
+msgid "Render Mode"
+msgstr "渲染模式（Render Mode）"
+
+#: ../../tutorials/12_animation.rst:25
+msgid "There are two render mode in EasyGraphics:"
+msgstr "在EasyGraphics中有两种渲染模式"
+
+#: ../../tutorials/12_animation.rst:27
+msgid ""
+"**RenderMode.AUTO**: All drawings on the graphics window will show "
+"immediately. This is the default mode, and is for normal drawing."
+msgstr "**自动模式(RenderMode.AUTO)**：所有的在绘图窗口中的绘制都会导致窗口立即刷新。这是缺省工作模式，用于普通的绘图。"
+
+#: ../../tutorials/12_animation.rst:29
+msgid ""
+"**RenderMode.Manual**: Drawings will not show on the graphics window. "
+"Only time control, keyboard or mouse functions like "
+"pause()/delay()/delay_fps()/get_mouse_msg() will update the graphics "
+"window. This mode can speed up the animation frames drawing."
+msgstr "**手动模式(RenderMode.Manual)**：绘制的内容不会立即刷新显示在绘图窗口中。要一直等到pause()/delay()/delay_fps()/get_mouse_msg()等时间控制和鼠标键盘函数被调用时，窗口才会刷新。这个模式用来加速动画帧的绘制。"
+
+#: ../../tutorials/12_animation.rst:33
+msgid ""
+"It's a good practice to set the render mode to manual when your want to "
+"show an animation."
+msgstr "在显示动画前，将渲染模式设置为手动是个好习惯。"
+
+#: ../../tutorials/12_animation.rst:35
+msgid "You can use set_render_mode() to set the render mode."
+msgstr "可以使用set_render_mode()函数来设置渲染模式。"
+
+#: ../../tutorials/12_animation.rst:37
+msgid ""
+"**Note:** If you are not drawing on the graphics window, this render mode"
+" has no effect."
+msgstr "**注意**：如果你不是在绘图窗口中进行绘制，那么渲染模式没有任何效果。"
+
+#: ../../tutorials/12_animation.rst:40
+msgid "Background"
+msgstr "背景处理"
+
+#: ../../tutorials/12_animation.rst:41
+msgid ""
+"Ofter we need to make an object move in a background. If the background "
+"is complicated, it's not a good idea to recreate the background in each "
+"frame."
+msgstr "在动画中，我们经常需要某个物体在特定背景下移动。如果背景较为复杂，那么每帧都从头绘制一遍背景会严重影响绘制的速度。"
+
+#: ../../tutorials/12_animation.rst:44
+msgid ""
+"A common solution is to draw background in one image , and the moving "
+"object in another transparent image. The final result is made by merge "
+"the two images."
+msgstr "在这种情况下，一般的处理方式是将背景预先单独绘制在一个图片上，要动的物体绘制在另一个图片上。通过对两张图片进行合成，来得到最终的结果。"
+
+#: ../../tutorials/12_animation.rst:47
+msgid ""
+"The following program draws a moving bus on the road (background).Note "
+"the use of the is_run() function."
+msgstr "下面的程序绘制了一辆在道路背景上移动的公共汽车。注意is_run()函数的使用。"
+
+#: ../../tutorials/12_animation.rst:90
 msgid "Skipping Frames"
 msgstr "跳帧"
 
-#: ../../tutorials/12_animation.rst:25
+#: ../../tutorials/12_animation.rst:91
 msgid ""
 "Sometimes a drawing can be complicated and slow, and we can't finish a "
 "frame's drawing in the specified frame time. This will create lags in the"
 " animation."
 msgstr "有时，一帧的绘制可能会比较复杂，因此较慢，导致该帧无法在指定的帧时长内完成绘制。这会导致动画出现延迟。"
 
-#: ../../tutorials/12_animation.rst:28
+#: ../../tutorials/12_animation.rst:94
 #, fuzzy
 msgid ""
 "The delay_jfps() can skip some frames ( if a frame is using too mush "
@@ -1736,73 +1798,12 @@ msgid ""
 " fps)."
 msgstr "delay_jfps()函数通过跳帧来保证动画的平稳。跳帧是指，如果某帧绘制的时长太长后续的帧就会被跳过不进行绘制（但是算成是已完成绘制的帧数），从而保证达到指定的FPS。"
 
-#: ../../tutorials/12_animation.rst:32
-msgid "Render Mode"
-msgstr "渲染模式（Render Mode）"
-
-#: ../../tutorials/12_animation.rst:33
-msgid "There are two render mode in EasyGraphics:"
-msgstr "在EasyGraphics中有两种渲染模式"
-
-#: ../../tutorials/12_animation.rst:35
+#: ../../tutorials/12_animation.rst:97
 msgid ""
-"**RenderMode.AUTO**: All drawings on the graphics window will show "
-"immediately. This is the default mode, and is for normal drawing."
+"The following example shows how to use delay_jfps() to control time. Note"
+" that we use sleep() to simulate a long-time drawing operation."
 msgstr ""
-"**自动模式(RenderMode.AUTO)**：所有的在绘图窗口中的绘制都会导致窗口立即刷新。"
-"这是缺省工作模式，用于普通的绘图。"
-
-#: ../../tutorials/12_animation.rst:37
-msgid ""
-"**RenderMode.Manual**: Drawings will not show on the graphics window. "
-"Only time control, keyboard or mouse functions like "
-"pause()/delay()/delay_fps()/get_mouse_msg() will update the graphics "
-"window. This mode can speed up the animation frames drawing."
-msgstr ""
-"**手动模式(RenderMode.Manual)**：绘制的内容不会立即刷新显示在绘图窗口中。"
-"要一直等到pause()/delay()/delay_fps()/get_mouse_msg()等时间控制和鼠标键盘函数被"
-"调用时，窗口才会刷新。这个模式用来加速动画帧的绘制。"
-
-#: ../../tutorials/12_animation.rst:41
-msgid ""
-"It's a good practice to set the render mode to manual when your want to "
-"show an animation."
-msgstr "在显示动画前，将渲染模式设置为手动是个好习惯。"
-
-#: ../../tutorials/12_animation.rst:43
-msgid "You can use set_render_mode() to set the render mode."
-msgstr "可以使用set_render_mode()函数来设置渲染模式。"
-
-#: ../../tutorials/12_animation.rst:45
-msgid ""
-"**Note:** If you are not drawing on the graphics window, this render mode"
-" has no effect."
-msgstr ""
-"**注意**：如果你不是在绘图窗口中进行绘制，那么渲染模式没有任何效果。"
-
-#: ../../tutorials/12_animation.rst:48
-msgid "Background"
-msgstr "背景处理"
-
-#: ../../tutorials/12_animation.rst:49
-msgid ""
-"Ofter we need to make an object move in a background. If the background "
-"is complicated, it's not a good idea to recreate the background in each "
-"frame."
-msgstr "在动画中，我们经常需要某个物体在特定背景下移动。如果背景较为复杂，那么每帧都从头绘制一遍背景会严重影响绘制的速度。"
-
-#: ../../tutorials/12_animation.rst:52
-msgid ""
-"A common solution is to draw background in one image , and the moving "
-"object in another transparent image. The final result is made by merge "
-"the two images."
-msgstr "在这种情况下，一般的处理方式是将背景预先单独绘制在一个图片上，要动的物体绘制在另一个图片上。通过对两张图片进行合成，来得到最终的结果。"
-
-#: ../../tutorials/12_animation.rst:55
-msgid ""
-"The following program draws a moving bus on the road (background).Note "
-"the use of the is_run() function."
-msgstr "下面的程序绘制了一辆在道路背景上移动的公共汽车。注意is_run()函数的使用。"
+"下面的例子展示了delay_jfps()的用法。注意我们用sleep()来模拟一个耗时的操作，以便观看跳帧的效果。"
 
 #: ../../tutorials/13_mouse_and_keyboard.rst:2
 msgid "Mouse and Keyboard"
@@ -1836,35 +1837,35 @@ msgid ""
 "clicked, and buttons that are pressed when clicking."
 msgstr "我们可以使用get_click()函数来暂停程序，等待鼠标点击。该函数会返回被点击位置的x,y坐标，和点击时按下了哪些鼠标键。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:36
+#: ../../tutorials/13_mouse_and_keyboard.rst:37
 msgid "Cursor Positions"
 msgstr "光标位置"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:37
+#: ../../tutorials/13_mouse_and_keyboard.rst:38
 msgid ""
 "Sometimes we need to get the position of the cursor. We can use "
 "get_cursor_pos() to get this job done."
 msgstr "get_cursor_pos()函数返回光标所在的位置。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:39
+#: ../../tutorials/13_mouse_and_keyboard.rst:40
 msgid "The following program continuously displays mouse cursor's position."
 msgstr "下面的程序持续在绘图窗口中更新光标的位置。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:57
+#: ../../tutorials/13_mouse_and_keyboard.rst:59
 msgid "Mouse Button Press and Release"
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:58
+#: ../../tutorials/13_mouse_and_keyboard.rst:60
 msgid ""
 "You can use get_mouse_msg() to get mouse button press and release "
 "messages."
 msgstr "可以使用get_mouse_msg()来获取鼠标按钮按下和松开的信息。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:61
+#: ../../tutorials/13_mouse_and_keyboard.rst:63
 msgid "Non-Blocking mouse processing"
 msgstr "非阻塞（Non-Blocking）鼠标处理"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:62
+#: ../../tutorials/13_mouse_and_keyboard.rst:64
 msgid ""
 "get_click()/get_mouse_msg() will block the program if there are no mouse "
 "press/click in the last 100ms. If you want to check the mouse operation "
@@ -1873,21 +1874,21 @@ msgid ""
 "the mouse message."
 msgstr "如果在之前的100毫秒内没有鼠标操作，get_click()/get_mouse_msg()函数会阻塞程序（暂停程序执行），等待鼠标操作。如果你希望程序能够在检查鼠标操作后不要等待立即继续执行，那么可以先使用非阻塞函数has_mouse_msg()来检查是否有待处理的鼠标操作，然后再使用get_mouse_msg()来获取鼠标信息。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:66
+#: ../../tutorials/13_mouse_and_keyboard.rst:68
 msgid ""
 "The following program continuously check display cursor's postion and "
 "mouse button press/release events."
 msgstr "下面的程序持续检查并更新鼠标的位置和鼠标按钮的按下和松开。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:91
+#: ../../tutorials/13_mouse_and_keyboard.rst:94
 msgid "Mouse Message Demo"
 msgstr "鼠标消息示例"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:93
+#: ../../tutorials/13_mouse_and_keyboard.rst:96
 msgid "The following program draws a bezier curve interactively"
 msgstr "下面的程序演示了如何通过处理鼠标操作来交互式的绘制一条贝塞尔曲线。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:95
+#: ../../tutorials/13_mouse_and_keyboard.rst:98
 msgid ""
 "First click on the window to set the first control point of the curve. "
 "Then click on the window to set the second control point of the curve. "
@@ -1895,26 +1896,26 @@ msgid ""
 "the fourth control point."
 msgstr "首先，在绘图窗口中点击，设置曲线第一个控制点的位置；然后，在窗口中再次点击，设置第四个控制点的位置；然后，从这两个点中任意一个开始使用鼠标的拖拽操作（在控制点上按下鼠标左键，不放开，拖动鼠标光标到想要的位置上再松开）设置第二和第三个控制点。程序会实时动态显示生成的贝塞尔曲线。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:170
+#: ../../tutorials/13_mouse_and_keyboard.rst:174
 msgid "Char Input"
 msgstr "字符输入"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:171
+#: ../../tutorials/13_mouse_and_keyboard.rst:175
 msgid ""
 "We can use has_kb_hit() to see if there is any ascii char pressed, and "
 "use get_char() to get the inputted char. has_kb_hit() is non-blocking, "
 "and get_char() is blocking."
 msgstr "我们可以使用has_kb_hit()函数（非阻塞）来检查是否有任意的ascii可见字符被输入，然后使用get_char()函数（阻塞）来读取输入的字符。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:174
+#: ../../tutorials/13_mouse_and_keyboard.rst:178
 msgid "The following program is a simple print game."
 msgstr "下面的程序是一个简单的打字游戏"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:236
+#: ../../tutorials/13_mouse_and_keyboard.rst:241
 msgid "Key Pressed"
 msgstr "按键消息"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:237
+#: ../../tutorials/13_mouse_and_keyboard.rst:242
 msgid ""
 "We can use has_kb_msg() to see if there is any key pressed, and use "
 "get_key() to get the pressed key. has_kb_msg() is non-blocking, and "

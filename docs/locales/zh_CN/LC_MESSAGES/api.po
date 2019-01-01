@@ -4,15 +4,16 @@
 # package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: EasyGraphics \n"
+"Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 22:03+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2019-01-01 19:40+0800\n"
+"PO-Revision-Date: 2018-12-31 09:26+0800\n"
+"Last-Translator: \n"
+"Language: zh_CN\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ../../api.rst:2
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../api.rst:5
 msgid "Subpackages"
@@ -60,928 +61,908 @@ msgstr "初始化easygraphics系统，显示绘图窗口。"
 msgid "Drawing Settings"
 msgstr "绘图设置"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ""
 ":obj:`get_background_color <easygraphics.get_background_color>`\\ "
 "\\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_background_color:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_background_color:1 of
 msgid "Get the background color of the image."
 msgstr "获取图片的背景色。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.get_color>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_color:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_color:1 of
 msgid "Get the foreground (drawing) color of the specified image."
 msgstr "获取指定的图片的前景色（画笔颜色）。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ""
 ":obj:`get_composition_mode <easygraphics.get_composition_mode>`\\ "
 "\\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_composition_mode:1
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_composition_mode:1
 #: easygraphics.get_write_mode:1 of
-msgid "Get composition mode of the specified image"
-msgstr "获取指定图片的叠加模式(Composition mode)。"
+msgid "Get composition mode of the specified image."
+msgstr "获取指定图片的合成模式(Composition mode)。"
 
-#: ../../api.rst:75:<autosummary>:1
-msgid ":obj:`get_cursor_pos <easygraphics.get_cursor_pos>`\\ \\(\\)"
-msgstr ""
-
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_cursor_pos:1 of
-msgid "Get position of the mouse cursor"
-msgstr "获取鼠标光标的位置。"
-
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_drawing_pos <easygraphics.get_drawing_pos>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_drawing_pos:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_drawing_pos:1 of
 msgid "Get the current drawing position (x,y)."
 msgstr "获取指定图片的“当前绘图位置”。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_fill_color <easygraphics.get_fill_color>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_fill_color:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_fill_color:1 of
 msgid "Get the fill color of the specified image."
 msgstr "获取指定图片的填充色。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_fill_style <easygraphics.get_fill_style>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_fill_style:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_fill_style:1 of
 msgid "Get fill style of the specified image."
 msgstr "获取指定图片的填充样式。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_font <easygraphics.get_font>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_font:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_font:1 of
 msgid "Get font of the specified image."
 msgstr "获取指定图片的字体。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_font_size <easygraphics.get_font_size>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_font_size:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_font_size:1 of
 msgid "Get font size of the specified image."
 msgstr "获取指定图片的字体大小。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_height <easygraphics.get_height>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_height:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_height:1 of
 msgid "Get height of the specified image."
 msgstr "获取指定图片的高度。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_line_style <easygraphics.get_line_style>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_line_style:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_line_style:1 of
 msgid "Get line style of the specified image."
 msgstr "获取指定图片的（画笔）线型。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_line_width <easygraphics.get_line_width>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_line_width:1 of
-#, fuzzy
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_line_width:1 of
 msgid "Get line width (thinkness) of the specified image."
 msgstr "获取指定图片的（画笔）线宽。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_width <easygraphics.get_width>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_width:1 of
-#, fuzzy
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_width:1 of
 msgid "Get width of the specified image."
 msgstr "获取指定图片的宽度。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_write_mode <easygraphics.get_write_mode>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_x <easygraphics.get_x>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_x:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_x:1 of
 msgid "Get the x coordinate value of the current drawing position (x,y)."
 msgstr "获取指定图片\"当前绘图位置\"的横坐标x。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`get_y <easygraphics.get_y>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.get_y:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.get_y:1 of
 msgid "Get the y coordinate value of the current drawing position (x,y)."
 msgstr "获取指定图片\"当前绘图位置\"的纵坐标y。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`reset_view_port <easygraphics.reset_view_port>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.reset_view_port:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.reset_view_port:1 of
 msgid "Reset the view port setting."
 msgstr "恢复缺省的视口设置。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`reset_window <easygraphics.reset_window>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.reset_window:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.reset_window:1 of
 msgid "Reset/remove the logical window."
 msgstr "恢复缺省的逻辑窗口设置。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`restore_settings <easygraphics.restore_settings>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.restore_settings:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.restore_settings:1 of
 msgid "Restore previously saved drawing settings."
 msgstr "恢复之前保存的绘图设置。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`save_settings <easygraphics.save_settings>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.save_settings:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.save_settings:1 of
 msgid "Save current drawing settings."
 msgstr "保存当前的绘图设置。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ""
 ":obj:`set_background_color <easygraphics.set_background_color>`\\ "
 "\\(color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_background_color:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_background_color:1 of
 msgid "Set and change the background color."
 msgstr "设置和修改背景色。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`set_caption <easygraphics.set_caption>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_caption:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_caption:1 of
 msgid "Set the graph window's caption"
 msgstr "设置绘图窗口的标题"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ""
 ":obj:`set_clip_rect <easygraphics.set_clip_rect>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_clip_rect:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_clip_rect:1 of
 msgid "Set the clip rect."
 msgstr "设置矩形剪裁区域。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`set_clipping <easygraphics.set_clipping>`\\ \\(clipping\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_clipping:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_clipping:1 of
 msgid "Set clipping."
 msgstr "设置是否启用剪裁。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`set_color <easygraphics.set_color>`\\ \\(color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_color:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_color:1 of
 msgid "Set the foreground (drawing) color of the specified image."
 msgstr "设置指定图片的前景色。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ""
 ":obj:`set_composition_mode <easygraphics.set_composition_mode>`\\ "
 "\\(mode\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_composition_mode:1
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_composition_mode:1
 #: easygraphics.set_write_mode:1 of
-#, fuzzy
-msgid "Get composition mode of the specified image."
-msgstr "为指定的image设置**线形**"
+msgid "Set composition mode of the specified image."
+msgstr "获取指定图片的合成模式(Composition mode)。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`set_fill_color <easygraphics.set_fill_color>`\\ \\(color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_fill_color:1 of
-#, fuzzy
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_fill_color:1 of
 msgid "Set the fill (drawing) color of the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "设置指定图片的填充色。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`set_fill_style <easygraphics.set_fill_style>`\\ \\(style\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_fill_style:1 of
-#, fuzzy
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_fill_style:1 of
 msgid "Set fill style of the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "设置指定图片的填充样式。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`set_font <easygraphics.set_font>`\\ \\(font\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_font:1 of
-#, fuzzy
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_font:1 of
 msgid "Set font of the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "设置指定图片的字体。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`set_font_size <easygraphics.set_font_size>`\\ \\(size\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_font_size:1 of
-#, fuzzy
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_font_size:1 of
 msgid "Set font size of the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "设置指定图片的字体大小。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ""
 ":obj:`set_line_style <easygraphics.set_line_style>`\\ \\(line\\_style\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_line_style:1 of
-#, fuzzy
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_line_style:1 of
 msgid "Set line style of the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "设置指定图片的线型。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`set_line_width <easygraphics.set_line_width>`\\ \\(width\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_line_width:1 of
-#, fuzzy
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_line_width:1 of
 msgid "Set line width (thickness) of the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "设置指定图片的线宽。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ""
 ":obj:`set_view_port <easygraphics.set_view_port>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_view_port:1 of
-#, fuzzy
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_view_port:1 of
 msgid "Set the view port of the the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "设置指定图片的视口。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ""
 ":obj:`set_window <easygraphics.set_window>`\\ \\(origin\\_x\\, "
 "origin\\_y\\, width\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.set_window:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.set_window:1 of
 msgid "Set the logical drawing window."
-msgstr ""
+msgstr "设置指定图片的逻辑窗口。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`set_write_mode <easygraphics.set_write_mode>`\\ \\(mode\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`text_height <easygraphics.text_height>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.text_height:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.text_height:1 of
 msgid "Return height of the text (font height)."
-msgstr ""
+msgstr "返回指定图片的文字（字体）高度。"
 
-#: ../../api.rst:75:<autosummary>:1
+#: ../../api.rst:74:<autosummary>:1
 msgid ":obj:`text_width <easygraphics.text_width>`\\ \\(text\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:75:<autosummary>:1 easygraphics.text_width:1 of
+#: ../../api.rst:74:<autosummary>:1 easygraphics.text_width:1 of
 msgid "Return width of the text."
-msgstr ""
+msgstr "返回文字在指定图片中完整显示需要的宽度。"
 
-#: ../../api.rst:77
+#: ../../api.rst:76
 msgid "Basic Drawing"
-msgstr ""
+msgstr "基本绘图函数"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`arc <easygraphics.arc>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, radius\\_x\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid "Draw an elliptical arc from start_angle to end_angle."
-msgstr ""
+msgstr "绘制一条椭圆弧，起始角度为“start_angle”，结束角度为“end_angle”。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`bezier <easygraphics.bezier>`\\ \\(control\\_points\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.bezier:1
+#: ../../api.rst:126:<autosummary>:1 easygraphics.bezier:1
 #: easygraphics.draw_bezier:1 of
 msgid "Draw a cubic bezier curve."
-msgstr ""
+msgstr "绘制一条贝塞尔曲线。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`chord <easygraphics.chord>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid "Draw an elliptical chord outline from start_angle to end_angle."
-msgstr ""
+msgstr "绘制一个空心椭圆弓形（弧+弦），起始角度为“start_angle”，结束角度为“end_angle”。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`circle <easygraphics.circle>`\\ \\(x\\, y\\, r\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.circle:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.circle:1 of
 msgid "Draw a circle outline centered at (x,y) with radius r."
-msgstr ""
+msgstr "画一个空心圆，圆心位于点(x,y)半径为r的。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`clear_device <easygraphics.clear_device>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.clear_device:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.clear_device:1 of
 msgid "Clear the image to show the background."
-msgstr ""
+msgstr "清除指定图片上已经绘制的内容（露出背景色）。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`clear_view_port <easygraphics.clear_view_port>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.clear_view_port:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.clear_view_port:1 of
 msgid "clear view port to show the background."
-msgstr ""
+msgstr "清除视口中已经绘制的内容（露出背景色）。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_arc <easygraphics.draw_arc>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_bezier <easygraphics.draw_bezier>`\\ \\(control\\_points\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_chord <easygraphics.draw_chord>`\\ \\(x\\, y\\, "
 "start\\_angle\\, end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`draw_circle <easygraphics.draw_circle>`\\ \\(x\\, y\\, r\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_circle:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_circle:1 of
 msgid "Draw a circle centered at (x,y) with radius r."
-msgstr ""
+msgstr "以点(x,y)为圆心，r为半径画圆。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_ellipse <easygraphics.draw_ellipse>`\\ \\(x\\, y\\, "
 "radius\\_x\\, radius\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_ellipse:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_ellipse:1 of
 msgid ""
 "Draw an ellipse centered at (x,y) , radius on x-axis is radius_x, radius "
 "on y-axis is radius_y."
-msgstr ""
+msgstr "以点(x,y)为中心，radius_x为x轴方向半径，radius_y为y轴方向半径，画矩形。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_line <easygraphics.draw_line>`\\ \\(x1\\, y1\\, x2\\, y2\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_line:1
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_line:1
 #: easygraphics.line:1 of
-#, fuzzy
 msgid "Draw a line from (x1,y1) to (x2,y2) on the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "在指定图片上画一条从点(x1,y1)到点(x2,y2)的线段。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`draw_lines <easygraphics.draw_lines>`\\ \\(points\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_lines:1
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_lines:1
 #: easygraphics.lines:1 of
-msgid "Draw lines"
-msgstr ""
+msgid "Draw lines."
+msgstr "画多条直线。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_pie <easygraphics.draw_pie>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid "Draw an elliptical pie from start_angle to end_angle."
-msgstr ""
+msgstr "画一个椭圆饼，起始角度为start_angle，结束角度为end_angle。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`draw_point <easygraphics.draw_point>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_point:1 of
-#, fuzzy
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_point:1 of
 msgid "Draw a point at (x,y) on the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "在指定图片的点(x,y)处画一个点。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_poly_line <easygraphics.draw_poly_line>`\\ \\(end\\_points\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_poly_line:1
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_poly_line:1
 #: easygraphics.poly_line:1 of
-msgid "Draw poly lines."
-msgstr ""
+msgid "Draw a poly line."
+msgstr "画一条折线(ploy line)。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`draw_polygon <easygraphics.draw_polygon>`\\ \\(vertices\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_polygon:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_polygon:1 of
 msgid "Draw a polygon."
-msgstr ""
+msgstr "画一个多边形。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_rect <easygraphics.draw_rect>`\\ \\(left\\, top\\, right\\, "
 "bottom\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_rect:1
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_rect:1
 #: easygraphics.fill_rect:1 of
 msgid ""
 "Draws a rectangle with upper left corner at (left, top) and lower right "
 "corner at (right,bottom)."
-msgstr ""
+msgstr "画一个矩形，其左上角位于点(left,top)，右下角位于点(right,bottom)。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_rect_text <easygraphics.draw_rect_text>`\\ \\(x\\, y\\, "
 "width\\, height\\, \\*args\\[\\, ...\\]\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_rect_text:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_rect_text:1 of
 msgid "Print the given texts in the specified rectangle area."
-msgstr ""
+msgstr "在指定的矩形区域中打印文字。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_rounded_rect <easygraphics.draw_rounded_rect>`\\ \\(left\\, "
 "top\\, right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 "Draws a rounded rectangle with upper left corner at (left, top) , lower "
 "right corner at (right,bottom)."
-msgstr ""
+msgstr "绘制圆角矩形，其左上角位于点(left,top)处，右下角位于(right,bottom)处。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`draw_text <easygraphics.draw_text>`\\ \\(x\\, y\\, \\*args\\[\\, "
 "sep\\]\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.draw_text:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.draw_text:1 of
 msgid "Prints the given texts beginning at the given position (x,y)."
-msgstr ""
+msgstr "在给定的位置(x,y)处打印文字。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`ellipse <easygraphics.ellipse>`\\ \\(x\\, y\\, radius\\_x\\, "
 "radius\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.ellipse:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.ellipse:1 of
 msgid ""
 "Draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x,"
 " radius on y-axis is radius_y."
-msgstr ""
+msgstr "画一个空心椭圆，椭圆圆心位于点(x,y)，x轴坐标为radius_x，y轴坐标为radius_y。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`fill_chord <easygraphics.fill_chord>`\\ \\(x\\, y\\, "
 "start\\_angle\\, end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`fill_circle <easygraphics.fill_circle>`\\ \\(x\\, y\\, r\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.fill_circle:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.fill_circle:1 of
 msgid "Fill a circle centered at (x,y) with radius r."
-msgstr ""
+msgstr "填充一个实心圆，圆心位于点(x,y)，半径为r。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`fill_ellipse <easygraphics.fill_ellipse>`\\ \\(x\\, y\\, "
 "radius\\_x\\, radius\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.fill_ellipse:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.fill_ellipse:1 of
 msgid ""
 "Fill an ellipse centered at (x,y) , radius on x-axis is radius_x, radius "
 "on y-axis is radius_y."
-msgstr ""
+msgstr "填充一个实心椭圆，圆心位于点(x,y)，x轴方向半径为radius_x, y轴方向为radius_y。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`fill_pie <easygraphics.fill_pie>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid "Fill an elliptical pie from start_angle to end_angle."
-msgstr ""
+msgstr "填充一个椭圆扇形，它的起始角度为start_angle，结束角度为eng_angle。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`fill_polygon <easygraphics.fill_polygon>`\\ \\(vertices\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.fill_polygon:1 of
-msgid "fill polygon"
-msgstr ""
+#: ../../api.rst:126:<autosummary>:1 easygraphics.fill_polygon:1 of
+msgid "Fill a polygon."
+msgstr "填充一个多边形。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`fill_rect <easygraphics.fill_rect>`\\ \\(left\\, top\\, right\\, "
 "bottom\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`fill_rounded_rect <easygraphics.fill_rounded_rect>`\\ \\(left\\, "
 "top\\, right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 "Fill a rounded rectangle with upper left corner at (left, top) , lower "
 "right corner at (right,bottom)."
-msgstr ""
+msgstr "填充一个圆角矩形，左上角位于点(left,top)，右下角位于(right,bottom)。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`flood_fill <easygraphics.flood_fill>`\\ \\(x\\, y\\, "
 "border\\_color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.flood_fill:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.flood_fill:1 of
 msgid ""
 "Flood fill the image starting from(x,y) and ending at borders with "
 "border_color."
-msgstr ""
+msgstr "使用泛洪（Flood fill）算法填充封闭图形。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`get_pixel <easygraphics.get_pixel>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.get_pixel:1 of
-#, fuzzy
+#: ../../api.rst:126:<autosummary>:1 easygraphics.get_pixel:1 of
 msgid "Get a pixel's color on the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "获取指定像素的颜色。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`line <easygraphics.line>`\\ \\(x1\\, y1\\, x2\\, y2\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`line_rel <easygraphics.line_rel>`\\ \\(dx\\, dy\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.line_rel:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.line_rel:1 of
 msgid ""
 "Draw a line from the current drawing position (x,y) to (x+dx,y+dy),     "
 "then set the drawing position is set to (x+dx,y+dy)."
-msgstr ""
+msgstr "从当前绘图位置(x,y)到(x+dx,y+dy)画线，然后将当前绘图位置更新为(x+dx,y+dy)。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`line_to <easygraphics.line_to>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.line_to:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.line_to:1 of
 msgid ""
 "Draw a line from the current drawing position to (x,y), then set the "
 "drawing position is set to (x,y)."
-msgstr ""
+msgstr "从当前绘图位置到(x,y)画线，然后将当前绘图位置更新为(x,y)。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`lines <easygraphics.lines>`\\ \\(points\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`move_rel <easygraphics.move_rel>`\\ \\(dx\\, dy\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.move_rel:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.move_rel:1 of
 msgid "Move the drawing position by (dx,dy)."
-msgstr ""
+msgstr "将绘图位置在x轴方向移动dx，在y轴方向移动dy。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`move_to <easygraphics.move_to>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.move_to:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.move_to:1 of
 msgid "Set the drawing position to (x,y)."
-msgstr ""
+msgstr "设置当前绘图位置到(x,y)。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`pie <easygraphics.pie>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, radius\\_x\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid "Draw an elliptical pie outline from start_angle to end_angle."
-msgstr ""
+msgstr "画一个空心椭圆扇形，起始角度为“start_angle”，结束角度为“end_angle”。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`poly_line <easygraphics.poly_line>`\\ \\(end\\_points\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`polygon <easygraphics.polygon>`\\ \\(vertices\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.polygon:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.polygon:1 of
 msgid "Draw polygon outline."
-msgstr ""
+msgstr "画一个空心多边形。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ":obj:`put_pixel <easygraphics.put_pixel>`\\ \\(x\\, y\\, color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.put_pixel:1 of
-#, fuzzy
+#: ../../api.rst:126:<autosummary>:1 easygraphics.put_pixel:1 of
 msgid "Set a pixel's color on the specified image."
-msgstr "为指定的image设置**线形**"
+msgstr "将指定像素设为指定的颜色。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`rect <easygraphics.rect>`\\ \\(left\\, top\\, right\\, bottom\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1 easygraphics.rect:1 of
+#: ../../api.rst:126:<autosummary>:1 easygraphics.rect:1 of
 msgid ""
 "Draws a rectangle outline with upper left corner at (left, top) and lower"
 " right corner at (right,bottom)."
-msgstr ""
+msgstr "画一个空心矩形，左上角位于点(left,top)，右下角位于(right,bottom)。"
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 ":obj:`rounded_rect <easygraphics.rounded_rect>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:127:<autosummary>:1
+#: ../../api.rst:126:<autosummary>:1
 msgid ""
 "Draws a rounded rectangle outline with upper left corner at (left, top) ,"
 " lower right corner at (right,bottom)."
-msgstr ""
+msgstr "画一个空心圆角矩形，左上角位于点(left,top)，右下角位于(right,bottom)。"
 
-#: ../../api.rst:129
+#: ../../api.rst:128
 msgid "Transform"
-msgstr ""
+msgstr "几何变换（Transform)"
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ":obj:`flip <easygraphics.flip>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1 easygraphics.flip:1 easygraphics.mirror:1
+#: ../../api.rst:144:<autosummary>:1 easygraphics.flip:1 easygraphics.mirror:1
 #: easygraphics.reflect:1 of
-msgid "Reflect the coordinates against the line passing (0,0) and (x,y)"
-msgstr ""
+msgid "Reflect the coordinates against the line passing (0,0) and (x,y)."
+msgstr "以过原点(0,0)和点(x,y)的直线为轴，反射(reflect)坐标系。"
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ":obj:`mirror <easygraphics.mirror>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ":obj:`reflect <easygraphics.reflect>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ":obj:`reset_transform <easygraphics.reset_transform>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1 easygraphics.reset_transform:1 of
+#: ../../api.rst:144:<autosummary>:1 easygraphics.reset_transform:1 of
 msgid "Reset all transforms (translate/rotate/scale)."
-msgstr ""
+msgstr "重置（取消）所有几何变换。"
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ":obj:`rotate <easygraphics.rotate>`\\ \\(degree\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1 easygraphics.rotate:1 of
+#: ../../api.rst:144:<autosummary>:1 easygraphics.rotate:1 of
 msgid "Rotates the coordinate system the given angle (in degree) clockwise."
-msgstr ""
+msgstr "顺时针绕原点旋转坐标系。"
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ":obj:`scale <easygraphics.scale>`\\ \\(sx\\, sy\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1 easygraphics.scale:1 of
+#: ../../api.rst:144:<autosummary>:1 easygraphics.scale:1 of
 msgid "Scales the coordinate system by (sx, sy)."
-msgstr ""
+msgstr "坐标轴沿x轴方向缩放(scale)sx倍，沿y轴方向缩放sy倍。"
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ":obj:`set_origin <easygraphics.set_origin>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1 easygraphics.set_origin:1 of
+#: ../../api.rst:144:<autosummary>:1 easygraphics.set_origin:1 of
 msgid "Set the drawing systems' origin(0,0) to (x,y)."
-msgstr ""
+msgstr "将坐标系的原点(0,0)移动到点(x,y)处。"
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ":obj:`shear <easygraphics.shear>`\\ \\(sh\\, sv\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1 easygraphics.shear:1 easygraphics.skew:1
+#: ../../api.rst:144:<autosummary>:1 easygraphics.shear:1 easygraphics.skew:1
 #: of
 msgid "Shear (skew) the coordinates around the origin by sh,sv"
-msgstr ""
+msgstr "绕原点沿x轴方向和y轴方向同时对图像做剪切(shear或者skew)sh和sv倍。"
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ":obj:`skew <easygraphics.skew>`\\ \\(sh\\, sv\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1
+#: ../../api.rst:144:<autosummary>:1
 msgid ""
 ":obj:`translate <easygraphics.translate>`\\ \\(offset\\_x\\, "
 "offset\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:145:<autosummary>:1
-msgid "Translates the coordinate system by the given offset; i.e."
-msgstr ""
+#: ../../api.rst:144:<autosummary>:1 easygraphics.translate:1 of
+msgid ""
+"Translates the coordinate system by the given offset; i.e.the given "
+"offset is added to points."
+msgstr "将坐标轴平移指定的位移。"
 
-#: ../../api.rst:147
+#: ../../api.rst:146
 msgid "Animation"
-msgstr ""
+msgstr "动画处理"
 
-#: ../../api.rst:159:<autosummary>:1
+#: ../../api.rst:158:<autosummary>:1
 msgid ":obj:`delay <easygraphics.delay>`\\ \\(milliseconds\\)"
 msgstr ""
 
-#: ../../api.rst:159:<autosummary>:1 easygraphics.delay:1 of
+#: ../../api.rst:158:<autosummary>:1 easygraphics.delay:1 of
 msgid "Delay the programm for specified milliseconds"
-msgstr ""
+msgstr "程序暂停指定的时间（毫秒）"
 
-#: ../../api.rst:159:<autosummary>:1
+#: ../../api.rst:158:<autosummary>:1
 msgid ":obj:`delay_fps <easygraphics.delay_fps>`\\ \\(fps\\)"
 msgstr ""
 
-#: ../../api.rst:159:<autosummary>:1 easygraphics.delay_fps:1 of
-msgid "Delay the program to control fps (Frame pers seconds)."
-msgstr ""
+#: ../../api.rst:158:<autosummary>:1 easygraphics.delay_fps:1 of
+msgid "Delay the program to control fps (Frame per seconds)."
+msgstr "通过暂停程序来控制动画的FPS（Frame per seconds)。"
 
-#: ../../api.rst:159:<autosummary>:1
+#: ../../api.rst:158:<autosummary>:1
 msgid ""
 ":obj:`delay_jfps <easygraphics.delay_jfps>`\\ \\(fps\\[\\, "
 "max\\_skip\\_count\\]\\)"
 msgstr ""
 
-#: ../../api.rst:159:<autosummary>:1 easygraphics.delay_jfps:1 of
-msgid "Delay to control fps with frame skiping."
-msgstr ""
+#: ../../api.rst:158:<autosummary>:1 easygraphics.delay_jfps:1 of
+msgid "Delay to control fps with frame skipping."
+msgstr "通过暂停程序来控制动画的FPS（Frame per seconds)。带跳帧判断。"
 
-#: ../../api.rst:159:<autosummary>:1
+#: ../../api.rst:158:<autosummary>:1
 msgid ":obj:`get_render_mode <easygraphics.get_render_mode>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:159:<autosummary>:1 easygraphics.get_render_mode:1
+#: ../../api.rst:158:<autosummary>:1 easygraphics.get_render_mode:1
 #: easygraphics.set_render_mode:1 of
 msgid "Set render mode of the graphics window."
-msgstr ""
+msgstr "设置绘图窗口的绘制模式"
 
-#: ../../api.rst:159:<autosummary>:1
+#: ../../api.rst:158:<autosummary>:1
 msgid ":obj:`is_run <easygraphics.is_run>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:159:<autosummary>:1 easygraphics.is_run:1 of
+#: ../../api.rst:158:<autosummary>:1 easygraphics.is_run:1 of
 msgid "Test if the graphics system is running."
-msgstr ""
+msgstr "检查图形系统是否在运行。"
 
-#: ../../api.rst:159:<autosummary>:1
+#: ../../api.rst:158:<autosummary>:1
 msgid ":obj:`set_render_mode <easygraphics.set_render_mode>`\\ \\(mode\\)"
 msgstr ""
 
-#: ../../api.rst:161
+#: ../../api.rst:160
 msgid "Image Processing"
-msgstr ""
+msgstr "图片处理"
 
-#: ../../api.rst:175:<autosummary>:1
+#: ../../api.rst:174:<autosummary>:1
 msgid ""
 ":obj:`capture_screen <easygraphics.capture_screen>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:175:<autosummary>:1 easygraphics.capture_screen:1 of
+#: ../../api.rst:174:<autosummary>:1 easygraphics.capture_screen:1 of
 msgid "Caputre specified region on the graphics windows to target image."
-msgstr ""
+msgstr "在图形窗口上截取指定区域的内容保存到图片中。"
 
-#: ../../api.rst:175:<autosummary>:1
+#: ../../api.rst:174:<autosummary>:1
 msgid ":obj:`close_image <easygraphics.close_image>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:175:<autosummary>:1 easygraphics.close_image:1 of
-msgid "Close the specied image :param image: the image to be closed"
-msgstr ""
+#: ../../api.rst:174:<autosummary>:1 easygraphics.close_image:1 of
+msgid "Close the specied image."
+msgstr "关闭指定的图片。"
 
-#: ../../api.rst:175:<autosummary>:1
+#: ../../api.rst:174:<autosummary>:1
 msgid ":obj:`create_image <easygraphics.create_image>`\\ \\(width\\, height\\)"
 msgstr ""
 
-#: ../../api.rst:175:<autosummary>:1 easygraphics.create_image:1 of
+#: ../../api.rst:174:<autosummary>:1 easygraphics.create_image:1 of
 msgid "Create a new image."
-msgstr ""
+msgstr "创建一个新图片。"
 
-#: ../../api.rst:175:<autosummary>:1
+#: ../../api.rst:174:<autosummary>:1
 msgid ""
 ":obj:`draw_image <easygraphics.draw_image>`\\ \\(x\\, y\\, src\\_image\\,"
 " src\\_x\\, src\\_y\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:175:<autosummary>:1 easygraphics.draw_image:1
+#: ../../api.rst:174:<autosummary>:1 easygraphics.draw_image:1
 #: easygraphics.put_image:1 of
 msgid ""
-"Copy part of the source image (src_image) to the destination image (self)"
-" at (x,y)."
-msgstr ""
+"Copy part of the source image (src_image) to the destination image "
+"(dst_image)."
+msgstr "将来源图片(src_image)复制到目的图片(dst_image)。"
 
-#: ../../api.rst:175:<autosummary>:1
+#: ../../api.rst:174:<autosummary>:1
 msgid ":obj:`get_target <easygraphics.get_target>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:175:<autosummary>:1 easygraphics.get_target:1 of
+#: ../../api.rst:174:<autosummary>:1 easygraphics.get_target:1 of
 msgid "Get the target image for drawing on."
-msgstr ""
+msgstr "获取当前的绘制目标（target）。"
 
-#: ../../api.rst:175:<autosummary>:1
+#: ../../api.rst:174:<autosummary>:1
 msgid ":obj:`load_image <easygraphics.load_image>`\\ \\(filename\\)"
 msgstr ""
 
-#: ../../api.rst:175:<autosummary>:1 easygraphics.load_image:1 of
-msgid "Load a image from the file"
-msgstr ""
+#: ../../api.rst:174:<autosummary>:1 easygraphics.load_image:1 of
+msgid "Load a image from the file."
+msgstr "读取图片文件。"
 
-#: ../../api.rst:175:<autosummary>:1
+#: ../../api.rst:174:<autosummary>:1
 msgid ""
 ":obj:`put_image <easygraphics.put_image>`\\ \\(x\\, y\\, src\\_image\\, "
 "src\\_x\\, src\\_y\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:175:<autosummary>:1
+#: ../../api.rst:174:<autosummary>:1
 msgid ""
 ":obj:`save_image <easygraphics.save_image>`\\ \\(filename\\[\\, "
 "with\\_background\\]\\)"
 msgstr ""
 
-#: ../../api.rst:175:<autosummary>:1 easygraphics.save_image:1 of
+#: ../../api.rst:174:<autosummary>:1 easygraphics.save_image:1 of
 msgid "Save image to file."
-msgstr ""
+msgstr "保存图片到文件。"
 
-#: ../../api.rst:175:<autosummary>:1
+#: ../../api.rst:174:<autosummary>:1
 msgid ":obj:`set_target <easygraphics.set_target>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:175:<autosummary>:1 easygraphics.set_target:1 of
+#: ../../api.rst:174:<autosummary>:1 easygraphics.set_target:1 of
 msgid "Set the target image for drawing on."
-msgstr ""
+msgstr "设置绘制目标（target）"
 
-#: ../../api.rst:177
+#: ../../api.rst:176
 msgid "Keyboard and Mouse"
-msgstr ""
+msgstr "键盘与鼠标"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ""
@@ -991,7 +972,7 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1 easygraphics.contains_left_button:1 of
 msgid "Test if the buttons contains the left mouse button."
-msgstr ""
+msgstr "检查是否包含鼠标左键。"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ""
@@ -1001,7 +982,7 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1 easygraphics.contains_mid_button:1 of
 msgid "Test if the buttons contains the middle mouse button."
-msgstr ""
+msgstr "检查是否包含鼠标中键。"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ""
@@ -1011,7 +992,7 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1 easygraphics.contains_right_button:1 of
 msgid "Test if the buttons contains the right mouse button."
-msgstr ""
+msgstr "检查是否包含鼠标右键。"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ":obj:`get_char <easygraphics.get_char>`\\ \\(\\)"
@@ -1019,7 +1000,7 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1 easygraphics.get_char:1 of
 msgid "Get the ascii char inputted by keyboard."
-msgstr ""
+msgstr "读取键盘输入的字符。（阻塞程序）"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ":obj:`get_click <easygraphics.get_click>`\\ \\(\\)"
@@ -1027,7 +1008,15 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1 easygraphics.get_click:1 of
 msgid "Get the mouse click message."
+msgstr "获取鼠标点击信息。（阻塞程序）"
+
+#: ../../api.rst:193:<autosummary>:1
+msgid ":obj:`get_cursor_pos <easygraphics.get_cursor_pos>`\\ \\(\\)"
 msgstr ""
+
+#: ../../api.rst:193:<autosummary>:1 easygraphics.get_cursor_pos:1 of
+msgid "Get position of the mouse cursor"
+msgstr "获取鼠标光标的位置。（非阻塞）"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ":obj:`get_key <easygraphics.get_key>`\\ \\(\\)"
@@ -1035,7 +1024,7 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1 easygraphics.get_key:1 of
 msgid "Get the key inputted by keyboard."
-msgstr ""
+msgstr "获取键盘按下的键信息。（阻塞程序）"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ":obj:`get_mouse_msg <easygraphics.get_mouse_msg>`\\ \\(\\)"
@@ -1043,7 +1032,7 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1 easygraphics.get_mouse_msg:1 of
 msgid "Get the mouse message."
-msgstr ""
+msgstr "获取鼠标按钮按下或者松开信息。（阻塞）"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ":obj:`has_kb_hit <easygraphics.has_kb_hit>`\\ \\(\\)"
@@ -1051,7 +1040,7 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1
 msgid "See if any ascii char key is hitted in the last 100 ms."
-msgstr ""
+msgstr "检查过去100毫秒内是否有字符从键盘输入。"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ":obj:`has_kb_msg <easygraphics.has_kb_msg>`\\ \\(\\)"
@@ -1059,17 +1048,15 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1
 msgid "See if any key is hitted in the last 100 ms."
-msgstr ""
+msgstr "检查过去100毫秒内键盘是否有键被按下。"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ":obj:`has_mouse_msg <easygraphics.has_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1 easygraphics.has_mouse_msg:1 of
-msgid ""
-"see if there's any mouse message(event) in the last 100 ms use it with "
-"get_mouse_msg()"
-msgstr ""
+msgid "See if there is any mouse message(event) in the last 100 ms."
+msgstr "检查过去100毫秒内是否有鼠标按钮被按下或者松开。"
 
 #: ../../api.rst:193:<autosummary>:1
 msgid ":obj:`pause <easygraphics.pause>`\\ \\(\\)"
@@ -1077,11 +1064,11 @@ msgstr ""
 
 #: ../../api.rst:193:<autosummary>:1 easygraphics.pause:1 of
 msgid "Pause the grogram and wait for mouse clicking or keyboard hitting."
-msgstr ""
+msgstr "暂停程序，等待鼠标点击或者键盘按任意键继续。"
 
 #: ../../api.rst:195
 msgid "Color & utilities"
-msgstr ""
+msgstr "颜色和工具"
 
 #: ../../api.rst:208:<autosummary>:1
 msgid ":obj:`cart2pol <easygraphics.cart2pol>`\\ \\(x\\, y\\)"
@@ -1089,7 +1076,7 @@ msgstr ""
 
 #: ../../api.rst:208:<autosummary>:1 easygraphics.cart2pol:1 of
 msgid "Transform a point from cartesian coordinates to polar coordinates."
-msgstr ""
+msgstr "从笛卡尔坐标转换为极坐标。"
 
 #: ../../api.rst:208:<autosummary>:1
 msgid ""
@@ -1099,7 +1086,7 @@ msgstr ""
 
 #: ../../api.rst:208:<autosummary>:1 easygraphics.color_cmyk:1 of
 msgid "Create a color with CMYK color values c,m,y,k."
-msgstr ""
+msgstr "创建CMYK颜色。"
 
 #: ../../api.rst:208:<autosummary>:1
 msgid ":obj:`color_hsv <easygraphics.color_hsv>`\\ \\(h\\, s\\, v\\, alpha\\)"
@@ -1107,7 +1094,7 @@ msgstr ""
 
 #: ../../api.rst:208:<autosummary>:1 easygraphics.color_hsv:1 of
 msgid "Create a color with HSV color values h,s,v."
-msgstr ""
+msgstr "创建HSV颜色。"
 
 #: ../../api.rst:208:<autosummary>:1
 msgid ""
@@ -1118,7 +1105,7 @@ msgstr ""
 #: ../../api.rst:208:<autosummary>:1 easygraphics.color_rgb:1
 #: easygraphics.rgb:1 of
 msgid "Create a color with RGB color values r,g,b."
-msgstr ""
+msgstr "创建RGB颜色。"
 
 #: ../../api.rst:208:<autosummary>:1
 msgid ":obj:`pol2cart <easygraphics.pol2cart>`\\ \\(rho\\, theta\\)"
@@ -1126,7 +1113,7 @@ msgstr ""
 
 #: ../../api.rst:208:<autosummary>:1 easygraphics.pol2cart:1 of
 msgid "Transform a point from polar coordinates to cartesian coordinates."
-msgstr ""
+msgstr "从极坐标转换为笛卡尔坐标。"
 
 #: ../../api.rst:208:<autosummary>:1
 msgid ":obj:`rgb <easygraphics.rgb>`\\ \\(red\\, green\\, blue\\, alpha\\)"
@@ -1137,12 +1124,12 @@ msgid ":obj:`to_alpha <easygraphics.to_alpha>`\\ \\(new\\_color\\, alpha\\)"
 msgstr ""
 
 #: ../../api.rst:208:<autosummary>:1 easygraphics.to_alpha:1 of
-msgid "Get new color based on the given color and alpha"
-msgstr ""
+msgid "Get new color based on the given color and alpha."
+msgstr "用所给的颜色和alpha值创建新颜色。"
 
 #: ../../api.rst:210
 msgid "Constants"
-msgstr ""
+msgstr "常量"
 
 #: ../../api.rst:222:<autosummary>:1
 msgid ":obj:`Color <easygraphics.Color>`\\"
@@ -1150,7 +1137,7 @@ msgstr ""
 
 #: ../../api.rst:222:<autosummary>:1 easygraphics.Color:1 of
 msgid "These are the predefined Color constants."
-msgstr ""
+msgstr "这些是预定义的颜色常量。"
 
 #: ../../api.rst:222:<autosummary>:1
 msgid ":obj:`CompositionMode <easygraphics.CompositionMode>`\\"
@@ -1158,15 +1145,15 @@ msgstr ""
 
 #: ../../api.rst:222:<autosummary>:1 easygraphics.CompositionMode:1 of
 msgid "Defines the modes supported for digital image compositing."
-msgstr ""
+msgstr "定义了绘图时的合成模式。"
 
 #: ../../api.rst:222:<autosummary>:1
 msgid ":obj:`FillStyle <easygraphics.FillStyle>`\\"
 msgstr ""
 
 #: ../../api.rst:222:<autosummary>:1 easygraphics.FillStyle:1 of
-msgid "These are the fille style used by draw and fill functions."
-msgstr ""
+msgid "These are the fill style used by draw and fill functions."
+msgstr "这些是draw_xxx和fill_xxx函数使用的填充模式。"
 
 #: ../../api.rst:222:<autosummary>:1
 msgid ":obj:`LineStyle <easygraphics.LineStyle>`\\"
@@ -1174,7 +1161,7 @@ msgstr ""
 
 #: ../../api.rst:222:<autosummary>:1
 msgid "These are the line styles that can be drawn."
-msgstr ""
+msgstr "这些是绘制线条时的线型。"
 
 #: ../../api.rst:222:<autosummary>:1
 msgid ":obj:`MouseMessageType <easygraphics.MouseMessageType>`\\"
@@ -1182,15 +1169,15 @@ msgstr ""
 
 #: ../../api.rst:222:<autosummary>:1 easygraphics.MouseMessageType:1 of
 msgid "These are the mouse message types."
-msgstr ""
+msgstr "这些是鼠标信息类型。"
 
 #: ../../api.rst:222:<autosummary>:1
 msgid ":obj:`RenderMode <easygraphics.RenderMode>`\\"
 msgstr ""
 
 #: ../../api.rst:222:<autosummary>:1 easygraphics.RenderMode:1 of
-msgid "These are the graphics window drawing mode."
-msgstr ""
+msgid "These are the graphics window render mode."
+msgstr "这些是图形窗口的渲染模式。"
 
 #: ../../api.rst:222:<autosummary>:1
 msgid ":obj:`TextFlags <easygraphics.TextFlags>`\\"
@@ -1198,11 +1185,11 @@ msgstr ""
 
 #: ../../api.rst:222:<autosummary>:1 easygraphics.TextFlags:1 of
 msgid "These are the text drawing flags."
-msgstr ""
+msgstr "这些是文本绘制标志。"
 
 #: ../../api.rst:224
 msgid "API Details"
-msgstr ""
+msgstr "API详情"
 
 #: easygraphics.Color:1 easygraphics.CompositionMode:1 easygraphics.FillStyle:1
 #: easygraphics.LineStyle:1 easygraphics.MouseMessageType:1
@@ -1212,111 +1199,111 @@ msgstr ""
 
 #: easygraphics.Color.BLACK:1 of
 msgid "Black color"
-msgstr ""
+msgstr "黑色"
 
 #: easygraphics.Color.BLUE:1 of
 msgid "Blue"
-msgstr ""
+msgstr "蓝色"
 
 #: easygraphics.Color.BROWN:1 of
 msgid "brown"
-msgstr ""
+msgstr "褐色"
 
 #: easygraphics.Color.CYAN:1 of
 msgid "cyan"
-msgstr ""
+msgstr "青色"
 
 #: easygraphics.Color.DARK_BLUE:1 of
 msgid "dark blue"
-msgstr ""
+msgstr "深蓝色"
 
 #: easygraphics.Color.DARK_CYAN:1 of
 msgid "dark cyan"
-msgstr ""
+msgstr "深青色"
 
 #: easygraphics.Color.DARK_GRAY:1 of
 msgid "Dark Gray color"
-msgstr ""
+msgstr "深灰色"
 
 #: easygraphics.Color.DARK_GREEN:1 of
 msgid "dark green"
-msgstr ""
+msgstr "深绿色"
 
 #: easygraphics.Color.DARK_MAGENTA:1 of
 msgid "dark magenta"
-msgstr ""
+msgstr "深紫红色"
 
 #: easygraphics.Color.DARK_RED:1 of
 msgid "dark red"
-msgstr ""
+msgstr "深红色"
 
 #: easygraphics.Color.DARK_YELLOW:1 of
 msgid "dark yellow"
-msgstr ""
+msgstr "深黄色"
 
 #: easygraphics.Color.GREEN:1 of
 msgid "Green"
-msgstr ""
+msgstr "绿色"
 
 #: easygraphics.Color.LIGHT_BLUE:1 of
 msgid "Light blue"
-msgstr ""
+msgstr "浅蓝色"
 
 #: easygraphics.Color.LIGHT_CYAN:1 of
 msgid "light cyan"
-msgstr ""
+msgstr "浅青色"
 
 #: easygraphics.Color.LIGHT_GRAY:1 of
 msgid "Light Gray"
-msgstr ""
+msgstr "浅灰色"
 
 #: easygraphics.Color.LIGHT_GREEN:1 of
 msgid "Light green"
-msgstr ""
+msgstr "浅绿色"
 
 #: easygraphics.Color.LIGHT_MAGENTA:1 of
 msgid "light magenta"
-msgstr ""
+msgstr "浅紫红色"
 
 #: easygraphics.Color.LIGHT_RED:1 of
 msgid "light red"
-msgstr ""
+msgstr "浅红色"
 
 #: easygraphics.Color.LIGHT_YELLOW:1 of
 msgid "light yellow"
-msgstr ""
+msgstr "浅黄色"
 
 #: easygraphics.Color.MAGENTA:1 of
 msgid "magenta"
-msgstr ""
+msgstr "紫红色"
 
 #: easygraphics.Color.RED:1 of
 msgid "red"
-msgstr ""
+msgstr "红色"
 
 #: easygraphics.Color.TRANSPARENT:1 of
 msgid "Transparent"
-msgstr ""
+msgstr "透明"
 
 #: easygraphics.Color.WHITE:1 of
 msgid "White"
-msgstr ""
+msgstr "白色"
 
 #: easygraphics.Color.YELLOW:1 of
 msgid "yellow"
-msgstr ""
+msgstr "黄色"
 
 #: easygraphics.FillStyle.NULL_FILL:1 of
 msgid "Not fill at all. For example, draw_circle() will not fill."
-msgstr ""
+msgstr "不填充。"
 
 #: easygraphics.FillStyle.SOLID_FILL:1 of
 msgid "Fill with solid color. see set_fill_color()."
-msgstr ""
+msgstr "使用填充色填充。见set_fill_color()。"
 
 #: easygraphics.LineStyle:1 of
 msgid "These are the line styles that can be drawn. The styles are:"
-msgstr ""
+msgstr "这些是画线时的线型。可用的线型包括："
 
 #: easygraphics.LineStyle:5 of
 msgid "|qpen-solid|"
@@ -1331,19 +1318,16 @@ msgid "|qpen-dot|"
 msgstr ""
 
 #: easygraphics.LineStyle:8 of
-#, fuzzy
 msgid "LineStyle.SOLID_LINE"
-msgstr "线型"
+msgstr "LineStyle.SOLID_LINE"
 
 #: easygraphics.LineStyle:9 of
-#, fuzzy
 msgid "LineStyle.DASH_LINE"
-msgstr "线型"
+msgstr "LineStyle.DASH_LINE"
 
 #: easygraphics.LineStyle:10 of
-#, fuzzy
 msgid "LineStyle.DOT_LINE"
-msgstr "线型"
+msgstr "LineStyle.DOT_LINE"
 
 #: easygraphics.LineStyle:11 of
 msgid "|qpen-dashdot|"
@@ -1355,62 +1339,62 @@ msgstr ""
 
 #: easygraphics.LineStyle:14 of
 msgid "LineStyle.DASH_DOT_LINE"
-msgstr ""
+msgstr "LineStyle.DASH_DOT_LINE"
 
 #: easygraphics.LineStyle:15 of
 msgid "LineStyle.DASH_DOT_DOT_LINE"
 msgstr ""
 
 #: easygraphics.LineStyle:16 of
-#, fuzzy
 msgid "LineStyle.NO_PEN"
-msgstr "线型"
+msgstr "LineStyle.NO_PEN"
 
 #: easygraphics.LineStyle.DASH_DOT_DOT_LINE:1 of
 msgid "One dash, two dots, one dash, two dots."
-msgstr ""
+msgstr "一横，两点，一横，两点。"
 
 #: easygraphics.LineStyle.DASH_DOT_LINE:1 of
 msgid "Alternate dots and dashes."
-msgstr ""
+msgstr "交替短横和点。"
 
 #: easygraphics.LineStyle.DASH_LINE:1 of
 msgid "Dashes separated by a few pixels."
-msgstr ""
+msgstr "虚线。"
 
 #: easygraphics.LineStyle.DOT_LINE:1 of
 msgid "Dots separated by a few pixels."
-msgstr ""
+msgstr "点虚线。"
 
 #: easygraphics.LineStyle.NO_PEN:1 of
 msgid ""
 "no line at all. For example, draw_circle fills but does not draw any "
 "boundary line."
-msgstr ""
+msgstr "不画线。"
 
 #: easygraphics.LineStyle.SOLID_LINE:1 of
 msgid "A plain line"
-msgstr ""
+msgstr "实线"
 
 #: easygraphics.RenderMode.RENDER_AUTO:1 of
 msgid "The graphics window is updated after each drawn."
-msgstr ""
+msgstr "每次绘制后，绘图窗口都会刷新以显示出新绘制的内容。"
 
 #: easygraphics.RenderMode.RENDER_MANUAL:1 of
 msgid "The graphics window only updated after functions that wait or delay."
-msgstr ""
+msgstr "只有在等待、延迟或者阻塞函数被调用时，绘图窗口才会更新。"
 
 #: easygraphics.CompositionMode:3 of
 msgid ""
 "Composition modes are used to specify how the pixels in one image, the "
 "source, are merged     with the pixel in another image, the destination."
-msgstr ""
+msgstr "合成模式控制在绘制时，如何对来源色彩和目标色彩进行合成以得到结果颜色。"
 
 #: easygraphics.CompositionMode:5 of
 msgid ""
 "Please note that the bitwise operation modes are not supported for pens "
 "and brushes with alpha components."
-msgstr ""
+msgstr "注意，光栅运算(Raster operations)/位运算(bitwise operations)合成模式要求"
+"来源色彩和目标色彩都不透明。"
 
 #: easygraphics.CompositionMode.CLEAR:1 of
 msgid ""
@@ -1701,14 +1685,14 @@ msgstr "**线型**用于画线和形状轮廓。在LineStyle中定义了可用�
 #: easygraphics.arc easygraphics.bezier easygraphics.capture_screen
 #: easygraphics.cart2pol easygraphics.chord easygraphics.circle
 #: easygraphics.clear_device easygraphics.clear_view_port
-#: easygraphics.color_cmyk easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
-#: easygraphics.draw_circle easygraphics.draw_ellipse easygraphics.draw_image
-#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
-#: easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_hsv
+#: easygraphics.color_rgb easygraphics.contains_left_button
+#: easygraphics.contains_mid_button easygraphics.contains_right_button
+#: easygraphics.create_image easygraphics.delay easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.draw_arc easygraphics.draw_bezier
+#: easygraphics.draw_chord easygraphics.draw_circle easygraphics.draw_ellipse
+#: easygraphics.draw_image easygraphics.draw_line easygraphics.draw_lines
+#: easygraphics.draw_pie easygraphics.draw_point easygraphics.draw_poly_line
 #: easygraphics.draw_polygon easygraphics.draw_rect easygraphics.draw_rect_text
 #: easygraphics.draw_rounded_rect easygraphics.draw_text easygraphics.ellipse
 #: easygraphics.fill_chord easygraphics.fill_circle easygraphics.fill_ellipse
@@ -1767,8 +1751,9 @@ msgstr ""
 #: easygraphics.cart2pol easygraphics.color_cmyk easygraphics.color_hsv
 #: easygraphics.color_rgb easygraphics.contains_left_button
 #: easygraphics.contains_mid_button easygraphics.contains_right_button
-#: easygraphics.create_image easygraphics.get_background_color
-#: easygraphics.get_char easygraphics.get_click easygraphics.get_color
+#: easygraphics.create_image easygraphics.delay_jfps
+#: easygraphics.get_background_color easygraphics.get_char
+#: easygraphics.get_click easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
 #: easygraphics.get_drawing_pos easygraphics.get_fill_color
 #: easygraphics.get_fill_style easygraphics.get_font easygraphics.get_font_size
@@ -2207,12 +2192,6 @@ msgid ""
 "the target image (see set_target() and get_target())."
 msgstr ""
 
-#: easygraphics.translate:1 of
-msgid ""
-"Translates the coordinate system by the given offset; i.e. the given "
-"offset is added to points."
-msgstr ""
-
 #: easygraphics.translate:3 of
 msgid "offset on the x coordinate"
 msgstr ""
@@ -2303,14 +2282,12 @@ msgid ""
 msgstr ""
 
 #: easygraphics.get_width:5 of
-#, fuzzy
 msgid "width of the specified image"
-msgstr "为指定的image设置**线形**"
+msgstr "所指图片的宽度"
 
 #: easygraphics.get_height:5 of
-#, fuzzy
 msgid "height of the specified image"
-msgstr "为指定的image设置**线形**"
+msgstr "所指图片的高度"
 
 #: easygraphics.draw_point:3 of
 msgid "x coordinate value of the drawing point"
@@ -2911,6 +2888,10 @@ msgid ""
 "(see set_target() and get_target())."
 msgstr ""
 
+#: easygraphics.close_image:3 of
+msgid "the image to be closed"
+msgstr ""
+
 #: easygraphics.load_image:3 of
 msgid "the image file"
 msgstr ""
@@ -2932,7 +2913,7 @@ msgid "This function won't skip frames."
 msgstr ""
 
 #: easygraphics.delay_fps:7 of
-msgid "the descire fps"
+msgid "the desire fps"
 msgstr ""
 
 #: easygraphics.delay_jfps:3 of
@@ -2944,7 +2925,11 @@ msgid "frames per second (max is 1000)"
 msgstr ""
 
 #: easygraphics.delay_jfps:6 of
-msgid "max num of  frames to skip"
+msgid "max num of  frames to skip (0 means no limit)"
+msgstr ""
+
+#: easygraphics.delay_jfps:7 of
+msgid "True if this frame should not be skipped"
 msgstr ""
 
 #: easygraphics.is_run:3 of
@@ -2965,7 +2950,11 @@ msgid ""
 "get_char()."
 msgstr ""
 
-#: easygraphics.has_mouse_msg:4 of
+#: easygraphics.has_mouse_msg:3 of
+msgid "Use it with get_mouse_msg()."
+msgstr ""
+
+#: easygraphics.has_mouse_msg:5 of
 msgid "True if any mouse message, False or not"
 msgstr ""
 
@@ -3068,12 +3057,6 @@ msgstr ""
 msgid "The program will exit too."
 msgstr ""
 
-#: easygraphics.close_graph:5 of
-msgid ""
-">>>from easygraphics import * >>>init_graph(800,600) >>>pause() "
-">>>close_graph()"
-msgstr ""
-
 #: easygraphics.set_caption:3 of
 msgid "caption title"
 msgstr ""
@@ -3137,670 +3120,40 @@ msgstr ""
 
 #: easygraphics.pol2cart:3 of
 msgid "rho coordinate value of the point"
-msgstr ""
+msgstr "点的极径rho（点到极点的距离）"
 
 #: easygraphics.pol2cart:4 of
 msgid "theta coordinate value of the point (in radians)"
-msgstr ""
+msgstr "点的极角theta（极轴和点到极点间线段的夹角，单位为弧度）"
 
 #: easygraphics.pol2cart:5 of
 msgid "x,y coordinate value of the point"
-msgstr ""
+msgstr "点的x,y轴坐标"
 
 #: easygraphics.cart2pol:3 of
 msgid "x coordinate value of the point"
-msgstr ""
+msgstr "转换后点的x轴坐标"
 
 #: easygraphics.cart2pol:4 of
 msgid "y coordinate value of the point"
-msgstr ""
+msgstr "转换后点的y轴坐标"
 
 #: easygraphics.cart2pol:5 of
 msgid ""
 "rho (distance from the pole (origin) to the point), theta (the angle "
 "between the polar-axis and the line connecting the pole and the point, in"
 " radians)"
-msgstr ""
+msgstr "极径rho(点到极点的距离), 极角theta(极轴和点到极点间线段的夹角，单位为弧度)"
 
-#~ msgid "APIs"
-#~ msgstr ""
-
-#~ msgid "Used by autodoc_mock_imports."
-#~ msgstr ""
-
-#~ msgid "get line style of the specified image"
-#~ msgstr ""
-
-#~ msgid "set line width (thickness) of the specified image"
-#~ msgstr ""
-
-#~ msgid "get line width (thinkness) of the specified image"
-#~ msgstr ""
-
-#~ msgid "get the foreground (drawing) color of the specified image"
-#~ msgstr ""
-
-#~ msgid "set the foreground (drawing) color of the specified image."
-#~ msgstr ""
-
-#~ msgid "get the fill color of the specified image"
-#~ msgstr ""
-
-#~ msgid "set the fill (drawing) color of the specified image"
-#~ msgstr ""
-
-#~ msgid "get fill style of the specified image"
-#~ msgstr ""
-
-#~ msgid "set fill style of the specified image"
-#~ msgstr ""
-
-#~ msgid "get the background color of the image"
-#~ msgstr ""
-
-#~ msgid "set the background  color of the image"
-#~ msgstr ""
-
-#~ msgid "set font of the specified image"
-#~ msgstr ""
-
-#~ msgid "get font of the specified image"
-#~ msgstr ""
-
-#~ msgid "set font size of the specified image"
-#~ msgstr ""
-
-#~ msgid "get font size of the specified image"
-#~ msgstr ""
-
-#~ msgid "set write mode of the specified image"
-#~ msgstr ""
+#~ msgid "Get composition mode of the specified image"
+#~ msgstr "设置指定图片的合成模式。"
 
 #~ msgid ""
-#~ "When drawing ,the wrtie mode will "
-#~ "decide how the result pixel color "
-#~ "will be computed"
+#~ "Translates the coordinate system by the"
+#~ " given offset; i.e. the given offset"
+#~ " is added to points."
 #~ msgstr ""
 
-#~ msgid "source color is the color of the pen/brush."
-#~ msgstr ""
-
-#~ msgid "destination color is the color of the pixel will be painted on."
-#~ msgstr ""
-
-#~ msgid "the result color will be computed by bitwise operations"
-#~ msgstr ""
-
-#~ msgid "possibly modes are consts defined in the WriteMode:"
-#~ msgstr ""
-
-#~ msgid "WriteMode.R2_COPYPEN （The default mode) just use the source color"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_MASKNOTPEN   （not source color) and (destination color)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_MASKPEN   （source color ) and (destination color)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_MASKPENNOT   (source color) and (not destination color)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_MERGENOTPEN   (not source color) or (destination color)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_MERGEPEN   (source color) or (destination color)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_MERGEPENNOT   (source color) or (not destination color)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "WriteMOde.R2_NOP   just use the destination"
-#~ " color (nothing really painted)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_NOT   (not desination color)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_NOTCOPYPEN   (not source color)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_NOTMASKPEN   (not source) or (not destination)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_NOTMERGEPEN   (not source) and (not destination)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_NOTXORPEN   (not source) xor (destination)"
-#~ msgstr ""
-
-#~ msgid "WriteMOde.R2_XORPEN   (source) xor (destination)"
-#~ msgstr ""
-
-#~ msgid "write mode"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "the target image whose write mode "
-#~ "is to be set. None means it "
-#~ "is the target image (see set_target()"
-#~ " and get_target())."
-#~ msgstr ""
-
-#~ msgid "get write mode of the specified image"
-#~ msgstr ""
-
-#~ msgid "get the x coordinate value of the current drawing position (x,y)"
-#~ msgstr ""
-
-#~ msgid "get the y coordinate value of the current drawing position (x,y)"
-#~ msgstr ""
-
-#~ msgid "set the view port of the the specified image"
-#~ msgstr ""
-
-#~ msgid "if True, drawings outside the port rectangle will be cliped"
-#~ msgstr ""
-
-#~ msgid "set the drawing systems' origin(0,0) to (x,y)"
-#~ msgstr ""
-
-#~ msgid "set render mode of the graphics window"
-#~ msgstr ""
-
-#~ msgid "this mode will control how the graphics window is updated."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "this mode will control how the "
-#~ "graphics window is updated. see "
-#~ "**set_render_mode()**"
-#~ msgstr ""
-
-#~ msgid "get the current drawing position (x,y)"
-#~ msgstr ""
-
-#~ msgid "set the clip rect"
-#~ msgstr ""
-
-#~ msgid "disable clipping"
-#~ msgstr ""
-
-#~ msgid "drawings will not be clipped"
-#~ msgstr ""
-
-#~ msgid "set the logical drawing window"
-#~ msgstr ""
-
-#~ msgid "reset/remove the logical window"
-#~ msgstr ""
-
-#~ msgid "see set_window()"
-#~ msgstr ""
-
-#~ msgid "Rotates the coordinate system the given angle (in degree)clockwise ."
-#~ msgstr ""
-
-#~ msgid "reset all transforms (translate/rotate/scale)"
-#~ msgstr ""
-
-#~ msgid "draw a point at (x,y) on the specified image"
-#~ msgstr ""
-
-#~ msgid "set a pixel's color on the specified image"
-#~ msgstr ""
-
-#~ msgid "get a pixel's color on the specified image"
-#~ msgstr ""
-
-#~ msgid "Draw a line from (x1,y1) to (x2,y2) on the specified image"
-#~ msgstr ""
-
-#~ msgid "it's the same with line()"
-#~ msgstr ""
-
-#~ msgid "set the drawing position to (x,y)"
-#~ msgstr ""
-
-#~ msgid "the drawing position is used by line_to(), line_rel() and move_rel()"
-#~ msgstr ""
-
-#~ msgid "move the drawing position by (dx,dy)"
-#~ msgstr ""
-
-#~ msgid "if the old position is (x,y), then the new position will be (x+dx,y+dy)"
-#~ msgstr ""
-
-#~ msgid "the drawing position is used by line_to(), line_rel()"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw a line from the current "
-#~ "drawing position to (x,y), then set "
-#~ "the drawing position is set to "
-#~ "(x,y)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw a line from the current "
-#~ "drawing position (x,y) to (x+dx,y+dy),"
-#~ "      then set the drawing position "
-#~ "is set to (x+d,y+dy)"
-#~ msgstr ""
-
-#~ msgid "draw a circle outline centered at (x,y) with radius r"
-#~ msgstr ""
-
-#~ msgid "the circle is not filled"
-#~ msgstr ""
-
-#~ msgid "draw a circle centered at (x,y) with radius r"
-#~ msgstr ""
-
-#~ msgid "the circle is filled and has outline"
-#~ msgstr ""
-
-#~ msgid "fill a circle centered at (x,y) with radius r"
-#~ msgstr ""
-
-#~ msgid "the circle dosen't has outline"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an ellipse outline centered at "
-#~ "(x,y) , radius on x-axis is "
-#~ "radius_x, radius on y-axis is radius_y"
-#~ msgstr ""
-
-#~ msgid "the ellipse is not filled"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an ellipse centered at (x,y) "
-#~ ", radius on x-axis is radius_x, "
-#~ "radius on y-axis is radius_y"
-#~ msgstr ""
-
-#~ msgid "the ellipse is filled and has outline"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "fill an ellipse centered at (x,y) "
-#~ ", radius on x-axis is radius_x, "
-#~ "radius on y-axis is radius_y"
-#~ msgstr ""
-
-#~ msgid "the ellipse dosen't has outline"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an elliptical arc from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)      which radius "
-#~ "on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an elliptical pie outline from "
-#~ "start_angle to end_angle. The base "
-#~ "ellipse is centered at (x,y)      which"
-#~ " radius on x-axis is radius_x and "
-#~ "radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "the pie is not filled."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an elliptical pie from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)      which radius "
-#~ "on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "the pie is filled and has outline."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "fill an elliptical pie from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)      which radius "
-#~ "on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "the pie dosen't have outline."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an elliptical chord outline from"
-#~ " start_angle to end_angle. The base "
-#~ "ellipse is centered at (x,y)      which"
-#~ " radius on x-axis is radius_x and "
-#~ "radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "the chord is not filled."
-#~ msgstr ""
-
-#~ msgid "the chord is filled and has outline"
-#~ msgstr ""
-
-#~ msgid "the chord doesn't have outline."
-#~ msgstr ""
-
-#~ msgid "draw a bezier curve"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "poly_points is a 2D point list. "
-#~ "Each point has 2 coordinate values "
-#~ "in the list.     So if you have"
-#~ " 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), the"
-#~ " list should be      [x0,y0,x1,y1,x2,y2,x3,y3]"
-#~ msgstr ""
-
-#~ msgid "point list"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw lines points is a 2D point"
-#~ " pair list. It should contain even"
-#~ " points, and each 2 points make "
-#~ "a point pair. And each point have"
-#~ " 2 coordinate values(x,y). So if you"
-#~ " have n point pairs, the points "
-#~ "list should have 4*n values."
-#~ msgstr ""
-
-#~ msgid "draw poly lines"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "points is a 2D point list. Each"
-#~ " 2 values in the list make a"
-#~ " point. A poly line will be "
-#~ "drawn to connect adjecent points defined"
-#~ " by the the list."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "For examples , if points is "
-#~ "[50,50,550,350, 50,150,550,450, 50,250,550,550], "
-#~ "draw_poly_line() will draw 5 lines: "
-#~ "(50,50) to (550,350), (550,350) to "
-#~ "(50,150), (50,150) to (550,450), (550,540) "
-#~ "to (50,250) and(50,250) to (550,550)"
-#~ msgstr ""
-
-#~ msgid "draw polygon outline"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "points is a 2D point list. Each"
-#~ " 2 values in the list make a"
-#~ " point. A polygon will be drawn "
-#~ "to connect adjecent points defined by"
-#~ " the the list."
-#~ msgstr ""
-
-#~ msgid "draw polygon"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draws a rectangle outline with upper "
-#~ "left corner at (left, top) and "
-#~ "lower right corner at (right,bottom)"
-#~ msgstr ""
-
-#~ msgid "the rectangle is not filled"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draws a rectangle with upper left "
-#~ "corner at (left, top) and lower "
-#~ "right corner at (right,bottom)"
-#~ msgstr ""
-
-#~ msgid "the rectangle is filled and has outline"
-#~ msgstr ""
-
-#~ msgid "the rectangle doesn't have outline"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "flood fill the image starting from(x,y)"
-#~ " and ending at borders with "
-#~ "border_color"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "copy part of the source image "
-#~ "(src_image) to the destination image "
-#~ "(self) at (x,y)"
-#~ msgstr ""
-
-#~ msgid "Clear the image with the background color"
-#~ msgstr ""
-
-#~ msgid "clear view port with the background color"
-#~ msgstr ""
-
-#~ msgid "Prints the given texts beginning at the given position (x,y)"
-#~ msgstr ""
-
-#~ msgid "print the given texts in the specified rectangle area"
-#~ msgstr ""
-
-#~ msgid "Available flags are: （Defined in pyqt5's PyQt5.QtCore pacakge)"
-#~ msgstr ""
-
-#~ msgid "Qt.AlignLeft          Aligns with the left edge."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignRight        Aligns with the right edge."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignHCenter      Centers horizontally in the available space."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignJustify      Justifies the text in the available space."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignTop          Aligns with the top."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignBottom       Aligns with the bottom."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignVCenter      Centers vertically in the available space."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignCenter       Centers in both dimensions."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextDontClip      If it's impossible to"
-#~ " stay within the given bounds, it "
-#~ "prints outside."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextSingleLine    Treats all whitespace as"
-#~ " spaces and prints just one line."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextExpandTabs    Makes the U+0009 (ASCII"
-#~ " tab) character move to the next "
-#~ "tab stop."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextShowMnemonic  Displays the string "
-#~ "\"&P\" as P For an ampersand, use"
-#~ " \"&&\"."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextWordWrap      Breaks lines at "
-#~ "appropriate points, e.g. at word "
-#~ "boundaries."
-#~ msgstr ""
-
-#~ msgid "return width of the text"
-#~ msgstr ""
-
-#~ msgid "return height of the text (font height)"
-#~ msgstr ""
-
-#~ msgid "set the target image for drawing on"
-#~ msgstr ""
-
-#~ msgid "get the target image for drawing on"
-#~ msgstr ""
-
-#~ msgid "create a new image"
-#~ msgstr ""
-
-#~ msgid "pause the grogram and wait for mouse clicking or keyboard hiting"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Delay the programm for specified "
-#~ "milliseconds :param milliseconds: time to "
-#~ "delay"
-#~ msgstr ""
-
-#~ msgid "Delay the program to control fps (Frame pers seconds)"
-#~ msgstr ""
-
-#~ msgid "valid fps value is 1-1000, this value is **not checked** for speed"
-#~ msgstr ""
-
-#~ msgid "this function won't skip frames"
-#~ msgstr ""
-
-#~ msgid "delay to control fps with frame skiping"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "if we don't have enough time to"
-#~ " delay, we'll skip some frames :param"
-#~ " fps: frames per second (max is "
-#~ "1000) :param max_skip_count: max num of"
-#~ "  frames to skip"
-#~ msgstr ""
-
-#~ msgid "Test if the graphics system is running.( :return:"
-#~ msgstr ""
-
-#~ msgid "see if any key is hitted in the last 100 ms use it with get_key()"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "see if any ascii char key is "
-#~ "hitted in the last 100 ms use "
-#~ "it with get_char()"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "see if there's any mouse message(event)"
-#~ " in the last 100 ms use it "
-#~ "with get_mouse()"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "get the key inputted by keyboard "
-#~ "if not any  key is pressed in "
-#~ "last 100 ms, the program will stop"
-#~ " and wait for the next key "
-#~ "hitting"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "keyboard code (see "
-#~ "http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum) ,"
-#~ " keyboard modifier codes (see "
-#~ "http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-"
-#~ "enum)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "get the ascii char inputted by "
-#~ "keybord if not any char key is "
-#~ "pressed in last 100 ms, the "
-#~ "program will stop and wait for the"
-#~ " next key hitting"
-#~ msgstr ""
-
-#~ msgid "the character inputted by keybord"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "get the key inputted by keybord if"
-#~ " not any  key is pressed in "
-#~ "last 100 ms, the program will stop"
-#~ " and wait for the next key "
-#~ "hitting"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "x of the cursor, y of the "
-#~ "cursor , mouse buttons down ( "
-#~ "Qt.LeftButton or Qt.RightButton or "
-#~ "Qt.MidButton or Qt.NoButton)"
-#~ msgstr ""
-
-#~ msgid "init the easygraphics system and show the graphics window"
-#~ msgstr ""
-
-#~ msgid ""
-#~ ">>>from easygraphics import * "
-#~ ">>>init_graph(800,600) #prepare and show a "
-#~ "800*600 window"
-#~ msgstr ""
-
-#~ msgid "close the graphics windows"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "the program will exit too >>>from "
-#~ "easygraphics import * >>>init_graph(800,600) "
-#~ ">>>pause() >>>close_graph()"
-#~ msgstr ""
-
-#~ msgid "set the graph window's caption"
-#~ msgstr ""
-
-#~ msgid "create a color with r,g,b"
-#~ msgstr ""
-
-#~ msgid "alpha value of the color. 255 means fully opaque"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "some drawing functions will use the "
-#~ "current pos to draw.(see "
-#~ "line_to(),line_rel(),move_to(),move_rel())"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw a line from the current "
-#~ "drawing position (x,y) to (x+dx,y+dy),     "
-#~ "then set the drawing position is "
-#~ "set to (x+d,y+dy)."
-#~ msgstr ""
-
-#~ msgid "The source image's background will not be copied."
-#~ msgstr ""
-
-#~ msgid "EasyGraphics package"
-#~ msgstr ""
-
-#~ msgid "Package APIs"
+#~ msgid "Close the specied image :param image: the image to be closed"
 #~ msgstr ""
 

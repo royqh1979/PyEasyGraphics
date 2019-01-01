@@ -166,9 +166,7 @@ class GraphWin(QtWidgets.QWidget):
 
     def delay_fps(self, fps: int):
         """
-        delay to control fps without frame skiping
-
-        never skip frames
+        Delay to control fps without frame skipping. Never skip frames.
 
         :param fps: the desire fps
         """
@@ -183,9 +181,9 @@ class GraphWin(QtWidgets.QWidget):
 
     def delay_jfps(self, fps: int, max_skip_count: int = 10) -> bool:
         """
-        delay to control fps with frame skiping
+        Delay to control fps with frame skipping.
 
-        if we don't have enough time to delay, we'll skip some frames
+        If we don't have enough time to delay, we'll skip some frames.
 
         :param fps: frames per second (max is 1000)
         :param max_skip_count: max num of  frames to skip
@@ -204,9 +202,15 @@ class GraphWin(QtWidgets.QWidget):
             if self._frames_skipped <= max_skip_count:
                 # we don't have to draw this frame, so let's skip it
                 self._frames_to_skip_count = round((nowtime - self._last_fps_time) // nanotime)
-                if self._frames_to_skip_count > max_skip_count - self._frames_skipped:
+                if max_skip_count <= 0:
+                    print(self._frames_to_skip_count)
+                    self._frames_to_skip_count -= 1
+                    self._last_fps_time = time.time_ns()
+                    return False
+                elif self._frames_to_skip_count > max_skip_count - self._frames_skipped:
                     self._frames_to_skip_count = (max_skip_count - self._frames_skipped) - 1
                     self._frames_skipped += 1
+                    self._last_fps_time = time.time_ns()
                     return False
             else:
                 self._frames_skipped = 0

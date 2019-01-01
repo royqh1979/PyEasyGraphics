@@ -8,7 +8,7 @@ from typing import List
 from PyQt5 import QtWidgets
 
 from .consts import *
-from .dialog import invoke_in_app_thread
+from ._utils import invoke_in_app_thread
 from .graphwin import GraphWin
 from .image import Image
 
@@ -23,7 +23,7 @@ __all__ = [
     'get_background_color', 'set_background_color', 'set_font', 'get_font', 'set_font_size', 'get_font_size',
     'set_composition_mode', 'get_composition_mode', 'get_x', 'get_y', 'set_view_port', 'reset_view_port', 'set_origin',
     'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'set_clipping',
-    'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'skew', 'shear',
+    'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'skew', 'shear', 'set_flip_y',
     'reflect', 'flip', 'mirror', 'reset_transform', 'save_settings', 'restore_settings',
     'get_width', 'get_height', 'get_write_mode', 'set_write_mode',
     # drawing functions #
@@ -285,7 +285,7 @@ def get_font(image: Image = None) -> QtGui.QFont:
 
 def set_composition_mode(mode, image: Image = None):
     """
-    Get composition mode of the specified image.
+    Set composition mode of the specified image.
 
     Composition modes are used to specify how the pixels in the source (image/pen/brush),
     are merged with the pixel in the destination image.
@@ -300,7 +300,7 @@ def set_composition_mode(mode, image: Image = None):
 
 def get_composition_mode(image: Image = None):
     """
-    Get composition mode of the specified image
+    Get composition mode of the specified image.
 
     When drawing ,the composition mode will decide how the result pixel color will be computed
      (using source color and color of the destination)
@@ -523,7 +523,7 @@ def set_origin(x: float, y: float, image: Image = None):
 
 def translate(offset_x: float, offset_y: float, image: Image = None):
     """
-    Translates the coordinate system by the given offset; i.e. the given offset is added to points.
+    Translates the coordinate system by the given offset; i.e.the given offset is added to points.
 
     :param offset_x: offset on the x coordinate
     :param offset_y: offset on the y coordinate
@@ -577,11 +577,15 @@ skew = shear
 
 def reflect(x: float, y: float, image: Image = None):
     """
-    Reflect the coordinates against the line passing (0,0) and (x,y)
+    Reflect the coordinates against the line passing (0,0) and (x,y).
 
-    :param x:
-    :param y:
-    :param image: the target image to be sheared. None means it is the target image
+    **Note that all things will get reflected, including text!**
+    If you just want to draw on a normal coordinate system with the y-axis grows bottom up,
+    use flip_y().
+
+    :param x: x coordinate value
+    :param y: y coordinate value
+    :param image: the target image to be reflected. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
@@ -591,6 +595,28 @@ def reflect(x: float, y: float, image: Image = None):
 mirror = reflect
 
 flip = reflect
+
+
+def set_flip_y(flip_y: bool, image: Image = None) -> None:
+    """
+    Reflect without texts using the x-axis as the axis (image upside down).
+
+    Texts will not get flipped.
+
+    **Don't translate the origin to other points**(but you can translate and then translate back)
+    before drawing any text. Or the text position's calculation will get wrong! So if you want to
+    set the origin to the image/image's center, call set_flip_y() after the set_origin() or
+    translate()!
+
+    **Note**: Use this functions instead of the reflect()/flip()/mirror(),if you only
+    want to draw on an ordinary coordinate system with y-axis grows bottom-up.
+
+    :param flip_y: True to turn on the flip, False to turn off.
+    :param image: the target image to be flipped. None means it is the target image
+    (see set_target() and get_target()).
+    """
+    image, on_screen = _check_on_screen(image)
+    image.set_flip_y(flip_y)
 
 
 def reset_transform(image: Image = None):
@@ -1128,7 +1154,7 @@ bezier = draw_bezier
 
 def draw_lines(points: List[float], image: Image = None):
     """
-    Draw lines
+    Draw lines.
 
     "points" is a 2D point pair list. It should contain even points, and each 2 points make a point pair.
     And each point have 2 coordinate values(x,y). So if you have n point pairs, the points list should have 4*n values.
@@ -1158,7 +1184,7 @@ lines = draw_lines
 
 def draw_poly_line(end_points: List[float], image: Image = None):
     """
-    Draw poly lines.
+    Draw a poly line.
 
     "end_points" is a 2D points list. Each 2 values in the list make a point. A poly line will be drawn to connect
     adjacent end_points defined by the the list.
@@ -1254,7 +1280,7 @@ def draw_polygon(vertices: List[float], image: Image = None):
 
 def fill_polygon(vertices: List[float], image: Image = None):
     """
-    fill polygon
+    Fill a polygon.
 
     "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
     points defined by the the list.
@@ -1429,7 +1455,7 @@ def flood_fill(x: int, y: int, border_color, image: Image = None):
 def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
                src_height: int = -1, with_background=True, composition_mode=None, dst_image: Image = None):
     """
-    Copy part of the source image (src_image) to the destination image (self) at (x,y).
+    Copy part of the source image (src_image) to the destination image (dst_image).
 
     (x, y) specifies the top-left point in the destination image that is to be drawn onto.
 
@@ -1622,7 +1648,8 @@ def create_image(width, height) -> Image:
 
 def close_image(image: Image):
     """
-    Close the specied image
+    Close the specied image.
+
     :param image: the image to be closed
     """
     image.close()
@@ -1630,7 +1657,7 @@ def close_image(image: Image):
 
 def load_image(filename: str) -> Image:
     """
-    Load a image from the file
+    Load a image from the file.
 
     :param filename: the image file
     :return: the loaded image
@@ -1714,7 +1741,7 @@ def color_hsv(h: int, s: int, v: int, alpha: int = 255) -> QtGui.QColor:
 
 def to_alpha(new_color, alpha: int = None) -> QtGui.QColor:
     """
-    Get new color based on the given color and alpha
+    Get new color based on the given color and alpha.
 
     :param new_color: the base color
     :param alpha:  new color's alpha
@@ -1806,7 +1833,7 @@ def delay(milliseconds: int):
 
 def delay_fps(fps: int):
     """
-    Delay the program to control fps (Frame pers seconds).
+    Delay the program to control fps (Frame per seconds).
 
     Valid fps value is 1-1000, this value is **not checked** for speed.
 
@@ -1818,14 +1845,14 @@ def delay_fps(fps: int):
     _win.delay_fps(fps)
 
 
-def delay_jfps(fps, max_skip_count=10):
+def delay_jfps(fps, max_skip_count=0):
     """
-    Delay to control fps with frame skiping.
+    Delay to control fps with frame skipping.
 
     If we don't have enough time to delay, we\'ll skip some frames.
 
     :param fps: frames per second (max is 1000)
-    :param max_skip_count: max num of  frames to skip
+    :param max_skip_count: max num of  frames to skip (0 means no limit)
     :return: True if this frame should not be skipped
     """
     _check_app_run(True)
@@ -1858,8 +1885,9 @@ def has_kb_msg() -> bool:
 
 def has_mouse_msg() -> bool:
     """
-    see if there\'s any mouse message(event) in the last 100 ms
-    use it with get_mouse_msg()
+    See if there is any mouse message(event) in the last 100 ms.
+
+    Use it with get_mouse_msg().
 
     :return:  True if any mouse message, False or not
     """
