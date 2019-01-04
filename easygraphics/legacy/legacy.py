@@ -141,9 +141,9 @@ def getmaxy(img: Image = None):
 
 getpixel = eg.get_pixel
 
-getx = eg.get_x
+getx = eg.get_drawing_x
 
-gety = eg.get_y
+gety = eg.get_drawing_y
 
 initgraph = eg.init_graph
 
@@ -164,7 +164,7 @@ def outtext(text: str, img: Image = None):
 
     :param text: text to be displayed
     """
-    outtextxy(eg.get_x(), eg.get_y(), text, image=img)
+    outtextxy(eg.get_drawing_x(), eg.get_drawing_y(), text, image=img)
 
 
 def outtextxy(x: int, y: int, text: str, img: Image = None):

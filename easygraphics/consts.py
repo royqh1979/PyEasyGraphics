@@ -42,7 +42,7 @@ class CompositionMode:
     SOURCE_AT_TOP = QtGui.QPainter.CompositionMode_SourceAtop
     """(Alpha Composition) The source pixel is blended on top of the destination, with the alpha of the source pixel reduced by the alpha of the destination pixel."""
     DESTINATION_AT_TOP = QtGui.QPainter.CompositionMode_DestinationAtop
-    """(Alpha Composition) The destination pixel is blended on top of the source, with the alpha of the destination pixel is reduced by the alpha of the destination pixel."""
+    """(Alpha Composition) The destination pixel is blended on top of the source, with the alpha of the destination pixel is reduced by the alpha of the source pixel."""
     XOR = QtGui.QPainter.CompositionMode_Xor
     """(Alpha Composition) The source, whose alpha is reduced with the inverse of the destination alpha, is merged with the destination, whose alpha is reduced by the inverse of the source alpha. CompositionMode_Xor is not the same as the bitwise Xor."""
     Plus = QtGui.QPainter.CompositionMode_Plus
@@ -56,7 +56,7 @@ class CompositionMode:
     DARKEN = QtGui.QPainter.CompositionMode_Darken
     """(Blend mode) The darker of the source and destination colors is selected."""
     LIGHTEN = QtGui.QPainter.CompositionMode_Lighten
-    """(Blend mode) he lighter of the source and destination colors is selected."""
+    """(Blend mode) The lighter of the source and destination colors is selected."""
     COLOR_DODGE = QtGui.QPainter.CompositionMode_ColorDodge
     """(Blend mode) The destination color is brightened to reflect the source color. A black source color leaves the destination color unchanged."""
     COLOR_BURN = QtGui.QPainter.CompositionMode_ColorBurn

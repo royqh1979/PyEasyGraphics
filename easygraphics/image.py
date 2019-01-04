@@ -100,7 +100,7 @@ class Image:
 
     def set_pen(self, pen: QtGui.QPen):
         """
-        Set pen
+        Set pen.
 
         :param pen: the pen to use.
         :return:
@@ -117,7 +117,7 @@ class Image:
 
     def set_brush(self, brush: QtGui.QBrush):
         """
-        Set brush
+        Set the brush.
 
         :param brush: the brush
         """
@@ -179,8 +179,6 @@ class Image:
         """
         Get the background color of the image.
 
-        It will be used when the image is cleared. (see clear_device())
-
         :return: background color
         """
         return self._background_color
@@ -240,7 +238,7 @@ class Image:
 
     def set_line_width(self, width: float):
         """
-        Set line width (thinkness) of the specified image.
+        Set line width (thinkness).
 
         It will be used when drawing lines or shape outlines.
 
@@ -296,7 +294,7 @@ class Image:
 
     def reset_view_port(self):
         """
-        Disable the view port setting.
+        Reset the view port setting.
         """
         self._painter.setViewport(self._default_rect)
         self._mask_painter.setViewport(self._default_rect)
@@ -327,28 +325,28 @@ class Image:
         self._painter.setClipping(clipping)
         self._mask_painter.setClipping(clipping)
 
-    def set_window(self, origin_x: int, origin_y: int, width: int, height: int):
+    def set_window(self, left: int, top: int, width: int, height: int):
         """
         Set the logical drawing window.
 
-        All your drawing is first drawing on the logical window, then mapping to view port (see set_view_port()).\
-        The logical window's 4 corner points to streched to match the view port.
+        All your drawing is first drawing on the logical window, then mapping to view port (see set_view_port()).
+        The logical window\'s 4 corner points to streched to match the view port.
 
-        If your view port is 200x200，and you use set_window(-50,-50,100,100) to get a 100x100 logical window with \
-        the origin at (-50,50) , then the logical window's origin (0,0) is mapping to view port's (-50,-50), and \
-        right-bottom corner (100,100) is mapping to view port's right bottom corner (200,200). All logical points is \
+        If your view port is 200x200，and you use set_window(-50,-50,100,100) to get a 100x100 logical window with
+        the left-top corner at (-50,-50) , then the logical window\'s left corner (-50,-50) is set to view port\'s (0,0),
+        and right-bottom corner (50,50) is set to view port\'s right bottom corner (200,200). All logical points is
         mapping accordingly.
 
         If you just want to transform the drawing, use set_origin()/translate()/rotate()/scale().
 
         The drawing outside the logical window is not clipped. If you want to clip it, use set_clip_rect().
 
-        :param origin_x: x pos of the logical window's origin
-        :param origin_y: y pos of the logical window's origin
+        :param left: x pos of the logical window's left-top corner
+        :param top: y pos of the logical window's left-top corner
         :param width: width of the logical window
         :param height: height of the logical window
         """
-        window = QtCore.QRect(origin_x, origin_y, width, height)
+        window = QtCore.QRect(left, top, width, height)
         self._painter.setWindow(window)
         self._mask_painter.setWindow(window)
 
@@ -414,7 +412,7 @@ class Image:
 
         **Note that all things will get reflected, including text!**
         If you just want to draw on a normal coordinate system with the y-axis grows bottom up,
-        use flip_y().
+        use set_flip_y()..
 
         :param x: x coordinate value of the first point
         :param y: y coordinate value of the first point
@@ -558,8 +556,8 @@ class Image:
 
     def line_rel(self, dx: float, dy: float):
         """
-         Draw a line from the current drawing position (x,y) to (x+dx,y+dy), \
-         then set the drawing position is set to (x+dx,y+dy).
+        Draw a line from the current drawing position (x,y) to (x+dx,y+dy),
+        then set the drawing position is set to (x+dx,y+dy).
 
         :param dx: x coordinate offset of the new drawing position
         :param dy: y coordinate offset of the new drawing position
@@ -699,8 +697,9 @@ class Image:
         Draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        **note**: Degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+          respectively.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -714,20 +713,21 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawArc(rect, s, al)
-        self._mask_painter.drawArc(rect, s, al)
+        p.drawArc(rect, -s, -al)
+        self._mask_painter.drawArc(rect, -s, -al)
 
     arc = draw_arc
 
     def pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        Draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
         The pie is not filled.
 
-        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+          respectively.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -741,18 +741,19 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawPie(rect, s, al)
-        self._mask_painter.drawPie(rect, s, al)
+        p.drawPie(rect, -s, -al)
+        self._mask_painter.drawPie(rect, -s, -al)
 
     def draw_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        Draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
         The pie is filled and has outline.
 
-        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+          respectively.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -766,18 +767,19 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawPie(rect, s, al)
-        self._mask_painter.drawPie(rect, s, al)
+        p.drawPie(rect, -s, -al)
+        self._mask_painter.drawPie(rect, -s, -al)
 
     def fill_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        Fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
         The pie doesn\'t have outline.
 
-        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+          respectively.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -791,43 +793,45 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawPie(rect, s, al)
-        self._mask_painter.drawPie(rect, s, al)
+        p.drawPie(rect, -s, -al)
+        self._mask_painter.drawPie(rect, -s, -al)
 
     def chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-         Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
-         which radius on x-axis is radius_x and radius on y-axis is radius_y.
+        Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)
+        which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-         The chord is not filled.
+        The chord is not filled.
 
-         **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-         at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+          respectively.
 
-         :param x: x coordinate value of the ellipse's center
-         :param y: y coordinate value of the ellipse's center
-         :param start_angle: start angle of the chord
-         :param end_angle: end angle of the chord
-         :param radius_x: radius on x-axis of the ellipse
-         :param radius_y: radius on y-axis of the ellipse
-         """
+        :param x: x coordinate value of the ellipse's center
+        :param y: y coordinate value of the ellipse's center
+        :param start_angle: start angle of the chord
+        :param end_angle: end angle of the chord
+        :param radius_x: radius on x-axis of the ellipse
+        :param radius_y: radius on y-axis of the ellipse
+        """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawChord(rect, s, al)
-        self._mask_painter.drawChord(rect, s, al)
+        p.drawChord(rect, -s, -al)
+        self._mask_painter.drawChord(rect, -s, -al)
 
     def draw_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        The chord is filled and has outline.
+        The chord is filled and has outline
 
-        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+          respectively.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -841,18 +845,19 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawChord(rect, s, al)
-        self._mask_painter.drawChord(rect, s, al)
+        p.drawChord(rect, -s, -al)
+        self._mask_painter.drawChord(rect, -s, -al)
 
     def fill_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
-        Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-        The chord doesn't have outline.
+        The chord doesn\'t have outline.
 
-        **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-        at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+          respectively.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -866,8 +871,8 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawChord(rect, s, al)
-        self._mask_painter.drawChord(rect, s, al)
+        p.drawChord(rect, -s, -al)
+        self._mask_painter.drawChord(rect, -s, -al)
 
     def draw_bezier(self, control_points: list):
         """
@@ -876,8 +881,8 @@ class Image:
         "control_points" is a list of 4 control points. Each point has 2 coordinate values in the list ,
         so there should be 8 values int the list.
 
-        That is , if your 4 control points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "control_points" should be  \
-        [x0,y0,x1,y1,x2,y2,x3,y3] .
+        That is , if your 4 control points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "control_points" should be
+        [x0,y0,x1,y1,x2,y2,x3,y3].
 
         :param control_points: the control points list
         """
@@ -895,9 +900,9 @@ class Image:
         """
         Draw lines.
 
-        "points" is a 2D point pair list. It should contain even points, and each 2 points make a point pair.
-        And each point have 2 coordinate values(x,y). So if you have n point pairs, the points list should have 4*n
-        values.
+        "points" is a 2D point pair list. It should contain even number of points, and each 2 points
+        make a point pair. And each point have 2 coordinate values(x,y). So if you have n point pairs,
+        the points list should have 4*n values.
 
         For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_lines() will draw 3 lines:
         (50,50) to (550,350), (50,150) to (550,450), (50,250) to (550,550)
@@ -920,12 +925,12 @@ class Image:
         """
         Draw a poly line.
 
-        "end_points" is a 2D points list. Each 2 values in the list make a point. A poly line will be drawn to connect
-        adjacent end_points defined by the the list.
+        "end_points" is a 2D points list. Each 2 values in the list make a point.
+        A poly line will be drawn to connect adjacent end_points defined by the the list.
 
-        For examples , if "end_points" is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw
-        5 lines: (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450), (550,540) to (50,250)
-        and(50,250) to (550,550)
+        For examples , if "end_points" is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line()
+        will draw 5 lines: (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450),
+        (550,540) to (50,250) and(50,250) to (550,550).
 
         :param end_points: point value list
         """
@@ -955,11 +960,11 @@ class Image:
         """
         Draw polygon outline.
 
-        "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect
-        adjacent points defined by the the list.
+        "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn
+        to connect adjacent points defined by the the list.
 
-        For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
-        (50,50) , (550,350) and (50,150)
+        For examples , if "vertices" is [50,50,550,350, 50,150], polygon() will draw a triangle with
+        vertices at (50,50) , (550,350) and (50,150).
 
         The polygon is not filled.
 
@@ -974,11 +979,11 @@ class Image:
         """
         Draw a polygon.
 
-        "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect
-        adjacent points defined by the the list.
+        "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to
+        connect adjacent points defined by the the list.
 
-        For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
-        (50,50) , (550,350) and (50,150)
+        For examples , if "vertices" is [50,50,550,350, 50,150], draw_polygon() will draw a triangle with
+        vertices at (50,50) , (550,350) and (50,150)
 
         The polygon is filled and has outline.
 
@@ -993,13 +998,13 @@ class Image:
         """
         Fill a polygon.
 
-        "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect
-        adjacent points defined by the the list.
+        "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to
+        connect adjacent points defined by the the list.
 
-        For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
-        (50,50) , (550,350) and (50,150)
+        For examples , if "vertices" is [50,50,550,350, 50,150], fill_polygon() will fill a triangle
+        with vertices at (50,50) , (550,350) and (50,150).
 
-        The polygon doesn't have outline.
+        The polygon doesn\'t have outline.
 
         :param vertices: point value list
         """
@@ -1086,8 +1091,9 @@ class Image:
 
     def rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         """
-        Draws a rounded rectangle outline with upper left corner at (left, top) , lower right corner at (right,bottom).
-        raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
+        Draws a rounded rectangle outline with upper left corner at (left, top) , lower right
+        corner at (right,bottom). Raidus on x-axis of the corner ellipse arc is round_x,
+        radius on y-axis of the corner ellipse arc is round_y.
 
         The rectangle is not filled.
 
@@ -1148,22 +1154,21 @@ class Image:
     def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = -1,
                    src_height: int = -1, with_background=True, composition_mode=None):
         """
-        Copy part of the source image (image) to the destination image (self).
+        Copy part of the source image (src_image) to the destination image (dst_image).
 
         (x, y) specifies the top-left point in the destination image that is to be drawn onto.
 
-        (sx, sy) specifies the top-left point of the part in the source image that is to \
-         be drawn. The default is (0, 0).
+        (sx, sy) specifies the top-left point of the part in the source image that is to
+        be drawn. The default is (0, 0).
 
-        (sw, sh) specifies the size of the part of the source image that is to be drawn.  \
+        (sw, sh) specifies the size of the part of the source image that is to be drawn.
         The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
 
-        If with_background is False, the source image's background will not be copied.
+        if with_background is False, the source image's background will not be copied.
 
         The final result will depend on the composition mode and the source image's background.
-        In the default mode (CompositionMode.SOURCE_OVER), the source will fully overwrite the destination).
-
-        If you want to get a transparent copy, you should use CompositionMode.SOURCE_OVER and with_background = False.
+        In the default mode (CompositionMode.SOURCE_OVER), the transparent background in the source
+        will not overwrite the destination.
 
         :param x: x coordinate value of the upper left point on the destination image
         :param y: y coordinate value of the upper left point on the destination image
@@ -1188,7 +1193,7 @@ class Image:
 
     def get_mask(self) -> QtGui.QImage:
         """
-        Get background mask bitmap
+        Get background mask image.
 
         :return: background mask
         """
@@ -1296,23 +1301,9 @@ class Image:
 
     def draw_rect_text(self, x: int, y: int, width: int, height: int, flags=QtCore.Qt.AlignCenter, *args, sep=' '):
         """
-        print the given texts in the specified rectangle area
+        Print the given texts in the specified rectangle area.
 
-        Available flags are: （Defined in pyqt5's PyQt5.QtCore pacakge)
-
-        * Qt.AlignLeft          Aligns with the left edge.
-        * Qt::AlignRight        Aligns with the right edge.
-        * Qt::AlignHCenter      Centers horizontally in the available space.
-        * Qt::AlignJustify      Justifies the text in the available space.
-        * Qt::AlignTop          Aligns with the top.
-        * Qt::AlignBottom       Aligns with the bottom.
-        * Qt::AlignVCenter      Centers vertically in the available space.
-        * Qt::AlignCenter       Centers in both dimensions.
-        * Qt::TextDontClip      If it's impossible to stay within the given bounds, it prints outside.
-        * Qt::TextSingleLine    Treats all whitespace as spaces and prints just one line.
-        * Qt::TextExpandTabs    Makes the U+0009 (ASCII tab) character move to the next tab stop.
-        * Qt::TextShowMnemonic  Displays the string "&P" as P For an ampersand, use "&&".
-        * Qt::TextWordWrap      Breaks lines at appropriate points, e.g. at word boundaries.
+        Flags are defined as TextFlag const.
 
         :param x: x coordinate of the output rectangle's upper left corner
         :param y: y coordinate of the output rectangle's upper left corner
@@ -1339,25 +1330,26 @@ class Image:
 
     def set_font(self, font: QtGui.QFont):
         """
-        set font of the specified image
+        Set font of the specified image.
 
-        :param font:
+        :param font: the font will be used
         """
         self._painter.setFont(font)
         self._mask_painter.setFont(font)
 
     def get_font(self) -> QtGui.QFont:
         """
-        get font of the specified image
+        Get font of the specified image.
 
-        :return: the font
+        :return: the font used by the specified image
         """
         return self._painter.font()
 
     def set_font_size(self, size: int):
         """
-        set font size of the specified image
-        :param size: font size
+        Set font size of the specified image.
+
+        :param size: font size of the specified image
         """
         font = self._painter.font()
         font.setPixelSize(size)
@@ -1366,28 +1358,34 @@ class Image:
 
     def get_font_size(self) -> int:
         """
-        get font size of the specified image
-        :return: font size
+        Get font size of the specified image.
+
+        :return: font size of the specified image
         """
         return self._painter.font().pixelSize()
 
     def text_width(self, text: str) -> int:
         """
-        return width of the text
+        Return width of the text.
 
         :param text: the text
+        :return: width of the text
         """
         return self._painter.fontMetrics().width(text)
 
     def text_height(self) -> int:
         """
-        return height of the text (font height)
+        Return height of the text (font height).
+
+        :return: height of the text (font height)
         """
         return self._painter.fontMetrics().height()
 
     def close(self):
         """
-        Close and clean up the image.
+        Close and clean up the specified image.
+
+        :param image: the image to be closed
         """
         self._painter.end()
         self._mask_painter.end()

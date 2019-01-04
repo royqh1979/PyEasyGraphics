@@ -159,7 +159,8 @@ class GraphWin(QtWidgets.QWidget):
 
     def delay(self, milliseconds: float):
         """
-        delay for milliseconds
+        Delay the program for specified milliseconds.
+
         :param milliseconds: time to delay
         """
         nanotime = milliseconds * 1000000
@@ -227,10 +228,11 @@ class GraphWin(QtWidgets.QWidget):
 
     def get_char(self) -> str:
         """
-        get the ascii char inputted by keybord
-        if not any char key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+        Get the ascii char inputted by keyboard.
 
-        :return: the character inputted by keybord
+        If not any char key is pressed in last 100 ms, the program will stop and wait for the next key hitting.
+
+        :return: the character inputted by keyboard
         """
         nt = time.perf_counter_ns()
         self.real_update()
@@ -246,8 +248,9 @@ class GraphWin(QtWidgets.QWidget):
 
     def get_key(self) -> (int, int):
         """
-        get the key inputted by keyboard
-        if not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting
+        Get the key inputted by keyboard.
+
+        If not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting.
 
         :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
             `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
@@ -268,9 +271,8 @@ class GraphWin(QtWidgets.QWidget):
         """
         Get the mouse message.
 
-        If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait
-        for the next key hitting.
-
+        If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait for
+        the next mouse message.
 
         :return: x of the cursor, y of the cursor , type, mouse buttons down
             ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
@@ -290,30 +292,33 @@ class GraphWin(QtWidgets.QWidget):
 
     def has_kb_hit(self) -> bool:
         """
-        see if any ascii char key is hitted in the last 100 ms
-        use it with get_char()
+        See if any ascii char key is hitted in the last 100 ms.
 
-        :return:  True if hitted, False or not
+        Use it with get_char().
+
+        :return:  True if hit, False otherwise
         """
         nt = time.perf_counter_ns()
         return nt - self._key_char_msg.get_time() <= 100000000
 
     def has_kb_msg(self) -> bool:
         """
-        see if any key is hitted in the last 100 ms
-        use it with get_key()
+        See if any key is hit in the last 100 ms.
 
-        :return:  True if hitted, False or not
+        Use it with get_key().
+
+        :return:  True if hit, False otherwise
         """
         nt = time.perf_counter_ns()
         return nt - self._key_char_msg.get_time() <= 100000000
 
     def has_mouse_msg(self) -> bool:
         """
-        see if there's any mouse message(event) in the last 100 ms
-        use it with get_mouse_msg()
+        See if there is any mouse message(event) in the last 100 ms.
 
-        :return:  True if any mouse message, False or not
+        Use it with get_mouse_msg().
+
+        :return:  True if any mouse message, False otherwise
         """
         nt = time.perf_counter_ns()
         return nt - self._mouse_msg.get_time() <= 100000000

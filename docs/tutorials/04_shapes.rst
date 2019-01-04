@@ -61,6 +61,30 @@ In EasyGraphics, there are three types of functions to draw shapes:
 
 .. |fill_circle| image:: ../images/graphics/fill_circle.png
 
+Angle
+-----
+In easygraphics, all angles use degree as the unit.
+
+Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+respectively independent of any :doc:`transforms <09_transforms>`.
+
+So by default, a positive turning angle means turn clockwise.
+
+The following program draws a pie from 45 degree to 135 degree.
+
+.. code-block:: python
+
+    init_graph(400, 300)
+
+    set_color("red")
+    set_fill_color("lightyellow")
+    draw_pie(200, 150, 45, 135, 100, 70)
+    pause()
+    close_graph()
+
+.. image:: ../images/tutorials/04_pie.png
+
 Polygon
 -------
 Use polygon()/draw_polygon()/fill_polygon(), we can draw and fill polygons.
@@ -71,20 +95,21 @@ polygon()/draw_polygon()/fill_polygon() expect a list as the verticis\' postions
 each vertex is represented as 2 values (x and y). So n vertices is represented by a
 list with 2n values.
 
-The following example draws a triangle with vertices at (50, 50), (550, 350), (50, 150):
+The following example draws a triangle with vertices at (50, 50), (350, 250), (50, 150):
 
 .. code-block:: python
 
     from easygraphics import *
 
-    init_graph(600, 600)
+    init_graph(400, 300)
     set_color(Color.DARK_BLUE)
     set_fill_color(Color.LIGHT_MAGENTA)
-    points = [50, 50, 550, 350, 50, 150]
+    points = [50, 50, 350, 250, 50, 150]
     draw_polygon(points)
     pause()
     close_graph()
 
+.. image:: ../images/tutorials/04_polygon.png
 
 Polylines
 ---------
@@ -99,17 +124,19 @@ poly_line() and draw_poly_line() expect a list as the endpoint\'s postions. In t
 each endpoint is represented as 2 values (x and y). So n endpoints is represented by a
 list with 2n values.
 
-The following example draws a polyline connecting (50,50), (550,350), (50,150), (550,450), (50,250), (550,550)
+The following example draws a polyline connecting (50,50), (350,75), (50,150), (350,175), (50,250), (350,275).
 
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(600, 600)
-    points = [50, 50, 550, 350, 50, 150, 550, 450, 50, 250, 550, 550]
+
+    init_graph(400, 300)
+    points = [50, 50, 350, 75, 50, 150, 350, 175, 50, 250, 350, 275]
     draw_poly_line(points)
     pause()
     close_graph()
 
+.. image:: ../images/tutorials/04_polyline.png
 
 Bézier curve
 ------------
@@ -153,7 +180,7 @@ Flood Fill
 Non-regular shapes can be filled by flood fill. The shape to be filled must be enclosed by an outline.
 The follow program uses flood fill to fill a pedal.
 
-.. code:: python
+.. code-block:: python
 
     from easygraphics import *
 
@@ -169,7 +196,7 @@ The follow program uses flood fill to fill a pedal.
 
 Below is the result:
 
-.. image:: ../images/tutorials/pedal.png
+.. image:: ../images/tutorials/04_pedal.png
 
 Advanced Drawing
 ----------------

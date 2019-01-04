@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-02 09:56+0800\n"
+"POT-Creation-Date: 2019-01-04 08:34+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,209 +23,227 @@ msgid "History"
 msgstr "更新记录"
 
 #: ../../../HISTORY.rst:6
-msgid "0.9.9"
+msgid "0.9.10"
 msgstr ""
 
 #: ../../../HISTORY.rst:7
+msgid "add: easygraphics.turtle package which implements the turtle graphics."
+msgstr ""
+
+#: ../../../HISTORY.rst:8
+msgid "change: now rotate()/skew() can transform around any point"
+msgstr ""
+
+#: ../../../HISTORY.rst:9
+msgid ""
+"change: now reflect() can using lines not passing the origin as the "
+"reflecting axis."
+msgstr ""
+
+#: ../../../HISTORY.rst:12
+msgid "0.9.9"
+msgstr ""
+
+#: ../../../HISTORY.rst:13
 msgid ""
 "add set_flip_y() to make y-axis grows bottom-up. (use reflect() will make"
 " texts get reflected too.)"
 msgstr ""
 
-#: ../../../HISTORY.rst:12
+#: ../../../HISTORY.rst:18
 msgid "0.9.8.1"
 msgstr ""
 
-#: ../../../HISTORY.rst:13
+#: ../../../HISTORY.rst:19
 msgid "fix: legacy and music subpackage not packed in the binary distributions."
 msgstr ""
 
-#: ../../../HISTORY.rst:16
+#: ../../../HISTORY.rst:22
 msgid "0.9.8"
 msgstr ""
 
-#: ../../../HISTORY.rst:17
+#: ../../../HISTORY.rst:23
 msgid "fix: delay_fps() now work properly in Manual render mode"
 msgstr ""
 
-#: ../../../HISTORY.rst:18
+#: ../../../HISTORY.rst:24
 msgid "finish chinese translations for tutorials"
 msgstr ""
 
-#: ../../../HISTORY.rst:21
+#: ../../../HISTORY.rst:27
 msgid "0.9.7"
 msgstr ""
 
-#: ../../../HISTORY.rst:22
+#: ../../../HISTORY.rst:28
 msgid "add: load_image() to load image from files"
 msgstr ""
 
-#: ../../../HISTORY.rst:23
+#: ../../../HISTORY.rst:29
 msgid "add: to_alpha() to make a transparently color"
 msgstr ""
 
-#: ../../../HISTORY.rst:24
+#: ../../../HISTORY.rst:30
 msgid "change: use Source Over as the default composition mode (the same with Qt)"
 msgstr ""
 
-#: ../../../HISTORY.rst:25 ../../../HISTORY.rst:49
+#: ../../../HISTORY.rst:31 ../../../HISTORY.rst:55
 msgid "more tutorials"
 msgstr ""
 
-#: ../../../HISTORY.rst:26
+#: ../../../HISTORY.rst:32
 msgid "add: show_table() to display table infomation in a dialog"
 msgstr ""
 
-#: ../../../HISTORY.rst:27
+#: ../../../HISTORY.rst:33
 msgid "change: rename mouse_msg() to has_mouse_msg()"
 msgstr ""
 
-#: ../../../HISTORY.rst:28
+#: ../../../HISTORY.rst:34
 msgid "change: rename kb_hit() to has_kb_hit()"
 msgstr ""
 
-#: ../../../HISTORY.rst:29
+#: ../../../HISTORY.rst:35
 msgid "change: rename get_mouse() to get_mouse_msg()"
 msgstr ""
 
-#: ../../../HISTORY.rst:30
+#: ../../../HISTORY.rst:36
 msgid "change: rename kb_msg() to has_kb_msg()"
 msgstr ""
 
-#: ../../../HISTORY.rst:31
+#: ../../../HISTORY.rst:37
 msgid "finish the tutorials."
 msgstr ""
 
-#: ../../../HISTORY.rst:34
+#: ../../../HISTORY.rst:40
 msgid "0.9.6"
 msgstr ""
 
-#: ../../../HISTORY.rst:35
+#: ../../../HISTORY.rst:41
 msgid "add: reflection (mirror/flip) and shear (skew) operations."
 msgstr ""
 
-#: ../../../HISTORY.rst:38
+#: ../../../HISTORY.rst:44
 msgid "0.9.5"
 msgstr ""
 
-#: ../../../HISTORY.rst:39
+#: ../../../HISTORY.rst:45
 msgid ""
 "add: headless mode support (no graphics window mode, use it to draw "
 "pictures)"
 msgstr ""
 
-#: ../../../HISTORY.rst:42
+#: ../../../HISTORY.rst:48
 msgid "0.9.4"
 msgstr ""
 
-#: ../../../HISTORY.rst:43
+#: ../../../HISTORY.rst:49
 msgid ""
 "add: easygraphics.legacy package to better compatible with old BGI "
 "programs."
 msgstr ""
 
-#: ../../../HISTORY.rst:44
+#: ../../../HISTORY.rst:50
 msgid "add: get_click() function to get mouse click event"
 msgstr ""
 
-#: ../../../HISTORY.rst:45
+#: ../../../HISTORY.rst:51
 msgid ""
 "change: background implementation to make set_background_color() work "
 "correctly"
 msgstr ""
 
-#: ../../../HISTORY.rst:46
+#: ../../../HISTORY.rst:52
 msgid ""
 "add: now can use name (\"red\"), color string (\"#ff0000), integer color "
 "rgb value (0xff0000) \\"
 msgstr ""
 
-#: ../../../HISTORY.rst:47
+#: ../../../HISTORY.rst:53
 msgid "in set_color(), set_fill_color(), set_background_color() functions"
 msgstr ""
 
-#: ../../../HISTORY.rst:48
+#: ../../../HISTORY.rst:54
 msgid "add: cymk() and hsv() to get CYMK and HSV format color"
 msgstr ""
 
-#: ../../../HISTORY.rst:52
+#: ../../../HISTORY.rst:58
 msgid "0.9.3"
 msgstr ""
 
-#: ../../../HISTORY.rst:53
+#: ../../../HISTORY.rst:59
 msgid "fix : Readme"
 msgstr ""
 
-#: ../../../HISTORY.rst:56
+#: ../../../HISTORY.rst:62
 msgid "0.9.2"
 msgstr ""
 
-#: ../../../HISTORY.rst:57
+#: ../../../HISTORY.rst:63
 msgid ""
 "add: easygraphics functions can run in the interactive mode (eg. IPython)"
 " correctly"
 msgstr ""
 
-#: ../../../HISTORY.rst:58
+#: ../../../HISTORY.rst:64
 msgid "add: dialogs (in **easygraphics.dialog** package, adopted from"
 msgstr ""
 
-#: ../../../HISTORY.rst:59
+#: ../../../HISTORY.rst:65
 msgid "`easygui_qt <https://github.com/aroberge/easygui_qt/>`_ )"
 msgstr ""
 
-#: ../../../HISTORY.rst:60
+#: ../../../HISTORY.rst:66
 msgid "add: create and save to/from file"
 msgstr ""
 
-#: ../../../HISTORY.rst:61
+#: ../../../HISTORY.rst:67
 msgid "add image transforms (translate/rotate/scale)"
 msgstr ""
 
-#: ../../../HISTORY.rst:62
+#: ../../../HISTORY.rst:68
 msgid "add view port support"
 msgstr ""
 
-#: ../../../HISTORY.rst:63
+#: ../../../HISTORY.rst:69
 msgid "add sphinx docs"
 msgstr ""
 
-#: ../../../HISTORY.rst:64
+#: ../../../HISTORY.rst:70
 msgid "upload docs to readthedocs.org"
 msgstr ""
 
-#: ../../../HISTORY.rst:67
+#: ../../../HISTORY.rst:73
 msgid "0.9.1"
 msgstr ""
 
-#: ../../../HISTORY.rst:68
+#: ../../../HISTORY.rst:74
 msgid "add readme text"
 msgstr ""
 
-#: ../../../HISTORY.rst:69
+#: ../../../HISTORY.rst:75
 msgid "add delay_fps() and rgb() functions"
 msgstr ""
 
-#: ../../../HISTORY.rst:72
+#: ../../../HISTORY.rst:78
 msgid "0.9.0"
 msgstr ""
 
-#: ../../../HISTORY.rst:73
+#: ../../../HISTORY.rst:79
 msgid "add keyboard and mouse message check and handle"
 msgstr ""
 
-#: ../../../HISTORY.rst:74
+#: ../../../HISTORY.rst:80
 msgid ""
 "add simple dialogs ( from EasyGUI-Qt "
 "(https://github.com/aroberge/easygui_qt) and qtutils "
 "(https://bitbucket.org/philipstarkey/qtutils))"
 msgstr ""
 
-#: ../../../HISTORY.rst:78
+#: ../../../HISTORY.rst:84
 msgid "0.1.0"
 msgstr ""
 
-#: ../../../HISTORY.rst:79
+#: ../../../HISTORY.rst:85
 msgid "First release on github"
 msgstr ""
 

@@ -20,7 +20,8 @@ __all__ = [
     'set_line_style', 'get_line_style', 'set_line_width', 'get_line_width',
     'get_color', 'set_color', 'get_fill_color', 'set_fill_color', 'get_fill_style', 'set_fill_style',
     'get_background_color', 'set_background_color', 'set_font', 'get_font', 'set_font_size', 'get_font_size',
-    'set_composition_mode', 'get_composition_mode', 'get_x', 'get_y', 'set_view_port', 'reset_view_port', 'set_origin',
+    'set_composition_mode', 'get_composition_mode', 'get_drawing_x', 'get_drawing_y', 'set_view_port',
+    'reset_view_port', 'set_origin',
     'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'set_clipping',
     'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'skew', 'shear', 'set_flip_y',
     'reflect', 'flip', 'mirror', 'reset_transform', 'save_settings', 'restore_settings',
@@ -231,8 +232,6 @@ def get_background_color(image: Image = None):
     """
     Get the background color of the image.
 
-    it will be used when the image is cleared. (see clear_device())
-
     :param image: the target image whose background color is to be gotten. None means it is the target image
          (see set_target() and get_target()).
     :return: background color of the specified image
@@ -304,7 +303,7 @@ def get_composition_mode(image: Image = None):
     Get composition mode of the specified image.
 
     When drawing ,the composition mode will decide how the result pixel color will be computed
-     (using source color and color of the destination)
+    (using source color and color of the destination)
 
     :param image: the target image whose composition mode is to be gotten. None means it is the target image
         (see set_target() and get_target()).
@@ -343,7 +342,7 @@ def get_font_size(image: Image = None) -> int:
     return image.get_font_size()
 
 
-def get_x(image: Image = None) -> float:
+def get_drawing_x(image: Image = None) -> float:
     """
     Get the x coordinate value of the current drawing position (x,y).
 
@@ -357,7 +356,7 @@ def get_x(image: Image = None) -> float:
     return image.get_x()
 
 
-def get_y(image: Image = None) -> float:
+def get_drawing_y(image: Image = None) -> float:
     """
     Get the y coordinate value of the current drawing position (x,y).
 
@@ -464,31 +463,31 @@ def set_clipping(clipping: bool, image: Image = None):
     image.set_clipping(clipping)
 
 
-def set_window(origin_x: int, origin_y: int, width: int, height: int, image: Image = None):
+def set_window(left: int, top: int, width: int, height: int, image: Image = None):
     """
     Set the logical drawing window.
 
-    All your drawing is first drawing on the logical window, then mapping to view port (see set_view_port()).\
+    All your drawing is first drawing on the logical window, then mapping to view port (see set_view_port()).
     The logical window\'s 4 corner points to streched to match the view port.
 
-    If your view port is 200x200，and you use set_window(-50,-50,100,100) to get a 100x100 logical window with \
-    the origin at (-50,50) , then the logical window\'s origin (0,0) is mapping to view port\'s (-50,-50), and \
-    right-bottom corner (100,100) is mapping to view port\'s right bottom corner (200,200). All logical points is \
+    If your view port is 200x200，and you use set_window(-50,-50,100,100) to get a 100x100 logical window with
+    the left-top corner at (-50,-50) , then the logical window\'s left corner (-50,-50) is set to view port\'s (0,0),
+    and right-bottom corner (50,50) is set to view port\'s right bottom corner (200,200). All logical points is
     mapping accordingly.
 
     If you just want to transform the drawing, use set_origin()/translate()/rotate()/scale().
 
     The drawing outside the logical window is not clipped. If you want to clip it, use set_clip_rect().
 
-    :param origin_x: x pos of the logical window\'s origin
-    :param origin_y: y pos of the logical window\'s origin
+    :param left: x pos of the logical window\'s left-top corner
+    :param top: y pos of the logical window\'s left-top corner
     :param width: width of the logical window
     :param height: height of the logical window
     :param image: the target image whose logical window is to be set. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.set_window(origin_x, origin_y, width, height)
+    image.set_window(left, top, width, height)
 
 
 def reset_window(image: Image = None):
@@ -504,24 +503,6 @@ def reset_window(image: Image = None):
     image.reset_window()
 
 
-def set_origin(x: float, y: float, image: Image = None):
-    """
-    Set the drawing systems' origin(0,0) to (x,y).
-
-    The effect of this function is , when drawing, x and y is added to points coordinates.
-    That is, if you want to draw a point at (x0,y0), it\'s really drawn at (x0+x,x0+y)
-
-    the default origin is on left-top of the specified image
-
-    :param x: x coordinate value the new origin
-    :param y: y coordinate value the new origin
-    :param image: the target image whose origin is to be removed. None means it is the target image
-        (see set_target() and get_target()).
-    """
-    image, on_screen = _check_on_screen(image)
-    image.translate(x, y)
-
-
 def translate(offset_x: float, offset_y: float, image: Image = None):
     """
     Translates the coordinate system by the given offset; i.e.the given offset is added to points.
@@ -533,6 +514,9 @@ def translate(offset_x: float, offset_y: float, image: Image = None):
     """
     image, on_screen = _check_on_screen(image)
     image.translate(offset_x, offset_y)
+
+
+set_origin = translate
 
 
 def rotate(degree: float, x: float = 0, y: float = 0, image: Image = None):
@@ -586,7 +570,7 @@ def reflect(x: float, y: float, x1: float = 0, y1: float = 0, image: Image = Non
 
     **Note that all things will get reflected, including text!**
     If you just want to draw on a normal coordinate system with the y-axis grows bottom up,
-    use flip_y().
+    use set_flip_y().
 
     :param x: x coordinate value
     :param y: y coordinate value
@@ -821,7 +805,7 @@ def line_to(x: float, y: float, image: Image = None):
 
 def line_rel(dx: float, dy: float, image: Image = None):
     """
-    Draw a line from the current drawing position (x,y) to (x+dx,y+dy), \
+    Draw a line from the current drawing position (x,y) to (x+dx,y+dy),
     then set the drawing position is set to (x+dx,y+dy).
 
     :param dx: x coordinate offset of the new drawing position
@@ -949,11 +933,12 @@ def fill_ellipse(x, y, radius_x, radius_y, image: Image = None):
 def draw_arc(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
              image: Image = None):
     """
-    Draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-    **note**: Degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+      respectively.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -976,13 +961,14 @@ arc = draw_arc
 def pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
         image: Image = None):
     """
-    Draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
     The pie is not filled.
 
-    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+      respectively.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1002,13 +988,14 @@ def pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: floa
 def draw_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
              image: Image = None):
     """
-    Draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
     The pie is filled and has outline.
 
-    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+      respectively.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1028,13 +1015,14 @@ def draw_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x:
 def fill_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
              image: Image = None):
     """
-    Fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
     The pie doesn\'t have outline.
 
-    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+      respectively.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1054,13 +1042,14 @@ def fill_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x:
 def chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
           image: Image = None):
     """
-    Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
     The chord is not filled.
 
-    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+      respectively.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1080,13 +1069,14 @@ def chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: fl
 def draw_chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
                image: Image = None):
     """
-    Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
     The chord is filled and has outline
 
-    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+      respectively.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1102,17 +1092,17 @@ def draw_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
     if on_screen:
         _win.invalid()
 
-
 def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
                image: Image = None):
     """
-    Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+    Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
     The chord doesn\'t have outline.
 
-    **note**: degree 0 is at 3 o'clock position, and is increasing clockwisely. That is, degree 90 is \
-    at 12 o'click , degree 180 is at 9 o'clock , degree 270 is at 6 o'clock, etc.
+      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
+      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
+      respectively.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1136,8 +1126,8 @@ def draw_bezier(control_points: List[float], image: Image = None):
     "control_points" is a list of 4 control points. Each point has 2 coordinate values in the list ,
     so there should be 8 values int the list.
 
-    That is , if your 4 control points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "control_points" should be  \
-    [x0,y0,x1,y1,x2,y2,x3,y3] .
+    That is , if your 4 control points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "control_points" should be
+    [x0,y0,x1,y1,x2,y2,x3,y3].
 
     >>> from easygraphics import *
     >>> init_graph(600,400)
@@ -1163,8 +1153,9 @@ def draw_lines(points: List[float], image: Image = None):
     """
     Draw lines.
 
-    "points" is a 2D point pair list. It should contain even points, and each 2 points make a point pair.
-    And each point have 2 coordinate values(x,y). So if you have n point pairs, the points list should have 4*n values.
+    "points" is a 2D point pair list. It should contain even number of points, and each 2 points
+    make a point pair. And each point have 2 coordinate values(x,y). So if you have n point pairs,
+    the points list should have 4*n values.
 
     For examples , if points is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_lines() will draw 3 lines:
     (50,50) to (550,350), (50,150) to (550,450), (50,250) to (550,550)
@@ -1193,12 +1184,12 @@ def draw_poly_line(end_points: List[float], image: Image = None):
     """
     Draw a poly line.
 
-    "end_points" is a 2D points list. Each 2 values in the list make a point. A poly line will be drawn to connect
-    adjacent end_points defined by the the list.
+    "end_points" is a 2D points list. Each 2 values in the list make a point.
+    A poly line will be drawn to connect adjacent end_points defined by the the list.
 
-    For examples , if "end_points" is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line() will draw
-    5 lines: (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450), (550,540) to (50,250)
-    and(50,250) to (550,550)
+    For examples , if "end_points" is [50,50,550,350, 50,150,550,450, 50,250,550,550], draw_poly_line()
+    will draw 5 lines: (50,50) to (550,350), (550,350) to (50,150), (50,150) to (550,450),
+    (550,540) to (50,250) and(50,250) to (550,550).
 
     >>> from easygraphics import *
     >>> init_graph(600,600)
@@ -1224,11 +1215,11 @@ def polygon(vertices: List[float], image: Image = None):
     """
     Draw polygon outline.
 
-    "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
-    points defined by the the list.
+    "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn
+    to connect adjacent points defined by the the list.
 
-    For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
-    (50,50) , (550,350) and (50,150)
+    For examples , if "vertices" is [50,50,550,350, 50,150], polygon() will draw a triangle with
+    vertices at (50,50) , (550,350) and (50,150).
 
     The polygon is not filled.
 
@@ -1254,11 +1245,11 @@ def draw_polygon(vertices: List[float], image: Image = None):
     """
     Draw a polygon.
 
-    "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
-    points defined by the the list.
+    "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to
+    connect adjacent points defined by the the list.
 
-    For examples , if "vertices" is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
-    (50,50) , (550,350) and (50,150)
+    For examples , if "vertices" is [50,50,550,350, 50,150], draw_polygon() will draw a triangle with
+    vertices at (50,50) , (550,350) and (50,150)
 
     The polygon is filled and has outline.
 
@@ -1276,10 +1267,6 @@ def draw_polygon(vertices: List[float], image: Image = None):
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.polygon(vertices)
-    if on_screen:
-        _win.invalid()
-    image, on_screen = _check_on_screen(image)
     image.draw_polygon(vertices)
     if on_screen:
         _win.invalid()
@@ -1289,11 +1276,11 @@ def fill_polygon(vertices: List[float], image: Image = None):
     """
     Fill a polygon.
 
-    "points" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to connect adjacent
-    points defined by the the list.
+    "vertices" is a 2D point list. Each 2 values in the list make a point. A polygon will be drawn to
+    connect adjacent points defined by the the list.
 
-    For examples , if points is [50,50,550,350, 50,150], poly_gon() will draw a triangle with vertices at
-    (50,50) , (550,350) and (50,150)
+    For examples , if "vertices" is [50,50,550,350, 50,150], fill_polygon() will fill a triangle
+    with vertices at (50,50) , (550,350) and (50,150).
 
     The polygon doesn\'t have outline.
 
@@ -1375,8 +1362,9 @@ def fill_rect(left: float, top: float, right: float, bottom: float, image: Image
 def rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
                  image: Image = None):
     """
-    Draws a rounded rectangle outline with upper left corner at (left, top) , lower right corner at (right,bottom).
-    raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
+    Draws a rounded rectangle outline with upper left corner at (left, top) , lower right
+    corner at (right,bottom). Raidus on x-axis of the corner ellipse arc is round_x,
+    radius on y-axis of the corner ellipse arc is round_y.
 
     The rectangle is not filled.
 
@@ -1466,18 +1454,17 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
 
     (x, y) specifies the top-left point in the destination image that is to be drawn onto.
 
-    (sx, sy) specifies the top-left point of the part in the source image that is to \
-     be drawn. The default is (0, 0).
+    (sx, sy) specifies the top-left point of the part in the source image that is to
+    be drawn. The default is (0, 0).
 
-    (sw, sh) specifies the size of the part of the source image that is to be drawn.  \
+    (sw, sh) specifies the size of the part of the source image that is to be drawn.
     The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
 
     if with_background is False, the source image's background will not be copied.
 
     The final result will depend on the composition mode and the source image's background.
-    In the default mode (CompositionMode.SOURCE_OVER), the source will fully overwrite the destination).
-
-    If you want to get a transparent copy, you should use draw_image_transparent().
+    In the default mode (CompositionMode.SOURCE_OVER), the transparent background in the source
+    will not overwrite the destination.
 
     :param x: x coordinate value of the upper left point on the destination image
     :param y: y coordinate value of the upper left point on the destination image
@@ -1588,6 +1575,7 @@ def text_width(text: str, image: Image = None):
     :param text: the text
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
+    :return: width of the text
     """
     image, on_screen = _check_on_screen(image)
     return image.text_width(text)
@@ -1599,6 +1587,7 @@ def text_height(image: Image = None):
 
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
+    :return: height of the text (font height)
     """
     image, on_screen = _check_on_screen(image)
     return image.text_height()
@@ -1615,7 +1604,7 @@ def set_target(image: Image = None):
     """
     Set the target image for drawing on.
 
-    :param image: the target image which will be painted on. None means paint on the grapchis window.
+    :param image: the target image which will be painted on. None means paint on the graphics window.
     """
     global _target_image, _is_target_on_screen
     _check_app_run()
@@ -1633,7 +1622,7 @@ def get_target() -> Optional[Image]:
     """
     Get the target image for drawing on.
 
-    :return: the target image which will be painted on. None means paint on the grapchis window.
+    :return: the target image which will be painted on. None means paint on the graphics window.
     """
     if _is_target_on_screen:
         _check_app_run()
@@ -1655,7 +1644,7 @@ def create_image(width, height) -> Image:
 
 def close_image(image: Image):
     """
-    Close the specied image.
+    Close and clean up the specified image.
 
     :param image: the image to be closed
     """
@@ -1806,7 +1795,7 @@ def qpoints_to_point_list(qpoints: List[QtCore.QPointF]) -> List[float]:
 
 def pause():
     """
-    Pause the grogram and wait for mouse clicking or keyboard hitting.
+    Pause the program and wait for mouse clicking or keyboard hitting.
 
     >>> from easygraphics import *
     >>> init_graph(800,600)
@@ -1830,7 +1819,7 @@ def is_run() -> bool:
 
 def delay(milliseconds: int):
     """
-    Delay the programm for specified milliseconds
+    Delay the program for specified milliseconds.
 
     :param milliseconds: time to delay
     """
@@ -1871,9 +1860,10 @@ def delay_jfps(fps, max_skip_count=0):
 def has_kb_hit() -> bool:
     """
     See if any ascii char key is hitted in the last 100 ms.
+
     Use it with get_char().
 
-    :return:  True if hitted, False or not
+    :return:  True if hit, False otherwise
     """
     _check_app_run(True)
     return _win.has_kb_hit()
@@ -1881,10 +1871,11 @@ def has_kb_hit() -> bool:
 
 def has_kb_msg() -> bool:
     """
-    See if any key is hitted in the last 100 ms.
+    See if any key is hit in the last 100 ms.
+
     Use it with get_key().
 
-    :return:  True if hitted, False or not
+    :return:  True if hit, False otherwise
     """
     _check_app_run(True)
     return _win.has_kb_msg()
@@ -1896,7 +1887,7 @@ def has_mouse_msg() -> bool:
 
     Use it with get_mouse_msg().
 
-    :return:  True if any mouse message, False or not
+    :return:  True if any mouse message, False otherwise
     """
     _check_app_run(True)
     return _win.has_mouse_msg()
@@ -1907,11 +1898,10 @@ def get_mouse_msg() -> (int, int, int, int):
     Get the mouse message.
 
     If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait for
-    the next key hitting.
+    the next mouse message.
 
     :return: x of the cursor, y of the cursor , type, mouse buttons down
         ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
-
     """
     _check_app_run(True)
     return _win.get_mouse_msg()
@@ -1922,7 +1912,7 @@ def get_click() -> (int, int, int):
     Get the mouse click message.
 
     If there is not any  mouse button is clicked in last 100 ms, the program will stop and wait for
-    the next key hitting.
+    the next clicking.
 
     :return: x of the cursor, y of the cursor , mouse buttons down
         ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
@@ -2046,7 +2036,7 @@ def init_graph(width: int = 800, height: int = 600, headless: bool = False):
 
 def get_graphics_window() -> GraphWin:
     """
-    Get the graphics window
+    Get the graphics window.
 
     :return: the graphics window
     """

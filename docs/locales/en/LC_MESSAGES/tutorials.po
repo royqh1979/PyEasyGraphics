@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-02 09:56+0800\n"
+"POT-Creation-Date: 2019-01-04 17:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -287,71 +287,95 @@ msgid "fill_circle()"
 msgstr ""
 
 #: ../../tutorials/04_shapes.rst:65
-msgid "Polygon"
+msgid "Angle"
 msgstr ""
 
 #: ../../tutorials/04_shapes.rst:66
+msgid "In easygraphics, all angles use degree as the unit."
+msgstr ""
+
+#: ../../tutorials/04_shapes.rst:68
+msgid ""
+"Degree 0,90,180 and 270 are always the positive direction of X-axis, the "
+"positive direction of Y-axis,  the negative direction of X-axis, the "
+"negative direction of Y-axis, respectively independent of any "
+":doc:`transforms <09_transforms>`."
+msgstr ""
+
+#: ../../tutorials/04_shapes.rst:72
+msgid "So by default, a positive turning angle means turn clockwise."
+msgstr ""
+
+#: ../../tutorials/04_shapes.rst:74
+msgid "The following program draws a pie from 45 degree to 135 degree."
+msgstr ""
+
+#: ../../tutorials/04_shapes.rst:89
+msgid "Polygon"
+msgstr ""
+
+#: ../../tutorials/04_shapes.rst:90
 msgid ""
 "Use polygon()/draw_polygon()/fill_polygon(), we can draw and fill "
 "polygons."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:68
+#: ../../tutorials/04_shapes.rst:92
 msgid "To draw a polygon, we should specify the vertices."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:70
+#: ../../tutorials/04_shapes.rst:94
 msgid ""
 "polygon()/draw_polygon()/fill_polygon() expect a list as the verticis\\' "
 "postions. In the list, each vertex is represented as 2 values (x and y). "
 "So n vertices is represented by a list with 2n values."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:74
+#: ../../tutorials/04_shapes.rst:98
 msgid ""
-"The following example draws a triangle with vertices at (50, 50), (550, "
-"350), (50, 150):"
+"The following example draws a triangle with vertices at (50, 50), (350, "
+"250), (50, 150):"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:90
+#: ../../tutorials/04_shapes.rst:115
 msgid "Polylines"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:91
+#: ../../tutorials/04_shapes.rst:116
 msgid "Using poly_line() or draw_poly_line(), we can draw polylines."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:95
+#: ../../tutorials/04_shapes.rst:120
 msgid ""
 "A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a "
 "continuous line composed of one or more line segments. So to draw a "
 "polyline, we should specify the endpoints connecting each line segment."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:98
+#: ../../tutorials/04_shapes.rst:123
 msgid ""
 "poly_line() and draw_poly_line() expect a list as the endpoint\\'s "
 "postions. In the list, each endpoint is represented as 2 values (x and "
 "y). So n endpoints is represented by a list with 2n values."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:102
+#: ../../tutorials/04_shapes.rst:127
 msgid ""
-"The following example draws a polyline connecting (50,50), (550,350), "
-"(50,150), (550,450), (50,250), (550,550)"
+"The following example draws a polyline connecting (50,50), (350,75), "
+"(50,150), (350,175), (50,250), (350,275)."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:115
+#: ../../tutorials/04_shapes.rst:142
 msgid "Bézier curve"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:116
+#: ../../tutorials/04_shapes.rst:143
 msgid ""
 "`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve>`_ is a "
 "parametric curve that uses the Bernstein polynomials as a basis."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:118
+#: ../../tutorials/04_shapes.rst:145
 msgid ""
 "A Bézier curve is defined by a set of control points P0 through Pn, where"
 " n is called its order (n = 1 for linear, 2 for quadratic, 3 for cubic "
@@ -360,11 +384,11 @@ msgid ""
 "not lie on the curve."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:122
+#: ../../tutorials/04_shapes.rst:149
 msgid "Cubic Bézier curves are the mostly used Bézier curves."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:126
+#: ../../tutorials/04_shapes.rst:153
 msgid ""
 "Four points P0, P1, P2 and P3 in the plane or in higher-dimensional space"
 " define a cubic Bézier curve. The curve starts at P0 going toward P1 and "
@@ -374,11 +398,11 @@ msgid ""
 "\"how fast\" the curve moves towards P1 before turning towards P2."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:132
+#: ../../tutorials/04_shapes.rst:159
 msgid "The explicit form of the curve is:"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:136
+#: ../../tutorials/04_shapes.rst:163
 msgid ""
 "We can use bezier() or draw_bezier() to draw cubic Bézier curves. They "
 "expect a list as the control points\\' postions. In the list, each "
@@ -387,32 +411,32 @@ msgid ""
 "list."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:140
+#: ../../tutorials/04_shapes.rst:167
 msgid ""
 "The following program draw a cubic bezier curve with control points at "
 "(300,50),(200,50),(200,200) and (100,200)."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:152
+#: ../../tutorials/04_shapes.rst:179
 msgid "Flood Fill"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:153
+#: ../../tutorials/04_shapes.rst:180
 msgid ""
 "Non-regular shapes can be filled by flood fill. The shape to be filled "
 "must be enclosed by an outline. The follow program uses flood fill to "
 "fill a pedal."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:170
+#: ../../tutorials/04_shapes.rst:197
 msgid "Below is the result:"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:175
+#: ../../tutorials/04_shapes.rst:202
 msgid "Advanced Drawing"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:177
+#: ../../tutorials/04_shapes.rst:204
 msgid ""
 "EasyGraphics supports drawing all the basic shape: point, line, circle, "
 "ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
@@ -569,19 +593,11 @@ msgid "The related functions are:"
 msgstr ""
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
-msgid ":obj:`get_x <easygraphics.get_x>`\\ \\(image\\)"
+msgid ":obj:`get_x <get_x>`\\"
 msgstr ""
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
-msgid "Get the x coordinate value of the current drawing position (x,y)."
-msgstr ""
-
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
-msgid ":obj:`get_y <easygraphics.get_y>`\\ \\(image\\)"
-msgstr ""
-
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
-msgid "Get the y coordinate value of the current drawing position (x,y)."
+msgid ":obj:`get_y <get_y>`\\"
 msgstr ""
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
@@ -624,8 +640,8 @@ msgstr ""
 
 #: ../../tutorials/06_line_to.rst:20:<autosummary>:1
 msgid ""
-"Draw a line from the current drawing position (x,y) to (x+dx,y+dy),     "
-"then set the drawing position is set to (x+dx,y+dy)."
+"Draw a line from the current drawing position (x,y) to (x+dx,y+dy), then "
+"set the drawing position is set to (x+dx,y+dy)."
 msgstr ""
 
 #: ../../tutorials/06_line_to.rst:21
@@ -2440,5 +2456,36 @@ msgstr ""
 #~ " we first draw a non-transformed "
 #~ "bus, a mirror line, then draw the"
 #~ " flipped bus."
+#~ msgstr ""
+
+#~ msgid ":obj:`get_x <easygraphics.get_x>`\\ \\(image\\)"
+#~ msgstr ""
+
+#~ msgid "Get the x coordinate value of the current drawing position (x,y)."
+#~ msgstr ""
+
+#~ msgid ":obj:`get_y <easygraphics.get_y>`\\ \\(image\\)"
+#~ msgstr ""
+
+#~ msgid "Get the y coordinate value of the current drawing position (x,y)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Draw a line from the current "
+#~ "drawing position (x,y) to (x+dx,y+dy),     "
+#~ "then set the drawing position is "
+#~ "set to (x+dx,y+dy)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following example draws a triangle"
+#~ " with vertices at (50, 50), (550, "
+#~ "350), (50, 150):"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following example draws a polyline"
+#~ " connecting (50,50), (550,350), (50,150), "
+#~ "(550,450), (50,250), (550,550)"
 #~ msgstr ""
 

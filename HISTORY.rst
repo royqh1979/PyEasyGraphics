@@ -2,6 +2,10 @@
 
 History
 =======
+0.9.11
+-------------------
+* fix: now arc/pie/chord drawing functions has the same angle system with rotate()
+
 0.9.10
 -------------------
 * add: easygraphics.turtle package which implements the turtle graphics.
