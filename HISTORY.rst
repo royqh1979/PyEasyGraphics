@@ -2,10 +2,16 @@
 
 History
 =======
+0.9.10
+-------------------
+* add: easygraphics.turtle package which implements the turtle graphics.
+* change: now rotate()/skew() can transform around any point
+* change: now reflect() can using lines not passing the origin as the reflecting axis.
+
 0.9.9
 -------------------
 * add set_flip_y() to make y-axis grows bottom-up. (use reflect() will make texts
-get reflected too.)
+  get reflected too.)
 
 
 0.9.8.1

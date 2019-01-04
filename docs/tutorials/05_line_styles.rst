@@ -3,8 +3,9 @@ Line Styles
 
 Using line styles, you can control how the lines and outlines are drawn.
 The most useful line styles are:
-    * line width
-    * line shape
+
+* line width
+* line shape
 
 Line Width
 ----------

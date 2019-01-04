@@ -3,7 +3,7 @@ import threading
 import time
 import math
 from functools import reduce
-from typing import List
+from typing import List, Optional
 
 from PyQt5 import QtWidgets
 
@@ -16,7 +16,6 @@ __all__ = [
     # consts
     'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'CompositionMode', 'TextFlags',
     'MouseMessageType',
-    # 'GraphWin', 'Image',
     #  setting functions #
     'set_line_style', 'get_line_style', 'set_line_width', 'get_line_width',
     'get_color', 'set_color', 'get_fill_color', 'set_fill_color', 'get_fill_style', 'set_fill_style',
@@ -43,9 +42,11 @@ __all__ = [
     'has_kb_msg', 'has_kb_hit', 'has_mouse_msg', 'get_key', 'get_char', 'get_mouse_msg', 'get_cursor_pos', 'get_click',
     "contains_left_button", "contains_right_button", "contains_mid_button",
     # init and close graph window #
-    'init_graph', 'close_graph', 'set_caption',
+    'init_graph', 'close_graph', 'set_caption', 'get_graphics_window',
     # utility functions #
-    'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol'
+    'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol',
+    # 'GraphWin',
+    'Image',
 ]
 
 
@@ -534,16 +535,18 @@ def translate(offset_x: float, offset_y: float, image: Image = None):
     image.translate(offset_x, offset_y)
 
 
-def rotate(degree: float, image: Image = None):
+def rotate(degree: float, x: float = 0, y: float = 0, image: Image = None):
     """
-    Rotates the coordinate system the given angle (in degree) clockwise.
+    Rotates the coordinate system around the point (x,y) with the given angle (in degree) clockwise.
 
     :param degree: the rotate angle (in degree)
+    :param x: the x coordinate of the rotation center
+    :param y: the y coordinate of the rotation center
     :param image: the target image to be rotated. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.rotate(degree)
+    image.rotate(degree, x, y)
 
 
 def scale(sx: float, sy: float, image: Image = None):
@@ -559,25 +562,27 @@ def scale(sx: float, sy: float, image: Image = None):
     image.scale(sx, sy)
 
 
-def shear(sh: float, sv: float, image: Image = None):
+def shear(sh: float, sv: float, x: float = 0, y: float = 0, image: Image = None):
     """
-    Shear (skew) the coordinates around the origin by sh,sv
+    Shear (skew) the coordinates around the point (x,y) by sh,sv.
 
     :param sh: shear ratio on the x-axis
     :param sv: shear ratio on the y-axis
+    :param x: the x coordinate of the skew center
+    :param y: the y coordinate of the skew center
     :param image: the target image to be sheared. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.shear(sh, sv)
+    image.shear(sh, sv, x, y)
 
 
 skew = shear
 
 
-def reflect(x: float, y: float, image: Image = None):
+def reflect(x: float, y: float, x1: float = 0, y1: float = 0, image: Image = None):
     """
-    Reflect the coordinates against the line passing (0,0) and (x,y).
+    Reflect the coordinates against the line passing (x1,y1) and (x,y).
 
     **Note that all things will get reflected, including text!**
     If you just want to draw on a normal coordinate system with the y-axis grows bottom up,
@@ -585,11 +590,13 @@ def reflect(x: float, y: float, image: Image = None):
 
     :param x: x coordinate value
     :param y: y coordinate value
+    :param x1: the x coordinate of  the second point
+    :param y1: the y coordinate of the second point
     :param image: the target image to be reflected. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.reflect(x, y)
+    image.reflect(x, y, x1, y1)
 
 
 mirror = reflect
@@ -603,7 +610,7 @@ def set_flip_y(flip_y: bool, image: Image = None) -> None:
 
     Texts will not get flipped.
 
-    **Don't translate the origin to other points**(but you can translate and then translate back)
+    **Don't translate the origin to other points** (but you can translate and then translate back)
     before drawing any text. Or the text position's calculation will get wrong! So if you want to
     set the origin to the image/image's center, call set_flip_y() after the set_origin() or
     translate()!
@@ -613,7 +620,7 @@ def set_flip_y(flip_y: bool, image: Image = None) -> None:
 
     :param flip_y: True to turn on the flip, False to turn off.
     :param image: the target image to be flipped. None means it is the target image
-    (see set_target() and get_target()).
+        (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
     image.set_flip_y(flip_y)
@@ -1622,7 +1629,7 @@ def set_target(image: Image = None):
         _target_image = image
 
 
-def get_target() -> Image:
+def get_target() -> Optional[Image]:
     """
     Get the target image for drawing on.
 
@@ -1899,7 +1906,8 @@ def get_mouse_msg() -> (int, int, int, int):
     """
     Get the mouse message.
 
-    If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait for the next key hitting.
+    If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait for
+    the next key hitting.
 
     :return: x of the cursor, y of the cursor , type, mouse buttons down
         ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
@@ -1921,8 +1929,8 @@ def get_click() -> (int, int, int):
     """
     while True:
         _check_app_run(True)
-        x, y, type, buttons = _win.get_mouse_msg()
-        if type == MouseMessageType.RELEASE_MESSAGE:
+        x, y, _type, buttons = _win.get_mouse_msg()
+        if _type == MouseMessageType.RELEASE_MESSAGE:
             return x, y, buttons
 
 
@@ -2036,6 +2044,15 @@ def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     _start_event.wait()
 
 
+def get_graphics_window() -> GraphWin:
+    """
+    Get the graphics window
+
+    :return: the graphics window
+    """
+    return _win
+
+
 def close_graph():
     """
     Close the graphics windows.
@@ -2135,68 +2152,3 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
     if not in_shell:
         sys.exit(0)
-
-
-if __name__ == "__main__":
-    pass
-# init_graph(800, 600)
-# set_color(Color.BLACK)
-# circle(300,300,200)
-# circle(400,400,100)
-# pause()
-# set_fill_color(Color.LIGHTBLUE)
-# print("haha")
-# flood_fill(300,300,Color.BLACK)
-# print("lala")
-# set_background_color(Color.RED)
-# set_color(Color.RED)
-# set_write_mode(WriteMode.R2_NOT)
-# clear_device()
-# line(100,100,400,400)
-# set_line_style(LineStyle.DASH_DOT_DOT_LINE)
-# set_view_port(0,0,300,300,True)
-# line(100,400,400,100)
-# pause()
-# circle(250,250,200)
-# pause()
-# draw_circle(250, 250, 150)
-# pause()
-# clear_view_port()
-# reset_view_port()
-# set_fill_color(Color.RED)
-# fill_circle(250,250,100)
-# pause()
-# clear_device()
-# points=[]
-# points.append(300)
-# points.append(50)
-# points.append(200)
-# points.append(50)
-# points.append(200)
-# points.append(200)
-# points.append(100)
-# points.append(200)
-# draw_bezier(points)
-# draw_lines(points)
-# pause()
-# clear_device()
-# draw_poly_line(points)
-# pause()
-# clear_device()
-# draw_lines(points)
-# pause()
-# clear_device()
-# set_background_color(Color.WHITE)
-# set_color(Color.BLACK)
-# set_fill_color(Color.LIGHTRED)
-# set_write_mode(WriteMode.R2_COPYPEN)
-# clear_device()
-# ellipse(300,300,200,100)
-# poly=[50,300, 150,100, 250,300, 200,400,100,400 ]
-# draw_polygon(poly)
-# pause()
-# image=create_image(200,200)
-# circle(100,100,50,image)
-# draw_image(50,50,image)
-# 设置原点 (0, 0) 为屏幕中央（Y轴默认向下为正）
-# close_graph()

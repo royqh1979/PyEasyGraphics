@@ -27,6 +27,8 @@ class GraphWin(QtWidgets.QWidget):
     The contents on this object is painted to the window  and this object is synced with self._canvas manually
     """
 
+    close_signal = QtCore.pyqtSignal()
+
     def __init__(self, width: int, height: int, app: QtWidgets.QApplication):
         super().__init__(flags=QtCore.Qt.Window | QtCore.Qt.MSWindowsFixedSizeDialogHint)
         self._width = width
@@ -133,6 +135,7 @@ class GraphWin(QtWidgets.QWidget):
         self._wait_event.wait()
 
     def closeEvent(self, e: QtGui.QCloseEvent):
+        self.close_signal.emit()
         self._is_run = False
         self._canvas.close()
         self._wait_event.set()
@@ -140,6 +143,7 @@ class GraphWin(QtWidgets.QWidget):
         self._key_event.set()
         self._char_key_event.set()
         self._app.quit()
+
 
     def is_run(self) -> bool:
         return self._is_run
@@ -159,10 +163,10 @@ class GraphWin(QtWidgets.QWidget):
         :param milliseconds: time to delay
         """
         nanotime = milliseconds * 1000000
-        start_wait_time = time.time_ns()
+        start_wait_time = time.perf_counter_ns()
         self.real_update()
-        while time.time_ns() - start_wait_time < nanotime:
-            time.time_ns()
+        while time.perf_counter_ns() - start_wait_time < nanotime:
+            time.perf_counter_ns()
 
     def delay_fps(self, fps: int):
         """
@@ -172,11 +176,11 @@ class GraphWin(QtWidgets.QWidget):
         """
         nanotime = 1000000000 // fps
         if self._last_fps_time == 0:
-            self._last_fps_time = time.time_ns()
+            self._last_fps_time = time.perf_counter_ns()
         self.real_update()
-        tt = time.time_ns()
+        tt = time.perf_counter_ns()
         while tt - self._last_fps_time < nanotime:
-            tt = time.time_ns()
+            tt = time.perf_counter_ns()
         self._last_fps_time = tt
 
     def delay_jfps(self, fps: int, max_skip_count: int = 10) -> bool:
@@ -195,9 +199,9 @@ class GraphWin(QtWidgets.QWidget):
             self._frames_skipped += 1
             return False
         if self._last_fps_time == 0:
-            self._last_fps_time = time.time_ns()
+            self._last_fps_time = time.perf_counter_ns()
 
-        nowtime = time.time_ns()
+        nowtime = time.perf_counter_ns()
         if self._last_fps_time + nanotime < nowtime:
             if self._frames_skipped <= max_skip_count:
                 # we don't have to draw this frame, so let's skip it
@@ -205,19 +209,19 @@ class GraphWin(QtWidgets.QWidget):
                 if max_skip_count <= 0:
                     print(self._frames_to_skip_count)
                     self._frames_to_skip_count -= 1
-                    self._last_fps_time = time.time_ns()
+                    self._last_fps_time = time.perf_counter_ns()
                     return False
                 elif self._frames_to_skip_count > max_skip_count - self._frames_skipped:
                     self._frames_to_skip_count = (max_skip_count - self._frames_skipped) - 1
                     self._frames_skipped += 1
-                    self._last_fps_time = time.time_ns()
+                    self._last_fps_time = time.perf_counter_ns()
                     return False
             else:
                 self._frames_skipped = 0
         self.real_update()
-        tt = time.time_ns()
+        tt = time.perf_counter_ns()
         while tt - self._last_fps_time < nanotime:
-            tt = time.time_ns()
+            tt = time.perf_counter_ns()
         self._last_fps_time = tt
         return True
 
@@ -228,7 +232,7 @@ class GraphWin(QtWidgets.QWidget):
 
         :return: the character inputted by keybord
         """
-        nt = time.time_ns()
+        nt = time.perf_counter_ns()
         self.real_update()
         if nt - self._key_char_msg.get_time() > 100000000:
             # if the last char msg is 100ms ago, we wait for a new msg
@@ -248,7 +252,7 @@ class GraphWin(QtWidgets.QWidget):
         :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
             `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
         """
-        nt = time.time_ns()
+        nt = time.perf_counter_ns()
         self.real_update()
         if nt - self._key_msg.get_time() > 100000000:
             # if the last key msg is 100ms ago, we wait for a new msg
@@ -271,7 +275,7 @@ class GraphWin(QtWidgets.QWidget):
         :return: x of the cursor, y of the cursor , type, mouse buttons down
             ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
         """
-        nt = time.time_ns()
+        nt = time.perf_counter_ns()
         self.real_update()
         if nt - self._mouse_msg.get_time() > 100000000:
             # if the last key msg is 100ms ago, we wait for a new msg
@@ -291,7 +295,7 @@ class GraphWin(QtWidgets.QWidget):
 
         :return:  True if hitted, False or not
         """
-        nt = time.time_ns()
+        nt = time.perf_counter_ns()
         return nt - self._key_char_msg.get_time() <= 100000000
 
     def has_kb_msg(self) -> bool:
@@ -301,7 +305,7 @@ class GraphWin(QtWidgets.QWidget):
 
         :return:  True if hitted, False or not
         """
-        nt = time.time_ns()
+        nt = time.perf_counter_ns()
         return nt - self._key_char_msg.get_time() <= 100000000
 
     def has_mouse_msg(self) -> bool:
@@ -311,7 +315,7 @@ class GraphWin(QtWidgets.QWidget):
 
         :return:  True if any mouse message, False or not
         """
-        nt = time.time_ns()
+        nt = time.perf_counter_ns()
         return nt - self._mouse_msg.get_time() <= 100000000
 
     def get_cursor_pos(self) -> (int, int):
@@ -335,7 +339,7 @@ class _KeyMsg:
 
     def set_event(self, key_event: QtGui.QKeyEvent):
         self._key_event = key_event
-        self._time = time.time_ns()
+        self._time = time.perf_counter_ns()
 
     def get_event(self) -> QtGui.QKeyEvent:
         return self._key_event
@@ -360,7 +364,7 @@ class _KeyCharMsg:
     def set_char(self, key_event: QtGui.QKeyEvent):
         key_event.key()
         self._key = key_event.text()
-        self._time = time.time_ns()
+        self._time = time.perf_counter_ns()
 
     def get_char(self) -> str:
         return self._key
@@ -381,7 +385,7 @@ class _MouseMsg:
 
     def set_event(self, e: QtGui.QMouseEvent, type: int):
         self._mouse_event = e
-        self._time = time.time_ns()
+        self._time = time.perf_counter_ns()
         self._type = type
 
     def get_event(self) -> QtGui.QMouseEvent:

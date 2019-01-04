@@ -7,9 +7,7 @@ if __name__ == "__main__":
 
     init_graph(500, 300)
 
-    translate(0, 65)
-    reflect(1, 0)
-    translate(0, -65)
+    reflect(0, 65, 1, 65)
 
     draw_bus.draw_bus()
     pause()

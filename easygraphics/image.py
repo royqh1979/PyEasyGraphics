@@ -1,5 +1,6 @@
 from collections import deque
 from typing import List, Union
+import math
 
 from PyQt5 import QtGui, QtCore
 
@@ -10,6 +11,17 @@ __all__ = ['Image']
 
 
 class Image:
+    """
+    The image class.
+
+    Use PyQt's QImage to save the drawing, and QPainter as the underlying drawing device.
+
+    Note that the painter is keep and reused, if you want to draw on the image by yourself,
+    please use get_painter() to get the painter and draw.And also note there is a mask image
+    for background processing. You should get the mask right or you will get wrong result
+    with set_background_color() and draw_image(with_background=False).
+    """
+
     def __init__(self, image: QtGui.QImage):
         self._image = image
         self._image_view = qn.raw_view(image)
@@ -23,6 +35,7 @@ class Image:
         self._mask_view = qn.raw_view(self._mask)
         self._mask.fill(MASK_WHITE)
         self._pen = QtGui.QPen()
+        self._pen.setColor(Color.BLACK)
         self._pen.setCapStyle(QtCore.Qt.RoundCap)
         self._pen.setJoinStyle(QtCore.Qt.RoundJoin)
         self._pen.setCosmetic(True)
@@ -356,14 +369,18 @@ class Image:
         self._painter.translate(offset_x, offset_y)
         self._mask_painter.translate(offset_x, offset_y)
 
-    def rotate(self, degree: float):
+    def rotate(self, degree: float, x: float = 0, y: float = 0):
         """
-        Rotates the coordinate system the given angle (in degree) clockwise.
+        Rotates the coordinate system around the point (x,y) with the given angle (in degree) clockwise.
 
         :param degree: the rotate angle (in degree)
+        :param x: the x coordinate of the rotation center
+        :param y: the y coordinate of the rotation center
         """
+        self.translate(x, y)
         self._painter.rotate(degree)
         self._mask_painter.rotate(degree)
+        self.translate(-x, -y)
 
     def scale(self, sx: float, sy: float):
         """
@@ -375,36 +392,45 @@ class Image:
         self._painter.scale(sx, sy)
         self._mask_painter.scale(sx, sy)
 
-    def shear(self, sh: float, sv: float):
+    def shear(self, sh: float, sv: float, x: float = 0, y: float = 0):
         """
-        Shear (skew) the coordinates around the origin by sh,sv
+        Shear (skew) the coordinates around the point (x,y) by sh,sv.
 
         :param sh: shear ratio on the x-axis
         :param sv: shear ratio on the y-axis
+        :param x: the x coordinate of the skew center
+        :param y: the y coordinate of the skew center
         """
+        self.translate(x, y)
         self._painter.shear(sh, sv)
         self._mask_painter.shear(sh, sv)
+        self.translate(-x, -y)
 
     skew = shear
 
-    def reflect(self, x: float, y: float):
+    def reflect(self, x: float, y: float, x1: float = 0, y1: float = 0):
         """
-        Reflect the coordinates against the line passing (0,0) and (x,y).
+        Reflect the coordinates against the line passing (x1,y1) and (x,y).
 
         **Note that all things will get reflected, including text!**
         If you just want to draw on a normal coordinate system with the y-axis grows bottom up,
         use flip_y().
 
-        :param x: x coordinate value
-        :param y: y coordinate value
+        :param x: x coordinate value of the first point
+        :param y: y coordinate value of the first point
+        :param x1: the x coordinate of  the second point
+        :param y1: the y coordinate of the second point
         """
-        if x == 0 and y == 0:
-            raise ValueError("point(x,y) must not be (0,0)!")
-        transform = self._get_reflect_transform(x, y)
+        if math.isclose(x, x1) and math.isclose(y, y1):
+            raise ValueError("point(x,y) and point(x1,y1) should not be the same!")
+        self.translate(x1, y1)
+        transform = self._get_reflect_transform(x - x1, y - y1)
         self._painter.setTransform(transform, True)
         self._mask_painter.setTransform(transform, True)
+        self.translate(-x1, -y1)
 
-    def _get_reflect_transform(self, x, y):
+    @staticmethod
+    def _get_reflect_transform(x, y):
         xx = x * x
         yy = y * y
         ll = xx + yy
@@ -435,6 +461,24 @@ class Image:
         # translate around the x-axis ( if the image is already flipped, this will flip the image back).
         self.reflect(1, 0)
         self._flip_y = flip_y
+
+    def get_transform(self) -> QtGui.QTransform:
+        """
+        Get transform of the image.
+
+        :return: the transform
+        """
+        return self._painter.transform()
+
+    def set_transform(self, transform: QtGui.QTransform):
+        """
+        Set image's transform.
+
+        :param transform: the transform to set
+        :return:
+        """
+        self._painter.setTransform(transform)
+        self._mask_painter.setTransform(transform)
 
     def reset_transform(self):
         """
@@ -1223,8 +1267,8 @@ class Image:
         :param color: the color
         """
         qcolor = _to_qcolor(color)
-        self._image.setPixel(x, y, qcolor)
-        self._mask.setPixel(x, y, MASK_BLACK)
+        self._image.setPixel(x, y, qcolor.rgba())
+        self._mask.setPixel(x, y, MASK_BLACK.rgba())
 
     def draw_text(self, x: int, y: int, *args, sep=' '):
         """
@@ -1350,10 +1394,19 @@ class Image:
 
     def get_painter(self) -> QtGui.QPainter:
         """
-        get the QPainter instance for drawing the image
+        Get the QPainter instance for drawing the image.
+
         :return: the painter used internally
         """
         return self._painter
+
+    def get_mask_painter(self) -> QtGui.QPainter:
+        """
+        Get the QPainter instance for drawing the mask.
+
+        :return: the mask painter used internally
+        """
+        return self._mask_painter
 
     def save_settings(self):
         """

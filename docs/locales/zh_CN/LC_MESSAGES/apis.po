@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-01 11:48+0800\n"
+"POT-Creation-Date: 2019-01-02 09:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -327,8 +327,8 @@ msgstr ""
 #: easygraphics.image.Image.set_clipping easygraphics.image.Image.set_color
 #: easygraphics.image.Image.set_composition_mode
 #: easygraphics.image.Image.set_fill_color
-#: easygraphics.image.Image.set_fill_style easygraphics.image.Image.set_font
-#: easygraphics.image.Image.set_line_style
+#: easygraphics.image.Image.set_fill_style easygraphics.image.Image.set_flip_y
+#: easygraphics.image.Image.set_font easygraphics.image.Image.set_line_style
 #: easygraphics.image.Image.set_line_width easygraphics.image.Image.set_pen
 #: easygraphics.image.Image.set_view_port easygraphics.image.Image.set_window
 #: easygraphics.image.Image.shear easygraphics.image.Image.skew
@@ -1346,7 +1346,35 @@ msgstr ""
 
 #: easygraphics.image.Image.flip:1 easygraphics.image.Image.mirror:1
 #: easygraphics.image.Image.reflect:1 of
-msgid "Reflect the coordinates against the line passing (0,0) and (x,y)"
+msgid "Reflect the coordinates against the line passing (x1,y1) and (x,y)."
+msgstr ""
+
+#: easygraphics.image.Image.flip:3 easygraphics.image.Image.mirror:3
+#: easygraphics.image.Image.reflect:3 of
+msgid ""
+"**Note that all things will get reflected, including text!** If you just "
+"want to draw on a normal coordinate system with the y-axis grows bottom "
+"up, use flip_y()."
+msgstr ""
+
+#: easygraphics.image.Image.flip:7 easygraphics.image.Image.mirror:7
+#: easygraphics.image.Image.reflect:7 of
+msgid "x coordinate value of the first point"
+msgstr ""
+
+#: easygraphics.image.Image.flip:8 easygraphics.image.Image.mirror:8
+#: easygraphics.image.Image.reflect:8 of
+msgid "y coordinate value of the first point"
+msgstr ""
+
+#: easygraphics.image.Image.flip:9 easygraphics.image.Image.mirror:9
+#: easygraphics.image.Image.reflect:9 of
+msgid "the x coordinate of  the second point"
+msgstr ""
+
+#: easygraphics.image.Image.flip:10 easygraphics.image.Image.mirror:10
+#: easygraphics.image.Image.reflect:10 of
+msgid "the y coordinate of the second point"
 msgstr ""
 
 #: easygraphics.image.Image.flood_fill:1 easygraphics.legacy.floodfill:1 of
@@ -1703,11 +1731,21 @@ msgid "Note: background_color and current position won't  be saved and restored.
 msgstr ""
 
 #: easygraphics.image.Image.rotate:1 of
-msgid "Rotates the coordinate system the given angle (in degree) clockwise."
+msgid ""
+"Rotates the coordinate system around the point (x,y) with the given angle"
+" (in degree) clockwise."
 msgstr ""
 
 #: easygraphics.image.Image.rotate:3 of
 msgid "the rotate angle (in degree)"
+msgstr ""
+
+#: easygraphics.image.Image.rotate:4 of
+msgid "the x coordinate of the rotation center"
+msgstr ""
+
+#: easygraphics.image.Image.rotate:5 of
+msgid "the y coordinate of the rotation center"
 msgstr ""
 
 #: easygraphics.image.Image.rounded_rect:1 of
@@ -1838,6 +1876,30 @@ msgid ""
 " defined in FillStyle"
 msgstr ""
 
+#: easygraphics.image.Image.set_flip_y:1 of
+msgid "Reflect with x-aixs as the axis (upside down). Texts will not flip."
+msgstr ""
+
+#: easygraphics.image.Image.set_flip_y:3 of
+msgid ""
+"**Don't translate the origin to other points**(but you can translate and "
+"then translate back) before drawing any text. Or the text position's "
+"calculation will get wrong! So if you want to set the origin to the "
+"image/image's center, call set_flip_y() after the set_origin() or "
+"translate()!"
+msgstr ""
+
+#: easygraphics.image.Image.set_flip_y:8 of
+msgid ""
+"**Note**: Use this functions instead of the reflect()/flip()/mirror(),if "
+"you only want to draw on an ordinary coordinate system with y-axis grows "
+"bottom-up."
+msgstr ""
+
+#: easygraphics.image.Image.set_flip_y:11 of
+msgid "True to turn on the flip, False to turn off."
+msgstr ""
+
 #: easygraphics.image.Image.set_font:1 of
 msgid "set font of the specified image"
 msgstr ""
@@ -1961,7 +2023,7 @@ msgid "height of the logical window"
 msgstr ""
 
 #: easygraphics.image.Image.shear:1 easygraphics.image.Image.skew:1 of
-msgid "Shear (skew) the coordinates around the origin by sh,sv"
+msgid "Shear (skew) the coordinates around the point (x,y) by sh,sv."
 msgstr ""
 
 #: easygraphics.image.Image.shear:3 easygraphics.image.Image.skew:3 of
@@ -1970,6 +2032,14 @@ msgstr ""
 
 #: easygraphics.image.Image.shear:4 easygraphics.image.Image.skew:4 of
 msgid "shear ratio on the y-axis"
+msgstr ""
+
+#: easygraphics.image.Image.shear:5 easygraphics.image.Image.skew:5 of
+msgid "the x coordinate of the skew center"
+msgstr ""
+
+#: easygraphics.image.Image.shear:6 easygraphics.image.Image.skew:6 of
+msgid "the y coordinate of the skew center"
 msgstr ""
 
 #: easygraphics.image.Image.text_height:1 of
@@ -3194,5 +3264,23 @@ msgstr ""
 #~ "Copy part of the source image "
 #~ "(image) to the destination image (self)"
 #~ " at (x,y)."
+#~ msgstr ""
+
+#~ msgid "Reflect the coordinates against the line passing (0,0) and (x,y)"
+#~ msgstr ""
+
+#~ msgid "Reflect the coordinates against the line passing (0,0) and (x,y)."
+#~ msgstr ""
+
+#~ msgid "x coordinate value"
+#~ msgstr ""
+
+#~ msgid "y coordinate value"
+#~ msgstr ""
+
+#~ msgid "Rotates the coordinate system the given angle (in degree) clockwise."
+#~ msgstr ""
+
+#~ msgid "Shear (skew) the coordinates around the origin by sh,sv"
 #~ msgstr ""
 

@@ -27,4 +27,3 @@ Functions
 .. automodule:: easygraphics.music
     :members:
     :undoc-members:
-    :show-inheritance:

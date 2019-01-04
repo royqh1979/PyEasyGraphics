@@ -1,7 +1,3 @@
-"""
-Message Dialogs
-most code from EasyGUI_Qt(https://github.com/aroberge/easygui_qt/)
-"""
 import datetime
 import os
 import sys

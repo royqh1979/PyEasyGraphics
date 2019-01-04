@@ -77,21 +77,11 @@ then draw the bus.
 
 **Note:** set_origin() is an alias of translate()
 
-  **Note**: Because rotation and skew are both respective to the origin, so we want rotate or skew
-  around a point (x,y) other than the origin, we should:
-
-  1. translate the origin to the (x,y)
-  2. do rotate/skew
-  3. translate the origin back
-  4. do the drawing
-
 Rotation
 --------
-Use rotate() to rotate the coordinate around the origin (0,0) clockwise.
+Use rotate() to rotate the coordinate around the point (x,y) clockwise.
 
 If you need a counter-clockwise rotation, just give a negative rotation degree.
-
-If you need to rotate around any point (x,y), just do as the above note in the translation section.
 
 The following program draws a bus rotated 45 degree counter-clockwise around it\'s center (105,65).
 
@@ -102,9 +92,7 @@ The following program draws a bus rotated 45 degree counter-clockwise around it\
     init_graph(500, 300)
 
     # rotate around the (105,65)
-    translate(105,65)
-    rotate(-45)
-    translate(-105,-65)
+    rotate(-45, 105, 65)
 
     draw_bus.draw_bus()
     pause()
@@ -134,7 +122,7 @@ The following program draws a x-axis shrinked and y-axis enlarged bus.
 
 Shear Mapping (Skew)
 --------------------
-We use shear() or its alias skew to shear a drawing around the origin. shear() needs 2 parameters "sv" and "sh".
+We use shear() or its alias skew to shear a drawing around the center. shear() needs 2 parameters "sv" and "sh".
 After shearing, each point (x,y) is transformed to (x+sh*y, y+sv*x). We can see its effect by the following examples.
 
 Shear on X-axis
@@ -196,12 +184,10 @@ In the follow example, we shear the bus along the x and y-axis at the same time.
 Reflection (Mirror, Flipping)
 -----------------------------
 We can use reflect() ( or its alias mirror() and flip() ) to do a reflection. It reflect the drawing again the line
-passing (0,0) and its parameter (x,y).
-
-  To reflect againt lines not passing the origin, first translate the origin to that line, reflect, then translate back.
+passing its parameters (x1,y1) and  (x,y).
 
 Reflection against the y-axis
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following program flip the bus horizontally ( reflection against the bus\'s vertical center line x=105 ) :
 
 .. code-block:: python
@@ -210,9 +196,7 @@ The following program flip the bus horizontally ( reflection against the bus\'s 
     import draw_bus
     init_graph(500, 300)
 
-    translate(105,0)
-    reflect(0,1)
-    translate(-105,0)
+    reflect(105, 0,105,1)
     draw_bus.draw_bus()
     pause()
     close_graph()
@@ -220,7 +204,7 @@ The following program flip the bus horizontally ( reflection against the bus\'s 
 .. image:: ../images/tutorials/09_flip_h.png
 
 Reflection against the x-axis
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following program flip the bus vertically ( reflection against the bus\'s horizontal center line y=65 ) :
 
 .. code-block:: python
@@ -229,9 +213,7 @@ The following program flip the bus vertically ( reflection against the bus\'s ho
     import draw_bus
     init_graph(500, 300)
 
-    translate(0,65)
-    reflect(1,0)
-    translate(0,-65)
+    reflect(0, 65,1,65)
 
     draw_bus.draw_bus()
     pause()
@@ -241,7 +223,7 @@ The following program flip the bus vertically ( reflection against the bus\'s ho
 
 Reflection against other lines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following program flip the bus against the line passing (0,0) and (500,300). To clearly see the result,
+The following program flip the bus against the line passing (0, 300) and (500,0). To clearly see the result,
 we first draw a non-transformed bus, a mirror line, then draw the flipped bus.
 
 .. code-block:: python
@@ -254,10 +236,10 @@ we first draw a non-transformed bus, a mirror line, then draw the flipped bus.
 
     set_color("gray")
     set_line_style(LineStyle.DASH_LINE)
-    line(0,0,500,300)
+    line(0, 300, 500, 0)
     set_line_style(LineStyle.SOLID_LINE)
 
-    reflect(500,300)
+    reflect(0, 300, 500,0)
     draw_bus.draw_bus()
     pause()
     close_graph()

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-31 09:04+0800\n"
+"POT-Creation-Date: 2019-01-02 09:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -432,122 +432,122 @@ msgid ""
 "The most useful line styles are:"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:6
+#: ../../tutorials/05_line_styles.rst:7
 msgid "line width"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:7
+#: ../../tutorials/05_line_styles.rst:8
 msgid "line shape"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:10
+#: ../../tutorials/05_line_styles.rst:11
 msgid "Line Width"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:12
+#: ../../tutorials/05_line_styles.rst:13
 msgid "You can use set_line_width()/get_line_width() to get or set line width."
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:14
+#: ../../tutorials/05_line_styles.rst:15
 msgid "The following program draws a rectangle whose borders width is 10."
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:27
+#: ../../tutorials/05_line_styles.rst:28
 msgid "Predefined Line Shapes"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:28
+#: ../../tutorials/05_line_styles.rst:29
 msgid ""
 "Using line shapes, you can draw dash line or dot line. Use "
 "set_line_style()/get_line_style() to set line shape."
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:34
+#: ../../tutorials/05_line_styles.rst:35
 msgid "|solid_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:35
+#: ../../tutorials/05_line_styles.rst:36
 msgid "|dash_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:36
+#: ../../tutorials/05_line_styles.rst:37
 msgid "|dot_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:37
+#: ../../tutorials/05_line_styles.rst:38
 msgid "LineStyle.SOLID_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:38
+#: ../../tutorials/05_line_styles.rst:39
 msgid "LineStyle.DASH_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:39
+#: ../../tutorials/05_line_styles.rst:40
 msgid "LineStyle.DOT_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:40
+#: ../../tutorials/05_line_styles.rst:41
 msgid "|dash_dot_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:41
+#: ../../tutorials/05_line_styles.rst:42
 msgid "|dash_dot_dot_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:42
+#: ../../tutorials/05_line_styles.rst:43
 msgid "|no_pen|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:43
+#: ../../tutorials/05_line_styles.rst:44
 msgid "LineStyle.DASH_DOT_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:44
+#: ../../tutorials/05_line_styles.rst:45
 msgid "LineStyle.DASH_DOT_DOT_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:45
+#: ../../tutorials/05_line_styles.rst:46
 msgid "LineStyle.NO_PEN"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:54
+#: ../../tutorials/05_line_styles.rst:55
 msgid "The following program draws a rectangle with dash outlines."
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:67
+#: ../../tutorials/05_line_styles.rst:68
 msgid "Custom Line Shapes"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:68
+#: ../../tutorials/05_line_styles.rst:69
 msgid ""
 "If predefined line shapes is not satisfying, you can set custome line "
 "shape. To do this, you should:"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:71
+#: ../../tutorials/05_line_styles.rst:72
 msgid ""
 "use get_target() or create_image() to get the Image object you want to "
 "draw."
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:72
+#: ../../tutorials/05_line_styles.rst:73
 msgid ""
 "use the Image object\\'s get_pen() to get the pen. It\\'s a PyQt\\'s "
 "`QPen <http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html>`_ object."
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:74
+#: ../../tutorials/05_line_styles.rst:75
 msgid ""
 "Use the pen\\'s `setDashPattern() "
 "<http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html#setDashPattern>`_ to "
 "set custom line shape."
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:90
+#: ../../tutorials/05_line_styles.rst:91
 msgid "More Line Styles"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:91
+#: ../../tutorials/05_line_styles.rst:92
 msgid ""
 "After getting the pen object, you can set other pen attributes to get "
 "more line styles. See `QPen's documentation "
@@ -949,168 +949,172 @@ msgstr ""
 msgid "**Note:** set_origin() is an alias of translate()"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:80
-msgid ""
-"**Note**: Because rotation and skew are both respective to the origin, so"
-" we want rotate or skew around a point (x,y) other than the origin, we "
-"should:"
-msgstr ""
-
-#: ../../tutorials/09_transforms.rst:83
-msgid "translate the origin to the (x,y)"
-msgstr ""
-
-#: ../../tutorials/09_transforms.rst:84
-msgid "do rotate/skew"
-msgstr ""
-
-#: ../../tutorials/09_transforms.rst:85
-msgid "translate the origin back"
-msgstr ""
-
-#: ../../tutorials/09_transforms.rst:86
-msgid "do the drawing"
-msgstr ""
-
-#: ../../tutorials/09_transforms.rst:89
+#: ../../tutorials/09_transforms.rst:81
 msgid "Rotation"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:90
-msgid "Use rotate() to rotate the coordinate around the origin (0,0) clockwise."
+#: ../../tutorials/09_transforms.rst:82
+msgid "Use rotate() to rotate the coordinate around the point (x,y) clockwise."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:92
+#: ../../tutorials/09_transforms.rst:84
 msgid ""
 "If you need a counter-clockwise rotation, just give a negative rotation "
 "degree."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:94
-msgid ""
-"If you need to rotate around any point (x,y), just do as the above note "
-"in the translation section."
-msgstr ""
-
-#: ../../tutorials/09_transforms.rst:96
+#: ../../tutorials/09_transforms.rst:86
 msgid ""
 "The following program draws a bus rotated 45 degree counter-clockwise "
 "around it\\'s center (105,65)."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:116
+#: ../../tutorials/09_transforms.rst:104
 msgid "Scaling"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:117
+#: ../../tutorials/09_transforms.rst:105
 msgid "We can use scale() to scale the drawing in x and y axis separately."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:119
+#: ../../tutorials/09_transforms.rst:107
 msgid "The following program draws a x-axis shrinked and y-axis enlarged bus."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:136
+#: ../../tutorials/09_transforms.rst:124
 msgid "Shear Mapping (Skew)"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:137
+#: ../../tutorials/09_transforms.rst:125
 msgid ""
-"We use shear() or its alias skew to shear a drawing around the origin. "
+"We use shear() or its alias skew to shear a drawing around the center. "
 "shear() needs 2 parameters \"sv\" and \"sh\". After shearing, each point "
 "(x,y) is transformed to (x+sh*y, y+sv*x). We can see its effect by the "
 "following examples."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:141
+#: ../../tutorials/09_transforms.rst:129
 msgid "Shear on X-axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:142
+#: ../../tutorials/09_transforms.rst:130
 msgid ""
 "In the follow example, we shear the bus along the x-axis. Note that the "
 "default y-axis is from top to bottom."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:160
+#: ../../tutorials/09_transforms.rst:148
 msgid "Shear on Y-axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:161
+#: ../../tutorials/09_transforms.rst:149
 msgid "In the follow example, we shear the bus along the y-axis."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:178
+#: ../../tutorials/09_transforms.rst:166
 msgid "Shear on both axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:179
+#: ../../tutorials/09_transforms.rst:167
 msgid ""
 "In the follow example, we shear the bus along the x and y-axis at the "
 "same time."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:197
+#: ../../tutorials/09_transforms.rst:185
 msgid "Reflection (Mirror, Flipping)"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:198
+#: ../../tutorials/09_transforms.rst:186
 msgid ""
 "We can use reflect() ( or its alias mirror() and flip() ) to do a "
-"reflection. It reflect the drawing again the line passing (0,0) and its "
-"parameter (x,y)."
+"reflection. It reflect the drawing again the line passing its parameters "
+"(x1,y1) and  (x,y)."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:201
-msgid ""
-"To reflect againt lines not passing the origin, first translate the "
-"origin to that line, reflect, then translate back."
-msgstr ""
-
-#: ../../tutorials/09_transforms.rst:204
+#: ../../tutorials/09_transforms.rst:190
 msgid "Reflection against the y-axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:205
+#: ../../tutorials/09_transforms.rst:191
 msgid ""
 "The following program flip the bus horizontally ( reflection against the "
 "bus\\'s vertical center line x=105 ) :"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:223
+#: ../../tutorials/09_transforms.rst:207
 msgid "Reflection against the x-axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:224
+#: ../../tutorials/09_transforms.rst:208
 msgid ""
 "The following program flip the bus vertically ( reflection against the "
 "bus\\'s horizontal center line y=65 ) :"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:243
+#: ../../tutorials/09_transforms.rst:225
 msgid "Reflection against other lines"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:244
+#: ../../tutorials/09_transforms.rst:226
 msgid ""
-"The following program flip the bus against the line passing (0,0) and "
-"(500,300). To clearly see the result, we first draw a non-transformed "
-"bus, a mirror line, then draw the flipped bus."
+"The following program flip the bus against the line passing (0, 300) and "
+"(500,0). To clearly see the result, we first draw a non-transformed bus, "
+"a mirror line, then draw the flipped bus."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:269
+#: ../../tutorials/09_transforms.rst:251
 msgid "Compound Transforms"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:270
+#: ../../tutorials/09_transforms.rst:252
 msgid "Transforms can be compounded."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:272
+#: ../../tutorials/09_transforms.rst:254
 msgid ""
 "In the following example, we first translate the origin to the image "
 "center, then rotate the bus around its center, then shear it around its "
 "center, then scale it by a factor of 1.2 ."
+msgstr ""
+
+#: ../../tutorials/09_transforms.rst:285
+msgid "Drawing with Y-Axis Grows Bottom-Up"
+msgstr ""
+
+#: ../../tutorials/09_transforms.rst:286
+msgid ""
+"You may have noticed that when you reflect the image, the texts drawing "
+"on the image will also get reflected. When what you want is to draw on an"
+" ordinary coordinate system whose Y-axis grows bottom-up, this will not "
+"be what you what."
+msgstr ""
+
+#: ../../tutorials/09_transforms.rst:290
+msgid "Easygraphics provides a set_flip_y() function to used in this situation."
+msgstr ""
+
+#: ../../tutorials/09_transforms.rst:292
+msgid ""
+"Also notice that if you turn on the set_flip_y(), all the angles "
+"parameters used in the drawing functions should be mirrored too. That is,"
+" if the docs said a positive angle means turn clock-wise, after the "
+"set_flip_y() is on, a positive angle will mean turn counter-clockwise."
+msgstr ""
+
+#: ../../tutorials/09_transforms.rst:296
+msgid ""
+"Compare the following two programs. The first one use set_flip_y() to "
+"make y-axis grows bottom-up; and the second one use reflect(1,0) to do "
+"that job. See the results."
+msgstr ""
+
+#: ../../tutorials/09_transforms.rst:299
+msgid "Use set_flip_y() to make y-axis grows bottom-up:"
+msgstr ""
+
+#: ../../tutorials/09_transforms.rst:327
+msgid "Use reflect(1,0) to make y-axis grows bottom-up:"
 msgstr ""
 
 #: ../../tutorials/10_composition_mode.rst:2
@@ -2371,5 +2375,70 @@ msgstr ""
 #~ "**RenderMode.AUTO**: All drawings on the "
 #~ "graphics window will show immediately. "
 #~ "This is for normal drawing."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Note**: Because rotation and skew are"
+#~ " both respective to the origin, so"
+#~ " we want rotate or skew around "
+#~ "a point (x,y) other than the "
+#~ "origin, we should:"
+#~ msgstr ""
+
+#~ msgid "translate the origin to the (x,y)"
+#~ msgstr ""
+
+#~ msgid "do rotate/skew"
+#~ msgstr ""
+
+#~ msgid "translate the origin back"
+#~ msgstr ""
+
+#~ msgid "do the drawing"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Use rotate() to rotate the coordinate"
+#~ " around the origin (0,0) clockwise."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you need to rotate around any"
+#~ " point (x,y), just do as the "
+#~ "above note in the translation section."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We use shear() or its alias skew"
+#~ " to shear a drawing around the "
+#~ "origin. shear() needs 2 parameters "
+#~ "\"sv\" and \"sh\". After shearing, each"
+#~ " point (x,y) is transformed to "
+#~ "(x+sh*y, y+sv*x). We can see its "
+#~ "effect by the following examples."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We can use reflect() ( or its "
+#~ "alias mirror() and flip() ) to do"
+#~ " a reflection. It reflect the drawing"
+#~ " again the line passing (0,0) and "
+#~ "its parameter (x,y)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To reflect againt lines not passing "
+#~ "the origin, first translate the origin"
+#~ " to that line, reflect, then "
+#~ "translate back."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following program flip the bus "
+#~ "against the line passing (0,0) and "
+#~ "(500,300). To clearly see the result,"
+#~ " we first draw a non-transformed "
+#~ "bus, a mirror line, then draw the"
+#~ " flipped bus."
 #~ msgstr ""
 

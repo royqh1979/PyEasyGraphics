@@ -9,13 +9,7 @@ Subpackages
     apis/easygraphics.dialog
     apis/easygraphics.legacy
     apis/easygraphics.music
-
-Submodules
-----------
-
-.. toctree::
-
-    apis/easygraphics.image
+    apis/easygraphics.turtle
 
 Package Summary
 ---------------
@@ -227,5 +221,4 @@ API Details
 .. automodule:: easygraphics
     :members:
     :undoc-members:
-    :show-inheritance:
 

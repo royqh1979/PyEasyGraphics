@@ -1,8 +1,3 @@
-"""
-The BGI compatible module
-
-This module defines all the functions in the BGI
-"""
 import easygraphics as eg
 
 from easygraphics.image import Image

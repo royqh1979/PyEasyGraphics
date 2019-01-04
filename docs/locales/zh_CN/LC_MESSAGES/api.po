@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-01 19:40+0800\n"
+"POT-Creation-Date: 2019-01-02 09:56+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -752,442 +752,452 @@ msgstr "画一个空心圆角矩形，左上角位于点(left,top)，右下角�
 msgid "Transform"
 msgstr "几何变换（Transform)"
 
-#: ../../api.rst:144:<autosummary>:1
-msgid ":obj:`flip <easygraphics.flip>`\\ \\(x\\, y\\, image\\)"
+#: ../../api.rst:145:<autosummary>:1
+msgid ":obj:`flip <easygraphics.flip>`\\ \\(x\\, y\\, x1\\, y1\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1 easygraphics.flip:1 easygraphics.mirror:1
+#: ../../api.rst:145:<autosummary>:1 easygraphics.flip:1 easygraphics.mirror:1
 #: easygraphics.reflect:1 of
-msgid "Reflect the coordinates against the line passing (0,0) and (x,y)."
-msgstr "以过原点(0,0)和点(x,y)的直线为轴，反射(reflect)坐标系。"
+msgid "Reflect the coordinates against the line passing (x1,y1) and (x,y)."
+msgstr "以过原点(x1,y1)和点(x,y)的直线为轴，反射(reflect)坐标系。"
 
-#: ../../api.rst:144:<autosummary>:1
-msgid ":obj:`mirror <easygraphics.mirror>`\\ \\(x\\, y\\, image\\)"
+#: ../../api.rst:145:<autosummary>:1
+msgid ":obj:`mirror <easygraphics.mirror>`\\ \\(x\\, y\\, x1\\, y1\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1
-msgid ":obj:`reflect <easygraphics.reflect>`\\ \\(x\\, y\\, image\\)"
+#: ../../api.rst:145:<autosummary>:1
+msgid ":obj:`reflect <easygraphics.reflect>`\\ \\(x\\, y\\, x1\\, y1\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1
+#: ../../api.rst:145:<autosummary>:1
 msgid ":obj:`reset_transform <easygraphics.reset_transform>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1 easygraphics.reset_transform:1 of
+#: ../../api.rst:145:<autosummary>:1 easygraphics.reset_transform:1 of
 msgid "Reset all transforms (translate/rotate/scale)."
 msgstr "重置（取消）所有几何变换。"
 
-#: ../../api.rst:144:<autosummary>:1
-msgid ":obj:`rotate <easygraphics.rotate>`\\ \\(degree\\, image\\)"
+#: ../../api.rst:145:<autosummary>:1
+msgid ":obj:`rotate <easygraphics.rotate>`\\ \\(degree\\, x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1 easygraphics.rotate:1 of
-msgid "Rotates the coordinate system the given angle (in degree) clockwise."
-msgstr "顺时针绕原点旋转坐标系。"
+#: ../../api.rst:145:<autosummary>:1 easygraphics.rotate:1 of
+msgid ""
+"Rotates the coordinate system around the point (x,y) with the given angle"
+" (in degree) clockwise."
+msgstr "顺时针绕点(x,y)旋转坐标系。"
 
-#: ../../api.rst:144:<autosummary>:1
+#: ../../api.rst:145:<autosummary>:1
 msgid ":obj:`scale <easygraphics.scale>`\\ \\(sx\\, sy\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1 easygraphics.scale:1 of
+#: ../../api.rst:145:<autosummary>:1 easygraphics.scale:1 of
 msgid "Scales the coordinate system by (sx, sy)."
 msgstr "坐标轴沿x轴方向缩放(scale)sx倍，沿y轴方向缩放sy倍。"
 
-#: ../../api.rst:144:<autosummary>:1
+#: ../../api.rst:145:<autosummary>:1
+msgid ":obj:`set_flip_y <easygraphics.set_flip_y>`\\ \\(flip\\_y\\, image\\)"
+msgstr ""
+
+#: ../../api.rst:145:<autosummary>:1 easygraphics.set_flip_y:1 of
+msgid "Reflect without texts using the x-axis as the axis (image upside down)."
+msgstr ""
+
+#: ../../api.rst:145:<autosummary>:1
 msgid ":obj:`set_origin <easygraphics.set_origin>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1 easygraphics.set_origin:1 of
+#: ../../api.rst:145:<autosummary>:1 easygraphics.set_origin:1 of
 msgid "Set the drawing systems' origin(0,0) to (x,y)."
 msgstr "将坐标系的原点(0,0)移动到点(x,y)处。"
 
-#: ../../api.rst:144:<autosummary>:1
-msgid ":obj:`shear <easygraphics.shear>`\\ \\(sh\\, sv\\, image\\)"
+#: ../../api.rst:145:<autosummary>:1
+msgid ":obj:`shear <easygraphics.shear>`\\ \\(sh\\, sv\\, x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1 easygraphics.shear:1 easygraphics.skew:1
+#: ../../api.rst:145:<autosummary>:1 easygraphics.shear:1 easygraphics.skew:1
 #: of
-msgid "Shear (skew) the coordinates around the origin by sh,sv"
-msgstr "绕原点沿x轴方向和y轴方向同时对图像做剪切(shear或者skew)sh和sv倍。"
+msgid "Shear (skew) the coordinates around the point (x,y) by sh,sv."
+msgstr "绕点(x,y)沿x轴方向和y轴方向同时对图像做剪切(shear或者skew)sh和sv倍。"
 
-#: ../../api.rst:144:<autosummary>:1
-msgid ":obj:`skew <easygraphics.skew>`\\ \\(sh\\, sv\\, image\\)"
+#: ../../api.rst:145:<autosummary>:1
+msgid ":obj:`skew <easygraphics.skew>`\\ \\(sh\\, sv\\, x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1
+#: ../../api.rst:145:<autosummary>:1
 msgid ""
 ":obj:`translate <easygraphics.translate>`\\ \\(offset\\_x\\, "
 "offset\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:144:<autosummary>:1 easygraphics.translate:1 of
+#: ../../api.rst:145:<autosummary>:1 easygraphics.translate:1 of
 msgid ""
 "Translates the coordinate system by the given offset; i.e.the given "
 "offset is added to points."
 msgstr "将坐标轴平移指定的位移。"
 
-#: ../../api.rst:146
+#: ../../api.rst:147
 msgid "Animation"
 msgstr "动画处理"
 
-#: ../../api.rst:158:<autosummary>:1
+#: ../../api.rst:159:<autosummary>:1
 msgid ":obj:`delay <easygraphics.delay>`\\ \\(milliseconds\\)"
 msgstr ""
 
-#: ../../api.rst:158:<autosummary>:1 easygraphics.delay:1 of
+#: ../../api.rst:159:<autosummary>:1 easygraphics.delay:1 of
 msgid "Delay the programm for specified milliseconds"
 msgstr "程序暂停指定的时间（毫秒）"
 
-#: ../../api.rst:158:<autosummary>:1
+#: ../../api.rst:159:<autosummary>:1
 msgid ":obj:`delay_fps <easygraphics.delay_fps>`\\ \\(fps\\)"
 msgstr ""
 
-#: ../../api.rst:158:<autosummary>:1 easygraphics.delay_fps:1 of
+#: ../../api.rst:159:<autosummary>:1 easygraphics.delay_fps:1 of
 msgid "Delay the program to control fps (Frame per seconds)."
 msgstr "通过暂停程序来控制动画的FPS（Frame per seconds)。"
 
-#: ../../api.rst:158:<autosummary>:1
+#: ../../api.rst:159:<autosummary>:1
 msgid ""
 ":obj:`delay_jfps <easygraphics.delay_jfps>`\\ \\(fps\\[\\, "
 "max\\_skip\\_count\\]\\)"
 msgstr ""
 
-#: ../../api.rst:158:<autosummary>:1 easygraphics.delay_jfps:1 of
+#: ../../api.rst:159:<autosummary>:1 easygraphics.delay_jfps:1 of
 msgid "Delay to control fps with frame skipping."
 msgstr "通过暂停程序来控制动画的FPS（Frame per seconds)。带跳帧判断。"
 
-#: ../../api.rst:158:<autosummary>:1
+#: ../../api.rst:159:<autosummary>:1
 msgid ":obj:`get_render_mode <easygraphics.get_render_mode>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:158:<autosummary>:1 easygraphics.get_render_mode:1
+#: ../../api.rst:159:<autosummary>:1 easygraphics.get_render_mode:1
 #: easygraphics.set_render_mode:1 of
 msgid "Set render mode of the graphics window."
 msgstr "设置绘图窗口的绘制模式"
 
-#: ../../api.rst:158:<autosummary>:1
+#: ../../api.rst:159:<autosummary>:1
 msgid ":obj:`is_run <easygraphics.is_run>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:158:<autosummary>:1 easygraphics.is_run:1 of
+#: ../../api.rst:159:<autosummary>:1 easygraphics.is_run:1 of
 msgid "Test if the graphics system is running."
 msgstr "检查图形系统是否在运行。"
 
-#: ../../api.rst:158:<autosummary>:1
+#: ../../api.rst:159:<autosummary>:1
 msgid ":obj:`set_render_mode <easygraphics.set_render_mode>`\\ \\(mode\\)"
 msgstr ""
 
-#: ../../api.rst:160
+#: ../../api.rst:161
 msgid "Image Processing"
 msgstr "图片处理"
 
-#: ../../api.rst:174:<autosummary>:1
+#: ../../api.rst:175:<autosummary>:1
 msgid ""
 ":obj:`capture_screen <easygraphics.capture_screen>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:174:<autosummary>:1 easygraphics.capture_screen:1 of
+#: ../../api.rst:175:<autosummary>:1 easygraphics.capture_screen:1 of
 msgid "Caputre specified region on the graphics windows to target image."
 msgstr "在图形窗口上截取指定区域的内容保存到图片中。"
 
-#: ../../api.rst:174:<autosummary>:1
+#: ../../api.rst:175:<autosummary>:1
 msgid ":obj:`close_image <easygraphics.close_image>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:174:<autosummary>:1 easygraphics.close_image:1 of
+#: ../../api.rst:175:<autosummary>:1 easygraphics.close_image:1 of
 msgid "Close the specied image."
 msgstr "关闭指定的图片。"
 
-#: ../../api.rst:174:<autosummary>:1
+#: ../../api.rst:175:<autosummary>:1
 msgid ":obj:`create_image <easygraphics.create_image>`\\ \\(width\\, height\\)"
 msgstr ""
 
-#: ../../api.rst:174:<autosummary>:1 easygraphics.create_image:1 of
+#: ../../api.rst:175:<autosummary>:1 easygraphics.create_image:1 of
 msgid "Create a new image."
 msgstr "创建一个新图片。"
 
-#: ../../api.rst:174:<autosummary>:1
+#: ../../api.rst:175:<autosummary>:1
 msgid ""
 ":obj:`draw_image <easygraphics.draw_image>`\\ \\(x\\, y\\, src\\_image\\,"
 " src\\_x\\, src\\_y\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:174:<autosummary>:1 easygraphics.draw_image:1
+#: ../../api.rst:175:<autosummary>:1 easygraphics.draw_image:1
 #: easygraphics.put_image:1 of
 msgid ""
 "Copy part of the source image (src_image) to the destination image "
 "(dst_image)."
 msgstr "将来源图片(src_image)复制到目的图片(dst_image)。"
 
-#: ../../api.rst:174:<autosummary>:1
+#: ../../api.rst:175:<autosummary>:1
 msgid ":obj:`get_target <easygraphics.get_target>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:174:<autosummary>:1 easygraphics.get_target:1 of
+#: ../../api.rst:175:<autosummary>:1 easygraphics.get_target:1 of
 msgid "Get the target image for drawing on."
 msgstr "获取当前的绘制目标（target）。"
 
-#: ../../api.rst:174:<autosummary>:1
+#: ../../api.rst:175:<autosummary>:1
 msgid ":obj:`load_image <easygraphics.load_image>`\\ \\(filename\\)"
 msgstr ""
 
-#: ../../api.rst:174:<autosummary>:1 easygraphics.load_image:1 of
+#: ../../api.rst:175:<autosummary>:1 easygraphics.load_image:1 of
 msgid "Load a image from the file."
 msgstr "读取图片文件。"
 
-#: ../../api.rst:174:<autosummary>:1
+#: ../../api.rst:175:<autosummary>:1
 msgid ""
 ":obj:`put_image <easygraphics.put_image>`\\ \\(x\\, y\\, src\\_image\\, "
 "src\\_x\\, src\\_y\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:174:<autosummary>:1
+#: ../../api.rst:175:<autosummary>:1
 msgid ""
 ":obj:`save_image <easygraphics.save_image>`\\ \\(filename\\[\\, "
 "with\\_background\\]\\)"
 msgstr ""
 
-#: ../../api.rst:174:<autosummary>:1 easygraphics.save_image:1 of
+#: ../../api.rst:175:<autosummary>:1 easygraphics.save_image:1 of
 msgid "Save image to file."
 msgstr "保存图片到文件。"
 
-#: ../../api.rst:174:<autosummary>:1
+#: ../../api.rst:175:<autosummary>:1
 msgid ":obj:`set_target <easygraphics.set_target>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:174:<autosummary>:1 easygraphics.set_target:1 of
+#: ../../api.rst:175:<autosummary>:1 easygraphics.set_target:1 of
 msgid "Set the target image for drawing on."
 msgstr "设置绘制目标（target）"
 
-#: ../../api.rst:176
+#: ../../api.rst:177
 msgid "Keyboard and Mouse"
 msgstr "键盘与鼠标"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ""
 ":obj:`contains_left_button <easygraphics.contains_left_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.contains_left_button:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.contains_left_button:1 of
 msgid "Test if the buttons contains the left mouse button."
 msgstr "检查是否包含鼠标左键。"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ""
 ":obj:`contains_mid_button <easygraphics.contains_mid_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.contains_mid_button:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.contains_mid_button:1 of
 msgid "Test if the buttons contains the middle mouse button."
 msgstr "检查是否包含鼠标中键。"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ""
 ":obj:`contains_right_button <easygraphics.contains_right_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.contains_right_button:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.contains_right_button:1 of
 msgid "Test if the buttons contains the right mouse button."
 msgstr "检查是否包含鼠标右键。"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ":obj:`get_char <easygraphics.get_char>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.get_char:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.get_char:1 of
 msgid "Get the ascii char inputted by keyboard."
 msgstr "读取键盘输入的字符。（阻塞程序）"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ":obj:`get_click <easygraphics.get_click>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.get_click:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.get_click:1 of
 msgid "Get the mouse click message."
 msgstr "获取鼠标点击信息。（阻塞程序）"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ":obj:`get_cursor_pos <easygraphics.get_cursor_pos>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.get_cursor_pos:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.get_cursor_pos:1 of
 msgid "Get position of the mouse cursor"
 msgstr "获取鼠标光标的位置。（非阻塞）"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ":obj:`get_key <easygraphics.get_key>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.get_key:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.get_key:1 of
 msgid "Get the key inputted by keyboard."
 msgstr "获取键盘按下的键信息。（阻塞程序）"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ":obj:`get_mouse_msg <easygraphics.get_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.get_mouse_msg:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.get_mouse_msg:1 of
 msgid "Get the mouse message."
 msgstr "获取鼠标按钮按下或者松开信息。（阻塞）"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ":obj:`has_kb_hit <easygraphics.has_kb_hit>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid "See if any ascii char key is hitted in the last 100 ms."
 msgstr "检查过去100毫秒内是否有字符从键盘输入。"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ":obj:`has_kb_msg <easygraphics.has_kb_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid "See if any key is hitted in the last 100 ms."
 msgstr "检查过去100毫秒内键盘是否有键被按下。"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ":obj:`has_mouse_msg <easygraphics.has_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.has_mouse_msg:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.has_mouse_msg:1 of
 msgid "See if there is any mouse message(event) in the last 100 ms."
 msgstr "检查过去100毫秒内是否有鼠标按钮被按下或者松开。"
 
-#: ../../api.rst:193:<autosummary>:1
+#: ../../api.rst:194:<autosummary>:1
 msgid ":obj:`pause <easygraphics.pause>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:193:<autosummary>:1 easygraphics.pause:1 of
+#: ../../api.rst:194:<autosummary>:1 easygraphics.pause:1 of
 msgid "Pause the grogram and wait for mouse clicking or keyboard hitting."
 msgstr "暂停程序，等待鼠标点击或者键盘按任意键继续。"
 
-#: ../../api.rst:195
+#: ../../api.rst:196
 msgid "Color & utilities"
 msgstr "颜色和工具"
 
-#: ../../api.rst:208:<autosummary>:1
+#: ../../api.rst:209:<autosummary>:1
 msgid ":obj:`cart2pol <easygraphics.cart2pol>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../api.rst:208:<autosummary>:1 easygraphics.cart2pol:1 of
+#: ../../api.rst:209:<autosummary>:1 easygraphics.cart2pol:1 of
 msgid "Transform a point from cartesian coordinates to polar coordinates."
 msgstr "从笛卡尔坐标转换为极坐标。"
 
-#: ../../api.rst:208:<autosummary>:1
+#: ../../api.rst:209:<autosummary>:1
 msgid ""
 ":obj:`color_cmyk <easygraphics.color_cmyk>`\\ \\(c\\, m\\, y\\, k\\, "
 "alpha\\)"
 msgstr ""
 
-#: ../../api.rst:208:<autosummary>:1 easygraphics.color_cmyk:1 of
+#: ../../api.rst:209:<autosummary>:1 easygraphics.color_cmyk:1 of
 msgid "Create a color with CMYK color values c,m,y,k."
 msgstr "创建CMYK颜色。"
 
-#: ../../api.rst:208:<autosummary>:1
+#: ../../api.rst:209:<autosummary>:1
 msgid ":obj:`color_hsv <easygraphics.color_hsv>`\\ \\(h\\, s\\, v\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:208:<autosummary>:1 easygraphics.color_hsv:1 of
+#: ../../api.rst:209:<autosummary>:1 easygraphics.color_hsv:1 of
 msgid "Create a color with HSV color values h,s,v."
 msgstr "创建HSV颜色。"
 
-#: ../../api.rst:208:<autosummary>:1
+#: ../../api.rst:209:<autosummary>:1
 msgid ""
 ":obj:`color_rgb <easygraphics.color_rgb>`\\ \\(red\\, green\\, blue\\, "
 "alpha\\)"
 msgstr ""
 
-#: ../../api.rst:208:<autosummary>:1 easygraphics.color_rgb:1
+#: ../../api.rst:209:<autosummary>:1 easygraphics.color_rgb:1
 #: easygraphics.rgb:1 of
 msgid "Create a color with RGB color values r,g,b."
 msgstr "创建RGB颜色。"
 
-#: ../../api.rst:208:<autosummary>:1
+#: ../../api.rst:209:<autosummary>:1
 msgid ":obj:`pol2cart <easygraphics.pol2cart>`\\ \\(rho\\, theta\\)"
 msgstr ""
 
-#: ../../api.rst:208:<autosummary>:1 easygraphics.pol2cart:1 of
+#: ../../api.rst:209:<autosummary>:1 easygraphics.pol2cart:1 of
 msgid "Transform a point from polar coordinates to cartesian coordinates."
 msgstr "从极坐标转换为笛卡尔坐标。"
 
-#: ../../api.rst:208:<autosummary>:1
+#: ../../api.rst:209:<autosummary>:1
 msgid ":obj:`rgb <easygraphics.rgb>`\\ \\(red\\, green\\, blue\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:208:<autosummary>:1
+#: ../../api.rst:209:<autosummary>:1
 msgid ":obj:`to_alpha <easygraphics.to_alpha>`\\ \\(new\\_color\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:208:<autosummary>:1 easygraphics.to_alpha:1 of
+#: ../../api.rst:209:<autosummary>:1 easygraphics.to_alpha:1 of
 msgid "Get new color based on the given color and alpha."
 msgstr "用所给的颜色和alpha值创建新颜色。"
 
-#: ../../api.rst:210
+#: ../../api.rst:211
 msgid "Constants"
 msgstr "常量"
 
-#: ../../api.rst:222:<autosummary>:1
+#: ../../api.rst:223:<autosummary>:1
 msgid ":obj:`Color <easygraphics.Color>`\\"
 msgstr ""
 
-#: ../../api.rst:222:<autosummary>:1 easygraphics.Color:1 of
+#: ../../api.rst:223:<autosummary>:1 easygraphics.Color:1 of
 msgid "These are the predefined Color constants."
 msgstr "这些是预定义的颜色常量。"
 
-#: ../../api.rst:222:<autosummary>:1
+#: ../../api.rst:223:<autosummary>:1
 msgid ":obj:`CompositionMode <easygraphics.CompositionMode>`\\"
 msgstr ""
 
-#: ../../api.rst:222:<autosummary>:1 easygraphics.CompositionMode:1 of
+#: ../../api.rst:223:<autosummary>:1 easygraphics.CompositionMode:1 of
 msgid "Defines the modes supported for digital image compositing."
 msgstr "定义了绘图时的合成模式。"
 
-#: ../../api.rst:222:<autosummary>:1
+#: ../../api.rst:223:<autosummary>:1
 msgid ":obj:`FillStyle <easygraphics.FillStyle>`\\"
 msgstr ""
 
-#: ../../api.rst:222:<autosummary>:1 easygraphics.FillStyle:1 of
+#: ../../api.rst:223:<autosummary>:1 easygraphics.FillStyle:1 of
 msgid "These are the fill style used by draw and fill functions."
 msgstr "这些是draw_xxx和fill_xxx函数使用的填充模式。"
 
-#: ../../api.rst:222:<autosummary>:1
+#: ../../api.rst:223:<autosummary>:1
 msgid ":obj:`LineStyle <easygraphics.LineStyle>`\\"
 msgstr ""
 
-#: ../../api.rst:222:<autosummary>:1
+#: ../../api.rst:223:<autosummary>:1
 msgid "These are the line styles that can be drawn."
 msgstr "这些是绘制线条时的线型。"
 
-#: ../../api.rst:222:<autosummary>:1
+#: ../../api.rst:223:<autosummary>:1
 msgid ":obj:`MouseMessageType <easygraphics.MouseMessageType>`\\"
 msgstr ""
 
-#: ../../api.rst:222:<autosummary>:1 easygraphics.MouseMessageType:1 of
+#: ../../api.rst:223:<autosummary>:1 easygraphics.MouseMessageType:1 of
 msgid "These are the mouse message types."
 msgstr "这些是鼠标信息类型。"
 
-#: ../../api.rst:222:<autosummary>:1
+#: ../../api.rst:223:<autosummary>:1
 msgid ":obj:`RenderMode <easygraphics.RenderMode>`\\"
 msgstr ""
 
-#: ../../api.rst:222:<autosummary>:1 easygraphics.RenderMode:1 of
+#: ../../api.rst:223:<autosummary>:1 easygraphics.RenderMode:1 of
 msgid "These are the graphics window render mode."
 msgstr "这些是图形窗口的渲染模式。"
 
-#: ../../api.rst:222:<autosummary>:1
+#: ../../api.rst:223:<autosummary>:1
 msgid ":obj:`TextFlags <easygraphics.TextFlags>`\\"
 msgstr ""
 
-#: ../../api.rst:222:<autosummary>:1 easygraphics.TextFlags:1 of
+#: ../../api.rst:223:<autosummary>:1 easygraphics.TextFlags:1 of
 msgid "These are the text drawing flags."
 msgstr "这些是文本绘制标志。"
 
-#: ../../api.rst:224
+#: ../../api.rst:225
 msgid "API Details"
 msgstr "API详情"
 
@@ -1393,8 +1403,7 @@ msgstr "合成模式控制在绘制时，如何对来源色彩和目标色彩进
 msgid ""
 "Please note that the bitwise operation modes are not supported for pens "
 "and brushes with alpha components."
-msgstr "注意，光栅运算(Raster operations)/位运算(bitwise operations)合成模式要求"
-"来源色彩和目标色彩都不透明。"
+msgstr "注意，光栅运算(Raster operations)/位运算(bitwise operations)合成模式要求来源色彩和目标色彩都不透明。"
 
 #: easygraphics.CompositionMode.CLEAR:1 of
 msgid ""
@@ -1718,9 +1727,10 @@ msgstr "**线型**用于画线和形状轮廓。在LineStyle中定义了可用�
 #: easygraphics.set_caption easygraphics.set_clip_rect
 #: easygraphics.set_clipping easygraphics.set_color
 #: easygraphics.set_composition_mode easygraphics.set_fill_color
-#: easygraphics.set_fill_style easygraphics.set_font easygraphics.set_font_size
-#: easygraphics.set_line_style easygraphics.set_line_width
-#: easygraphics.set_origin easygraphics.set_render_mode easygraphics.set_target
+#: easygraphics.set_fill_style easygraphics.set_flip_y easygraphics.set_font
+#: easygraphics.set_font_size easygraphics.set_line_style
+#: easygraphics.set_line_width easygraphics.set_origin
+#: easygraphics.set_render_mode easygraphics.set_target
 #: easygraphics.set_view_port easygraphics.set_window
 #: easygraphics.set_write_mode easygraphics.shear easygraphics.skew
 #: easygraphics.text_height easygraphics.text_width easygraphics.to_alpha
@@ -2211,6 +2221,14 @@ msgid "the rotate angle (in degree)"
 msgstr ""
 
 #: easygraphics.rotate:4 of
+msgid "the x coordinate of the rotation center"
+msgstr "旋转中心的x轴坐标"
+
+#: easygraphics.rotate:5 of
+msgid "the y coordinate of the rotation center"
+msgstr "旋转中心的y轴坐标"
+
+#: easygraphics.rotate:6 of
 msgid ""
 "the target image to be rotated. None means it is the target image (see "
 "set_target() and get_target())."
@@ -2238,10 +2256,76 @@ msgstr ""
 msgid "shear ratio on the y-axis"
 msgstr ""
 
-#: easygraphics.flip:5 easygraphics.mirror:5 easygraphics.reflect:5
 #: easygraphics.shear:5 easygraphics.skew:5 of
+msgid "the x coordinate of the skew center"
+msgstr "错切中心的x轴坐标"
+
+#: easygraphics.shear:6 easygraphics.skew:6 of
+msgid "the y coordinate of the skew center"
+msgstr "错切中心的y轴坐标"
+
+#: easygraphics.shear:7 easygraphics.skew:7 of
 msgid ""
 "the target image to be sheared. None means it is the target image (see "
+"set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.set_flip_y:3 of
+msgid "Texts will not get flipped."
+msgstr ""
+
+#: easygraphics.set_flip_y:5 of
+msgid ""
+"**Don't translate the origin to other points** (but you can translate and"
+" then translate back) before drawing any text. Or the text position's "
+"calculation will get wrong! So if you want to set the origin to the "
+"image/image's center, call set_flip_y() after the set_origin() or "
+"translate()!"
+msgstr ""
+
+#: easygraphics.set_flip_y:10 of
+msgid ""
+"**Note**: Use this functions instead of the reflect()/flip()/mirror(),if "
+"you only want to draw on an ordinary coordinate system with y-axis grows "
+"bottom-up."
+msgstr ""
+
+#: easygraphics.set_flip_y:13 of
+msgid "True to turn on the flip, False to turn off."
+msgstr ""
+
+#: easygraphics.set_flip_y:14 of
+msgid ""
+"the target image to be flipped. None means it is the target image (see "
+"set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.flip:3 easygraphics.mirror:3 easygraphics.reflect:3 of
+msgid ""
+"**Note that all things will get reflected, including text!** If you just "
+"want to draw on a normal coordinate system with the y-axis grows bottom "
+"up, use flip_y()."
+msgstr ""
+
+#: easygraphics.flip:7 easygraphics.mirror:7 easygraphics.reflect:7 of
+msgid "x coordinate value"
+msgstr "x轴坐标"
+
+#: easygraphics.flip:8 easygraphics.mirror:8 easygraphics.reflect:8 of
+msgid "y coordinate value"
+msgstr "y轴坐标"
+
+#: easygraphics.flip:9 easygraphics.mirror:9 easygraphics.reflect:9 of
+msgid "the x coordinate of  the second point"
+msgstr "第二个点的x轴坐标"
+
+#: easygraphics.flip:10 easygraphics.mirror:10 easygraphics.reflect:10 of
+msgid "the y coordinate of the second point"
+msgstr "第三个点的y轴坐标"
+
+#: easygraphics.flip:11 easygraphics.mirror:11 easygraphics.reflect:11 of
+msgid ""
+"the target image to be reflected. None means it is the target image (see "
 "set_target() and get_target())."
 msgstr ""
 
@@ -3155,5 +3239,40 @@ msgstr "极径rho(点到极点的距离), 极角theta(极轴和点到极点间�
 #~ msgstr ""
 
 #~ msgid "Close the specied image :param image: the image to be closed"
+#~ msgstr ""
+
+#~ msgid ":obj:`flip <easygraphics.flip>`\\ \\(x\\, y\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`mirror <easygraphics.mirror>`\\ \\(x\\, y\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`reflect <easygraphics.reflect>`\\ \\(x\\, y\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`rotate <easygraphics.rotate>`\\ \\(degree\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`shear <easygraphics.shear>`\\ \\(sh\\, sv\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`skew <easygraphics.skew>`\\ \\(sh\\, sv\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Don't translate the origin to other"
+#~ " points**(but you can translate and "
+#~ "then translate back) before drawing any"
+#~ " text. Or the text position's "
+#~ "calculation will get wrong! So if "
+#~ "you want to set the origin to "
+#~ "the image/image's center, call set_flip_y()"
+#~ " after the set_origin() or translate()!"
+#~ msgstr ""
+
+#~ msgid "the target image to be flipped. None means it is the target image"
+#~ msgstr ""
+
+#~ msgid "(see set_target() and get_target())."
 #~ msgstr ""
 
