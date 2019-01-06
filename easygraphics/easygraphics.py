@@ -15,13 +15,13 @@ from .image import Image
 __all__ = [
     # consts
     'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'CompositionMode', 'TextFlags',
-    'MouseMessageType',
+    'MouseMessageType', 'FillRule',
     #  setting functions #
     'set_line_style', 'get_line_style', 'set_line_width', 'get_line_width',
     'get_color', 'set_color', 'get_fill_color', 'set_fill_color', 'get_fill_style', 'set_fill_style',
     'get_background_color', 'set_background_color', 'set_font', 'get_font', 'set_font_size', 'get_font_size',
     'set_composition_mode', 'get_composition_mode', 'get_drawing_x', 'get_drawing_y', 'set_view_port',
-    'reset_view_port', 'set_origin',
+    'reset_view_port', 'set_origin', 'get_fill_rule', 'set_fill_rule',
     'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'set_clipping',
     'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'skew', 'shear', 'set_flip_y',
     'reflect', 'flip', 'mirror', 'reset_transform', 'save_settings', 'restore_settings',
@@ -237,6 +237,30 @@ def set_fill_style(style, image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.set_fill_style(style)
 
+
+def get_fill_rule(image: Image = None):
+    """
+    Get the fill rule (algorithm) for filling polygons.
+
+    :param image: the target image whose fill rule is to be gotten. None means it is the target image
+         (see set_target() and get_target()).
+    :return: the rule used for filling polygons
+    """
+    image, on_screen = _check_on_screen(image)
+    return image.get_fill_rule()
+
+
+def set_fill_rule(rule, image: Image = None):
+    """
+    Set the fill rule (algorithm) for filling polygons.
+
+    :param rule: the rule to be used for filling polygons
+    :param image: the target image whose fill rule is to be set. None means it is the target image
+         (see set_target() and get_target()).
+    :return:
+    """
+    image, on_screen = _check_on_screen(image)
+    image.set_fill_rule(rule)
 
 def get_background_color(image: Image = None):
     """

@@ -3,6 +3,8 @@ import threading
 from typing import Optional
 import time
 
+from PyQt5 import QtGui, QtCore
+
 import easygraphics as eg
 from easygraphics.image import Image
 
@@ -63,7 +65,7 @@ class TurtleWorld(object):
 
     def create_snap_shot(self) -> Image:
         """
-        Create a snap shot of the create drawing.
+        Create a snap shot of the current drawing.
 
         :return: the snap shot image.
         """
@@ -143,7 +145,7 @@ class TurtleWorld(object):
         """
         Set if there are animations when turtles moving.
 
-        :param immediate: True to turn off animation (the move finishes immediately). Off to turn on.
+        :param immediate: True to turn off animation (the move finishes immediately). False to turn on.
         """
         if self._win is None:
             raise RuntimeError("Only world with the graphics window can set_immediate()!")
@@ -230,7 +232,7 @@ class Turtle(object):
         """
         if speed <= 1:
             speed = 1
-        self._speed = speed
+        self._speed = speed * 50
 
     def begin_fill(self):
         """
@@ -244,6 +246,7 @@ class Turtle(object):
     def is_filling(self) -> bool:
         """
         Test if it is recording the turtle's drawing path (for fill).
+
         :return:
         """
         return len(self._fillpath) > 0
@@ -261,9 +264,11 @@ class Turtle(object):
         if not self.is_filling():
             return
         image = eg.create_image(self._world.get_width(), self._world.get_height())
-        image.set_pen(self._world.get_world_image().get_pen())
-        image.set_brush(self._world.get_world_image().get_brush())
+        image.set_pen(QtGui.QPen(self._world.get_world_image().get_pen()))
         image.set_color(eg.Color.TRANSPARENT)
+        image.set_line_style(eg.LineStyle.SOLID_LINE)
+        image.set_brush(QtGui.QBrush(self._world.get_world_image().get_brush()))
+        image.set_fill_rule(self._world.get_world_image().get_fill_rule())
         image.set_composition_mode(eg.CompositionMode.SOURCE)
         transform = self._world.get_world_image().get_transform()
         image.set_transform(transform)
@@ -272,6 +277,10 @@ class Turtle(object):
         self._world.get_world_image().draw_image(0, 0, image, with_background=False,
                                                  composition_mode=eg.CompositionMode.SOURCE_OVER)
         self._world.get_world_image().set_transform(transform)
+        image.close()
+        print(round(self._fillpath[0], 5), round(self._fillpath[1], 5))
+        print(round(self._fillpath[-4], 5), round(self._fillpath[-3], 5))
+        print(round(self._fillpath[-2], 5), round(self._fillpath[-1], 5))
         self._fillpath.clear()
 
     def forward(self, distance: float):
@@ -304,10 +313,10 @@ class Turtle(object):
             self._x = x
             self._y = y
             self._refresh()
+            if self.is_filling():
+                self._fillpath.append(self._x)
+                self._fillpath.append(self._y)
             i += 1
-        if self.is_filling():
-            self._fillpath.append(self._x)
-            self._fillpath.append(self._y)
 
     fd = forward
 
@@ -351,6 +360,8 @@ class Turtle(object):
 
     lt = left_turn
 
+    left = left_turn
+
     def right_turn(self, degree: float):
         """
         Turn turtle right (clockwise) by \"degree\" degree.
@@ -360,6 +371,40 @@ class Turtle(object):
         self.left_turn(-degree)
 
     rt = right_turn
+
+    right = right_turn
+
+    def move_arc(self, radius: float, angle: float = 360):
+        """
+        Move the turtle in a arc path. The center is radius units left of the turtle.
+
+        :param radius: radius of the arc
+        :param angle: how many degrees the turtle will move
+        """
+        new_heading = self._heading + angle
+        center_direction = self._heading + 90
+        center_x = self._x + radius * math.cos(math.radians(center_direction))
+        center_y = self._y + radius * math.sin(math.radians(center_direction))
+        new_direction = new_heading - 90
+        new_x = center_x + radius * math.cos(math.radians(new_direction))
+        new_y = center_y + radius * math.sin(math.radians(new_direction))
+        step = radius * math.radians(1)
+        if radius < 0:
+            step = -step
+        if angle > 0:
+            i = 1
+            while i < angle:
+                self.forward(step)
+                self.left_turn(1)
+                i = i + 1
+        else:
+            i = -1
+            while i > angle:
+                self.left_turn(1)
+                self.forward(step)
+                i = i - 1
+        self.gotoxy(new_x, new_y)
+        self.set_heading(new_heading)
 
     def is_show(self):
         """

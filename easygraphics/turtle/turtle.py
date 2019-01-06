@@ -6,9 +6,9 @@ Turtle = turleclass.Turtle
 
 __all__ = [
     'create_world', 'close_world', 'forward', 'fd', 'backward', 'back', 'bk',
-    'left_turn', 'lt', 'right_turn', 'rt', 'clear_screen', 'cs', 'gotoxy', 'home',
-    'turn_to', 'facing', 'begin_fill', 'end_fill', 'setxy', 'set_heading',
-    'get_y', 'get_x', 'get_heading', 'get_turtle', 'get_turtle_world',
+    'left_turn', 'lt', 'right_turn', 'rt', 'left', 'right', 'clear_screen', 'cs', 'gotoxy', 'home',
+    'turn_to', 'facing', 'begin_fill', 'end_fill', 'setxy', 'set_heading', 'move_arc',
+    'get_y', 'get_x', 'get_heading', 'get_turtle', 'get_turtle_world', 'set_pen_size',
     'set_immediate', 'set_speed', 'pen_down', 'pen_up', 'pu', 'pd', 'hide', 'show',
     'Turtle', 'TurtleWorld']
 
@@ -109,6 +109,8 @@ def left_turn(degree: float):
 
 lt = left_turn
 
+left = left_turn
+
 
 def right_turn(degree: float):
     """
@@ -121,6 +123,19 @@ def right_turn(degree: float):
 
 
 rt = right_turn
+
+right = right_turn
+
+
+def move_arc(radius: float, angle: float = 360):
+    """
+    Move the turtle in a arc path. The center is radius units left of the turtle.
+
+    :param radius: radius of the arc
+    :param angle: how many degrees the turtle will move
+    """
+    _check_turtle()
+    _turtle.move_arc(radius, angle)
 
 
 def clear_screen():
@@ -293,7 +308,10 @@ def set_immediate(immediate: bool):
     """
     Set if there are animations when the turtle moving.
 
-    :param immediate: True to turn off animation (the move finishes immediately). Off to turn on.
+    :param immediate: True to turn off animation (the move finishes immediately). False to turn on.
     """
     _check_turtle()
     _world.set_immediate(immediate)
+
+
+set_pen_size = eg.set_line_width

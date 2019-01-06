@@ -5,7 +5,7 @@ from easygraphics.turtle import *
 
 create_world()
 
-set_speed(50000);
+set_speed(1000);
 set_color("red")
 
 R = 100

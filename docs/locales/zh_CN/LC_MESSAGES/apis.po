@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-06 13:20+0800\n"
+"POT-Creation-Date: 2019-01-06 23:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -351,22 +351,25 @@ msgstr "一个简单的例子："
 #: easygraphics.turtle.Turtle.back easygraphics.turtle.Turtle.backward
 #: easygraphics.turtle.Turtle.bk easygraphics.turtle.Turtle.facing
 #: easygraphics.turtle.Turtle.fd easygraphics.turtle.Turtle.forward
-#: easygraphics.turtle.Turtle.gotoxy easygraphics.turtle.Turtle.left_turn
-#: easygraphics.turtle.Turtle.lt easygraphics.turtle.Turtle.right_turn
-#: easygraphics.turtle.Turtle.rt easygraphics.turtle.Turtle.set_heading
-#: easygraphics.turtle.Turtle.set_speed easygraphics.turtle.Turtle.setxy
-#: easygraphics.turtle.Turtle.turn_to
+#: easygraphics.turtle.Turtle.gotoxy easygraphics.turtle.Turtle.left
+#: easygraphics.turtle.Turtle.left_turn easygraphics.turtle.Turtle.lt
+#: easygraphics.turtle.Turtle.move_arc easygraphics.turtle.Turtle.right
+#: easygraphics.turtle.Turtle.right_turn easygraphics.turtle.Turtle.rt
+#: easygraphics.turtle.Turtle.set_heading easygraphics.turtle.Turtle.set_speed
+#: easygraphics.turtle.Turtle.setxy easygraphics.turtle.Turtle.turn_to
 #: easygraphics.turtle.TurtleWorld.add_turtle
 #: easygraphics.turtle.TurtleWorld.set_immediate
 #: easygraphics.turtle.TurtleWorld.snap_shot_to_image easygraphics.turtle.back
 #: easygraphics.turtle.backward easygraphics.turtle.bk
 #: easygraphics.turtle.create_world easygraphics.turtle.facing
 #: easygraphics.turtle.fd easygraphics.turtle.forward
-#: easygraphics.turtle.gotoxy easygraphics.turtle.left_turn
-#: easygraphics.turtle.lt easygraphics.turtle.right_turn easygraphics.turtle.rt
+#: easygraphics.turtle.gotoxy easygraphics.turtle.left
+#: easygraphics.turtle.left_turn easygraphics.turtle.lt
+#: easygraphics.turtle.move_arc easygraphics.turtle.right
+#: easygraphics.turtle.right_turn easygraphics.turtle.rt
 #: easygraphics.turtle.set_heading easygraphics.turtle.set_immediate
-#: easygraphics.turtle.set_speed easygraphics.turtle.setxy
-#: easygraphics.turtle.turn_to of
+#: easygraphics.turtle.set_pen_size easygraphics.turtle.set_speed
+#: easygraphics.turtle.setxy easygraphics.turtle.turn_to of
 msgid "Parameters"
 msgstr "参数"
 
@@ -501,7 +504,7 @@ msgstr "包含待选择项名称的列表。"
 #: easygraphics.turtle.Turtle.create_turtle_icon
 #: easygraphics.turtle.Turtle.get_heading easygraphics.turtle.Turtle.get_icon
 #: easygraphics.turtle.Turtle.get_x easygraphics.turtle.Turtle.get_y
-#: easygraphics.turtle.Turtle.is_show
+#: easygraphics.turtle.Turtle.is_filling easygraphics.turtle.Turtle.is_show
 #: easygraphics.turtle.TurtleWorld.create_snap_shot
 #: easygraphics.turtle.TurtleWorld.create_turtle
 #: easygraphics.turtle.TurtleWorld.get_height
@@ -1609,38 +1612,50 @@ msgstr "淡出时间(单位为毫秒)"
 msgid "easygraphics.turtle module"
 msgstr "easygraphics.turtle模块"
 
-#: easygraphics.turtle:1 of
+#: ../../apis/easygraphics.turtle.rst:3 easygraphics.turtle:1 of
 msgid "The turtle graphics package."
 msgstr "海龟作图包。"
 
-#: easygraphics.turtle:3 of
+#: ../../apis/easygraphics.turtle.rst:5 easygraphics.turtle:3 of
 msgid ""
 "The turtle graphics is a classic and popular way to introducing "
 "programming to kids."
 msgstr "海龟作图是一个经典的儿童学习的编程工具。"
 
+#: ../../apis/easygraphics.turtle.rst:7
+msgid ""
+"In the turtle graphics, you control a turtle to move around the graphics "
+"window. The traces left by its move form drawings."
+msgstr "在海龟作图中，你控制一个海龟在窗口上移动。海龟移动时留下的痕迹就是你画出的图形。"
+
+#: ../../apis/easygraphics.turtle.rst:10
+msgid ""
+"Note that in the turtle graphics, the origin (0,0) is in the center of "
+"the graphics window, and Y-axis is bottom-up."
+msgstr "注意，在海龟作图中，原点(0,0)是绘图窗口的中心，Y轴朝上。"
+
 #: easygraphics.turtle.create_world:1 of
 msgid "Create an world for turtle drawing."
-msgstr ""
+msgstr "创建一个海龟作图的世界。"
 
 #: easygraphics.turtle.create_world:3 of
 msgid "width of the graphics window"
-msgstr "图形窗口的宽度"
+msgstr "绘图窗口的宽度"
 
 #: easygraphics.turtle.create_world:4 of
 msgid "height of the graphics window"
-msgstr ""
+msgstr "绘图窗口的高度"
 
 #: easygraphics.turtle.close_world:1 of
 msgid "Close the turtle world and the graphics window."
-msgstr ""
+msgstr "关闭海龟世界和绘图窗口"
 
 #: easygraphics.turtle.Turtle.fd:1 easygraphics.turtle.Turtle.forward:1
 #: easygraphics.turtle.fd:1 easygraphics.turtle.forward:1 of
 msgid ""
 "Move the turtle forward by the specified distance, in the direction the "
 "turtle is heading."
-msgstr ""
+msgstr "让海龟顺着当前朝向移动指定的距离。"
 
 #: easygraphics.turtle.Turtle.back:3 easygraphics.turtle.Turtle.backward:3
 #: easygraphics.turtle.Turtle.bk:3 easygraphics.turtle.Turtle.fd:3
@@ -1648,7 +1663,7 @@ msgstr ""
 #: easygraphics.turtle.backward:3 easygraphics.turtle.bk:3
 #: easygraphics.turtle.fd:3 easygraphics.turtle.forward:3 of
 msgid "the distance to move"
-msgstr ""
+msgstr "要移动的距离"
 
 #: easygraphics.turtle.Turtle.back:1 easygraphics.turtle.Turtle.backward:1
 #: easygraphics.turtle.Turtle.bk:1 easygraphics.turtle.back:1
@@ -1656,231 +1671,267 @@ msgstr ""
 msgid ""
 "Move the turtle backward by the specified distance, in the direction the "
 "turtle is heading."
-msgstr ""
+msgstr "让海龟沿着当前的朝向向后移动指定的距离。"
 
-#: easygraphics.turtle.Turtle.left_turn:1 easygraphics.turtle.Turtle.lt:1
+#: easygraphics.turtle.Turtle.left:1 easygraphics.turtle.Turtle.left_turn:1
+#: easygraphics.turtle.Turtle.lt:1 easygraphics.turtle.left:1
 #: easygraphics.turtle.left_turn:1 easygraphics.turtle.lt:1 of
 msgid "Turn turtle left (counter-clockwise) by \"degree\" degree."
 msgstr ""
 
-#: easygraphics.turtle.Turtle.left_turn:3 easygraphics.turtle.Turtle.lt:3
+#: easygraphics.turtle.Turtle.left:3 easygraphics.turtle.Turtle.left_turn:3
+#: easygraphics.turtle.Turtle.lt:3 easygraphics.turtle.Turtle.right:3
 #: easygraphics.turtle.Turtle.right_turn:3 easygraphics.turtle.Turtle.rt:3
-#: easygraphics.turtle.left_turn:3 easygraphics.turtle.lt:3
+#: easygraphics.turtle.left:3 easygraphics.turtle.left_turn:3
+#: easygraphics.turtle.lt:3 easygraphics.turtle.right:3
 #: easygraphics.turtle.right_turn:3 easygraphics.turtle.rt:3 of
 msgid "the degree to turn"
-msgstr ""
+msgstr "要转动的角度"
 
-#: easygraphics.turtle.Turtle.right_turn:1 easygraphics.turtle.Turtle.rt:1
+#: easygraphics.turtle.Turtle.right:1 easygraphics.turtle.Turtle.right_turn:1
+#: easygraphics.turtle.Turtle.rt:1 easygraphics.turtle.right:1
 #: easygraphics.turtle.right_turn:1 easygraphics.turtle.rt:1 of
 msgid "Turn turtle right (clockwise) by \"degree\" degree."
-msgstr ""
+msgstr "让海龟向右（顺时针）转动“degree”度。"
 
 #: easygraphics.turtle.TurtleWorld.clear:1
 #: easygraphics.turtle.TurtleWorld.clear_screen:1
 #: easygraphics.turtle.TurtleWorld.cs:1 easygraphics.turtle.clear_screen:1
 #: easygraphics.turtle.cs:1 of
 msgid "Delete all drawings from the screen. Do not move turtle."
-msgstr ""
+msgstr "从屏幕上清除所有已绘制的图形。不改变海龟的位置和朝向。"
 
 #: easygraphics.turtle.Turtle.gotoxy:1 easygraphics.turtle.gotoxy:1 of
 msgid "Move the turtle to point (x,y). Will leave traces if the pen is down."
-msgstr ""
+msgstr "将海龟移动到点(x,y)。如果笔处于落下状态，则会留下痕迹。"
 
 #: easygraphics.turtle.Turtle.gotoxy:3 easygraphics.turtle.Turtle.gotoxy:4
 #: easygraphics.turtle.Turtle.setxy:3 easygraphics.turtle.gotoxy:3
 #: easygraphics.turtle.gotoxy:4 easygraphics.turtle.setxy:3 of
 msgid "x coordinate value of the destination point."
-msgstr ""
+msgstr "目标点的x坐标"
 
 #: easygraphics.turtle.Turtle.home:1 easygraphics.turtle.home:1 of
 msgid ""
 "Move the turtle back to the origin(0,0), and heading up. Will leave "
 "traces if the pen is down."
-msgstr ""
+msgstr "将海龟移动到原点(0,0)，朝向向上。如果画笔处于落下状态，则会留下移动的痕迹。"
 
 #: easygraphics.turtle.Turtle.turn_to:1 easygraphics.turtle.turn_to:1 of
 msgid "Turn the angle to orient to the specified angle."
-msgstr ""
+msgstr "让海龟转动到朝向指定的角度。"
 
 #: easygraphics.turtle.Turtle.set_heading:3
 #: easygraphics.turtle.Turtle.turn_to:3 easygraphics.turtle.set_heading:3
 #: easygraphics.turtle.turn_to:3 of
 msgid "the new heading angle (in degrees)."
-msgstr ""
+msgstr "新的朝向角度。"
 
 #: easygraphics.turtle.Turtle.facing:1 easygraphics.turtle.facing:1 of
 msgid "Turn the turtle to face the point(x,y)."
-msgstr ""
+msgstr "转动海龟，朝向点(x,y)。"
 
 #: easygraphics.turtle.facing:3 of
 msgid "x coordinate value of the target point"
-msgstr ""
+msgstr "目标点的x坐标"
 
 #: easygraphics.turtle.facing:4 of
 msgid "y coordinate value of the target point"
-msgstr ""
+msgstr "目标点的y坐标"
 
 #: easygraphics.turtle.Turtle.begin_fill:1 easygraphics.turtle.begin_fill:1 of
 msgid "Begin to record the turtle's shape drawing path for filling."
-msgstr ""
+msgstr "开始记录海龟的移动轨迹，用于填充。"
 
 #: easygraphics.turtle.Turtle.end_fill:1 easygraphics.turtle.end_fill:1 of
 msgid ""
 "Fill the shape enclosed by the turtle's drawing path after the last call "
 "to begin_fill."
-msgstr ""
+msgstr "填充从上一次begin_fill()开始，海龟移动的轨迹形成的封闭图形。"
 
 #: easygraphics.turtle.Turtle.setxy:1 easygraphics.turtle.setxy:1 of
 msgid "Set the turtle's current position to point (x,y). Will not leave traces."
-msgstr ""
+msgstr "将海龟的当前位置设置到点(x,y)。不会留下移动的痕迹。"
 
 #: easygraphics.turtle.Turtle.setxy:4 easygraphics.turtle.setxy:4 of
 msgid "y coordinate value of the destination point."
-msgstr ""
+msgstr "目标点的y坐标值"
 
 #: easygraphics.turtle.Turtle.set_heading:1 easygraphics.turtle.set_heading:1
 #: of
 msgid "Set the angle current heading to the specified angle."
-msgstr ""
+msgstr "设置海龟朝向指定的角度。"
+
+#: easygraphics.turtle.Turtle.move_arc:1 easygraphics.turtle.move_arc:1 of
+msgid ""
+"Move the turtle in a arc path. The center is radius units left of the "
+"turtle."
+msgstr "使海龟从当前位置开始沿弧线移动。弧的圆心在海龟正左侧、距离海龟“radius”远的地方。"
+
+#: easygraphics.turtle.Turtle.move_arc:3 easygraphics.turtle.move_arc:3 of
+msgid "radius of the arc"
+msgstr "弧的半径"
+
+#: easygraphics.turtle.Turtle.move_arc:4 easygraphics.turtle.move_arc:4 of
+msgid "how many degrees the turtle will move"
+msgstr "海龟要移动多少角度"
 
 #: easygraphics.turtle.Turtle.get_y:1 easygraphics.turtle.get_y:1 of
 msgid "Get the turtle's current y position."
-msgstr ""
+msgstr "获取海龟当前位置的y坐标。"
 
 #: easygraphics.turtle.Turtle.get_y:3 easygraphics.turtle.get_y:3 of
 msgid "the turtle's y position."
-msgstr ""
+msgstr "海龟当前位置的y坐标"
 
 #: easygraphics.turtle.Turtle.get_x:1 easygraphics.turtle.get_x:1 of
 msgid "Get the turtle's current x position."
-msgstr ""
+msgstr "获取海龟当前位置的x坐标。"
 
 #: easygraphics.turtle.Turtle.get_x:3 easygraphics.turtle.get_x:3 of
 msgid "the turtle's x position."
-msgstr ""
+msgstr "海龟当前位置的x坐标。"
 
 #: easygraphics.turtle.Turtle.get_heading:1 easygraphics.turtle.get_heading:1
 #: of
 msgid "Get the turtle's heading angle."
-msgstr ""
+msgstr "获取海龟的朝向（角度）"
 
 #: easygraphics.turtle.Turtle.get_heading:3 easygraphics.turtle.get_heading:3
 #: of
 msgid "the turtle's heading angle."
-msgstr ""
+msgstr "海龟的朝向（角度）"
 
 #: easygraphics.turtle.get_turtle:1 of
 msgid "Get the current turtle."
-msgstr ""
+msgstr "获取当前的海龟。"
 
 #: easygraphics.turtle.get_turtle:3 of
 msgid "the current turtle"
-msgstr ""
+msgstr "当前的海龟"
 
 #: easygraphics.turtle.get_turtle_world:1 of
 msgid "Get the current turtle world."
-msgstr ""
+msgstr "获取当前的海龟世界。"
 
 #: easygraphics.turtle.get_turtle_world:3 of
 msgid "the current turtle world"
+msgstr "当前海龟世界"
+
+#: easygraphics.turtle.set_pen_size:1 of
+msgid "Set line width (thickness) of the specified image."
+msgstr "设置指定图片的线宽（笔宽）。"
+
+#: easygraphics.turtle.set_pen_size:3 of
+msgid "It will be used when drawing lines or shape outlines"
+msgstr "它被用来画线或者轮廓线。"
+
+#: easygraphics.turtle.set_pen_size:5 of
+msgid "line width (line thickness)"
+msgstr "线宽"
+
+#: easygraphics.turtle.set_pen_size:6 of
+msgid ""
+"the target image whose line width is to be set. None means it is the "
+"target image (see set_target() and get_target())"
 msgstr ""
 
 #: easygraphics.turtle.set_immediate:1 of
 msgid "Set if there are animations when the turtle moving."
-msgstr ""
+msgstr "设置当海龟移动时，是否显示动画"
 
 #: easygraphics.turtle.TurtleWorld.set_immediate:3
 #: easygraphics.turtle.set_immediate:3 of
 msgid ""
-"True to turn off animation (the move finishes immediately). Off to turn "
-"on."
-msgstr ""
+"True to turn off animation (the move finishes immediately). False to turn"
+" on."
+msgstr "True表示关闭动画（移动瞬间完成）；False表示打开动画。"
 
 #: easygraphics.turtle.Turtle.set_speed:1 easygraphics.turtle.set_speed:1 of
 msgid "Set the turtle's moving speed."
-msgstr ""
+msgstr " 设置海龟的移动速度"
 
 #: easygraphics.turtle.Turtle.set_speed:3 easygraphics.turtle.set_speed:3 of
 msgid "the new speed"
-msgstr ""
+msgstr "新移动速度"
 
 #: easygraphics.turtle.Turtle.pd:1 easygraphics.turtle.Turtle.pen_down:1
 #: easygraphics.turtle.pd:1 easygraphics.turtle.pen_down:1 of
 msgid "Pull the pen down – drawing when the turtle moving."
-msgstr ""
+msgstr "画笔落下（海龟移动时留下痕迹）。"
 
 #: easygraphics.turtle.Turtle.pen_up:1 easygraphics.turtle.Turtle.pu:1
 #: easygraphics.turtle.pen_up:1 easygraphics.turtle.pu:1 of
 msgid "Pull the pen up – no drawing when the turtle moving."
-msgstr ""
+msgstr "画笔抬起（海龟移动时不留痕迹）。"
 
 #: easygraphics.turtle.Turtle.hide:1 easygraphics.turtle.hide:1 of
 msgid "Hide the turtle."
-msgstr ""
+msgstr "隐藏海龟。"
 
 #: easygraphics.turtle.Turtle.show:1 easygraphics.turtle.show:1 of
 msgid "Show the turtle."
-msgstr ""
+msgstr "显示海龟。"
 
 #: easygraphics.turtle.Turtle:1 of
 msgid "The Turtle class."
-msgstr ""
+msgstr "海龟类。"
 
 #: easygraphics.turtle.Turtle.cancle_fill:1 of
 msgid "Cancle the turtle's drawing path recording."
-msgstr ""
+msgstr "取消填充。"
 
 #: easygraphics.turtle.Turtle.close:1 of
 msgid "Close and cleanup the turtle."
-msgstr ""
+msgstr "关闭和清理海龟。"
 
 #: easygraphics.turtle.Turtle.create_turtle_icon:1 of
 msgid "Create the default turtle icon."
-msgstr ""
+msgstr "创建缺省的海龟图标。"
 
 #: easygraphics.turtle.Turtle.create_turtle_icon:3 of
 msgid "the turtle icon image"
-msgstr ""
+msgstr "海龟图标图片"
 
 #: easygraphics.turtle.Turtle.facing:3 of
 msgid "x coordinate value of the point facing to"
-msgstr ""
+msgstr "朝向目标点的x坐标"
 
 #: easygraphics.turtle.Turtle.facing:4 of
 msgid "y coordinate value of the point facing to"
-msgstr ""
+msgstr "朝向目标点的y坐标"
 
 #: easygraphics.turtle.Turtle.get_icon:1 of
 msgid "Get the icon image of the turtle."
-msgstr ""
+msgstr "获取海龟的图标图片"
 
 #: easygraphics.turtle.Turtle.get_icon:3 of
 msgid "the icon image"
-msgstr ""
+msgstr "图标图片"
 
 #: easygraphics.turtle.Turtle.is_filling:1 of
-msgid "Test if it is recording the turtle's drawing path (for fill). :return:"
-msgstr ""
+msgid "Test if it is recording the turtle's drawing path (for fill)."
+msgstr "检查是否正在记录海龟的移动轨迹（用于填充）"
 
 #: easygraphics.turtle.Turtle.is_show:1 of
 msgid "Check if the turtle is shown."
-msgstr ""
+msgstr "检查海龟是否处于显示状态。"
 
 #: easygraphics.turtle.Turtle.is_show:3 of
 msgid "True the turtle is shown, False the turtle is hiding."
-msgstr ""
+msgstr "True表示显示海龟，False表示隐藏。"
 
 #: easygraphics.turtle.TurtleWorld:1 of
 msgid ""
 "Turtles move and draw in a world. This is the class representing the "
 "world."
-msgstr ""
+msgstr "海龟在一个世界里移动和绘画。这个类代表海龟世界。"
 
 #: easygraphics.turtle.TurtleWorld:3 of
 msgid ""
 "You must remember to close it by calling the close() method, if you have "
 "finished the drawing and won't use it anymore."
-msgstr ""
+msgstr "在用完这个类的对象时，你要记得调用close()方法来关闭它。"
 
 #: easygraphics.turtle.TurtleWorld:7 of
 msgid ""
@@ -1889,81 +1940,81 @@ msgid ""
 "grows from left to right, and the Y-axis grows from bottom to top. A "
 "positive degree means turn counter-clockwise, and a negtive degree means "
 "turn clockwise."
-msgstr ""
+msgstr "注意，在缺省的海龟世界中，我们使用标准的平面直角坐标系，原点(0,0)位于屏幕中间，X轴从左向右，Y轴从下到上；正的角度表示逆时针旋转；负的角度鄙视顺时针旋转。"
 
 #: easygraphics.turtle.TurtleWorld.add_turtle:1 of
 msgid "Put the turtle into the world."
-msgstr ""
+msgstr "将海龟放到世界中。"
 
 #: easygraphics.turtle.TurtleWorld.add_turtle:3 of
 msgid "the turtle"
-msgstr ""
+msgstr "要放入的海龟"
 
 #: easygraphics.turtle.TurtleWorld.close:1 of
 msgid "Close the turtles world."
-msgstr ""
+msgstr "关闭海龟世界。"
 
 #: easygraphics.turtle.TurtleWorld.create_snap_shot:1 of
-msgid "Create a snap shot of the create drawing."
-msgstr ""
+msgid "Create a snap shot of the current drawing."
+msgstr "创建当前图像的一个快照。"
 
 #: easygraphics.turtle.TurtleWorld.create_snap_shot:3 of
 msgid "the snap shot image."
-msgstr ""
+msgstr "快照图片。"
 
 #: easygraphics.turtle.TurtleWorld.create_turtle:1 of
 msgid "Create a new turtle in the world and put it to the origin(0,0)."
-msgstr ""
+msgstr "在世界中创建一个新的海龟，将它放到原点(0,0)处。"
 
 #: easygraphics.turtle.TurtleWorld.create_turtle:3 of
 msgid "If x and y are None, the turtle is put on the center."
-msgstr ""
+msgstr "如果参数x和y的值是None，那么海龟会被放到原点(0,0)处"
 
 #: easygraphics.turtle.TurtleWorld.create_turtle:5 of
 msgid "the created turtle."
-msgstr ""
+msgstr "新创建的海龟对象。"
 
 #: easygraphics.turtle.TurtleWorld.get_height:1 of
 msgid "Get the height of the underlying graphics window (image)."
-msgstr ""
+msgstr "获取绘图窗口或图片的高度"
 
 #: easygraphics.turtle.TurtleWorld.get_height:3 of
 msgid "height of the underlying graphics window (image)"
-msgstr ""
+msgstr "绘图窗口或图片的高度"
 
 #: easygraphics.turtle.TurtleWorld.get_width:1 of
 msgid "Get the width of the underlying graphics window (image)."
-msgstr ""
+msgstr "获取绘图窗口或图片的宽度"
 
 #: easygraphics.turtle.TurtleWorld.get_width:3 of
 msgid "width of the underlying graphics window (image)"
-msgstr ""
+msgstr "绘图窗口或图片的宽度"
 
 #: easygraphics.turtle.TurtleWorld.get_world_image:1 of
 msgid "Return the drawing image of the world."
-msgstr ""
+msgstr "获取海龟世界的底图。"
 
 #: easygraphics.turtle.TurtleWorld.get_world_image:3 of
 msgid "the drawing image of the world."
-msgstr ""
+msgstr "海龟世界的底图。"
 
 #: easygraphics.turtle.TurtleWorld.is_immediate:1 of
 msgid "Check if there are animations when turtles moving."
-msgstr ""
+msgstr "检查海龟移动是否瞬间完成（没有动画效果）。"
 
 #: easygraphics.turtle.TurtleWorld.is_immediate:3 of
 msgid ""
 "True if there aren't any animations (the move finishes immediately), "
 "False otherwise."
-msgstr ""
+msgstr "True表示关闭动画（移动瞬间完成）；False表示打开动画。"
 
 #: easygraphics.turtle.TurtleWorld.is_on_screen:1 of
 msgid "Test if the underlying image is the graphics window."
-msgstr ""
+msgstr "检查世界是否绘制到图形窗口中。"
 
 #: easygraphics.turtle.TurtleWorld.is_on_screen:3 of
 msgid "True if the underlying image is the graphics window, False otherwise."
-msgstr ""
+msgstr "True表示绘制到图形窗口中；False表示不是。"
 
 #: easygraphics.turtle.TurtleWorld.set_immediate:1 of
 msgid "Set if there are animations when turtles moving."

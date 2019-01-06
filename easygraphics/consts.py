@@ -239,3 +239,13 @@ class MouseMessageType:
     NO_MESSAGE = 0
     PRESS_MESSAGE = 1
     RELEASE_MESSAGE = 2
+
+
+class FillRule:
+    """
+    The Rule for fill polygons.
+    """
+    ODD_EVEN_FILL = QtCore.Qt.OddEvenFill
+    """Specifies that the region is filled using the odd even fill rule. """
+    WINDING_FILL = QtCore.Qt.WindingFill
+    """Specifies that the region is filled using the non zero winding rule. """

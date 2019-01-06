@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-06 13:20+0800\n"
+"POT-Creation-Date: 2019-01-06 23:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -349,22 +349,25 @@ msgstr ""
 #: easygraphics.turtle.Turtle.back easygraphics.turtle.Turtle.backward
 #: easygraphics.turtle.Turtle.bk easygraphics.turtle.Turtle.facing
 #: easygraphics.turtle.Turtle.fd easygraphics.turtle.Turtle.forward
-#: easygraphics.turtle.Turtle.gotoxy easygraphics.turtle.Turtle.left_turn
-#: easygraphics.turtle.Turtle.lt easygraphics.turtle.Turtle.right_turn
-#: easygraphics.turtle.Turtle.rt easygraphics.turtle.Turtle.set_heading
-#: easygraphics.turtle.Turtle.set_speed easygraphics.turtle.Turtle.setxy
-#: easygraphics.turtle.Turtle.turn_to
+#: easygraphics.turtle.Turtle.gotoxy easygraphics.turtle.Turtle.left
+#: easygraphics.turtle.Turtle.left_turn easygraphics.turtle.Turtle.lt
+#: easygraphics.turtle.Turtle.move_arc easygraphics.turtle.Turtle.right
+#: easygraphics.turtle.Turtle.right_turn easygraphics.turtle.Turtle.rt
+#: easygraphics.turtle.Turtle.set_heading easygraphics.turtle.Turtle.set_speed
+#: easygraphics.turtle.Turtle.setxy easygraphics.turtle.Turtle.turn_to
 #: easygraphics.turtle.TurtleWorld.add_turtle
 #: easygraphics.turtle.TurtleWorld.set_immediate
 #: easygraphics.turtle.TurtleWorld.snap_shot_to_image easygraphics.turtle.back
 #: easygraphics.turtle.backward easygraphics.turtle.bk
 #: easygraphics.turtle.create_world easygraphics.turtle.facing
 #: easygraphics.turtle.fd easygraphics.turtle.forward
-#: easygraphics.turtle.gotoxy easygraphics.turtle.left_turn
-#: easygraphics.turtle.lt easygraphics.turtle.right_turn easygraphics.turtle.rt
+#: easygraphics.turtle.gotoxy easygraphics.turtle.left
+#: easygraphics.turtle.left_turn easygraphics.turtle.lt
+#: easygraphics.turtle.move_arc easygraphics.turtle.right
+#: easygraphics.turtle.right_turn easygraphics.turtle.rt
 #: easygraphics.turtle.set_heading easygraphics.turtle.set_immediate
-#: easygraphics.turtle.set_speed easygraphics.turtle.setxy
-#: easygraphics.turtle.turn_to of
+#: easygraphics.turtle.set_pen_size easygraphics.turtle.set_speed
+#: easygraphics.turtle.setxy easygraphics.turtle.turn_to of
 msgid "Parameters"
 msgstr ""
 
@@ -496,7 +499,7 @@ msgstr ""
 #: easygraphics.turtle.Turtle.create_turtle_icon
 #: easygraphics.turtle.Turtle.get_heading easygraphics.turtle.Turtle.get_icon
 #: easygraphics.turtle.Turtle.get_x easygraphics.turtle.Turtle.get_y
-#: easygraphics.turtle.Turtle.is_show
+#: easygraphics.turtle.Turtle.is_filling easygraphics.turtle.Turtle.is_show
 #: easygraphics.turtle.TurtleWorld.create_snap_shot
 #: easygraphics.turtle.TurtleWorld.create_turtle
 #: easygraphics.turtle.TurtleWorld.get_height
@@ -1602,14 +1605,26 @@ msgstr ""
 msgid "easygraphics.turtle module"
 msgstr ""
 
-#: easygraphics.turtle:1 of
+#: ../../apis/easygraphics.turtle.rst:3 easygraphics.turtle:1 of
 msgid "The turtle graphics package."
 msgstr ""
 
-#: easygraphics.turtle:3 of
+#: ../../apis/easygraphics.turtle.rst:5 easygraphics.turtle:3 of
 msgid ""
 "The turtle graphics is a classic and popular way to introducing "
 "programming to kids."
+msgstr ""
+
+#: ../../apis/easygraphics.turtle.rst:7
+msgid ""
+"In the turtle graphics, you control a turtle to move around the graphics "
+"window. The traces left by its move form drawings."
+msgstr ""
+
+#: ../../apis/easygraphics.turtle.rst:10
+msgid ""
+"Note that in the turtle graphics, the origin (0,0) is in the center of "
+"the graphics window, and Y-axis is bottom-up."
 msgstr ""
 
 #: easygraphics.turtle.create_world:1 of
@@ -1651,19 +1666,23 @@ msgid ""
 "turtle is heading."
 msgstr ""
 
-#: easygraphics.turtle.Turtle.left_turn:1 easygraphics.turtle.Turtle.lt:1
+#: easygraphics.turtle.Turtle.left:1 easygraphics.turtle.Turtle.left_turn:1
+#: easygraphics.turtle.Turtle.lt:1 easygraphics.turtle.left:1
 #: easygraphics.turtle.left_turn:1 easygraphics.turtle.lt:1 of
 msgid "Turn turtle left (counter-clockwise) by \"degree\" degree."
 msgstr ""
 
-#: easygraphics.turtle.Turtle.left_turn:3 easygraphics.turtle.Turtle.lt:3
+#: easygraphics.turtle.Turtle.left:3 easygraphics.turtle.Turtle.left_turn:3
+#: easygraphics.turtle.Turtle.lt:3 easygraphics.turtle.Turtle.right:3
 #: easygraphics.turtle.Turtle.right_turn:3 easygraphics.turtle.Turtle.rt:3
-#: easygraphics.turtle.left_turn:3 easygraphics.turtle.lt:3
+#: easygraphics.turtle.left:3 easygraphics.turtle.left_turn:3
+#: easygraphics.turtle.lt:3 easygraphics.turtle.right:3
 #: easygraphics.turtle.right_turn:3 easygraphics.turtle.rt:3 of
 msgid "the degree to turn"
 msgstr ""
 
-#: easygraphics.turtle.Turtle.right_turn:1 easygraphics.turtle.Turtle.rt:1
+#: easygraphics.turtle.Turtle.right:1 easygraphics.turtle.Turtle.right_turn:1
+#: easygraphics.turtle.Turtle.rt:1 easygraphics.turtle.right:1
 #: easygraphics.turtle.right_turn:1 easygraphics.turtle.rt:1 of
 msgid "Turn turtle right (clockwise) by \"degree\" degree."
 msgstr ""
@@ -1736,6 +1755,20 @@ msgstr ""
 msgid "Set the angle current heading to the specified angle."
 msgstr ""
 
+#: easygraphics.turtle.Turtle.move_arc:1 easygraphics.turtle.move_arc:1 of
+msgid ""
+"Move the turtle in a arc path. The center is radius units left of the "
+"turtle."
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_arc:3 easygraphics.turtle.move_arc:3 of
+msgid "radius of the arc"
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_arc:4 easygraphics.turtle.move_arc:4 of
+msgid "how many degrees the turtle will move"
+msgstr ""
+
 #: easygraphics.turtle.Turtle.get_y:1 easygraphics.turtle.get_y:1 of
 msgid "Get the turtle's current y position."
 msgstr ""
@@ -1778,6 +1811,24 @@ msgstr ""
 msgid "the current turtle world"
 msgstr ""
 
+#: easygraphics.turtle.set_pen_size:1 of
+msgid "Set line width (thickness) of the specified image."
+msgstr ""
+
+#: easygraphics.turtle.set_pen_size:3 of
+msgid "It will be used when drawing lines or shape outlines"
+msgstr ""
+
+#: easygraphics.turtle.set_pen_size:5 of
+msgid "line width (line thickness)"
+msgstr ""
+
+#: easygraphics.turtle.set_pen_size:6 of
+msgid ""
+"the target image whose line width is to be set. None means it is the "
+"target image (see set_target() and get_target())"
+msgstr ""
+
 #: easygraphics.turtle.set_immediate:1 of
 msgid "Set if there are animations when the turtle moving."
 msgstr ""
@@ -1785,8 +1836,8 @@ msgstr ""
 #: easygraphics.turtle.TurtleWorld.set_immediate:3
 #: easygraphics.turtle.set_immediate:3 of
 msgid ""
-"True to turn off animation (the move finishes immediately). Off to turn "
-"on."
+"True to turn off animation (the move finishes immediately). False to turn"
+" on."
 msgstr ""
 
 #: easygraphics.turtle.Turtle.set_speed:1 easygraphics.turtle.set_speed:1 of
@@ -1852,7 +1903,7 @@ msgid "the icon image"
 msgstr ""
 
 #: easygraphics.turtle.Turtle.is_filling:1 of
-msgid "Test if it is recording the turtle's drawing path (for fill). :return:"
+msgid "Test if it is recording the turtle's drawing path (for fill)."
 msgstr ""
 
 #: easygraphics.turtle.Turtle.is_show:1 of
@@ -1897,7 +1948,7 @@ msgid "Close the turtles world."
 msgstr ""
 
 #: easygraphics.turtle.TurtleWorld.create_snap_shot:1 of
-msgid "Create a snap shot of the create drawing."
+msgid "Create a snap shot of the current drawing."
 msgstr ""
 
 #: easygraphics.turtle.TurtleWorld.create_snap_shot:3 of
@@ -3598,5 +3649,20 @@ msgstr ""
 #~ "the negative direction of X-axis, the"
 #~ " negative direction of Y-axis, "
 #~ "respectively."
+#~ msgstr ""
+
+#~ msgid "how much angle is drawed"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "True to turn off animation (the "
+#~ "move finishes immediately). Off to turn"
+#~ " on."
+#~ msgstr ""
+
+#~ msgid "Test if it is recording the turtle's drawing path (for fill). :return:"
+#~ msgstr ""
+
+#~ msgid "Create a snap shot of the create drawing."
 #~ msgstr ""
 

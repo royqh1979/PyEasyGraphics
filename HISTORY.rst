@@ -2,6 +2,14 @@
 
 History
 =======
+0.9.13
+-------------------
+* add:  set_fill_rule() / get_fill_rule() function, to control how the polygons
+  are filled.
+* add:  FillRule consts
+* Finish chinese translations for apis.
+* fix: filling glitches in end_fill()
+
 0.9.12
 -------------------
 * Revert 0.9.11 's angle system change. Keep arc/pie/chord compatible with BGI.

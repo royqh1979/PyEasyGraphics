@@ -4,14 +4,13 @@ import math
 
 from PyQt5 import QtGui, QtCore
 
-from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode
+from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode, FillRule
 import qimage2ndarray as qn
 
 _in_ipython = False
 try:
     __IPYTHON__
     import IPython.display
-
     _in_ipython = True
 except NameError:
     pass
@@ -39,6 +38,7 @@ class Image:
         self._lineWidth = 1
         self._fill_color = _to_qcolor(Color.WHITE)
         self._fill_Style = FillStyle.SOLID_FILL
+        self._fill_rule = FillRule.ODD_EVEN_FILL
         self._background_color = _to_qcolor(Color.WHITE)
         self._mask = QtGui.QImage(image.width(), image.height(), QtGui.QImage.Format_ARGB32_Premultiplied)
         self._mask_view = qn.raw_view(self._mask)
@@ -183,6 +183,22 @@ class Image:
         fill_color = _to_qcolor(fill_color)
         self._fill_color = fill_color
         self._brush.setColor(fill_color)
+
+    def set_fill_rule(self, rule):
+        """
+        Set the fill rule (algorithm) for filling polygons.
+
+        :param rule: the rule to be used for filling polygons
+        """
+        self._fill_rule = rule
+
+    def get_fill_rule(self):
+        """
+        Get the fill rule (algorithm) for filling polygons.
+
+        :return: the rule used for filling polygons
+        """
+        return self._fill_rule
 
     def get_background_color(self):
         """
@@ -972,10 +988,10 @@ class Image:
 
         :param vertices: point value list
         """
-        qpoints = self._convert_to_qpoints(vertices)
+        polygon = self._convert_to_qpolygon(vertices)
         p = self._prepare_painter_for_draw_outline()
-        p.drawPolygon(*qpoints)
-        self._mask_painter.drawPolygon(*qpoints)
+        p.drawPolygon(polygon, self._fill_rule)
+        self._mask_painter.drawPolygon(polygon, self._fill_rule)
 
     def draw_polygon(self, vertices: List[float]):
         """
@@ -991,10 +1007,15 @@ class Image:
 
         :param vertices: point value list
         """
-        qpoints = self._convert_to_qpoints(vertices)
+        polygon = self._convert_to_qpolygon(vertices)
         p = self._prepare_painter_for_draw()
-        p.drawPolygon(*qpoints)
-        self._mask_painter.drawPolygon(*qpoints)
+        p.drawPolygon(polygon, self._fill_rule)
+        self._mask_painter.drawPolygon(polygon, self._fill_rule)
+
+    def _convert_to_qpolygon(self, vertices):
+        qpoints = self._convert_to_qpoints(vertices)
+        polygon = QtGui.QPolygonF(qpoints)
+        return polygon
 
     def fill_polygon(self, vertices: List[float]):
         """
@@ -1010,10 +1031,10 @@ class Image:
 
         :param vertices: point value list
         """
-        qpoints = self._convert_to_qpoints(vertices)
+        polygon = self._convert_to_qpolygon(vertices)
         p = self._prepare_painter_for_fill()
-        p.drawPolygon(*qpoints)
-        self._mask_painter.drawPolygon(*qpoints)
+        p.drawPolygon(polygon, self._fill_rule)
+        self._mask_painter.drawPolygon(polygon, self._fill_rule)
 
     def path(self, path: QtGui.QPainterPath):
         """

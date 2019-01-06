@@ -34,6 +34,7 @@ Drawing Settings
     get_composition_mode
     get_drawing_pos
     get_fill_color
+    get_fill_rule
     get_fill_style
     get_font
     get_font_size
@@ -55,6 +56,7 @@ Drawing Settings
     set_color
     set_composition_mode
     set_fill_color
+    set_fill_rule
     set_fill_style
     set_font
     set_font_size
@@ -211,6 +213,7 @@ Constants
     Color
     CompositionMode
     FillStyle
+    FillRule
     LineStyle
     MouseMessageType
     RenderMode

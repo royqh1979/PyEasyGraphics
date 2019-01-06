@@ -6,7 +6,7 @@ create_world(400, 300)
 translate(0, -100)
 set_color("red")
 set_fill_color("yellow")
-set_speed(10000)
+set_speed(100)
 begin_fill()
 while True:
     forward(200)

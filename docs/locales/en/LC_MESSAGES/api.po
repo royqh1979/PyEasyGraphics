@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-06 13:20+0800\n"
+"POT-Creation-Date: 2019-01-06 22:32+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,483 +56,501 @@ msgstr ""
 msgid "Drawing Settings"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ""
 ":obj:`get_background_color <easygraphics.get_background_color>`\\ "
 "\\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.get_background_color:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.get_background_color:1
 #: easygraphics.get_background_color:1 of
 msgid "Get the background color of the image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.get_color>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.get_color:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.get_color:1
 #: easygraphics.get_color:1 of
 msgid "Get the foreground (drawing) color of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ""
 ":obj:`get_composition_mode <easygraphics.get_composition_mode>`\\ "
 "\\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.get_composition_mode:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.get_composition_mode:1
 #: easygraphics.Image.set_composition_mode:1
 #: easygraphics.get_composition_mode:1 easygraphics.get_write_mode:1 of
 msgid "Get composition mode of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_drawing_pos <easygraphics.get_drawing_pos>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.get_drawing_pos:1 of
+#: ../../api.rst:70:<autosummary>:1 easygraphics.get_drawing_pos:1 of
 msgid "Get the current drawing position (x,y)."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_fill_color <easygraphics.get_fill_color>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.get_fill_color:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.get_fill_color:1
 #: easygraphics.get_fill_color:1 of
 msgid "Get the fill color of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
+msgid ":obj:`get_fill_rule <easygraphics.get_fill_rule>`\\ \\(image\\)"
+msgstr ""
+
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.get_fill_rule:1
+#: easygraphics.get_fill_rule:1 of
+msgid "Get the fill rule (algorithm) for filling polygons."
+msgstr ""
+
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_fill_style <easygraphics.get_fill_style>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.get_fill_style:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.get_fill_style:1
 #: easygraphics.get_fill_style:1 of
 msgid "Get fill style of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_font <easygraphics.get_font>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.get_font:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.get_font:1
 #: easygraphics.get_font:1 of
 msgid "Get font of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_font_size <easygraphics.get_font_size>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.get_font_size:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.get_font_size:1
 #: easygraphics.get_font_size:1 of
 msgid "Get font size of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_height <easygraphics.get_height>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.get_height:1 of
+#: ../../api.rst:70:<autosummary>:1 easygraphics.get_height:1 of
 msgid "Get height of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_line_style <easygraphics.get_line_style>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.get_line_style:1 of
+#: ../../api.rst:70:<autosummary>:1 easygraphics.get_line_style:1 of
 msgid "Get line style of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_line_width <easygraphics.get_line_width>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.get_line_width:1 of
+#: ../../api.rst:70:<autosummary>:1 easygraphics.get_line_width:1 of
 msgid "Get line width (thinkness) of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_width <easygraphics.get_width>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.get_width:1 of
+#: ../../api.rst:70:<autosummary>:1 easygraphics.get_width:1 of
 msgid "Get width of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_write_mode <easygraphics.get_write_mode>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_x <get_x>`\\"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`get_y <get_y>`\\"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`reset_view_port <easygraphics.reset_view_port>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.reset_view_port:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.reset_view_port:1
 #: easygraphics.reset_view_port:1 of
 msgid "Reset the view port setting."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`reset_window <easygraphics.reset_window>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.reset_window:1 of
+#: ../../api.rst:70:<autosummary>:1 easygraphics.reset_window:1 of
 msgid "Reset/remove the logical window."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`restore_settings <easygraphics.restore_settings>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.restore_settings:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.restore_settings:1
 #: easygraphics.restore_settings:1 of
 msgid "Restore previously saved drawing settings."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`save_settings <easygraphics.save_settings>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.save_settings:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.save_settings:1
 #: easygraphics.save_settings:1 of
 msgid "Save current drawing settings."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ""
 ":obj:`set_background_color <easygraphics.set_background_color>`\\ "
 "\\(color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_background_color:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_background_color:1
 #: easygraphics.set_background_color:1 of
 msgid "Set and change the background color."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`set_caption <easygraphics.set_caption>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.set_caption:1 of
+#: ../../api.rst:70:<autosummary>:1 easygraphics.set_caption:1 of
 msgid "Set the graph window's caption"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ""
 ":obj:`set_clip_rect <easygraphics.set_clip_rect>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_clip_rect:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_clip_rect:1
 #: easygraphics.set_clip_rect:1 of
 msgid "Set the clip rect."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`set_clipping <easygraphics.set_clipping>`\\ \\(clipping\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_clipping:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_clipping:1
 #: easygraphics.set_clipping:1 of
 msgid "Set clipping."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`set_color <easygraphics.set_color>`\\ \\(color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_color:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_color:1
 #: easygraphics.set_color:1 of
 msgid "Set the foreground (drawing) color of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ""
 ":obj:`set_composition_mode <easygraphics.set_composition_mode>`\\ "
 "\\(mode\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.set_composition_mode:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.set_composition_mode:1
 #: easygraphics.set_write_mode:1 of
 msgid "Set composition mode of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`set_fill_color <easygraphics.set_fill_color>`\\ \\(color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_fill_color:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_fill_color:1
 #: easygraphics.set_fill_color:1 of
 msgid "Set the fill (drawing) color of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
+msgid ":obj:`set_fill_rule <easygraphics.set_fill_rule>`\\ \\(rule\\, image\\)"
+msgstr ""
+
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_fill_rule:1
+#: easygraphics.set_fill_rule:1 of
+msgid "Set the fill rule (algorithm) for filling polygons."
+msgstr ""
+
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`set_fill_style <easygraphics.set_fill_style>`\\ \\(style\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_fill_style:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_fill_style:1
 #: easygraphics.set_fill_style:1 of
 msgid "Set fill style of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`set_font <easygraphics.set_font>`\\ \\(font\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_font:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_font:1
 #: easygraphics.set_font:1 of
 msgid "Set font of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`set_font_size <easygraphics.set_font_size>`\\ \\(size\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_font_size:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_font_size:1
 #: easygraphics.set_font_size:1 of
 msgid "Set font size of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ""
 ":obj:`set_line_style <easygraphics.set_line_style>`\\ \\(line\\_style\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.set_line_style:1 of
+#: ../../api.rst:70:<autosummary>:1 easygraphics.set_line_style:1 of
 msgid "Set line style of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`set_line_width <easygraphics.set_line_width>`\\ \\(width\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.set_line_width:1 of
+#: ../../api.rst:70:<autosummary>:1 easygraphics.set_line_width:1 of
 msgid "Set line width (thickness) of the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ""
 ":obj:`set_view_port <easygraphics.set_view_port>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_view_port:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_view_port:1
 #: easygraphics.set_view_port:1 of
 msgid "Set the view port of the the specified image."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ""
 ":obj:`set_window <easygraphics.set_window>`\\ \\(left\\, top\\, width\\, "
 "height\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.set_window:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.set_window:1
 #: easygraphics.set_window:1 of
 msgid "Set the logical drawing window."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`set_write_mode <easygraphics.set_write_mode>`\\ \\(mode\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`text_height <easygraphics.text_height>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.text_height:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.text_height:1
 #: easygraphics.text_height:1 of
 msgid "Return height of the text (font height)."
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1
+#: ../../api.rst:70:<autosummary>:1
 msgid ":obj:`text_width <easygraphics.text_width>`\\ \\(text\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:68:<autosummary>:1 easygraphics.Image.text_width:1
+#: ../../api.rst:70:<autosummary>:1 easygraphics.Image.text_width:1
 #: easygraphics.text_width:1 of
 msgid "Return width of the text."
 msgstr ""
 
-#: ../../api.rst:70
+#: ../../api.rst:72
 msgid "Basic Drawing"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`arc <easygraphics.arc>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, radius\\_x\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid "Draw an elliptical arc from start_angle to end_angle."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`bezier <easygraphics.bezier>`\\ \\(control\\_points\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.bezier:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.bezier:1
 #: easygraphics.Image.draw_bezier:1 easygraphics.bezier:1
 #: easygraphics.draw_bezier:1 of
 msgid "Draw a cubic bezier curve."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`chord <easygraphics.chord>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid "Draw an elliptical chord outline from start_angle to end_angle."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`circle <easygraphics.circle>`\\ \\(x\\, y\\, r\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.circle:1 of
+#: ../../api.rst:122:<autosummary>:1 easygraphics.circle:1 of
 msgid "Draw a circle outline centered at (x,y) with radius r."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`clear_device <easygraphics.clear_device>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.clear:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.clear:1
 #: easygraphics.clear_device:1 of
 msgid "Clear the image to show the background."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`clear_view_port <easygraphics.clear_view_port>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.clear_view_port:1 of
+#: ../../api.rst:122:<autosummary>:1 easygraphics.clear_view_port:1 of
 msgid "clear view port to show the background."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_arc <easygraphics.draw_arc>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_bezier <easygraphics.draw_bezier>`\\ \\(control\\_points\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_chord <easygraphics.draw_chord>`\\ \\(x\\, y\\, "
 "start\\_angle\\, end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`draw_circle <easygraphics.draw_circle>`\\ \\(x\\, y\\, r\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.draw_circle:1 of
+#: ../../api.rst:122:<autosummary>:1 easygraphics.draw_circle:1 of
 msgid "Draw a circle centered at (x,y) with radius r."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_ellipse <easygraphics.draw_ellipse>`\\ \\(x\\, y\\, "
 "radius\\_x\\, radius\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.draw_ellipse:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.draw_ellipse:1
 #: easygraphics.draw_ellipse:1 of
 msgid ""
 "Draw an ellipse centered at (x,y) , radius on x-axis is radius_x, radius "
 "on y-axis is radius_y."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_line <easygraphics.draw_line>`\\ \\(x1\\, y1\\, x2\\, y2\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.draw_line:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.draw_line:1
 #: easygraphics.Image.line:1 easygraphics.draw_line:1 easygraphics.line:1 of
 msgid "Draw a line from (x1,y1) to (x2,y2) on the specified image."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`draw_lines <easygraphics.draw_lines>`\\ \\(points\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.draw_lines:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.draw_lines:1
 #: easygraphics.Image.lines:1 easygraphics.draw_lines:1 easygraphics.lines:1 of
 msgid "Draw lines."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_pie <easygraphics.draw_pie>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid "Draw an elliptical pie from start_angle to end_angle."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`draw_point <easygraphics.draw_point>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.draw_point:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.draw_point:1
 #: easygraphics.draw_point:1 of
 msgid "Draw a point at (x,y) on the specified image."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_poly_line <easygraphics.draw_poly_line>`\\ \\(end\\_points\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.draw_poly_line:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.draw_poly_line:1
 #: easygraphics.Image.poly_line:1 easygraphics.draw_poly_line:1
 #: easygraphics.poly_line:1 of
 msgid "Draw a poly line."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`draw_polygon <easygraphics.draw_polygon>`\\ \\(vertices\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.draw_polygon:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.draw_polygon:1
 #: easygraphics.draw_polygon:1 of
 msgid "Draw a polygon."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_rect <easygraphics.draw_rect>`\\ \\(left\\, top\\, right\\, "
 "bottom\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.draw_rect:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.draw_rect:1
 #: easygraphics.Image.fill_rect:1 easygraphics.draw_rect:1
 #: easygraphics.fill_rect:1 of
 msgid ""
@@ -540,703 +558,711 @@ msgid ""
 "corner at (right,bottom)."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_rect_text <easygraphics.draw_rect_text>`\\ \\(x\\, y\\, "
 "width\\, height\\, \\*args\\[\\, ...\\]\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.draw_rect_text:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.draw_rect_text:1
 #: easygraphics.draw_rect_text:1 of
 msgid "Print the given texts in the specified rectangle area."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_rounded_rect <easygraphics.draw_rounded_rect>`\\ \\(left\\, "
 "top\\, right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 "Draws a rounded rectangle with upper left corner at (left, top) , lower "
 "right corner at (right,bottom)."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`draw_text <easygraphics.draw_text>`\\ \\(x\\, y\\, \\*args\\[\\, "
 "sep\\]\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.draw_text:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.draw_text:1
 #: easygraphics.draw_text:1 of
 msgid "Prints the given texts beginning at the given position (x,y)."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`ellipse <easygraphics.ellipse>`\\ \\(x\\, y\\, radius\\_x\\, "
 "radius\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.ellipse:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.ellipse:1
 #: easygraphics.ellipse:1 of
 msgid ""
 "Draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x,"
 " radius on y-axis is radius_y."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`fill_chord <easygraphics.fill_chord>`\\ \\(x\\, y\\, "
 "start\\_angle\\, end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`fill_circle <easygraphics.fill_circle>`\\ \\(x\\, y\\, r\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.fill_circle:1 of
+#: ../../api.rst:122:<autosummary>:1 easygraphics.fill_circle:1 of
 msgid "Fill a circle centered at (x,y) with radius r."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`fill_ellipse <easygraphics.fill_ellipse>`\\ \\(x\\, y\\, "
 "radius\\_x\\, radius\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.fill_ellipse:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.fill_ellipse:1
 #: easygraphics.fill_ellipse:1 of
 msgid ""
 "Fill an ellipse centered at (x,y) , radius on x-axis is radius_x, radius "
 "on y-axis is radius_y."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`fill_pie <easygraphics.fill_pie>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid "Fill an elliptical pie from start_angle to end_angle."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`fill_polygon <easygraphics.fill_polygon>`\\ \\(vertices\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.fill_polygon:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.fill_polygon:1
 #: easygraphics.fill_polygon:1 of
 msgid "Fill a polygon."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`fill_rect <easygraphics.fill_rect>`\\ \\(left\\, top\\, right\\, "
 "bottom\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`fill_rounded_rect <easygraphics.fill_rounded_rect>`\\ \\(left\\, "
 "top\\, right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 "Fill a rounded rectangle with upper left corner at (left, top) , lower "
 "right corner at (right,bottom)."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`flood_fill <easygraphics.flood_fill>`\\ \\(x\\, y\\, "
 "border\\_color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.flood_fill:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.flood_fill:1
 #: easygraphics.flood_fill:1 of
 msgid ""
 "Flood fill the image starting from(x,y) and ending at borders with "
 "border_color."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`get_pixel <easygraphics.get_pixel>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.get_pixel:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.get_pixel:1
 #: easygraphics.get_pixel:1 of
 msgid "Get a pixel's color on the specified image."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`line <easygraphics.line>`\\ \\(x1\\, y1\\, x2\\, y2\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`line_rel <easygraphics.line_rel>`\\ \\(dx\\, dy\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.line_rel:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.line_rel:1
 #: easygraphics.line_rel:1 of
 msgid ""
 "Draw a line from the current drawing position (x,y) to (x+dx,y+dy), then "
 "set the drawing position is set to (x+dx,y+dy)."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`line_to <easygraphics.line_to>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.line_to:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.line_to:1
 #: easygraphics.line_to:1 of
 msgid ""
 "Draw a line from the current drawing position to (x,y), then set the "
 "drawing position is set to (x,y)."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`lines <easygraphics.lines>`\\ \\(points\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`move_rel <easygraphics.move_rel>`\\ \\(dx\\, dy\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.move_rel:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.move_rel:1
 #: easygraphics.move_rel:1 of
 msgid "Move the drawing position by (dx,dy)."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`move_to <easygraphics.move_to>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.move_to:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.move_to:1
 #: easygraphics.move_to:1 of
 msgid "Set the drawing position to (x,y)."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`pie <easygraphics.pie>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, radius\\_x\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid "Draw an elliptical pie outline from start_angle to end_angle."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`poly_line <easygraphics.poly_line>`\\ \\(end\\_points\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`polygon <easygraphics.polygon>`\\ \\(vertices\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.polygon:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.polygon:1
 #: easygraphics.polygon:1 of
 msgid "Draw polygon outline."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ":obj:`put_pixel <easygraphics.put_pixel>`\\ \\(x\\, y\\, color\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.put_pixel:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.put_pixel:1
 #: easygraphics.put_pixel:1 of
 msgid "Set a pixel's color on the specified image."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`rect <easygraphics.rect>`\\ \\(left\\, top\\, right\\, bottom\\, "
 "image\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1 easygraphics.Image.rect:1
+#: ../../api.rst:122:<autosummary>:1 easygraphics.Image.rect:1
 #: easygraphics.rect:1 of
 msgid ""
 "Draws a rectangle outline with upper left corner at (left, top) and lower"
 " right corner at (right,bottom)."
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 ":obj:`rounded_rect <easygraphics.rounded_rect>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:120:<autosummary>:1
+#: ../../api.rst:122:<autosummary>:1
 msgid ""
 "Draws a rounded rectangle outline with upper left corner at (left, top) ,"
 " lower right corner at (right,bottom)."
 msgstr ""
 
-#: ../../api.rst:122
+#: ../../api.rst:124
 msgid "Transform"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ":obj:`flip <easygraphics.flip>`\\ \\(x\\, y\\, x1\\, y1\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1 easygraphics.Image.flip:1
+#: ../../api.rst:141:<autosummary>:1 easygraphics.Image.flip:1
 #: easygraphics.Image.mirror:1 easygraphics.Image.reflect:1 easygraphics.flip:1
 #: easygraphics.mirror:1 easygraphics.reflect:1 of
 msgid "Reflect the coordinates against the line passing (x1,y1) and (x,y)."
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ":obj:`mirror <easygraphics.mirror>`\\ \\(x\\, y\\, x1\\, y1\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ":obj:`reflect <easygraphics.reflect>`\\ \\(x\\, y\\, x1\\, y1\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ":obj:`reset_transform <easygraphics.reset_transform>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1 easygraphics.Image.reset_transform:1
+#: ../../api.rst:141:<autosummary>:1 easygraphics.Image.reset_transform:1
 #: easygraphics.reset_transform:1 of
 msgid "Reset all transforms (translate/rotate/scale)."
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ":obj:`rotate <easygraphics.rotate>`\\ \\(degree\\, x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1 easygraphics.Image.rotate:1
+#: ../../api.rst:141:<autosummary>:1 easygraphics.Image.rotate:1
 #: easygraphics.rotate:1 of
 msgid ""
 "Rotates the coordinate system around the point (x,y) with the given angle"
 " (in degree) clockwise."
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ":obj:`scale <easygraphics.scale>`\\ \\(sx\\, sy\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1 easygraphics.Image.scale:1
+#: ../../api.rst:141:<autosummary>:1 easygraphics.Image.scale:1
 #: easygraphics.scale:1 of
 msgid "Scales the coordinate system by (sx, sy)."
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ":obj:`set_flip_y <easygraphics.set_flip_y>`\\ \\(flip\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1 easygraphics.set_flip_y:1 of
+#: ../../api.rst:141:<autosummary>:1 easygraphics.set_flip_y:1 of
 msgid "Reflect without texts using the x-axis as the axis (image upside down)."
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ""
 ":obj:`set_origin <easygraphics.set_origin>`\\ \\(offset\\_x\\, "
 "offset\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1 easygraphics.set_origin:1
+#: ../../api.rst:141:<autosummary>:1 easygraphics.set_origin:1
 #: easygraphics.translate:1 of
 msgid ""
 "Translates the coordinate system by the given offset; i.e.the given "
 "offset is added to points."
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ":obj:`shear <easygraphics.shear>`\\ \\(sh\\, sv\\, x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1 easygraphics.Image.shear:1
+#: ../../api.rst:141:<autosummary>:1 easygraphics.Image.shear:1
 #: easygraphics.Image.skew:1 easygraphics.shear:1 easygraphics.skew:1 of
 msgid "Shear (skew) the coordinates around the point (x,y) by sh,sv."
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ":obj:`skew <easygraphics.skew>`\\ \\(sh\\, sv\\, x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:139:<autosummary>:1
+#: ../../api.rst:141:<autosummary>:1
 msgid ""
 ":obj:`translate <easygraphics.translate>`\\ \\(offset\\_x\\, "
 "offset\\_y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:141
+#: ../../api.rst:143
 msgid "Animation"
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1
+#: ../../api.rst:155:<autosummary>:1
 msgid ":obj:`delay <easygraphics.delay>`\\ \\(milliseconds\\)"
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1 easygraphics.delay:1 of
+#: ../../api.rst:155:<autosummary>:1 easygraphics.delay:1 of
 msgid "Delay the program for specified milliseconds."
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1
+#: ../../api.rst:155:<autosummary>:1
 msgid ":obj:`delay_fps <easygraphics.delay_fps>`\\ \\(fps\\)"
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1 easygraphics.delay_fps:1 of
+#: ../../api.rst:155:<autosummary>:1 easygraphics.delay_fps:1 of
 msgid "Delay the program to control fps (Frame per seconds)."
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1
+#: ../../api.rst:155:<autosummary>:1
 msgid ""
 ":obj:`delay_jfps <easygraphics.delay_jfps>`\\ \\(fps\\[\\, "
 "max\\_skip\\_count\\]\\)"
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1 easygraphics.delay_jfps:1 of
+#: ../../api.rst:155:<autosummary>:1 easygraphics.delay_jfps:1 of
 msgid "Delay to control fps with frame skipping."
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1
+#: ../../api.rst:155:<autosummary>:1
 msgid ":obj:`get_render_mode <easygraphics.get_render_mode>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1 easygraphics.get_render_mode:1
+#: ../../api.rst:155:<autosummary>:1 easygraphics.get_render_mode:1
 #: easygraphics.set_render_mode:1 of
 msgid "Set render mode of the graphics window."
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1
+#: ../../api.rst:155:<autosummary>:1
 msgid ":obj:`is_run <easygraphics.is_run>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1 easygraphics.is_run:1 of
+#: ../../api.rst:155:<autosummary>:1 easygraphics.is_run:1 of
 msgid "Test if the graphics system is running."
 msgstr ""
 
-#: ../../api.rst:153:<autosummary>:1
+#: ../../api.rst:155:<autosummary>:1
 msgid ":obj:`set_render_mode <easygraphics.set_render_mode>`\\ \\(mode\\)"
 msgstr ""
 
-#: ../../api.rst:155
+#: ../../api.rst:157
 msgid "Image Processing"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ""
 ":obj:`capture_screen <easygraphics.capture_screen>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1 easygraphics.capture_screen:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.capture_screen:1 of
 msgid "Caputre specified region on the graphics windows to target image."
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ":obj:`close_image <easygraphics.close_image>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1 easygraphics.Image.close:1
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.close:1
 #: easygraphics.close_image:1 of
 msgid "Close and clean up the specified image."
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ":obj:`create_image <easygraphics.create_image>`\\ \\(width\\, height\\)"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1 easygraphics.create_image:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.create_image:1 of
 msgid "Create a new image."
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ""
 ":obj:`draw_image <easygraphics.draw_image>`\\ \\(x\\, y\\, src\\_image\\,"
 " src\\_x\\, src\\_y\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1 easygraphics.Image.draw_image:1
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.draw_image:1
 #: easygraphics.draw_image:1 easygraphics.put_image:1 of
 msgid ""
 "Copy part of the source image (src_image) to the destination image "
 "(dst_image)."
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ":obj:`get_target <easygraphics.get_target>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1 easygraphics.get_target:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.get_target:1 of
 msgid "Get the target image for drawing on."
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ":obj:`load_image <easygraphics.load_image>`\\ \\(filename\\)"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1 easygraphics.load_image:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.load_image:1 of
 msgid "Load a image from the file."
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ""
 ":obj:`put_image <easygraphics.put_image>`\\ \\(x\\, y\\, src\\_image\\, "
 "src\\_x\\, src\\_y\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ""
 ":obj:`save_image <easygraphics.save_image>`\\ \\(filename\\[\\, "
 "with\\_background\\]\\)"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1 easygraphics.Image.save:1
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.save:1
 #: easygraphics.save_image:1 of
 msgid "Save image to file."
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ":obj:`set_target <easygraphics.set_target>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:169:<autosummary>:1 easygraphics.set_target:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.set_target:1 of
 msgid "Set the target image for drawing on."
 msgstr ""
 
-#: ../../api.rst:171
+#: ../../api.rst:173
 msgid "Keyboard and Mouse"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ""
 ":obj:`contains_left_button <easygraphics.contains_left_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.contains_left_button:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.contains_left_button:1 of
 msgid "Test if the buttons contains the left mouse button."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ""
 ":obj:`contains_mid_button <easygraphics.contains_mid_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.contains_mid_button:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.contains_mid_button:1 of
 msgid "Test if the buttons contains the middle mouse button."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ""
 ":obj:`contains_right_button <easygraphics.contains_right_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.contains_right_button:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.contains_right_button:1 of
 msgid "Test if the buttons contains the right mouse button."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ":obj:`get_char <easygraphics.get_char>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.get_char:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.get_char:1 of
 msgid "Get the ascii char inputted by keyboard."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ":obj:`get_click <easygraphics.get_click>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.get_click:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.get_click:1 of
 msgid "Get the mouse click message."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ":obj:`get_cursor_pos <easygraphics.get_cursor_pos>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.get_cursor_pos:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.get_cursor_pos:1 of
 msgid "Get position of the mouse cursor"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ":obj:`get_key <easygraphics.get_key>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.get_key:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.get_key:1 of
 msgid "Get the key inputted by keyboard."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ":obj:`get_mouse_msg <easygraphics.get_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.get_mouse_msg:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.get_mouse_msg:1 of
 msgid "Get the mouse message."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ":obj:`has_kb_hit <easygraphics.has_kb_hit>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.has_kb_hit:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.has_kb_hit:1 of
 msgid "See if any ascii char key is hitted in the last 100 ms."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ":obj:`has_kb_msg <easygraphics.has_kb_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.has_kb_msg:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.has_kb_msg:1 of
 msgid "See if any key is hit in the last 100 ms."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ":obj:`has_mouse_msg <easygraphics.has_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.has_mouse_msg:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.has_mouse_msg:1 of
 msgid "See if there is any mouse message(event) in the last 100 ms."
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1
+#: ../../api.rst:190:<autosummary>:1
 msgid ":obj:`pause <easygraphics.pause>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:188:<autosummary>:1 easygraphics.pause:1 of
+#: ../../api.rst:190:<autosummary>:1 easygraphics.pause:1 of
 msgid "Pause the program and wait for mouse clicking or keyboard hitting."
 msgstr ""
 
-#: ../../api.rst:190
+#: ../../api.rst:192
 msgid "Color & utilities"
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1
+#: ../../api.rst:206:<autosummary>:1
 msgid ":obj:`cart2pol <easygraphics.cart2pol>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1 easygraphics.cart2pol:1 of
+#: ../../api.rst:206:<autosummary>:1 easygraphics.cart2pol:1 of
 msgid "Transform a point from cartesian coordinates to polar coordinates."
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1
+#: ../../api.rst:206:<autosummary>:1
 msgid ""
 ":obj:`color_cmyk <easygraphics.color_cmyk>`\\ \\(c\\, m\\, y\\, k\\, "
 "alpha\\)"
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1 easygraphics.color_cmyk:1 of
+#: ../../api.rst:206:<autosummary>:1 easygraphics.color_cmyk:1 of
 msgid "Create a color with CMYK color values c,m,y,k."
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1
+#: ../../api.rst:206:<autosummary>:1
 msgid ":obj:`color_hsv <easygraphics.color_hsv>`\\ \\(h\\, s\\, v\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1 easygraphics.color_hsv:1 of
+#: ../../api.rst:206:<autosummary>:1 easygraphics.color_hsv:1 of
 msgid "Create a color with HSV color values h,s,v."
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1
+#: ../../api.rst:206:<autosummary>:1
 msgid ""
 ":obj:`color_rgb <easygraphics.color_rgb>`\\ \\(red\\, green\\, blue\\, "
 "alpha\\)"
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1 easygraphics.color_rgb:1
+#: ../../api.rst:206:<autosummary>:1 easygraphics.color_rgb:1
 #: easygraphics.rgb:1 of
 msgid "Create a color with RGB color values r,g,b."
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1
+#: ../../api.rst:206:<autosummary>:1
 msgid ":obj:`pol2cart <easygraphics.pol2cart>`\\ \\(rho\\, theta\\)"
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1 easygraphics.pol2cart:1 of
+#: ../../api.rst:206:<autosummary>:1 easygraphics.pol2cart:1 of
 msgid "Transform a point from polar coordinates to cartesian coordinates."
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1
+#: ../../api.rst:206:<autosummary>:1
 msgid ":obj:`rgb <easygraphics.rgb>`\\ \\(red\\, green\\, blue\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1
+#: ../../api.rst:206:<autosummary>:1
 msgid ":obj:`show_image <show_image>`\\"
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1
+#: ../../api.rst:206:<autosummary>:1
 msgid ":obj:`to_alpha <easygraphics.to_alpha>`\\ \\(new\\_color\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:204:<autosummary>:1 easygraphics.to_alpha:1 of
+#: ../../api.rst:206:<autosummary>:1 easygraphics.to_alpha:1 of
 msgid "Get new color based on the given color and alpha."
 msgstr ""
 
-#: ../../api.rst:206
+#: ../../api.rst:208
 msgid "Constants"
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1
+#: ../../api.rst:221:<autosummary>:1
 msgid ":obj:`Color <easygraphics.Color>`\\"
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1 easygraphics.Color:1 of
+#: ../../api.rst:221:<autosummary>:1 easygraphics.Color:1 of
 msgid "These are the predefined Color constants."
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1
+#: ../../api.rst:221:<autosummary>:1
 msgid ":obj:`CompositionMode <easygraphics.CompositionMode>`\\"
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1 easygraphics.CompositionMode:1 of
+#: ../../api.rst:221:<autosummary>:1 easygraphics.CompositionMode:1 of
 msgid "Defines the modes supported for digital image compositing."
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1
+#: ../../api.rst:221:<autosummary>:1
 msgid ":obj:`FillStyle <easygraphics.FillStyle>`\\"
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1 easygraphics.FillStyle:1 of
+#: ../../api.rst:221:<autosummary>:1 easygraphics.FillStyle:1 of
 msgid "These are the fill style used by draw and fill functions."
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1
+#: ../../api.rst:221:<autosummary>:1
+msgid ":obj:`FillRule <easygraphics.FillRule>`\\"
+msgstr ""
+
+#: ../../api.rst:221:<autosummary>:1 easygraphics.FillRule:1 of
+msgid "The Rule for fill polygons."
+msgstr ""
+
+#: ../../api.rst:221:<autosummary>:1
 msgid ":obj:`LineStyle <easygraphics.LineStyle>`\\"
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1
+#: ../../api.rst:221:<autosummary>:1
 msgid "These are the line styles that can be drawn."
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1
+#: ../../api.rst:221:<autosummary>:1
 msgid ":obj:`MouseMessageType <easygraphics.MouseMessageType>`\\"
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1 easygraphics.MouseMessageType:1 of
+#: ../../api.rst:221:<autosummary>:1 easygraphics.MouseMessageType:1 of
 msgid "These are the mouse message types."
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1
+#: ../../api.rst:221:<autosummary>:1
 msgid ":obj:`RenderMode <easygraphics.RenderMode>`\\"
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1 easygraphics.RenderMode:1 of
+#: ../../api.rst:221:<autosummary>:1 easygraphics.RenderMode:1 of
 msgid "These are the graphics window render mode."
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1
+#: ../../api.rst:221:<autosummary>:1
 msgid ":obj:`TextFlags <easygraphics.TextFlags>`\\"
 msgstr ""
 
-#: ../../api.rst:218:<autosummary>:1 easygraphics.TextFlags:1 of
+#: ../../api.rst:221:<autosummary>:1 easygraphics.TextFlags:1 of
 msgid "These are the text drawing flags."
 msgstr ""
 
-#: ../../api.rst:220
+#: ../../api.rst:223
 msgid "API Details"
 msgstr ""
 
@@ -1718,6 +1744,14 @@ msgstr ""
 msgid "Breaks lines at appropriate points, e.g. at word boundaries."
 msgstr ""
 
+#: easygraphics.FillRule.ODD_EVEN_FILL:1 of
+msgid "Specifies that the region is filled using the odd even fill rule."
+msgstr ""
+
+#: easygraphics.FillRule.WINDING_FILL:1 of
+msgid "Specifies that the region is filled using the non zero winding rule."
+msgstr ""
+
 #: easygraphics.Image.set_line_style:3 easygraphics.set_line_style:3 of
 msgid ""
 "The line style will be used when drawing lines and shape outlines. "
@@ -1751,24 +1785,24 @@ msgstr ""
 #: easygraphics.Image.set_brush easygraphics.Image.set_clip_rect
 #: easygraphics.Image.set_clipping easygraphics.Image.set_color
 #: easygraphics.Image.set_composition_mode easygraphics.Image.set_fill_color
-#: easygraphics.Image.set_fill_style easygraphics.Image.set_flip_y
-#: easygraphics.Image.set_font easygraphics.Image.set_font_size
-#: easygraphics.Image.set_line_style easygraphics.Image.set_line_width
-#: easygraphics.Image.set_pen easygraphics.Image.set_transform
-#: easygraphics.Image.set_view_port easygraphics.Image.set_window
-#: easygraphics.Image.shear easygraphics.Image.skew
-#: easygraphics.Image.text_width easygraphics.Image.translate easygraphics.arc
-#: easygraphics.bezier easygraphics.capture_screen easygraphics.cart2pol
-#: easygraphics.chord easygraphics.circle easygraphics.clear_device
-#: easygraphics.clear_view_port easygraphics.close_image
-#: easygraphics.color_cmyk easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
-#: easygraphics.draw_circle easygraphics.draw_ellipse easygraphics.draw_image
-#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
-#: easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.Image.set_fill_rule easygraphics.Image.set_fill_style
+#: easygraphics.Image.set_flip_y easygraphics.Image.set_font
+#: easygraphics.Image.set_font_size easygraphics.Image.set_line_style
+#: easygraphics.Image.set_line_width easygraphics.Image.set_pen
+#: easygraphics.Image.set_transform easygraphics.Image.set_view_port
+#: easygraphics.Image.set_window easygraphics.Image.shear
+#: easygraphics.Image.skew easygraphics.Image.text_width
+#: easygraphics.Image.translate easygraphics.arc easygraphics.bezier
+#: easygraphics.capture_screen easygraphics.cart2pol easygraphics.chord
+#: easygraphics.circle easygraphics.clear_device easygraphics.clear_view_port
+#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_hsv
+#: easygraphics.color_rgb easygraphics.contains_left_button
+#: easygraphics.contains_mid_button easygraphics.contains_right_button
+#: easygraphics.create_image easygraphics.delay easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.draw_arc easygraphics.draw_bezier
+#: easygraphics.draw_chord easygraphics.draw_circle easygraphics.draw_ellipse
+#: easygraphics.draw_image easygraphics.draw_line easygraphics.draw_lines
+#: easygraphics.draw_pie easygraphics.draw_point easygraphics.draw_poly_line
 #: easygraphics.draw_polygon easygraphics.draw_rect easygraphics.draw_rect_text
 #: easygraphics.draw_rounded_rect easygraphics.draw_text easygraphics.ellipse
 #: easygraphics.fill_chord easygraphics.fill_circle easygraphics.fill_ellipse
@@ -1777,27 +1811,27 @@ msgstr ""
 #: easygraphics.get_background_color easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_drawing_pos
 #: easygraphics.get_drawing_x easygraphics.get_drawing_y
-#: easygraphics.get_fill_color easygraphics.get_fill_style
-#: easygraphics.get_font easygraphics.get_font_size easygraphics.get_height
-#: easygraphics.get_line_style easygraphics.get_line_width
-#: easygraphics.get_pixel easygraphics.get_width easygraphics.get_write_mode
-#: easygraphics.init_graph easygraphics.line easygraphics.line_rel
-#: easygraphics.line_to easygraphics.lines easygraphics.load_image
-#: easygraphics.mirror easygraphics.move_rel easygraphics.move_to
-#: easygraphics.pie easygraphics.pol2cart easygraphics.poly_line
-#: easygraphics.polygon easygraphics.put_image easygraphics.put_pixel
-#: easygraphics.rect easygraphics.reflect easygraphics.reset_transform
-#: easygraphics.reset_view_port easygraphics.reset_window
-#: easygraphics.restore_settings easygraphics.rgb easygraphics.rotate
-#: easygraphics.rounded_rect easygraphics.save_image easygraphics.save_settings
-#: easygraphics.scale easygraphics.set_background_color
-#: easygraphics.set_caption easygraphics.set_clip_rect
-#: easygraphics.set_clipping easygraphics.set_color
+#: easygraphics.get_fill_color easygraphics.get_fill_rule
+#: easygraphics.get_fill_style easygraphics.get_font easygraphics.get_font_size
+#: easygraphics.get_height easygraphics.get_line_style
+#: easygraphics.get_line_width easygraphics.get_pixel easygraphics.get_width
+#: easygraphics.get_write_mode easygraphics.init_graph easygraphics.line
+#: easygraphics.line_rel easygraphics.line_to easygraphics.lines
+#: easygraphics.load_image easygraphics.mirror easygraphics.move_rel
+#: easygraphics.move_to easygraphics.pie easygraphics.pol2cart
+#: easygraphics.poly_line easygraphics.polygon easygraphics.put_image
+#: easygraphics.put_pixel easygraphics.rect easygraphics.reflect
+#: easygraphics.reset_transform easygraphics.reset_view_port
+#: easygraphics.reset_window easygraphics.restore_settings easygraphics.rgb
+#: easygraphics.rotate easygraphics.rounded_rect easygraphics.save_image
+#: easygraphics.save_settings easygraphics.scale
+#: easygraphics.set_background_color easygraphics.set_caption
+#: easygraphics.set_clip_rect easygraphics.set_clipping easygraphics.set_color
 #: easygraphics.set_composition_mode easygraphics.set_fill_color
-#: easygraphics.set_fill_style easygraphics.set_flip_y easygraphics.set_font
-#: easygraphics.set_font_size easygraphics.set_line_style
-#: easygraphics.set_line_width easygraphics.set_origin
-#: easygraphics.set_render_mode easygraphics.set_target
+#: easygraphics.set_fill_rule easygraphics.set_fill_style
+#: easygraphics.set_flip_y easygraphics.set_font easygraphics.set_font_size
+#: easygraphics.set_line_style easygraphics.set_line_width
+#: easygraphics.set_origin easygraphics.set_render_mode easygraphics.set_target
 #: easygraphics.set_view_port easygraphics.set_window
 #: easygraphics.set_write_mode easygraphics.shear easygraphics.skew
 #: easygraphics.text_height easygraphics.text_width easygraphics.to_alpha
@@ -1828,15 +1862,15 @@ msgstr ""
 
 #: easygraphics.Image.get_background_color easygraphics.Image.get_brush
 #: easygraphics.Image.get_color easygraphics.Image.get_composition_mode
-#: easygraphics.Image.get_fill_color easygraphics.Image.get_fill_style
-#: easygraphics.Image.get_font easygraphics.Image.get_font_size
-#: easygraphics.Image.get_height easygraphics.Image.get_image
-#: easygraphics.Image.get_line_style easygraphics.Image.get_line_width
-#: easygraphics.Image.get_mask easygraphics.Image.get_mask_painter
-#: easygraphics.Image.get_painter easygraphics.Image.get_pen
-#: easygraphics.Image.get_pixel easygraphics.Image.get_transform
-#: easygraphics.Image.get_width easygraphics.Image.get_x
-#: easygraphics.Image.get_y easygraphics.Image.set_pen
+#: easygraphics.Image.get_fill_color easygraphics.Image.get_fill_rule
+#: easygraphics.Image.get_fill_style easygraphics.Image.get_font
+#: easygraphics.Image.get_font_size easygraphics.Image.get_height
+#: easygraphics.Image.get_image easygraphics.Image.get_line_style
+#: easygraphics.Image.get_line_width easygraphics.Image.get_mask
+#: easygraphics.Image.get_mask_painter easygraphics.Image.get_painter
+#: easygraphics.Image.get_pen easygraphics.Image.get_pixel
+#: easygraphics.Image.get_transform easygraphics.Image.get_width
+#: easygraphics.Image.get_x easygraphics.Image.get_y easygraphics.Image.set_pen
 #: easygraphics.Image.set_transform easygraphics.Image.text_height
 #: easygraphics.Image.text_width easygraphics.cart2pol easygraphics.color_cmyk
 #: easygraphics.color_hsv easygraphics.color_rgb
@@ -1847,14 +1881,15 @@ msgstr ""
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
 #: easygraphics.get_drawing_pos easygraphics.get_drawing_x
 #: easygraphics.get_drawing_y easygraphics.get_fill_color
-#: easygraphics.get_fill_style easygraphics.get_font easygraphics.get_font_size
-#: easygraphics.get_graphics_window easygraphics.get_height
-#: easygraphics.get_key easygraphics.get_line_style easygraphics.get_line_width
-#: easygraphics.get_mouse_msg easygraphics.get_pixel
-#: easygraphics.get_render_mode easygraphics.get_target easygraphics.get_width
-#: easygraphics.get_write_mode easygraphics.has_kb_hit easygraphics.has_kb_msg
-#: easygraphics.has_mouse_msg easygraphics.is_run easygraphics.load_image
-#: easygraphics.pol2cart easygraphics.rgb easygraphics.set_fill_style
+#: easygraphics.get_fill_rule easygraphics.get_fill_style easygraphics.get_font
+#: easygraphics.get_font_size easygraphics.get_graphics_window
+#: easygraphics.get_height easygraphics.get_key easygraphics.get_line_style
+#: easygraphics.get_line_width easygraphics.get_mouse_msg
+#: easygraphics.get_pixel easygraphics.get_render_mode easygraphics.get_target
+#: easygraphics.get_width easygraphics.get_write_mode easygraphics.has_kb_hit
+#: easygraphics.has_kb_msg easygraphics.has_mouse_msg easygraphics.is_run
+#: easygraphics.load_image easygraphics.pol2cart easygraphics.rgb
+#: easygraphics.set_fill_rule easygraphics.set_fill_style
 #: easygraphics.text_height easygraphics.text_width easygraphics.to_alpha of
 msgid "Returns"
 msgstr ""
@@ -2142,6 +2177,26 @@ msgstr ""
 msgid ""
 "the target image to be translated. None means it is the target image (see"
 " set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.get_fill_rule:3 of
+msgid ""
+"the target image whose fill rule is to be gotten. None means it is the "
+"target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.Image.get_fill_rule:3 easygraphics.get_fill_rule:5 of
+msgid "the rule used for filling polygons"
+msgstr ""
+
+#: easygraphics.Image.set_fill_rule:3 easygraphics.set_fill_rule:3 of
+msgid "the rule to be used for filling polygons"
+msgstr ""
+
+#: easygraphics.set_fill_rule:4 of
+msgid ""
+"the target image whose fill rule is to be set. None means it is the "
+"target image (see set_target() and get_target())."
 msgstr ""
 
 #: easygraphics.set_render_mode:3 of
