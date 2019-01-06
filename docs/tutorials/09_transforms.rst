@@ -81,6 +81,8 @@ Rotation
 --------
 Use rotate() to rotate the coordinate around the point (x,y) clockwise.
 
+  Note: the angle directions in rotate() and in shape functions (i.e. draw_pie()) are opposite!
+
 If you need a counter-clockwise rotation, just give a negative rotation degree.
 
 The following program draws a bus rotated 45 degree counter-clockwise around it\'s center (105,65).

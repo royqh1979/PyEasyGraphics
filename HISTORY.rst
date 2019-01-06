@@ -2,6 +2,12 @@
 
 History
 =======
+0.9.12
+-------------------
+* Revert 0.9.11 's angle system change. Keep arc/pie/chord compatible with BGI.
+* add show_image() function, to display drawings in the jupyter qtconsole or notebook.
+* add show_image_dialog() function, to display a qimage in the dialog.
+
 0.9.11
 -------------------
 * fix: now arc/pie/chord drawing functions has the same angle system with rotate()

@@ -12,6 +12,7 @@ from . import multichoice
 from . import multifields
 from . import show_text_window
 from . import tableview
+from . import imagedialog
 from ._indexed_order_list import IndexedOrderedDict
 from easygraphics._utils.invoke_in_app_thread import set_app_font, invoke_in_thread
 
@@ -22,7 +23,7 @@ __all__ = [
     'get_continue_or_cancel', 'get_date', 'get_directory_name', 'get_file_names',
     'get_float', 'get_int', 'get_integer', 'get_list_of_choices', 'get_many_strings',
     'get_new_password', 'get_password', 'get_save_file_name', 'get_string',
-    'get_username_password', 'get_yes_or_no',
+    'get_username_password', 'get_yes_or_no', 'show_image_dialog',
 ]
 
 
@@ -582,6 +583,18 @@ def get_save_file_name(title: str = "File name to save") -> str:
 
 
 @invoke_in_thread()
+def show_image_dialog(image: QtGui.QImage, title: str = "Title"):
+    """
+    Display the image in a dialog.
+
+    :param image: the image to be displayed
+    :param title: Window title
+    """
+    dialog = imagedialog.ImageDialog(image, title)
+    _send_to_front(dialog)
+    dialog.exec_()
+
+@invoke_in_thread()
 def show_file(file_name: str = None, title: str = "Title", file_type: str = "text"):
     """
     Displays a file in a window.  While it looks as though the file
@@ -760,7 +773,8 @@ def find_help():
 
 def set_dialog_font_size(size: int):
     """
-    set font size of the dialogs
+    Set font size of the dialogs.
+
     :param size: font size
 
     >>> from easygraphics.dialog import *

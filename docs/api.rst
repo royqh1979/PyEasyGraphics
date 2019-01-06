@@ -198,6 +198,7 @@ Color & utilities
     color_rgb
     pol2cart
     rgb
+    show_image
     to_alpha
 
 

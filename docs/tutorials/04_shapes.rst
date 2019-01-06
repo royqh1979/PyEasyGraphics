@@ -65,11 +65,7 @@ Angle
 -----
 In easygraphics, all angles use degree as the unit.
 
-Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-respectively independent of any :doc:`transforms <09_transforms>`.
-
-So by default, a positive turning angle means turn clockwise.
+When drawing arc,pie and chords, positive values for the angles mean counter-clockwise while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
 The following program draws a pie from 45 degree to 135 degree.
 

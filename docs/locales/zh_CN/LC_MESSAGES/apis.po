@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 19:23+0800\n"
+"POT-Creation-Date: 2019-01-06 13:20+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,272 +26,283 @@ msgstr "easygraphics.dialog包"
 msgid "Function list"
 msgstr "函数列表"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(message\\, "
 "title\\, choices\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_choice:1 of
 msgid "Simple dialog to ask a user to select an item within a drop-down list"
 msgstr "显示一个对话框，让用户从下拉列表中选择一项"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_color:1 of
 msgid "Display a color picker and return the selected color"
 msgstr "显示一个色彩选择对话框，返回用户选择的颜色"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_color_hex <easygraphics.dialog.get_color_hex>`\\ "
 "\\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Using a color dialog, returns a color in hexadecimal notation i.e."
-msgstr "显示一个色彩选择对话框，以16进制整数字符串形式返回用户选择的颜色"
+msgstr "显示一个色彩选择对话框，以16进制整数字符串形式返回用户选择的颜色。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_color_rgb <easygraphics.dialog.get_color_rgb>`\\ "
 "\\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Using a color dialog, returns a color in rgb notation i.e."
-msgstr "显示一个色彩选择对话框，以rgb字符串形式返回用户选择的颜色"
+msgstr "显示一个色彩选择对话框，以(r,g,b)三元组的形式返回用户选择的颜色。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_continue_or_cancel "
 "<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\, title\\, "
 "...\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Continue or cancel question, shown as a warning (i.e."
 msgstr "选择继续或者取消"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_date:1 of
 msgid "Calendar widget"
 msgstr "选择日期"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_directory_name <easygraphics.dialog.get_directory_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_directory_name:1 of
 msgid "Gets the name (full path) of an existing directory"
 msgstr "选择一个目录"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_file_names:1 of
 msgid "Gets the names (full path) of existing files"
-msgstr ""
+msgstr "选择文件"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(message\\, title\\,"
 " default\\_value\\, ...\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_float:1 of
 msgid ""
 "Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
-msgstr ""
+msgstr "显示一个对话框，让用户在指定范围和精度下选择一个浮点数。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(message\\, title\\, "
 "default\\_value\\, min\\_\\, ...\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_int:1 easygraphics.dialog.get_integer:1 of
 msgid "Simple dialog to ask a user to select an integer within a certain range."
-msgstr ""
+msgstr "显示一个对话框，让用户在指定范围内选择一个整数。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_list_of_choices <easygraphics.dialog.get_list_of_choices>`\\ "
 "\\(title\\, choices\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_list_of_choices:1 of
 msgid "Show a list of possible choices to be selected."
-msgstr ""
+msgstr "显示一个列表让用户选择（可复选）"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\ "
 "\\(title\\, labels\\, masks\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_many_strings:1 of
 msgid "Multiple strings input"
-msgstr ""
+msgstr "同时输入多个字符串"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\ "
 "\\(title\\, labels\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_new_password:1 of
 msgid "Change password input box."
-msgstr ""
+msgstr "修改密码对话框"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Simple password input box."
-msgstr ""
+msgstr "输入密码对话框。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_save_file_name:1 of
 msgid "Gets the name (full path) of of a file to be saved."
-msgstr ""
+msgstr "打开文件以保存对话框。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(message\\, "
 "title\\, default\\_response\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Simple text input box."
-msgstr ""
+msgstr "简单的文本输入对话框。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_username_password "
 "<easygraphics.dialog.get_username_password>`\\ \\(title\\, labels\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_username_password:1 of
 msgid "User name and password input box."
-msgstr ""
+msgstr "获取用户名和密码。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ \\(question\\,"
 " title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_yes_or_no:1 of
 msgid "Simple yes or no question."
-msgstr ""
+msgstr "让用户选择yes或no。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`set_dialog_font_size <easygraphics.dialog.set_dialog_font_size>`\\ "
 "\\(size\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.set_dialog_font_size:1 of
-msgid "set font size of the dialogs :param size: font size"
-msgstr ""
+msgid "Set font size of the dialogs."
+msgstr "设置对话框的字体大小。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.show_message:1 of
 msgid "Simple message box."
+msgstr "显示一个简单消息框。"
+
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
+msgid ""
+":obj:`show_image_dialog <easygraphics.dialog.show_image_dialog>`\\ "
+"\\(image\\, title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
+#: easygraphics.dialog.show_image_dialog:1 of
+msgid "Display the image in a dialog."
+msgstr "在窗口中显示图片。"
+
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(title\\, text\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.show_text:1 of
 msgid "Displays some text in a window."
-msgstr ""
+msgstr "在窗口中显示一大段文字。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\, "
 "fields\\, field\\_names\\, ...\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.show_table:1 of
 msgid "Displays list of objects in a table"
-msgstr ""
+msgstr "以表格形式显示一组对象。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(title\\, code\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.show_code:1 of
 msgid "Displays some text in a window, in a monospace font."
-msgstr ""
+msgstr "在窗口中显示代码。"
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
 "title\\, file\\_type\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Displays a file in a window."
-msgstr ""
+msgstr "在窗口中显示文件内容。"
 
-#: ../../apis/easygraphics.dialog.rst:35 ../../apis/easygraphics.music.rst:26
+#: ../../apis/easygraphics.dialog.rst:36 ../../apis/easygraphics.music.rst:26
 msgid "Functions"
-msgstr ""
+msgstr "函数"
 
 #: easygraphics.dialog:1 of
 msgid "An easy-to-use dialogs library."
-msgstr ""
+msgstr "一个简单易用的对话框函数库。"
 
 #: easygraphics.dialog:3 of
 msgid "You can use it to create and show dialogs."
-msgstr ""
+msgstr "你可以用它来创建或显示对话框。"
 
 #: easygraphics.dialog:5 of
 msgid ""
@@ -299,10 +310,12 @@ msgid ""
 "The original EasyGUI-Qt library won't work properly with EasyGraphics. So"
 " use this library instead."
 msgstr ""
+"基于EasyGUI_Qt(https://github.com/aroberge/easygui_qt/)。由于原EasyGUI-"
+"Qt库无法与EasyGraphics一起工作，因此使用该库代替。"
 
 #: easygraphics.dialog:8 easygraphics.music:5 of
 msgid "A simple example:"
-msgstr ""
+msgstr "一个简单的例子："
 
 #: easygraphics.dialog.get_abort easygraphics.dialog.get_choice
 #: easygraphics.dialog.get_continue_or_cancel easygraphics.dialog.get_date
@@ -312,8 +325,9 @@ msgstr ""
 #: easygraphics.dialog.get_many_strings easygraphics.dialog.get_new_password
 #: easygraphics.dialog.get_password easygraphics.dialog.get_save_file_name
 #: easygraphics.dialog.get_string easygraphics.dialog.get_username_password
-#: easygraphics.dialog.get_yes_or_no easygraphics.dialog.show_code
-#: easygraphics.dialog.show_file easygraphics.dialog.show_message
+#: easygraphics.dialog.get_yes_or_no easygraphics.dialog.set_dialog_font_size
+#: easygraphics.dialog.show_code easygraphics.dialog.show_file
+#: easygraphics.dialog.show_image_dialog easygraphics.dialog.show_message
 #: easygraphics.dialog.show_table easygraphics.dialog.show_text
 #: easygraphics.legacy.bar easygraphics.legacy.circle
 #: easygraphics.legacy.cleardevice easygraphics.legacy.clearviewport
@@ -354,49 +368,53 @@ msgstr ""
 #: easygraphics.turtle.set_speed easygraphics.turtle.setxy
 #: easygraphics.turtle.turn_to of
 msgid "Parameters"
+msgstr "参数"
+
+#: easygraphics.dialog.set_dialog_font_size:3 of
+msgid "font size"
 msgstr ""
 
 #: easygraphics.dialog.show_message:3 of
 msgid "message string"
-msgstr ""
+msgstr "消息字符串"
 
 #: easygraphics.dialog.get_date:3 easygraphics.dialog.show_message:4 of
 msgid "window title"
-msgstr ""
+msgstr "对话框标题"
 
 #: easygraphics.dialog.get_abort:6 easygraphics.dialog.show_code:3
 #: easygraphics.dialog.show_file:5 easygraphics.dialog.show_text:3 of
 msgid "the window title"
-msgstr ""
+msgstr "对话框标题"
 
 #: easygraphics.dialog.show_code:4 easygraphics.dialog.show_text:4 of
 msgid "a string to display in the window."
-msgstr ""
+msgstr "要显示在对话框中的内容"
 
 #: easygraphics.dialog.show_code:5 easygraphics.dialog.show_table:19
 #: easygraphics.dialog.show_text:5 of
 msgid "width of the dialog window"
-msgstr ""
+msgstr "对话框窗口宽度"
 
 #: easygraphics.dialog.show_code:6 easygraphics.dialog.show_table:20
 #: easygraphics.dialog.show_text:6 of
 msgid "height of the dialog window"
-msgstr ""
+msgstr "对话框窗口高度"
 
 #: easygraphics.dialog.show_file:1 of
 msgid ""
 "Displays a file in a window.  While it looks as though the file can be "
 "edited, the only changes that happened are in the window and nothing can "
 "be saved."
-msgstr ""
+msgstr "在对话框中显示文件内容。虽然在窗口中可以编辑文件的内容，但是所作修改并不会保存。"
 
 #: easygraphics.dialog.show_file:6 of
 msgid "the file name, (path) relative to the calling program"
-msgstr ""
+msgstr "文件路径"
 
 #: easygraphics.dialog.show_file:7 of
 msgid "possible values: ``text``, ``code``, ``html``, ``python``."
-msgstr ""
+msgstr "可以的值：``text``, ``code``, ``html``, ``python``。"
 
 #: easygraphics.dialog.show_file:9 of
 msgid ""
@@ -405,43 +423,46 @@ msgid ""
 "some code highlighting is done. If the file_type is ``html``, it is "
 "processed assuming it follows html syntax."
 msgstr ""
+"缺省的情况下，file_type参数被设为``text``；如果设为``code``, "
+"内容使用monospace字体显示；如果设为``python``, "
+"内容使用python语法高亮显示；如果设为``html``，内容使用html语法高亮显示。"
 
 #: easygraphics.dialog.show_file:15 of
 msgid "**Note**: a better Python code hightlighter would be most welcome!"
-msgstr ""
+msgstr "注意：请大家推荐一个更好的Python语法高亮器。"
 
 #: easygraphics.dialog.show_table:15 of
 msgid "the object list to show"
-msgstr ""
+msgstr "要显示的对象列表"
 
 #: easygraphics.dialog.show_table:16 of
 msgid "fields to show of the object"
-msgstr ""
+msgstr "要显示的对象属性列表"
 
 #: easygraphics.dialog.show_table:17 of
 msgid "the field names displayed on the table header"
-msgstr ""
+msgstr "显示在表头的对象属性名称"
 
 #: easygraphics.dialog.show_table:18 of
 msgid "title of the dialog window"
-msgstr ""
+msgstr "对话框窗口标题"
 
 #: easygraphics.dialog.get_abort:1 of
 msgid ""
 "Displays a message about a problem. If the user clicks on \"abort\", "
 "sys.exit() is called and the program ends.  If the user clicks on "
 "\"ignore\", the program resumes its execution."
-msgstr ""
+msgstr "显示问题的说明。如果用户点击\"abort\",程序会执行sys.exit()然后结束执行。如果用户点击\"ignore\"，程序继续执行。"
 
 #: easygraphics.dialog.get_abort:7 of
 msgid "the message to display"
-msgstr ""
+msgstr "要显示的信息"
 
 #: easygraphics.dialog.get_choice:3 easygraphics.dialog.get_float:4
 #: easygraphics.dialog.get_int:5 easygraphics.dialog.get_integer:5
 #: easygraphics.dialog.get_password:3 easygraphics.dialog.get_string:3 of
 msgid "Message displayed to the user, inviting a response"
-msgstr ""
+msgstr "要显示给用户的输入提示信息"
 
 #: easygraphics.dialog.get_choice:4 easygraphics.dialog.get_directory_name:3
 #: easygraphics.dialog.get_file_names:3 easygraphics.dialog.get_float:5
@@ -450,15 +471,16 @@ msgstr ""
 #: easygraphics.dialog.get_many_strings:3
 #: easygraphics.dialog.get_new_password:3 easygraphics.dialog.get_password:4
 #: easygraphics.dialog.get_save_file_name:3 easygraphics.dialog.get_string:4
-#: easygraphics.dialog.get_username_password:3 of
+#: easygraphics.dialog.get_username_password:3
+#: easygraphics.dialog.show_image_dialog:4 of
 msgid "Window title"
-msgstr ""
+msgstr "对话框窗口标题"
 
 #: easygraphics.dialog.get_choice:5 of
 msgid ""
 "iterable (list or tuple) containing the names of the items that can be "
 "selected."
-msgstr ""
+msgstr "包含待选择项名称的列表。"
 
 #: easygraphics.dialog.get_choice easygraphics.dialog.get_color
 #: easygraphics.dialog.get_continue_or_cancel easygraphics.dialog.get_date
@@ -473,6 +495,7 @@ msgstr ""
 #: easygraphics.legacy.getlinesettings easygraphics.legacy.getmaxx
 #: easygraphics.legacy.getmaxy easygraphics.legacy.getpixel
 #: easygraphics.legacy.getx easygraphics.legacy.gety
+#: easygraphics.legacy.textheight easygraphics.legacy.textwidth
 #: easygraphics.music.get_music_pos easygraphics.music.get_music_volume
 #: easygraphics.music.is_music_playing
 #: easygraphics.turtle.Turtle.create_turtle_icon
@@ -489,61 +512,61 @@ msgstr ""
 #: easygraphics.turtle.get_turtle easygraphics.turtle.get_turtle_world
 #: easygraphics.turtle.get_x easygraphics.turtle.get_y of
 msgid "Returns"
-msgstr ""
+msgstr "返回值"
 
 #: easygraphics.dialog.get_choice:8 easygraphics.dialog.get_password:7
 #: easygraphics.dialog.get_string:7 of
 msgid "a string, or ``None`` if \"cancel\" is clicked or window is closed."
-msgstr ""
+msgstr "输入的字符串，或者None如果用户点击了\"cancel\"，或者直接关闭了对话框。"
 
 #: easygraphics.dialog.get_color_hex:1 of
 msgid ""
 "Using a color dialog, returns a color in hexadecimal notation i.e. a "
 "string '#RRGGBB' or \"None\" if color dialog is dismissed."
-msgstr ""
+msgstr "显示颜色选择对话框，以16进制整数字符串的形式（如'#ffffff'）返回选择的颜色；如果用户取消或者直接关闭对话框，则返回None。"
 
 #: easygraphics.dialog.get_color_rgb:1 of
 msgid ""
 "Using a color dialog, returns a color in rgb notation i.e. a tuple (r, g,"
 " b) or \"None\" if color dialog is dismissed."
-msgstr ""
+msgstr "显示一个色彩选择对话框，以(r,g,b)三元组的形式返回用户选择的颜色。如果用户取消或者直接关闭对话框，则返回None。"
 
 #: easygraphics.dialog.get_color:8 of
 msgid "the color selected"
-msgstr ""
+msgstr "选择的颜色"
 
 #: easygraphics.dialog.get_continue_or_cancel:1 of
 msgid ""
 "Continue or cancel question, shown as a warning (i.e. more urgent than "
 "simple message)"
-msgstr ""
+msgstr "显示警告信息，让用户选择继续执行(continue)还是中止程序(cancel)。"
 
 #: easygraphics.dialog.get_continue_or_cancel:3
 #: easygraphics.dialog.get_yes_or_no:3 of
 msgid "Question (string) asked"
-msgstr ""
+msgstr "要显示的问题"
 
 #: easygraphics.dialog.get_continue_or_cancel:4
 #: easygraphics.dialog.get_yes_or_no:4 of
 msgid "Window title (string)"
-msgstr ""
+msgstr "窗口标题"
 
 #: easygraphics.dialog.get_continue_or_cancel:5
 #: easygraphics.dialog.get_continue_or_cancel:6 of
 msgid "text to display on button"
-msgstr ""
+msgstr "在按钮上显示的文字"
 
 #: easygraphics.dialog.get_continue_or_cancel:8 of
 msgid "True for \"Continue\", False for \"Cancel\""
-msgstr ""
+msgstr "按\"Continue\"返回True, \"Cancel\"返回False"
 
 #: easygraphics.dialog.get_date:4 of
 msgid "the selected date as a ``datetime.date`` instance"
-msgstr ""
+msgstr "以``datetime.date``对象形式的用户选择的日期"
 
 #: easygraphics.dialog.get_directory_name:4 of
 msgid "the name of a directory or an empty string if cancelled."
-msgstr ""
+msgstr "选择的文件夹路径。如果用户取消选择，返回空字符串。"
 
 #: easygraphics.dialog.get_directory_name:11
 #: easygraphics.dialog.get_file_names:12
@@ -551,35 +574,35 @@ msgstr ""
 msgid ""
 "By default, this dialog initially displays the content of the current "
 "working directory."
-msgstr ""
+msgstr "该对话框缺省显示当前工作目录下的内容"
 
 #: easygraphics.dialog.get_file_names:4 of
 msgid "the list of names (paths) of files selected. (It can be an empty list.)"
-msgstr ""
+msgstr "选择的文件和文件夹列表"
 
 #: easygraphics.dialog.get_float:6 of
 msgid ""
 "Default value for value appearing in the text box; set to the closest of "
 "``min_`` or ``max_`` if outside of allowed range."
-msgstr ""
+msgstr "显示在输入框中的缺省数值。如果超出允许选择范围，则自动设置到范围边界上。"
 
 #: easygraphics.dialog.get_float:9 of
 msgid "Minimum value allowed"
-msgstr ""
+msgstr "允许的最小值"
 
 #: easygraphics.dialog.get_float:10 of
 msgid "Maximum value allowed"
-msgstr ""
+msgstr "允许的最大值"
 
 #: easygraphics.dialog.get_float:11 of
 msgid "Indicate the maximum decimal precision allowed"
-msgstr ""
+msgstr "最大精度位数"
 
 #: easygraphics.dialog.get_float:13 of
 msgid ""
 "a floating-point number, or ``None`` if \"cancel\" is clicked or window "
 "is closed."
-msgstr ""
+msgstr "用户输入的浮点数；如果用户取消或直接关闭了对话框则返回None。"
 
 #: easygraphics.dialog.get_float:21 of
 msgid ""
@@ -590,63 +613,63 @@ msgid ""
 " will require the use of a comma instead of a period.  However, the "
 "internal representation will still be the same, and the number passed to "
 "Python will be using the familar notation."
-msgstr ""
+msgstr "**注意:** 在某些语言（如法语）的操作系统中，在输入数字时可能需要使用其他符号作为小数点。"
 
 #: easygraphics.dialog.get_int:3 easygraphics.dialog.get_integer:3 of
 msgid "**Note**: **get_int()** and **get_integer()** are identical."
-msgstr ""
+msgstr "**注意**：**get_int()**是**get_integer()**的别名。"
 
 #: easygraphics.dialog.get_int:7 easygraphics.dialog.get_integer:7 of
 msgid ""
 "Default value for integer appearing in the text box; set to the closest "
 "of ``min_`` or ``max_`` if outside of allowed range."
-msgstr ""
+msgstr "显示在输入框中的缺省数字。如果超出允许范围，会自动设置到范围边界上。"
 
 #: easygraphics.dialog.get_int:10 easygraphics.dialog.get_integer:10 of
 msgid "Minimum integer value allowed"
-msgstr ""
+msgstr "允许的最小整数"
 
 #: easygraphics.dialog.get_int:11 easygraphics.dialog.get_integer:11 of
 msgid "Maximum integer value allowed"
-msgstr ""
+msgstr "允许的最大整数"
 
 #: easygraphics.dialog.get_int:12 easygraphics.dialog.get_integer:12 of
 msgid ""
 "Indicate the change in integer value when clicking on arrows on the right"
 " hand side"
-msgstr ""
+msgstr "当用户每次点击右侧的箭头时，输入数字的变化量"
 
 #: easygraphics.dialog.get_int:15 easygraphics.dialog.get_integer:15 of
 msgid "an integer, or ``None`` if \"cancel\" is clicked or window is closed."
-msgstr ""
+msgstr "输入的整数，如果用户取消或直接关闭了对话框则返回None。"
 
 #: easygraphics.dialog.get_int:24 easygraphics.dialog.get_integer:24 of
 msgid ""
 "If ``default_value`` is larger than ``max_``, it is set to ``max_``; if "
 "it is smaller than ``min_``, it is set to ``min_``."
-msgstr ""
+msgstr "如果``default_value``大于``max_``，则会被自动设成``max_``；如果小于``min_``，则会被自动设为``min_``。"
 
 #: easygraphics.dialog.get_list_of_choices:4 of
 msgid "iterable (list, tuple, ...) containing the choices as strings"
-msgstr ""
+msgstr "待选择项列表"
 
 #: easygraphics.dialog.get_list_of_choices:7 of
 msgid "a list of selected items, otherwise an empty list."
-msgstr ""
+msgstr "选中项列表"
 
 #: easygraphics.dialog.get_many_strings:4 of
 msgid "an iterable containing the labels for to use for the entries"
-msgstr ""
+msgstr "各输入框的标签列表"
 
 #: easygraphics.dialog.get_many_strings:5 of
 msgid "optional parameter."
-msgstr ""
+msgstr "各输入框输入内容是否隐藏显示的列表"
 
 #: easygraphics.dialog.get_many_strings:8 of
 msgid ""
 "An ordered dict containing the labels as keys, and the input from the "
 "user (empty string by default) as value"
-msgstr ""
+msgstr "一个有序字典，可以标签或者序号作为关键字，取出用户输入的值"
 
 #: easygraphics.dialog.get_many_strings:11 of
 msgid ""
@@ -656,7 +679,7 @@ msgid ""
 "username and password using get_many_strings as follows [note that "
 "get_username_password exists and automatically takes care of specifying "
 "the masks and is a better choice for this use case.]"
-msgstr ""
+msgstr "参数``masks``是一个与``choices``参数长度相同的列表，每个元素为True或者False，指明每个输入项是否隐藏显示的内容。通常用于有输入项是密码（因此需要隐藏输入内容）的情况。"
 
 #: easygraphics.dialog.get_new_password:4 of
 msgid ""
@@ -665,58 +688,64 @@ msgid ""
 "different strings as they are used as keys in a dict - however, they "
 "could differ only by a space."
 msgstr ""
+"一个列表，其中包含\"Old password（旧密码）\"、\"New password（新密码）\"和\"Confirm new "
+"password（确认新密码）\"的提示标签。三个标签必须互不相同，因为返回的字典要以它们为关键字。"
 
 #: easygraphics.dialog.get_new_password:10 of
 msgid ""
 "An ordered dict containing the fields item as keys, and the input from "
 "the user as values."
-msgstr ""
+msgstr "一个有序字典。可以以提示标签名和序号作为关键字，从中取出用户的输入的值。"
 
 #: easygraphics.dialog.get_new_password:13
 #: easygraphics.dialog.get_username_password:11 of
 msgid ""
 "Note: this function is a special case of ``get_many_strings`` where the "
 "required masks are provided automatically.."
-msgstr ""
+msgstr "注意：该函数是``get_many_strings``的特例，密码会被自动隐藏显示。"
 
 #: easygraphics.dialog.get_password:1 of
 msgid "Simple password input box.  Used to query the user and get a string back."
-msgstr ""
+msgstr "简单的密码输入框。用来让用户输入密码。"
 
 #: easygraphics.dialog.get_save_file_name:4 of
 msgid "the name (path) of file selected"
-msgstr ""
+msgstr "用户选中的文件路径"
 
 #: easygraphics.dialog.get_save_file_name:6 of
 msgid ""
 "The user is warned if the file already exists and can choose to cancel.  "
 "However, this dialog actually does NOT save any file: it only return a "
 "string containing the full path of the chosen file."
-msgstr ""
+msgstr "如果文件已经存在，用户会得到警告，也可以取消。但是，该对话框并不会真正保存文件，实际的保存工作需要用户代码完成。"
 
 #: easygraphics.dialog.get_string:1 of
 msgid "Simple text input box.  Used to query the user and get a string back."
-msgstr ""
+msgstr "简单的文字输入框。"
 
 #: easygraphics.dialog.get_string:5 of
 msgid "default response appearing in the text box"
-msgstr ""
+msgstr "显示在输入框中的缺省内容"
 
 #: easygraphics.dialog.get_username_password:4 of
 msgid ""
 "an iterable containing the labels for \"user name\" and \"password\"; if "
 "the value not specified, the default values will be used."
-msgstr ""
+msgstr "一个包含\"user name\"和\"password\"的提示标签的列表。如果未提供该列表，则使用缺省标签。"
 
 #: easygraphics.dialog.get_username_password:8 of
 msgid ""
 "An ordered dict containing the fields item as keys, and the input from "
 "the user (empty string by default) as value"
-msgstr ""
+msgstr "一个有序词典，可以用标签名和序号作为关键字，取出用户输入的值。"
 
 #: easygraphics.dialog.get_yes_or_no:6 of
 msgid "``True`` for \"Yes\", ``False`` for \"No\", and ``None`` for \"Cancel\"."
-msgstr ""
+msgstr "选yes返回True，选No返回False，选Cancel返回None。"
+
+#: easygraphics.dialog.show_image_dialog:3 of
+msgid "the image to be displayed"
+msgstr "要显示的图片"
 
 #: ../../apis/easygraphics.legacy.rst:2
 msgid "easygraphics.legacy package"
@@ -724,13 +753,13 @@ msgstr ""
 
 #: easygraphics.legacy:1 of
 msgid "The BGI compatible module."
-msgstr ""
+msgstr "用于兼容BGI的模块。"
 
 #: easygraphics.legacy:3 of
 msgid ""
 "This module redefines the functions using the same names used in the BGI,"
 " for easily porting BGI graphics programs to python."
-msgstr ""
+msgstr "本模块使用BGI里面的函数名重新命名了Easygraphics里面的各函数，以便将原有的BGI程序移植到python中。"
 
 #: easygraphics.legacy.arc:1 of
 msgid "Draw a Circular Arc"
@@ -779,13 +808,13 @@ msgstr ""
 
 #: easygraphics.legacy.bar:9 easygraphics.legacy.circle:8
 #: easygraphics.legacy.cleardevice:3 easygraphics.legacy.clearviewport:3
-#: easygraphics.legacy.drawpoly:18 easygraphics.legacy.ellipse:14
+#: easygraphics.legacy.drawpoly:18 easygraphics.legacy.ellipse:13
 #: easygraphics.legacy.fillellipse:9 easygraphics.legacy.fillpoly:20
 #: easygraphics.legacy.floodfill:8 easygraphics.legacy.getpixel:5
 #: easygraphics.legacy.line:9 easygraphics.legacy.linerel:6
 #: easygraphics.legacy.lineto:5 easygraphics.legacy.moverel:9
 #: easygraphics.legacy.moveto:7 easygraphics.legacy.putpixel:6
-#: easygraphics.legacy.rectangle:9 easygraphics.legacy.sector:16
+#: easygraphics.legacy.rectangle:9 easygraphics.legacy.sector:15
 #: easygraphics.legacy.textheight:3 easygraphics.legacy.textwidth:4 of
 msgid ""
 "the target image which will be painted on. None means it is the target "
@@ -860,36 +889,36 @@ msgstr ""
 
 #: easygraphics.legacy.ellipse:4 easygraphics.legacy.sector:6 of
 msgid ""
-"Note: Degree 0,90,180 and 270 are always the positive direction of "
-"X-axis, the positive direction of Y-axis,  the negative direction of "
-"X-axis, the negative direction of Y-axis, respectively."
+"Note: Positive values for the angles mean counter-clockwise while "
+"negative values mean the clockwise direction. Zero degrees is at the 3 "
+"o'clock position."
 msgstr ""
 
-#: easygraphics.legacy.ellipse:8 easygraphics.legacy.fillellipse:5
-#: easygraphics.legacy.sector:10 of
+#: easygraphics.legacy.ellipse:7 easygraphics.legacy.fillellipse:5
+#: easygraphics.legacy.sector:9 of
 msgid "x coordinate value of the ellipse's center"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:9 easygraphics.legacy.fillellipse:6
-#: easygraphics.legacy.sector:11 of
+#: easygraphics.legacy.ellipse:8 easygraphics.legacy.fillellipse:6
+#: easygraphics.legacy.sector:10 of
 msgid "y coordinate value of the ellipse's center"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:10 of
+#: easygraphics.legacy.ellipse:9 of
 msgid "start angle of the arc"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:11 of
+#: easygraphics.legacy.ellipse:10 of
 msgid "end angle of the arc"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:12 easygraphics.legacy.fillellipse:7
-#: easygraphics.legacy.sector:14 of
+#: easygraphics.legacy.ellipse:11 easygraphics.legacy.fillellipse:7
+#: easygraphics.legacy.sector:13 of
 msgid "radius on x-axis of the ellipse"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:13 easygraphics.legacy.fillellipse:8
-#: easygraphics.legacy.sector:15 of
+#: easygraphics.legacy.ellipse:12 easygraphics.legacy.fillellipse:8
+#: easygraphics.legacy.sector:14 of
 msgid "radius on y-axis of the ellipse"
 msgstr ""
 
@@ -1247,11 +1276,11 @@ msgstr ""
 msgid "The pie is filled and has outline."
 msgstr ""
 
-#: easygraphics.legacy.sector:12 of
+#: easygraphics.legacy.sector:11 of
 msgid "start angle of the pie"
 msgstr ""
 
-#: easygraphics.legacy.sector:13 of
+#: easygraphics.legacy.sector:12 of
 msgid "end angle of the pie"
 msgstr ""
 
@@ -1375,6 +1404,10 @@ msgstr ""
 msgid "Return height of the text (font height)."
 msgstr ""
 
+#: easygraphics.legacy.textheight:5 of
+msgid "height of the text (font height)"
+msgstr ""
+
 #: easygraphics.legacy.textwidth:1 of
 msgid "Return width of the text."
 msgstr ""
@@ -1383,13 +1416,17 @@ msgstr ""
 msgid "the text"
 msgstr ""
 
+#: easygraphics.legacy.textwidth:6 of
+msgid "width of the text"
+msgstr "文字内容的宽度"
+
 #: ../../apis/easygraphics.music.rst:2
 msgid "easygraphics.music package"
-msgstr ""
+msgstr "easygraphics.music包"
 
 #: ../../apis/easygraphics.music.rst:5
 msgid "Function List"
-msgstr ""
+msgstr "函数列表"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`load_music <easygraphics.music.load_music>`\\ \\(filename\\)"
@@ -1398,7 +1435,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.load_music:1 of
 msgid "Load a music file for playback."
-msgstr ""
+msgstr "载入音乐文件以便播放。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`close_music <easygraphics.music.close_music>`\\ \\(\\)"
@@ -1407,7 +1444,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.close_music:1 of
 msgid "Close the music playback device."
-msgstr ""
+msgstr "关闭音乐播放设备。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`play_music <easygraphics.music.play_music>`\\ \\(loops\\, start\\)"
@@ -1416,7 +1453,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.play_music:1 of
 msgid "Play the music."
-msgstr ""
+msgstr "播放音乐。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`pause_music <easygraphics.music.pause_music>`\\ \\(\\)"
@@ -1425,7 +1462,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.pause_music:1 of
 msgid "Pause the music playback."
-msgstr ""
+msgstr "暂停音乐。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`unpause_music <easygraphics.music.unpause_music>`\\ \\(\\)"
@@ -1434,7 +1471,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.unpause_music:1 of
 msgid "Unpause the music playback."
-msgstr ""
+msgstr "恢复暂停的播放。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`stop_music <easygraphics.music.stop_music>`\\ \\(\\)"
@@ -1443,7 +1480,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.stop_music:1 of
 msgid "Stop the music playback."
-msgstr ""
+msgstr "停止播放。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`queue_music <easygraphics.music.queue_music>`\\ \\(filename\\)"
@@ -1452,7 +1489,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.queue_music:1 of
 msgid "Add music to the playing queue."
-msgstr ""
+msgstr "将音乐添加到播放队列里。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`is_music_playing <easygraphics.music.is_music_playing>`\\ \\(\\)"
@@ -1461,7 +1498,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.is_music_playing:1 of
 msgid "Get if the music is playing."
-msgstr ""
+msgstr "检查音乐是否在播放。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`get_music_pos <easygraphics.music.get_music_pos>`\\ \\(\\)"
@@ -1470,7 +1507,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.get_music_pos:1 of
 msgid "Get current music playback position ."
-msgstr ""
+msgstr "获取当前的音乐播放位置。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`get_music_volume <easygraphics.music.get_music_volume>`\\ \\(\\)"
@@ -1479,7 +1516,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.get_music_volume:1 of
 msgid "Return the music playback volume."
-msgstr ""
+msgstr "获取音乐播放的音量。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`set_music_pos <easygraphics.music.set_music_pos>`\\ \\(pos\\)"
@@ -1488,7 +1525,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.set_music_pos:1 of
 msgid "Set current music play position."
-msgstr ""
+msgstr "设置音乐播放的位置。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ""
@@ -1499,7 +1536,7 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.set_music_volume:1 of
 msgid "Set volume of the music playback."
-msgstr ""
+msgstr "设置音乐音量。"
 
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 msgid ":obj:`fade_out_music <easygraphics.music.fade_out_music>`\\ \\(time\\)"
@@ -1508,29 +1545,29 @@ msgstr ""
 #: ../../apis/easygraphics.music.rst:24:<autosummary>:1
 #: easygraphics.music.fade_out_music:1 of
 msgid "Fade out and stop the music."
-msgstr ""
+msgstr "淡出停止音乐。"
 
 #: easygraphics.music:1 of
 msgid "A simple music play library."
-msgstr ""
+msgstr "一个简单的音乐播放库。"
 
 #: easygraphics.music:3 of
 msgid "You can use it to load and play music files."
-msgstr ""
+msgstr "你可以用它来载入和播放音乐文件。"
 
 #: easygraphics.music.load_music:3 of
 msgid ""
 "If music playback device is note initialized, it will be initialized "
 "automatically."
-msgstr ""
+msgstr "如果音乐播放设备尚未初始化，本函数会自动进行初始化。"
 
 #: easygraphics.music.load_music:5 of
 msgid "Use play_music() to play the music."
-msgstr ""
+msgstr "使用play_music来播放音乐。"
 
 #: easygraphics.music.load_music:7 of
 msgid "the music file to play"
-msgstr ""
+msgstr "要播放的音乐文件。"
 
 #: easygraphics.music.play_music:3 of
 msgid "loops. 0 means no loop"
@@ -1538,49 +1575,49 @@ msgstr ""
 
 #: easygraphics.music.play_music:4 of
 msgid "start position of the music"
-msgstr ""
+msgstr "播放的起始位置。"
 
 #: easygraphics.music.queue_music:3 of
 msgid "the music file to be queued."
-msgstr ""
+msgstr "要加入播放队列的文件路径。"
 
 #: easygraphics.music.is_music_playing:3 of
 msgid "True if is playing, False if is not."
-msgstr ""
+msgstr "如果在播放，返回True；否则返回False"
 
 #: easygraphics.music.get_music_pos:3 of
 msgid "current position"
-msgstr ""
+msgstr "当前位置"
 
 #: easygraphics.music.get_music_volume:3 of
 msgid "the playback volume."
-msgstr ""
+msgstr "播放的音量"
 
 #: easygraphics.music.set_music_pos:3 of
 msgid "the position to set."
-msgstr ""
+msgstr "要设置到的位置"
 
 #: easygraphics.music.set_music_volume:3 of
 msgid "volume of the playback"
-msgstr ""
+msgstr "播放的音量"
 
 #: easygraphics.music.fade_out_music:3 of
 msgid "fade out time (in milliseconds)"
-msgstr ""
+msgstr "淡出时间(单位为毫秒)"
 
 #: ../../apis/easygraphics.turtle.rst:2
 msgid "easygraphics.turtle module"
-msgstr ""
+msgstr "easygraphics.turtle模块"
 
 #: easygraphics.turtle:1 of
 msgid "The turtle graphics package."
-msgstr ""
+msgstr "海龟作图包。"
 
 #: easygraphics.turtle:3 of
 msgid ""
 "The turtle graphics is a classic and popular way to introducing "
 "programming to kids."
-msgstr ""
+msgstr "海龟作图是一个经典的儿童学习的编程工具。"
 
 #: easygraphics.turtle.create_world:1 of
 msgid "Create an world for turtle drawing."
@@ -1588,7 +1625,7 @@ msgstr ""
 
 #: easygraphics.turtle.create_world:3 of
 msgid "width of the graphics window"
-msgstr ""
+msgstr "图形窗口的宽度"
 
 #: easygraphics.turtle.create_world:4 of
 msgid "height of the graphics window"
@@ -1930,1631 +1967,34 @@ msgstr ""
 
 #: easygraphics.turtle.TurtleWorld.set_immediate:1 of
 msgid "Set if there are animations when turtles moving."
-msgstr ""
+msgstr "设置海龟移动时是否显示动画。"
 
 #: easygraphics.turtle.TurtleWorld.snap_shot_to_image:1 of
 msgid "Create a snap shot to the specified image."
-msgstr ""
+msgstr "创建当前世界的截屏，保存到指定图片中。"
 
 #: easygraphics.turtle.TurtleWorld.snap_shot_to_image:3 of
 msgid "The snap shot will be copied to the image's (x,y)."
-msgstr ""
+msgstr "截屏内容会被保存到图片的(x,y)位置。"
 
 #: easygraphics.turtle.TurtleWorld.snap_shot_to_image:5 of
 msgid "the image to copy the snap shot"
-msgstr ""
+msgstr "要保存截屏内容的图片"
 
 #: easygraphics.turtle.TurtleWorld.snap_shot_to_image:6 of
 msgid "x coordinate value of the target position"
-msgstr ""
+msgstr "目标位置的x坐标"
 
 #: easygraphics.turtle.TurtleWorld.snap_shot_to_image:7 of
 msgid "y coordinate value of the target position"
-msgstr ""
-
-#~ msgid "easygraphics.graphwin module"
-#~ msgstr ""
-
-#~ msgid "Bases: :class:`sphinx.ext.autodoc.importer._MockObject`"
-#~ msgstr ""
-
-#~ msgid "Main Window for painting graphics"
-#~ msgstr ""
-
-#~ msgid "we use an Image object (self._canvas) to save the painted contents"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "how to process repaint event: if "
-#~ "we are in immediate mode (RENDER_AUTO,"
-#~ " self._immediate=True) ,"
-#~ msgstr ""
-
-#~ msgid "we directly paint the saved contents to the window"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "if we are in manual refresh mode"
-#~ " (RENDER_MANUAL, self._immediate=False),"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "we use another image object( "
-#~ "self._device_image) as an intermediary the "
-#~ "contents on this object is painted "
-#~ "to the window and this object is"
-#~ " synced with self._screen manually"
-#~ msgstr ""
-
-#~ msgid "delay for milliseconds :param milliseconds: time to delay"
-#~ msgstr ""
-
-#~ msgid "delay to control fps without frame skiping"
-#~ msgstr ""
-
-#~ msgid "never skip frames"
-#~ msgstr ""
-
-#~ msgid "delay to control fps with frame skiping"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "if we don't have enough time to"
-#~ " delay, we'll skip some frames :param"
-#~ " fps: frames per second (max is "
-#~ "1000) :param max_skip_count: max num of"
-#~ "  frames to skip"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "get the ascii char inputted by "
-#~ "keybord if not any char key is "
-#~ "pressed in last 100 ms, the "
-#~ "program will stop and wait for the"
-#~ " next key hitting"
-#~ msgstr ""
-
-#~ msgid "the character inputted by keybord"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "get the key inputted by keyboard "
-#~ "if not any  key is pressed in "
-#~ "last 100 ms, the program will stop"
-#~ " and wait for the next key "
-#~ "hitting"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "keyboard code (see "
-#~ "http://pyQtCore.Qt.sourceforge.net/Docs/PyQt4/QtCore.Qt.html#Key-"
-#~ "enum) , keyboard modifier codes"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "(see "
-#~ "http://pyQtCore.Qt.sourceforge.net/Docs/PyQt4/QtCore.Qt.html"
-#~ "#KeyboardModifier-enum)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "get the key inputted by keybord if"
-#~ " not any  key is pressed in "
-#~ "last 100 ms, the program will stop"
-#~ " and wait for the next key "
-#~ "hitting"
-#~ msgstr ""
-
-#~ msgid "x of the cursor, y of the cursor , mouse buttons down"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "( QtCore.Qt.LeftButton or QtCore.Qt.RightButton "
-#~ "or QtCore.Qt.MidButton or QtCore.Qt.NoButton)"
-#~ msgstr ""
-
-#~ msgid "try to invalidate window"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "if is in immediate mode (MODE_AUTO), "
-#~ "the window is updated and repaint; "
-#~ "otherwise, the window is not updated"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "get if the graphics window will be"
-#~ " updated immediately after things are "
-#~ "drawn"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "see if any ascii char key is "
-#~ "hitted in the last 100 ms use "
-#~ "it with get_char()"
-#~ msgstr ""
-
-#~ msgid "True if hitted, False or not"
-#~ msgstr ""
-
-#~ msgid "see if any key is hitted in the last 100 ms use it with get_key()"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "see if there's any mouse message(event)"
-#~ " in the last 100 ms use it "
-#~ "with get_mouse()"
-#~ msgstr ""
-
-#~ msgid "True if any mouse message, False or not"
-#~ msgstr ""
-
-#~ msgid "pause and wait for mouse click or keyboard hit"
-#~ msgstr ""
-
-#~ msgid "really update and repaint the window"
-#~ msgstr ""
-
-#~ msgid "the intermediary image (self._device_image) is synced with the canvas"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "set if the graphics window will be"
-#~ " updated immediately after things are "
-#~ "drawn"
-#~ msgstr ""
-
-#~ msgid "possible values:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**True** (default, auto mode) update the"
-#~ " window immediately after every drawing"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**False** (manual mode) only update the"
-#~ " window after pause()/delay()/delay_fps()/delay_jfps()"
-#~ " is called."
-#~ msgstr ""
-
-#~ msgid "manual mode is used for animations"
-#~ msgstr ""
-
-#~ msgid "if the graphics window will be updated immediately"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an elliptical arc from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)          which radius"
-#~ " on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "draw a bezier curve"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "poly_points is a 2D point list. "
-#~ "Each point has 2 coordinate values "
-#~ "in the list.         So if you "
-#~ "have 4 points (x0,y0),(x1,y1),(x2,y2),(x3,y3), "
-#~ "the list should be          "
-#~ "[x0,y0,x1,y1,x2,y2,x3,y3]"
-#~ msgstr ""
-
-#~ msgid "point list"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an elliptical chord outline from"
-#~ " start_angle to end_angle. The base "
-#~ "ellipse is centered at (x,y)           "
-#~ "which radius on x-axis is radius_x "
-#~ "and radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "the chord is not filled."
-#~ msgstr ""
-
-#~ msgid "Clear the image with the background color"
-#~ msgstr ""
-
-#~ msgid "clear view port with the background color"
-#~ msgstr ""
-
-#~ msgid "disable clipping"
-#~ msgstr ""
-
-#~ msgid "drawings will not be clipped"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an elliptical chord outline from"
-#~ " start_angle to end_angle. The base "
-#~ "ellipse is centered at (x,y)          "
-#~ "which radius on x-axis is radius_x "
-#~ "and radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "the chord is filled and has outline"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an ellipse centered at (x,y) "
-#~ ", radius on x-axis is radius_x, "
-#~ "radius on y-axis is radius_y"
-#~ msgstr ""
-
-#~ msgid "the ellipse is filled and has outline."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "copy part of the source image "
-#~ "(image) to the destination image (self)"
-#~ " at (x,y)"
-#~ msgstr ""
-
-#~ msgid "Draw a line from (x1,y1) to (x2,y2) on the specified image"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw lines points is a 2D point"
-#~ " pair list. It should contain even"
-#~ " points, and each 2 points make "
-#~ "a point pair. And each point have"
-#~ " 2 coordinate values(x,y). So if you"
-#~ " have n point pairs, the points "
-#~ "list should have 4*n values."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an elliptical pie from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)          which radius"
-#~ " on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "the pie is filled and has outline."
-#~ msgstr ""
-
-#~ msgid "draw a point at (x,y) on the specified image"
-#~ msgstr ""
-
-#~ msgid "draw poly lines"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "points is a 2D point list. Each"
-#~ " 2 values in the list make a"
-#~ " point. A poly line will be "
-#~ "drawn to connect adjecent points defined"
-#~ " by the the list."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "For examples , if points is "
-#~ "[50,50,550,350, 50,150,550,450, 50,250,550,550], "
-#~ "draw_poly_line() will draw 5 lines: "
-#~ "(50,50) to (550,350), (550,350) to "
-#~ "(50,150), (50,150) to (550,450), (550,540) "
-#~ "to (50,250) and(50,250) to (550,550)"
-#~ msgstr ""
-
-#~ msgid "draw polygon"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "points is a 2D point list. Each"
-#~ " 2 values in the list make a"
-#~ " point. A polygon will be drawn "
-#~ "to connect adjecent points defined by"
-#~ " the the list."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draws a rectangle with upper left "
-#~ "corner at (left, top) and lower "
-#~ "right corner at (right,bottom)"
-#~ msgstr ""
-
-#~ msgid "the rectangle is filled and has outline"
-#~ msgstr ""
-
-#~ msgid "Prints the given texts beginning at the given position (x,y)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an ellipse outline centered at "
-#~ "(x,y) , radius on x-axis is "
-#~ "radius_x, radius on y-axis is radius_y"
-#~ msgstr ""
-
-#~ msgid "the ellipse is not filled"
-#~ msgstr ""
-
-#~ msgid "the chord doesn't have outline."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "fill an ellipse centered at (x,y) "
-#~ ", radius on x-axis is radius_x, "
-#~ "radius on y-axis is radius_y"
-#~ msgstr ""
-
-#~ msgid "the ellipse dosen't has outline"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "fill an elliptical pie from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)          which radius"
-#~ " on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "the pie dosen't have outline."
-#~ msgstr ""
-
-#~ msgid "the rectangle doesn't have outline"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "flood fill the image starting from(x,y)"
-#~ " and ending at borders with "
-#~ "border_color"
-#~ msgstr ""
-
-#~ msgid "get the background color of the image"
-#~ msgstr ""
-
-#~ msgid "get the foreground (drawing) color of the specified image"
-#~ msgstr ""
-
-#~ msgid "get the fill color of the specified image"
-#~ msgstr ""
-
-#~ msgid "it will be used when drawing and fill shapes."
-#~ msgstr ""
-
-#~ msgid "get fill style of the specified image"
-#~ msgstr ""
-
-#~ msgid "get the internal QImage"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**note** EasyGraphics don't require and "
-#~ "release qpainter each time. Because "
-#~ "there can only be one QPainter"
-#~ "         for each QImage at time, so"
-#~ " if you want to draw on this"
-#~ " image customly, use get_painter() to "
-#~ "get         the internal QPainter instance."
-#~ " :return: the QImage instance used "
-#~ "internally"
-#~ msgstr ""
-
-#~ msgid "get line style"
-#~ msgstr ""
-
-#~ msgid "get line width (thickness)"
-#~ msgstr ""
-
-#~ msgid "It will be used when drawing lines or shape outlines"
-#~ msgstr ""
-
-#~ msgid "get a pixel's color on the specified image"
-#~ msgstr ""
-
-#~ msgid "get write mode of the specified image"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "When drawing ,the write mode will "
-#~ "decide how the result pixel color "
-#~ "will be computed"
-#~ msgstr ""
-
-#~ msgid "(using source color and color of the destination)"
-#~ msgstr ""
-
-#~ msgid "write mode"
-#~ msgstr ""
-
-#~ msgid "get the x coordinate value of the current drawing position (x,y)"
-#~ msgstr ""
-
-#~ msgid "get the y coordinate value of the current drawing position (x,y)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw a line from the current "
-#~ "drawing position (x,y) to (x+dx,y+dy),"
-#~ "          then set the drawing position "
-#~ "is set to (x+d,y+dy)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw a line from the current "
-#~ "drawing position to (x,y), then set "
-#~ "the drawing position is set to "
-#~ "(x,y)"
-#~ msgstr ""
-
-#~ msgid "move the drawing position by (dx,dy)"
-#~ msgstr ""
-
-#~ msgid "if the old position is (x,y), then the new position will be (x+dx,y+dy)"
-#~ msgstr ""
-
-#~ msgid "the drawing position is used by line_to(), line_rel()"
-#~ msgstr ""
-
-#~ msgid "set the drawing position to (x,y)"
-#~ msgstr ""
-
-#~ msgid "the drawing position is used by line_to(), line_rel() and move_rel()"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "draw an elliptical pie outline from "
-#~ "start_angle to end_angle. The base "
-#~ "ellipse is centered at (x,y)          "
-#~ "which radius on x-axis is radius_x "
-#~ "and radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "the pie is not filled."
-#~ msgstr ""
-
-#~ msgid "draw polygon outline"
-#~ msgstr ""
-
-#~ msgid "set a pixel's color on the specified image"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draws a rectangle outline with upper "
-#~ "left corner at (left, top) and "
-#~ "lower right corner at (right,bottom)"
-#~ msgstr ""
-
-#~ msgid "the rectangle is not filled"
-#~ msgstr ""
-
-#~ msgid "reset all transforms (translate/rotate/scale)"
-#~ msgstr ""
-
-#~ msgid "disable the view port setting"
-#~ msgstr ""
-
-#~ msgid "reset/remove the logical window"
-#~ msgstr ""
-
-#~ msgid "see set_window()"
-#~ msgstr ""
-
-#~ msgid "Rotates the coordinate system the given angle (in degree)clockwise ."
-#~ msgstr ""
-
-#~ msgid "set the background  color of the image"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "the possible color could be consts "
-#~ "defined in Color class, or the "
-#~ "color created by rgb() function, or "
-#~ "PyQt5's QColor , QGradient object or "
-#~ "QtCore.Qt.GlobalColor consts (see the pyqt "
-#~ "reference)."
-#~ msgstr ""
-
-#~ msgid "set the clip rect"
-#~ msgstr ""
-
-#~ msgid "set the foreground (drawing) color of the specified image"
-#~ msgstr ""
-
-#~ msgid "set the fill (drawing) color of the specified image"
-#~ msgstr ""
-
-#~ msgid "set fill style of the specified image"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "it will be used when drawing and"
-#~ " fill shapes. Valid values are the"
-#~ " consts defined in FillStyle"
-#~ msgstr ""
-
-#~ msgid "set line style"
-#~ msgstr ""
-
-#~ msgid "set line width (thinkness) of the specified image"
-#~ msgstr ""
-
-#~ msgid "set the view port of the the specified image"
-#~ msgstr ""
-
-#~ msgid "set the logical drawing window"
-#~ msgstr ""
-
-#~ msgid "set write mode of the specified image"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "When drawing ,the write mode will "
-#~ "decide how the result pixel color "
-#~ "will be computed (using source color "
-#~ "and color of the destination)"
-#~ msgstr ""
-
-#~ msgid "source color is the color of the pen/brush"
-#~ msgstr ""
-
-#~ msgid "destination color is the color of the pixel will be painted on"
-#~ msgstr ""
-
-#~ msgid "the result color will be computed by bitwise operations"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw a line from the current "
-#~ "drawing position (x,y) to (x+dx,y+dy),"
-#~ "          then set the drawing position "
-#~ "is set to (x+d,y+dy)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "some drawing functions will use the "
-#~ "current pos to draw.(see "
-#~ "line_to(),line_rel(),move_to(),move_rel())"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw a line from the current "
-#~ "drawing position (x,y) to (x+dx,y+dy),     "
-#~ "then set the drawing position is "
-#~ "set to (x+d,y+dy)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Simple _dialog to ask a user to"
-#~ " select a floating point number "
-#~ "within a certain range and a "
-#~ "maximum precision."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Simple _dialog to ask a user to"
-#~ " select an integer within a certain"
-#~ " range."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Using a color dialog, returns a "
-#~ "color in hexadecimal notation i.e. a "
-#~ "string '#RRGGBB' or \"None\" if color"
-#~ " _dialog is dismissed."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Using a color dialog, returns a "
-#~ "color in rgb notation i.e. a tuple"
-#~ " (r, g, b)  or \"None\" if "
-#~ "color _dialog is dismissed."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "By default, this _dialog initially "
-#~ "displays the content of the current "
-#~ "working directory."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The user is warned if the file "
-#~ "already exists and can choose to "
-#~ "cancel.  However, this _dialog actually "
-#~ "does NOT save any file: it only"
-#~ " return a string containing the full"
-#~ " path of the chosen file."
-#~ msgstr ""
-
-#~ msgid "Used by autodoc_mock_imports."
-#~ msgstr ""
-
-#~ msgid ""
-#~ ">>>from easygraphics import * "
-#~ ">>>init_graph(800,600) >>>pause() >>>close_graph()"
-#~ msgstr ""
-
-#~ msgid "Draw polygon"
-#~ msgstr ""
-
-#~ msgid "Fill polygon"
-#~ msgstr ""
-
-#~ msgid "Draw poly lines."
-#~ msgstr ""
-
-#~ msgid "fill polygon"
-#~ msgstr ""
-
-#~ msgid "Clean up the images :return:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Copy part of the source image "
-#~ "(image) to the destination image (self)"
-#~ " at (x,y)."
-#~ msgstr ""
-
-#~ msgid "Reflect the coordinates against the line passing (0,0) and (x,y)"
-#~ msgstr ""
-
-#~ msgid "Reflect the coordinates against the line passing (0,0) and (x,y)."
-#~ msgstr ""
-
-#~ msgid "x coordinate value"
-#~ msgstr ""
-
-#~ msgid "y coordinate value"
-#~ msgstr ""
-
-#~ msgid "Rotates the coordinate system the given angle (in degree) clockwise."
-#~ msgstr ""
-
-#~ msgid "Shear (skew) the coordinates around the origin by sh,sv"
-#~ msgstr ""
-
-#~ msgid "easygraphics.image module"
-#~ msgstr ""
-
-#~ msgid "Bases: :class:`object`"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw an elliptical arc from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)          which radius"
-#~ " on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**note**: Degree 0 is at 3 o'clock"
-#~ " position, and is increasing clockwisely."
-#~ " That is, degree 90 is         at "
-#~ "12 o'click , degree 180 is at "
-#~ "9 o'clock , degree 270 is at "
-#~ "6 o'clock, etc."
-#~ msgstr ""
-
-#~ msgid "Draw a cubic bezier curve."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "\"control_points\" is a list of 4 "
-#~ "control points. Each point has 2 "
-#~ "coordinate values in the list , so"
-#~ " there should be 8 values int "
-#~ "the list."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "That is , if your 4 control "
-#~ "points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "
-#~ "\"control_points\" should be          "
-#~ "[x0,y0,x1,y1,x2,y2,x3,y3] ."
-#~ msgstr ""
-
-#~ msgid "the control points list"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw an elliptical chord outline from"
-#~ " start_angle to end_angle. The base "
-#~ "ellipse is centered at (x,y)           "
-#~ "which radius on x-axis is radius_x "
-#~ "and radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "The chord is not filled."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**note**: degree 0 is at 3 o'clock"
-#~ " position, and is increasing clockwisely."
-#~ " That is, degree 90 is          at"
-#~ " 12 o'click , degree 180 is at"
-#~ " 9 o'clock , degree 270 is at"
-#~ " 6 o'clock, etc."
-#~ msgstr ""
-
-#~ msgid "start angle of the chord"
-#~ msgstr ""
-
-#~ msgid "end angle of the chord"
-#~ msgstr ""
-
-#~ msgid "Clear view port to show the background."
-#~ msgstr ""
-
-#~ msgid "Close and clean up the image."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw an elliptical chord outline from"
-#~ " start_angle to end_angle. The base "
-#~ "ellipse is centered at (x,y)          "
-#~ "which radius on x-axis is radius_x "
-#~ "and radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "The chord is filled and has outline."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**note**: degree 0 is at 3 o'clock"
-#~ " position, and is increasing clockwisely."
-#~ " That is, degree 90 is         at "
-#~ "12 o'click , degree 180 is at "
-#~ "9 o'clock , degree 270 is at "
-#~ "6 o'clock, etc."
-#~ msgstr ""
-
-#~ msgid "Copy part of the source image (image) to the destination image (self)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "(x, y) specifies the top-left "
-#~ "point in the destination image that "
-#~ "is to be drawn onto."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "(sx, sy) specifies the top-left "
-#~ "point of the part in the source"
-#~ " image that is to          be drawn."
-#~ " The default is (0, 0)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "(sw, sh) specifies the size of the"
-#~ " part of the source image that "
-#~ "is to be drawn.          The default,"
-#~ " (0, 0) (and negative) means all "
-#~ "the way to the bottom-right of "
-#~ "the image."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "If with_background is False, the source"
-#~ " image's background will not be "
-#~ "copied."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The final result will depend on "
-#~ "the composition mode and the source "
-#~ "image's background. In the default mode"
-#~ " (CompositionMode.SOURCE_OVER), the source will"
-#~ " fully overwrite the destination)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "If you want to get a transparent"
-#~ " copy, you should use "
-#~ "CompositionMode.SOURCE_OVER and with_background ="
-#~ " False."
-#~ msgstr ""
-
-#~ msgid "x coordinate value of the upper left point on the destination image"
-#~ msgstr ""
-
-#~ msgid "y coordinate value of the upper left point on the destination image"
-#~ msgstr ""
-
-#~ msgid "the source image to be copied"
-#~ msgstr ""
-
-#~ msgid "x coordinate value of the top-left point of of the part to be drawn"
-#~ msgstr ""
-
-#~ msgid "y coordinate value of the top-left point of of the part to be drawn"
-#~ msgstr ""
-
-#~ msgid "witdh of the top-left point of of the part to be drawn"
-#~ msgstr ""
-
-#~ msgid "height of the top-left point of of the part to be drawn"
-#~ msgstr ""
-
-#~ msgid "if the background should be copied."
-#~ msgstr ""
-
-#~ msgid "if is None, use dst image's composition mode to copy."
-#~ msgstr ""
-
-#~ msgid "Draw lines."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "\"points\" is a 2D point pair "
-#~ "list. It should contain even points, "
-#~ "and each 2 points make a point "
-#~ "pair. And each point have 2 "
-#~ "coordinate values(x,y). So if you have"
-#~ " n point pairs, the points list "
-#~ "should have 4*n values."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "For examples , if points is "
-#~ "[50,50,550,350, 50,150,550,450, 50,250,550,550], "
-#~ "draw_lines() will draw 3 lines: (50,50)"
-#~ " to (550,350), (50,150) to (550,450), "
-#~ "(50,250) to (550,550)"
-#~ msgstr ""
-
-#~ msgid "Draw and fill a path."
-#~ msgstr ""
-
-#~ msgid "path to drawn and fill"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw an elliptical pie from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)          which radius"
-#~ " on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "Draw a point at (x,y) on the specified image."
-#~ msgstr ""
-
-#~ msgid "x coordinate value of the drawing point"
-#~ msgstr ""
-
-#~ msgid "y coordinate value of the drawing point"
-#~ msgstr ""
-
-#~ msgid "Draw a polygon."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "\"vertices\" is a 2D point list. "
-#~ "Each 2 values in the list make "
-#~ "a point. A polygon will be drawn"
-#~ " to connect adjacent points defined "
-#~ "by the the list."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "For examples , if \"vertices\" is "
-#~ "[50,50,550,350, 50,150], poly_gon() will draw"
-#~ " a triangle with vertices at (50,50)"
-#~ " , (550,350) and (50,150)"
-#~ msgstr ""
-
-#~ msgid "The polygon is filled and has outline."
-#~ msgstr ""
-
-#~ msgid "The rectangle is filled and has outline."
-#~ msgstr ""
-
-#~ msgid "print the given texts in the specified rectangle area"
-#~ msgstr ""
-
-#~ msgid "Available flags are: （Defined in pyqt5's PyQt5.QtCore pacakge)"
-#~ msgstr ""
-
-#~ msgid "Qt.AlignLeft          Aligns with the left edge."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignRight        Aligns with the right edge."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignHCenter      Centers horizontally in the available space."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignJustify      Justifies the text in the available space."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignTop          Aligns with the top."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignBottom       Aligns with the bottom."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignVCenter      Centers vertically in the available space."
-#~ msgstr ""
-
-#~ msgid "Qt::AlignCenter       Centers in both dimensions."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextDontClip      If it's impossible to"
-#~ " stay within the given bounds, it "
-#~ "prints outside."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextSingleLine    Treats all whitespace as"
-#~ " spaces and prints just one line."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextExpandTabs    Makes the U+0009 (ASCII"
-#~ " tab) character move to the next "
-#~ "tab stop."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextShowMnemonic  Displays the string "
-#~ "\"&P\" as P For an ampersand, use"
-#~ " \"&&\"."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Qt::TextWordWrap      Breaks lines at "
-#~ "appropriate points, e.g. at word "
-#~ "boundaries."
-#~ msgstr ""
-
-#~ msgid "x coordinate of the output rectangle's upper left corner"
-#~ msgstr ""
-
-#~ msgid "y coordinate of the output rectangle's upper left corner"
-#~ msgstr ""
-
-#~ msgid "width of the output rectangle"
-#~ msgstr ""
-
-#~ msgid "height of the output rectangle"
-#~ msgstr ""
-
-#~ msgid "things to be printed (like print())"
-#~ msgstr ""
-
-#~ msgid "align flags"
-#~ msgstr ""
-
-#~ msgid "seperator used to join strings"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draws a rounded rectangle with upper "
-#~ "left corner at (left, top) , lower"
-#~ " right corner at (right,bottom). raidus "
-#~ "on x-axis of the corner ellipse "
-#~ "arc is round_x, radius on y-axis "
-#~ "of the corner ellipse arc is "
-#~ "round_y."
-#~ msgstr ""
-
-#~ msgid "raidus on x-axis of the corner ellipse arc"
-#~ msgstr ""
-
-#~ msgid "radius on y-axis of the corner ellipse arc"
-#~ msgstr ""
-
-#~ msgid "Prints the given texts beginning at the given position (x,y)."
-#~ msgstr ""
-
-#~ msgid "things to be printed"
-#~ msgstr ""
-
-#~ msgid "Draw the whole image to the specified device."
-#~ msgstr ""
-
-#~ msgid "the device to be drawn on"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw an ellipse outline centered at "
-#~ "(x,y) , radius on x-axis is "
-#~ "radius_x, radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "The ellipse is not filled."
-#~ msgstr ""
-
-#~ msgid "The chord doesn't have outline."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Fill an ellipse centered at (x,y) "
-#~ ", radius on x-axis is radius_x, "
-#~ "radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "The ellipse dosen't has outline."
-#~ msgstr ""
-
-#~ msgid "Fill the region enclosed by the path"
-#~ msgstr ""
-
-#~ msgid "the path enclosing the region"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Fill an elliptical pie from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)          which radius"
-#~ " on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "The pie doesn't have outline."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Fill a rounded rectangle with upper "
-#~ "left corner at (left, top) , lower"
-#~ " right corner at (right,bottom). raidus "
-#~ "on x-axis of the corner ellipse "
-#~ "arc is round_x, radius on y-axis "
-#~ "of the corner ellipse arc is "
-#~ "round_y."
-#~ msgstr ""
-
-#~ msgid "radius on x-axis of the corner ellipse arc"
-#~ msgstr ""
-
-#~ msgid "Reflect the coordinates against the line passing (x1,y1) and (x,y)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**Note that all things will get "
-#~ "reflected, including text!** If you just"
-#~ " want to draw on a normal "
-#~ "coordinate system with the y-axis grows"
-#~ " bottom up, use flip_y()."
-#~ msgstr ""
-
-#~ msgid "x coordinate value of the first point"
-#~ msgstr ""
-
-#~ msgid "y coordinate value of the first point"
-#~ msgstr ""
-
-#~ msgid "the x coordinate of  the second point"
-#~ msgstr ""
-
-#~ msgid "the y coordinate of the second point"
-#~ msgstr ""
-
-#~ msgid "It will be used when the image is cleared. (see clear_device())"
-#~ msgstr ""
-
-#~ msgid "background color"
-#~ msgstr ""
-
-#~ msgid "Get brush of the image"
-#~ msgstr ""
-
-#~ msgid "the brush"
-#~ msgstr ""
-
-#~ msgid "It will be used when drawing lines or shape outlines."
-#~ msgstr ""
-
-#~ msgid "foreground color"
-#~ msgstr ""
-
-#~ msgid "Get composition mode of the specified image."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "When drawing ,the composition mode will"
-#~ " decide how the result pixel color"
-#~ " will be computed"
-#~ msgstr ""
-
-#~ msgid "(using source color and color of the destination)."
-#~ msgstr ""
-
-#~ msgid "composition mode"
-#~ msgstr ""
-
-#~ msgid "Get the fill color of the specified image."
-#~ msgstr ""
-
-#~ msgid "It will be used when drawing and fill shapes."
-#~ msgstr ""
-
-#~ msgid "fill color"
-#~ msgstr ""
-
-#~ msgid "Get fill style of the specified image."
-#~ msgstr ""
-
-#~ msgid "fill style"
-#~ msgstr ""
-
-#~ msgid "get font of the specified image"
-#~ msgstr ""
-
-#~ msgid "the font"
-#~ msgstr ""
-
-#~ msgid "get font size of the specified image :return: font size"
-#~ msgstr ""
-
-#~ msgid "Get the height  of the image."
-#~ msgstr ""
-
-#~ msgid "image height"
-#~ msgstr ""
-
-#~ msgid "Get the internal QImage."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**note** EasyGraphics don't require and "
-#~ "release qpainter each time. Because "
-#~ "there can only be one QPainter"
-#~ "         for each QImage at time, so"
-#~ " if you want to draw on this"
-#~ " image customly, use get_painter() to "
-#~ "get         the internal QPainter instance."
-#~ msgstr ""
-
-#~ msgid "the QImage instance used internally"
-#~ msgstr ""
-
-#~ msgid "Get line style."
-#~ msgstr ""
-
-#~ msgid "The line style will be used when drawing lines and shape outlines."
-#~ msgstr ""
-
-#~ msgid "line style"
-#~ msgstr ""
-
-#~ msgid "Get line width (thickness)."
-#~ msgstr ""
-
-#~ msgid "line width"
-#~ msgstr ""
-
-#~ msgid "Get background mask bitmap"
-#~ msgstr ""
-
-#~ msgid "background mask"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "get the QPainter instance for drawing"
-#~ " the image :return: the painter used"
-#~ " internally"
-#~ msgstr ""
-
-#~ msgid "Get the pen of the image"
-#~ msgstr ""
-
-#~ msgid "pen"
-#~ msgstr ""
-
-#~ msgid "Get the width of the image."
-#~ msgstr ""
-
-#~ msgid "image width"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Some drawing functions will use the "
-#~ "current pos to draw.(see "
-#~ "line_to(),line_rel(),move_to(),move_rel())"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw a line from the current "
-#~ "drawing position (x,y) to (x+dx,y+dy),"
-#~ "          then set the drawing position "
-#~ "is set to (x+dx,y+dy)."
-#~ msgstr ""
-
-#~ msgid "Draw a path."
-#~ msgstr ""
-
-#~ msgid "path to be drawn"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw an elliptical pie outline from "
-#~ "start_angle to end_angle. The base "
-#~ "ellipse is centered at (x,y)          "
-#~ "which radius on x-axis is radius_x "
-#~ "and radius on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid "The pie is not filled."
-#~ msgstr ""
-
-#~ msgid "Draw polygon outline."
-#~ msgstr ""
-
-#~ msgid "The polygon is not filled."
-#~ msgstr ""
-
-#~ msgid "Reset all transforms (translate/rotate/scale)."
-#~ msgstr ""
-
-#~ msgid "Disable the view port setting."
-#~ msgstr ""
-
-#~ msgid "Reset/remove the logical window.(see set_window())"
-#~ msgstr ""
-
-#~ msgid "Restore previously saved drawing settings."
-#~ msgstr ""
-
-#~ msgid "See save_settings()."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Note: background_color and current position"
-#~ " won't  be saved and restored."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Rotates the coordinate system around the"
-#~ " point (x,y) with the given angle "
-#~ "(in degree) clockwise."
-#~ msgstr ""
-
-#~ msgid "the rotate angle (in degree)"
-#~ msgstr ""
-
-#~ msgid "the x coordinate of the rotation center"
-#~ msgstr ""
-
-#~ msgid "the y coordinate of the rotation center"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draws a rounded rectangle outline with"
-#~ " upper left corner at (left, top) "
-#~ ", lower right corner at (right,bottom)."
-#~ " raidus on x-axis of the corner "
-#~ "ellipse arc is round_x, radius on "
-#~ "y-axis of the corner ellipse arc "
-#~ "is round_y."
-#~ msgstr ""
-
-#~ msgid "Save image to file."
-#~ msgstr ""
-
-#~ msgid "Set with_background to False to get a transparent background image."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Note that JPEG format doesn't support"
-#~ " transparent. Use PNG format if you"
-#~ " want a transparent background."
-#~ msgstr ""
-
-#~ msgid "path of the file"
-#~ msgstr ""
-
-#~ msgid "True to save the background together. False not"
-#~ msgstr ""
-
-#~ msgid "Save current drawing settings."
-#~ msgstr ""
-
-#~ msgid "See restore_settings()."
-#~ msgstr ""
-
-#~ msgid "Scales the coordinate system by (sx, sy)."
-#~ msgstr ""
-
-#~ msgid "scale factor on x axis."
-#~ msgstr ""
-
-#~ msgid "scale factor on y axis."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The possible color could be consts "
-#~ "defined in Color class, or the "
-#~ "color created by rgb() function, or "
-#~ "PyQt5's QColor , QGradient object or "
-#~ "QtCore.Qt.GlobalColor consts (see the pyqt "
-#~ "reference)."
-#~ msgstr ""
-
-#~ msgid "Set brush"
-#~ msgstr ""
-
-#~ msgid "Set the clip rect."
-#~ msgstr ""
-
-#~ msgid "Drawings outside the clip rect will be clipped."
-#~ msgstr ""
-
-#~ msgid "left of the clip rectangle"
-#~ msgstr ""
-
-#~ msgid "top of the clip rectangle"
-#~ msgstr ""
-
-#~ msgid "right of the clip rectangle"
-#~ msgstr ""
-
-#~ msgid "bottom of the clip rectangle"
-#~ msgstr ""
-
-#~ msgid "Set clipping."
-#~ msgstr ""
-
-#~ msgid "Use set_clip_rect() to set the clip rectangle."
-#~ msgstr ""
-
-#~ msgid "True will turn on clipping, False will turn off clipping"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Composition modes are used to specify"
-#~ " how the pixels in the source "
-#~ "(image/pen/brush), are merged with the "
-#~ "pixel in the destination image."
-#~ msgstr ""
-
-#~ msgid "Set the fill (drawing) color of the specified image."
-#~ msgstr ""
-
-#~ msgid "Set fill style of the specified image."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "It will be used when drawing and"
-#~ " fill shapes. Valid values are the"
-#~ " consts defined in FillStyle"
-#~ msgstr ""
-
-#~ msgid "Reflect with x-aixs as the axis (upside down). Texts will not flip."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**Don't translate the origin to other"
-#~ " points**(but you can translate and "
-#~ "then translate back) before drawing any"
-#~ " text. Or the text position's "
-#~ "calculation will get wrong! So if "
-#~ "you want to set the origin to "
-#~ "the image/image's center, call set_flip_y()"
-#~ " after the set_origin() or translate()!"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**Note**: Use this functions instead of"
-#~ " the reflect()/flip()/mirror(),if you only "
-#~ "want to draw on an ordinary "
-#~ "coordinate system with y-axis grows "
-#~ "bottom-up."
-#~ msgstr ""
-
-#~ msgid "True to turn on the flip, False to turn off."
-#~ msgstr ""
-
-#~ msgid "set font of the specified image"
-#~ msgstr ""
-
-#~ msgid "set font size of the specified image :param size: font size"
-#~ msgstr ""
-
-#~ msgid "Set line style."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The line style will be used when"
-#~ " drawing lines and shape outlines. "
-#~ "Possible value is one of the "
-#~ "consts defined in LineStyle."
-#~ msgstr ""
-
-#~ msgid "Set line width (thinkness) of the specified image."
-#~ msgstr ""
-
-#~ msgid "Set pen"
-#~ msgstr ""
-
-#~ msgid "the pen to use."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The drawing outside the view port "
-#~ "is not clipped. If you want to "
-#~ "clip the drawing ,use set_clip_rect()"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**if view port and \"logical window\""
-#~ " don't have the same width and "
-#~ "height, drawing will get zoomed.** So"
-#~ " set_window() is often used with the"
-#~ " set_view_port"
-#~ msgstr ""
-
-#~ msgid "Set the logical drawing window."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "All your drawing is first drawing "
-#~ "on the logical window, then mapping "
-#~ "to view port (see set_view_port()).        "
-#~ "The logical window's 4 corner points "
-#~ "to streched to match the view "
-#~ "port."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "If your view port is 200x200，and "
-#~ "you use set_window(-50,-50,100,100) to get "
-#~ "a 100x100 logical window with         "
-#~ "the origin at (-50,50) , then the"
-#~ " logical window's origin (0,0) is "
-#~ "mapping to view port's (-50,-50), and"
-#~ "         right-bottom corner (100,100) is"
-#~ " mapping to view port's right bottom"
-#~ " corner (200,200). All logical points "
-#~ "is         mapping accordingly."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "If you just want to transform the"
-#~ " drawing, use "
-#~ "set_origin()/translate()/rotate()/scale()."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The drawing outside the logical window"
-#~ " is not clipped. If you want to"
-#~ " clip it, use set_clip_rect()."
-#~ msgstr ""
-
-#~ msgid "x pos of the logical window's origin"
-#~ msgstr ""
-
-#~ msgid "y pos of the logical window's origin"
-#~ msgstr ""
-
-#~ msgid "width of the logical window"
-#~ msgstr ""
-
-#~ msgid "height of the logical window"
-#~ msgstr ""
-
-#~ msgid "Shear (skew) the coordinates around the point (x,y) by sh,sv."
-#~ msgstr ""
-
-#~ msgid "shear ratio on the x-axis"
-#~ msgstr ""
-
-#~ msgid "shear ratio on the y-axis"
-#~ msgstr ""
-
-#~ msgid "the x coordinate of the skew center"
-#~ msgstr ""
-
-#~ msgid "the y coordinate of the skew center"
-#~ msgstr ""
-
-#~ msgid "return height of the text (font height)"
-#~ msgstr ""
-
-#~ msgid "return width of the text"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Translates the coordinate system by the"
-#~ " given offset; i.e. the given offset"
-#~ " is added to points."
-#~ msgstr ""
-
-#~ msgid "offset on the x coordinate"
-#~ msgstr ""
-
-#~ msgid "offset on the y coordinate"
-#~ msgstr ""
-
-#~ msgid "it will be used when the image is cleared. (see clear_device())"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw an elliptical arc from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)      which radius "
-#~ "on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**note**: Degree 0 is at 3 o'clock"
-#~ " position, and is increasing clockwisely."
-#~ " That is, degree 90 is     at "
-#~ "12 o'click , degree 180 is at "
-#~ "9 o'clock , degree 270 is at "
-#~ "6 o'clock, etc."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "For examples , if \"end_points\" is "
-#~ "[50,50,550,350, 50,150,550,450, 50,250,550,550], "
-#~ "draw_poly_line() will draw 5 lines: "
-#~ "(50,50) to (550,350), (550,350) to "
-#~ "(50,150), (50,150) to (550,450), (550,540) "
-#~ "to (50,250) and(50,250) to (550,550)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "For examples , if points is "
-#~ "[50,50,550,350, 50,150], poly_gon() will draw"
-#~ " a triangle with vertices at (50,50)"
-#~ " , (550,350) and (50,150)"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw a line from the current "
-#~ "drawing position (x,y) to (x+dx,y+dy),     "
-#~ "then set the drawing position is "
-#~ "set to (x+dx,y+dy)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Draw an elliptical pie from start_angle"
-#~ " to end_angle. The base ellipse is"
-#~ " centered at (x,y)      which radius "
-#~ "on x-axis is radius_x and radius "
-#~ "on y-axis is radius_y."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**note**: degree 0 is at 3 o'clock"
-#~ " position, and is increasing clockwisely."
-#~ " That is, degree 90 is     at "
-#~ "12 o'click , degree 180 is at "
-#~ "9 o'clock , degree 270 is at "
-#~ "6 o'clock, etc."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**note**: Degree 0 is at 3 o'clock"
-#~ " position, and is increasing clockwisely."
-#~ " That is, degree 90 is at 12"
-#~ " o'click , degree 180 is at 9"
-#~ " o'clock , degree 270 is at 6"
-#~ " o'clock, etc."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**note**: degree 0 is at 3 o'clock"
-#~ " position, and is increasing clockwisely."
-#~ " That is, degree 90 is at 12"
-#~ " o'click , degree 180 is at 9"
-#~ " o'clock , degree 270 is at 6"
-#~ " o'clock, etc."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "\"points\" is a 2D point list. "
-#~ "Each 2 values in the list make "
-#~ "a point. A polygon will be drawn"
-#~ " to connect adjacent points defined "
-#~ "by the the list."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "For examples , if points is "
-#~ "[50,50,550,350, 50,150], fill_polygon() will "
-#~ "fill a triangle with vertices at "
-#~ "(50,50) , (550,350) and (50,150)."
+msgstr "目标位置的y坐标"
+
+#~ msgid ""
+#~ "Note: Degree 0,90,180 and 270 are "
+#~ "always the positive direction of X-axis,"
+#~ " the positive direction of Y-axis,  "
+#~ "the negative direction of X-axis, the"
+#~ " negative direction of Y-axis, "
+#~ "respectively."
 #~ msgstr ""
 

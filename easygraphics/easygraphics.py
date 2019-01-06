@@ -50,6 +50,16 @@ __all__ = [
     'Image',
 ]
 
+_in_ipython = False
+try:
+    __IPYTHON__
+    import IPython.display
+
+    _in_ipython = True
+    __all__.append("show_image")
+except NameError:
+    pass
+
 
 #  settings
 
@@ -936,9 +946,8 @@ def draw_arc(x: float, y: float, start_angle: float, end_angle: float, radius_x:
     Draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)
     which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-      respectively.
+      Note: Positive values for the angles mean counter-clockwise
+      while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -966,9 +975,8 @@ def pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: floa
 
     The pie is not filled.
 
-      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-      respectively.
+      Note: Positive values for the angles mean counter-clockwise
+      while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -993,9 +1001,8 @@ def draw_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x:
 
     The pie is filled and has outline.
 
-      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-      respectively.
+      Note: Positive values for the angles mean counter-clockwise
+      while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1020,9 +1027,8 @@ def fill_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x:
 
     The pie doesn\'t have outline.
 
-      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-      respectively.
+      Note: Positive values for the angles mean counter-clockwise
+      while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1047,9 +1053,8 @@ def chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: fl
 
     The chord is not filled.
 
-      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-      respectively.
+      Note: Positive values for the angles mean counter-clockwise
+      while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1074,9 +1079,8 @@ def draw_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
 
     The chord is filled and has outline
 
-      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-      respectively.
+      Note: Positive values for the angles mean counter-clockwise
+      while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1092,6 +1096,7 @@ def draw_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
     if on_screen:
         _win.invalid()
 
+
 def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
                image: Image = None):
     """
@@ -1100,9 +1105,8 @@ def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
 
     The chord doesn\'t have outline.
 
-      Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-      direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-      respectively.
+      Note: Positive values for the angles mean counter-clockwise
+      while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
     :param x: x coordinate value of the ellipse\'s center
     :param y: y coordinate value of the ellipse\'s center
@@ -1637,9 +1641,11 @@ def create_image(width, height) -> Image:
     :param height: height of the new image
     :return: the created image
     """
-    image = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
-    image.fill(Color.WHITE)
-    return Image(image)
+    qimage = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
+    qimage.fill(Color.WHITE)
+    image = Image(qimage)
+    _created_images.append(image)
+    return image
 
 
 def close_image(image: Image):
@@ -1677,6 +1683,19 @@ def save_image(filename: str, with_background=True, image: Image = None):
     """
     image, on_screen = _check_on_screen(image)
     image.save(filename, with_background)
+
+
+def show_image(image: Image = None):
+    """
+    Display the image in ipython console or notebook.
+
+    :param image: the target image which will be displayed. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    if not _in_ipython:
+        raise RuntimeError("This function is only used for ipython (qtconsole or notebook!)")
+    image, on_screen = _check_on_screen(image)
+    image.display_in_ipython()
 
 
 def create_image_from_file(filename: str) -> Image:
@@ -2128,7 +2147,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     else:
         _is_run = True
         _is_target_on_screen = False
-        _target_image = None
+        _target_image = create_image(width, height)
     # init finished, can draw now
     _start_event.set()
     _app.exec_()

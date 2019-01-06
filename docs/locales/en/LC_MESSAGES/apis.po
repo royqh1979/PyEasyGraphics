@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 19:23+0800\n"
+"POT-Creation-Date: 2019-01-06 13:20+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,262 +26,273 @@ msgstr ""
 msgid "Function list"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(message\\, "
 "title\\, choices\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_choice:1 of
 msgid "Simple dialog to ask a user to select an item within a drop-down list"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_color:1 of
 msgid "Display a color picker and return the selected color"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_color_hex <easygraphics.dialog.get_color_hex>`\\ "
 "\\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Using a color dialog, returns a color in hexadecimal notation i.e."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_color_rgb <easygraphics.dialog.get_color_rgb>`\\ "
 "\\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Using a color dialog, returns a color in rgb notation i.e."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_continue_or_cancel "
 "<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\, title\\, "
 "...\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Continue or cancel question, shown as a warning (i.e."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_date:1 of
 msgid "Calendar widget"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_directory_name <easygraphics.dialog.get_directory_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_directory_name:1 of
 msgid "Gets the name (full path) of an existing directory"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_file_names:1 of
 msgid "Gets the names (full path) of existing files"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(message\\, title\\,"
 " default\\_value\\, ...\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_float:1 of
 msgid ""
 "Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(message\\, title\\, "
 "default\\_value\\, min\\_\\, ...\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_int:1 easygraphics.dialog.get_integer:1 of
 msgid "Simple dialog to ask a user to select an integer within a certain range."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_list_of_choices <easygraphics.dialog.get_list_of_choices>`\\ "
 "\\(title\\, choices\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_list_of_choices:1 of
 msgid "Show a list of possible choices to be selected."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\ "
 "\\(title\\, labels\\, masks\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_many_strings:1 of
 msgid "Multiple strings input"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\ "
 "\\(title\\, labels\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_new_password:1 of
 msgid "Change password input box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Simple password input box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_save_file_name:1 of
 msgid "Gets the name (full path) of of a file to be saved."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(message\\, "
 "title\\, default\\_response\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Simple text input box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_username_password "
 "<easygraphics.dialog.get_username_password>`\\ \\(title\\, labels\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_username_password:1 of
 msgid "User name and password input box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ \\(question\\,"
 " title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.get_yes_or_no:1 of
 msgid "Simple yes or no question."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`set_dialog_font_size <easygraphics.dialog.set_dialog_font_size>`\\ "
 "\\(size\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.set_dialog_font_size:1 of
-msgid "set font size of the dialogs :param size: font size"
+msgid "Set font size of the dialogs."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.show_message:1 of
 msgid "Simple message box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
+msgid ""
+":obj:`show_image_dialog <easygraphics.dialog.show_image_dialog>`\\ "
+"\\(image\\, title\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
+#: easygraphics.dialog.show_image_dialog:1 of
+msgid "Display the image in a dialog."
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(title\\, text\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.show_text:1 of
 msgid "Displays some text in a window."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\, "
 "fields\\, field\\_names\\, ...\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.show_table:1 of
 msgid "Displays list of objects in a table"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(title\\, code\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 #: easygraphics.dialog.show_code:1 of
 msgid "Displays some text in a window, in a monospace font."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid ""
 ":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
 "title\\, file\\_type\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:33:<autosummary>:1
+#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
 msgid "Displays a file in a window."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:35 ../../apis/easygraphics.music.rst:26
+#: ../../apis/easygraphics.dialog.rst:36 ../../apis/easygraphics.music.rst:26
 msgid "Functions"
 msgstr ""
 
@@ -312,8 +323,9 @@ msgstr ""
 #: easygraphics.dialog.get_many_strings easygraphics.dialog.get_new_password
 #: easygraphics.dialog.get_password easygraphics.dialog.get_save_file_name
 #: easygraphics.dialog.get_string easygraphics.dialog.get_username_password
-#: easygraphics.dialog.get_yes_or_no easygraphics.dialog.show_code
-#: easygraphics.dialog.show_file easygraphics.dialog.show_message
+#: easygraphics.dialog.get_yes_or_no easygraphics.dialog.set_dialog_font_size
+#: easygraphics.dialog.show_code easygraphics.dialog.show_file
+#: easygraphics.dialog.show_image_dialog easygraphics.dialog.show_message
 #: easygraphics.dialog.show_table easygraphics.dialog.show_text
 #: easygraphics.legacy.bar easygraphics.legacy.circle
 #: easygraphics.legacy.cleardevice easygraphics.legacy.clearviewport
@@ -354,6 +366,10 @@ msgstr ""
 #: easygraphics.turtle.set_speed easygraphics.turtle.setxy
 #: easygraphics.turtle.turn_to of
 msgid "Parameters"
+msgstr ""
+
+#: easygraphics.dialog.set_dialog_font_size:3 of
+msgid "font size"
 msgstr ""
 
 #: easygraphics.dialog.show_message:3 of
@@ -450,7 +466,8 @@ msgstr ""
 #: easygraphics.dialog.get_many_strings:3
 #: easygraphics.dialog.get_new_password:3 easygraphics.dialog.get_password:4
 #: easygraphics.dialog.get_save_file_name:3 easygraphics.dialog.get_string:4
-#: easygraphics.dialog.get_username_password:3 of
+#: easygraphics.dialog.get_username_password:3
+#: easygraphics.dialog.show_image_dialog:4 of
 msgid "Window title"
 msgstr ""
 
@@ -473,6 +490,7 @@ msgstr ""
 #: easygraphics.legacy.getlinesettings easygraphics.legacy.getmaxx
 #: easygraphics.legacy.getmaxy easygraphics.legacy.getpixel
 #: easygraphics.legacy.getx easygraphics.legacy.gety
+#: easygraphics.legacy.textheight easygraphics.legacy.textwidth
 #: easygraphics.music.get_music_pos easygraphics.music.get_music_volume
 #: easygraphics.music.is_music_playing
 #: easygraphics.turtle.Turtle.create_turtle_icon
@@ -718,6 +736,10 @@ msgstr ""
 msgid "``True`` for \"Yes\", ``False`` for \"No\", and ``None`` for \"Cancel\"."
 msgstr ""
 
+#: easygraphics.dialog.show_image_dialog:3 of
+msgid "the image to be displayed"
+msgstr ""
+
 #: ../../apis/easygraphics.legacy.rst:2
 msgid "easygraphics.legacy package"
 msgstr ""
@@ -779,13 +801,13 @@ msgstr ""
 
 #: easygraphics.legacy.bar:9 easygraphics.legacy.circle:8
 #: easygraphics.legacy.cleardevice:3 easygraphics.legacy.clearviewport:3
-#: easygraphics.legacy.drawpoly:18 easygraphics.legacy.ellipse:14
+#: easygraphics.legacy.drawpoly:18 easygraphics.legacy.ellipse:13
 #: easygraphics.legacy.fillellipse:9 easygraphics.legacy.fillpoly:20
 #: easygraphics.legacy.floodfill:8 easygraphics.legacy.getpixel:5
 #: easygraphics.legacy.line:9 easygraphics.legacy.linerel:6
 #: easygraphics.legacy.lineto:5 easygraphics.legacy.moverel:9
 #: easygraphics.legacy.moveto:7 easygraphics.legacy.putpixel:6
-#: easygraphics.legacy.rectangle:9 easygraphics.legacy.sector:16
+#: easygraphics.legacy.rectangle:9 easygraphics.legacy.sector:15
 #: easygraphics.legacy.textheight:3 easygraphics.legacy.textwidth:4 of
 msgid ""
 "the target image which will be painted on. None means it is the target "
@@ -860,36 +882,36 @@ msgstr ""
 
 #: easygraphics.legacy.ellipse:4 easygraphics.legacy.sector:6 of
 msgid ""
-"Note: Degree 0,90,180 and 270 are always the positive direction of "
-"X-axis, the positive direction of Y-axis,  the negative direction of "
-"X-axis, the negative direction of Y-axis, respectively."
+"Note: Positive values for the angles mean counter-clockwise while "
+"negative values mean the clockwise direction. Zero degrees is at the 3 "
+"o'clock position."
 msgstr ""
 
-#: easygraphics.legacy.ellipse:8 easygraphics.legacy.fillellipse:5
-#: easygraphics.legacy.sector:10 of
+#: easygraphics.legacy.ellipse:7 easygraphics.legacy.fillellipse:5
+#: easygraphics.legacy.sector:9 of
 msgid "x coordinate value of the ellipse's center"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:9 easygraphics.legacy.fillellipse:6
-#: easygraphics.legacy.sector:11 of
+#: easygraphics.legacy.ellipse:8 easygraphics.legacy.fillellipse:6
+#: easygraphics.legacy.sector:10 of
 msgid "y coordinate value of the ellipse's center"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:10 of
+#: easygraphics.legacy.ellipse:9 of
 msgid "start angle of the arc"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:11 of
+#: easygraphics.legacy.ellipse:10 of
 msgid "end angle of the arc"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:12 easygraphics.legacy.fillellipse:7
-#: easygraphics.legacy.sector:14 of
+#: easygraphics.legacy.ellipse:11 easygraphics.legacy.fillellipse:7
+#: easygraphics.legacy.sector:13 of
 msgid "radius on x-axis of the ellipse"
 msgstr ""
 
-#: easygraphics.legacy.ellipse:13 easygraphics.legacy.fillellipse:8
-#: easygraphics.legacy.sector:15 of
+#: easygraphics.legacy.ellipse:12 easygraphics.legacy.fillellipse:8
+#: easygraphics.legacy.sector:14 of
 msgid "radius on y-axis of the ellipse"
 msgstr ""
 
@@ -1247,11 +1269,11 @@ msgstr ""
 msgid "The pie is filled and has outline."
 msgstr ""
 
-#: easygraphics.legacy.sector:12 of
+#: easygraphics.legacy.sector:11 of
 msgid "start angle of the pie"
 msgstr ""
 
-#: easygraphics.legacy.sector:13 of
+#: easygraphics.legacy.sector:12 of
 msgid "end angle of the pie"
 msgstr ""
 
@@ -1375,12 +1397,20 @@ msgstr ""
 msgid "Return height of the text (font height)."
 msgstr ""
 
+#: easygraphics.legacy.textheight:5 of
+msgid "height of the text (font height)"
+msgstr ""
+
 #: easygraphics.legacy.textwidth:1 of
 msgid "Return width of the text."
 msgstr ""
 
 #: easygraphics.legacy.textwidth:3 of
 msgid "the text"
+msgstr ""
+
+#: easygraphics.legacy.textwidth:6 of
+msgid "width of the text"
 msgstr ""
 
 #: ../../apis/easygraphics.music.rst:2
@@ -3556,5 +3586,17 @@ msgstr ""
 #~ "[50,50,550,350, 50,150], fill_polygon() will "
 #~ "fill a triangle with vertices at "
 #~ "(50,50) , (550,350) and (50,150)."
+#~ msgstr ""
+
+#~ msgid "set font size of the dialogs :param size: font size"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Note: Degree 0,90,180 and 270 are "
+#~ "always the positive direction of X-axis,"
+#~ " the positive direction of Y-axis,  "
+#~ "the negative direction of X-axis, the"
+#~ " negative direction of Y-axis, "
+#~ "respectively."
 #~ msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 17:11+0800\n"
+"POT-Creation-Date: 2019-01-06 13:20+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -296,86 +296,81 @@ msgstr ""
 
 #: ../../tutorials/04_shapes.rst:68
 msgid ""
-"Degree 0,90,180 and 270 are always the positive direction of X-axis, the "
-"positive direction of Y-axis,  the negative direction of X-axis, the "
-"negative direction of Y-axis, respectively independent of any "
-":doc:`transforms <09_transforms>`."
+"When drawing arc,pie and chords, positive values for the angles mean "
+"counter-clockwise while negative values mean the clockwise direction. "
+"Zero degrees is at the 3 o'clock position."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:72
-msgid "So by default, a positive turning angle means turn clockwise."
-msgstr ""
-
-#: ../../tutorials/04_shapes.rst:74
+#: ../../tutorials/04_shapes.rst:70
 msgid "The following program draws a pie from 45 degree to 135 degree."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:89
+#: ../../tutorials/04_shapes.rst:85
 msgid "Polygon"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:90
+#: ../../tutorials/04_shapes.rst:86
 msgid ""
 "Use polygon()/draw_polygon()/fill_polygon(), we can draw and fill "
 "polygons."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:92
+#: ../../tutorials/04_shapes.rst:88
 msgid "To draw a polygon, we should specify the vertices."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:94
+#: ../../tutorials/04_shapes.rst:90
 msgid ""
 "polygon()/draw_polygon()/fill_polygon() expect a list as the verticis\\' "
 "postions. In the list, each vertex is represented as 2 values (x and y). "
 "So n vertices is represented by a list with 2n values."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:98
+#: ../../tutorials/04_shapes.rst:94
 msgid ""
 "The following example draws a triangle with vertices at (50, 50), (350, "
 "250), (50, 150):"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:115
+#: ../../tutorials/04_shapes.rst:111
 msgid "Polylines"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:116
+#: ../../tutorials/04_shapes.rst:112
 msgid "Using poly_line() or draw_poly_line(), we can draw polylines."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:120
+#: ../../tutorials/04_shapes.rst:116
 msgid ""
 "A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a "
 "continuous line composed of one or more line segments. So to draw a "
 "polyline, we should specify the endpoints connecting each line segment."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:123
+#: ../../tutorials/04_shapes.rst:119
 msgid ""
 "poly_line() and draw_poly_line() expect a list as the endpoint\\'s "
 "postions. In the list, each endpoint is represented as 2 values (x and "
 "y). So n endpoints is represented by a list with 2n values."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:127
+#: ../../tutorials/04_shapes.rst:123
 msgid ""
 "The following example draws a polyline connecting (50,50), (350,75), "
 "(50,150), (350,175), (50,250), (350,275)."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:142
+#: ../../tutorials/04_shapes.rst:138
 msgid "Bézier curve"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:143
+#: ../../tutorials/04_shapes.rst:139
 msgid ""
 "`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve>`_ is a "
 "parametric curve that uses the Bernstein polynomials as a basis."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:145
+#: ../../tutorials/04_shapes.rst:141
 msgid ""
 "A Bézier curve is defined by a set of control points P0 through Pn, where"
 " n is called its order (n = 1 for linear, 2 for quadratic, 3 for cubic "
@@ -384,11 +379,11 @@ msgid ""
 "not lie on the curve."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:149
+#: ../../tutorials/04_shapes.rst:145
 msgid "Cubic Bézier curves are the mostly used Bézier curves."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:153
+#: ../../tutorials/04_shapes.rst:149
 msgid ""
 "Four points P0, P1, P2 and P3 in the plane or in higher-dimensional space"
 " define a cubic Bézier curve. The curve starts at P0 going toward P1 and "
@@ -398,11 +393,11 @@ msgid ""
 "\"how fast\" the curve moves towards P1 before turning towards P2."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:159
+#: ../../tutorials/04_shapes.rst:155
 msgid "The explicit form of the curve is:"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:163
+#: ../../tutorials/04_shapes.rst:159
 msgid ""
 "We can use bezier() or draw_bezier() to draw cubic Bézier curves. They "
 "expect a list as the control points\\' postions. In the list, each "
@@ -411,32 +406,32 @@ msgid ""
 "list."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:167
+#: ../../tutorials/04_shapes.rst:163
 msgid ""
 "The following program draw a cubic bezier curve with control points at "
 "(300,50),(200,50),(200,200) and (100,200)."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:179
+#: ../../tutorials/04_shapes.rst:175
 msgid "Flood Fill"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:180
+#: ../../tutorials/04_shapes.rst:176
 msgid ""
 "Non-regular shapes can be filled by flood fill. The shape to be filled "
 "must be enclosed by an outline. The follow program uses flood fill to "
 "fill a pedal."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:197
+#: ../../tutorials/04_shapes.rst:193
 msgid "Below is the result:"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:202
+#: ../../tutorials/04_shapes.rst:198
 msgid "Advanced Drawing"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:204
+#: ../../tutorials/04_shapes.rst:200
 msgid ""
 "EasyGraphics supports drawing all the basic shape: point, line, circle, "
 "ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
@@ -975,33 +970,39 @@ msgstr ""
 
 #: ../../tutorials/09_transforms.rst:84
 msgid ""
+"Note: the angle directions in rotate() and in shape functions (i.e. "
+"draw_pie()) are opposite!"
+msgstr ""
+
+#: ../../tutorials/09_transforms.rst:86
+msgid ""
 "If you need a counter-clockwise rotation, just give a negative rotation "
 "degree."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:86
+#: ../../tutorials/09_transforms.rst:88
 msgid ""
 "The following program draws a bus rotated 45 degree counter-clockwise "
 "around it\\'s center (105,65)."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:104
+#: ../../tutorials/09_transforms.rst:106
 msgid "Scaling"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:105
+#: ../../tutorials/09_transforms.rst:107
 msgid "We can use scale() to scale the drawing in x and y axis separately."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:107
+#: ../../tutorials/09_transforms.rst:109
 msgid "The following program draws a x-axis shrinked and y-axis enlarged bus."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:124
+#: ../../tutorials/09_transforms.rst:126
 msgid "Shear Mapping (Skew)"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:125
+#: ../../tutorials/09_transforms.rst:127
 msgid ""
 "We use shear() or its alias skew to shear a drawing around the center. "
 "shear() needs 2 parameters \"sv\" and \"sh\". After shearing, each point "
@@ -1009,96 +1010,96 @@ msgid ""
 "following examples."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:129
+#: ../../tutorials/09_transforms.rst:131
 msgid "Shear on X-axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:130
+#: ../../tutorials/09_transforms.rst:132
 msgid ""
 "In the follow example, we shear the bus along the x-axis. Note that the "
 "default y-axis is from top to bottom."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:148
+#: ../../tutorials/09_transforms.rst:150
 msgid "Shear on Y-axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:149
+#: ../../tutorials/09_transforms.rst:151
 msgid "In the follow example, we shear the bus along the y-axis."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:166
+#: ../../tutorials/09_transforms.rst:168
 msgid "Shear on both axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:167
+#: ../../tutorials/09_transforms.rst:169
 msgid ""
 "In the follow example, we shear the bus along the x and y-axis at the "
 "same time."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:185
+#: ../../tutorials/09_transforms.rst:187
 msgid "Reflection (Mirror, Flipping)"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:186
+#: ../../tutorials/09_transforms.rst:188
 msgid ""
 "We can use reflect() ( or its alias mirror() and flip() ) to do a "
 "reflection. It reflect the drawing again the line passing its parameters "
 "(x1,y1) and  (x,y)."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:190
+#: ../../tutorials/09_transforms.rst:192
 msgid "Reflection against the y-axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:191
+#: ../../tutorials/09_transforms.rst:193
 msgid ""
 "The following program flip the bus horizontally ( reflection against the "
 "bus\\'s vertical center line x=105 ) :"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:207
+#: ../../tutorials/09_transforms.rst:209
 msgid "Reflection against the x-axis"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:208
+#: ../../tutorials/09_transforms.rst:210
 msgid ""
 "The following program flip the bus vertically ( reflection against the "
 "bus\\'s horizontal center line y=65 ) :"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:225
+#: ../../tutorials/09_transforms.rst:227
 msgid "Reflection against other lines"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:226
+#: ../../tutorials/09_transforms.rst:228
 msgid ""
 "The following program flip the bus against the line passing (0, 300) and "
 "(500,0). To clearly see the result, we first draw a non-transformed bus, "
 "a mirror line, then draw the flipped bus."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:251
+#: ../../tutorials/09_transforms.rst:253
 msgid "Compound Transforms"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:252
+#: ../../tutorials/09_transforms.rst:254
 msgid "Transforms can be compounded."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:254
+#: ../../tutorials/09_transforms.rst:256
 msgid ""
 "In the following example, we first translate the origin to the image "
 "center, then rotate the bus around its center, then shear it around its "
 "center, then scale it by a factor of 1.2 ."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:285
+#: ../../tutorials/09_transforms.rst:287
 msgid "Drawing with Y-Axis Grows Bottom-Up"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:286
+#: ../../tutorials/09_transforms.rst:288
 msgid ""
 "You may have noticed that when you reflect the image, the texts drawing "
 "on the image will also get reflected. When what you want is to draw on an"
@@ -1106,11 +1107,11 @@ msgid ""
 "be what you what."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:290
+#: ../../tutorials/09_transforms.rst:292
 msgid "Easygraphics provides a set_flip_y() function to used in this situation."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:292
+#: ../../tutorials/09_transforms.rst:294
 msgid ""
 "Also notice that if you turn on the set_flip_y(), all the angles "
 "parameters used in the drawing functions should be mirrored too. That is,"
@@ -1118,18 +1119,18 @@ msgid ""
 "set_flip_y() is on, a positive angle will mean turn counter-clockwise."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:296
+#: ../../tutorials/09_transforms.rst:298
 msgid ""
 "Compare the following two programs. The first one use set_flip_y() to "
 "make y-axis grows bottom-up; and the second one use reflect(1,0) to do "
 "that job. See the results."
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:299
+#: ../../tutorials/09_transforms.rst:301
 msgid "Use set_flip_y() to make y-axis grows bottom-up:"
 msgstr ""
 
-#: ../../tutorials/09_transforms.rst:327
+#: ../../tutorials/09_transforms.rst:329
 msgid "Use reflect(1,0) to make y-axis grows bottom-up:"
 msgstr ""
 
@@ -1884,218 +1885,228 @@ msgstr ""
 msgid "Output Dialogs"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+msgid ""
+":obj:`show_image_dialog <easygraphics.dialog.show_image_dialog>`\\ "
+"\\(image\\, title\\)"
+msgstr ""
+
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+msgid "Display the image in a dialog."
+msgstr ""
+
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Simple message box."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(title\\, text\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Displays some text in a window."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\, "
 "fields\\, field\\_names\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Displays list of objects in a table"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(title\\, code\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Displays some text in a window, in a monospace font."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
 "title\\, file\\_type\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Displays a file in a window."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:18
+#: ../../tutorials/14_dialogs.rst:19
 msgid "Input Dialogs"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(message\\, "
 "title\\, choices\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple dialog to ask a user to select an item within a drop-down list"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Display a color picker and return the selected color"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_continue_or_cancel "
 "<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\, title\\, "
 "...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Continue or cancel question, shown as a warning (i.e."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Calendar widget"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_directory_name <easygraphics.dialog.get_directory_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Gets the name (full path) of an existing directory"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Gets the names (full path) of existing files"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(message\\, title\\,"
 " default\\_value\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 "Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(message\\, title\\, "
 "default\\_value\\, min\\_\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple dialog to ask a user to select an integer within a certain range."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_list_of_choices <easygraphics.dialog.get_list_of_choices>`\\ "
 "\\(title\\, choices\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Show a list of possible choices to be selected."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\ "
 "\\(title\\, labels\\, masks\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Multiple strings input"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\ "
 "\\(title\\, labels\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Change password input box."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple password input box."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Gets the name (full path) of of a file to be saved."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(message\\, "
 "title\\, default\\_response\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple text input box."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_username_password "
 "<easygraphics.dialog.get_username_password>`\\ \\(title\\, labels\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "User name and password input box."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ \\(question\\,"
 " title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple yes or no question."
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41
+#: ../../tutorials/14_dialogs.rst:42
 msgid ""
 "In the following program, click the graphics window to open a color "
 "dialog, select a color and set it as the background."
@@ -2487,5 +2498,18 @@ msgstr ""
 #~ "The following example draws a polyline"
 #~ " connecting (50,50), (550,350), (50,150), "
 #~ "(550,450), (50,250), (550,550)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Degree 0,90,180 and 270 are always "
+#~ "the positive direction of X-axis, the"
+#~ " positive direction of Y-axis,  the "
+#~ "negative direction of X-axis, the "
+#~ "negative direction of Y-axis, respectively "
+#~ "independent of any :doc:`transforms "
+#~ "<09_transforms>`."
+#~ msgstr ""
+
+#~ msgid "So by default, a positive turning angle means turn clockwise."
 #~ msgstr ""
 

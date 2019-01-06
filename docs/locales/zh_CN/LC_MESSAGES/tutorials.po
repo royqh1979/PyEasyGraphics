@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 17:11+0800\n"
+"POT-Creation-Date: 2019-01-06 13:20+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -307,58 +307,51 @@ msgstr "在Easygraphics中，所有的角都使用“角度”作为单位。"
 
 #: ../../tutorials/04_shapes.rst:68
 msgid ""
-"Degree 0,90,180 and 270 are always the positive direction of X-axis, the "
-"positive direction of Y-axis,  the negative direction of X-axis, the "
-"negative direction of Y-axis, respectively independent of any "
-":doc:`transforms <09_transforms>`."
-msgstr ""
-"不管做了哪些 :doc:`几何变换 <09_transforms>` ，0度、90度、180度和270度总是"
-"分别指向X轴正向、Y轴正向、X轴反向和Y轴反向。"
+"When drawing arc,pie and chords, positive values for the angles mean "
+"counter-clockwise while negative values mean the clockwise direction. "
+"Zero degrees is at the 3 o'clock position."
+msgstr "在画弧(arc)，饼(pie)和弓形(chord)时，正的角度值为逆时针旋转；负的角度值为顺时针旋转。0度位于三点钟方向(X轴正向)。"
 
-#: ../../tutorials/04_shapes.rst:72
-msgid "So by default, a positive turning angle means turn clockwise."
-msgstr "所以在缺省的情况下，一个正的转角表示顺时针旋转。"
-
-#: ../../tutorials/04_shapes.rst:74
+#: ../../tutorials/04_shapes.rst:70
 msgid "The following program draws a pie from 45 degree to 135 degree."
 msgstr "下面的程序画了一个从45度到135度的饼（pie）。"
 
-#: ../../tutorials/04_shapes.rst:89
+#: ../../tutorials/04_shapes.rst:85
 msgid "Polygon"
 msgstr "多边形(Polygon)"
 
-#: ../../tutorials/04_shapes.rst:90
+#: ../../tutorials/04_shapes.rst:86
 msgid ""
 "Use polygon()/draw_polygon()/fill_polygon(), we can draw and fill "
 "polygons."
 msgstr "使用polygon()/draw_polygon()/fill_polygon()函数，我们可以绘制或者填充多边形（polygon）。"
 
-#: ../../tutorials/04_shapes.rst:92
+#: ../../tutorials/04_shapes.rst:88
 msgid "To draw a polygon, we should specify the vertices."
 msgstr "在绘制多边形时，我们必须指明多边形的各个顶点（vertices）"
 
-#: ../../tutorials/04_shapes.rst:94
+#: ../../tutorials/04_shapes.rst:90
 msgid ""
 "polygon()/draw_polygon()/fill_polygon() expect a list as the verticis\\' "
 "postions. In the list, each vertex is represented as 2 values (x and y). "
 "So n vertices is represented by a list with 2n values."
 msgstr "polygon()/draw_polygon()/fill_polygon()需要提供一个list（列表）参数，其中存放着各顶点的位置。在列表中，每个顶点用两个数来表示（其x和y坐标）。所以，如果有n个顶点，那么列表中应该有2n个数。"
 
-#: ../../tutorials/04_shapes.rst:98
+#: ../../tutorials/04_shapes.rst:94
 msgid ""
 "The following example draws a triangle with vertices at (50, 50), (350, "
 "250), (50, 150):"
 msgstr "下面的程序绘制了一个三角形，它的三个顶点分别位于 (50, 50), (350,250)和(50, 150):"
 
-#: ../../tutorials/04_shapes.rst:115
+#: ../../tutorials/04_shapes.rst:111
 msgid "Polylines"
 msgstr "折线（Polylines）"
 
-#: ../../tutorials/04_shapes.rst:116
+#: ../../tutorials/04_shapes.rst:112
 msgid "Using poly_line() or draw_poly_line(), we can draw polylines."
 msgstr "使用poly_line()或draw_poly_line()，我们可以绘制折线。"
 
-#: ../../tutorials/04_shapes.rst:120
+#: ../../tutorials/04_shapes.rst:116
 msgid ""
 "A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a "
 "continuous line composed of one or more line segments. So to draw a "
@@ -367,7 +360,7 @@ msgstr ""
 "`折线（Polyline） <https://www.webopedia.com/TERM/P/polyline.html>`_ "
 "是一条由一个或多个依次相连的线段组成的线。因此，要绘制一条折线，我们必须指明连接各线段的端点"
 
-#: ../../tutorials/04_shapes.rst:123
+#: ../../tutorials/04_shapes.rst:119
 msgid ""
 "poly_line() and draw_poly_line() expect a list as the endpoint\\'s "
 "postions. In the list, each endpoint is represented as 2 values (x and "
@@ -376,17 +369,17 @@ msgstr ""
 "poly_line() and "
 "draw_poly_line()需要提供一个list（列表）参数，其中存放着各端点的位置。在列表中，每个端点用两个数来表示（其x和y坐标）。所以n个端点就需要2n个数来表示。"
 
-#: ../../tutorials/04_shapes.rst:127
+#: ../../tutorials/04_shapes.rst:123
 msgid ""
 "The following example draws a polyline connecting (50,50), (350,75), "
 "(50,150), (350,175), (50,250), (350,275)."
 msgstr "下面程序绘制了一条依次连接了点(50,50)、(350,75)、(50,150)、(350,175)、(50,250)和(350,275)的折线。"
 
-#: ../../tutorials/04_shapes.rst:142
+#: ../../tutorials/04_shapes.rst:138
 msgid "Bézier curve"
 msgstr "贝塞尔曲线（Bézier curve）"
 
-#: ../../tutorials/04_shapes.rst:143
+#: ../../tutorials/04_shapes.rst:139
 msgid ""
 "`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve>`_ is a "
 "parametric curve that uses the Bernstein polynomials as a basis."
@@ -397,7 +390,7 @@ msgstr ""
 "<https://baike.baidu.com/item/%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F>`_"
 " 为基础的参数曲线。"
 
-#: ../../tutorials/04_shapes.rst:145
+#: ../../tutorials/04_shapes.rst:141
 msgid ""
 "A Bézier curve is defined by a set of control points P0 through Pn, where"
 " n is called its order (n = 1 for linear, 2 for quadratic, 3 for cubic "
@@ -406,11 +399,11 @@ msgid ""
 "not lie on the curve."
 msgstr "每条贝塞尔曲线由一组控制点P0到Pn定义，其中n是曲线的阶数（n=1称为线性曲线，2为二次曲线，3为三次曲线，以此类推）。第一个和最后一个控制点是曲线的端点，中间的控制点一般则不在曲线上。"
 
-#: ../../tutorials/04_shapes.rst:149
+#: ../../tutorials/04_shapes.rst:145
 msgid "Cubic Bézier curves are the mostly used Bézier curves."
 msgstr "三次贝塞尔曲线（Cubic Bézier curves）是最常见的贝塞尔曲线。"
 
-#: ../../tutorials/04_shapes.rst:153
+#: ../../tutorials/04_shapes.rst:149
 msgid ""
 "Four points P0, P1, P2 and P3 in the plane or in higher-dimensional space"
 " define a cubic Bézier curve. The curve starts at P0 going toward P1 and "
@@ -420,11 +413,11 @@ msgid ""
 "\"how fast\" the curve moves towards P1 before turning towards P2."
 msgstr "平面或者空间中的4个点P0、P1、P2和P3定义了一条贝塞尔曲线。这条曲线从P0出发，走向P1，并从P2的方向到达P3。通常该曲线不会通过P1和P2，这两个点只是为曲线提供方向信息。P1和P2之间的距离决定了曲线在转向P2前，向P1方向前进\"多远\"和\"多快\"。"
 
-#: ../../tutorials/04_shapes.rst:159
+#: ../../tutorials/04_shapes.rst:155
 msgid "The explicit form of the curve is:"
 msgstr "曲线的参数形式为："
 
-#: ../../tutorials/04_shapes.rst:163
+#: ../../tutorials/04_shapes.rst:159
 msgid ""
 "We can use bezier() or draw_bezier() to draw cubic Bézier curves. They "
 "expect a list as the control points\\' postions. In the list, each "
@@ -433,32 +426,32 @@ msgid ""
 "list."
 msgstr "我们可以使用bezier()或draw_bezier()来绘制贝塞尔曲线。它们需要一个列表作为参数来指明各控制点的位置。在列表中，每个控制点对应两个数值（x和y坐标）。因为一条贝塞尔曲线需要4个控制点，因此列表中应该有8个数。"
 
-#: ../../tutorials/04_shapes.rst:167
+#: ../../tutorials/04_shapes.rst:163
 msgid ""
 "The following program draw a cubic bezier curve with control points at "
 "(300,50),(200,50),(200,200) and (100,200)."
 msgstr "下面的程序绘制了一条三次贝塞尔曲线，其四个控制点分别为(300,50)、(200,50)、(200,200)和(100,200)。"
 
-#: ../../tutorials/04_shapes.rst:179
+#: ../../tutorials/04_shapes.rst:175
 msgid "Flood Fill"
 msgstr "泛洪填充（Flood Fill）"
 
-#: ../../tutorials/04_shapes.rst:180
+#: ../../tutorials/04_shapes.rst:176
 msgid ""
 "Non-regular shapes can be filled by flood fill. The shape to be filled "
 "must be enclosed by an outline. The follow program uses flood fill to "
 "fill a pedal."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:197
+#: ../../tutorials/04_shapes.rst:193
 msgid "Below is the result:"
 msgstr "下面是绘制的结果："
 
-#: ../../tutorials/04_shapes.rst:202
+#: ../../tutorials/04_shapes.rst:198
 msgid "Advanced Drawing"
 msgstr "高级绘图"
 
-#: ../../tutorials/04_shapes.rst:204
+#: ../../tutorials/04_shapes.rst:200
 msgid ""
 "EasyGraphics supports drawing all the basic shape: point, line, circle, "
 "ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
@@ -1027,33 +1020,39 @@ msgstr "使用rotate()函数来将坐标系绕点(x,y)进行顺时针旋转。"
 
 #: ../../tutorials/09_transforms.rst:84
 msgid ""
+"Note: the angle directions in rotate() and in shape functions (i.e. "
+"draw_pie()) are opposite!"
+msgstr "注意：rotate()函数和形状绘制函数（如draw_pie()等）中的角度方向是反的！"
+
+#: ../../tutorials/09_transforms.rst:86
+msgid ""
 "If you need a counter-clockwise rotation, just give a negative rotation "
 "degree."
 msgstr "如果要作逆时针旋转，给一个负的旋转角度即可。"
 
-#: ../../tutorials/09_transforms.rst:86
+#: ../../tutorials/09_transforms.rst:88
 msgid ""
 "The following program draws a bus rotated 45 degree counter-clockwise "
 "around it\\'s center (105,65)."
 msgstr "下面的程序中绘制了一辆绕其中心(105,65)逆时针旋转了45度的公共汽车"
 
-#: ../../tutorials/09_transforms.rst:104
+#: ../../tutorials/09_transforms.rst:106
 msgid "Scaling"
 msgstr "缩放（Scaling）"
 
-#: ../../tutorials/09_transforms.rst:105
+#: ../../tutorials/09_transforms.rst:107
 msgid "We can use scale() to scale the drawing in x and y axis separately."
 msgstr "我们可以使用scale()函数来对图形在x轴和y轴方向分别进行缩放。"
 
-#: ../../tutorials/09_transforms.rst:107
+#: ../../tutorials/09_transforms.rst:109
 msgid "The following program draws a x-axis shrinked and y-axis enlarged bus."
 msgstr "下面的程序绘制了一辆在x轴方向上缩小，在y轴方向上放大的公共汽车。"
 
-#: ../../tutorials/09_transforms.rst:124
+#: ../../tutorials/09_transforms.rst:126
 msgid "Shear Mapping (Skew)"
 msgstr "错切（Shear Mapping）"
 
-#: ../../tutorials/09_transforms.rst:125
+#: ../../tutorials/09_transforms.rst:127
 msgid ""
 "We use shear() or its alias skew to shear a drawing around the center. "
 "shear() needs 2 parameters \"sv\" and \"sh\". After shearing, each point "
@@ -1063,96 +1062,96 @@ msgstr ""
 "我们使用shear()函数或它的别名skew()来围绕点(x,y)对图形进行错切。shear()需要两个参数\"sv\"和\"sh\"。错切时，原图上的每个点(x,y)被变换到(x+sh*y,"
 " y+sv*x)。我们可以通过下面的例子来了解错切的效果。"
 
-#: ../../tutorials/09_transforms.rst:129
+#: ../../tutorials/09_transforms.rst:131
 msgid "Shear on X-axis"
 msgstr "沿X轴方向错切"
 
-#: ../../tutorials/09_transforms.rst:130
+#: ../../tutorials/09_transforms.rst:132
 msgid ""
 "In the follow example, we shear the bus along the x-axis. Note that the "
 "default y-axis is from top to bottom."
 msgstr "在下面的例子中，我们沿X轴方向对公共汽车进行错切。注意缺省情况下Y轴正向向下\""
 
-#: ../../tutorials/09_transforms.rst:148
+#: ../../tutorials/09_transforms.rst:150
 msgid "Shear on Y-axis"
 msgstr "沿Y轴方向错切"
 
-#: ../../tutorials/09_transforms.rst:149
+#: ../../tutorials/09_transforms.rst:151
 msgid "In the follow example, we shear the bus along the y-axis."
 msgstr "在下面的例子中，我们沿Y轴方向对公共进行错切。"
 
-#: ../../tutorials/09_transforms.rst:166
+#: ../../tutorials/09_transforms.rst:168
 msgid "Shear on both axis"
 msgstr "同时沿两轴错切"
 
-#: ../../tutorials/09_transforms.rst:167
+#: ../../tutorials/09_transforms.rst:169
 msgid ""
 "In the follow example, we shear the bus along the x and y-axis at the "
 "same time."
 msgstr "在下面的例子中，我们同时沿X和Y轴两个方向对公共汽车进行错切。"
 
-#: ../../tutorials/09_transforms.rst:185
+#: ../../tutorials/09_transforms.rst:187
 msgid "Reflection (Mirror, Flipping)"
 msgstr "反射（Reflection）"
 
-#: ../../tutorials/09_transforms.rst:186
+#: ../../tutorials/09_transforms.rst:188
 msgid ""
 "We can use reflect() ( or its alias mirror() and flip() ) to do a "
 "reflection. It reflect the drawing again the line passing its parameters "
 "(x1,y1) and  (x,y)."
 msgstr "我们可以使用reflect()（或者它的别名mirror()和flip()）来生成图像的镜像。它将图像以经过原点(x1,y1)和参数点(x,y)的直线为对称轴进行反射。"
 
-#: ../../tutorials/09_transforms.rst:190
+#: ../../tutorials/09_transforms.rst:192
 msgid "Reflection against the y-axis"
 msgstr "以垂直线为轴反射"
 
-#: ../../tutorials/09_transforms.rst:191
+#: ../../tutorials/09_transforms.rst:193
 msgid ""
 "The following program flip the bus horizontally ( reflection against the "
 "bus\\'s vertical center line x=105 ) :"
 msgstr "下面的程序将公共汽车进行水平翻转（以公共汽车的垂直中心线x=105为轴进行反射) :"
 
-#: ../../tutorials/09_transforms.rst:207
+#: ../../tutorials/09_transforms.rst:209
 msgid "Reflection against the x-axis"
 msgstr "以水平线为轴反射"
 
-#: ../../tutorials/09_transforms.rst:208
+#: ../../tutorials/09_transforms.rst:210
 msgid ""
 "The following program flip the bus vertically ( reflection against the "
 "bus\\'s horizontal center line y=65 ) :"
 msgstr "下面的程序将公共汽车进行垂直翻转（以公共汽车的水平中心线y=65为轴进行反射）"
 
-#: ../../tutorials/09_transforms.rst:225
+#: ../../tutorials/09_transforms.rst:227
 msgid "Reflection against other lines"
 msgstr "以任意直线为轴反射"
 
-#: ../../tutorials/09_transforms.rst:226
+#: ../../tutorials/09_transforms.rst:228
 msgid ""
 "The following program flip the bus against the line passing (0, 300) and "
 "(500,0). To clearly see the result, we first draw a non-transformed bus, "
 "a mirror line, then draw the flipped bus."
 msgstr "下面的程序将公共汽车以经过(0,300)和(500,0)的直线为轴进行反射。为了更好的观察效果，我们先画一辆无几何变换的公共汽车和反射轴，然后画反射后的公共汽车。"
 
-#: ../../tutorials/09_transforms.rst:251
+#: ../../tutorials/09_transforms.rst:253
 msgid "Compound Transforms"
 msgstr "复合变换"
 
-#: ../../tutorials/09_transforms.rst:252
+#: ../../tutorials/09_transforms.rst:254
 msgid "Transforms can be compounded."
 msgstr "几何变换可以进行复合。"
 
-#: ../../tutorials/09_transforms.rst:254
+#: ../../tutorials/09_transforms.rst:256
 msgid ""
 "In the following example, we first translate the origin to the image "
 "center, then rotate the bus around its center, then shear it around its "
 "center, then scale it by a factor of 1.2 ."
 msgstr "在下面的例子中，我们首先将原点移动到绘图窗口的正中央，然后将公共汽车绕其中心旋转，然后对其沿中心错切，最后将其放大1.2倍。"
 
-#: ../../tutorials/09_transforms.rst:285
+#: ../../tutorials/09_transforms.rst:287
 msgid "Drawing with Y-Axis Grows Bottom-Up"
 msgstr "在Y轴向上的坐标系中绘图"
 
-#: ../../tutorials/09_transforms.rst:286
+#: ../../tutorials/09_transforms.rst:288
 msgid ""
 "You may have noticed that when you reflect the image, the texts drawing "
 "on the image will also get reflected. When what you want is to draw on an"
@@ -1160,11 +1159,11 @@ msgid ""
 "be what you what."
 msgstr "你可能已经注意到了，在图片上打开反射（镜像）后，图片上的文字也会被反射绘制。如果你需要按照普通的平面直角坐标系（Y轴向上）绘图，那么这可能不符合你的需要。"
 
-#: ../../tutorials/09_transforms.rst:290
+#: ../../tutorials/09_transforms.rst:292
 msgid "Easygraphics provides a set_flip_y() function to used in this situation."
 msgstr "Easygraphics专门提供了set_flip_y()函数，来处理这种情况（只翻转图片，不翻转文字)。"
 
-#: ../../tutorials/09_transforms.rst:292
+#: ../../tutorials/09_transforms.rst:294
 msgid ""
 "Also notice that if you turn on the set_flip_y(), all the angles "
 "parameters used in the drawing functions should be mirrored too. That is,"
@@ -1172,18 +1171,18 @@ msgid ""
 "set_flip_y() is on, a positive angle will mean turn counter-clockwise."
 msgstr "需要注意的是，在图片翻转后，所有绘图函数中角度参数的含义也都随之改变。不翻转时，一个正的角度表示顺时针旋转；反转后，正的角度表示逆时针旋转。"
 
-#: ../../tutorials/09_transforms.rst:296
+#: ../../tutorials/09_transforms.rst:298
 msgid ""
 "Compare the following two programs. The first one use set_flip_y() to "
 "make y-axis grows bottom-up; and the second one use reflect(1,0) to do "
 "that job. See the results."
 msgstr "下面的两个程序，第一个程序使用set_flip_y()函数来实现Y轴向上；第二个程序使用reflect(1,0)来实现。比较一下它们的结果。"
 
-#: ../../tutorials/09_transforms.rst:299
+#: ../../tutorials/09_transforms.rst:301
 msgid "Use set_flip_y() to make y-axis grows bottom-up:"
 msgstr "使用set_flip_y()来实现Y轴向上："
 
-#: ../../tutorials/09_transforms.rst:327
+#: ../../tutorials/09_transforms.rst:329
 msgid "Use reflect(1,0) to make y-axis grows bottom-up:"
 msgstr "使用reflect(1,0)来实现Y轴向上："
 
@@ -1954,218 +1953,228 @@ msgstr "Easygraphics提供了许多预定义的对话框函数，来与用户进
 msgid "Output Dialogs"
 msgstr "输出对话框"
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+msgid ""
+":obj:`show_image_dialog <easygraphics.dialog.show_image_dialog>`\\ "
+"\\(image\\, title\\)"
+msgstr ""
+
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+msgid "Display the image in a dialog."
+msgstr "在窗口中显示图片。"
+
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Simple message box."
 msgstr "显示一个简单消息框。"
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(title\\, text\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Displays some text in a window."
 msgstr "在窗口中显示一大段文字。"
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\, "
 "fields\\, field\\_names\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Displays list of objects in a table"
 msgstr "以表格形式显示一组对象。"
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(title\\, code\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Displays some text in a window, in a monospace font."
 msgstr "在窗口中显示代码。"
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid ""
 ":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
 "title\\, file\\_type\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:16:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
 msgid "Displays a file in a window."
 msgstr "在窗口中显示文件内容。"
 
-#: ../../tutorials/14_dialogs.rst:18
+#: ../../tutorials/14_dialogs.rst:19
 msgid "Input Dialogs"
 msgstr "输入对话框"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(message\\, "
 "title\\, choices\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple dialog to ask a user to select an item within a drop-down list"
 msgstr "显示一个对话框，让用户从下拉列表中选择一项"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Display a color picker and return the selected color"
 msgstr "显示一个色彩选择对话框，返回用户选择的颜色"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_continue_or_cancel "
 "<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\, title\\, "
 "...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Continue or cancel question, shown as a warning (i.e."
 msgstr "选择继续或者取消"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Calendar widget"
 msgstr "选择日期"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_directory_name <easygraphics.dialog.get_directory_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Gets the name (full path) of an existing directory"
 msgstr "选择一个目录"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Gets the names (full path) of existing files"
 msgstr "选择文件"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(message\\, title\\,"
 " default\\_value\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 "Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
-msgstr "显示一个对话框，让用户在指定范围和精度下选择一个浮点数"
+msgstr "显示一个对话框，让用户在指定范围和精度下选择一个浮点数。"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(message\\, title\\, "
 "default\\_value\\, min\\_\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple dialog to ask a user to select an integer within a certain range."
-msgstr "显示一个对话框，让用户从下拉列表中选择一项"
+msgstr "显示一个对话框，让用户在指定范围内选择一个整数。"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_list_of_choices <easygraphics.dialog.get_list_of_choices>`\\ "
 "\\(title\\, choices\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Show a list of possible choices to be selected."
 msgstr "显示一个列表让用户选择（可复选）"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\ "
 "\\(title\\, labels\\, masks\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Multiple strings input"
 msgstr "同时输入多个字符串"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\ "
 "\\(title\\, labels\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Change password input box."
 msgstr "修改密码对话框"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple password input box."
-msgstr "输入密码对话框"
+msgstr "输入密码对话框。"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Gets the name (full path) of of a file to be saved."
-msgstr "打开文件并保存对话框"
+msgstr "打开文件以保存对话框。"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(message\\, "
 "title\\, default\\_response\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple text input box."
-msgstr "简单的文本输入对话框"
+msgstr "简单的文本输入对话框。"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_username_password "
 "<easygraphics.dialog.get_username_password>`\\ \\(title\\, labels\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "User name and password input box."
-msgstr "获取用户名和密码"
+msgstr "获取用户名和密码。"
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid ""
 ":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ \\(question\\,"
 " title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:40:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
 msgid "Simple yes or no question."
-msgstr "让用户选择yes或no"
+msgstr "让用户选择yes或no。"
 
-#: ../../tutorials/14_dialogs.rst:41
+#: ../../tutorials/14_dialogs.rst:42
 msgid ""
 "In the following program, click the graphics window to open a color "
 "dialog, select a color and set it as the background."
@@ -2406,4 +2415,19 @@ msgstr ""
 
 #~ msgid "Get the y coordinate value of the current drawing position (x,y)."
 #~ msgstr "获取当前绘图位置(x,y)的y坐标值"
+
+#~ msgid ""
+#~ "Degree 0,90,180 and 270 are always "
+#~ "the positive direction of X-axis, the"
+#~ " positive direction of Y-axis,  the "
+#~ "negative direction of X-axis, the "
+#~ "negative direction of Y-axis, respectively "
+#~ "independent of any :doc:`transforms "
+#~ "<09_transforms>`."
+#~ msgstr ""
+#~ "不管做了哪些 :doc:`几何变换 <09_transforms>` "
+#~ "，0度、90度、180度和270度总是分别指向X轴正向、Y轴正向、X轴反向和Y轴反向。"
+
+#~ msgid "So by default, a positive turning angle means turn clockwise."
+#~ msgstr "所以在缺省的情况下，一个正的转角表示顺时针旋转。"
 

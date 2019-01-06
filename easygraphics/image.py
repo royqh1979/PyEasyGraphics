@@ -7,6 +7,15 @@ from PyQt5 import QtGui, QtCore
 from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode
 import qimage2ndarray as qn
 
+_in_ipython = False
+try:
+    __IPYTHON__
+    import IPython.display
+
+    _in_ipython = True
+except NameError:
+    pass
+
 __all__ = ['Image']
 
 
@@ -697,9 +706,8 @@ class Image:
         Draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
 
-          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-          respectively.
+          Note: Positive values for the angles mean counter-clockwise
+          while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -713,8 +721,8 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawArc(rect, -s, -al)
-        self._mask_painter.drawArc(rect, -s, -al)
+        p.drawArc(rect, s, al)
+        self._mask_painter.drawArc(rect, s, al)
 
     arc = draw_arc
 
@@ -725,9 +733,8 @@ class Image:
 
         The pie is not filled.
 
-          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-          respectively.
+          Note: Positive values for the angles mean counter-clockwise
+          while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -741,8 +748,8 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawPie(rect, -s, -al)
-        self._mask_painter.drawPie(rect, -s, -al)
+        p.drawPie(rect, s, al)
+        self._mask_painter.drawPie(rect, s, al)
 
     def draw_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -751,9 +758,8 @@ class Image:
 
         The pie is filled and has outline.
 
-          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-          respectively.
+          Note: Positive values for the angles mean counter-clockwise
+          while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -767,8 +773,8 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawPie(rect, -s, -al)
-        self._mask_painter.drawPie(rect, -s, -al)
+        p.drawPie(rect, s, al)
+        self._mask_painter.drawPie(rect, s, al)
 
     def fill_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -777,9 +783,8 @@ class Image:
 
         The pie doesn\'t have outline.
 
-          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-          respectively.
+          Note: Positive values for the angles mean counter-clockwise
+          while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -793,8 +798,8 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawPie(rect, -s, -al)
-        self._mask_painter.drawPie(rect, -s, -al)
+        p.drawPie(rect, s, al)
+        self._mask_painter.drawPie(rect, s, al)
 
     def chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -803,9 +808,8 @@ class Image:
 
         The chord is not filled.
 
-          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-          respectively.
+          Note: Positive values for the angles mean counter-clockwise
+          while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -819,8 +823,8 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawChord(rect, -s, -al)
-        self._mask_painter.drawChord(rect, -s, -al)
+        p.drawChord(rect, s, al)
+        self._mask_painter.drawChord(rect, s, al)
 
     def draw_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -829,9 +833,8 @@ class Image:
 
         The chord is filled and has outline
 
-          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-          respectively.
+          Note: Positive values for the angles mean counter-clockwise
+          while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -845,8 +848,8 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawChord(rect, -s, -al)
-        self._mask_painter.drawChord(rect, -s, -al)
+        p.drawChord(rect, s, al)
+        self._mask_painter.drawChord(rect, s, al)
 
     def fill_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -855,9 +858,8 @@ class Image:
 
         The chord doesn\'t have outline.
 
-          Note: Degree 0,90,180 and 270 are always the positive direction of X-axis, the positive
-          direction of Y-axis,  the negative direction of X-axis, the negative direction of Y-axis,
-          respectively.
+          Note: Positive values for the angles mean counter-clockwise
+          while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
         :param x: x coordinate value of the ellipse's center
         :param y: y coordinate value of the ellipse's center
@@ -871,8 +873,8 @@ class Image:
         rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
         s = start_angle * 16
         al = angle_len * 16
-        p.drawChord(rect, -s, -al)
-        self._mask_painter.drawChord(rect, -s, -al)
+        p.drawChord(rect, s, al)
+        self._mask_painter.drawChord(rect, s, al)
 
     def draw_bezier(self, control_points: list):
         """
@@ -1444,6 +1446,20 @@ class Image:
         """
         img = _prepare_image_for_copy(self, with_background)
         img.save(filename)
+
+    def to_bytearray(self, with_background=True, format: str = "PNG") -> bytes:
+        ba = QtCore.QByteArray()
+        buffer = QtCore.QBuffer(ba)
+        buffer.open(QtCore.QIODevice.ReadWrite)
+        img = _prepare_image_for_copy(self, with_background)
+        img.save(buffer, "PNG")
+        buffer.close()
+        return ba.data()
+
+    if _in_ipython:
+        def display_in_ipython(self):
+            image = self.to_bytearray(True)
+            IPython.display.display(IPython.display.Image(image))
 
     def __del__(self):
         self.close()

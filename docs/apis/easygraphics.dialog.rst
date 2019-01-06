@@ -26,6 +26,7 @@ Function list
     get_yes_or_no
     set_dialog_font_size
     show_message
+    show_image_dialog
     show_text
     show_table
     show_code

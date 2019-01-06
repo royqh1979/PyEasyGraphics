@@ -8,6 +8,7 @@ Output Dialogs
 
 .. autosummary::
 
+    show_image_dialog
     show_message
     show_text
     show_table
