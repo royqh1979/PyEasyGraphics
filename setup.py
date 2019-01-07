@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='easygraphics',
-    version='0.9.14',
+    version='0.9.15',
     description='"A TC Graphics style like Graphics Library"',
     long_description=readme + '\n\n' + history,
     author='Roy Qu',
@@ -32,6 +32,7 @@ setup(
     ],
     package_dir={'easygraphics':
                      'easygraphics'},
+    package_data={'easygraphics.turtle': ['*.png']},
     include_package_data=True,
     install_requires=['', 'PyQt5', 'pygame', 'qimage2ndarray'],
     license="GPLv3",

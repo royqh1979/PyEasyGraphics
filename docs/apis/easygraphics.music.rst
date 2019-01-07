@@ -1,5 +1,6 @@
 easygraphics.music package
 ==========================
+A simple music play module.
 
 Function List
 -------------

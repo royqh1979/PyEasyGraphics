@@ -218,7 +218,7 @@ class Turtle(object):
         self._y = 0
         self._heading = self.DEFAULT_ORENTATION
         self._pen_down = True
-        self._speed = 1000
+        self._speed = 10
         self._show_turtle = True
         self._icon = self.create_turtle_icon()
         self._last_fps_time = 0

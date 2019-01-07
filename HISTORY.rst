@@ -2,6 +2,11 @@
 
 History
 =======
+0.9.15
+-------------------
+* fix package error in setup.py
+* change turtle's default speed to 10
+
 0.9.14
 -------------------
 * add: move_arc() function to move turtle in arc

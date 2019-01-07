@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-06 23:51+0800\n"
+"POT-Creation-Date: 2019-01-07 09:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,289 +22,15 @@ msgstr ""
 msgid "easygraphics.dialog package"
 msgstr "easygraphics.dialog包"
 
-#: ../../apis/easygraphics.dialog.rst:4
-msgid "Function list"
-msgstr "函数列表"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(message\\, "
-"title\\, choices\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_choice:1 of
-msgid "Simple dialog to ask a user to select an item within a drop-down list"
-msgstr "显示一个对话框，让用户从下拉列表中选择一项"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_color:1 of
-msgid "Display a color picker and return the selected color"
-msgstr "显示一个色彩选择对话框，返回用户选择的颜色"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_color_hex <easygraphics.dialog.get_color_hex>`\\ "
-"\\(\\[color\\]\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid "Using a color dialog, returns a color in hexadecimal notation i.e."
-msgstr "显示一个色彩选择对话框，以16进制整数字符串形式返回用户选择的颜色。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_color_rgb <easygraphics.dialog.get_color_rgb>`\\ "
-"\\(\\[color\\]\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid "Using a color dialog, returns a color in rgb notation i.e."
-msgstr "显示一个色彩选择对话框，以(r,g,b)三元组的形式返回用户选择的颜色。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_continue_or_cancel "
-"<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\, title\\, "
-"...\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid "Continue or cancel question, shown as a warning (i.e."
-msgstr "选择继续或者取消"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_date:1 of
-msgid "Calendar widget"
-msgstr "选择日期"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_directory_name <easygraphics.dialog.get_directory_name>`\\ "
-"\\(title\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_directory_name:1 of
-msgid "Gets the name (full path) of an existing directory"
-msgstr "选择一个目录"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_file_names:1 of
-msgid "Gets the names (full path) of existing files"
-msgstr "选择文件"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(message\\, title\\,"
-" default\\_value\\, ...\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_float:1 of
-msgid ""
-"Simple dialog to ask a user to select a floating point number within a "
-"certain range and a maximum precision."
-msgstr "显示一个对话框，让用户在指定范围和精度下选择一个浮点数。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(message\\, title\\, "
-"default\\_value\\, min\\_\\, ...\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_int:1 easygraphics.dialog.get_integer:1 of
-msgid "Simple dialog to ask a user to select an integer within a certain range."
-msgstr "显示一个对话框，让用户在指定范围内选择一个整数。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_list_of_choices <easygraphics.dialog.get_list_of_choices>`\\ "
-"\\(title\\, choices\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_list_of_choices:1 of
-msgid "Show a list of possible choices to be selected."
-msgstr "显示一个列表让用户选择（可复选）"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\ "
-"\\(title\\, labels\\, masks\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_many_strings:1 of
-msgid "Multiple strings input"
-msgstr "同时输入多个字符串"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\ "
-"\\(title\\, labels\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_new_password:1 of
-msgid "Change password input box."
-msgstr "修改密码对话框"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(message\\, "
-"title\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid "Simple password input box."
-msgstr "输入密码对话框。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
-"\\(title\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_save_file_name:1 of
-msgid "Gets the name (full path) of of a file to be saved."
-msgstr "打开文件以保存对话框。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(message\\, "
-"title\\, default\\_response\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid "Simple text input box."
-msgstr "简单的文本输入对话框。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_username_password "
-"<easygraphics.dialog.get_username_password>`\\ \\(title\\, labels\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_username_password:1 of
-msgid "User name and password input box."
-msgstr "获取用户名和密码。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ \\(question\\,"
-" title\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.get_yes_or_no:1 of
-msgid "Simple yes or no question."
-msgstr "让用户选择yes或no。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`set_dialog_font_size <easygraphics.dialog.set_dialog_font_size>`\\ "
-"\\(size\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.set_dialog_font_size:1 of
-msgid "Set font size of the dialogs."
-msgstr "设置对话框的字体大小。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(message\\, "
-"title\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.show_message:1 of
-msgid "Simple message box."
-msgstr "显示一个简单消息框。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`show_image_dialog <easygraphics.dialog.show_image_dialog>`\\ "
-"\\(image\\, title\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.show_image_dialog:1 of
-msgid "Display the image in a dialog."
-msgstr "在窗口中显示图片。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(title\\, text\\, "
-"width\\, height\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.show_text:1 of
-msgid "Displays some text in a window."
-msgstr "在窗口中显示一大段文字。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\, "
-"fields\\, field\\_names\\, ...\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.show_table:1 of
-msgid "Displays list of objects in a table"
-msgstr "以表格形式显示一组对象。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(title\\, code\\, "
-"width\\, height\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-#: easygraphics.dialog.show_code:1 of
-msgid "Displays some text in a window, in a monospace font."
-msgstr "在窗口中显示代码。"
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid ""
-":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
-"title\\, file\\_type\\)"
-msgstr ""
-
-#: ../../apis/easygraphics.dialog.rst:34:<autosummary>:1
-msgid "Displays a file in a window."
-msgstr "在窗口中显示文件内容。"
-
-#: ../../apis/easygraphics.dialog.rst:36 ../../apis/easygraphics.music.rst:26
-msgid "Functions"
-msgstr "函数"
-
-#: easygraphics.dialog:1 of
+#: ../../apis/easygraphics.dialog.rst:3
 msgid "An easy-to-use dialogs library."
 msgstr "一个简单易用的对话框函数库。"
 
-#: easygraphics.dialog:3 of
+#: ../../apis/easygraphics.dialog.rst:5
 msgid "You can use it to create and show dialogs."
 msgstr "你可以用它来创建或显示对话框。"
 
-#: easygraphics.dialog:5 of
+#: ../../apis/easygraphics.dialog.rst:7
 msgid ""
 "Based on code from EasyGUI_Qt(https://github.com/aroberge/easygui_qt/). "
 "The original EasyGUI-Qt library won't work properly with EasyGraphics. So"
@@ -313,9 +39,283 @@ msgstr ""
 "基于EasyGUI_Qt(https://github.com/aroberge/easygui_qt/)。由于原EasyGUI-"
 "Qt库无法与EasyGraphics一起工作，因此使用该库代替。"
 
-#: easygraphics.dialog:8 easygraphics.music:5 of
+#: ../../apis/easygraphics.dialog.rst:10 easygraphics.music:5 of
 msgid "A simple example:"
 msgstr "一个简单的例子："
+
+#: ../../apis/easygraphics.dialog.rst:17
+msgid "Function list"
+msgstr "函数列表"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(message\\, "
+"title\\, choices\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_choice:1 of
+msgid "Simple dialog to ask a user to select an item within a drop-down list"
+msgstr "显示一个对话框，让用户从下拉列表中选择一项"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_color:1 of
+msgid "Display a color picker and return the selected color"
+msgstr "显示一个色彩选择对话框，返回用户选择的颜色"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_color_hex <easygraphics.dialog.get_color_hex>`\\ "
+"\\(\\[color\\]\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid "Using a color dialog, returns a color in hexadecimal notation i.e."
+msgstr "显示一个色彩选择对话框，以16进制整数字符串形式返回用户选择的颜色。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_color_rgb <easygraphics.dialog.get_color_rgb>`\\ "
+"\\(\\[color\\]\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid "Using a color dialog, returns a color in rgb notation i.e."
+msgstr "显示一个色彩选择对话框，以(r,g,b)三元组的形式返回用户选择的颜色。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_continue_or_cancel "
+"<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\, title\\, "
+"...\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid "Continue or cancel question, shown as a warning (i.e."
+msgstr "选择继续或者取消"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_date:1 of
+msgid "Calendar widget"
+msgstr "选择日期"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_directory_name <easygraphics.dialog.get_directory_name>`\\ "
+"\\(title\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_directory_name:1 of
+msgid "Gets the name (full path) of an existing directory"
+msgstr "选择一个目录"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_file_names:1 of
+msgid "Gets the names (full path) of existing files"
+msgstr "选择文件"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(message\\, title\\,"
+" default\\_value\\, ...\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_float:1 of
+msgid ""
+"Simple dialog to ask a user to select a floating point number within a "
+"certain range and a maximum precision."
+msgstr "显示一个对话框，让用户在指定范围和精度下选择一个浮点数。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(message\\, title\\, "
+"default\\_value\\, min\\_\\, ...\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_int:1 easygraphics.dialog.get_integer:1 of
+msgid "Simple dialog to ask a user to select an integer within a certain range."
+msgstr "显示一个对话框，让用户在指定范围内选择一个整数。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_list_of_choices <easygraphics.dialog.get_list_of_choices>`\\ "
+"\\(title\\, choices\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_list_of_choices:1 of
+msgid "Show a list of possible choices to be selected."
+msgstr "显示一个列表让用户选择（可复选）"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\ "
+"\\(title\\, labels\\, masks\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_many_strings:1 of
+msgid "Multiple strings input"
+msgstr "同时输入多个字符串"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\ "
+"\\(title\\, labels\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_new_password:1 of
+msgid "Change password input box."
+msgstr "修改密码对话框"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(message\\, "
+"title\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid "Simple password input box."
+msgstr "输入密码对话框。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
+"\\(title\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_save_file_name:1 of
+msgid "Gets the name (full path) of of a file to be saved."
+msgstr "打开文件以保存对话框。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(message\\, "
+"title\\, default\\_response\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid "Simple text input box."
+msgstr "简单的文本输入对话框。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_username_password "
+"<easygraphics.dialog.get_username_password>`\\ \\(title\\, labels\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_username_password:1 of
+msgid "User name and password input box."
+msgstr "获取用户名和密码。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ \\(question\\,"
+" title\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.get_yes_or_no:1 of
+msgid "Simple yes or no question."
+msgstr "让用户选择yes或no。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`set_dialog_font_size <easygraphics.dialog.set_dialog_font_size>`\\ "
+"\\(size\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.set_dialog_font_size:1 of
+msgid "Set font size of the dialogs."
+msgstr "设置对话框的字体大小。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(message\\, "
+"title\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.show_message:1 of
+msgid "Simple message box."
+msgstr "显示一个简单消息框。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`show_image_dialog <easygraphics.dialog.show_image_dialog>`\\ "
+"\\(image\\, title\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.show_image_dialog:1 of
+msgid "Display the image in a dialog."
+msgstr "在窗口中显示图片。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(title\\, text\\, "
+"width\\, height\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.show_text:1 of
+msgid "Displays some text in a window."
+msgstr "在窗口中显示一大段文字。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\, "
+"fields\\, field\\_names\\, ...\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.show_table:1 of
+msgid "Displays list of objects in a table"
+msgstr "以表格形式显示一组对象。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(title\\, code\\, "
+"width\\, height\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+#: easygraphics.dialog.show_code:1 of
+msgid "Displays some text in a window, in a monospace font."
+msgstr "在窗口中显示代码。"
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid ""
+":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
+"title\\, file\\_type\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.dialog.rst:47:<autosummary>:1
+msgid "Displays a file in a window."
+msgstr "在窗口中显示文件内容。"
+
+#: ../../apis/easygraphics.dialog.rst:49 ../../apis/easygraphics.music.rst:27
+msgid "Functions"
+msgstr "函数"
 
 #: easygraphics.dialog.get_abort easygraphics.dialog.get_choice
 #: easygraphics.dialog.get_continue_or_cancel easygraphics.dialog.get_date
@@ -754,11 +754,11 @@ msgstr "要显示的图片"
 msgid "easygraphics.legacy package"
 msgstr ""
 
-#: easygraphics.legacy:1 of
+#: ../../apis/easygraphics.legacy.rst:3
 msgid "The BGI compatible module."
 msgstr "用于兼容BGI的模块。"
 
-#: easygraphics.legacy:3 of
+#: ../../apis/easygraphics.legacy.rst:5
 msgid ""
 "This module redefines the functions using the same names used in the BGI,"
 " for easily porting BGI graphics programs to python."
@@ -1427,125 +1427,129 @@ msgstr "文字内容的宽度"
 msgid "easygraphics.music package"
 msgstr "easygraphics.music包"
 
-#: ../../apis/easygraphics.music.rst:5
+#: ../../apis/easygraphics.music.rst:3
+msgid "A simple music play module."
+msgstr "一个简单的音乐播放库。"
+
+#: ../../apis/easygraphics.music.rst:6
 msgid "Function List"
 msgstr "函数列表"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`load_music <easygraphics.music.load_music>`\\ \\(filename\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.load_music:1 of
 msgid "Load a music file for playback."
 msgstr "载入音乐文件以便播放。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`close_music <easygraphics.music.close_music>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.close_music:1 of
 msgid "Close the music playback device."
 msgstr "关闭音乐播放设备。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`play_music <easygraphics.music.play_music>`\\ \\(loops\\, start\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.play_music:1 of
 msgid "Play the music."
 msgstr "播放音乐。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`pause_music <easygraphics.music.pause_music>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.pause_music:1 of
 msgid "Pause the music playback."
 msgstr "暂停音乐。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`unpause_music <easygraphics.music.unpause_music>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.unpause_music:1 of
 msgid "Unpause the music playback."
 msgstr "恢复暂停的播放。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`stop_music <easygraphics.music.stop_music>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.stop_music:1 of
 msgid "Stop the music playback."
 msgstr "停止播放。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`queue_music <easygraphics.music.queue_music>`\\ \\(filename\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.queue_music:1 of
 msgid "Add music to the playing queue."
 msgstr "将音乐添加到播放队列里。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`is_music_playing <easygraphics.music.is_music_playing>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.is_music_playing:1 of
 msgid "Get if the music is playing."
 msgstr "检查音乐是否在播放。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`get_music_pos <easygraphics.music.get_music_pos>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.get_music_pos:1 of
 msgid "Get current music playback position ."
 msgstr "获取当前的音乐播放位置。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`get_music_volume <easygraphics.music.get_music_volume>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.get_music_volume:1 of
 msgid "Return the music playback volume."
 msgstr "获取音乐播放的音量。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`set_music_pos <easygraphics.music.set_music_pos>`\\ \\(pos\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.set_music_pos:1 of
 msgid "Set current music play position."
 msgstr "设置音乐播放的位置。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ""
 ":obj:`set_music_volume <easygraphics.music.set_music_volume>`\\ "
 "\\(volume\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.set_music_volume:1 of
 msgid "Set volume of the music playback."
 msgstr "设置音乐音量。"
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`fade_out_music <easygraphics.music.fade_out_music>`\\ \\(time\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:24:<autosummary>:1
+#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.fade_out_music:1 of
 msgid "Fade out and stop the music."
 msgstr "淡出停止音乐。"
@@ -1612,11 +1616,11 @@ msgstr "淡出时间(单位为毫秒)"
 msgid "easygraphics.turtle module"
 msgstr "easygraphics.turtle模块"
 
-#: ../../apis/easygraphics.turtle.rst:3 easygraphics.turtle:1 of
+#: ../../apis/easygraphics.turtle.rst:3
 msgid "The turtle graphics package."
 msgstr "海龟作图包。"
 
-#: ../../apis/easygraphics.turtle.rst:5 easygraphics.turtle:3 of
+#: ../../apis/easygraphics.turtle.rst:5
 msgid ""
 "The turtle graphics is a classic and popular way to introducing "
 "programming to kids."
