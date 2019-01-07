@@ -21,6 +21,7 @@ computer graphics.
 
 * Free software: GPL v3 license
 * Documentation: https://pyeasygraphics.readthedocs.io/en/latest/
+* Documentation (Chinese Version): http://easygraphics.royqh.net
 
 Sample program
 ----------------------

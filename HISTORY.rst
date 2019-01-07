@@ -2,6 +2,10 @@
 
 History
 =======
+0.9.14
+-------------------
+* add: move_arc() function to move turtle in arc
+
 0.9.13
 -------------------
 * add:  set_fill_rule() / get_fill_rule() function, to control how the polygons

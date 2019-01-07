@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-20 20:43+0800\n"
+"POT-Creation-Date: 2019-01-07 08:31+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,15 +49,19 @@ msgstr ""
 msgid "Documentation: https://pyeasygraphics.readthedocs.io/en/latest/"
 msgstr ""
 
-#: ../../../README.rst:26
+#: ../../../README.rst:24
+msgid "Documentation (Chinese Version): http://easygraphics.royqh.net"
+msgstr ""
+
+#: ../../../README.rst:27
 msgid "Sample program"
 msgstr ""
 
-#: ../../../README.rst:48
+#: ../../../README.rst:49
 msgid "Special Thanks"
 msgstr ""
 
-#: ../../../README.rst:49
+#: ../../../README.rst:50
 msgid ""
 "Some code is taken from `easygui_qt "
 "<https://github.com/aroberge/easygui_qt/>`_ and `qtutils "

@@ -1,4 +1,5 @@
 import math
+import os
 import threading
 from typing import Optional
 import time
@@ -278,9 +279,6 @@ class Turtle(object):
                                                  composition_mode=eg.CompositionMode.SOURCE_OVER)
         self._world.get_world_image().set_transform(transform)
         image.close()
-        print(round(self._fillpath[0], 5), round(self._fillpath[1], 5))
-        print(round(self._fillpath[-4], 5), round(self._fillpath[-3], 5))
-        print(round(self._fillpath[-2], 5), round(self._fillpath[-1], 5))
         self._fillpath.clear()
 
     def forward(self, distance: float):
@@ -381,16 +379,23 @@ class Turtle(object):
         :param radius: radius of the arc
         :param angle: how many degrees the turtle will move
         """
+        if radius < 0:
+            angle = -angle
+            radius = - radius
         new_heading = self._heading + angle
-        center_direction = self._heading + 90
+        if angle < 0:
+            center_direction = self._heading - 90
+        else:
+            center_direction = self._heading + 90
         center_x = self._x + radius * math.cos(math.radians(center_direction))
         center_y = self._y + radius * math.sin(math.radians(center_direction))
-        new_direction = new_heading - 90
+        if angle < 0:
+            new_direction = new_heading + 90
+        else:
+            new_direction = new_heading - 90
         new_x = center_x + radius * math.cos(math.radians(new_direction))
         new_y = center_y + radius * math.sin(math.radians(new_direction))
         step = radius * math.radians(1)
-        if radius < 0:
-            step = -step
         if angle > 0:
             i = 1
             while i < angle:
@@ -400,8 +405,8 @@ class Turtle(object):
         else:
             i = -1
             while i > angle:
-                self.left_turn(1)
                 self.forward(step)
+                self.right_turn(1)
                 i = i - 1
         self.gotoxy(new_x, new_y)
         self.set_heading(new_heading)
@@ -435,6 +440,8 @@ class Turtle(object):
         """
         if self._pen_down:
             self._world.get_world_image().line(x, y, self._x, self._y)
+        self._x = x
+        self._y = y
         if self.is_filling():
             self._fillpath.append(self._x)
             self._fillpath.append(self._y)
@@ -554,73 +561,10 @@ class Turtle(object):
 
         :return: the turtle icon image
         """
-        width = 10
-        height = 10
-        icon = eg.create_image(width, height)
-        icon.set_background_color(eg.Color.TRANSPARENT)
-        icon.set_fill_color("black")
-
-        icon.put_pixel(4, 0, "lightred")
-        icon.put_pixel(5, 0, "lightred")
-        icon.put_pixel(3, 1, "lightred")
-        icon.put_pixel(4, 1, "lightred")
-        icon.put_pixel(5, 1, "lightred")
-        icon.put_pixel(6, 1, "lightred")
-        icon.put_pixel(4, 2, "lightred")
-        icon.put_pixel(5, 2, "lightred")
-
-        # draw shell outline
-        icon.put_pixel(4, 3, "red")
-        icon.put_pixel(5, 3, "red")
-        icon.put_pixel(3, 4, "red")
-        icon.put_pixel(6, 4, "red")
-        icon.put_pixel(2, 5, "red")
-        icon.put_pixel(7, 5, "red")
-        icon.put_pixel(2, 6, "red")
-        icon.put_pixel(7, 6, "red")
-        icon.put_pixel(3, 7, "red")
-        icon.put_pixel(6, 7, "red")
-        icon.put_pixel(4, 8, "red")
-        icon.put_pixel(5, 8, "red")
-
-        # fill shell
-        icon.put_pixel(4, 4, "darkgray")
-        icon.put_pixel(5, 4, "darkgray")
-        icon.put_pixel(3, 5, "darkgray")
-        icon.put_pixel(4, 5, "darkgray")
-        icon.put_pixel(5, 5, "darkgray")
-        icon.put_pixel(6, 5, "darkgray")
-        icon.put_pixel(3, 6, "darkgray")
-        icon.put_pixel(4, 6, "darkgray")
-        icon.put_pixel(5, 6, "darkgray")
-        icon.put_pixel(6, 6, "darkgray")
-        icon.put_pixel(4, 7, "darkgray")
-        icon.put_pixel(5, 7, "darkgray")
-
-        # draw legs
-        icon.put_pixel(1, 3, "lightred")
-        icon.put_pixel(1, 4, "lightred")
-        icon.put_pixel(2, 3, "lightred")
-        icon.put_pixel(2, 4, "lightred")
-
-        icon.put_pixel(7, 3, "lightred")
-        icon.put_pixel(7, 4, "lightred")
-        icon.put_pixel(8, 3, "lightred")
-        icon.put_pixel(8, 4, "lightred")
-
-        icon.put_pixel(1, 7, "lightred")
-        icon.put_pixel(1, 8, "lightred")
-        icon.put_pixel(2, 7, "lightred")
-        icon.put_pixel(2, 8, "lightred")
-
-        icon.put_pixel(7, 7, "lightred")
-        icon.put_pixel(7, 8, "lightred")
-        icon.put_pixel(8, 7, "lightred")
-        icon.put_pixel(8, 8, "lightred")
-
-        # draw tail
-        icon.put_pixel(4, 9, "lightred")
-        icon.put_pixel(5, 9, "lightred")
+        # width = 10
+        # height = 10
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        icon = eg.load_image(base_dir + os.path.sep + "turtle.png")
         return icon
 
     def _refresh(self):
