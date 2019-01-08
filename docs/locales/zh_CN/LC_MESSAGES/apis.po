@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-07 09:26+0800\n"
+"POT-Creation-Date: 2019-01-08 19:08+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -353,10 +353,11 @@ msgstr "函数"
 #: easygraphics.turtle.Turtle.fd easygraphics.turtle.Turtle.forward
 #: easygraphics.turtle.Turtle.gotoxy easygraphics.turtle.Turtle.left
 #: easygraphics.turtle.Turtle.left_turn easygraphics.turtle.Turtle.lt
-#: easygraphics.turtle.Turtle.move_arc easygraphics.turtle.Turtle.right
-#: easygraphics.turtle.Turtle.right_turn easygraphics.turtle.Turtle.rt
-#: easygraphics.turtle.Turtle.set_heading easygraphics.turtle.Turtle.set_speed
-#: easygraphics.turtle.Turtle.setxy easygraphics.turtle.Turtle.turn_to
+#: easygraphics.turtle.Turtle.move_arc easygraphics.turtle.Turtle.move_ellipse
+#: easygraphics.turtle.Turtle.right easygraphics.turtle.Turtle.right_turn
+#: easygraphics.turtle.Turtle.rt easygraphics.turtle.Turtle.set_heading
+#: easygraphics.turtle.Turtle.set_speed easygraphics.turtle.Turtle.setxy
+#: easygraphics.turtle.Turtle.turn_to
 #: easygraphics.turtle.TurtleWorld.add_turtle
 #: easygraphics.turtle.TurtleWorld.set_immediate
 #: easygraphics.turtle.TurtleWorld.snap_shot_to_image easygraphics.turtle.back
@@ -365,11 +366,12 @@ msgstr "函数"
 #: easygraphics.turtle.fd easygraphics.turtle.forward
 #: easygraphics.turtle.gotoxy easygraphics.turtle.left
 #: easygraphics.turtle.left_turn easygraphics.turtle.lt
-#: easygraphics.turtle.move_arc easygraphics.turtle.right
-#: easygraphics.turtle.right_turn easygraphics.turtle.rt
-#: easygraphics.turtle.set_heading easygraphics.turtle.set_immediate
-#: easygraphics.turtle.set_pen_size easygraphics.turtle.set_speed
-#: easygraphics.turtle.setxy easygraphics.turtle.turn_to of
+#: easygraphics.turtle.move_arc easygraphics.turtle.move_ellipse
+#: easygraphics.turtle.right easygraphics.turtle.right_turn
+#: easygraphics.turtle.rt easygraphics.turtle.set_heading
+#: easygraphics.turtle.set_immediate easygraphics.turtle.set_pen_size
+#: easygraphics.turtle.set_speed easygraphics.turtle.setxy
+#: easygraphics.turtle.turn_to of
 msgid "Parameters"
 msgstr "参数"
 
@@ -513,7 +515,8 @@ msgstr "包含待选择项名称的列表。"
 #: easygraphics.turtle.TurtleWorld.is_immediate
 #: easygraphics.turtle.TurtleWorld.is_on_screen easygraphics.turtle.get_heading
 #: easygraphics.turtle.get_turtle easygraphics.turtle.get_turtle_world
-#: easygraphics.turtle.get_x easygraphics.turtle.get_y of
+#: easygraphics.turtle.get_x easygraphics.turtle.get_y
+#: easygraphics.turtle.is_run of
 msgid "Returns"
 msgstr "返回值"
 
@@ -1766,19 +1769,111 @@ msgstr "目标点的y坐标值"
 msgid "Set the angle current heading to the specified angle."
 msgstr "设置海龟朝向指定的角度。"
 
-#: easygraphics.turtle.Turtle.move_arc:1 easygraphics.turtle.move_arc:1 of
+#: easygraphics.turtle.Turtle.move_arc:3 easygraphics.turtle.move_arc:1 of
 msgid ""
-"Move the turtle in a arc path. The center is radius units left of the "
-"turtle."
-msgstr "使海龟从当前位置开始沿弧线移动。弧的圆心在海龟正左侧、距离海龟“radius”远的地方。"
+"The center is radius units left of the turtle. That is, if radius > 0, "
+"the center is on the left of the turtle; if radius < 0, the center is on "
+"the right of the turtle."
+msgstr ""
 
-#: easygraphics.turtle.Turtle.move_arc:3 easygraphics.turtle.move_arc:3 of
+#: easygraphics.turtle.Turtle.move_arc:6
+#: easygraphics.turtle.Turtle.move_ellipse:10 easygraphics.turtle.move_arc:4
+#: easygraphics.turtle.move_ellipse:10 of
+msgid ""
+"If angle > 0, the turtle moves forward around the center; if angle < 0, "
+"the turtle moves backward around the center. So:"
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_arc:9 easygraphics.turtle.move_arc:7 of
+msgid ""
+"if angle > 0 and radius > 0, the turtle moves forward and turns counter-"
+"clockwise;"
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_arc:10 easygraphics.turtle.move_arc:8 of
+msgid "if angle > 0 and raidus < 0, the turtle move forward and turns clockwise;"
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_arc:11 easygraphics.turtle.move_arc:9 of
+msgid "if angle <0 and radius > 0, the turtle moves backward and turns clockwise;"
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_arc:12 easygraphics.turtle.move_arc:10 of
+msgid ""
+"if angle <0 and radius < 0, the turtle moves backward and turns counter-"
+"clockwise."
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_arc:14 easygraphics.turtle.move_arc:12 of
 msgid "radius of the arc"
 msgstr "弧的半径"
 
-#: easygraphics.turtle.Turtle.move_arc:4 easygraphics.turtle.move_arc:4 of
+#: easygraphics.turtle.Turtle.move_arc:15
+#: easygraphics.turtle.Turtle.move_ellipse:20 easygraphics.turtle.move_arc:13
+#: easygraphics.turtle.move_ellipse:20 of
 msgid "how many degrees the turtle will move"
 msgstr "海龟要移动多少角度"
+
+#: easygraphics.turtle.Turtle.move_ellipse:1 easygraphics.turtle.move_ellipse:1
+#: of
+msgid "Move the turtle in an elliptical path."
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_ellipse:3 easygraphics.turtle.move_ellipse:3
+#: of
+msgid ""
+"\"Radius_top\" is the radius of the ellipse, on the direction parrellel "
+"to the turtele's orientation, it must be postive; \"Radius_top\" is the "
+"radius of the ellipse on the direction perpendicular to the turtle's "
+"orientation, it can be postive or negtive."
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_ellipse:7 easygraphics.turtle.move_ellipse:7
+#: of
+msgid ""
+"The center is radius_left units left of the turtle. That is, if "
+"radius_left > 0, the center is on the left of the turtle; if radius_left "
+"< 0, the center is on the right of the turtle."
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_ellipse:13
+#: easygraphics.turtle.move_ellipse:13 of
+msgid ""
+"if angle > 0 and radius_left > 0, the turtle moves forward and turns "
+"counter-clockwise;"
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_ellipse:14
+#: easygraphics.turtle.move_ellipse:14 of
+msgid ""
+"if angle > 0 and radius_left < 0, the turtle move forward and turns "
+"clockwise;"
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_ellipse:15
+#: easygraphics.turtle.move_ellipse:15 of
+msgid ""
+"if angle <0 and radius_left > 0, the turtle moves backward and turns "
+"clockwise;"
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_ellipse:16
+#: easygraphics.turtle.move_ellipse:16 of
+msgid ""
+"if angle <0 and radius_left < 0, the turtle moves backward and turns "
+"counter-clockwise."
+msgstr ""
+
+#: easygraphics.turtle.Turtle.move_ellipse:18
+#: easygraphics.turtle.move_ellipse:18 of
+#, fuzzy
+msgid "radius of the ellipse"
+msgstr "弧的半径"
+
+#: easygraphics.turtle.Turtle.move_ellipse:19
+#: easygraphics.turtle.move_ellipse:19 of
+msgid "eccentricity of the ellipse"
+msgstr ""
 
 #: easygraphics.turtle.Turtle.get_y:1 easygraphics.turtle.get_y:1 of
 msgid "Get the turtle's current y position."
@@ -1877,6 +1972,10 @@ msgstr "隐藏海龟。"
 msgid "Show the turtle."
 msgstr "显示海龟。"
 
+#: easygraphics.turtle.pause:1 of
+msgid "Pause the program and wait for mouse clicking or keyboard hitting."
+msgstr ""
+
 #: easygraphics.turtle.Turtle:1 of
 msgid "The Turtle class."
 msgstr "海龟类。"
@@ -1924,6 +2023,11 @@ msgstr "检查海龟是否处于显示状态。"
 #: easygraphics.turtle.Turtle.is_show:3 of
 msgid "True the turtle is shown, False the turtle is hiding."
 msgstr "True表示显示海龟，False表示隐藏。"
+
+#: easygraphics.turtle.Turtle.move_arc:1 of
+#, fuzzy
+msgid "Move the turtle in a arc path."
+msgstr " 设置海龟的移动速度"
 
 #: easygraphics.turtle.TurtleWorld:1 of
 msgid ""
@@ -2044,6 +2148,14 @@ msgstr "目标位置的x坐标"
 msgid "y coordinate value of the target position"
 msgstr "目标位置的y坐标"
 
+#: easygraphics.turtle.is_run:1 of
+msgid "Test if the graphics system is running."
+msgstr ""
+
+#: easygraphics.turtle.is_run:3 of
+msgid "True if the graphics system is running."
+msgstr ""
+
 #~ msgid ""
 #~ "Note: Degree 0,90,180 and 270 are "
 #~ "always the positive direction of X-axis,"
@@ -2052,4 +2164,10 @@ msgstr "目标位置的y坐标"
 #~ " negative direction of Y-axis, "
 #~ "respectively."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "Move the turtle in a arc path. "
+#~ "The center is radius units left of"
+#~ " the turtle."
+#~ msgstr "使海龟从当前位置开始沿弧线移动。弧的圆心在海龟正左侧、距离海龟“radius”远的地方。"
 

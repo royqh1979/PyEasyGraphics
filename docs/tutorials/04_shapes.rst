@@ -198,7 +198,7 @@ Advanced Drawing
 ----------------
 
 EasyGraphics supports drawing all the basic shape: point, line, circle, ellipse, rectangle, polygon, rectangle with
-rounded corner, etc. If you need more advanced drawing, you can use :doc:`Image <../apis/easygraphics.image>` object's get_painter() method
+rounded corner, etc. If you need more advanced drawing, you can use Image object's get_painter() method
 to get the `QPainter <http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ instance and draw.
 
 

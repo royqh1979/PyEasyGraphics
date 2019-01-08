@@ -375,40 +375,132 @@ class Turtle(object):
 
     def move_arc(self, radius: float, angle: float = 360):
         """
-        Move the turtle in a arc path. The center is radius units left of the turtle.
+        Move the turtle in a arc path.
+
+        The center is radius units left of the turtle. That is, if radius > 0,
+        the center is on the left of the turtle; if radius < 0, the center is on the right of the turtle.
+
+        If angle > 0, the turtle moves forward around the center; if angle < 0,
+        the turtle moves backward around the center. So:
+
+        * if angle > 0 and radius > 0, the turtle moves forward and turns counter-clockwise;
+        * if angle > 0 and raidus < 0, the turtle move forward and turns clockwise;
+        * if angle <0 and radius > 0, the turtle moves backward and turns clockwise;
+        * if angle <0 and radius < 0, the turtle moves backward and turns counter-clockwise.
 
         :param radius: radius of the arc
         :param angle: how many degrees the turtle will move
         """
-        if radius < 0:
-            angle = -angle
-            radius = - radius
-        new_heading = self._heading + angle
-        if angle < 0:
-            center_direction = self._heading - 90
-        else:
+        abs_radius = abs(radius)
+        if radius > 0:
             center_direction = self._heading + 90
-        center_x = self._x + radius * math.cos(math.radians(center_direction))
-        center_y = self._y + radius * math.sin(math.radians(center_direction))
-        if angle < 0:
-            new_direction = new_heading + 90
-        else:
+            new_heading = self._heading + angle
             new_direction = new_heading - 90
-        new_x = center_x + radius * math.cos(math.radians(new_direction))
-        new_y = center_y + radius * math.sin(math.radians(new_direction))
-        step = radius * math.radians(1)
-        if angle > 0:
-            i = 1
-            while i < angle:
-                self.forward(step)
-                self.left_turn(1)
-                i = i + 1
         else:
-            i = -1
-            while i > angle:
+            center_direction = self._heading - 90
+            new_heading = self._heading - angle
+            new_direction = new_heading + 90
+        center_x = self._x + abs_radius * math.cos(math.radians(center_direction))
+        center_y = self._y + abs_radius * math.sin(math.radians(center_direction))
+        new_x = center_x + abs_radius * math.cos(math.radians(new_direction))
+        new_y = center_y + abs_radius * math.sin(math.radians(new_direction))
+        step = abs_radius * math.radians(1)
+        abs_angle = abs(angle)
+        i = 1
+        while i < abs_angle:
+            if angle > 0:
                 self.forward(step)
-                self.right_turn(1)
-                i = i - 1
+                if radius > 0:
+                    self.left_turn(1)
+                else:
+                    self.right_turn(1)
+            else:
+                self.backward(step)
+                if radius > 0:
+                    self.right_turn(1)
+                else:
+                    self.left_turn(1)
+            i = i + 1
+        self.gotoxy(new_x, new_y)
+        self.set_heading(new_heading)
+
+    def move_ellipse(self, radius_left: float, radius_top: float, angle: float = 360):
+        """
+        Move the turtle in an elliptical path.
+
+        "Radius_top" is the radius of the ellipse, on the direction parrellel to the turtele's orientation, it
+        must be postive; "Radius_top" is the radius of the ellipse on the direction perpendicular to the turtle's
+        orientation, it can be postive or negtive.
+
+        The center is radius_left units left of the turtle. That is, if radius_left > 0,
+        the center is on the left of the turtle; if radius_left < 0, the center is on the right of the turtle.
+
+        If angle > 0, the turtle moves forward around the center; if angle < 0,
+        the turtle moves backward around the center. So:
+
+        * if angle > 0 and radius_left > 0, the turtle moves forward and turns counter-clockwise;
+        * if angle > 0 and radius_left < 0, the turtle move forward and turns clockwise;
+        * if angle <0 and radius_left > 0, the turtle moves backward and turns clockwise;
+        * if angle <0 and radius_left < 0, the turtle moves backward and turns counter-clockwise.
+
+        :param radius_left: radius of the ellipse
+        :param e: eccentricity of the ellipse
+        :param angle: how many degrees the turtle will move
+        """
+        if radius_top < 0:
+            raise RuntimeError("The radius_top parameter must not less than 0!")
+        abs_radius_left = abs(radius_left)
+        if abs_radius_left > radius_top:
+            a = abs_radius_left
+            b = radius_top
+            base_angle = 0
+        else:
+            a = radius_top
+            b = abs_radius_left
+            base_angle = 90
+        e = math.sqrt(1 - b * b / a / a)
+
+        if radius_left > 0:
+            center_direction = self._heading + 90
+        else:
+            center_direction = self._heading - 90
+        center_x = self._x + abs_radius_left * math.cos(math.radians(center_direction))
+        center_y = self._y + abs_radius_left * math.sin(math.radians(center_direction))
+        old_heading = self._heading
+        abs_angle = abs(angle)
+        if radius_left > 0:
+            signed_angle = 90
+        else:
+            signed_angle = -90
+        i = 1
+        print(a, b, base_angle, center_x, center_y, old_heading)
+        while i < abs_angle:
+            if angle > 0:
+                signed_i = i
+            else:
+                signed_i = -i
+            r = b / math.sqrt(1 - (e * math.cos(math.radians(signed_i + base_angle))) ** 2)
+            if radius_left > 0:
+                new_heading = old_heading + signed_i
+            else:
+                new_heading = old_heading - signed_i
+            heading_signed_angle = new_heading - signed_angle
+            new_x = center_x + r * math.cos(math.radians(heading_signed_angle))
+            new_y = center_y + r * math.sin(math.radians(heading_signed_angle))
+            self.gotoxy(new_x, new_y)
+            self._heading = new_heading
+
+            self._refresh()
+            i = i + 1
+
+        r = b / math.sqrt(1 - (e * math.cos(math.radians(angle + base_angle))) ** 2)
+        if radius_left > 0:
+            new_heading = old_heading + angle
+        else:
+            new_heading = old_heading - angle
+        heading_signed_angle = new_heading - signed_angle
+        new_x = center_x + r * math.cos(math.radians(heading_signed_angle))
+        new_y = center_y + r * math.sin(math.radians(heading_signed_angle))
         self.gotoxy(new_x, new_y)
         self.set_heading(new_heading)
 

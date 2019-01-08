@@ -4,9 +4,11 @@ History
 =======
 0.9.16
 -------------------
-* redefine pause in turtle
-* redefine is_run in turtle
+* redefine pause() in turtle
+* redefine is_run() in turtle
 * fix: default turtle speed
+* change: meaning of the turtle's move_arc() function's parameters
+* add: move_ellipse() function in easygraphics.turtle package
 
 0.9.15
 -------------------

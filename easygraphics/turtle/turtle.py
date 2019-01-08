@@ -7,7 +7,7 @@ Turtle = turleclass.Turtle
 __all__ = [
     'create_world', 'close_world', 'forward', 'fd', 'backward', 'back', 'bk',
     'left_turn', 'lt', 'right_turn', 'rt', 'left', 'right', 'clear_screen', 'cs', 'gotoxy', 'home',
-    'turn_to', 'facing', 'begin_fill', 'end_fill', 'setxy', 'set_heading', 'move_arc',
+    'turn_to', 'facing', 'begin_fill', 'end_fill', 'setxy', 'set_heading', 'move_arc', 'move_ellipse',
     'get_y', 'get_x', 'get_heading', 'get_turtle', 'get_turtle_world', 'set_pen_size',
     'set_immediate', 'set_speed', 'pen_down', 'pen_up', 'pu', 'pd', 'hide', 'show', 'pause',
     'Turtle', 'TurtleWorld', 'is_run']
@@ -129,13 +129,49 @@ right = right_turn
 
 def move_arc(radius: float, angle: float = 360):
     """
-    Move the turtle in a arc path. The center is radius units left of the turtle.
+    The center is radius units left of the turtle. That is, if radius > 0,
+    the center is on the left of the turtle; if radius < 0, the center is on the right of the turtle.
+
+    If angle > 0, the turtle moves forward around the center; if angle < 0,
+    the turtle moves backward around the center. So:
+
+    * if angle > 0 and radius > 0, the turtle moves forward and turns counter-clockwise;
+    * if angle > 0 and raidus < 0, the turtle move forward and turns clockwise;
+    * if angle <0 and radius > 0, the turtle moves backward and turns clockwise;
+    * if angle <0 and radius < 0, the turtle moves backward and turns counter-clockwise.
 
     :param radius: radius of the arc
     :param angle: how many degrees the turtle will move
     """
     _check_turtle()
     _turtle.move_arc(radius, angle)
+
+
+def move_ellipse(radius_left: float, radius_top: float, angle: float = 360):
+    """
+    Move the turtle in an elliptical path.
+
+    "Radius_top" is the radius of the ellipse, on the direction parrellel to the turtele's orientation, it
+    must be postive; "Radius_top" is the radius of the ellipse on the direction perpendicular to the turtle's
+    orientation, it can be postive or negtive.
+
+    The center is radius_left units left of the turtle. That is, if radius_left > 0,
+    the center is on the left of the turtle; if radius_left < 0, the center is on the right of the turtle.
+
+    If angle > 0, the turtle moves forward around the center; if angle < 0,
+    the turtle moves backward around the center. So:
+
+    * if angle > 0 and radius_left > 0, the turtle moves forward and turns counter-clockwise;
+    * if angle > 0 and radius_left < 0, the turtle move forward and turns clockwise;
+    * if angle <0 and radius_left > 0, the turtle moves backward and turns clockwise;
+    * if angle <0 and radius_left < 0, the turtle moves backward and turns counter-clockwise.
+
+    :param radius_left: radius of the ellipse
+    :param e: eccentricity of the ellipse
+    :param angle: how many degrees the turtle will move
+    """
+    _check_turtle()
+    _turtle.move_ellipse(radius_left, radius_top, angle)
 
 
 def clear_screen():
