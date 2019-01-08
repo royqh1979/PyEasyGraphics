@@ -428,9 +428,9 @@ class Turtle(object):
         """
         Move the turtle in an elliptical path.
 
-        "Radius_top" is the radius of the ellipse, on the direction parrellel to the turtele's orientation, it
-        must be postive; "Radius_top" is the radius of the ellipse on the direction perpendicular to the turtle's
-        orientation, it can be postive or negtive.
+        "radius_left" is the radius of the ellipse on the direction perpendicular to the turtle's
+        orientation, it can be postive or negtive;"radius_top" is the radius of the ellipse
+        on the direction parallel to the turtle's orientation, it must be postive.
 
         The center is radius_left units left of the turtle. That is, if radius_left > 0,
         the center is on the left of the turtle; if radius_left < 0, the center is on the right of the turtle.
@@ -443,8 +443,8 @@ class Turtle(object):
         * if angle <0 and radius_left > 0, the turtle moves backward and turns clockwise;
         * if angle <0 and radius_left < 0, the turtle moves backward and turns counter-clockwise.
 
-        :param radius_left: radius of the ellipse
-        :param e: eccentricity of the ellipse
+        :param radius_left: the radius of the ellipse on the direction perpendicular to the turtle's orientation
+        :param radius_top: the radius of the ellipse on the direction parallel to the turtle's orientation
         :param angle: how many degrees the turtle will move
         """
         if radius_top < 0:

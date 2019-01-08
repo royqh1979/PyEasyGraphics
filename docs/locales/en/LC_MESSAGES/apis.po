@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 19:08+0800\n"
+"POT-Creation-Date: 2019-01-08 19:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1815,10 +1815,10 @@ msgstr ""
 #: easygraphics.turtle.Turtle.move_ellipse:3 easygraphics.turtle.move_ellipse:3
 #: of
 msgid ""
-"\"Radius_top\" is the radius of the ellipse, on the direction parrellel "
-"to the turtele's orientation, it must be postive; \"Radius_top\" is the "
-"radius of the ellipse on the direction perpendicular to the turtle's "
-"orientation, it can be postive or negtive."
+"\"radius_left\" is the radius of the ellipse on the direction "
+"perpendicular to the turtle's orientation, it can be postive or "
+"negtive;\"radius_top\" is the radius of the ellipse on the direction "
+"parallel to the turtle's orientation, it must be postive."
 msgstr ""
 
 #: easygraphics.turtle.Turtle.move_ellipse:7 easygraphics.turtle.move_ellipse:7
@@ -1859,12 +1859,16 @@ msgstr ""
 
 #: easygraphics.turtle.Turtle.move_ellipse:18
 #: easygraphics.turtle.move_ellipse:18 of
-msgid "radius of the ellipse"
+msgid ""
+"the radius of the ellipse on the direction perpendicular to the turtle's "
+"orientation"
 msgstr ""
 
 #: easygraphics.turtle.Turtle.move_ellipse:19
 #: easygraphics.turtle.move_ellipse:19 of
-msgid "eccentricity of the ellipse"
+msgid ""
+"the radius of the ellipse on the direction parallel to the turtle's "
+"orientation"
 msgstr ""
 
 #: easygraphics.turtle.Turtle.get_y:1 easygraphics.turtle.get_y:1 of
@@ -3784,5 +3788,21 @@ msgstr ""
 #~ "Move the turtle in a arc path. "
 #~ "The center is radius units left of"
 #~ " the turtle."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "\"Radius_top\" is the radius of the "
+#~ "ellipse, on the direction parrellel to"
+#~ " the turtele's orientation, it must "
+#~ "be postive; \"Radius_top\" is the radius"
+#~ " of the ellipse on the direction "
+#~ "perpendicular to the turtle's orientation, "
+#~ "it can be postive or negtive."
+#~ msgstr ""
+
+#~ msgid "radius of the ellipse"
+#~ msgstr ""
+
+#~ msgid "eccentricity of the ellipse"
 #~ msgstr ""
 

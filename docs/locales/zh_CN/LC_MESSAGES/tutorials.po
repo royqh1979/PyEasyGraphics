@@ -452,7 +452,7 @@ msgid "Advanced Drawing"
 msgstr "高级绘图"
 
 #: ../../tutorials/04_shapes.rst:200
-#, fuzzy
+
 msgid ""
 "EasyGraphics supports drawing all the basic shape: point, line, circle, "
 "ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
@@ -462,7 +462,7 @@ msgid ""
 "draw."
 msgstr ""
 "EasyGraphics支持绘制所有的基本图形：点、线、圆、椭圆（弧、扇形、弓形）、矩形、多边形、圆角矩形等。如果需要更高级的绘制功能，可以通过 "
-":doc:`Image <../apis/easygraphics.image>` 对象的成员方法get_painter()来获取内部的 "
+"Image 对象的成员方法get_painter()来获取内部的 "
 "`QPainter <http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ "
 "对象，然后直接用它来进行绘制。"
 
