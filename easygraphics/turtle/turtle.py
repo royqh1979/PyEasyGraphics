@@ -9,8 +9,8 @@ __all__ = [
     'left_turn', 'lt', 'right_turn', 'rt', 'left', 'right', 'clear_screen', 'cs', 'gotoxy', 'home',
     'turn_to', 'facing', 'begin_fill', 'end_fill', 'setxy', 'set_heading', 'move_arc',
     'get_y', 'get_x', 'get_heading', 'get_turtle', 'get_turtle_world', 'set_pen_size',
-    'set_immediate', 'set_speed', 'pen_down', 'pen_up', 'pu', 'pd', 'hide', 'show',
-    'Turtle', 'TurtleWorld']
+    'set_immediate', 'set_speed', 'pen_down', 'pen_up', 'pu', 'pd', 'hide', 'show', 'pause',
+    'Turtle', 'TurtleWorld', 'is_run']
 
 _turtle: Turtle = None
 _world: TurtleWorld = None
@@ -315,3 +315,7 @@ def set_immediate(immediate: bool):
 
 
 set_pen_size = eg.set_line_width
+
+pause = eg.pause
+
+is_run = eg.is_run

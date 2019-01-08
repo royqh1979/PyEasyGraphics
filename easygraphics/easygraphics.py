@@ -4,6 +4,7 @@ import time
 import math
 from functools import reduce
 from typing import List, Optional
+import os
 
 from PyQt5 import QtWidgets
 
@@ -2185,3 +2186,4 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
     if not in_shell:
         sys.exit(0)
+        os._exit(0)

@@ -178,6 +178,7 @@ class TurtleWorld(object):
                 break
             self._render()
             self._win.delay_fps(60)
+        self.close()
 
     def get_world_image(self):
         """
@@ -218,7 +219,7 @@ class Turtle(object):
         self._y = 0
         self._heading = self.DEFAULT_ORENTATION
         self._pen_down = True
-        self._speed = 10
+        self._speed = 500
         self._show_turtle = True
         self._icon = self.create_turtle_icon()
         self._last_fps_time = 0

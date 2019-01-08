@@ -2,6 +2,12 @@
 
 History
 =======
+0.9.16
+-------------------
+* redefine pause in turtle
+* redefine is_run in turtle
+* fix: default turtle speed
+
 0.9.15
 -------------------
 * fix package error in setup.py

@@ -208,7 +208,6 @@ class GraphWin(QtWidgets.QWidget):
                 # we don't have to draw this frame, so let's skip it
                 self._frames_to_skip_count = round((nowtime - self._last_fps_time) // nanotime)
                 if max_skip_count <= 0:
-                    print(self._frames_to_skip_count)
                     self._frames_to_skip_count -= 1
                     self._last_fps_time = time.perf_counter_ns()
                     return False
