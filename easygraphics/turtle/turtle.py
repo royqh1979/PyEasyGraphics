@@ -10,7 +10,8 @@ __all__ = [
     'turn_to', 'facing', 'begin_fill', 'end_fill', 'setxy', 'set_heading', 'move_arc', 'move_ellipse',
     'get_y', 'get_x', 'get_heading', 'get_turtle', 'get_turtle_world', 'set_pen_size',
     'set_immediate', 'set_speed', 'pen_down', 'pen_up', 'pu', 'pd', 'hide', 'show', 'pause',
-    'Turtle', 'TurtleWorld', 'is_run']
+    'is_run', 'is_out_of_window',
+    'Turtle', 'TurtleWorld']
 
 _turtle: Turtle = None
 _world: TurtleWorld = None
@@ -338,6 +339,16 @@ def set_speed(speed):
     """
     _check_turtle()
     _turtle.set_speed(speed)
+
+
+def is_out_of_window() -> bool:
+    """
+    Test if the turtle is out of the graphics window.
+
+    :return: True if the turtle is out of the window, False otherwise.
+    """
+    _check_turtle()
+    return _turtle.is_out_of_window()
 
 
 def set_immediate(immediate: bool):

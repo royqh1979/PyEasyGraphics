@@ -660,6 +660,18 @@ class Turtle(object):
         icon = eg.load_image(base_dir + os.path.sep + "turtle.png")
         return icon
 
+    def is_out_of_window(self) -> bool:
+        """
+        Test if the turtle is out of the graphics window.
+
+        :return: True if the turtle is out of the window, False otherwise.
+        """
+        transform = self._world.get_world_image().get_transform()
+        p = QtCore.QPointF(self._x, self._y)
+        p_device = transform.map(p)
+        rect = self._world.get_world_image().get_image().rect()
+        return not rect.contains(round(p_device.x()), round(p_device.y()))
+
     def _refresh(self):
         if not self._world.is_immediate():
             self._delay_fps(self._speed)

@@ -2,6 +2,13 @@
 
 History
 =======
+0.9.17
+-------------------
+easygraphics.turtle:
+
+* add: is_out_of_window() to check if the turtle is out of the graphics window
+
+
 0.9.16
 -------------------
 * redefine pause() in turtle
