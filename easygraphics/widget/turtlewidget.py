@@ -15,7 +15,6 @@ class TurtleWidget(QtWidgets.QWidget):
         self.setFixedWidth(self._image.get_width())
         self.setFixedHeight(self._image.get_height())
         self._world = TurtleWorld(self._image)
-        self._world.set_immediate(False)
         self._turtle = self._world.create_turtle()
         self._is_running = True
         self._last_fps_time = 0
@@ -25,6 +24,10 @@ class TurtleWidget(QtWidgets.QWidget):
         super().closeEvent(e)
 
     def close(self):
+        """
+        Close the widget.
+
+        """
         self._is_running = False
         self._world.close()
         self._image.close()
@@ -37,12 +40,27 @@ class TurtleWidget(QtWidgets.QWidget):
         self._start_refresh_loop()
 
     def is_run(self):
+        """
+        Test if the turtle world is running.
+
+        :return: True if is running, False if not.
+        """
         return self._is_running
 
     def getWorld(self) -> TurtleWorld:
+        """
+        Get the underlying turtle world.
+
+        :return: the turtle world
+        """
         return self._world
 
     def getTurtle(self) -> Turtle:
+        """
+        Get the turtle.
+
+        :return: the turtle
+        """
         return self._turtle
 
     def paintEvent(self, e: QtGui.QPaintEvent):
@@ -79,11 +97,18 @@ class TurtleWidget(QtWidgets.QWidget):
             tt = time.perf_counter_ns()
         self._last_fps_time = tt
 
-    def run(self, f):
+    def run_animated_code(self, f):
         """
         Run turtle code.
 
         :param f: the callable object(function or method) to run
-        """
-        work_thread = threading.Thread(target=f)
+         """
+
+        def nf():
+            self._world._immediate = False
+            f()
+            self._world._immediate = True
+
+        work_thread = threading.Thread(target=nf)
         work_thread.start()
+

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 19:14+0800\n"
+"POT-Creation-Date: 2019-01-10 11:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -369,7 +369,8 @@ msgstr ""
 #: easygraphics.turtle.rt easygraphics.turtle.set_heading
 #: easygraphics.turtle.set_immediate easygraphics.turtle.set_pen_size
 #: easygraphics.turtle.set_speed easygraphics.turtle.setxy
-#: easygraphics.turtle.turn_to of
+#: easygraphics.turtle.turn_to easygraphics.widget.ImageWidget.setImage
+#: easygraphics.widget.TurtleWidget.run_animated_code of
 msgid "Parameters"
 msgstr ""
 
@@ -501,7 +502,9 @@ msgstr ""
 #: easygraphics.turtle.Turtle.create_turtle_icon
 #: easygraphics.turtle.Turtle.get_heading easygraphics.turtle.Turtle.get_icon
 #: easygraphics.turtle.Turtle.get_x easygraphics.turtle.Turtle.get_y
-#: easygraphics.turtle.Turtle.is_filling easygraphics.turtle.Turtle.is_show
+#: easygraphics.turtle.Turtle.is_filling
+#: easygraphics.turtle.Turtle.is_out_of_window
+#: easygraphics.turtle.Turtle.is_show
 #: easygraphics.turtle.TurtleWorld.create_snap_shot
 #: easygraphics.turtle.TurtleWorld.create_turtle
 #: easygraphics.turtle.TurtleWorld.get_height
@@ -511,7 +514,11 @@ msgstr ""
 #: easygraphics.turtle.TurtleWorld.is_on_screen easygraphics.turtle.get_heading
 #: easygraphics.turtle.get_turtle easygraphics.turtle.get_turtle_world
 #: easygraphics.turtle.get_x easygraphics.turtle.get_y
-#: easygraphics.turtle.is_run of
+#: easygraphics.turtle.is_out_of_window easygraphics.turtle.is_run
+#: easygraphics.widget.ImageWidget.getImage
+#: easygraphics.widget.TurtleWidget.getTurtle
+#: easygraphics.widget.TurtleWidget.getWorld
+#: easygraphics.widget.TurtleWidget.is_run of
 msgid "Returns"
 msgstr ""
 
@@ -1608,7 +1615,7 @@ msgstr ""
 msgid "fade out time (in milliseconds)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:2
+#: ../../apis/easygraphics.turtle.rst:2 ../../apis/easygraphics.widget.rst:2
 msgid "easygraphics.turtle module"
 msgstr ""
 
@@ -1972,6 +1979,24 @@ msgstr ""
 msgid "Pause the program and wait for mouse clicking or keyboard hitting."
 msgstr ""
 
+#: easygraphics.turtle.is_run:1 of
+msgid "Test if the graphics system is running."
+msgstr ""
+
+#: easygraphics.turtle.is_run:3 of
+msgid "True if the graphics system is running."
+msgstr ""
+
+#: easygraphics.turtle.Turtle.is_out_of_window:1
+#: easygraphics.turtle.is_out_of_window:1 of
+msgid "Test if the turtle is out of the graphics window."
+msgstr ""
+
+#: easygraphics.turtle.Turtle.is_out_of_window:3
+#: easygraphics.turtle.is_out_of_window:3 of
+msgid "True if the turtle is out of the window, False otherwise."
+msgstr ""
+
 #: easygraphics.turtle.Turtle:1 of
 msgid "The Turtle class."
 msgstr ""
@@ -2049,7 +2074,8 @@ msgstr ""
 msgid "Put the turtle into the world."
 msgstr ""
 
-#: easygraphics.turtle.TurtleWorld.add_turtle:3 of
+#: easygraphics.turtle.TurtleWorld.add_turtle:3
+#: easygraphics.widget.TurtleWidget.getTurtle:3 of
 msgid "the turtle"
 msgstr ""
 
@@ -2143,12 +2169,71 @@ msgstr ""
 msgid "y coordinate value of the target position"
 msgstr ""
 
-#: easygraphics.turtle.is_run:1 of
-msgid "Test if the graphics system is running."
+#: ../../apis/easygraphics.widget.rst:3
+msgid "The qt widget package."
 msgstr ""
 
-#: easygraphics.turtle.is_run:3 of
-msgid "True if the graphics system is running."
+#: ../../apis/easygraphics.widget.rst:5
+msgid ""
+"This package provides two qt widget classes, for embeding easygraphics "
+"image or turtle graphics in qt applications:"
+msgstr ""
+
+#: ../../apis/easygraphics.widget.rst:8
+msgid ""
+"ImageWidget: this class is for embedding easygraphics image in qt "
+"applications. No animation support"
+msgstr ""
+
+#: ../../apis/easygraphics.widget.rst:9
+msgid ""
+"TurtleWidget: this class is for embedding turtle graphics in qt "
+"applications. Can run animation code (using run_animated_code() method)."
+msgstr ""
+
+#: easygraphics.widget.ImageWidget.getImage:1 of
+msgid "Get the underlying image object."
+msgstr ""
+
+#: easygraphics.widget.ImageWidget.getImage:3
+#: easygraphics.widget.ImageWidget.setImage:3 of
+msgid "the underlying image object"
+msgstr ""
+
+#: easygraphics.widget.ImageWidget.setImage:1 of
+msgid "Set the widget's underlying Image object."
+msgstr ""
+
+#: easygraphics.widget.TurtleWidget.close:1 of
+msgid "Close the widget."
+msgstr ""
+
+#: easygraphics.widget.TurtleWidget.getTurtle:1 of
+msgid "Get the turtle."
+msgstr ""
+
+#: easygraphics.widget.TurtleWidget.getWorld:1 of
+msgid "Get the underlying turtle world."
+msgstr ""
+
+#: easygraphics.widget.TurtleWidget.getWorld:3 of
+msgid "the turtle world"
+msgstr ""
+
+#: easygraphics.widget.TurtleWidget.is_run:1 of
+msgid "Test if the turtle world is running."
+msgstr ""
+
+#: easygraphics.widget.TurtleWidget.is_run:3 of
+msgid "True if is running, False if not."
+msgstr ""
+
+#: easygraphics.widget.TurtleWidget.run_animated_code:1 of
+msgid "Run turtle code."
+msgstr ""
+
+#: easygraphics.widget.TurtleWidget.run_animated_code:3 of
+msgid "the callable object(function or method) to run"
 msgstr ""
 
 #~ msgid "easygraphics.graphwin module"
@@ -3804,5 +3889,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "eccentricity of the ellipse"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This package provides two qt widget "
+#~ "classed, for embeding easygraphics image "
+#~ "or turtle graphics in qt applications:"
 #~ msgstr ""
 

@@ -72,7 +72,7 @@ class MyWindow(QWidget):
                 break
 
     def button_clicked(self):
-        self._turtleWidget.run(self.draw)
+        self._turtleWidget.run_animated_code(self.draw)
 
     def draw(self):
         size = self._sb_size.value()

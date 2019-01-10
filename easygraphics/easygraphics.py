@@ -44,7 +44,7 @@ __all__ = [
     'has_kb_msg', 'has_kb_hit', 'has_mouse_msg', 'get_key', 'get_char', 'get_mouse_msg', 'get_cursor_pos', 'get_click',
     "contains_left_button", "contains_right_button", "contains_mid_button",
     # init and close graph window #
-    'init_graph', 'close_graph', 'set_caption', 'get_graphics_window',
+    'init_graph', 'close_graph', 'set_caption', 'get_graphics_window', 'show_image',
     # utility functions #
     'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol',
     # 'GraphWin',
@@ -57,7 +57,6 @@ try:
     import IPython.display
 
     _in_ipython = True
-    __all__.append("show_image")
 except NameError:
     pass
 

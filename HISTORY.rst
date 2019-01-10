@@ -2,6 +2,10 @@
 
 History
 =======
+0.9.19
+-------------------
+* change to BSD License
+
 0.9.18
 -------------------
 * add ImageWidget and TurtleWidget classes, to embed easygraphics in Qt Applications

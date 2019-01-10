@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 19:14+0800\n"
+"POT-Creation-Date: 2019-01-10 11:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -371,7 +371,8 @@ msgstr "函数"
 #: easygraphics.turtle.rt easygraphics.turtle.set_heading
 #: easygraphics.turtle.set_immediate easygraphics.turtle.set_pen_size
 #: easygraphics.turtle.set_speed easygraphics.turtle.setxy
-#: easygraphics.turtle.turn_to of
+#: easygraphics.turtle.turn_to easygraphics.widget.ImageWidget.setImage
+#: easygraphics.widget.TurtleWidget.run_animated_code of
 msgid "Parameters"
 msgstr "参数"
 
@@ -506,7 +507,9 @@ msgstr "包含待选择项名称的列表。"
 #: easygraphics.turtle.Turtle.create_turtle_icon
 #: easygraphics.turtle.Turtle.get_heading easygraphics.turtle.Turtle.get_icon
 #: easygraphics.turtle.Turtle.get_x easygraphics.turtle.Turtle.get_y
-#: easygraphics.turtle.Turtle.is_filling easygraphics.turtle.Turtle.is_show
+#: easygraphics.turtle.Turtle.is_filling
+#: easygraphics.turtle.Turtle.is_out_of_window
+#: easygraphics.turtle.Turtle.is_show
 #: easygraphics.turtle.TurtleWorld.create_snap_shot
 #: easygraphics.turtle.TurtleWorld.create_turtle
 #: easygraphics.turtle.TurtleWorld.get_height
@@ -516,7 +519,11 @@ msgstr "包含待选择项名称的列表。"
 #: easygraphics.turtle.TurtleWorld.is_on_screen easygraphics.turtle.get_heading
 #: easygraphics.turtle.get_turtle easygraphics.turtle.get_turtle_world
 #: easygraphics.turtle.get_x easygraphics.turtle.get_y
-#: easygraphics.turtle.is_run of
+#: easygraphics.turtle.is_out_of_window easygraphics.turtle.is_run
+#: easygraphics.widget.ImageWidget.getImage
+#: easygraphics.widget.TurtleWidget.getTurtle
+#: easygraphics.widget.TurtleWidget.getWorld
+#: easygraphics.widget.TurtleWidget.is_run of
 msgid "Returns"
 msgstr "返回值"
 
@@ -1615,7 +1622,7 @@ msgstr "播放的音量"
 msgid "fade out time (in milliseconds)"
 msgstr "淡出时间(单位为毫秒)"
 
-#: ../../apis/easygraphics.turtle.rst:2
+#: ../../apis/easygraphics.turtle.rst:2 ../../apis/easygraphics.widget.rst:2
 msgid "easygraphics.turtle module"
 msgstr "easygraphics.turtle模块"
 
@@ -1826,9 +1833,7 @@ msgid ""
 "perpendicular to the turtle's orientation, it can be postive or "
 "negtive;\"radius_top\" is the radius of the ellipse on the direction "
 "parallel to the turtle's orientation, it must be postive."
-msgstr ""
-"参数“radius_left”是椭圆沿垂直于海龟朝向方向上的轴的半径，可以是正也可以是负；"
-"参数“radius_top”是椭圆沿平行于海龟朝向方向上的轴的半径，必须是正."
+msgstr "参数“radius_left”是椭圆沿垂直于海龟朝向方向上的轴的半径，可以是正也可以是负；参数“radius_top”是椭圆沿平行于海龟朝向方向上的轴的半径，必须是正."
 
 #: easygraphics.turtle.Turtle.move_ellipse:7 easygraphics.turtle.move_ellipse:7
 #: of
@@ -1837,8 +1842,8 @@ msgid ""
 "radius_left > 0, the center is on the left of the turtle; if radius_left "
 "< 0, the center is on the right of the turtle."
 msgstr ""
-"椭圆圆心在海龟左侧“radius_left”个单位远。也就是说，如果radius_left > 0, 椭圆中心在海龟左侧；如果"
-"radius_left < 0, 椭圆中心在海龟右侧。"
+"椭圆圆心在海龟左侧“radius_left”个单位远。也就是说，如果radius_left > 0, "
+"椭圆中心在海龟左侧；如果radius_left < 0, 椭圆中心在海龟右侧。"
 
 #: easygraphics.turtle.Turtle.move_ellipse:13
 #: easygraphics.turtle.move_ellipse:13 of
@@ -1983,6 +1988,24 @@ msgstr "显示海龟。"
 msgid "Pause the program and wait for mouse clicking or keyboard hitting."
 msgstr ""
 
+#: easygraphics.turtle.is_run:1 of
+msgid "Test if the graphics system is running."
+msgstr "检查图形系统是否在运行。"
+
+#: easygraphics.turtle.is_run:3 of
+msgid "True if the graphics system is running."
+msgstr "True表示图形系统正在运行"
+
+#: easygraphics.turtle.Turtle.is_out_of_window:1
+#: easygraphics.turtle.is_out_of_window:1 of
+msgid "Test if the turtle is out of the graphics window."
+msgstr "检查海龟是否到图形窗口外。"
+
+#: easygraphics.turtle.Turtle.is_out_of_window:3
+#: easygraphics.turtle.is_out_of_window:3 of
+msgid "True if the turtle is out of the window, False otherwise."
+msgstr "True表示在图形窗口中；False表示不在。"
+
 #: easygraphics.turtle.Turtle:1 of
 msgid "The Turtle class."
 msgstr "海龟类。"
@@ -2060,7 +2083,8 @@ msgstr "注意，在缺省的海龟世界中，我们使用标准的平面直角
 msgid "Put the turtle into the world."
 msgstr "将海龟放到世界中。"
 
-#: easygraphics.turtle.TurtleWorld.add_turtle:3 of
+#: easygraphics.turtle.TurtleWorld.add_turtle:3
+#: easygraphics.widget.TurtleWidget.getTurtle:3 of
 msgid "the turtle"
 msgstr "要放入的海龟"
 
@@ -2154,13 +2178,73 @@ msgstr "目标位置的x坐标"
 msgid "y coordinate value of the target position"
 msgstr "目标位置的y坐标"
 
-#: easygraphics.turtle.is_run:1 of
-msgid "Test if the graphics system is running."
-msgstr "检查图形系统是否在运行。"
+#: ../../apis/easygraphics.widget.rst:3
+msgid "The qt widget package."
+msgstr "Qt视窗组件(Widgets)包"
 
-#: easygraphics.turtle.is_run:3 of
-msgid "True if the graphics system is running."
-msgstr "True表示图形系统正在运行"
+#: ../../apis/easygraphics.widget.rst:5
+msgid ""
+"This package provides two qt widget classes, for embeding easygraphics "
+"image or turtle graphics in qt applications:"
+msgstr "本包提供了两个Qt组件类，用于将easygraphics绘图和海龟作图嵌入到Qt程序中。"
+
+#: ../../apis/easygraphics.widget.rst:8
+msgid ""
+"ImageWidget: this class is for embedding easygraphics image in qt "
+"applications. No animation support"
+msgstr "ImageWidget: 此类用于将easygraphics绘图嵌入到Qt程序中。不支持动画。"
+
+#: ../../apis/easygraphics.widget.rst:9
+msgid ""
+"TurtleWidget: this class is for embedding turtle graphics in qt "
+"applications. Can run animation code (using run_animated_code() method)."
+msgstr "TurtleWidget: 此类用于将海龟作图嵌入到qt应用程序中。可以运行动画代码（通过run_animated_code方法）。"
+
+#: easygraphics.widget.ImageWidget.getImage:1 of
+msgid "Get the underlying image object."
+msgstr "获取easygraphics图片对象。"
+
+#: easygraphics.widget.ImageWidget.getImage:3
+#: easygraphics.widget.ImageWidget.setImage:3 of
+msgid "the underlying image object"
+msgstr "图片对象"
+
+#: easygraphics.widget.ImageWidget.setImage:1 of
+msgid "Set the widget's underlying Image object."
+msgstr "设置图片对象"
+
+#: easygraphics.widget.TurtleWidget.close:1 of
+msgid "Close the widget."
+msgstr "关闭视窗组件"
+
+#: easygraphics.widget.TurtleWidget.getTurtle:1 of
+msgid "Get the turtle."
+msgstr "获取海龟。"
+
+#: easygraphics.widget.TurtleWidget.getWorld:1 of
+msgid "Get the underlying turtle world."
+msgstr "获取当前的海龟世界。"
+
+#: easygraphics.widget.TurtleWidget.getWorld:3 of
+msgid "the turtle world"
+msgstr "当前海龟世界"
+
+#: easygraphics.widget.TurtleWidget.is_run:1 of
+msgid "Test if the turtle world is running."
+msgstr "检查海龟世界是否在运行。"
+
+#: easygraphics.widget.TurtleWidget.is_run:3 of
+msgid "True if is running, False if not."
+msgstr "如果在运行，返回True；否则返回False"
+
+#: easygraphics.widget.TurtleWidget.run_animated_code:1 of
+
+msgid "Run turtle code."
+msgstr "当前海龟（动画）代码"
+
+#: easygraphics.widget.TurtleWidget.run_animated_code:3 of
+msgid "the callable object(function or method) to run"
+msgstr "要运行的函数或者方法"
 
 #~ msgid ""
 #~ "Note: Degree 0,90,180 and 270 are "

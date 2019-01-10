@@ -10,6 +10,7 @@ Subpackages
     apis/easygraphics.legacy
     apis/easygraphics.music
     apis/easygraphics.turtle
+    apis/easygraphics.widget
 
 Package Summary
 ---------------
@@ -43,8 +44,8 @@ Drawing Settings
     get_line_width
     get_width
     get_write_mode
-    get_x
-    get_y
+    get_drawing_x
+    get_drawing_y
     reset_view_port
     reset_window
     restore_settings

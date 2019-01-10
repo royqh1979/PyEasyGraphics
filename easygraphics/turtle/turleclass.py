@@ -148,6 +148,8 @@ class TurtleWorld(object):
 
         :param immediate: True to turn off animation (the move finishes immediately). False to turn on.
         """
+        if self._win is None:
+            raise RuntimeError("We can't set immediate if not in graphics window!")
         self._immediate = immediate
 
     def get_width(self) -> float:
