@@ -2,6 +2,10 @@
 
 History
 =======
+0.9.20
+-------------------
+* fix: successive dialog calls may crash program.
+
 0.9.19.2
 -------------------
 * fix: license description in readme

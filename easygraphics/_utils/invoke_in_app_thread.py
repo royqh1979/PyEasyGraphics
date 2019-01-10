@@ -81,6 +81,8 @@ def destroy_invoke_in_app():
 
 def __app_thread_func():
     global _app
+    while _app is not None:
+        time.sleep(1)
     _app = QtWidgets.QApplication([])
     font = _app.font()
     font.setPixelSize(_font_size)
@@ -91,6 +93,7 @@ def __app_thread_func():
     _start_event.set()
     _app.exec_()
     destroy_invoke_in_app()
+    _app = None
 
 
 def _start_app_thread():
