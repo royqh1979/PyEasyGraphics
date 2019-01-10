@@ -48,7 +48,7 @@ __all__ = [
     # utility functions #
     'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol',
     # 'GraphWin',
-    'Image',
+    'Image'
 ]
 
 _in_ipython = False
@@ -1666,11 +1666,7 @@ def create_image(width, height) -> Image:
     :param height: height of the new image
     :return: the created image
     """
-    qimage = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
-    qimage.fill(Color.WHITE)
-    image = Image(qimage)
-    _created_images.append(image)
-    return image
+    return Image.create(width, height)
 
 
 def close_image(image: Image):
@@ -1689,8 +1685,7 @@ def load_image(filename: str) -> Image:
     :param filename: the image file
     :return: the loaded image
     """
-    image = QtGui.QImage(filename)
-    return Image(image)
+    return Image.create_from_file(filename)
 
 
 def save_image(filename: str, with_background=True, image: Image = None):

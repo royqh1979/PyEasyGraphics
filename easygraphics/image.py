@@ -1,5 +1,5 @@
 from collections import deque
-from typing import List, Union
+from typing import List, Union, Callable
 import math
 
 from PyQt5 import QtGui, QtCore
@@ -57,6 +57,7 @@ class Image:
         self._mask_painter = QtGui.QPainter()
         self._init_painter()
         self._init_mask_painter()
+        self._updated_listeners = []
 
     def _init_painter(self):
         p = self._painter
@@ -228,6 +229,7 @@ class Image:
         self._painter.setCompositionMode(CompositionMode.SOURCE_OVER)
         self._painter.drawImage(0, 0, foreground)
         self._painter.restore()
+        self._updated()
 
     def get_line_style(self):
         """
@@ -520,6 +522,7 @@ class Image:
         p.fillRect(1, 1, p.window().width() - 1, p.window().height() - 1, self._background_color)
         p.setCompositionMode(mode)
         self._mask_painter.fillRect(1, 1, p.window().width() - 1, p.window().height() - 1, MASK_WHITE)
+        self._updated()
 
     def set_composition_mode(self, mode):
         """
@@ -647,6 +650,7 @@ class Image:
         point = QtCore.QPointF(x, y)
         p.drawPoint(point)
         self._mask_painter.drawPoint(point)
+        self._updated()
 
     def _no_pen(self):
         return self._painter.pen().style() == LineStyle.NO_PEN
@@ -668,6 +672,7 @@ class Image:
         p2 = QtCore.QPointF(x2, y2)
         p.drawLine(p1, p2)
         self._mask_painter.drawLine(p1, p2)
+        self._updated()
 
     line = draw_line
 
@@ -686,6 +691,7 @@ class Image:
         p1 = QtCore.QPointF(x, y)
         p.drawEllipse(p1, radius_x, radius_y)
         self._mask_painter.drawEllipse(p1, radius_x, radius_y)
+        self._updated()
 
     def draw_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
@@ -701,6 +707,7 @@ class Image:
         p = self._prepare_painter_for_draw()
         p.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
         self._mask_painter.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
+        self._updated()
 
     def fill_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
@@ -716,6 +723,7 @@ class Image:
         p = self._prepare_painter_for_fill()
         p.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
         self._mask_painter.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
+        self._updated()
 
     def draw_arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -739,6 +747,7 @@ class Image:
         al = angle_len * 16
         p.drawArc(rect, s, al)
         self._mask_painter.drawArc(rect, s, al)
+        self._updated()
 
     arc = draw_arc
 
@@ -766,6 +775,7 @@ class Image:
         al = angle_len * 16
         p.drawPie(rect, s, al)
         self._mask_painter.drawPie(rect, s, al)
+        self._updated()
 
     def draw_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -791,6 +801,7 @@ class Image:
         al = angle_len * 16
         p.drawPie(rect, s, al)
         self._mask_painter.drawPie(rect, s, al)
+        self._updated()
 
     def fill_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -816,6 +827,7 @@ class Image:
         al = angle_len * 16
         p.drawPie(rect, s, al)
         self._mask_painter.drawPie(rect, s, al)
+        self._updated()
 
     def chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -841,6 +853,7 @@ class Image:
         al = angle_len * 16
         p.drawChord(rect, s, al)
         self._mask_painter.drawChord(rect, s, al)
+        self._updated()
 
     def draw_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -866,6 +879,7 @@ class Image:
         al = angle_len * 16
         p.drawChord(rect, s, al)
         self._mask_painter.drawChord(rect, s, al)
+        self._updated()
 
     def fill_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
         """
@@ -891,6 +905,7 @@ class Image:
         al = angle_len * 16
         p.drawChord(rect, s, al)
         self._mask_painter.drawChord(rect, s, al)
+        self._updated()
 
     def draw_bezier(self, control_points: list):
         """
@@ -911,6 +926,7 @@ class Image:
         p = self._prepare_painter_for_draw_outline()
         p.drawPath(path)
         self._mask_painter.drawPath(path)
+        self._updated()
 
     bezier = draw_bezier
 
@@ -936,6 +952,7 @@ class Image:
         p = self._prepare_painter_for_draw_outline()
         p.drawLines(qlines)
         self._mask_painter.drawLines(qlines)
+        self._updated()
 
     lines = draw_lines
 
@@ -956,6 +973,7 @@ class Image:
         p = self._prepare_painter_for_draw_outline()
         p.drawPolyline(*qpoints)
         self._mask_painter.drawPolyline(*qpoints)
+        self._updated()
 
     poly_line = draw_poly_line
 
@@ -992,6 +1010,7 @@ class Image:
         p = self._prepare_painter_for_draw_outline()
         p.drawPolygon(polygon, self._fill_rule)
         self._mask_painter.drawPolygon(polygon, self._fill_rule)
+        self._updated()
 
     def draw_polygon(self, vertices: List[float]):
         """
@@ -1011,6 +1030,7 @@ class Image:
         p = self._prepare_painter_for_draw()
         p.drawPolygon(polygon, self._fill_rule)
         self._mask_painter.drawPolygon(polygon, self._fill_rule)
+        self._updated()
 
     def _convert_to_qpolygon(self, vertices):
         qpoints = self._convert_to_qpoints(vertices)
@@ -1035,6 +1055,7 @@ class Image:
         p = self._prepare_painter_for_fill()
         p.drawPolygon(polygon, self._fill_rule)
         self._mask_painter.drawPolygon(polygon, self._fill_rule)
+        self._updated()
 
     def path(self, path: QtGui.QPainterPath):
         """
@@ -1045,6 +1066,7 @@ class Image:
         p = self._prepare_painter_for_draw_outline()
         p.drawPath(path)
         self._mask_painter.drawPath(path)
+        self._updated()
 
     def draw_path(self, path: QtGui.QPainterPath):
         """
@@ -1055,6 +1077,7 @@ class Image:
         p = self._prepare_painter_for_draw()
         p.drawPath(path)
         self._mask_painter.drawPath(path)
+        self._updated()
 
     def fill_path(self, path: QtGui.QPainterPath):
         """
@@ -1066,6 +1089,7 @@ class Image:
         self._prepare_painter_for_fill()
         p.fillPath(path, p.brush())
         self._mask_painter.fillPath(path, self._mask_painter.brush())
+        self._updated()
 
     def rect(self, left: float, top: float, right: float, bottom: float):
         """
@@ -1081,6 +1105,7 @@ class Image:
         p = self._prepare_painter_for_draw_outline()
         p.drawRect(left, top, right - left, bottom - top)
         self._mask_painter.drawRect(left, top, right - left, bottom - top)
+        self._updated()
 
     def draw_rect(self, left: float, top: float, right: float, bottom: float):
         """
@@ -1096,6 +1121,7 @@ class Image:
         p = self._prepare_painter_for_draw()
         p.drawRect(left, top, right - left, bottom - top)
         self._mask_painter.drawRect(left, top, right - left, bottom - top)
+        self._updated()
 
     def fill_rect(self, left: float, top: float, right: float, bottom: float):
         """
@@ -1111,6 +1137,7 @@ class Image:
         p = self._prepare_painter_for_fill()
         p.drawRect(left, top, right - left, bottom - top)
         self._mask_painter.drawRect(left, top, right - left, bottom - top)
+        self._updated()
 
     def rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         """
@@ -1130,6 +1157,7 @@ class Image:
         p = self._prepare_painter_for_draw_outline()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
         self._mask_painter.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
+        self._updated()
 
     def draw_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         """
@@ -1148,6 +1176,7 @@ class Image:
         p = self._prepare_painter_for_draw()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
         self._mask_painter.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
+        self._updated()
 
     def fill_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         """
@@ -1166,6 +1195,7 @@ class Image:
         p = self._prepare_painter_for_fill()
         p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
         self._mask_painter.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
+        self._updated()
 
     def clear(self):
         """
@@ -1173,6 +1203,7 @@ class Image:
         """
         self._image.fill(self._background_color)
         self._mask.fill(MASK_WHITE)
+        self._updated()
 
     def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = -1,
                    src_height: int = -1, with_background=True, composition_mode=None):
@@ -1213,6 +1244,7 @@ class Image:
         self._mask_painter.fillRect(x, y, src_width, src_height, QtCore.Qt.color0)
         if composition_mode is not None:
             p.setCompositionMode(old_mode)
+        self._updated()
 
     def get_mask(self) -> QtGui.QImage:
         """
@@ -1232,6 +1264,7 @@ class Image:
         p.begin(device)
         p.drawImage(0, 0, self._image)
         p.end()
+
 
     def flood_fill(self, x: int, y: int, border_color):
         """
@@ -1275,6 +1308,7 @@ class Image:
             queue.append((x - 1, y))
             queue.append((x, y + 1))
             queue.append((x, y - 1))
+        self._updated()
 
     def get_pixel(self, x: int, y: int) -> QtGui.QColor:
         """
@@ -1297,6 +1331,7 @@ class Image:
         qcolor = _to_qcolor(color)
         self._image.setPixel(x, y, qcolor.rgba())
         self._mask.setPixel(x, y, MASK_BLACK.rgba())
+        self._updated()
 
     def draw_text(self, x: int, y: int, *args, sep=' '):
         """
@@ -1321,6 +1356,7 @@ class Image:
         else:
             p.drawText(x, y, msg)
             self._mask_painter.drawText(x, y, msg)
+        self._updated()
 
     def draw_rect_text(self, x: int, y: int, width: int, height: int, flags=QtCore.Qt.AlignCenter, *args, sep=' '):
         """
@@ -1350,6 +1386,7 @@ class Image:
         else:
             p.drawText(x, y, width, height, flags, msg)
             self._mask_painter.drawText(x, y, width, height, flags, msg)
+        self._updated()
 
     def set_font(self, font: QtGui.QFont):
         """
@@ -1412,6 +1449,7 @@ class Image:
         """
         self._painter.end()
         self._mask_painter.end()
+        self._updated_listeners.clear()
 
     def get_painter(self) -> QtGui.QPainter:
         """
@@ -1477,6 +1515,26 @@ class Image:
         buffer.close()
         return ba.data()
 
+    def _updated(self):
+        for listener in self._updated_listeners:
+            listener()
+
+    def add_updated_listener(self, listener: Callable[[], None]):
+        """
+        Add a listener for updated event.
+
+        :param listener: the listener to add
+        """
+        self._updated_listeners.append(listener)
+
+    def remove_updated_listener(self, listener: Callable[[], None]):
+        """
+        Remove a updated event listener.
+
+        :param listener: the listener to remove
+        """
+        self._updated_listeners.remove(listener)
+
     if _in_ipython:
         def display_in_ipython(self):
             image = self.to_bytearray(True)
@@ -1484,6 +1542,31 @@ class Image:
 
     def __del__(self):
         self.close()
+
+    @staticmethod
+    def create(width: int, height: int) -> "Image":
+        """
+        Create a new image.
+
+        :param width: width of the new image
+        :param height: height of the new image
+        :return: the created image
+        """
+        qimage = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
+        qimage.fill(Color.WHITE)
+        image = Image(qimage)
+        return image
+
+    @staticmethod
+    def create_from_file(filename: str) -> "Image":
+        """
+        Load a image from the file.
+
+        :param filename: the image file
+        :return: the loaded image
+        """
+        image = QtGui.QImage(filename)
+        return Image(image)
 
 
 def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:

@@ -2,6 +2,10 @@
 
 History
 =======
+0.9.18
+-------------------
+* add ImageWidget and TurtleWidget classes, to embed easygraphics in Qt Applications
+
 0.9.17
 -------------------
 easygraphics.turtle:
