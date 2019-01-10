@@ -2,9 +2,13 @@
 
 History
 =======
+0.9.19.1
+-------------------
+* fix: license description in setup.py
+
 0.9.19
 -------------------
-* change to BSD License
+* change to MIT License
 
 0.9.18
 -------------------
