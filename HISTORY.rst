@@ -2,6 +2,10 @@
 
 History
 =======
+0.9.19.2
+-------------------
+* fix: license description in readme
+
 0.9.19.1
 -------------------
 * fix: license description in setup.py
