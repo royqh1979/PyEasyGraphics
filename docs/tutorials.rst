@@ -1,37 +1,64 @@
 Tutorials
 ====================
 
+Graphics
+------------
 .. toctree::
+    :max-depth: 1
 
-    tutorials/01_first_window
+    tutorials/001_first_window
 
-    tutorials/02_first_drawing
+    tutorials/002_first_drawing
 
-    tutorials/03_colors
+    tutorials/003_colors
 
-    tutorials/04_shapes
+    tutorials/004_shapes
 
-    tutorials/05_line_styles
+    tutorials/005_line_styles
 
-    tutorials/06_line_to
+    tutorials/006_line_to
 
-    tutorials/07_texts
+    tutorials/007_texts
 
-    tutorials/08_view_port
+    tutorials/008_view_port
 
-    tutorials/09_transforms
+    tutorials/009_transforms
 
-    tutorials/10_composition_mode
+    tutorials/100_composition_mode
 
-    tutorials/11_image
+    tutorials/011_image
 
-    tutorials/12_animation
+    tutorials/012_animation
 
-    tutorials/13_mouse_and_keyboard
+    tutorials/013_mouse_and_keyboard
 
-    tutorials/14_dialogs
+Turtle Graphics
+---------------
+.. toctree::
+    :max-depth: 1
 
-    tutorials/15_music
+    tutorials/101_turtle
+
+Dialogs
+--------------
+.. toctree::
+    :max-depth: 1
+
+    tutorials/201_dialogs
+
+Widgets
+--------------
+.. toctree::
+    :max-depth: 1
+
+    tutorials/301_widgets
+
+Miscs
+--------------
+.. toctree::
+    :max-depth: 1
+
+    tutorials/901_music
 
 
 

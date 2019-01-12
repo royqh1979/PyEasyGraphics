@@ -15,6 +15,10 @@ Contents:
    naming
    contributing
    authors
+
+.. toctree::
+   :maxdepth: 1
+
    history
 
 Indices and tables

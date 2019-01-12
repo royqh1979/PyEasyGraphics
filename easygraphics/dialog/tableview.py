@@ -1,14 +1,65 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
-from typing import List
+from typing import List, Union
+import inspect
 
 
-class TableViewModel(QtCore.QAbstractTableModel):
+class ListTableViewModel(QtCore.QAbstractTableModel):
+    def __init__(self, *args, column_names: List[str] = None):
+        super().__init__()
+        # check we have valid data lists
+        if len(args) < 1:
+            raise RuntimeError("No data list provided!")
+        for lst in args:
+            if not hasattr(lst, '__getitem__'):
+                raise RuntimeError("must provide list-like objects to display!")
+        self._datas = args
+        if column_names is None:
+            self._column_names = []
+            f_back = inspect.currentframe().f_back
+            for i in range(len(args)):
+                self._column_names.append("list_" + str(i))
+        else:
+            if len(column_names) != len(args):
+                raise RuntimeError("field names must have the same length with data lists!")
+            self._column_names = column_names
+
+    def rowCount(self, parent=None, *args, **kwargs):
+        return len(self._datas[0])
+
+    def columnCount(self, parent=None, *args, **kwargs):
+        return len(self._column_names)
+
+    def data(self, index: QtCore.QModelIndex, role=None):
+        if not index.isValid():
+            return QtCore.QVariant()
+        if role == QtCore.Qt.TextAlignmentRole:
+            return QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        elif role == QtCore.Qt.DisplayRole:
+            lst = self._datas[index.column()]
+            if len(lst) <= index.row():
+                return QtCore.QVariant()
+            return lst[index.row()]
+        return QtCore.QVariant()
+
+    def headerData(self, section: int, orientation, role=None):
+        if role == QtCore.Qt.TextAlignmentRole:
+            return QtCore.Qt.AlignCenter
+        elif role == QtCore.Qt.DisplayRole:
+            if orientation == QtCore.Qt.Horizontal:
+                return self._column_names[section]
+            else:
+                return section + 1
+        return QtCore.QVariant()
+
+
+class ObjectTableViewModel(QtCore.QAbstractTableModel):
     def __init__(self, datas: List, fields: List[str], field_names: List[str] = None):
+        super().__init__()
         self._datas = datas
 
-        if fields == None:
+        if fields is None:
             if len(datas) > 0:
                 fields = list(filter(lambda x: not x.startswith("_"), dir(datas[0])))
             else:
@@ -18,7 +69,7 @@ class TableViewModel(QtCore.QAbstractTableModel):
             self._field_names = fields
         else:
             self._field_names = field_names
-        super().__init__()
+
 
     def rowCount(self, parent=None, *args, **kwargs):
         return len(self._datas)
@@ -60,20 +111,19 @@ class TableViewModel(QtCore.QAbstractTableModel):
 
 
 class TableViewDialog(QtWidgets.QDialog):
-    def __init__(self, datas: List, fields: List[str] = None, field_names: List[str] = None, title="Demo"):
+    def __init__(self, model: Union[ObjectTableViewModel, ListTableViewModel], title="Demo"):
         super().__init__(None,
                          QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint | QtCore.Qt.WindowCloseButtonHint)
-
         self.setWindowTitle(title)
 
         # set up a special case for quick demo
 
         layout = QtWidgets.QVBoxLayout()
-
-        self._model = TableViewModel(datas, fields, field_names)
+        self._model = model
         self._table_view = QtWidgets.QTableView()
         self._table_view.setModel(self._model)
-        self._table_view.setSortingEnabled(True)
+        if isinstance(model, ObjectTableViewModel):
+            self._table_view.setSortingEnabled(True)
         self._table_view.setAlternatingRowColors(True)
         self._table_view.setStyleSheet("QTableView {"
                                        "color: black;"

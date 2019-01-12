@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 19:09+0800\n"
+"POT-Creation-Date: 2019-01-12 08:10+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -452,7 +452,6 @@ msgid "Advanced Drawing"
 msgstr "高级绘图"
 
 #: ../../tutorials/04_shapes.rst:200
-
 msgid ""
 "EasyGraphics supports drawing all the basic shape: point, line, circle, "
 "ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
@@ -462,9 +461,8 @@ msgid ""
 "draw."
 msgstr ""
 "EasyGraphics支持绘制所有的基本图形：点、线、圆、椭圆（弧、扇形、弓形）、矩形、多边形、圆角矩形等。如果需要更高级的绘制功能，可以通过 "
-"Image 对象的成员方法get_painter()来获取内部的 "
-"`QPainter <http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ "
-"对象，然后直接用它来进行绘制。"
+"Image 对象的成员方法get_painter()来获取内部的 `QPainter "
+"<http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ 对象，然后直接用它来进行绘制。"
 
 #: ../../tutorials/05_line_styles.rst:2
 msgid "Line Styles"
@@ -1954,228 +1952,254 @@ msgstr "Easygraphics提供了许多预定义的对话框函数，来与用户进
 msgid "Output Dialogs"
 msgstr "输出对话框"
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+msgid ""
+":obj:`show_html <easygraphics.dialog.show_html>`\\ \\(title\\, text\\, "
+"width\\, height\\)"
+msgstr ""
+
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+msgid "Displays some html text in a window."
+msgstr "在窗口中显示一大段html代码。"
+
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_image_dialog <easygraphics.dialog.show_image_dialog>`\\ "
 "\\(image\\, title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid "Display the image in a dialog."
 msgstr "在窗口中显示图片。"
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+msgid ""
+":obj:`show_lists_table <easygraphics.dialog.show_lists_table>`\\ "
+"\\(\\*args\\, column\\_names\\, title\\, ...\\)"
+msgstr ""
+
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+msgid "Displays list of datas in a table"
+msgstr "以表格形式显示多个列表。"
+
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid "Simple message box."
 msgstr "显示一个简单消息框。"
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+msgid ""
+":obj:`show_objects <easygraphics.dialog.show_objects>`\\ \\(objects\\, "
+"fields\\, field\\_names\\, ...\\)"
+msgstr ""
+
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+msgid "Displays list of objects in a table"
+msgstr "以表格形式显示一组对象。"
+
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(title\\, text\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid "Displays some text in a window."
 msgstr "在窗口中显示一大段文字。"
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid ""
-":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\, "
+":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(objects\\, "
 "fields\\, field\\_names\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
-msgid "Displays list of objects in a table"
-msgstr "以表格形式显示一组对象。"
-
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(title\\, code\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid "Displays some text in a window, in a monospace font."
 msgstr "在窗口中显示代码。"
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
 "title\\, file\\_type\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:17:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
 msgid "Displays a file in a window."
 msgstr "在窗口中显示文件内容。"
 
-#: ../../tutorials/14_dialogs.rst:19
+#: ../../tutorials/14_dialogs.rst:22
 msgid "Input Dialogs"
 msgstr "输入对话框"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(message\\, "
 "title\\, choices\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Simple dialog to ask a user to select an item within a drop-down list"
 msgstr "显示一个对话框，让用户从下拉列表中选择一项"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Display a color picker and return the selected color"
 msgstr "显示一个色彩选择对话框，返回用户选择的颜色"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_continue_or_cancel "
 "<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\, title\\, "
 "...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Continue or cancel question, shown as a warning (i.e."
 msgstr "选择继续或者取消"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Calendar widget"
 msgstr "选择日期"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_directory_name <easygraphics.dialog.get_directory_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Gets the name (full path) of an existing directory"
 msgstr "选择一个目录"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Gets the names (full path) of existing files"
 msgstr "选择文件"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(message\\, title\\,"
 " default\\_value\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 "Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
 msgstr "显示一个对话框，让用户在指定范围和精度下选择一个浮点数。"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(message\\, title\\, "
 "default\\_value\\, min\\_\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Simple dialog to ask a user to select an integer within a certain range."
 msgstr "显示一个对话框，让用户在指定范围内选择一个整数。"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_list_of_choices <easygraphics.dialog.get_list_of_choices>`\\ "
 "\\(title\\, choices\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Show a list of possible choices to be selected."
 msgstr "显示一个列表让用户选择（可复选）"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\ "
 "\\(title\\, labels\\, masks\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Multiple strings input"
 msgstr "同时输入多个字符串"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\ "
 "\\(title\\, labels\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Change password input box."
 msgstr "修改密码对话框"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Simple password input box."
 msgstr "输入密码对话框。"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Gets the name (full path) of of a file to be saved."
 msgstr "打开文件以保存对话框。"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(message\\, "
 "title\\, default\\_response\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Simple text input box."
 msgstr "简单的文本输入对话框。"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_username_password "
 "<easygraphics.dialog.get_username_password>`\\ \\(title\\, labels\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "User name and password input box."
 msgstr "获取用户名和密码。"
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ \\(question\\,"
 " title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:41:<autosummary>:1
+#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
 msgid "Simple yes or no question."
 msgstr "让用户选择yes或no。"
 
-#: ../../tutorials/14_dialogs.rst:42
+#: ../../tutorials/14_dialogs.rst:45
 msgid ""
 "In the following program, click the graphics window to open a color "
 "dialog, select a color and set it as the background."
@@ -2431,4 +2455,9 @@ msgstr ""
 
 #~ msgid "So by default, a positive turning angle means turn clockwise."
 #~ msgstr "所以在缺省的情况下，一个正的转角表示顺时针旋转。"
+
+#~ msgid ""
+#~ ":obj:`show_table <easygraphics.dialog.show_table>`\\ "
+#~ "\\(datas\\, fields\\, field\\_names\\, ...\\)"
+#~ msgstr ""
 

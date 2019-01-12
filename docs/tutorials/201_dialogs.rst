@@ -8,8 +8,11 @@ Output Dialogs
 
 .. autosummary::
 
+    show_html
     show_image_dialog
+    show_lists_table
     show_message
+    show_objects
     show_text
     show_table
     show_code

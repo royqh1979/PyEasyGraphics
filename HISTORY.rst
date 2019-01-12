@@ -1,36 +1,40 @@
 .. :changelog:
 
 History
-=======
+===========
+0.9.21
+-------------
+* add: show_lists_table() to display data lists in table
+
 0.9.20
--------------------
+-------------
 * fix: successive dialog calls may crash program.
 
 0.9.19.2
--------------------
+-------------
 * fix: license description in readme
 
 0.9.19.1
--------------------
+-------------
 * fix: license description in setup.py
 
 0.9.19
--------------------
+-------------
 * change to MIT License
 
 0.9.18
--------------------
+-------------
 * add ImageWidget and TurtleWidget classes, to embed easygraphics in Qt Applications
 
 0.9.17
--------------------
+-------------
 easygraphics.turtle:
 
 * add: is_out_of_window() to check if the turtle is out of the graphics window
 
 
 0.9.16
--------------------
+-------------
 * redefine pause() in turtle
 * redefine is_run() in turtle
 * fix: default turtle speed
@@ -38,16 +42,16 @@ easygraphics.turtle:
 * add: move_ellipse() function in easygraphics.turtle package
 
 0.9.15
--------------------
+-------------
 * fix package error in setup.py
 * change turtle's default speed to 10
 
 0.9.14
--------------------
+-------------
 * add: move_arc() function to move turtle in arc
 
 0.9.13
--------------------
+-------------
 * add:  set_fill_rule() / get_fill_rule() function, to control how the polygons
   are filled.
 * add:  FillRule consts
@@ -55,38 +59,38 @@ easygraphics.turtle:
 * fix: filling glitches in end_fill()
 
 0.9.12
--------------------
+-------------
 * Revert 0.9.11 's angle system change. Keep arc/pie/chord compatible with BGI.
 * add show_image() function, to display drawings in the jupyter qtconsole or notebook.
 * add show_image_dialog() function, to display a qimage in the dialog.
 
 0.9.11
--------------------
+-------------
 * fix: now arc/pie/chord drawing functions has the same angle system with rotate()
 
 0.9.10
--------------------
+-------------
 * add: easygraphics.turtle package which implements the turtle graphics.
 * change: now rotate()/skew() can transform around any point
 * change: now reflect() can using lines not passing the origin as the reflecting axis.
 
 0.9.9
--------------------
+-------------
 * add set_flip_y() to make y-axis grows bottom-up. (use reflect() will make texts
   get reflected too.)
 
 
 0.9.8.1
--------------------
+-------------
 * fix: legacy and music subpackage not packed in the binary distributions.
 
 0.9.8
----------------------
+-------------
 * fix: delay_fps() now work properly in Manual render mode
 * finish chinese translations for tutorials
 
 0.9.7
----------------------
+-------------
 * add: load_image() to load image from files
 * add: to_alpha() to make a transparently color
 * change: use Source Over as the default composition mode (the same with Qt)
@@ -99,15 +103,15 @@ easygraphics.turtle:
 * finish the tutorials.
 
 0.9.6
----------------------
+-------------
 * add: reflection (mirror/flip) and shear (skew) operations.
 
 0.9.5
----------------------
+-------------
 * add: headless mode support (no graphics window mode, use it to draw pictures)
 
 0.9.4
----------------------
+-------------
 * add: easygraphics.legacy package to better compatible with old BGI programs.
 * add: get_click() function to get mouse click event
 * change: background implementation to make set_background_color() work correctly
@@ -117,11 +121,11 @@ easygraphics.turtle:
 * more tutorials
 
 0.9.3
----------------------
+-------------
 * fix : Readme
 
 0.9.2
----------------------
+-------------
 * add: easygraphics functions can run in the interactive mode (eg. IPython) correctly
 * add: dialogs (in **easygraphics.dialog** package, adopted from
     `easygui_qt <https://github.com/aroberge/easygui_qt/>`_ )
@@ -132,16 +136,16 @@ easygraphics.turtle:
 * upload docs to readthedocs.org
 
 0.9.1
----------------------
+-------------
 * add readme text
 * add delay_fps() and rgb() functions
 
 0.9.0
----------------------
+-------------
 * add keyboard and mouse message check and handle
 * add simple dialogs ( from EasyGUI-Qt (https://github.com/aroberge/easygui_qt) and qtutils (https://bitbucket.org/philipstarkey/qtutils))
 
 
 0.1.0
----------------------
+-------------
 * First release on github

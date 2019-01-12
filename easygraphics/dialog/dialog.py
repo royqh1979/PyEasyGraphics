@@ -18,12 +18,13 @@ from easygraphics._utils.invoke_in_app_thread import set_app_font, invoke_in_thr
 
 __all__ = [
     'set_dialog_font_size',
-    'show_message', 'show_text', 'show_code', 'show_file', 'show_table',
+    'show_message', 'show_text', 'show_code', 'show_file', 'show_objects',
     'get_abort', 'get_choice', 'get_color_hex', 'get_color_rgb', 'get_color',
     'get_continue_or_cancel', 'get_date', 'get_directory_name', 'get_file_names',
     'get_float', 'get_int', 'get_integer', 'get_list_of_choices', 'get_many_strings',
     'get_new_password', 'get_password', 'get_save_file_name', 'get_string',
-    'get_username_password', 'get_yes_or_no', 'show_image_dialog',
+    'get_username_password', 'get_yes_or_no', 'show_image_dialog', 'show_table',
+    'show_lists_table', 'show_html'
 ]
 
 
@@ -711,8 +712,8 @@ def get_abort(message: str = "Major problem - or at least we think there is one.
 
 
 @invoke_in_thread()
-def show_table(datas: List, fields: List[str] = None, field_names: List[str] = None, title: str = "Title",
-               width: int = 720, height: int = 450):
+def show_objects(objects: List, fields: List[str] = None, field_names: List[str] = None, title: str = "Title",
+                 width: int = 720, height: int = 450):
     """
     Displays list of objects in a table
 
@@ -722,11 +723,10 @@ def show_table(datas: List, fields: List[str] = None, field_names: List[str] = N
     >>>         self.name=name
     >>>         self.age = age
     >>>         self.sex = sex
-
     >>> objs = [Person("Jack", 22, "M"), Person("Micheal", 40, "F"), Person("David", 24, "M")]
-    >>> show_table(title="peoples",datas=objs,fields=["name","age","sex"],field_names=["NAME","AGE","SEX"])
+    >>> show_objects(title="peoples",objects=objs,fields=["name","age","sex"],field_names=["NAME","AGE","SEX"])
 
-    .. image:: ../../docs/images/dialogs/show_table.png
+    .. image:: ../../docs/images/dialogs/show_objects.png
 
     :param datas: the object list to show
     :param fields: fields to show of the object
@@ -736,11 +736,40 @@ def show_table(datas: List, fields: List[str] = None, field_names: List[str] = N
     :param height: height of the dialog window
     """
 
-    dialog = tableview.TableViewDialog(title=title, datas=datas, fields=fields, field_names=field_names)
+    model = tableview.ObjectTableViewModel(datas=objects, fields=fields, field_names=field_names)
+    dialog = tableview.TableViewDialog(title=title, model=model)
     dialog.resize(width, height)
     _send_to_front(dialog)
     dialog.exec()
 
+
+show_table = show_objects
+
+
+@invoke_in_thread()
+def show_lists_table(*args, column_names: List[str] = None, title: str = "Title",
+                     width: int = 720, height: int = 450):
+    """
+    Displays list of datas in a table
+
+    >>> from easygraphics.dialog import *
+    >>> x=[1,2,3,4]
+    >>> y=["hah","jack","marry"]
+    >>> show_lists_table(x,y,column_names=['x','y'])
+    .. image:: ../../docs/images/dialogs/show_lists_table.png
+
+    :param args: the lists to show
+    :param column_names: the column names displayed on the table header
+    :param title: title of the dialog window
+    :param width: width of the dialog window
+    :param height: height of the dialog window
+    """
+
+    model = tableview.ListTableViewModel(*args, column_names=column_names)
+    dialog = tableview.TableViewDialog(title=title, model=model)
+    dialog.resize(width, height)
+    _send_to_front(dialog)
+    dialog.exec()
 
 def handle_exception(title: str = "Exception raised!"):
     """

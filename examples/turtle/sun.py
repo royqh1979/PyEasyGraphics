@@ -14,4 +14,5 @@ while True:
     if math.hypot(get_x(), get_y()) < 1:
         break
 end_fill()
-done()
+pause()
+close_world()

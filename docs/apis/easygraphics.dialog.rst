@@ -38,8 +38,11 @@ Function list
     get_username_password
     get_yes_or_no
     set_dialog_font_size
-    show_message
+    show_html
     show_image_dialog
+    show_lists_table
+    show_message
+    show_objects
     show_text
     show_table
     show_code

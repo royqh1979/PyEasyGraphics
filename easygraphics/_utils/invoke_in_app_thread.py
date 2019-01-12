@@ -57,8 +57,6 @@ class Caller(QObject):
             exception = sys.exc_info()
             result = None
 
-            print(exception)
-
             if not event._exceptions_in_main:
                 raise
         finally:
@@ -109,11 +107,8 @@ _app = None
 
 
 def _stop_app_thread():
-    global _app
     if _app is not None:
         _app.quit()
-    _app = None
-    time.sleep(0.05)  # wait 50ms for app thread to quit
 
 
 def invoke_in_app_thread(fn, *args, **kwargs):
@@ -193,20 +188,8 @@ def set_app_font(size: int):
     _font_size = size
 
 
-def invoke_in_thread(exceptions_in_main=True):
+def invoke_in_thread():
     """ A decorator which enforces the execution of the decorated thread to occur in the MainThread.
-
-    This decorator wraps the decorated function or method in either
-    :func:`qtutils.invoke_in_main.inmain` or
-    :func:`qtutils.invoke_in_main.inmain_later`.
-
-    Keyword Arguments:
-        exceptions_in_main: Specifies whether the exceptions should be raised
-                            in the main thread or not. This is ignored if
-                            :code:`wait_for_return=True`. If this is
-                            :code:`False`, then exceptions may be silenced if
-                            you do not explicitly use
-                            :func:`qtutils.invoke_in_main.get_inmain_result`.
 
     Returns:
         The decorator returns a function that has wrapped the decorated function
