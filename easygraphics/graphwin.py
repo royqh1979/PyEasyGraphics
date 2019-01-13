@@ -163,6 +163,8 @@ class GraphWin(QtWidgets.QWidget):
 
         :param milliseconds: time to delay
         """
+        if self._immediate:
+            raise RuntimeError("Must set render mode to MANUAL to use delay()!")
         nanotime = milliseconds * 1000000
         start_wait_time = time.perf_counter_ns()
         self.real_update()
@@ -175,6 +177,8 @@ class GraphWin(QtWidgets.QWidget):
 
         :param fps: the desire fps
         """
+        if self._immediate:
+            raise RuntimeError("Must set render mode to MANUAL to use delay()!")
         nanotime = 1000000000 // fps
         if self._last_fps_time == 0:
             self._last_fps_time = time.perf_counter_ns()
@@ -194,6 +198,8 @@ class GraphWin(QtWidgets.QWidget):
         :param max_skip_count: max num of  frames to skip
         :return: True if this frame should not be skipped
         """
+        if self._immediate:
+            raise RuntimeError("Must set render mode to MANUAL to use delay()!")
         nanotime = 1000000000 // fps
         if self._frames_to_skip_count > 0:
             self._frames_to_skip_count -= 1

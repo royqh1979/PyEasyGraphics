@@ -26,7 +26,9 @@ __all__ = [
     'set_render_mode', 'get_render_mode', 'get_drawing_pos', 'set_clip_rect', 'set_clipping',
     'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'skew', 'shear', 'set_flip_y',
     'reflect', 'flip', 'mirror', 'reset_transform', 'save_settings', 'restore_settings',
-    'get_width', 'get_height', 'get_write_mode', 'set_write_mode',
+    'get_width', 'get_height', 'get_write_mode', 'set_write_mode', 'get_transform', 'set_transform',
+    'push_transform', 'pop_transform',
+
     # drawing functions #
     'draw_point', 'put_pixel', 'get_pixel', 'line', 'draw_line', 'move_to', 'move_rel', 'line_to', 'line_rel',
     'circle', 'draw_circle', 'fill_circle', 'ellipse', 'draw_ellipse', 'fill_ellipse',
@@ -262,6 +264,7 @@ def set_fill_rule(rule, image: Image = None):
     image, on_screen = _check_on_screen(image)
     image.set_fill_rule(rule)
 
+
 def get_background_color(image: Image = None):
     """
     Get the background color of the image.
@@ -350,6 +353,46 @@ def get_composition_mode(image: Image = None):
 get_write_mode = get_composition_mode
 
 set_write_mode = set_composition_mode
+
+
+def get_transform(image: Image = None) -> QtGui.QTransform:
+    """
+    Get transform matrix of the image.
+
+    :param image: the target image whose transform matrix is to be gotten. None means it is the target image
+        (see set_target() and get_target()).
+    :return: the transform matrix
+    """
+    image, on_screen = _check_on_screen(image)
+    return image.get_transform()
+
+
+def set_transform(transform: QtGui.QTransform, image: Image = None):
+    """
+    Set image's transform matrix.
+
+    :param transform: the transform matrix to set
+    :param image: the target image whose transform matrix is to be gotten. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    image, on_screen = _check_on_screen(image)
+    return image.set_transform(transform)
+
+
+def push_transform(image: Image = None):
+    """
+    Push (save) the current transform to the transform stack.
+    """
+    image, on_screen = _check_on_screen(image)
+    return image.push_transform()
+
+
+def pop_transform(image: Image = None):
+    """
+    Pop the last saved transform from the transform stack, and use it as the current transform.
+    """
+    image, on_screen = _check_on_screen(image)
+    return image.pop_transform()
 
 
 def set_font_size(size: int, image: Image = None):

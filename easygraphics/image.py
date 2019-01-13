@@ -59,6 +59,7 @@ class Image:
         self._init_painter()
         self._init_mask_painter()
         self._updated_listeners = []
+        self._transform_stack = []
 
     def _init_painter(self):
         p = self._painter
@@ -490,21 +491,35 @@ class Image:
 
     def get_transform(self) -> QtGui.QTransform:
         """
-        Get transform of the image.
+        Get transform matrix of the image.
 
-        :return: the transform
+        :return: the transform matrix
         """
         return self._painter.transform()
 
     def set_transform(self, transform: QtGui.QTransform):
         """
-        Set image's transform.
+        Set image's transform matrix.
 
-        :param transform: the transform to set
-        :return:
+        :param transform: the transform matrix to set
         """
         self._painter.setTransform(transform)
         self._mask_painter.setTransform(transform)
+
+    def push_transform(self):
+        """
+        Push (save) the current transform to the transform stack.
+        """
+        self._transform_stack.append(self._painter.transform())
+
+    def pop_transform(self):
+        """
+        Pop the last saved transform from the transform stack, and use it as the current transform.
+        """
+        if len(self._transform_stack) <= 0:
+            raise RuntimeError("No more transforms to pop!")
+        transform = self._transform_stack.pop()
+        self.set_transform(transform)
 
     def reset_transform(self):
         """
@@ -1507,7 +1522,14 @@ class Image:
         img = _prepare_image_for_copy(self, with_background)
         img.save(filename)
 
-    def to_bytearray(self, with_background=True, format: str = "PNG") -> bytes:
+    def to_bytes(self, with_background=True, format: str = "PNG") -> bytes:
+        """
+        Convert the image to the specified format (i.e. PNG format) bytes.
+
+        :param with_background:  True to save the background together. False not
+        :param format: format of the bytes content
+        :return: bytes in the specified format
+        """
         ba = QtCore.QByteArray()
         buffer = QtCore.QBuffer(ba)
         buffer.open(QtCore.QIODevice.ReadWrite)
@@ -1538,7 +1560,7 @@ class Image:
 
     if _in_ipython:
         def display_in_ipython(self):
-            image = self.to_bytearray(True)
+            image = self.to_bytes(True)
             IPython.display.display(IPython.display.Image(image))
 
     def __del__(self):
