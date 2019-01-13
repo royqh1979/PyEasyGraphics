@@ -1,6 +1,5 @@
 import threading
 import time
-import math
 from PyQt5 import QtWidgets
 from PyQt5 import QtCore
 from PyQt5 import QtGui
@@ -143,7 +142,6 @@ class GraphWin(QtWidgets.QWidget):
         self._key_event.set()
         self._char_key_event.set()
         self._app.quit()
-
 
     def is_run(self) -> bool:
         return self._is_run
@@ -291,9 +289,9 @@ class GraphWin(QtWidgets.QWidget):
         if not self._is_run:
             return 0, 0, 0, QtCore.Qt.NoButton
         e = self._mouse_msg.get_event()
-        type = self._mouse_msg.get_type()
+        _type = self._mouse_msg.get_type()
         self._mouse_msg.reset()
-        return e.x(), e.y(), type, e.button()
+        return e.x(), e.y(), _type, e.button()
 
     def has_kb_hit(self) -> bool:
         """
@@ -393,10 +391,10 @@ class _MouseMsg:
         self._mouse_event = None
         self._type = MouseMessageType.NO_MESSAGE
 
-    def set_event(self, e: QtGui.QMouseEvent, type: int):
+    def set_event(self, e: QtGui.QMouseEvent, _type: int):
         self._mouse_event = e
         self._time = time.perf_counter_ns()
-        self._type = type
+        self._type = _type
 
     def get_event(self) -> QtGui.QMouseEvent:
         return self._mouse_event

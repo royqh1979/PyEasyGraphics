@@ -19,7 +19,7 @@ computer graphics.
 .. image:: https://pypip.in/d/easygraphics/badge.png
         :target: https://pypi.python.org/pypi/easygraphics
 
-* Free software: MIT license
+* Free software: BSD license
 * Documentation: https://pyeasygraphics.readthedocs.io/en/latest/
 * Documentation (Chinese Version): http://easygraphics.royqh.net
 
