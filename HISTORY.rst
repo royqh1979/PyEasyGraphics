@@ -2,6 +2,10 @@
 
 History
 ===========
+0.9.23
+------------
+* fix: frame jumping because of errors in delay_jfps()
+
 0.9.22
 -------------
 * fix: turtle icon position error when translated.

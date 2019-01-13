@@ -25,22 +25,23 @@ computer graphics.
 
 Sample program
 ----------------------
-.. code:: python
+.. code-block:: python
 
     from easygraphics import *
 
     def mainloop():
-        x = 0;
-        set_color(Color.BLUE);
-        set_fill_color(Color.GREEN);
+        x = 0
+        set_color(Color.BLUE)
+        set_fill_color(Color.GREEN)
 
         while is_run():
-            x = ( x + 1 ) % 440;
-            clear_device();
-            draw_ellipse(x + 100, 200, 100, 100);
-            delay_fps(60)
+            x = (x + 1) % 440
+            if delay_jfps(60):
+                clear_device()
+                draw_ellipse(x + 100, 200, 100, 100)
 
     init_graph(640, 480)
+    set_render_mode(RenderMode.RENDER_MANUAL)
     mainloop()
     close_graph()
 
