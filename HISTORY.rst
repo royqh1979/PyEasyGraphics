@@ -6,6 +6,8 @@ History
 -------------
 * add: show_lists_table() to display data lists in table
 * add: get_transform()/set_transform()/push_transform()/pop_transform()
+* change to BSD license
+* fix: close graphics window  when drawing in is_run() and delay_fps()/delay_jfps() loops not throw exception
 
 0.9.20
 -------------

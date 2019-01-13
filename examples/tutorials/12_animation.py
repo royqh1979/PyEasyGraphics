@@ -32,9 +32,9 @@ if __name__ == "__main__":
     x = 0
     while is_run():
         x = (x + 2) % 750
-        draw_image(0, 0, background)
-        draw_image(x, 350, car)
-        delay_fps(100)
+        if delay_fps(100):
+            draw_image(0, 0, background)
+            draw_image(x, 350, car)
 
     background.close()
     car.close()

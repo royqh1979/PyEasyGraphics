@@ -1,7 +1,7 @@
 if __name__ == "__main__":
     from easygraphics import *
     init_graph(800, 600)
-
+    set_render_mode(RenderMode.RENDER_MANUAL)
     background = create_image(800, 600)
     set_target(background)
     set_background_color(Color.LIGHT_YELLOW)
@@ -21,9 +21,9 @@ if __name__ == "__main__":
     x = 0
     while is_run():
         x = (x + 3) % 750
-        draw_image(0, 0, background)
-        draw_image(x, 380, moving_object)
-        delay_fps(60)
+        if delay_fps(60):
+            draw_image(0, 0, background)
+            draw_image(x, 380, moving_object)
 
     background.close()
     moving_object.close()

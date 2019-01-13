@@ -3,6 +3,7 @@ from easygraphics import *
 DELAY_TIME = 200  # delay in drawing
 
 init_graph(800, 600)
+set_render_mode(RenderMode.RENDER_MANUAL)
 set_origin(400, 300)
 # fill the background
 set_background_color(Color.WHITE)

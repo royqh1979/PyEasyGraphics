@@ -42,5 +42,4 @@ while is_run():
             triangle(100)
             pop_transform()
 
-pause()
 close_graph()

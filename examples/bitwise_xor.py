@@ -6,7 +6,7 @@ if __name__ == "__main__":
     import math
 
     init_graph(400, 300)
-
+    set_render_mode(RenderMode.RENDER_MANUAL)
     translate(200, 150)
     set_fill_color("orange")
     set_line_width(10)
@@ -21,11 +21,11 @@ if __name__ == "__main__":
     x, y = pol2cart(pho, theta)
     line(x1, y1, x, y)
     for i in range(0, 360):
-        delay_fps(10)
-        line(x1, y1, x, y)
-        theta = math.radians(i)
-        x, y = pol2cart(pho, theta)
-        line(x1, y1, x, y)
+        if delay_fps(10):
+            line(x1, y1, x, y)
+            theta = math.radians(i)
+            x, y = pol2cart(pho, theta)
+            line(x1, y1, x, y)
 
     pause()
     close_graph()

@@ -42,18 +42,17 @@ The following program continuously displays mouse cursor's position.
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(800,600)
+
+    init_graph(800, 600)
     set_render_mode(RenderMode.RENDER_MANUAL)
 
     while is_run():
-        x,y=get_cursor_pos()
-        clear_device()
-        draw_text(0,600,"%d,%d"%(x,y))
-        delay_fps(30)
+        if delay_fps(30):
+            x, y = get_cursor_pos()
+            clear_device()
+            draw_text(0, 600, "%d,%d" % (x, y))
 
     close_graph()
-
-
 
 Mouse Button Press and Release
 ------------------------------
@@ -70,23 +69,24 @@ The following program continuously check display cursor's postion and mouse butt
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(800,600)
+
+    init_graph(800, 600)
     set_render_mode(RenderMode.RENDER_MANUAL)
 
     set_fill_color("white")
     while is_run():
-        x,y=get_cursor_pos()
-        fill_rect(0,580,390,600)
-        draw_text(0,600,"%d,%d"%(x,y))
-        if has_mouse_msg():
-            x,y,type,buttons = get_mouse_msg()
-            if type == MouseMessageType.PRESS_MESSAGE:
-                typestr="pressed"
-            else:
-                typestr="released"
-            fill_rect(400, 580, 800,600)
-            draw_text(400,600,"button %s at %d,%d"%(typestr,x,y))
-        delay_fps(30)
+        if delay_fps(30):
+            x, y = get_cursor_pos()
+            fill_rect(0, 580, 390, 600)
+            draw_text(0, 600, "%d,%d" % (x, y))
+            if has_mouse_msg():
+                x, y, type, buttons = get_mouse_msg()
+                if type == MouseMessageType.PRESS_MESSAGE:
+                    typestr = "pressed"
+                else:
+                    typestr = "released"
+                fill_rect(400, 580, 800, 600)
+                draw_text(400, 600, "button %s at %d,%d" % (typestr, x, y))
 
     close_graph()
 
@@ -119,57 +119,55 @@ Then drag from any of the above two control points to set the third and the four
     reg2 = QtCore.QRect(x2 - 2, y2 - 2, 5, 5)
     draging_which_point = 0
     while is_run():
-        if draging_which_point == 1:
-            draw_line(x1, y1, x, y)
-            draw_bezier((x1, y1, x, y, x4, y4, x2, y2))
-        elif draging_which_point == 2:
-            draw_line(x2, y2, x, y)
-            draw_bezier((x1, y1, x3, y3, x, y, x2, y2))
-
-        if has_mouse_msg():
-            x, y, type, buttons = get_mouse_msg()
-            if type == MouseMessageType.PRESS_MESSAGE:
-                if reg1.contains(x, y):
-                    draging_which_point = 1
-                    set_color(Color.WHITE)
-                    set_composition_mode(CompositionMode.SRC_XOR_DEST)
-                    x, y = x3, y3
-                elif reg2.contains(x, y):
-                    draging_which_point = 2
-                    set_color(Color.WHITE)
-                    set_composition_mode(CompositionMode.SRC_XOR_DEST)
-                    x, y = x4, y4
-                else:
-                    draging_which_point = 0
-            elif type == MouseMessageType.RELEASE_MESSAGE:
-                if draging_which_point == 1:
-                    x3, y3 = x, y
-                elif draging_which_point == 2:
-                    x4, y4 = x, y
-                draging_which_point = 0
-
-                set_color(Color.BLACK)
-                set_composition_mode(CompositionMode.SOURCE)
-                clear_device()
-                draw_line(x1, y1, x3, y3)
-                draw_line(x2, y2, x4, y4)
-                circle(x1, y1, 3)
-                circle(x2, y2, 3)
-                draw_bezier((x1, y1, x3, y3, x4, y4, x2, y2))
-
-        else:
+        if delay_fps(60):
             if draging_which_point == 1:
-                x, y = get_cursor_pos()
                 draw_line(x1, y1, x, y)
                 draw_bezier((x1, y1, x, y, x4, y4, x2, y2))
             elif draging_which_point == 2:
-                x, y = get_cursor_pos()
                 draw_line(x2, y2, x, y)
                 draw_bezier((x1, y1, x3, y3, x, y, x2, y2))
-            delay_fps(60)
+
+            if has_mouse_msg():
+                x, y, type, buttons = get_mouse_msg()
+                if type == MouseMessageType.PRESS_MESSAGE:
+                    if reg1.contains(x, y):
+                        draging_which_point = 1
+                        set_color(Color.WHITE)
+                        set_composition_mode(CompositionMode.SRC_XOR_DEST)
+                        x, y = x3, y3
+                    elif reg2.contains(x, y):
+                        draging_which_point = 2
+                        set_color(Color.WHITE)
+                        set_composition_mode(CompositionMode.SRC_XOR_DEST)
+                        x, y = x4, y4
+                    else:
+                        draging_which_point = 0
+                elif type == MouseMessageType.RELEASE_MESSAGE:
+                    if draging_which_point == 1:
+                        x3, y3 = x, y
+                    elif draging_which_point == 2:
+                        x4, y4 = x, y
+                    draging_which_point = 0
+
+                    set_color(Color.BLACK)
+                    set_composition_mode(CompositionMode.SOURCE)
+                    clear_device()
+                    draw_line(x1, y1, x3, y3)
+                    draw_line(x2, y2, x4, y4)
+                    circle(x1, y1, 3)
+                    circle(x2, y2, 3)
+                    draw_bezier((x1, y1, x3, y3, x4, y4, x2, y2))
+            else:
+                if draging_which_point == 1:
+                    x, y = get_cursor_pos()
+                    draw_line(x1, y1, x, y)
+                    draw_bezier((x1, y1, x, y, x4, y4, x2, y2))
+                elif draging_which_point == 2:
+                    x, y = get_cursor_pos()
+                    draw_line(x2, y2, x, y)
+                    draw_bezier((x1, y1, x3, y3, x, y, x2, y2))
 
     close_graph()
-
 Char Input
 ----------
 We can use has_kb_hit() to see if there is any ascii char pressed, and use get_char() to get the inputted char.
@@ -182,22 +180,24 @@ The following program is a simple print game.
     from easygraphics import *
     import random
 
+
     def show_welcome():
         clear_device()
         set_color("yellow")
         set_font_size(64)
-        draw_text(160,110, "Print Game");
+        draw_text(160, 110, "Print Game");
         set_color("white");
         c = 0
         set_font_size(20)
         while not has_kb_hit():
-            set_color(color_rgb(c,c,c))
-            draw_text(180,400,"Press any key to continue")
-            c = (c+8)%255;
+            set_color(color_rgb(c, c, c))
+            draw_text(180, 400, "Press any key to continue")
+            c = (c + 8) % 255;
             delay_fps(30)
-        ch=get_char()
+        ch = get_char()
         print(ch)
         clear_device()
+
 
     def show_goodbye():
         clear_device();
@@ -205,6 +205,7 @@ The following program is a simple print game.
         set_font_size(48);
         draw_text(104, 180, "Bye!!!");
         pause()
+
 
     if __name__ == "__main__":
         init_graph(640, 480)
@@ -217,25 +218,26 @@ The following program is a simple print game.
         set_fill_color("black")
 
         while is_run():
-            target = chr(65+random.randint(0,25))
-            x = random.randint(0,620)
-            for y in range(16,460):
+            target = chr(65 + random.randint(0, 25))
+            x = random.randint(0, 620)
+            for y in range(16, 460):
                 set_color("white")
-                draw_text(x,y,target)
+                draw_text(x, y, target)
                 if has_kb_hit():
                     key = get_char()
                     if key.upper() == target:
-                        fill_rect(x-2, y-22, x + 22, y+2) # clear the char and generate next char
+                        fill_rect(x - 2, y - 22, x + 22, y + 2)  # clear the char and generate next char
                         break
                     if key == " ":
                         show_goodbye()
                         close_graph()
                         exit()
-                delay_fps(60)
-                fill_rect(x-2, y - 22, x + 22, y+2) # clear the char
+                if delay_fps(60):
+                    fill_rect(x - 2, y - 22, x + 22, y + 2)  # clear the char
+                else:
+                    break
 
         close_graph()
-
 
 Key Pressed
 -----------

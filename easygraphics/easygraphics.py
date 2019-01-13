@@ -1883,10 +1883,12 @@ def pause():
     >>> pause()
     >>> close_graph()
     """
-    if not is_run():
+    _graphics_lock.acquire()
+    if not _is_run:
         return
     _check_not_headless()
     _win.pause()
+    _graphics_lock.release()
 
 
 def is_run() -> bool:
@@ -1895,7 +1897,10 @@ def is_run() -> bool:
 
     :return: True if the graphics system is running.
     """
-    return _is_run
+    if not _headless:
+        return _is_run and not _win.is_quitting()
+    else:
+        return _is_run
 
 
 def delay(milliseconds: int):
@@ -1904,7 +1909,7 @@ def delay(milliseconds: int):
 
     :param milliseconds: time to delay
     """
-    _check_app_run(True)
+    # _check_app_run(True)
     _win.delay(milliseconds)
 
 
@@ -1917,11 +1922,18 @@ def delay_fps(fps: int):
     This function won\'t skip frames.
 
     :param fps: the desire fps
+    :return: False the graphics window is closed. True otherwise.
     """
-    _check_app_run(True)
-    _win.delay_fps(fps)
+    # _check_app_run(True)
+    _graphics_lock.acquire()
+    if _win is None:
+        return False
+    result = _win.delay_fps(fps)
+    _graphics_lock.release()
+    return result
 
 
+_graphics_lock = threading.RLock()
 def delay_jfps(fps, max_skip_count=0):
     """
     Delay to control fps with frame skipping.
@@ -1932,8 +1944,14 @@ def delay_jfps(fps, max_skip_count=0):
     :param max_skip_count: max num of  frames to skip (0 means no limit)
     :return: True if this frame should not be skipped
     """
-    _check_app_run(True)
-    return _win.delay_jfps(fps, max_skip_count)
+    #    _check_app_run(True)
+    _graphics_lock.acquire()
+    if _win is None:
+        return False
+    result = _win.delay_jfps(fps, max_skip_count)
+    _graphics_lock.release()
+    return result
+
 
 
 # mouse and keyboards #
@@ -1998,7 +2016,7 @@ def get_click() -> (int, int, int):
     :return: x of the cursor, y of the cursor , mouse buttons down
         ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
     """
-    while True:
+    while is_run():
         _check_app_run(True)
         x, y, _type, buttons = _win.get_mouse_msg()
         if _type == MouseMessageType.RELEASE_MESSAGE:
@@ -2104,7 +2122,7 @@ def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     """
     global _start_event
     # prepare Events
-    if is_run():
+    if _is_run:
         raise RuntimeError("The Graphics Windows is already inited!")
     _start_event = threading.Event()
     _start_event.clear()
@@ -2143,11 +2161,12 @@ def close_graph():
     time.sleep(0.05)  # wait 50ms for app thread to exit
 
 
+
 def _check_app_run(check_not_headless: bool = False):
-    if not is_run():
-        raise RuntimeError("Easygraphics is not inited or has been closed! Run init_graph() first!")
     if check_not_headless:
         _check_not_headless()
+    if not _is_run:
+        raise RuntimeError("Easygraphics is not inited or has been closed! Run init_graph() first!")
 
 
 def _check_not_headless():
@@ -2196,7 +2215,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     global _app, _win, _target_image, _is_run, _headless, _is_target_on_screen
     _headless = headless
     _app = QtWidgets.QApplication([])
-    _app.setQuitOnLastWindowClosed(True)
+    _app.setQuitOnLastWindowClosed(False)
     invoke_in_app_thread.init_invoke_in_app()
     if not _headless:
         _win = GraphWin(width, height, _app)
@@ -2213,6 +2232,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     # init finished, can draw now
     _start_event.set()
     _app.exec_()
+    _graphics_lock.acquire()
     _is_run = False
     invoke_in_app_thread.destroy_invoke_in_app()
     if not _headless:
@@ -2221,6 +2241,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     _app.quit()
     _app = None
     in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
+    _graphics_lock.release()
     if not in_shell:
         sys.exit(0)
         os._exit(0)
