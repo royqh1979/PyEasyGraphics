@@ -47,8 +47,8 @@ class TurtleWorld(object):
         self._running = True
         if self._win is not None:
             self._immediate = False
-            self._start_refresh_loop()
             self._win.set_immediate(False)
+            self._start_refresh_loop()
             self._win.close_signal.connect(self.close)
             eg.set_target(self._world_image)
         else:
@@ -176,8 +176,9 @@ class TurtleWorld(object):
         while eg.is_run():
             if not self._running:
                 break
-            self._render()
-            self._win.delay_fps(60)
+            if self._win.delay_fps(60):
+                self._render()
+
         self.close()
 
     def get_world_image(self):

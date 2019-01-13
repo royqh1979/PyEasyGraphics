@@ -4,7 +4,7 @@ Tutorials
 Graphics
 ------------
 .. toctree::
-    :max-depth: 1
+    :maxdepth: 1
 
     tutorials/001_first_window
 
@@ -24,7 +24,7 @@ Graphics
 
     tutorials/009_transforms
 
-    tutorials/100_composition_mode
+    tutorials/010_composition_mode
 
     tutorials/011_image
 
@@ -35,28 +35,28 @@ Graphics
 Turtle Graphics
 ---------------
 .. toctree::
-    :max-depth: 1
+    :maxdepth: 1
 
     tutorials/101_turtle
 
 Dialogs
 --------------
 .. toctree::
-    :max-depth: 1
+    :maxdepth: 1
 
     tutorials/201_dialogs
 
 Widgets
 --------------
 .. toctree::
-    :max-depth: 1
+    :maxdepth: 1
 
     tutorials/301_widgets
 
 Miscs
 --------------
 .. toctree::
-    :max-depth: 1
+    :maxdepth: 1
 
     tutorials/901_music
 

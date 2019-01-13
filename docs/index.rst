@@ -11,8 +11,7 @@ Contents:
    usage
    api
    tutorials
-   examples
-   naming
+   demos
    contributing
    authors
 

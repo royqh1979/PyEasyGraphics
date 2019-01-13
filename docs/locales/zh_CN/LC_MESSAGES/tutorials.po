@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-12 08:10+0800\n"
+"POT-Creation-Date: 2019-01-13 16:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,28 @@ msgstr ""
 msgid "Tutorials"
 msgstr "使用教程"
 
-#: ../../tutorials/01_first_window.rst:2
+#: ../../tutorials.rst:5
+msgid "Graphics"
+msgstr ""
+
+#: ../../tutorials.rst:36 ../../tutorials/101_turtle.rst:2
+#, fuzzy
+msgid "Turtle Graphics"
+msgstr "初始化绘图窗口"
+
+#: ../../tutorials.rst:43 ../../tutorials/201_dialogs.rst:2
+msgid "Dialogs"
+msgstr "对话框（Dialog）"
+
+#: ../../tutorials.rst:50
+msgid "Widgets"
+msgstr ""
+
+#: ../../tutorials.rst:57
+msgid "Miscs"
+msgstr ""
+
+#: ../../tutorials/001_first_window.rst:2
 msgid "The First window"
 msgstr "第一个绘图窗口程序"
 
@@ -72,7 +93,7 @@ msgstr "你可以是用图形窗口的关闭按钮来关闭图形系统。但是
 msgid "this may cause exception. (When there are unfinished drawing operations.）"
 msgstr "这有可能会导致程序异常。（当程序后面还有没完成的绘图操作时。）"
 
-#: ../../tutorials/02_first_drawing.rst:2
+#: ../../tutorials/002_first_drawing.rst:2
 msgid "The First Drawing"
 msgstr "第一次绘图"
 
@@ -98,21 +119,21 @@ msgstr "在该坐标系中，原点(0,0)位于屏幕的左上角，X轴正向向
 msgid "So the result is a line from upper left corner to lower right corner."
 msgstr "所以绘制的结果就是一条从屏幕左上角到右下角的线段。"
 
-#: ../../tutorials/03_colors.rst:2
+#: ../../tutorials/003_colors.rst:2
 msgid "Color System"
 msgstr "颜色体系"
 
-#: ../../tutorials/03_colors.rst:5
+#: ../../tutorials/003_colors.rst:5
 msgid "Color System Summary"
 msgstr "颜色体系概述"
 
-#: ../../tutorials/03_colors.rst:6
+#: ../../tutorials/003_colors.rst:6
 msgid ""
 "Easy Graphics uses `Qt's Color System "
 "<http://doc.qt.io/qt-5/qcolor.html#details>`_"
 msgstr "Easy Graphics使用 `Qt的颜色系统 <http://doc.qt.io/qt-5/qcolor.html#details>`_ 。"
 
-#: ../../tutorials/03_colors.rst:8
+#: ../../tutorials/003_colors.rst:8
 msgid ""
 "A color is normally specified in terms of RGB (red, green, and blue) "
 "components ( using color_rgb()), but it is also possible to specify it in"
@@ -120,31 +141,31 @@ msgid ""
 "(cyan, magenta, yellow and black) components (user color_cymk())."
 msgstr "通常使用RGB系统来表示颜色（通过使用color_rgb()函数）。但也可以使用HSV（color_hsv()函数)或者CMYK（color_cymk()函数）。"
 
-#: ../../tutorials/03_colors.rst:15
+#: ../../tutorials/003_colors.rst:15
 msgid "|qcolor-rgb|"
 msgstr ""
 
-#: ../../tutorials/03_colors.rst:16
+#: ../../tutorials/003_colors.rst:16
 msgid "|qcolor-hsv|"
 msgstr ""
 
-#: ../../tutorials/03_colors.rst:17
+#: ../../tutorials/003_colors.rst:17
 msgid "|qcolor-cmyk|"
 msgstr ""
 
-#: ../../tutorials/03_colors.rst:18
+#: ../../tutorials/003_colors.rst:18
 msgid "RGB"
 msgstr ""
 
-#: ../../tutorials/03_colors.rst:19
+#: ../../tutorials/003_colors.rst:19
 msgid "HSV"
 msgstr ""
 
-#: ../../tutorials/03_colors.rst:20
+#: ../../tutorials/003_colors.rst:20
 msgid "CMYK"
 msgstr ""
 
-#: ../../tutorials/03_colors.rst:26
+#: ../../tutorials/003_colors.rst:26
 msgid ""
 "Instead of RGB, HSV or CMYK values, A color can be set by passing an RGB "
 "string (such as \"#112233\"), or an ARGB string (such as \"#ff112233\") "
@@ -156,7 +177,7 @@ msgstr ""
 "`SVG 1.0 标准颜色名 <https://www.w3.org/TR/SVG10/types.html#ColorKeywords>`_ "
 "来表示颜色。"
 
-#: ../../tutorials/03_colors.rst:30
+#: ../../tutorials/003_colors.rst:30
 msgid ""
 "The color components can be retrieved individually, e.g with red(), hue()"
 " and cyan() member functions. The values of the color components can also"
@@ -164,47 +185,47 @@ msgid ""
 " functions."
 msgstr "可以使用red()、hue()和cyan()等对象方法来获取颜色的各分量值，也可以使用getRgb()、getHsv()等对象方法来获取。"
 
-#: ../../tutorials/03_colors.rst:35
+#: ../../tutorials/003_colors.rst:35
 msgid "Predefined Colors"
 msgstr "预定义颜色常量"
 
-#: ../../tutorials/03_colors.rst:37
+#: ../../tutorials/003_colors.rst:37
 msgid "There are 24 predefined colors described by the Color constants."
 msgstr "在EasyGraphics中有24个预定义的颜色常量，如下图所示："
 
-#: ../../tutorials/03_colors.rst:43
+#: ../../tutorials/003_colors.rst:43
 msgid "Summary"
 msgstr "总结"
 
-#: ../../tutorials/03_colors.rst:44
+#: ../../tutorials/003_colors.rst:44
 msgid "So to set the pen's color to red , we can:"
 msgstr "所以要将绘笔的颜色设为红色，我们可以使用下列方法："
 
-#: ../../tutorials/03_colors.rst:46
+#: ../../tutorials/003_colors.rst:46
 msgid "Use predefined Color const"
 msgstr "使用预定义的颜色常量"
 
-#: ../../tutorials/03_colors.rst:50
+#: ../../tutorials/003_colors.rst:50
 msgid "Use RGB values and color_rgb() function"
 msgstr "使用color_rgb()函数"
 
-#: ../../tutorials/03_colors.rst:54
+#: ../../tutorials/003_colors.rst:54
 msgid "Use a color name"
 msgstr "使用颜色名"
 
-#: ../../tutorials/03_colors.rst:58
+#: ../../tutorials/003_colors.rst:58
 msgid "Use a css web color string"
 msgstr "使用CSS颜色字符串"
 
-#: ../../tutorials/03_colors.rst:62
+#: ../../tutorials/003_colors.rst:62
 msgid "Use a rgb integer"
 msgstr "使用整数形式的rgb值"
 
-#: ../../tutorials/03_colors.rst:67
+#: ../../tutorials/003_colors.rst:67
 msgid "Transparency (Alpha Value)"
 msgstr "透明（Alpha）"
 
-#: ../../tutorials/03_colors.rst:68
+#: ../../tutorials/003_colors.rst:68
 msgid ""
 "Like most modern graphic systems, Easygraphics ( and its underlying Qt "
 "System) use a alpha component to represent the transparency of a pixel on"
@@ -214,7 +235,7 @@ msgstr ""
 "与大多数现代图形处理系统一样，Easy "
 "Graphics（以及它所使用的Qt系统）使用alpha分量来描述图片中各像素(pixel)的透明度。Alpha值255表示完全不透明，Alpha值0表示完全透明。"
 
-#: ../../tutorials/03_colors.rst:72
+#: ../../tutorials/003_colors.rst:72
 msgid ""
 "All the color functions (color_rgb()/color_hsv()/color_cmyk()) has an "
 "optional parameter \"alpha\" to make a color with transparency. The "
@@ -222,31 +243,31 @@ msgid ""
 "opaque."
 msgstr "所有的颜色函数（color_rgb()/color_hsv()/color_cmyk())都有一个可选的参数\"alpha\"，来生成一个带透明度的颜色。该参数的缺省值是255，即完全不透明。"
 
-#: ../../tutorials/03_colors.rst:75
+#: ../../tutorials/003_colors.rst:75
 msgid ""
 "You can use to_alpha() function to make a tranparency color by string or "
 "rgb integers."
 msgstr "你也可以使用to_alpha()函数，通过颜色名、颜色字符串、rgb整数或者已有的颜色来创建带透明的颜色"
 
-#: ../../tutorials/03_colors.rst:77
+#: ../../tutorials/003_colors.rst:77
 msgid ""
 "The following code set the foreground color to a red with 150 as alpha "
 "value ( about half transparent)"
 msgstr "下面的代码将前景色的alpha值设为150，即半透明。"
 
-#: ../../tutorials/04_shapes.rst:2
+#: ../../tutorials/004_shapes.rst:2
 msgid "Drawing Shapes"
 msgstr "绘制几何形状"
 
-#: ../../tutorials/04_shapes.rst:5
+#: ../../tutorials/004_shapes.rst:5
 msgid "Three Types of Drawing Functions"
 msgstr "三大类形状绘制函数"
 
-#: ../../tutorials/04_shapes.rst:7
+#: ../../tutorials/004_shapes.rst:7
 msgid "In EasyGraphics, there are three types of functions to draw shapes:"
 msgstr "在Easy Graphics中，绘制形状的函数可以分为三大类："
 
-#: ../../tutorials/04_shapes.rst:9
+#: ../../tutorials/004_shapes.rst:9
 msgid ""
 "Functions that only draw shape outlines. These functions are named like "
 "\\'xxx()\\' (\\\"xxx\\\" is the shape\\'s name). \\ The example below "
@@ -255,7 +276,7 @@ msgstr ""
 "只绘制形状轮廓线的函数。这类函数用\\'xxx()\\' "
 "的形式命名(\\\"xxx\\\"是所绘制形状的名称，如circle)。下面的程序绘制了一个边线为蓝色的圆。"
 
-#: ../../tutorials/04_shapes.rst:22
+#: ../../tutorials/004_shapes.rst:22
 msgid ""
 "Functions that both draw and fill a shape. These functions are named like"
 " \\'draw_xxx()\\'(\\\"xxx\\\" is the shape\\'s name). The example below "
@@ -264,7 +285,7 @@ msgstr ""
 "同时绘制形状轮廓并填充形状内部的函数。这类函数用\\'draw_xxx()\\' "
 "的形式命名(\\\"xxx\\\"是所绘制形状的名称，如draw_circle)下面的程序绘制了一个边线为蓝色内部为红色的圆。"
 
-#: ../../tutorials/04_shapes.rst:35
+#: ../../tutorials/004_shapes.rst:35
 msgid ""
 "Functions that only fill a shape. These functions are named like "
 "\\'fill_xxx()\\'( \\\"xxx\\\" is the shape\\'s name). The example below "
@@ -273,85 +294,85 @@ msgstr ""
 "不绘制形状轮廓线，只填充形状内部的函数。这类函数用\\'fill_xxx()\\' "
 "形式命名(\\\"xxx\\\"是所绘制形状的名称，如fill_circle)下面的程序绘制（填充）了一个无边线内部为红色的圆。"
 
-#: ../../tutorials/04_shapes.rst:51
+#: ../../tutorials/004_shapes.rst:51
 msgid "|circle|"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:52
+#: ../../tutorials/004_shapes.rst:52
 msgid "|draw_circle|"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:53
+#: ../../tutorials/004_shapes.rst:53
 msgid "|fill_circle|"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:54
+#: ../../tutorials/004_shapes.rst:54
 msgid "circle()"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:55
+#: ../../tutorials/004_shapes.rst:55
 msgid "draw_circle()"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:56
+#: ../../tutorials/004_shapes.rst:56
 msgid "fill_circle()"
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:65
+#: ../../tutorials/004_shapes.rst:65
 msgid "Angle"
 msgstr "角"
 
-#: ../../tutorials/04_shapes.rst:66
+#: ../../tutorials/004_shapes.rst:66
 msgid "In easygraphics, all angles use degree as the unit."
 msgstr "在Easygraphics中，所有的角都使用“角度”作为单位。"
 
-#: ../../tutorials/04_shapes.rst:68
+#: ../../tutorials/004_shapes.rst:68
 msgid ""
 "When drawing arc,pie and chords, positive values for the angles mean "
 "counter-clockwise while negative values mean the clockwise direction. "
 "Zero degrees is at the 3 o'clock position."
 msgstr "在画弧(arc)，饼(pie)和弓形(chord)时，正的角度值为逆时针旋转；负的角度值为顺时针旋转。0度位于三点钟方向(X轴正向)。"
 
-#: ../../tutorials/04_shapes.rst:70
+#: ../../tutorials/004_shapes.rst:70
 msgid "The following program draws a pie from 45 degree to 135 degree."
 msgstr "下面的程序画了一个从45度到135度的饼（pie）。"
 
-#: ../../tutorials/04_shapes.rst:85
+#: ../../tutorials/004_shapes.rst:85
 msgid "Polygon"
 msgstr "多边形(Polygon)"
 
-#: ../../tutorials/04_shapes.rst:86
+#: ../../tutorials/004_shapes.rst:86
 msgid ""
 "Use polygon()/draw_polygon()/fill_polygon(), we can draw and fill "
 "polygons."
 msgstr "使用polygon()/draw_polygon()/fill_polygon()函数，我们可以绘制或者填充多边形（polygon）。"
 
-#: ../../tutorials/04_shapes.rst:88
+#: ../../tutorials/004_shapes.rst:88
 msgid "To draw a polygon, we should specify the vertices."
 msgstr "在绘制多边形时，我们必须指明多边形的各个顶点（vertices）"
 
-#: ../../tutorials/04_shapes.rst:90
+#: ../../tutorials/004_shapes.rst:90
 msgid ""
 "polygon()/draw_polygon()/fill_polygon() expect a list as the verticis\\' "
 "postions. In the list, each vertex is represented as 2 values (x and y). "
 "So n vertices is represented by a list with 2n values."
 msgstr "polygon()/draw_polygon()/fill_polygon()需要提供一个list（列表）参数，其中存放着各顶点的位置。在列表中，每个顶点用两个数来表示（其x和y坐标）。所以，如果有n个顶点，那么列表中应该有2n个数。"
 
-#: ../../tutorials/04_shapes.rst:94
+#: ../../tutorials/004_shapes.rst:94
 msgid ""
 "The following example draws a triangle with vertices at (50, 50), (350, "
 "250), (50, 150):"
 msgstr "下面的程序绘制了一个三角形，它的三个顶点分别位于 (50, 50), (350,250)和(50, 150):"
 
-#: ../../tutorials/04_shapes.rst:111
+#: ../../tutorials/004_shapes.rst:111
 msgid "Polylines"
 msgstr "折线（Polylines）"
 
-#: ../../tutorials/04_shapes.rst:112
+#: ../../tutorials/004_shapes.rst:112
 msgid "Using poly_line() or draw_poly_line(), we can draw polylines."
 msgstr "使用poly_line()或draw_poly_line()，我们可以绘制折线。"
 
-#: ../../tutorials/04_shapes.rst:116
+#: ../../tutorials/004_shapes.rst:116
 msgid ""
 "A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a "
 "continuous line composed of one or more line segments. So to draw a "
@@ -360,7 +381,7 @@ msgstr ""
 "`折线（Polyline） <https://www.webopedia.com/TERM/P/polyline.html>`_ "
 "是一条由一个或多个依次相连的线段组成的线。因此，要绘制一条折线，我们必须指明连接各线段的端点"
 
-#: ../../tutorials/04_shapes.rst:119
+#: ../../tutorials/004_shapes.rst:119
 msgid ""
 "poly_line() and draw_poly_line() expect a list as the endpoint\\'s "
 "postions. In the list, each endpoint is represented as 2 values (x and "
@@ -369,17 +390,17 @@ msgstr ""
 "poly_line() and "
 "draw_poly_line()需要提供一个list（列表）参数，其中存放着各端点的位置。在列表中，每个端点用两个数来表示（其x和y坐标）。所以n个端点就需要2n个数来表示。"
 
-#: ../../tutorials/04_shapes.rst:123
+#: ../../tutorials/004_shapes.rst:123
 msgid ""
 "The following example draws a polyline connecting (50,50), (350,75), "
 "(50,150), (350,175), (50,250), (350,275)."
 msgstr "下面程序绘制了一条依次连接了点(50,50)、(350,75)、(50,150)、(350,175)、(50,250)和(350,275)的折线。"
 
-#: ../../tutorials/04_shapes.rst:138
+#: ../../tutorials/004_shapes.rst:138
 msgid "Bézier curve"
 msgstr "贝塞尔曲线（Bézier curve）"
 
-#: ../../tutorials/04_shapes.rst:139
+#: ../../tutorials/004_shapes.rst:139
 msgid ""
 "`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve>`_ is a "
 "parametric curve that uses the Bernstein polynomials as a basis."
@@ -390,7 +411,7 @@ msgstr ""
 "<https://baike.baidu.com/item/%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F>`_"
 " 为基础的参数曲线。"
 
-#: ../../tutorials/04_shapes.rst:141
+#: ../../tutorials/004_shapes.rst:141
 msgid ""
 "A Bézier curve is defined by a set of control points P0 through Pn, where"
 " n is called its order (n = 1 for linear, 2 for quadratic, 3 for cubic "
@@ -399,11 +420,11 @@ msgid ""
 "not lie on the curve."
 msgstr "每条贝塞尔曲线由一组控制点P0到Pn定义，其中n是曲线的阶数（n=1称为线性曲线，2为二次曲线，3为三次曲线，以此类推）。第一个和最后一个控制点是曲线的端点，中间的控制点一般则不在曲线上。"
 
-#: ../../tutorials/04_shapes.rst:145
+#: ../../tutorials/004_shapes.rst:145
 msgid "Cubic Bézier curves are the mostly used Bézier curves."
 msgstr "三次贝塞尔曲线（Cubic Bézier curves）是最常见的贝塞尔曲线。"
 
-#: ../../tutorials/04_shapes.rst:149
+#: ../../tutorials/004_shapes.rst:149
 msgid ""
 "Four points P0, P1, P2 and P3 in the plane or in higher-dimensional space"
 " define a cubic Bézier curve. The curve starts at P0 going toward P1 and "
@@ -413,11 +434,11 @@ msgid ""
 "\"how fast\" the curve moves towards P1 before turning towards P2."
 msgstr "平面或者空间中的4个点P0、P1、P2和P3定义了一条贝塞尔曲线。这条曲线从P0出发，走向P1，并从P2的方向到达P3。通常该曲线不会通过P1和P2，这两个点只是为曲线提供方向信息。P1和P2之间的距离决定了曲线在转向P2前，向P1方向前进\"多远\"和\"多快\"。"
 
-#: ../../tutorials/04_shapes.rst:155
+#: ../../tutorials/004_shapes.rst:155
 msgid "The explicit form of the curve is:"
 msgstr "曲线的参数形式为："
 
-#: ../../tutorials/04_shapes.rst:159
+#: ../../tutorials/004_shapes.rst:159
 msgid ""
 "We can use bezier() or draw_bezier() to draw cubic Bézier curves. They "
 "expect a list as the control points\\' postions. In the list, each "
@@ -426,32 +447,32 @@ msgid ""
 "list."
 msgstr "我们可以使用bezier()或draw_bezier()来绘制贝塞尔曲线。它们需要一个列表作为参数来指明各控制点的位置。在列表中，每个控制点对应两个数值（x和y坐标）。因为一条贝塞尔曲线需要4个控制点，因此列表中应该有8个数。"
 
-#: ../../tutorials/04_shapes.rst:163
+#: ../../tutorials/004_shapes.rst:163
 msgid ""
 "The following program draw a cubic bezier curve with control points at "
 "(300,50),(200,50),(200,200) and (100,200)."
 msgstr "下面的程序绘制了一条三次贝塞尔曲线，其四个控制点分别为(300,50)、(200,50)、(200,200)和(100,200)。"
 
-#: ../../tutorials/04_shapes.rst:175
+#: ../../tutorials/004_shapes.rst:175
 msgid "Flood Fill"
 msgstr "泛洪填充（Flood Fill）"
 
-#: ../../tutorials/04_shapes.rst:176
+#: ../../tutorials/004_shapes.rst:176
 msgid ""
 "Non-regular shapes can be filled by flood fill. The shape to be filled "
 "must be enclosed by an outline. The follow program uses flood fill to "
 "fill a pedal."
 msgstr ""
 
-#: ../../tutorials/04_shapes.rst:193
+#: ../../tutorials/004_shapes.rst:193
 msgid "Below is the result:"
 msgstr "下面是绘制的结果："
 
-#: ../../tutorials/04_shapes.rst:198
+#: ../../tutorials/004_shapes.rst:198
 msgid "Advanced Drawing"
 msgstr "高级绘图"
 
-#: ../../tutorials/04_shapes.rst:200
+#: ../../tutorials/004_shapes.rst:200
 msgid ""
 "EasyGraphics supports drawing all the basic shape: point, line, circle, "
 "ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
@@ -464,115 +485,115 @@ msgstr ""
 "Image 对象的成员方法get_painter()来获取内部的 `QPainter "
 "<http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ 对象，然后直接用它来进行绘制。"
 
-#: ../../tutorials/05_line_styles.rst:2
+#: ../../tutorials/005_line_styles.rst:2
 msgid "Line Styles"
 msgstr "线条样式（Line Styles）"
 
-#: ../../tutorials/05_line_styles.rst:4
+#: ../../tutorials/005_line_styles.rst:4
 msgid ""
 "Using line styles, you can control how the lines and outlines are drawn. "
 "The most useful line styles are:"
 msgstr "使用线条样式，你可以控制线条绘制的方式。常用的线条样式有："
 
-#: ../../tutorials/05_line_styles.rst:7
+#: ../../tutorials/005_line_styles.rst:7
 msgid "line width"
 msgstr "线宽（line width）"
 
-#: ../../tutorials/05_line_styles.rst:8
+#: ../../tutorials/005_line_styles.rst:8
 msgid "line shape"
 msgstr "线型（line shape）"
 
-#: ../../tutorials/05_line_styles.rst:11
+#: ../../tutorials/005_line_styles.rst:11
 msgid "Line Width"
 msgstr "线宽（Line Width）"
 
-#: ../../tutorials/05_line_styles.rst:13
+#: ../../tutorials/005_line_styles.rst:13
 msgid "You can use set_line_width()/get_line_width() to get or set line width."
 msgstr "你可以使用set_line_width()/get_line_width()来获取或者设置线宽。"
 
-#: ../../tutorials/05_line_styles.rst:15
+#: ../../tutorials/005_line_styles.rst:15
 msgid "The following program draws a rectangle whose borders width is 10."
 msgstr "下面的程序绘制了一个边框宽度为10的矩形。"
 
-#: ../../tutorials/05_line_styles.rst:28
+#: ../../tutorials/005_line_styles.rst:28
 msgid "Predefined Line Shapes"
 msgstr "预定义线型常量"
 
-#: ../../tutorials/05_line_styles.rst:29
+#: ../../tutorials/005_line_styles.rst:29
 msgid ""
 "Using line shapes, you can draw dash line or dot line. Use "
 "set_line_style()/get_line_style() to set line shape."
 msgstr "使用线型，你可以绘制各种虚线。使用set_line_style()/get_line_style()来设置线型。"
 
-#: ../../tutorials/05_line_styles.rst:35
+#: ../../tutorials/005_line_styles.rst:35
 msgid "|solid_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:36
+#: ../../tutorials/005_line_styles.rst:36
 msgid "|dash_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:37
+#: ../../tutorials/005_line_styles.rst:37
 msgid "|dot_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:38
+#: ../../tutorials/005_line_styles.rst:38
 msgid "LineStyle.SOLID_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:39
+#: ../../tutorials/005_line_styles.rst:39
 msgid "LineStyle.DASH_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:40
+#: ../../tutorials/005_line_styles.rst:40
 msgid "LineStyle.DOT_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:41
+#: ../../tutorials/005_line_styles.rst:41
 msgid "|dash_dot_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:42
+#: ../../tutorials/005_line_styles.rst:42
 msgid "|dash_dot_dot_line|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:43
+#: ../../tutorials/005_line_styles.rst:43
 msgid "|no_pen|"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:44
+#: ../../tutorials/005_line_styles.rst:44
 msgid "LineStyle.DASH_DOT_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:45
+#: ../../tutorials/005_line_styles.rst:45
 msgid "LineStyle.DASH_DOT_DOT_LINE"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:46
+#: ../../tutorials/005_line_styles.rst:46
 msgid "LineStyle.NO_PEN"
 msgstr ""
 
-#: ../../tutorials/05_line_styles.rst:55
+#: ../../tutorials/005_line_styles.rst:55
 msgid "The following program draws a rectangle with dash outlines."
 msgstr "下面的程序使用虚线画了一个矩形。"
 
-#: ../../tutorials/05_line_styles.rst:68
+#: ../../tutorials/005_line_styles.rst:68
 msgid "Custom Line Shapes"
 msgstr "自定义线型"
 
-#: ../../tutorials/05_line_styles.rst:69
+#: ../../tutorials/005_line_styles.rst:69
 msgid ""
 "If predefined line shapes is not satisfying, you can set custome line "
 "shape. To do this, you should:"
 msgstr "如果预定义的线型不符合需要，你可以设定自定义线型。你可以这样实现："
 
-#: ../../tutorials/05_line_styles.rst:72
+#: ../../tutorials/005_line_styles.rst:72
 msgid ""
 "use get_target() or create_image() to get the Image object you want to "
 "draw."
 msgstr "使用get_target()或create_image()来获取你需要的Image对象。"
 
-#: ../../tutorials/05_line_styles.rst:73
+#: ../../tutorials/005_line_styles.rst:73
 msgid ""
 "use the Image object\\'s get_pen() to get the pen. It\\'s a PyQt\\'s "
 "`QPen <http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html>`_ object."
@@ -580,7 +601,7 @@ msgstr ""
 "使用Image对象的get_pen()方法来获取画笔，它是一个PyQt的 `QPen "
 "<http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html>`_ 对象。"
 
-#: ../../tutorials/05_line_styles.rst:75
+#: ../../tutorials/005_line_styles.rst:75
 msgid ""
 "Use the pen\\'s `setDashPattern() "
 "<http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html#setDashPattern>`_ to "
@@ -590,11 +611,11 @@ msgstr ""
 "<http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html#setDashPattern>`_ "
 "方法来设置自定义线型。"
 
-#: ../../tutorials/05_line_styles.rst:91
+#: ../../tutorials/005_line_styles.rst:91
 msgid "More Line Styles"
 msgstr "更多线条样式"
 
-#: ../../tutorials/05_line_styles.rst:92
+#: ../../tutorials/005_line_styles.rst:92
 msgid ""
 "After getting the pen object, you can set other pen attributes to get "
 "more line styles. See `QPen's documentation "
@@ -603,173 +624,173 @@ msgstr ""
 "获取画笔对象后，可以对其他的线条样式和画笔属性进行设置。参见 `QPen文档 "
 "<http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html>`_ 。"
 
-#: ../../tutorials/06_line_to.rst:2
+#: ../../tutorials/006_line_to.rst:2
 msgid "Draw with the Current Position"
 msgstr "相对于当前位置画线"
 
-#: ../../tutorials/06_line_to.rst:4
+#: ../../tutorials/006_line_to.rst:4
 msgid ""
 "In easygraphics, each image (including the graphics window) stores \"a "
 "current position\". Use this position, we can draw lines relatively."
 msgstr "在Easy Graphics中，每个绘图对象（包括绘图窗口）都保存着一个\"当前绘图位置\"。可以使用该位置来进行相对绘画。"
 
-#: ../../tutorials/06_line_to.rst:7
+#: ../../tutorials/006_line_to.rst:7
 msgid "The related functions are:"
 msgstr "相关的函数有："
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid ":obj:`get_x <get_x>`\\"
 msgstr ""
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid ":obj:`get_y <get_y>`\\"
 msgstr ""
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid ":obj:`get_drawing_pos <easygraphics.get_drawing_pos>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid "Get the current drawing position (x,y)."
 msgstr "获取当前绘图位置(x,y)的坐标值"
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid ":obj:`move_to <easygraphics.move_to>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid "Set the drawing position to (x,y)."
 msgstr "设置当前绘图位置到(x,y)。"
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid ":obj:`move_rel <easygraphics.move_rel>`\\ \\(dx\\, dy\\, image\\)"
 msgstr ""
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid "Move the drawing position by (dx,dy)."
 msgstr "将绘图位置在x轴方向移动dx，在y轴方向移动dy。"
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid ":obj:`line_to <easygraphics.line_to>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid ""
 "Draw a line from the current drawing position to (x,y), then set the "
 "drawing position is set to (x,y)."
 msgstr "从当前绘图位置到(x,y)画线，然后将当前绘图位置更新为(x,y)"
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid ":obj:`line_rel <easygraphics.line_rel>`\\ \\(dx\\, dy\\, image\\)"
 msgstr ""
 
-#: ../../tutorials/06_line_to.rst:20:<autosummary>:1
+#: ../../tutorials/006_line_to.rst:20:<autosummary>:1
 msgid ""
 "Draw a line from the current drawing position (x,y) to (x+dx,y+dy), then "
 "set the drawing position is set to (x+dx,y+dy)."
 msgstr "从当前绘图位置(x,y)到(x+dx,y+dy)画线，然后将当前绘图位置更新为(x+dx,y+dy)。"
 
-#: ../../tutorials/06_line_to.rst:21
+#: ../../tutorials/006_line_to.rst:21
 msgid "The following program draws a dash line by using the current position."
 msgstr "下面的程序使用当前绘图位置画了一条虚线。"
 
-#: ../../tutorials/06_line_to.rst:37
+#: ../../tutorials/006_line_to.rst:37
 msgid "Approximate a function curve"
 msgstr "近似绘制函数曲线"
 
-#: ../../tutorials/06_line_to.rst:39
+#: ../../tutorials/006_line_to.rst:39
 msgid "Sometimes we need to draw line segments successively."
 msgstr "有时我们需要画多条依次首尾相连的线段。"
 
-#: ../../tutorials/06_line_to.rst:41
+#: ../../tutorials/006_line_to.rst:41
 msgid ""
 "For example, to plot the function f(x)=sin(x)\\'s curve on [-3,3] ,we can"
 " use many successive line segements to approximate the curve:"
 msgstr "例如，要绘制函数f(x)=sin(x)在区间[-3,3]上的函数曲线，我们可以通过多条连续线段来进行近似绘制。"
 
-#: ../../tutorials/06_line_to.rst:44
+#: ../../tutorials/006_line_to.rst:44
 msgid ""
 "divide [-3,3] into n equal intervals, to get n+1 values evenly "
 "distributed on [-3,3]: x0,x1,x2,x3,...,xn, and x0=-3, xn=3"
 msgstr "在数轴上将[-3,3]n等分，获得n+1个在[-3,3]上等距分布的值：x0,x1,x2,x3,……,xn。其中x0=-3，xn=3。"
 
-#: ../../tutorials/06_line_to.rst:46
+#: ../../tutorials/006_line_to.rst:46
 msgid "cacluate function values f(x0),f(x1),f(x2),f(x3), ..., f(xn)."
 msgstr "计算函数值f(x0),f(x1),f(x2),f(x3), ..., f(xn)。"
 
-#: ../../tutorials/06_line_to.rst:47
+#: ../../tutorials/006_line_to.rst:47
 msgid ""
 "draw n line segements:  (x0,f(x0)) to (x1,f(x1)), (x1,f(x1)) to "
 "(x2,f(x2)) ..., (xn-1,f(xn-1)) to (xn,f(xn))"
 msgstr "绘制n条线段：(x0,f(x0))到(x1,f(x1))、(x1,f(x1))到(x2,f(x2))、……、(xn-1,f(xn-1))到(xn,f(xn))。"
 
-#: ../../tutorials/06_line_to.rst:48
+#: ../../tutorials/006_line_to.rst:48
 msgid "the resulting line segments is the curve approximation we need."
 msgstr "最终的结果就是我们需要的近似曲线。"
 
-#: ../../tutorials/06_line_to.rst:50
+#: ../../tutorials/006_line_to.rst:50
 msgid ""
 "Apparently, the more greater n is, the more precisely the appoximation "
 "is. To minimize the usage of memory, we should calculate and draw the "
 "line segments one by one."
 msgstr "显然，n越大，近似就约精确。当n很大时，为了减少不必要的内存开销，我们最好是逐一计算各线段的端点，边计算边绘制。"
 
-#: ../../tutorials/06_line_to.rst:53
+#: ../../tutorials/006_line_to.rst:53
 msgid "The following program plot a sin(x) curve on [-3,3]."
 msgstr "下面的程序使用上述方法绘制[-3,3]区间上的sin(x)曲线。"
 
-#: ../../tutorials/07_texts.rst:2
+#: ../../tutorials/007_texts.rst:2
 msgid "Drawing Text"
 msgstr "绘制文字"
 
-#: ../../tutorials/07_texts.rst:3
+#: ../../tutorials/007_texts.rst:3
 msgid "Use draw_text() and draw_rect_text() functions, we can draw text."
 msgstr "使用draw_text()和draw_rect_text()函数，我们可以绘制文字。"
 
-#: ../../tutorials/07_texts.rst:5
+#: ../../tutorials/007_texts.rst:5
 msgid ""
 "These functions works like print(), you can provide many objects to draw "
 "in one function call:"
 msgstr "这些函数与python的内置函数print()类似, 你可以在一次函数调用中提供多个对象进行打印："
 
-#: ../../tutorials/07_texts.rst:15
+#: ../../tutorials/007_texts.rst:15
 msgid "Running the program above will get the follow result:"
 msgstr "运行上述程序将获得如下的结果："
 
-#: ../../tutorials/07_texts.rst:19
+#: ../../tutorials/007_texts.rst:19
 msgid ""
 "If you want to use seperators instead of space, just provide the \"sep\" "
 "parameter:"
 msgstr "如果你需要使用其他字符代替空格作为字符串之间的分隔符，可以使用\"sep\"参数："
 
-#: ../../tutorials/07_texts.rst:29
+#: ../../tutorials/007_texts.rst:29
 msgid "The result of the above program is:"
 msgstr "上面程序的结果如下："
 
-#: ../../tutorials/07_texts.rst:34
+#: ../../tutorials/007_texts.rst:34
 msgid "Drawing Positions"
 msgstr "文本绘制的位置"
 
-#: ../../tutorials/07_texts.rst:35
+#: ../../tutorials/007_texts.rst:35
 msgid ""
 "In draw_text(), the first 2 paramenter (x,y) specify the start drawing "
 "position of the text. This start position is left-bottom corner of the "
 "text's out border."
 msgstr "使用draw_text()是，前两个参数x,y指明了绘制文字时的“起始位置”，该位置是文字外廓的左下角。"
 
-#: ../../tutorials/07_texts.rst:38
+#: ../../tutorials/007_texts.rst:38
 msgid "So the following code will draw text out of the graphics window:"
 msgstr "因此下列代码将文字绘制在了绘图窗口的外面（在窗口中看不到）："
 
-#: ../../tutorials/07_texts.rst:49
+#: ../../tutorials/007_texts.rst:49
 msgid "Drawing Text in the Specified Rectangle"
 msgstr "在指定的矩形区域中绘制文字"
 
-#: ../../tutorials/07_texts.rst:50
+#: ../../tutorials/007_texts.rst:50
 msgid "Using draw_rect_text(), we can draw a text in a bounded rectangle."
 msgstr "使用draw_rect_text()，我们可以在一个指定的矩形范围内绘制文字。"
 
-#: ../../tutorials/07_texts.rst:52
+#: ../../tutorials/007_texts.rst:52
 msgid ""
 "Note that the first 2 parameters (left,top) is the bounding rectangle's "
 "left-top corner, and the 3rd and 4th parameters (width, height) is the "
@@ -778,34 +799,34 @@ msgstr ""
 "注意函数的前两个参数(left,top)是矩形的左上角（和draw_text()不一样），第3、4个 参数(width, "
 "height)是矩形的宽和高。"
 
-#: ../../tutorials/07_texts.rst:55
+#: ../../tutorials/007_texts.rst:55
 msgid "You can use flags to control text alignment in the rectangle."
 msgstr "你可以使用flags参数来控制文字的对齐方式。"
 
-#: ../../tutorials/07_texts.rst:57
+#: ../../tutorials/007_texts.rst:57
 msgid ""
 "If the bound rectangle is not big enough to enclose the whole text, the "
 "text will be clipped."
 msgstr "如果指定的矩形不足以容纳整行文字，多余的文字会被截掉。"
 
-#: ../../tutorials/07_texts.rst:59
+#: ../../tutorials/007_texts.rst:59
 msgid ""
 "If flag \"TextFlags.TEXT_WORD_WRAP\" is set, the text will auto wrap if "
 "it is too long to hold in one line."
 msgstr "如果设定了标志“TextFlags.TEXT_WORD_WRAP”，并且文字太长一行放不下，会自动换行。"
 
-#: ../../tutorials/07_texts.rst:71
+#: ../../tutorials/007_texts.rst:71
 msgid ""
 "Following is the result of the above program. Note that we use "
 "draw_rect() to draw a border around the bounding rect to better show "
 "effect of the flags."
 msgstr "以下是上面程序的运行结果。注意我们用draw_rect()在文字矩形框外绘制了边线，以便更好的展现flags参数的效果。"
 
-#: ../../tutorials/08_view_port.rst:2
+#: ../../tutorials/008_view_port.rst:2
 msgid "View Port and the Logical Window"
 msgstr "视口（View Port）与逻辑窗口（Logical Window）"
 
-#: ../../tutorials/08_view_port.rst:3
+#: ../../tutorials/008_view_port.rst:3
 msgid ""
 "Normally we just paint on the whole image or window. But sometimes it "
 "will be more convenient to paint relatively in a portion of the image. We"
@@ -814,30 +835,30 @@ msgstr ""
 "一般我们直接在整个图形或者绘图窗口范围内绘图。但有时我们直接在图片的部分区域上进行绘制（并且以该区域的左上角为原点）会更加方便。我们可以使用视口（View"
 " port）来实现该功能。"
 
-#: ../../tutorials/08_view_port.rst:6
+#: ../../tutorials/008_view_port.rst:6
 msgid ""
 "In some cases we want to zoom the painting, or set the origin to some "
 "place other than the view port\\'s top-left cornert. We can use the "
 "logical window to achieve this."
 msgstr "在某些时候，我们需要缩放绘图，或者将原点设置到任意位置。这可以通过使用逻辑窗口（Logical window）来实现。"
 
-#: ../../tutorials/08_view_port.rst:10
+#: ../../tutorials/008_view_port.rst:10
 msgid "View Port"
 msgstr "视口（View Port）"
 
-#: ../../tutorials/08_view_port.rst:11
+#: ../../tutorials/008_view_port.rst:11
 msgid ""
 "View port controls which portion of the image (the graphics window) we "
 "are drawing at."
 msgstr "视口控制我们在图像画布（或者绘图窗口）的哪一部分上进行绘制。"
 
-#: ../../tutorials/08_view_port.rst:13
+#: ../../tutorials/008_view_port.rst:13
 msgid ""
 "The following program draws 3 circles on the graphics window. Pay "
 "attention to their positions."
 msgstr "下列程序在绘图窗口上绘制三个圆。注意它们在窗口中的位置。"
 
-#: ../../tutorials/08_view_port.rst:27
+#: ../../tutorials/008_view_port.rst:27
 msgid ""
 "The following program set view port to the rectangle from (100,50) to "
 "(300,250), then draw 3 circles with the code as the above programming. "
@@ -845,24 +866,24 @@ msgid ""
 "around the view port to better see effect of the clipping."
 msgstr "下面的程序将视口设置到(100,50)和(300,250)之间，然后使用和前例完全相同的代码画了三个圆。比较一下两个程序的结果。注意我们预先在视口周围绘制了边线，以便更好的展现裁剪(clipping)的效果。"
 
-#: ../../tutorials/08_view_port.rst:48
+#: ../../tutorials/008_view_port.rst:48
 msgid ""
 "In the above example, all drawings outside the view port is not painted "
 "(is clipped). We can turn off this feature by set the \"clip\" parameter "
 "to False:"
 msgstr "在上面的例子中，所有画到视口外的内容都被裁掉了。我们可以通过将“clip”参数设为False来关闭这个特性。"
 
-#: ../../tutorials/08_view_port.rst:69
+#: ../../tutorials/008_view_port.rst:69
 msgid "The Logical Window"
 msgstr "逻辑窗口"
 
-#: ../../tutorials/08_view_port.rst:70
+#: ../../tutorials/008_view_port.rst:70
 msgid ""
 "In easygraphics ( and the qt underlying) , there are 2 coordinates, **the"
 " logical coordinates** and **the physical coordinates**."
 msgstr "在Easy Graphics（和其使用的Qt系统）中，实际上有两个坐标系，即**逻辑坐标系**和**物理坐标系**。"
 
-#: ../../tutorials/08_view_port.rst:73
+#: ../../tutorials/008_view_port.rst:73
 msgid ""
 "**The physical coordinates** is the coordinate on the drawing device ( "
 "the graphics window or an Image object). (0,0) is always at the "
@@ -870,14 +891,14 @@ msgid ""
 "grows from top to bottom."
 msgstr "**物理坐标系**是实际在绘图设备（绘图窗口或者图像画布）上的坐标系。原点(0,0)永远位于设备的左上角，X轴正向朝右，Y轴正向向下。"
 
-#: ../../tutorials/08_view_port.rst:77
+#: ../../tutorials/008_view_port.rst:77
 msgid ""
 "**The logical coordinates** is the coordinate we are using when "
 "specifying drawing parameters. That is, when we call circle(50,50,100), "
 "the circle's center (50,50) is a logical coordinate."
 msgstr "**逻辑坐标系**是我们在绘图指明图形位置时所用的坐标。例如，我们执行circle(50,50,100)时，圆心(50,50)就是逻辑坐标。"
 
-#: ../../tutorials/08_view_port.rst:80
+#: ../../tutorials/008_view_port.rst:80
 msgid ""
 "Easygraphics will translate the logical coordinates to the physical "
 "coordinates when drawing. By default, the logical coordinates and the "
@@ -885,7 +906,7 @@ msgid ""
 "the logical coordinates are translated."
 msgstr "Easygraphics在绘图时，会将逻辑坐标值转换为物理坐标值。在缺省状态下，逻辑坐标系和物理坐标系是重合的。而视口和逻辑窗口的设置会影响如何进行坐标转换。"
 
-#: ../../tutorials/08_view_port.rst:84
+#: ../../tutorials/008_view_port.rst:84
 msgid ""
 "`Qt's document <http://doc.qt.io/qt-5/coordsys.html#window-viewport-"
 "conversion>`_ explains how the coordinates are translated."
@@ -893,45 +914,46 @@ msgstr ""
 "`Qt的文档 <http://doc.qt.io/qt-5/coordsys.html#window-viewport-conversion>`_"
 " 详细说明了坐标系转换的过程，请参阅。"
 
-#: ../../tutorials/08_view_port.rst:87
+#: ../../tutorials/008_view_port.rst:87
 msgid ""
 "The following example move the logical origin to the center, and zoom the"
 " drawing 100 times on x and y axis:"
 msgstr "下面的例子中，将逻辑原点移动到了绘图窗口的中心，并在x和y方向上同时对绘制的图像放大100倍"
 
-#: ../../tutorials/08_view_port.rst:90
+#: ../../tutorials/008_view_port.rst:90
 msgid ""
 "the default view port is 600 width, 400 height. and the window is 6 "
 "width, 4 height, so on x-axis we gets 600/6=100 times zoom, and on y-axis"
 " we gets 400/4=100 times zoom."
 msgstr "说明1：我们设置的视口是600像素宽，400像素高；逻辑窗口的宽是6，高是4。因此，在x轴方向上我们得到了600/6=100倍放大；在y轴方向我们也得到了400/4=100倍放大。"
 
-#: ../../tutorials/08_view_port.rst:92
+#: ../../tutorials/008_view_port.rst:92
 msgid ""
 "the window is 6 width, 4 height, and we put the left-top corner at "
 "(-3,-2), so we get (0,0) at the center."
 msgstr "说明2：逻辑窗口的宽是6，高是4，并且我们把逻辑窗口的左上角放到了(-3,-2)，因此(0,0)就到了窗口的正中。"
 
-#: ../../tutorials/08_view_port.rst:109
+#: ../../tutorials/008_view_port.rst:109
+#, fuzzy
 msgid ""
 "**Note:**  Obviously the logical window is difficult to understand and "
-"use. We can use :doc:`transform <09_transforms>` to achieve the same "
+"use. We can use :doc:`transform <009_transforms>` to achieve the same "
 "result."
 msgstr ""
 "**注意:**  显然逻辑窗口又难懂又难用。因此，在实际中更多用 :doc:`几何变换（Transform） <09_transforms>` "
 "来实现上面的功能。"
 
-#: ../../tutorials/09_transforms.rst:2
+#: ../../tutorials/009_transforms.rst:2
 msgid "Transforms"
 msgstr "几何变换（Transforms）"
 
-#: ../../tutorials/09_transforms.rst:3
+#: ../../tutorials/009_transforms.rst:3
 msgid ""
 "Easygraphics (and the underlying Qt system) support 5 basic coordinate "
 "transform operations:"
 msgstr "Easygraphics（和其使用的Qt系统）支持5种基本几何变换："
 
-#: ../../tutorials/09_transforms.rst:5
+#: ../../tutorials/009_transforms.rst:5
 msgid ""
 "`Translation <https://en.wikipedia.org/wiki/Translation_(geometry)>`_: "
 "moves every point of a figure or a space by the same distance in a given "
@@ -940,7 +962,7 @@ msgstr ""
 "`平移（Translation） <https://zh.wikipedia.org/wiki/%E5%B9%B3%E7%A7%BB>`_: "
 "将图形上的各点向同一方向移动相同距离。"
 
-#: ../../tutorials/09_transforms.rst:7
+#: ../../tutorials/009_transforms.rst:7
 msgid ""
 "`Rotation <https://en.wikipedia.org/wiki/Translation_(geometry)>`_: the "
 "motion of a rigid body around a fixed point"
@@ -948,7 +970,7 @@ msgstr ""
 "`旋转（Rotation） <https://zh.wikipedia.org/wiki/%E6%97%8B%E8%BD%AC>`_:  "
 "图形上各点在保持相对位置固定的同时，围绕一个定点运动。"
 
-#: ../../tutorials/09_transforms.rst:8
+#: ../../tutorials/009_transforms.rst:8
 msgid ""
 "`Scaling <https://en.wikipedia.org/wiki/Scaling_(geometry)>`_ :enlarges "
 "(increases) or shrinks (diminishes) objects by a separate scale factor "
@@ -957,7 +979,7 @@ msgstr ""
 "`缩放（Scaling） <https://zh.wikipedia.org/wiki/%E7%BC%A9%E6%94%BE>`_ : "
 "在各轴方向上分别将图形放大(enlarge)或缩小(shrink)相应的倍数（factor）。"
 
-#: ../../tutorials/09_transforms.rst:10
+#: ../../tutorials/009_transforms.rst:10
 msgid ""
 "`Shear Mapping(Skew) <https://en.wikipedia.org/wiki/Shear_mapping>`_ : a "
 "linear map that displaces each point in fixed direction, by an amount "
@@ -967,7 +989,7 @@ msgstr ""
 "`错切(Shear Mapping) <https://zh.wikipedia.org/wiki/%E9%94%99%E5%88%87>`_ :"
 " 是 一种线性映射，将形状上的所有点向一个方向推移，推移的距离与各点到与该方向平行的一条直线的距离成正比。"
 
-#: ../../tutorials/09_transforms.rst:12
+#: ../../tutorials/009_transforms.rst:12
 msgid ""
 "`Relection (Flipping) "
 "<https://en.wikipedia.org/wiki/Reflection_(mathematics)>`_: a "
@@ -978,80 +1000,80 @@ msgstr ""
 "<https://en.wikipedia.org/wiki/Reflection_(mathematics)>`_:  "
 "图像通过一条直线(对称轴)变换成它的镜像。原图像上各点到对称轴的距离，和其在镜像上对应点到对称轴的距离相等。"
 
-#: ../../tutorials/09_transforms.rst:15
+#: ../../tutorials/009_transforms.rst:15
 msgid ""
 "The following code draws a simple bus. We'll use it as the basis for  "
 "this chapter\\'s examples."
 msgstr "下面的代码绘制了一辆简单的公共汽车。我们用它为基础，与本节中后续例子进行比较。"
 
-#: ../../tutorials/09_transforms.rst:45
+#: ../../tutorials/009_transforms.rst:45
 msgid "The following program draws a un-transformed bus:"
 msgstr "下面的程序绘制一辆未经变换的公共汽车。"
 
-#: ../../tutorials/09_transforms.rst:59
+#: ../../tutorials/009_transforms.rst:59
 msgid "Translation"
 msgstr "平移（Translation）"
 
-#: ../../tutorials/09_transforms.rst:60
+#: ../../tutorials/009_transforms.rst:60
 msgid ""
 "Translation is the most commonly used transformation.  It moves each "
 "point by offset_x on x-axis, and offset_y on y-axis. We use it to move "
 "the origin\\'s position ( and the whole drawing)."
 msgstr "平移是最常见的几何变换。它将图形上各点在x轴方向上同时移动offset_x距离，在y轴方向上同时offset_y距离。也可以理解将原点和坐标系在x轴和y轴方向上分别移动了offset_x和offset_y。"
 
-#: ../../tutorials/09_transforms.rst:63
+#: ../../tutorials/009_transforms.rst:63
 msgid ""
 "The following program use translate() to move the origin to the center of"
 " the graphics window, then draw the bus."
 msgstr "下面的程序使用translate()函数来将坐标轴原点移动到绘图窗口的正中央，然后绘制公共汽车。"
 
-#: ../../tutorials/09_transforms.rst:78
+#: ../../tutorials/009_transforms.rst:78
 msgid "**Note:** set_origin() is an alias of translate()"
 msgstr "**注意**：set_origin()是translate()函数的别名。"
 
-#: ../../tutorials/09_transforms.rst:81
+#: ../../tutorials/009_transforms.rst:81
 msgid "Rotation"
 msgstr "旋转（Rotation）"
 
-#: ../../tutorials/09_transforms.rst:82
+#: ../../tutorials/009_transforms.rst:82
 msgid "Use rotate() to rotate the coordinate around the point (x,y) clockwise."
 msgstr "使用rotate()函数来将坐标系绕点(x,y)进行顺时针旋转。"
 
-#: ../../tutorials/09_transforms.rst:84
+#: ../../tutorials/009_transforms.rst:84
 msgid ""
 "Note: the angle directions in rotate() and in shape functions (i.e. "
 "draw_pie()) are opposite!"
 msgstr "注意：rotate()函数和形状绘制函数（如draw_pie()等）中的角度方向是反的！"
 
-#: ../../tutorials/09_transforms.rst:86
+#: ../../tutorials/009_transforms.rst:86
 msgid ""
 "If you need a counter-clockwise rotation, just give a negative rotation "
 "degree."
 msgstr "如果要作逆时针旋转，给一个负的旋转角度即可。"
 
-#: ../../tutorials/09_transforms.rst:88
+#: ../../tutorials/009_transforms.rst:88
 msgid ""
 "The following program draws a bus rotated 45 degree counter-clockwise "
 "around it\\'s center (105,65)."
 msgstr "下面的程序中绘制了一辆绕其中心(105,65)逆时针旋转了45度的公共汽车"
 
-#: ../../tutorials/09_transforms.rst:106
+#: ../../tutorials/009_transforms.rst:106
 msgid "Scaling"
 msgstr "缩放（Scaling）"
 
-#: ../../tutorials/09_transforms.rst:107
+#: ../../tutorials/009_transforms.rst:107
 msgid "We can use scale() to scale the drawing in x and y axis separately."
 msgstr "我们可以使用scale()函数来对图形在x轴和y轴方向分别进行缩放。"
 
-#: ../../tutorials/09_transforms.rst:109
+#: ../../tutorials/009_transforms.rst:109
 msgid "The following program draws a x-axis shrinked and y-axis enlarged bus."
 msgstr "下面的程序绘制了一辆在x轴方向上缩小，在y轴方向上放大的公共汽车。"
 
-#: ../../tutorials/09_transforms.rst:126
+#: ../../tutorials/009_transforms.rst:126
 msgid "Shear Mapping (Skew)"
 msgstr "错切（Shear Mapping）"
 
-#: ../../tutorials/09_transforms.rst:127
+#: ../../tutorials/009_transforms.rst:127
 msgid ""
 "We use shear() or its alias skew to shear a drawing around the center. "
 "shear() needs 2 parameters \"sv\" and \"sh\". After shearing, each point "
@@ -1061,96 +1083,96 @@ msgstr ""
 "我们使用shear()函数或它的别名skew()来围绕点(x,y)对图形进行错切。shear()需要两个参数\"sv\"和\"sh\"。错切时，原图上的每个点(x,y)被变换到(x+sh*y,"
 " y+sv*x)。我们可以通过下面的例子来了解错切的效果。"
 
-#: ../../tutorials/09_transforms.rst:131
+#: ../../tutorials/009_transforms.rst:131
 msgid "Shear on X-axis"
 msgstr "沿X轴方向错切"
 
-#: ../../tutorials/09_transforms.rst:132
+#: ../../tutorials/009_transforms.rst:132
 msgid ""
 "In the follow example, we shear the bus along the x-axis. Note that the "
 "default y-axis is from top to bottom."
 msgstr "在下面的例子中，我们沿X轴方向对公共汽车进行错切。注意缺省情况下Y轴正向向下\""
 
-#: ../../tutorials/09_transforms.rst:150
+#: ../../tutorials/009_transforms.rst:150
 msgid "Shear on Y-axis"
 msgstr "沿Y轴方向错切"
 
-#: ../../tutorials/09_transforms.rst:151
+#: ../../tutorials/009_transforms.rst:151
 msgid "In the follow example, we shear the bus along the y-axis."
 msgstr "在下面的例子中，我们沿Y轴方向对公共进行错切。"
 
-#: ../../tutorials/09_transforms.rst:168
+#: ../../tutorials/009_transforms.rst:168
 msgid "Shear on both axis"
 msgstr "同时沿两轴错切"
 
-#: ../../tutorials/09_transforms.rst:169
+#: ../../tutorials/009_transforms.rst:169
 msgid ""
 "In the follow example, we shear the bus along the x and y-axis at the "
 "same time."
 msgstr "在下面的例子中，我们同时沿X和Y轴两个方向对公共汽车进行错切。"
 
-#: ../../tutorials/09_transforms.rst:187
+#: ../../tutorials/009_transforms.rst:187
 msgid "Reflection (Mirror, Flipping)"
 msgstr "反射（Reflection）"
 
-#: ../../tutorials/09_transforms.rst:188
+#: ../../tutorials/009_transforms.rst:188
 msgid ""
 "We can use reflect() ( or its alias mirror() and flip() ) to do a "
 "reflection. It reflect the drawing again the line passing its parameters "
 "(x1,y1) and  (x,y)."
 msgstr "我们可以使用reflect()（或者它的别名mirror()和flip()）来生成图像的镜像。它将图像以经过原点(x1,y1)和参数点(x,y)的直线为对称轴进行反射。"
 
-#: ../../tutorials/09_transforms.rst:192
+#: ../../tutorials/009_transforms.rst:192
 msgid "Reflection against the y-axis"
 msgstr "以垂直线为轴反射"
 
-#: ../../tutorials/09_transforms.rst:193
+#: ../../tutorials/009_transforms.rst:193
 msgid ""
 "The following program flip the bus horizontally ( reflection against the "
 "bus\\'s vertical center line x=105 ) :"
 msgstr "下面的程序将公共汽车进行水平翻转（以公共汽车的垂直中心线x=105为轴进行反射) :"
 
-#: ../../tutorials/09_transforms.rst:209
+#: ../../tutorials/009_transforms.rst:209
 msgid "Reflection against the x-axis"
 msgstr "以水平线为轴反射"
 
-#: ../../tutorials/09_transforms.rst:210
+#: ../../tutorials/009_transforms.rst:210
 msgid ""
 "The following program flip the bus vertically ( reflection against the "
 "bus\\'s horizontal center line y=65 ) :"
 msgstr "下面的程序将公共汽车进行垂直翻转（以公共汽车的水平中心线y=65为轴进行反射）"
 
-#: ../../tutorials/09_transforms.rst:227
+#: ../../tutorials/009_transforms.rst:227
 msgid "Reflection against other lines"
 msgstr "以任意直线为轴反射"
 
-#: ../../tutorials/09_transforms.rst:228
+#: ../../tutorials/009_transforms.rst:228
 msgid ""
 "The following program flip the bus against the line passing (0, 300) and "
 "(500,0). To clearly see the result, we first draw a non-transformed bus, "
 "a mirror line, then draw the flipped bus."
 msgstr "下面的程序将公共汽车以经过(0,300)和(500,0)的直线为轴进行反射。为了更好的观察效果，我们先画一辆无几何变换的公共汽车和反射轴，然后画反射后的公共汽车。"
 
-#: ../../tutorials/09_transforms.rst:253
+#: ../../tutorials/009_transforms.rst:253
 msgid "Compound Transforms"
 msgstr "复合变换"
 
-#: ../../tutorials/09_transforms.rst:254
+#: ../../tutorials/009_transforms.rst:254
 msgid "Transforms can be compounded."
 msgstr "几何变换可以进行复合。"
 
-#: ../../tutorials/09_transforms.rst:256
+#: ../../tutorials/009_transforms.rst:256
 msgid ""
 "In the following example, we first translate the origin to the image "
 "center, then rotate the bus around its center, then shear it around its "
 "center, then scale it by a factor of 1.2 ."
 msgstr "在下面的例子中，我们首先将原点移动到绘图窗口的正中央，然后将公共汽车绕其中心旋转，然后对其沿中心错切，最后将其放大1.2倍。"
 
-#: ../../tutorials/09_transforms.rst:287
+#: ../../tutorials/009_transforms.rst:287
 msgid "Drawing with Y-Axis Grows Bottom-Up"
 msgstr "在Y轴向上的坐标系中绘图"
 
-#: ../../tutorials/09_transforms.rst:288
+#: ../../tutorials/009_transforms.rst:288
 msgid ""
 "You may have noticed that when you reflect the image, the texts drawing "
 "on the image will also get reflected. When what you want is to draw on an"
@@ -1158,11 +1180,11 @@ msgid ""
 "be what you what."
 msgstr "你可能已经注意到了，在图片上打开反射（镜像）后，图片上的文字也会被反射绘制。如果你需要按照普通的平面直角坐标系（Y轴向上）绘图，那么这可能不符合你的需要。"
 
-#: ../../tutorials/09_transforms.rst:292
+#: ../../tutorials/009_transforms.rst:292
 msgid "Easygraphics provides a set_flip_y() function to used in this situation."
 msgstr "Easygraphics专门提供了set_flip_y()函数，来处理这种情况（只翻转图片，不翻转文字)。"
 
-#: ../../tutorials/09_transforms.rst:294
+#: ../../tutorials/009_transforms.rst:294
 msgid ""
 "Also notice that if you turn on the set_flip_y(), all the angles "
 "parameters used in the drawing functions should be mirrored too. That is,"
@@ -1170,26 +1192,26 @@ msgid ""
 "set_flip_y() is on, a positive angle will mean turn counter-clockwise."
 msgstr "需要注意的是，在图片翻转后，所有绘图函数中角度参数的含义也都随之改变。不翻转时，一个正的角度表示顺时针旋转；反转后，正的角度表示逆时针旋转。"
 
-#: ../../tutorials/09_transforms.rst:298
+#: ../../tutorials/009_transforms.rst:298
 msgid ""
 "Compare the following two programs. The first one use set_flip_y() to "
 "make y-axis grows bottom-up; and the second one use reflect(1,0) to do "
 "that job. See the results."
 msgstr "下面的两个程序，第一个程序使用set_flip_y()函数来实现Y轴向上；第二个程序使用reflect(1,0)来实现。比较一下它们的结果。"
 
-#: ../../tutorials/09_transforms.rst:301
+#: ../../tutorials/009_transforms.rst:301
 msgid "Use set_flip_y() to make y-axis grows bottom-up:"
 msgstr "使用set_flip_y()来实现Y轴向上："
 
-#: ../../tutorials/09_transforms.rst:329
+#: ../../tutorials/009_transforms.rst:329
 msgid "Use reflect(1,0) to make y-axis grows bottom-up:"
 msgstr "使用reflect(1,0)来实现Y轴向上："
 
-#: ../../tutorials/10_composition_mode.rst:2
+#: ../../tutorials/010_composition_mode.rst:2
 msgid "Compositions"
 msgstr "合成（Compositions）"
 
-#: ../../tutorials/10_composition_mode.rst:3
+#: ../../tutorials/010_composition_mode.rst:3
 msgid ""
 "When we are drawing , what we really do is to change the destination "
 "pixels color. Instead of just using (copy) the source color, the color be"
@@ -1199,13 +1221,13 @@ msgstr ""
 "我们在计算机中绘图，实际就是在改变目标点（像素）的色彩。除了最简单的直接复制来源（画笔）色彩外，可以通过对来源色彩（画笔的色彩）和目标色彩（目的点的原有色彩）进行合成运算来决定目标点的最终色彩。合成模式（Composition"
 " mode）的作用就是控制如何对来源色彩和目标色彩进行合成。"
 
-#: ../../tutorials/10_composition_mode.rst:7
+#: ../../tutorials/010_composition_mode.rst:7
 msgid ""
 "Easygraphics (and the underlying Qt system) support three types of "
 "compositions:"
 msgstr "Easygraphics (以及它使用的Qt系统）支持三种类型的合成运算："
 
-#: ../../tutorials/10_composition_mode.rst:9
+#: ../../tutorials/010_composition_mode.rst:9
 msgid ""
 "`Bit Blit <https://en.wikipedia.org/wiki/Bit_blit>`_ ( Raster Operation "
 "(ROP) / Bitwise Operation ): the source color and the destination color "
@@ -1216,7 +1238,7 @@ msgstr ""
 "(ROP)，也称为位运算(Bitwise Operation)或者位块传输(Bit "
 "Blit)）：使用位运算对来源色彩和目标色彩进行合成。此运算要求来源色彩和目标色彩都是不透明的（alpha值为255）。"
 
-#: ../../tutorials/10_composition_mode.rst:12
+#: ../../tutorials/010_composition_mode.rst:12
 msgid ""
 "`Alpha compositing <https://en.wikipedia.org/wiki/Alpha_compositing>`_ : "
 "is the process of combining the source with the destination to create the"
@@ -1226,7 +1248,7 @@ msgstr ""
 "<https://en.wikipedia.org/wiki/Alpha_compositing>`_ : "
 "将包含透明信息的来源色彩和目标色彩进行合成，从而产生带透明效果的色彩合成操作。"
 
-#: ../../tutorials/10_composition_mode.rst:14
+#: ../../tutorials/010_composition_mode.rst:14
 msgid ""
 "`Blend <https://en.wikipedia.org/wiki/Blend_modes>`_ : is used in digital"
 " image editing and computer graphics to determine how two layers are "
@@ -1235,211 +1257,211 @@ msgstr ""
 "`混合(Blend) <https://en.wikipedia.org/wiki/Blend_modes>`_ : "
 "主要应用于数字图像处理，将两个图层相互混合得到最终的结果。"
 
-#: ../../tutorials/10_composition_mode.rst:17
+#: ../../tutorials/010_composition_mode.rst:17
 msgid ""
 "These three types is not strictly orthogonal, and some compositions have "
 "different names in each type."
 msgstr "这三类操作并非严格正交，某些合成操作同时属于上述类型中的两类或三类。"
 
-#: ../../tutorials/10_composition_mode.rst:20
+#: ../../tutorials/010_composition_mode.rst:20
 msgid "Bit Blit (Raster Operations)"
 msgstr "光栅运算（Bit Blit）"
 
-#: ../../tutorials/10_composition_mode.rst:21
+#: ../../tutorials/010_composition_mode.rst:21
 msgid ""
 "Bit Blit is the classic composition operation used in old graphic "
 "systems. Because it requires both the source color and the destination "
 "color to be opaque, it's of limited use in modern graphics systems."
 msgstr "在计算机发展的早期，图形系统尚不支持透明时，主要使用光栅运算进行色彩的合成。因为它只支持对不透明的颜色进行合成，因此现代图形系统中已经很少使用了。"
 
-#: ../../tutorials/10_composition_mode.rst:24
+#: ../../tutorials/010_composition_mode.rst:24
 msgid ""
 "A classic usage of the raster operation is using bitwise XOR to draw and "
 "clear a shape, so as to create an animation."
 msgstr "一个典型的例子是反复使用按位XOR合成运算在同一个位置重复绘制一个图形。第二次绘制时，原有图形会被擦除。这样就可以实现动画的效果。"
 
-#: ../../tutorials/10_composition_mode.rst:27
+#: ../../tutorials/010_composition_mode.rst:27
 msgid ""
 "The following example use bitwise XOR to draw and clear the ellipse. Note"
 " that other colors will not do the job."
 msgstr "在下面的例子中，使用按位XOR运算来绘制和清除一个椭圆。注意，如果换成其他的颜色，将无法产生本例中的效果。"
 
-#: ../../tutorials/10_composition_mode.rst:48
+#: ../../tutorials/010_composition_mode.rst:50
 msgid "Alpha Compositing"
 msgstr "Alpha合成（Alpha Comositing）"
 
-#: ../../tutorials/10_composition_mode.rst:49
+#: ../../tutorials/010_composition_mode.rst:51
 msgid "Alpha Compositing is the mostly used composition type."
 msgstr "Alpha合成是目前应用最多的合成运算类型。"
 
-#: ../../tutorials/10_composition_mode.rst:51
+#: ../../tutorials/010_composition_mode.rst:53
 msgid "The following table shows the result of the alpha compositings."
 msgstr "下表展示了alpha合成的效果："
 
-#: ../../tutorials/10_composition_mode.rst:53
+#: ../../tutorials/010_composition_mode.rst:55
 msgid "Source and Source Over is the mostly used compistings."
 msgstr "Source和Source Over是用的最多的两种合成运算。"
 
-#: ../../tutorials/10_composition_mode.rst:58
+#: ../../tutorials/010_composition_mode.rst:60
 msgid "Source and Destination are opaque"
 msgstr "来源色彩(Source)和目标色彩(Destination)均不透明"
 
-#: ../../tutorials/10_composition_mode.rst:59
+#: ../../tutorials/010_composition_mode.rst:61
 msgid "|source_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:60
+#: ../../tutorials/010_composition_mode.rst:62
 msgid "|source_over_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:61
+#: ../../tutorials/010_composition_mode.rst:63
 msgid "|source_in_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:63
-#: ../../tutorials/10_composition_mode.rst:95
+#: ../../tutorials/010_composition_mode.rst:65
+#: ../../tutorials/010_composition_mode.rst:97
 msgid "Source"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:64
-#: ../../tutorials/10_composition_mode.rst:96
+#: ../../tutorials/010_composition_mode.rst:66
+#: ../../tutorials/010_composition_mode.rst:98
 msgid "Source Over"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:65
-#: ../../tutorials/10_composition_mode.rst:97
+#: ../../tutorials/010_composition_mode.rst:67
+#: ../../tutorials/010_composition_mode.rst:99
 msgid "source in"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:67
+#: ../../tutorials/010_composition_mode.rst:69
 msgid "|source_out_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:68
+#: ../../tutorials/010_composition_mode.rst:70
 msgid "|source_atop_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:69
-#: ../../tutorials/10_composition_mode.rst:85
+#: ../../tutorials/010_composition_mode.rst:71
+#: ../../tutorials/010_composition_mode.rst:87
 msgid "|xor_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:71
-#: ../../tutorials/10_composition_mode.rst:103
+#: ../../tutorials/010_composition_mode.rst:73
+#: ../../tutorials/010_composition_mode.rst:105
 msgid "source out"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:72
-#: ../../tutorials/10_composition_mode.rst:104
+#: ../../tutorials/010_composition_mode.rst:74
+#: ../../tutorials/010_composition_mode.rst:106
 msgid "source atop"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:73
-#: ../../tutorials/10_composition_mode.rst:89
-#: ../../tutorials/10_composition_mode.rst:105
-#: ../../tutorials/10_composition_mode.rst:121
+#: ../../tutorials/010_composition_mode.rst:75
+#: ../../tutorials/010_composition_mode.rst:91
+#: ../../tutorials/010_composition_mode.rst:107
+#: ../../tutorials/010_composition_mode.rst:123
 msgid "xor"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:75
+#: ../../tutorials/010_composition_mode.rst:77
 msgid "|destination_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:76
+#: ../../tutorials/010_composition_mode.rst:78
 msgid "|destination_over_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:77
+#: ../../tutorials/010_composition_mode.rst:79
 msgid "|destination_in_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:79
-#: ../../tutorials/10_composition_mode.rst:111
+#: ../../tutorials/010_composition_mode.rst:81
+#: ../../tutorials/010_composition_mode.rst:113
 msgid "Destination"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:80
-#: ../../tutorials/10_composition_mode.rst:112
+#: ../../tutorials/010_composition_mode.rst:82
+#: ../../tutorials/010_composition_mode.rst:114
 msgid "Destination Over"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:81
-#: ../../tutorials/10_composition_mode.rst:113
+#: ../../tutorials/010_composition_mode.rst:83
+#: ../../tutorials/010_composition_mode.rst:115
 msgid "Destination in"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:83
+#: ../../tutorials/010_composition_mode.rst:85
 msgid "|destination_out_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:84
+#: ../../tutorials/010_composition_mode.rst:86
 msgid "|destination_atop_o|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:87
-#: ../../tutorials/10_composition_mode.rst:119
+#: ../../tutorials/010_composition_mode.rst:89
+#: ../../tutorials/010_composition_mode.rst:121
 msgid "Destination out"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:88
-#: ../../tutorials/10_composition_mode.rst:120
+#: ../../tutorials/010_composition_mode.rst:90
+#: ../../tutorials/010_composition_mode.rst:122
 msgid "Destination atop"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:90
+#: ../../tutorials/010_composition_mode.rst:92
 msgid "Source and Destination are partially transparent"
 msgstr "来源色彩(Source)和目标色彩(Destination)半透明"
 
-#: ../../tutorials/10_composition_mode.rst:91
+#: ../../tutorials/010_composition_mode.rst:93
 msgid "|source_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:92
+#: ../../tutorials/010_composition_mode.rst:94
 msgid "|source_over_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:93
+#: ../../tutorials/010_composition_mode.rst:95
 msgid "|source_in_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:99
+#: ../../tutorials/010_composition_mode.rst:101
 msgid "|source_out_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:100
+#: ../../tutorials/010_composition_mode.rst:102
 msgid "|source_atop_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:101
-#: ../../tutorials/10_composition_mode.rst:117
+#: ../../tutorials/010_composition_mode.rst:103
+#: ../../tutorials/010_composition_mode.rst:119
 msgid "|xor_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:107
+#: ../../tutorials/010_composition_mode.rst:109
 msgid "|destination_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:108
+#: ../../tutorials/010_composition_mode.rst:110
 msgid "|destination_over_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:109
+#: ../../tutorials/010_composition_mode.rst:111
 msgid "|destination_in_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:115
+#: ../../tutorials/010_composition_mode.rst:117
 msgid "|destination_out_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:116
+#: ../../tutorials/010_composition_mode.rst:118
 msgid "|destination_atop_t|"
 msgstr ""
 
-#: ../../tutorials/10_composition_mode.rst:147
+#: ../../tutorials/010_composition_mode.rst:149
 msgid "Blend"
 msgstr "混合（Blend）"
 
-#: ../../tutorials/10_composition_mode.rst:148
+#: ../../tutorials/010_composition_mode.rst:150
 msgid ""
 "Blend is mainly used for image or photo processing. See `wikipedia "
 "<https://en.wikipedia.org/wiki/Blend_modes>`_ for more details about it."
@@ -1447,11 +1469,11 @@ msgstr ""
 "混合主要用于数字图像或照片处理。请阅读 `维基百科 <https://en.wikipedia.org/wiki/Blend_modes>`_ "
 "中的相关条目。"
 
-#: ../../tutorials/11_image.rst:2
+#: ../../tutorials/011_image.rst:2
 msgid "Image Processing"
 msgstr "图片处理"
 
-#: ../../tutorials/11_image.rst:4
+#: ../../tutorials/011_image.rst:4
 msgid ""
 "Sometimes we need to paint a complicated drawing repeatedly. It will be "
 "very cumbersome and time consuming if we start the drawing from scratch "
@@ -1459,39 +1481,39 @@ msgid ""
 " reuse the image."
 msgstr "有时我们需要反复绘制一个复杂的图形。如果每次我们都从头开始绘制，显然费时费力。更好的解决方法是先把它单独绘制到一个图片（Image）上，然后重复使用该图片进行绘制。"
 
-#: ../../tutorials/11_image.rst:9
+#: ../../tutorials/011_image.rst:9
 msgid "Create and Draw on a Image"
 msgstr "创建和绘制图片"
 
-#: ../../tutorials/11_image.rst:10
+#: ../../tutorials/011_image.rst:10
 msgid "Use create_image()  to create a new image instance."
 msgstr "使用create_image()函数来创建一个新的图片对象。"
 
-#: ../../tutorials/11_image.rst:12
+#: ../../tutorials/011_image.rst:12
 msgid "There are two ways to draw on a image:"
 msgstr "有两种方法来在图片上绘制图形："
 
-#: ../../tutorials/11_image.rst:14
+#: ../../tutorials/011_image.rst:14
 msgid ""
 "the OOP way: Use the image's method. The image created by create_image() "
 "is an Image object. we can use it's method directly."
 msgstr "面向对象方式：使用图片对象的成员方法。create_image()创建的是一个图片对象。我们可以直接使用它的成员方法。"
 
-#: ../../tutorials/11_image.rst:22
+#: ../../tutorials/011_image.rst:22
 msgid ""
 "the traditional way: Use the drawing functions mentioned in the previous "
 "chapters, and provide the image as an additional parameter."
 msgstr "传统方式：使用前面章节中的绘图函数，同时指明在哪个图片上绘制（缺省在绘图窗口中绘制）"
 
-#: ../../tutorials/11_image.rst:31
+#: ../../tutorials/011_image.rst:31
 msgid "The Graphics Window and The Drawing Target"
 msgstr "绘图窗口和绘制目标（target）"
 
-#: ../../tutorials/11_image.rst:32
+#: ../../tutorials/011_image.rst:32
 msgid "In Easygraphics, the graphics window is just a special image."
 msgstr "在Easy Graphics中，绘图窗口就是一个特殊的图片。"
 
-#: ../../tutorials/11_image.rst:34
+#: ../../tutorials/011_image.rst:34
 msgid ""
 "To easy the coding, Easygraphics has a target image property. Most of the"
 " drawing functions has an optional paramter \"image\" or \"dst_image\", "
@@ -1501,178 +1523,178 @@ msgstr ""
 "为了减少编写程序的难度，Easy "
 "Graphics系统内部包含一个“绘制目标”属性。大多数绘图函数都有一个缺省的\"image\"或\"dst_image\"参数，如果未提供该参数，就会在系统的“绘制目标”上绘图。缺省的绘制目标就是绘图窗口。"
 
-#: ../../tutorials/11_image.rst:38
+#: ../../tutorials/011_image.rst:38
 msgid ""
 "So you call drawing functions without specifying which image is to draw, "
 "the graphics window will get drawn."
 msgstr "所以，如果你没有修改过系统的“绘制目标”，在调用绘图函数时也没有指明在哪儿绘制，图形就会被绘制在绘图窗口里。"
 
-#: ../../tutorials/11_image.rst:41
+#: ../../tutorials/011_image.rst:41
 msgid ""
 "You can use set_target() to change the drawing target, and use "
 "get_target() to get the drawing target."
 msgstr "可以使用set_target()函数来改变系统的“绘图目标”，以及使用get_target()函数来获取当前的绘图目标。"
 
-#: ../../tutorials/11_image.rst:43
+#: ../../tutorials/011_image.rst:43
 msgid ""
 "the following code use set_target() to change drawing target to a image, "
 "and draw on it:"
 msgstr "下面的代码使用set_target()函数来将系统的“绘图目标设置”为一个图片, 然后在上面绘图:"
 
-#: ../../tutorials/11_image.rst:45
+#: ../../tutorials/011_image.rst:45
 msgid "**Note:** Remember to use close_image() to close the unused images."
 msgstr "**注意**：使用close_image()函数来关闭用完的图片。"
 
-#: ../../tutorials/11_image.rst:54
+#: ../../tutorials/011_image.rst:54
 msgid "Saving Image"
 msgstr "保存图片"
 
-#: ../../tutorials/11_image.rst:55
+#: ../../tutorials/011_image.rst:55
 msgid "We can use save_image() to save a image to the disk."
 msgstr "可以使用save_image()函数来将图片保存到文件中。"
 
-#: ../../tutorials/11_image.rst:57
+#: ../../tutorials/011_image.rst:57
 msgid ""
 "The following program draw a bus and save it to \"bus_screen.png\" in the"
 " current folder."
 msgstr "下面的程序绘制一辆公共汽车，并将其保存到当前文件夹的\"bus_screen.png\"文件中。"
 
-#: ../../tutorials/11_image.rst:59
+#: ../../tutorials/011_image.rst:59
 msgid "Note that because:"
 msgstr "注意，因为："
 
-#: ../../tutorials/11_image.rst:61
+#: ../../tutorials/011_image.rst:61
 msgid "By default save_image() will save the drawing target image;"
 msgstr "save_image()缺省保存“绘制目标”图片；"
 
-#: ../../tutorials/11_image.rst:62
+#: ../../tutorials/011_image.rst:62
 msgid "By default the target image is the graphics window."
 msgstr "缺省的“绘制目标”是绘图窗口。"
 
-#: ../../tutorials/11_image.rst:64
+#: ../../tutorials/011_image.rst:64
 msgid "So we are saving the graphics window."
 msgstr "因此我们保存到文件中的是绘图窗口中的内容。"
 
-#: ../../tutorials/11_image.rst:77
+#: ../../tutorials/011_image.rst:77
 msgid "Copy Image"
 msgstr "复制图片"
 
-#: ../../tutorials/11_image.rst:78
+#: ../../tutorials/011_image.rst:78
 msgid "We can use draw_image() to copy part of one image to another image."
 msgstr "我们可以使用draw_image()函数来复制一个图片（或它的一部分）到另一张图片上。"
 
-#: ../../tutorials/11_image.rst:80
+#: ../../tutorials/011_image.rst:80
 msgid "In the following example, we:"
 msgstr "在下面的例子中，我们将："
 
-#: ../../tutorials/11_image.rst:82
+#: ../../tutorials/011_image.rst:82
 msgid "create a image and save it to variable \"img\""
 msgstr "创建一个图片对象，保存到变量\"img\"中。"
 
-#: ../../tutorials/11_image.rst:83
+#: ../../tutorials/011_image.rst:83
 msgid "set drawing target to \"img\""
 msgstr "将“绘制目标”设为\"img\"。"
 
-#: ../../tutorials/11_image.rst:84
+#: ../../tutorials/011_image.rst:84
 msgid "draw a bus to \"img\" (the drawing target)"
 msgstr "在“绘制目标”（\"img\"图片）上画一辆公共汽车"
 
-#: ../../tutorials/11_image.rst:85
+#: ../../tutorials/011_image.rst:85
 msgid "set drawing target back to the graphics window"
 msgstr "将“绘制目标”设为绘图窗口"
 
-#: ../../tutorials/11_image.rst:86
+#: ../../tutorials/011_image.rst:86
 msgid "copy the content on \"img\" to the graphics window's different positions."
 msgstr "将\"img\"中的内容复制到绘图窗口的不同位置"
 
-#: ../../tutorials/11_image.rst:108
+#: ../../tutorials/011_image.rst:108
 msgid "The result:"
 msgstr "结果："
 
-#: ../../tutorials/11_image.rst:113
+#: ../../tutorials/011_image.rst:113
 msgid "Image Transparency and Composition Mode"
 msgstr "图片透明和合成"
 
-#: ../../tutorials/11_image.rst:114
+#: ../../tutorials/011_image.rst:114
 msgid ""
 "put_image() copy a rectangle area to the destination image. If you want "
 "to copy things that are not rectanglely outlined, you can draw it on a "
 "image with fully transparent background, then copy"
 msgstr "put_image()从源图片复制一个矩形区域到目标图片上。如果你需要复制一个外形轮廓不是矩形的图像，可以先将其画在一个背景完全透明的图片上，然后再复制。"
 
-#: ../../tutorials/11_image.rst:117
+#: ../../tutorials/011_image.rst:117
 msgid ""
 "The following example is identical to the above example, expect that it "
 "set the source image's background to transparent before drawing the bus."
 msgstr "下面的例子中大部分代码和上一个例子相同，除了在画公共汽车之前，先把源图片的背景设成了透明。"
 
-#: ../../tutorials/11_image.rst:141
+#: ../../tutorials/011_image.rst:141
 msgid "The result is :"
 msgstr "结果是："
 
-#: ../../tutorials/11_image.rst:146
+#: ../../tutorials/011_image.rst:146
 msgid "Copy Image without the Background"
 msgstr "复制图片时忽略背景"
 
-#: ../../tutorials/11_image.rst:147
+#: ../../tutorials/011_image.rst:147
 msgid ""
 "If you can't draw with a transparent background, you can copy the image "
 "without the background, by set the parameter \"with_background\" to "
 "False."
 msgstr "如果你不喜欢使用透明背景，那么也可以在复制时将参数\"with_background\"设为False，这样在复制时将不会复制背景。"
 
-#: ../../tutorials/11_image.rst:150
+#: ../../tutorials/011_image.rst:150
 msgid ""
 "In the following example, we don't use a transparent backround, and we do"
 " the copy without background."
 msgstr "在下面的例子中，我们没有使用透明背景，而是直接不复制背景。"
 
-#: ../../tutorials/11_image.rst:176
+#: ../../tutorials/011_image.rst:176
 msgid "Copy Image with transforms"
 msgstr "带几何变换的图片复制"
 
-#: ../../tutorials/11_image.rst:177
+#: ../../tutorials/011_image.rst:177
 msgid ""
 "If you want to copy a image with transforms such as rotation, you should "
 "set the transforms before the copy."
 msgstr "如果你需要在复制图片的同时对其进行几何变换（如复制一张旋转后的图片），那你应该在复制前先在目标图片上设置变换。"
 
-#: ../../tutorials/11_image.rst:179
+#: ../../tutorials/011_image.rst:179
 msgid ""
 "The following program copy images with rotation. Note the use of "
 "save_settings() and restore_settings(), we use it to save and restore "
 "image's transforms."
 msgstr "下面的程序进行了旋转复制。请注意save_settings()和restore_settings()函数，它们被用来保存和恢复图片的设置（包括几何变换设置）。"
 
-#: ../../tutorials/11_image.rst:182
+#: ../../tutorials/011_image.rst:182
 msgid ""
 "**Note:** It's a good practice to save the old transfrom before doing any"
 " transforms before copy, and restore the old settings after the copy."
 msgstr "**注意**：在变换和复制图片前先保存旧的设置，然后在复制完成后恢复原有设置是个非常好的习惯。"
 
-#: ../../tutorials/11_image.rst:215
+#: ../../tutorials/011_image.rst:215
 msgid "Load Image"
 msgstr "入图片文件"
 
-#: ../../tutorials/11_image.rst:216
+#: ../../tutorials/011_image.rst:216
 msgid "We can load image from files."
 msgstr "我们可以从文件中读入图片。"
 
-#: ../../tutorials/11_image.rst:218
+#: ../../tutorials/011_image.rst:218
 msgid ""
 "**Note:** JPEG format doesn't support transparency. So use the PNG format"
 " if you want to save and load image with transparent backgrounds."
 msgstr "**注意**：JPEG格式图片不支持透明。因此如果你需要保存和载入带透明背景的图片，请使用PNG格式。"
 
-#: ../../tutorials/11_image.rst:222
+#: ../../tutorials/011_image.rst:222
 msgid "The following example load and display a image."
 msgstr "下面的例子从文件中读入图片，然后显示在绘图窗口中。"
 
-#: ../../tutorials/11_image.rst:236
+#: ../../tutorials/011_image.rst:236
 msgid "Headless Mode"
 msgstr "无窗口（headless）模式"
 
-#: ../../tutorials/11_image.rst:237
+#: ../../tutorials/011_image.rst:237
 msgid ""
 "Sometimes we just want to draw and save the image, and don't need to "
 "display it on the screen. Easygraphics provides a headless mode to do the"
@@ -1680,53 +1702,53 @@ msgid ""
 "animations such as pause() won't work."
 msgstr "有时我们只需要绘制和保存图片，并不需要在屏幕窗口上显示。为此，Easygraphics提供了无窗口(headless)模式，来完成这类工作。在该模式下，不显示绘图窗口，pause()、get_click()等为动画和交互服务的的函数也无法使用。"
 
-#: ../../tutorials/11_image.rst:241
+#: ../../tutorials/011_image.rst:241
 msgid ""
 "The following program shows how to use init_graph() to create a headless "
 "mode."
 msgstr "下面的程序展示了如何使用init_graph()函数进行无窗口模式。"
 
-#: ../../tutorials/12_animation.rst:2
+#: ../../tutorials/012_animation.rst:2
 msgid "Animation"
 msgstr "动画"
 
-#: ../../tutorials/12_animation.rst:3
+#: ../../tutorials/012_animation.rst:3
 msgid ""
 "By rapidly change the painting (frames) on the graphics window, we can "
 "make an animation."
 msgstr "通过在动画窗口上快速改变绘图（帧），我们可以制作动画。"
 
-#: ../../tutorials/12_animation.rst:7
+#: ../../tutorials/012_animation.rst:7
 msgid "Time Control"
 msgstr "时间控制"
 
-#: ../../tutorials/12_animation.rst:8
+#: ../../tutorials/012_animation.rst:8
 msgid ""
 "Because the computer can draw very fast, we must let it to wait some time"
 " between two frames."
 msgstr "因为计算机能够以很快的速度画图，因此我们通常需要在两帧间停顿一些时间。"
 
-#: ../../tutorials/12_animation.rst:11
+#: ../../tutorials/012_animation.rst:11
 msgid "**Note:** Functions used in this section won't work in the headless mode."
 msgstr "**注意**：在这节中使用的函数都无法在无窗口模式（Headless模式）中工作。"
 
-#: ../../tutorials/12_animation.rst:13
+#: ../../tutorials/012_animation.rst:13
 msgid ""
 "In easygraphics, we can use delay() to pause the program from the "
 "specified milliseconds."
 msgstr "在Easy Graphics中，我们可以使用delay()函数来让程序暂停指定的毫秒（milliseconds或ms）数。"
 
-#: ../../tutorials/12_animation.rst:16
+#: ../../tutorials/012_animation.rst:16
 msgid "Control the FPS"
 msgstr "控制FPS"
 
-#: ../../tutorials/12_animation.rst:17
+#: ../../tutorials/012_animation.rst:17
 msgid ""
 "Because the actual drawing time can be different each time drawing, a "
 "better way to control the speed is by using the delay_fps() function."
 msgstr "因为每次绘图的实际用时都有可能不一样，因此更好的控制每帧时长的方法是使用delay_fps()函数。"
 
-#: ../../tutorials/12_animation.rst:20
+#: ../../tutorials/012_animation.rst:20
 msgid ""
 "FPS is the abbreviation of \"frames per second\".delay_fps() will "
 "calculate each frame's drawing time, and wait to make each frame displays"
@@ -1735,21 +1757,21 @@ msgstr ""
 "FPS是\"frames per "
 "second\"（每秒钟帧数）的缩写。delay_fps()会计算每一帧的实际绘制时长，将程序暂停对应的时长，以保证每帧的总时长一致。"
 
-#: ../../tutorials/12_animation.rst:24
+#: ../../tutorials/012_animation.rst:24
 msgid "Render Mode"
 msgstr "渲染模式（Render Mode）"
 
-#: ../../tutorials/12_animation.rst:25
+#: ../../tutorials/012_animation.rst:25
 msgid "There are two render mode in EasyGraphics:"
 msgstr "在EasyGraphics中有两种渲染模式"
 
-#: ../../tutorials/12_animation.rst:27
+#: ../../tutorials/012_animation.rst:27
 msgid ""
 "**RenderMode.AUTO**: All drawings on the graphics window will show "
 "immediately. This is the default mode, and is for normal drawing."
 msgstr "**自动模式(RenderMode.AUTO)**：所有的在绘图窗口中的绘制都会导致窗口立即刷新。这是缺省工作模式，用于普通的绘图。"
 
-#: ../../tutorials/12_animation.rst:29
+#: ../../tutorials/012_animation.rst:29
 msgid ""
 "**RenderMode.Manual**: Drawings will not show on the graphics window. "
 "Only time control, keyboard or mouse functions like "
@@ -1757,131 +1779,131 @@ msgid ""
 "window. This mode can speed up the animation frames drawing."
 msgstr "**手动模式(RenderMode.Manual)**：绘制的内容不会立即刷新显示在绘图窗口中。要一直等到pause()/delay()/delay_fps()/get_mouse_msg()等时间控制和鼠标键盘函数被调用时，窗口才会刷新。这个模式用来加速动画帧的绘制。"
 
-#: ../../tutorials/12_animation.rst:33
+#: ../../tutorials/012_animation.rst:33
 msgid ""
 "It's a good practice to set the render mode to manual when your want to "
 "show an animation."
 msgstr "在显示动画前，将渲染模式设置为手动是个好习惯。"
 
-#: ../../tutorials/12_animation.rst:35
+#: ../../tutorials/012_animation.rst:35
 msgid "You can use set_render_mode() to set the render mode."
 msgstr "可以使用set_render_mode()函数来设置渲染模式。"
 
-#: ../../tutorials/12_animation.rst:37
+#: ../../tutorials/012_animation.rst:37
 msgid ""
 "**Note:** If you are not drawing on the graphics window, this render mode"
 " has no effect."
 msgstr "**注意**：如果你不是在绘图窗口中进行绘制，那么渲染模式没有任何效果。"
 
-#: ../../tutorials/12_animation.rst:40
+#: ../../tutorials/012_animation.rst:40
 msgid "Background"
 msgstr "背景处理"
 
-#: ../../tutorials/12_animation.rst:41
+#: ../../tutorials/012_animation.rst:41
 msgid ""
 "Ofter we need to make an object move in a background. If the background "
 "is complicated, it's not a good idea to recreate the background in each "
 "frame."
 msgstr "在动画中，我们经常需要某个物体在特定背景下移动。如果背景较为复杂，那么每帧都从头绘制一遍背景会严重影响绘制的速度。"
 
-#: ../../tutorials/12_animation.rst:44
+#: ../../tutorials/012_animation.rst:44
 msgid ""
 "A common solution is to draw background in one image , and the moving "
 "object in another transparent image. The final result is made by merge "
 "the two images."
 msgstr "在这种情况下，一般的处理方式是将背景预先单独绘制在一个图片上，要动的物体绘制在另一个图片上。通过对两张图片进行合成，来得到最终的结果。"
 
-#: ../../tutorials/12_animation.rst:47
+#: ../../tutorials/012_animation.rst:47
 msgid ""
 "The following program draws a moving bus on the road (background).Note "
 "the use of the is_run() function."
 msgstr "下面的程序绘制了一辆在道路背景上移动的公共汽车。注意is_run()函数的使用。"
 
-#: ../../tutorials/12_animation.rst:90
+#: ../../tutorials/012_animation.rst:90
 msgid "Skipping Frames"
 msgstr "跳帧"
 
-#: ../../tutorials/12_animation.rst:91
+#: ../../tutorials/012_animation.rst:91
 msgid ""
 "Sometimes a drawing can be complicated and slow, and we can't finish a "
 "frame's drawing in the specified frame time. This will create lags in the"
 " animation."
 msgstr "有时，一帧的绘制可能会比较复杂，因此较慢，导致该帧无法在指定的帧时长内完成绘制。这会导致动画出现延迟。"
 
-#: ../../tutorials/12_animation.rst:94
+#: ../../tutorials/012_animation.rst:94
 msgid ""
 "The delay_jfps() can skip some frames ( if a frame is using too mush "
 "time, the successive frames will be skipped to keep up with the specified"
 " fps)."
 msgstr "delay_jfps()函数通过跳帧来保证动画的平稳。跳帧是指，如果某帧绘制的时长太长后续的帧就会被跳过不进行绘制（但是算成是已完成绘制的帧数），从而保证达到指定的FPS。"
 
-#: ../../tutorials/12_animation.rst:97
+#: ../../tutorials/012_animation.rst:97
 msgid ""
 "The following example shows how to use delay_jfps() to control time. Note"
 " that we use sleep() to simulate a long-time drawing operation."
 msgstr "下面的例子展示了delay_jfps()的用法。注意我们用sleep()来模拟一个耗时的操作，以便观看跳帧的效果。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:2
+#: ../../tutorials/013_mouse_and_keyboard.rst:2
 msgid "Mouse and Keyboard"
 msgstr "键盘与鼠标"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:3
+#: ../../tutorials/013_mouse_and_keyboard.rst:3
 msgid ""
 "Often we need to get input from the user in the programs. Easygrphics "
 "provides simple ways to get user's input from keyboard and mouse."
 msgstr "在程序进行过程中，我们经常需要获取用户的输入来控制程序的行为。Easygraphics提供了获取用户鼠标和键盘输入的基本方法。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:7
+#: ../../tutorials/013_mouse_and_keyboard.rst:7
 msgid "Pause for input"
 msgstr "暂停等待"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:8
+#: ../../tutorials/013_mouse_and_keyboard.rst:8
 msgid ""
 "The most used user input function in Easygraphics is pause(). This "
 "function pause the program, and wait for user to click on the graphics "
 "window, or press any key, then continue the program."
 msgstr "Easygraphics中，最常见的用户输入函数就是pause()。这个函数暂停程序，等待用户在图形窗口中点击鼠标或者按下键盘按键来继续程序运行。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:12
+#: ../../tutorials/013_mouse_and_keyboard.rst:12
 msgid "Mouse Clicking"
 msgstr "鼠标点击"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:13
+#: ../../tutorials/013_mouse_and_keyboard.rst:13
 msgid ""
 "We can use get_click() to pause the program and wait for a mouse "
 "clicking. This function will return the x,y coordinates of the position "
 "clicked, and buttons that are pressed when clicking."
 msgstr "我们可以使用get_click()函数来暂停程序，等待鼠标点击。该函数会返回被点击位置的x,y坐标，和点击时按下了哪些鼠标键。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:37
+#: ../../tutorials/013_mouse_and_keyboard.rst:37
 msgid "Cursor Positions"
 msgstr "光标位置"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:38
+#: ../../tutorials/013_mouse_and_keyboard.rst:38
 msgid ""
 "Sometimes we need to get the position of the cursor. We can use "
 "get_cursor_pos() to get this job done."
 msgstr "get_cursor_pos()函数返回光标所在的位置。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:40
+#: ../../tutorials/013_mouse_and_keyboard.rst:40
 msgid "The following program continuously displays mouse cursor's position."
 msgstr "下面的程序持续在绘图窗口中更新光标的位置。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:59
+#: ../../tutorials/013_mouse_and_keyboard.rst:58
 msgid "Mouse Button Press and Release"
 msgstr ""
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:60
+#: ../../tutorials/013_mouse_and_keyboard.rst:59
 msgid ""
 "You can use get_mouse_msg() to get mouse button press and release "
 "messages."
 msgstr "可以使用get_mouse_msg()来获取鼠标按钮按下和松开的信息。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:63
+#: ../../tutorials/013_mouse_and_keyboard.rst:62
 msgid "Non-Blocking mouse processing"
 msgstr "非阻塞（Non-Blocking）鼠标处理"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:64
+#: ../../tutorials/013_mouse_and_keyboard.rst:63
 msgid ""
 "get_click()/get_mouse_msg() will block the program if there are no mouse "
 "press/click in the last 100ms. If you want to check the mouse operation "
@@ -1890,21 +1912,21 @@ msgid ""
 "the mouse message."
 msgstr "如果在之前的100毫秒内没有鼠标操作，get_click()/get_mouse_msg()函数会阻塞程序（暂停程序执行），等待鼠标操作。如果你希望程序能够在检查鼠标操作后不要等待立即继续执行，那么可以先使用非阻塞函数has_mouse_msg()来检查是否有待处理的鼠标操作，然后再使用get_mouse_msg()来获取鼠标信息。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:68
+#: ../../tutorials/013_mouse_and_keyboard.rst:67
 msgid ""
 "The following program continuously check display cursor's postion and "
 "mouse button press/release events."
 msgstr "下面的程序持续检查并更新鼠标的位置和鼠标按钮的按下和松开。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:94
+#: ../../tutorials/013_mouse_and_keyboard.rst:94
 msgid "Mouse Message Demo"
 msgstr "鼠标消息示例"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:96
+#: ../../tutorials/013_mouse_and_keyboard.rst:96
 msgid "The following program draws a bezier curve interactively"
 msgstr "下面的程序演示了如何通过处理鼠标操作来交互式的绘制一条贝塞尔曲线。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:98
+#: ../../tutorials/013_mouse_and_keyboard.rst:98
 msgid ""
 "First click on the window to set the first control point of the curve. "
 "Then click on the window to set the second control point of the curve. "
@@ -1912,308 +1934,321 @@ msgid ""
 "the fourth control point."
 msgstr "首先，在绘图窗口中点击，设置曲线第一个控制点的位置；然后，在窗口中再次点击，设置第四个控制点的位置；然后，从这两个点中任意一个开始使用鼠标的拖拽操作（在控制点上按下鼠标左键，不放开，拖动鼠标光标到想要的位置上再松开）设置第二和第三个控制点。程序会实时动态显示生成的贝塞尔曲线。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:174
+#: ../../tutorials/013_mouse_and_keyboard.rst:172
 msgid "Char Input"
 msgstr "字符输入"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:175
+#: ../../tutorials/013_mouse_and_keyboard.rst:173
 msgid ""
 "We can use has_kb_hit() to see if there is any ascii char pressed, and "
 "use get_char() to get the inputted char. has_kb_hit() is non-blocking, "
 "and get_char() is blocking."
 msgstr "我们可以使用has_kb_hit()函数（非阻塞）来检查是否有任意的ascii可见字符被输入，然后使用get_char()函数（阻塞）来读取输入的字符。"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:178
+#: ../../tutorials/013_mouse_and_keyboard.rst:176
 msgid "The following program is a simple print game."
 msgstr "下面的程序是一个简单的打字游戏"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:241
+#: ../../tutorials/013_mouse_and_keyboard.rst:243
 msgid "Key Pressed"
 msgstr "按键消息"
 
-#: ../../tutorials/13_mouse_and_keyboard.rst:242
+#: ../../tutorials/013_mouse_and_keyboard.rst:244
 msgid ""
 "We can use has_kb_msg() to see if there is any key pressed, and use "
 "get_key() to get the pressed key. has_kb_msg() is non-blocking, and "
 "get_key() is blocking."
 msgstr "可以使用has_kb_msg()函数（非阻塞）来检查是否有任意键被按下，然后使用get_key()函数来读取按下的键。"
 
-#: ../../tutorials/14_dialogs.rst:2
-msgid "Dialogs"
-msgstr "对话框（Dialog）"
+#: ../../tutorials/101_turtle.rst:3
+msgid ""
+"The turtle graphics is a classic and popular way to introducing "
+"programming to kids."
+msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:3
+#: ../../tutorials/101_turtle.rst:5
+msgid ""
+"In the turtle graphics, you control a turtle to move around the graphics "
+"window. The traces left by its move form drawings."
+msgstr ""
+
+#: ../../tutorials/101_turtle.rst:9
+#, fuzzy
+msgid "In the following program, we use turtle graphics to draw a star."
+msgstr "下面的程序展示了如何使用init_graph()函数进行无窗口模式。"
+
+#: ../../tutorials/201_dialogs.rst:3
 msgid ""
 "Easygraphics provides many predefined dialogs to communicate with user "
 "interactively."
 msgstr "Easygraphics提供了许多预定义的对话框函数，来与用户进行交互。"
 
-#: ../../tutorials/14_dialogs.rst:6
+#: ../../tutorials/201_dialogs.rst:6
 msgid "Output Dialogs"
 msgstr "输出对话框"
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_html <easygraphics.dialog.show_html>`\\ \\(title\\, text\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid "Displays some html text in a window."
 msgstr "在窗口中显示一大段html代码。"
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_image_dialog <easygraphics.dialog.show_image_dialog>`\\ "
 "\\(image\\, title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid "Display the image in a dialog."
 msgstr "在窗口中显示图片。"
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_lists_table <easygraphics.dialog.show_lists_table>`\\ "
 "\\(\\*args\\, column\\_names\\, title\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid "Displays list of datas in a table"
 msgstr "以表格形式显示多个列表。"
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid "Simple message box."
 msgstr "显示一个简单消息框。"
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_objects <easygraphics.dialog.show_objects>`\\ \\(objects\\, "
 "fields\\, field\\_names\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid "Displays list of objects in a table"
 msgstr "以表格形式显示一组对象。"
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(title\\, text\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid "Displays some text in a window."
 msgstr "在窗口中显示一大段文字。"
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(objects\\, "
 "fields\\, field\\_names\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(title\\, code\\, "
 "width\\, height\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid "Displays some text in a window, in a monospace font."
 msgstr "在窗口中显示代码。"
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid ""
 ":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
 "title\\, file\\_type\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:20:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:20:<autosummary>:1
 msgid "Displays a file in a window."
 msgstr "在窗口中显示文件内容。"
 
-#: ../../tutorials/14_dialogs.rst:22
+#: ../../tutorials/201_dialogs.rst:22
 msgid "Input Dialogs"
 msgstr "输入对话框"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(message\\, "
 "title\\, choices\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Simple dialog to ask a user to select an item within a drop-down list"
 msgstr "显示一个对话框，让用户从下拉列表中选择一项"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Display a color picker and return the selected color"
 msgstr "显示一个色彩选择对话框，返回用户选择的颜色"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_continue_or_cancel "
 "<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\, title\\, "
 "...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Continue or cancel question, shown as a warning (i.e."
 msgstr "选择继续或者取消"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Calendar widget"
 msgstr "选择日期"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_directory_name <easygraphics.dialog.get_directory_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Gets the name (full path) of an existing directory"
 msgstr "选择一个目录"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Gets the names (full path) of existing files"
 msgstr "选择文件"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(message\\, title\\,"
 " default\\_value\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 "Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
 msgstr "显示一个对话框，让用户在指定范围和精度下选择一个浮点数。"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(message\\, title\\, "
 "default\\_value\\, min\\_\\, ...\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Simple dialog to ask a user to select an integer within a certain range."
 msgstr "显示一个对话框，让用户在指定范围内选择一个整数。"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_list_of_choices <easygraphics.dialog.get_list_of_choices>`\\ "
 "\\(title\\, choices\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Show a list of possible choices to be selected."
 msgstr "显示一个列表让用户选择（可复选）"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\ "
 "\\(title\\, labels\\, masks\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Multiple strings input"
 msgstr "同时输入多个字符串"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\ "
 "\\(title\\, labels\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Change password input box."
 msgstr "修改密码对话框"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(message\\, "
 "title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Simple password input box."
 msgstr "输入密码对话框。"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
 "\\(title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Gets the name (full path) of of a file to be saved."
 msgstr "打开文件以保存对话框。"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(message\\, "
 "title\\, default\\_response\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Simple text input box."
 msgstr "简单的文本输入对话框。"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_username_password "
 "<easygraphics.dialog.get_username_password>`\\ \\(title\\, labels\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "User name and password input box."
 msgstr "获取用户名和密码。"
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid ""
 ":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ \\(question\\,"
 " title\\)"
 msgstr ""
 
-#: ../../tutorials/14_dialogs.rst:44:<autosummary>:1
+#: ../../tutorials/201_dialogs.rst:44:<autosummary>:1
 msgid "Simple yes or no question."
 msgstr "让用户选择yes或no。"
 
-#: ../../tutorials/14_dialogs.rst:45
+#: ../../tutorials/201_dialogs.rst:45
 msgid ""
 "In the following program, click the graphics window to open a color "
 "dialog, select a color and set it as the background."
 msgstr "在下面的程序中，点击绘图窗口，打开颜色对话框，选择一个颜色，将其设置为背景。"
 
-#: ../../tutorials/15_music.rst:2
+#: ../../tutorials/901_music.rst:2
 msgid "Music(Audio)"
 msgstr "音乐（声音）"
 
-#: ../../tutorials/15_music.rst:3
+#: ../../tutorials/901_music.rst:3
 msgid "Easygraphics provides simple ways to play musics."
 msgstr "Easygraphics提供了简便的方法来播放音乐文件。"
 
-#: ../../tutorials/15_music.rst:5
+#: ../../tutorials/901_music.rst:5
 msgid ""
 "The following program shows how to use the functions in "
 ":doc:`easygraphics.music <../apis/easygraphics.music>` to play music:"

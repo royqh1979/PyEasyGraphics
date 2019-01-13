@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-10 11:33+0800\n"
+"POT-Creation-Date: 2019-01-13 16:13+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -1811,18 +1811,18 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.Image.set_pen easygraphics.Image.set_transform
 #: easygraphics.Image.set_view_port easygraphics.Image.set_window
 #: easygraphics.Image.shear easygraphics.Image.skew
-#: easygraphics.Image.text_width easygraphics.Image.translate easygraphics.arc
-#: easygraphics.bezier easygraphics.capture_screen easygraphics.cart2pol
-#: easygraphics.chord easygraphics.circle easygraphics.clear_device
-#: easygraphics.clear_view_port easygraphics.close_image
-#: easygraphics.color_cmyk easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
-#: easygraphics.draw_circle easygraphics.draw_ellipse easygraphics.draw_image
-#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
-#: easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.Image.text_width easygraphics.Image.to_bytes
+#: easygraphics.Image.translate easygraphics.arc easygraphics.bezier
+#: easygraphics.capture_screen easygraphics.cart2pol easygraphics.chord
+#: easygraphics.circle easygraphics.clear_device easygraphics.clear_view_port
+#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_hsv
+#: easygraphics.color_rgb easygraphics.contains_left_button
+#: easygraphics.contains_mid_button easygraphics.contains_right_button
+#: easygraphics.create_image easygraphics.delay easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.draw_arc easygraphics.draw_bezier
+#: easygraphics.draw_chord easygraphics.draw_circle easygraphics.draw_ellipse
+#: easygraphics.draw_image easygraphics.draw_line easygraphics.draw_lines
+#: easygraphics.draw_pie easygraphics.draw_point easygraphics.draw_poly_line
 #: easygraphics.draw_polygon easygraphics.draw_rect easygraphics.draw_rect_text
 #: easygraphics.draw_rounded_rect easygraphics.draw_text easygraphics.ellipse
 #: easygraphics.fill_chord easygraphics.fill_circle easygraphics.fill_ellipse
@@ -1834,7 +1834,8 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.get_fill_color easygraphics.get_fill_rule
 #: easygraphics.get_fill_style easygraphics.get_font easygraphics.get_font_size
 #: easygraphics.get_height easygraphics.get_line_style
-#: easygraphics.get_line_width easygraphics.get_pixel easygraphics.get_width
+#: easygraphics.get_line_width easygraphics.get_pixel
+#: easygraphics.get_transform easygraphics.get_width
 #: easygraphics.get_write_mode easygraphics.init_graph easygraphics.line
 #: easygraphics.line_rel easygraphics.line_to easygraphics.lines
 #: easygraphics.load_image easygraphics.mirror easygraphics.move_rel
@@ -1852,10 +1853,10 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.set_flip_y easygraphics.set_font easygraphics.set_font_size
 #: easygraphics.set_line_style easygraphics.set_line_width
 #: easygraphics.set_origin easygraphics.set_render_mode easygraphics.set_target
-#: easygraphics.set_view_port easygraphics.set_window
-#: easygraphics.set_write_mode easygraphics.shear easygraphics.show_image
-#: easygraphics.skew easygraphics.text_height easygraphics.text_width
-#: easygraphics.to_alpha easygraphics.translate of
+#: easygraphics.set_transform easygraphics.set_view_port
+#: easygraphics.set_window easygraphics.set_write_mode easygraphics.shear
+#: easygraphics.show_image easygraphics.skew easygraphics.text_height
+#: easygraphics.text_width easygraphics.to_alpha easygraphics.translate of
 msgid "Parameters"
 msgstr "参数"
 
@@ -1892,13 +1893,14 @@ msgstr "要获取线型的图片。None表示使用“绘图目标”图片（�
 #: easygraphics.Image.get_pen easygraphics.Image.get_pixel
 #: easygraphics.Image.get_transform easygraphics.Image.get_width
 #: easygraphics.Image.get_x easygraphics.Image.get_y easygraphics.Image.set_pen
-#: easygraphics.Image.set_transform easygraphics.Image.text_height
-#: easygraphics.Image.text_width easygraphics.cart2pol easygraphics.color_cmyk
+#: easygraphics.Image.text_height easygraphics.Image.text_width
+#: easygraphics.Image.to_bytes easygraphics.cart2pol easygraphics.color_cmyk
 #: easygraphics.color_hsv easygraphics.color_rgb
 #: easygraphics.contains_left_button easygraphics.contains_mid_button
 #: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.delay_jfps easygraphics.get_background_color
-#: easygraphics.get_char easygraphics.get_click easygraphics.get_color
+#: easygraphics.delay_fps easygraphics.delay_jfps
+#: easygraphics.get_background_color easygraphics.get_char
+#: easygraphics.get_click easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
 #: easygraphics.get_drawing_pos easygraphics.get_drawing_x
 #: easygraphics.get_drawing_y easygraphics.get_fill_color
@@ -1907,11 +1909,12 @@ msgstr "要获取线型的图片。None表示使用“绘图目标”图片（�
 #: easygraphics.get_height easygraphics.get_key easygraphics.get_line_style
 #: easygraphics.get_line_width easygraphics.get_mouse_msg
 #: easygraphics.get_pixel easygraphics.get_render_mode easygraphics.get_target
-#: easygraphics.get_width easygraphics.get_write_mode easygraphics.has_kb_hit
-#: easygraphics.has_kb_msg easygraphics.has_mouse_msg easygraphics.is_run
-#: easygraphics.load_image easygraphics.pol2cart easygraphics.rgb
-#: easygraphics.set_fill_rule easygraphics.set_fill_style
-#: easygraphics.text_height easygraphics.text_width easygraphics.to_alpha of
+#: easygraphics.get_transform easygraphics.get_width
+#: easygraphics.get_write_mode easygraphics.has_kb_hit easygraphics.has_kb_msg
+#: easygraphics.has_mouse_msg easygraphics.is_run easygraphics.load_image
+#: easygraphics.pol2cart easygraphics.rgb easygraphics.set_fill_rule
+#: easygraphics.set_fill_style easygraphics.text_height easygraphics.text_width
+#: easygraphics.to_alpha of
 msgid "Returns"
 msgstr "返回值"
 
@@ -2517,6 +2520,38 @@ msgstr "所指图片的宽度"
 #: easygraphics.get_height:5 of
 msgid "height of the specified image"
 msgstr "所指图片的高度"
+
+#: easygraphics.Image.get_transform:1 easygraphics.get_transform:1 of
+msgid "Get transform matrix of the image."
+msgstr "获取图片的几何变换（transform)对象。"
+
+#: easygraphics.get_transform:3 easygraphics.set_transform:4 of
+msgid ""
+"the target image whose transform matrix is to be gotten. None means it is"
+" the target image (see set_target() and get_target())."
+msgstr "要获取几何变换的图片。None表示使用“绘图目标”图片（参见set_target()和get_target())"
+
+#: easygraphics.Image.get_transform:3 easygraphics.get_transform:5 of
+msgid "the transform matrix"
+msgstr "几何变换（Transform)"
+
+#: easygraphics.Image.set_transform:1 easygraphics.set_transform:1 of
+msgid "Set image's transform matrix."
+msgstr "设置图片的几何变换(transform)对象。"
+
+#: easygraphics.Image.set_transform:3 easygraphics.set_transform:3 of
+msgid "the transform matrix to set"
+msgstr "要设置的几何变换"
+
+#: easygraphics.Image.push_transform:1 easygraphics.push_transform:1 of
+msgid "Push (save) the current transform to the transform stack."
+msgstr "将当前的几何变换(transform)压入栈(stak)中。"
+
+#: easygraphics.Image.pop_transform:1 easygraphics.pop_transform:1 of
+msgid ""
+"Pop the last saved transform from the transform stack, and use it as the "
+"current transform."
+msgstr "从栈(stack)中取出最近一次压入的几何变换，并将其设置为图片的当前变换。"
 
 #: easygraphics.Image.draw_point:3 easygraphics.draw_point:3 of
 msgid "x coordinate value of the drawing point"
@@ -3218,7 +3253,8 @@ msgstr "注意JPEG格式的文件不支持透明色。如果需要背景透明�
 msgid "path of the file"
 msgstr "文件路径"
 
-#: easygraphics.Image.save:8 easygraphics.save_image:8 of
+#: easygraphics.Image.save:8 easygraphics.Image.to_bytes:3
+#: easygraphics.save_image:8 of
 msgid "True to save the background together. False not"
 msgstr "True表示保存背景内容；False表示不保存背景（存为透明）。"
 
@@ -3255,6 +3291,10 @@ msgstr "这个函数不会跳帧。"
 #: easygraphics.delay_fps:7 of
 msgid "the desire fps"
 msgstr "期望的fps"
+
+#: easygraphics.delay_fps:8 of
+msgid "False the graphics window is closed. True otherwise."
+msgstr "False表示绘图窗口已关闭（应退出程序）；否则为True"
 
 #: easygraphics.delay_jfps:3 of
 msgid "If we don't have enough time to delay, we'll skip some frames."
@@ -3700,14 +3740,6 @@ msgstr "获取指定图片的画笔。"
 msgid "pen"
 msgstr "画笔"
 
-#: easygraphics.Image.get_transform:1 of
-msgid "Get transform of the image."
-msgstr "获取图片的几何变换（transform)对象。"
-
-#: easygraphics.Image.get_transform:3 of
-msgid "the transform"
-msgstr "几何变换（Transform)"
-
 #: easygraphics.Image.get_width:1 of
 msgid "Get the width of the image."
 msgstr "获取指定图片的宽度。"
@@ -3789,14 +3821,6 @@ msgstr "设置画笔"
 msgid "the pen to use."
 msgstr "要使用的画笔"
 
-#: easygraphics.Image.set_transform:1 of
-msgid "Set image's transform."
-msgstr "设置图片的几何变换(transform)对象。"
-
-#: easygraphics.Image.set_transform:3 of
-msgid "the transform to set"
-msgstr "要设置的几何变换"
-
 #: easygraphics.Image.set_view_port:5 of
 msgid ""
 "The drawing outside the view port is not clipped. If you want to clip the"
@@ -3809,6 +3833,19 @@ msgid ""
 "height, drawing will get zoomed.** So set_window() is often used with the"
 " set_view_port"
 msgstr "**如果视口和逻辑窗口的宽度和高度不一致，绘制的内容会被缩放。**所以通常在set_view_port()后set_window()，以保持二者大小一致。"
+
+#: easygraphics.Image.to_bytes:1 of
+msgid "Convert the image to the specified format (i.e. PNG format) bytes."
+msgstr ""
+
+#: easygraphics.Image.to_bytes:4 of
+msgid "format of the bytes content"
+msgstr ""
+
+#: easygraphics.Image.to_bytes:5 of
+#, fuzzy
+msgid "bytes in the specified format"
+msgstr "设置指定图片的字体。"
 
 #: easygraphics.Image.translate:1 of
 msgid ""

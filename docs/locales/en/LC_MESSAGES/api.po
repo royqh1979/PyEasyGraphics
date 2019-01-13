@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-10 11:33+0800\n"
+"POT-Creation-Date: 2019-01-13 16:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1810,18 +1810,18 @@ msgstr ""
 #: easygraphics.Image.set_pen easygraphics.Image.set_transform
 #: easygraphics.Image.set_view_port easygraphics.Image.set_window
 #: easygraphics.Image.shear easygraphics.Image.skew
-#: easygraphics.Image.text_width easygraphics.Image.translate easygraphics.arc
-#: easygraphics.bezier easygraphics.capture_screen easygraphics.cart2pol
-#: easygraphics.chord easygraphics.circle easygraphics.clear_device
-#: easygraphics.clear_view_port easygraphics.close_image
-#: easygraphics.color_cmyk easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
-#: easygraphics.draw_circle easygraphics.draw_ellipse easygraphics.draw_image
-#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
-#: easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.Image.text_width easygraphics.Image.to_bytes
+#: easygraphics.Image.translate easygraphics.arc easygraphics.bezier
+#: easygraphics.capture_screen easygraphics.cart2pol easygraphics.chord
+#: easygraphics.circle easygraphics.clear_device easygraphics.clear_view_port
+#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_hsv
+#: easygraphics.color_rgb easygraphics.contains_left_button
+#: easygraphics.contains_mid_button easygraphics.contains_right_button
+#: easygraphics.create_image easygraphics.delay easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.draw_arc easygraphics.draw_bezier
+#: easygraphics.draw_chord easygraphics.draw_circle easygraphics.draw_ellipse
+#: easygraphics.draw_image easygraphics.draw_line easygraphics.draw_lines
+#: easygraphics.draw_pie easygraphics.draw_point easygraphics.draw_poly_line
 #: easygraphics.draw_polygon easygraphics.draw_rect easygraphics.draw_rect_text
 #: easygraphics.draw_rounded_rect easygraphics.draw_text easygraphics.ellipse
 #: easygraphics.fill_chord easygraphics.fill_circle easygraphics.fill_ellipse
@@ -1833,7 +1833,8 @@ msgstr ""
 #: easygraphics.get_fill_color easygraphics.get_fill_rule
 #: easygraphics.get_fill_style easygraphics.get_font easygraphics.get_font_size
 #: easygraphics.get_height easygraphics.get_line_style
-#: easygraphics.get_line_width easygraphics.get_pixel easygraphics.get_width
+#: easygraphics.get_line_width easygraphics.get_pixel
+#: easygraphics.get_transform easygraphics.get_width
 #: easygraphics.get_write_mode easygraphics.init_graph easygraphics.line
 #: easygraphics.line_rel easygraphics.line_to easygraphics.lines
 #: easygraphics.load_image easygraphics.mirror easygraphics.move_rel
@@ -1851,10 +1852,10 @@ msgstr ""
 #: easygraphics.set_flip_y easygraphics.set_font easygraphics.set_font_size
 #: easygraphics.set_line_style easygraphics.set_line_width
 #: easygraphics.set_origin easygraphics.set_render_mode easygraphics.set_target
-#: easygraphics.set_view_port easygraphics.set_window
-#: easygraphics.set_write_mode easygraphics.shear easygraphics.show_image
-#: easygraphics.skew easygraphics.text_height easygraphics.text_width
-#: easygraphics.to_alpha easygraphics.translate of
+#: easygraphics.set_transform easygraphics.set_view_port
+#: easygraphics.set_window easygraphics.set_write_mode easygraphics.shear
+#: easygraphics.show_image easygraphics.skew easygraphics.text_height
+#: easygraphics.text_width easygraphics.to_alpha easygraphics.translate of
 msgid "Parameters"
 msgstr ""
 
@@ -1891,13 +1892,14 @@ msgstr ""
 #: easygraphics.Image.get_pen easygraphics.Image.get_pixel
 #: easygraphics.Image.get_transform easygraphics.Image.get_width
 #: easygraphics.Image.get_x easygraphics.Image.get_y easygraphics.Image.set_pen
-#: easygraphics.Image.set_transform easygraphics.Image.text_height
-#: easygraphics.Image.text_width easygraphics.cart2pol easygraphics.color_cmyk
+#: easygraphics.Image.text_height easygraphics.Image.text_width
+#: easygraphics.Image.to_bytes easygraphics.cart2pol easygraphics.color_cmyk
 #: easygraphics.color_hsv easygraphics.color_rgb
 #: easygraphics.contains_left_button easygraphics.contains_mid_button
 #: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.delay_jfps easygraphics.get_background_color
-#: easygraphics.get_char easygraphics.get_click easygraphics.get_color
+#: easygraphics.delay_fps easygraphics.delay_jfps
+#: easygraphics.get_background_color easygraphics.get_char
+#: easygraphics.get_click easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
 #: easygraphics.get_drawing_pos easygraphics.get_drawing_x
 #: easygraphics.get_drawing_y easygraphics.get_fill_color
@@ -1906,11 +1908,12 @@ msgstr ""
 #: easygraphics.get_height easygraphics.get_key easygraphics.get_line_style
 #: easygraphics.get_line_width easygraphics.get_mouse_msg
 #: easygraphics.get_pixel easygraphics.get_render_mode easygraphics.get_target
-#: easygraphics.get_width easygraphics.get_write_mode easygraphics.has_kb_hit
-#: easygraphics.has_kb_msg easygraphics.has_mouse_msg easygraphics.is_run
-#: easygraphics.load_image easygraphics.pol2cart easygraphics.rgb
-#: easygraphics.set_fill_rule easygraphics.set_fill_style
-#: easygraphics.text_height easygraphics.text_width easygraphics.to_alpha of
+#: easygraphics.get_transform easygraphics.get_width
+#: easygraphics.get_write_mode easygraphics.has_kb_hit easygraphics.has_kb_msg
+#: easygraphics.has_mouse_msg easygraphics.is_run easygraphics.load_image
+#: easygraphics.pol2cart easygraphics.rgb easygraphics.set_fill_rule
+#: easygraphics.set_fill_style easygraphics.text_height easygraphics.text_width
+#: easygraphics.to_alpha of
 msgid "Returns"
 msgstr ""
 
@@ -2513,6 +2516,38 @@ msgstr ""
 
 #: easygraphics.get_height:5 of
 msgid "height of the specified image"
+msgstr ""
+
+#: easygraphics.Image.get_transform:1 easygraphics.get_transform:1 of
+msgid "Get transform matrix of the image."
+msgstr ""
+
+#: easygraphics.get_transform:3 easygraphics.set_transform:4 of
+msgid ""
+"the target image whose transform matrix is to be gotten. None means it is"
+" the target image (see set_target() and get_target())."
+msgstr ""
+
+#: easygraphics.Image.get_transform:3 easygraphics.get_transform:5 of
+msgid "the transform matrix"
+msgstr ""
+
+#: easygraphics.Image.set_transform:1 easygraphics.set_transform:1 of
+msgid "Set image's transform matrix."
+msgstr ""
+
+#: easygraphics.Image.set_transform:3 easygraphics.set_transform:3 of
+msgid "the transform matrix to set"
+msgstr ""
+
+#: easygraphics.Image.push_transform:1 easygraphics.push_transform:1 of
+msgid "Push (save) the current transform to the transform stack."
+msgstr ""
+
+#: easygraphics.Image.pop_transform:1 easygraphics.pop_transform:1 of
+msgid ""
+"Pop the last saved transform from the transform stack, and use it as the "
+"current transform."
 msgstr ""
 
 #: easygraphics.Image.draw_point:3 easygraphics.draw_point:3 of
@@ -3200,7 +3235,8 @@ msgstr ""
 msgid "path of the file"
 msgstr ""
 
-#: easygraphics.Image.save:8 easygraphics.save_image:8 of
+#: easygraphics.Image.save:8 easygraphics.Image.to_bytes:3
+#: easygraphics.save_image:8 of
 msgid "True to save the background together. False not"
 msgstr ""
 
@@ -3236,6 +3272,10 @@ msgstr ""
 
 #: easygraphics.delay_fps:7 of
 msgid "the desire fps"
+msgstr ""
+
+#: easygraphics.delay_fps:8 of
+msgid "False the graphics window is closed. True otherwise."
 msgstr ""
 
 #: easygraphics.delay_jfps:3 of
@@ -3679,14 +3719,6 @@ msgstr ""
 msgid "pen"
 msgstr ""
 
-#: easygraphics.Image.get_transform:1 of
-msgid "Get transform of the image."
-msgstr ""
-
-#: easygraphics.Image.get_transform:3 of
-msgid "the transform"
-msgstr ""
-
 #: easygraphics.Image.get_width:1 of
 msgid "Get the width of the image."
 msgstr ""
@@ -3768,14 +3800,6 @@ msgstr ""
 msgid "the pen to use."
 msgstr ""
 
-#: easygraphics.Image.set_transform:1 of
-msgid "Set image's transform."
-msgstr ""
-
-#: easygraphics.Image.set_transform:3 of
-msgid "the transform to set"
-msgstr ""
-
 #: easygraphics.Image.set_view_port:5 of
 msgid ""
 "The drawing outside the view port is not clipped. If you want to clip the"
@@ -3787,6 +3811,18 @@ msgid ""
 "**if view port and \"logical window\" don't have the same width and "
 "height, drawing will get zoomed.** So set_window() is often used with the"
 " set_view_port"
+msgstr ""
+
+#: easygraphics.Image.to_bytes:1 of
+msgid "Convert the image to the specified format (i.e. PNG format) bytes."
+msgstr ""
+
+#: easygraphics.Image.to_bytes:4 of
+msgid "format of the bytes content"
+msgstr ""
+
+#: easygraphics.Image.to_bytes:5 of
+msgid "bytes in the specified format"
 msgstr ""
 
 #: easygraphics.Image.translate:1 of
@@ -5134,5 +5170,17 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ":obj:`show_image <show_image>`\\"
+#~ msgstr ""
+
+#~ msgid "Get transform of the image."
+#~ msgstr ""
+
+#~ msgid "the transform"
+#~ msgstr ""
+
+#~ msgid "Set image's transform."
+#~ msgstr ""
+
+#~ msgid "the transform to set"
 #~ msgstr ""
 

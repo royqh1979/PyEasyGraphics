@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-12 07:50+0800\n"
+"POT-Creation-Date: 2019-01-13 16:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,7 +48,7 @@ msgstr "因为它简单易学，因此非常适合初学者用于学习编程和
 
 #: ../../../README.rst:22
 #, fuzzy
-msgid "Free software: MIT license"
+msgid "Free software: BSD license"
 msgstr "本软件为自由软件：使用GPL v3授权"
 
 #: ../../../README.rst:23
