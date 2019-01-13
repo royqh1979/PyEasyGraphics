@@ -76,7 +76,6 @@ class TurtleWorld(object):
 
     def _render(self):
         self.snap_shot_to_image(self._win.get_canvas())
-        self._win.get_canvas()
 
     def snap_shot_to_image(self, image, x=0, y=0):
         """
@@ -92,16 +91,17 @@ class TurtleWorld(object):
         buffer.save_settings()
         buffer.reset_transform()
         buffer.draw_image(0, 0, self._world_image, composition_mode=eg.CompositionMode.SOURCE)
-        buffer.restore_settings()
+        buffer.set_transform(self._world_image.get_transform())
         for turtle in self._turtles:
             if turtle.is_show():
-                buffer.save_settings()
+                buffer.push_transform()
                 buffer.translate(turtle.get_x(), turtle.get_y())
                 buffer.rotate(turtle.get_heading() + 90)
                 buffer.draw_image(-turtle.get_icon().get_width() // 2,
                                   -turtle.get_icon().get_height() // 2, turtle.get_icon(),
                                   composition_mode=eg.CompositionMode.SOURCE_OVER)
-                buffer.restore_settings()
+                buffer.pop_transform()
+        buffer.restore_settings()
         image.draw_image(x, y, buffer, composition_mode=eg.CompositionMode.SOURCE)
 
     def add_turtle(self, turtle: "Turtle"):
@@ -225,6 +225,8 @@ class Turtle(object):
         self._icon = self.create_turtle_icon()
         self._last_fps_time = 0
         self._fillpath = []
+        self._lock = threading.Lock()
+        self._drawing_event = threading.Event()
         world.add_turtle(self)
 
     def set_speed(self, speed: int):

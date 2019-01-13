@@ -2,6 +2,11 @@
 
 History
 ===========
+0.9.22
+-------------
+* fix: turtle icon position error when translated.
+* fix: hangs when running in qtconsole and spyder
+
 0.9.21
 -------------
 * add: show_lists_table() to display data lists in table

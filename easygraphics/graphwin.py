@@ -191,8 +191,8 @@ class GraphWin(QtWidgets.QWidget):
         nanotime = milliseconds * 1000000
         start_wait_time = time.perf_counter_ns()
         self.real_update()
-        while time.perf_counter_ns() - start_wait_time < nanotime:
-            time.perf_counter_ns()
+        if time.perf_counter_ns() - start_wait_time < nanotime:
+            QtCore.QThread.usleep((start_wait_time + nanotime - time.perf_counter_ns()) // 1000)
 
     def delay_fps(self, fps: int) -> bool:
         """
@@ -211,8 +211,8 @@ class GraphWin(QtWidgets.QWidget):
             self._last_fps_time = time.perf_counter_ns()
         self.real_update()
         tt = time.perf_counter_ns()
-        while tt - self._last_fps_time < nanotime:
-            tt = time.perf_counter_ns()
+        if tt - self._last_fps_time < nanotime:
+            QtCore.QThread.usleep((self._last_fps_time + nanotime - tt) // 1000)
         self._last_fps_time = tt
         return True
 
@@ -257,8 +257,8 @@ class GraphWin(QtWidgets.QWidget):
                 self._frames_skipped = 0
         self.real_update()
         tt = time.perf_counter_ns()
-        while tt - self._last_fps_time < nanotime:
-            tt = time.perf_counter_ns()
+        if tt - self._last_fps_time < nanotime:
+            QtCore.QThread.usleep((self._last_fps_time + nanotime - tt) // 1000)
         self._last_fps_time = tt
         return True
 

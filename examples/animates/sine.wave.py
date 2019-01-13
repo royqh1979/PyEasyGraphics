@@ -1,7 +1,7 @@
 """
 Sine Wave
 
-from https://processing.org/examples/sinewave.html
+The original program is from https://processing.org/examples/sinewave.html
 """
 from easygraphics import *
 import math
