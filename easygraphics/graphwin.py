@@ -188,9 +188,9 @@ class GraphWin(QtWidgets.QWidget):
             raise RuntimeError("Must set render mode to MANUAL to use delay()!")
         elif self._wait_close:
             self._do_close()
+        self.real_update()
         nanotime = milliseconds * 1000000
         start_wait_time = time.perf_counter_ns()
-        self.real_update()
         if time.perf_counter_ns() - start_wait_time < nanotime:
             QtCore.QThread.usleep((start_wait_time + nanotime - time.perf_counter_ns()) // 1000)
 

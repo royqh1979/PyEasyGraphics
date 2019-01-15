@@ -2,6 +2,14 @@
 
 History
 ===========
+0.9.24
+------------
+* add begin_recording()/add_record()/save_recording()/end_recording() to create animated png files.
+* add ShapeMode consts
+* add set_ellipse_mode() and set_rect_mode() to Image class
+* add easygraphics.processing module
+* fix: Image's save_settings()/restore_settings() now save most settings.
+
 0.9.23
 ------------
 * fix: frame jumping because of errors in delay_jfps()

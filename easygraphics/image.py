@@ -5,7 +5,7 @@ import sip
 
 from PyQt5 import QtGui, QtCore
 
-from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode, FillRule
+from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode, FillRule, ShapeMode
 import qimage2ndarray as qn
 
 _in_ipython = False
@@ -36,9 +36,9 @@ class Image:
         self._image_view = qn.raw_view(image)
         self._color = _to_qcolor(Color.BLACK)
         self._line_style = LineStyle.SOLID_LINE
-        self._lineWidth = 1
+        self._line_width = 1
         self._fill_color = _to_qcolor(Color.WHITE)
-        self._fill_Style = FillStyle.SOLID_FILL
+        self._fill_style = FillStyle.SOLID_FILL
         self._fill_rule = FillRule.ODD_EVEN_FILL
         self._background_color = _to_qcolor(Color.WHITE)
         self._mask = QtGui.QImage(image.width(), image.height(), QtGui.QImage.Format_ARGB32_Premultiplied)
@@ -53,13 +53,25 @@ class Image:
         self._x = 0
         self._y = 0
         self._flip_y = False
-        self._old_flip_y = False
         self._painter = QtGui.QPainter()
         self._mask_painter = QtGui.QPainter()
         self._init_painter()
         self._init_mask_painter()
         self._updated_listeners = []
         self._transform_stack = []
+        self._rect_mode = ShapeMode.CORNERS
+        self._ellipse_mode = ShapeMode.RADIUS
+        self._old_flip_y = False
+        self._old_rect_mode = ShapeMode.CORNERS
+        self._old_ellipse_mode = ShapeMode.RADIUS
+        self._old_color = _to_qcolor(Color.BLACK)
+        self._old_line_style = LineStyle.SOLID_LINE
+        self._old_line_width = 1
+        self._old_fill_color = _to_qcolor(Color.WHITE)
+        self._old_fill_style = FillStyle.SOLID_FILL
+        self._old_fill_rule = FillRule.ODD_EVEN_FILL
+        self._old_background_color = _to_qcolor(Color.WHITE)
+
 
     def _init_painter(self):
         p = self._painter
@@ -263,7 +275,7 @@ class Image:
 
         :return: line width
         """
-        return self._lineWidth
+        return self._line_width
 
     def set_line_width(self, width: float):
         """
@@ -273,7 +285,7 @@ class Image:
 
         :param width: line width
         """
-        self._lineWidth = width
+        self._line_width = width
         if isinstance(width, int):
             self._pen.setWidth(width)
         else:
@@ -287,7 +299,7 @@ class Image:
 
         :return: fill style
         """
-        return self._fill_Style
+        return self._fill_style
 
     def set_fill_style(self, fill_style):
         """
@@ -298,7 +310,7 @@ class Image:
 
         :param fill_style: fill style
         """
-        self._fill_Style = fill_style
+        self._fill_style = fill_style
         self._brush.setStyle(fill_style)
 
     def set_view_port(self, left: int, top: int, right: int, bottom: int):
@@ -704,10 +716,28 @@ class Image:
         :param radius_y: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_draw_outline()
-        p1 = QtCore.QPointF(x, y)
-        p.drawEllipse(p1, radius_x, radius_y)
-        self._mask_painter.drawEllipse(p1, radius_x, radius_y)
+        self._draw_ellipse(p, x, y, radius_x, radius_y)
         self._updated()
+
+    def _draw_ellipse(self, p, x, y, radius_x, radius_y):
+        if self._ellipse_mode == ShapeMode.RADIUS:
+            p1 = QtCore.QPointF(x, y)
+            p.drawEllipse(p1, radius_x, radius_y)
+            self._mask_painter.drawEllipse(p1, radius_x, radius_y)
+        elif self._ellipse_mode == ShapeMode.CENTER:
+            p1 = QtCore.QPointF(x, y)
+            p.drawEllipse(p1, radius_x / 2, radius_y / 2)
+            self._mask_painter.drawEllipse(p1, radius_x / 2, radius_y / 2)
+        elif self._ellipse_mode == ShapeMode.CORNER:
+            rect = QtCore.QRectF(x, y, radius_x, radius_y)
+            p.drawEllipse(rect)
+            self._mask_painter.drawEllipse(rect)
+        else:
+            p1 = QtCore.QPointF(x, y)
+            p2 = QtCore.QPointF(radius_x, radius_y)
+            rect = QtCore.QRectF(p1, p2)
+            p.drawEllipse(rect)
+            self._mask_painter.drawEllipse(rect)
 
     def draw_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
@@ -721,8 +751,7 @@ class Image:
         :param radius_y: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_draw()
-        p.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
-        self._mask_painter.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
+        self._draw_ellipse(p, x, y, radius_x, radius_y)
         self._updated()
 
     def fill_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
@@ -737,8 +766,7 @@ class Image:
         :param radius_y: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_fill()
-        p.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
-        self._mask_painter.drawEllipse(QtCore.QPointF(x, y), radius_x, radius_y)
+        self._draw_ellipse(p, x, y, radius_x, radius_y)
         self._updated()
 
     def draw_arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
@@ -1107,6 +1135,28 @@ class Image:
         self._mask_painter.fillPath(path, self._mask_painter.brush())
         self._updated()
 
+    def _draw_rect(self, p, x, y, radius_x, radius_y):
+        rect = self._calc_rect(radius_x, radius_y, x, y)
+        p.drawRect(rect)
+        self._mask_painter.drawRect(rect)
+
+    def _calc_rect(self, radius_x, radius_y, x, y) -> QtCore.QRectF:
+        if self._rect_mode == ShapeMode.RADIUS:
+            p1 = QtCore.QPointF(x - radius_x, y - radius_y)
+            p2 = QtCore.QPointF(x + radius_x, y + radius_y)
+            rect = QtCore.QRectF(p1, p2)
+        elif self._rect_mode == ShapeMode.CENTER:
+            p1 = QtCore.QPointF(x - radius_x / 2, y - radius_y / 2)
+            p2 = QtCore.QPointF(x + radius_x / 2, y + radius_y / 2)
+            rect = QtCore.QRectF(p1, p2)
+        elif self._rect_mode == ShapeMode.CORNER:
+            rect = QtCore.QRectF(x, y, radius_x, radius_y)
+        else:
+            p1 = QtCore.QPointF(x, y)
+            p2 = QtCore.QPointF(radius_x, radius_y)
+            rect = QtCore.QRectF(p1, p2)
+        return rect
+
     def rect(self, left: float, top: float, right: float, bottom: float):
         """
         Draws a rectangle outline with upper left corner at (left, top) and lower right corner at (right,bottom).
@@ -1119,8 +1169,7 @@ class Image:
         :param bottom: y coordinate value of the lower right corner
         """
         p = self._prepare_painter_for_draw_outline()
-        p.drawRect(left, top, right - left, bottom - top)
-        self._mask_painter.drawRect(left, top, right - left, bottom - top)
+        self._draw_rect(p, left, top, right, bottom)
         self._updated()
 
     def draw_rect(self, left: float, top: float, right: float, bottom: float):
@@ -1135,8 +1184,7 @@ class Image:
         :param bottom: y coordinate value of the lower right corner
         """
         p = self._prepare_painter_for_draw()
-        p.drawRect(left, top, right - left, bottom - top)
-        self._mask_painter.drawRect(left, top, right - left, bottom - top)
+        self._draw_rect(p, left, top, right, bottom)
         self._updated()
 
     def fill_rect(self, left: float, top: float, right: float, bottom: float):
@@ -1151,9 +1199,13 @@ class Image:
         :param bottom: y coordinate value of the lower right corner
         """
         p = self._prepare_painter_for_fill()
-        p.drawRect(left, top, right - left, bottom - top)
-        self._mask_painter.drawRect(left, top, right - left, bottom - top)
+        self._draw_rect(p, left, top, right, bottom)
         self._updated()
+
+    def _draw_rounded_rect(self, p, x, y, radius_x, radius_y, round_x, round_y):
+        rect = self._calc_rect(radius_x, radius_y, x, y)
+        p.drawRoundedRect(rect, round_x, round_y)
+        self._mask_painter.drawRoundedRect(rect, round_x, round_y)
 
     def rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
         """
@@ -1171,8 +1223,7 @@ class Image:
         :param round_y: radius on y-axis of the corner ellipse arc
         """
         p = self._prepare_painter_for_draw_outline()
-        p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
-        self._mask_painter.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
+        self._draw_rounded_rect(p, left, top, right, bottom, round_x, round_y)
         self._updated()
 
     def draw_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
@@ -1190,8 +1241,7 @@ class Image:
         :param round_y: radius on y-axis of the corner ellipse arc
         """
         p = self._prepare_painter_for_draw()
-        p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
-        self._mask_painter.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
+        self._draw_rounded_rect(p, left, top, right, bottom, round_x, round_y)
         self._updated()
 
     def fill_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
@@ -1209,8 +1259,7 @@ class Image:
         :param round_y: radius on y-axis of the corner ellipse arc
         """
         p = self._prepare_painter_for_fill()
-        p.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
-        self._mask_painter.drawRoundedRect(left, top, right - left, bottom - top, round_x, round_y)
+        self._draw_rounded_rect(p, left, top, right, bottom, round_x, round_y)
         self._updated()
 
     def clear(self):
@@ -1278,6 +1327,7 @@ class Image:
         """
         p = QtGui.QPainter()
         p.begin(device)
+        p.setCompositionMode(QtGui.QPainter.CompositionMode_Source)
         p.drawImage(0, 0, self._image)
         p.end()
 
@@ -1292,7 +1342,7 @@ class Image:
         :param y: y coordinate value of the start point
         :param border_color: color of the fill region border
         """
-        if self._fill_Style == FillStyle.NULL_FILL:  # no need to fill
+        if self._fill_style == FillStyle.NULL_FILL:  # no need to fill
             return
         queue = deque()
         transform = self._painter.combinedTransform()
@@ -1489,12 +1539,21 @@ class Image:
 
         See restore_settings().
 
-        Note: background_color and current position won't  be saved and restored.
+        Note: current position won't  be saved and restored.
 
         """
         self._painter.save()
         self._mask_painter.save()
         self._old_flip_y = self._flip_y
+        self._old_rect_mode = self._rect_mode
+        self._old_ellipse_mode = self._ellipse_mode
+        self._old_color = self._color
+        self._old_line_style = self._line_style
+        self._old_line_width = self._line_width
+        self._old_fill_color = self._fill_color
+        self._old_fill_style = self._fill_style
+        self._old_fill_rule = self._fill_rule
+        self._old_background_color = self._background_color
 
     def restore_settings(self):
         """
@@ -1502,11 +1561,20 @@ class Image:
 
         See save_settings().
 
-        Note: background_color and current position won't  be saved and restored.
+        Note: current position won't  be saved and restored.
         """
         self._painter.restore()
         self._mask_painter.restore()
         self._flip_y = self._old_flip_y
+        self._rect_mode = self._old_rect_mode
+        self._ellipse_mode = self._old_ellipse_mode
+        self._color = self._old_color
+        self._line_style = self._old_line_style
+        self._line_width = self._old_line_width
+        self._fill_color = self._old_fill_color
+        self._fill_style = self._old_fill_style
+        self._fill_rule = self._old_fill_rule
+        self._background_color = self._old_background_color
 
     def save(self, filename: str, with_background=True):
         """
@@ -1537,6 +1605,18 @@ class Image:
         img.save(buffer, "PNG")
         buffer.close()
         return ba.data()
+
+    def set_rect_mode(self, mode):
+        self._rect_mode = mode
+
+    def get_rect_mode(self):
+        return self._rect_mode
+
+    def set_ellipse_mode(self, mode):
+        self._ellipse_mode = mode
+
+    def get_ellipse_mode(self):
+        return self._ellipse_mode
 
     def _updated(self):
         for listener in self._updated_listeners:

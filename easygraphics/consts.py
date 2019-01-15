@@ -249,3 +249,10 @@ class FillRule:
     """Specifies that the region is filled using the odd even fill rule. """
     WINDING_FILL = QtCore.Qt.WindingFill
     """Specifies that the region is filled using the non zero winding rule. """
+
+
+class ShapeMode:
+    CORNERS = 0
+    CORNER = 1
+    CENTER = 2
+    RADIUS = 3

@@ -129,13 +129,17 @@ Transform
 .. autosummary::
 
     flip
+    get_transform
     mirror
+    pop_transform
+    push_transform
     reflect
     reset_transform
     rotate
     scale
     set_flip_y
     set_origin
+    set_transform
     shear
     skew
     translate
@@ -160,14 +164,18 @@ Image Processing
 
 .. autosummary::
 
+    add_record
+    begin_recording
     capture_screen
     close_image
     create_image
     draw_image
+    end_recording
     get_target
     load_image
     put_image
     save_image
+    save_recording
     set_target
 
 Keyboard and Mouse

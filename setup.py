@@ -34,7 +34,7 @@ setup(
                      'easygraphics'},
     package_data={'easygraphics.turtle': ['*.png']},
     include_package_data=True,
-    install_requires=['', 'PyQt5', 'pygame', 'qimage2ndarray'],
+    install_requires=['', 'PyQt5', 'pygame', 'qimage2ndarray', 'apng'],
     license="BSD",
     zip_safe=False,
     keywords=['easygraphics', 'computer graphics', 'Turbo C graphics', 'Borland Graphics Interface'],

@@ -93,9 +93,9 @@ class TurtleWidget(QtWidgets.QWidget):
             self._last_fps_time = time.perf_counter_ns()
         self.update()
         tt = time.perf_counter_ns()
-        while tt - self._last_fps_time < nanotime:
-            tt = time.perf_counter_ns()
-        self._last_fps_time = tt
+        if tt - self._last_fps_time < nanotime:
+            QtCore.QThread.usleep((self._last_fps_time + nanotime - tt) // 1000)
+        self._last_fps_time = time.perf_counter_ns()
 
     def run_animated_code(self, f):
         """

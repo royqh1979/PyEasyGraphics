@@ -5,6 +5,7 @@ import math
 from functools import reduce
 from typing import List, Optional
 import os
+import apng
 
 from PyQt5 import QtWidgets
 
@@ -47,6 +48,8 @@ __all__ = [
     "contains_left_button", "contains_right_button", "contains_mid_button",
     # init and close graph window #
     'init_graph', 'close_graph', 'set_caption', 'get_graphics_window', 'show_image',
+    # animation
+    'begin_recording', 'save_recording', 'add_record', 'end_recording',
     # utility functions #
     'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol',
     # 'GraphWin',
@@ -80,7 +83,7 @@ def set_line_style(line_style, image: Image = None):
     image.set_line_style(line_style)
 
 
-def get_line_style(image: Image = None):
+def get_line_style(image: Image = None) -> int:
     """
     Get line style of the specified image.
 
@@ -146,7 +149,7 @@ def get_height(image: Image = None) -> int:
     return image.get_height()
 
 
-def get_color(image: Image = None):
+def get_color(image: Image = None) -> QtGui.QColor:
     """
     Get the foreground (drawing) color of the specified image.
 
@@ -178,7 +181,7 @@ def set_color(color, image: Image = None):
     image.set_color(color)
 
 
-def get_fill_color(image: Image = None):
+def get_fill_color(image: Image = None) -> QtGui.QColor:
     """
     Get the fill color of the specified image.
 
@@ -210,7 +213,7 @@ def set_fill_color(color, image: Image = None):
     image.set_fill_color(color)
 
 
-def get_fill_style(image: Image = None):
+def get_fill_style(image: Image = None) -> int:
     """
     Get fill style of the specified image.
 
@@ -240,7 +243,7 @@ def set_fill_style(style, image: Image = None):
     image.set_fill_style(style)
 
 
-def get_fill_rule(image: Image = None):
+def get_fill_rule(image: Image = None) -> int:
     """
     Get the fill rule (algorithm) for filling polygons.
 
@@ -265,7 +268,7 @@ def set_fill_rule(rule, image: Image = None):
     image.set_fill_rule(rule)
 
 
-def get_background_color(image: Image = None):
+def get_background_color(image: Image = None) -> QtGui.QColor:
     """
     Get the background color of the image.
 
@@ -335,7 +338,7 @@ def set_composition_mode(mode, image: Image = None):
     image.set_composition_mode(mode)
 
 
-def get_composition_mode(image: Image = None):
+def get_composition_mode(image: Image = None) -> int:
     """
     Get composition mode of the specified image.
 
@@ -1639,7 +1642,7 @@ def draw_rect_text(x: int, y: int, width: int, height: int, *args, flags=QtCore.
         _win.invalid()
 
 
-def text_width(text: str, image: Image = None):
+def text_width(text: str, image: Image = None) -> int:
     """
     Return width of the text.
 
@@ -1652,7 +1655,7 @@ def text_width(text: str, image: Image = None):
     return image.text_width(text)
 
 
-def text_height(image: Image = None):
+def text_height(image: Image = None) -> int:
     """
     Return height of the text (font height).
 
@@ -1934,6 +1937,8 @@ def delay_fps(fps: int):
 
 
 _graphics_lock = threading.RLock()
+
+
 def delay_jfps(fps, max_skip_count=0):
     """
     Delay to control fps with frame skipping.
@@ -1951,7 +1956,6 @@ def delay_jfps(fps, max_skip_count=0):
     result = _win.delay_jfps(fps, max_skip_count)
     _graphics_lock.release()
     return result
-
 
 
 # mouse and keyboards #
@@ -2161,7 +2165,6 @@ def close_graph():
     time.sleep(0.05)  # wait 50ms for app thread to exit
 
 
-
 def _check_app_run(check_not_headless: bool = False):
     if check_not_headless:
         _check_not_headless()
@@ -2191,6 +2194,30 @@ def _check_on_screen(image: Image) -> (QtGui.QImage, bool):
             on_screen = False
     # _validate_image(image)
     return image, on_screen
+
+
+_png = None
+
+
+def begin_recording():
+    global _png
+    if _png is not None:
+        raise RuntimeError("There is a png in use!")
+    _png = apng.APNG()
+
+
+def add_record(image: Image = None, **options):
+    image, on_screen = _check_on_screen(image)
+    _png.append(apng.PNG.from_bytes(image.to_bytes("PNG")), **options)
+
+
+def save_recording(filename: str):
+    _png.save(filename)
+
+
+def end_recording():
+    global _png
+    _png = None
 
 
 def _validate_image(image: Image):
