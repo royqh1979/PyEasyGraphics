@@ -16,4 +16,4 @@ def draw():
     draw_line(110, 150, 120, 160)
 
 
-run_app(draw, setup)
+run_app(globals())

@@ -20,10 +20,10 @@ if __name__ == "__main__":
         if delay_fps(30):
             if draging_which_point == 1:
                 draw_line(x1, y1, x, y)
-                draw_bezier((x1, y1, x, y, x4, y4, x2, y2))
+                draw_bezier(x1, y1, x, y, x4, y4, x2, y2)
             elif draging_which_point == 2:
                 draw_line(x2, y2, x, y)
-                draw_bezier((x1, y1, x3, y3, x, y, x2, y2))
+                draw_bezier(x1, y1, x3, y3, x, y, x2, y2)
 
             if has_mouse_msg():
                 x, y, type, buttons = get_mouse_msg()
@@ -54,17 +54,17 @@ if __name__ == "__main__":
                     draw_line(x2, y2, x4, y4)
                     circle(x1, y1, 3)
                     circle(x2, y2, 3)
-                    draw_bezier((x1, y1, x3, y3, x4, y4, x2, y2))
+                    draw_bezier(x1, y1, x3, y3, x4, y4, x2, y2)
 
             else:
                 if draging_which_point == 1:
                     x, y = get_cursor_pos()
                     draw_line(x1, y1, x, y)
-                    draw_bezier((x1, y1, x, y, x4, y4, x2, y2))
+                    draw_bezier(x1, y1, x, y, x4, y4, x2, y2)
                 elif draging_which_point == 2:
                     x, y = get_cursor_pos()
                     draw_line(x2, y2, x, y)
-                    draw_bezier((x1, y1, x3, y3, x, y, x2, y2))
+                    draw_bezier(x1, y1, x3, y3, x, y, x2, y2)
 
 
     close_graph()

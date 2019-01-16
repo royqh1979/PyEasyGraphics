@@ -12,6 +12,7 @@ _in_ipython = False
 try:
     __IPYTHON__
     import IPython.display
+
     _in_ipython = True
 except NameError:
     pass
@@ -71,7 +72,7 @@ class Image:
         self._old_fill_style = FillStyle.SOLID_FILL
         self._old_fill_rule = FillRule.ODD_EVEN_FILL
         self._old_background_color = _to_qcolor(Color.WHITE)
-
+        self._shape_path: QtGui.QPainterPath = None
 
     def _init_painter(self):
         p = self._painter
@@ -936,28 +937,51 @@ class Image:
         self._mask_painter.drawChord(rect, s, al)
         self._updated()
 
-    def draw_bezier(self, control_points: list):
+    def draw_bezier(self, x0: float, y0: float, x1: float, y1: float, x2: float, y2: float, x3: float, y3: float):
         """
         Draw a cubic bezier curve.
 
-        "control_points" is a list of 4 control points. Each point has 2 coordinate values in the list ,
-        so there should be 8 values int the list.
+        points (x0,y0),(x1,y1),(x2,y2),(x3,y3) are the control points of the curve,
 
-        That is , if your 4 control points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "control_points" should be
-        [x0,y0,x1,y1,x2,y2,x3,y3].
-
-        :param control_points: the control points list
+        :param x0: x coordinate of the first control point
+        :param y0: y coordinate of the first control point
+        :param x1: x coordinate of the second control point
+        :param y1: y coordinate of the second control point
+        :param x2: x coordinate of the third control point
+        :param y2: y coordinate of the third control point
+        :param x3: x coordinate of the fourth control point
+        :param y3: y coordinate of the fourth control point
         """
-        if len(control_points) != 8:
-            raise ValueError
-        path = QtGui.QPainterPath(QtCore.QPointF(control_points[0], control_points[1]))
-        path.cubicTo(*control_points[2:])
+        path = QtGui.QPainterPath(QtCore.QPointF(x0, y0))
+        path.cubicTo(x1, y1, x2, y2, x3, y3)
         p = self._prepare_painter_for_draw_outline()
         p.drawPath(path)
         self._mask_painter.drawPath(path)
         self._updated()
 
     bezier = draw_bezier
+
+    def draw_quadratic(self, x0, y0, x1, y1, x2, y2):
+        """
+        Draw a quadratic bezier curve.
+
+        points (x0,y0),(x1,y1),(x2,y2) are the control points of the curve,
+
+        :param x0: x coordinate of the first control point
+        :param y0: y coordinate of the first control point
+        :param x1: x coordinate of the second control point
+        :param y1: y coordinate of the second control point
+        :param x2: x coordinate of the third control point
+        :param y2: y coordinate of the third control point
+        """
+        path = QtGui.QPainterPath(QtCore.QPointF(x0, y0))
+        path.quadTo(x1, y1, x2, y2)
+        p = self._prepare_painter_for_draw_outline()
+        p.drawPath(path)
+        self._mask_painter.drawPath(path)
+        self._updated()
+
+    quadratic = draw_quadratic
 
     def draw_lines(self, points: List[float]):
         """
@@ -1299,7 +1323,6 @@ class Image:
         p.drawImage(0, 0, self._image)
         p.end()
 
-
     def flood_fill(self, x: int, y: int, border_color):
         """
         Flood fill the image starting from(x,y) and ending at borders with border_color.
@@ -1421,6 +1444,45 @@ class Image:
             p.drawText(x, y, width, height, flags, msg)
             self._mask_painter.drawText(x, y, width, height, flags, msg)
         self._updated()
+
+    def begin_shape(self):
+        if self._shape_path is not None:
+            raise RuntimeError("a shape is drawing, end it first!")
+        self._shape_path = QtGui.QPainterPath()
+
+    def vertex(self, x: float, y: float):
+        transform = self.get_transform()
+        point = transform.map(QtCore.QPointF(x, y))
+        if self._shape_path.elementCount() > 0:
+            self._shape_path.lineTo(point.x(), point.y())
+        else:
+            self._shape_path.moveTo(point.x(), point.y())
+
+    def bezier_vertex(self, x1, y1, x2, y2, x3, y3):
+        if self._shape_path.elementCount() <= 0:
+            raise RuntimeError("Must call vertex() to set the start point before define bezier curve!")
+        transform = self.get_transform()
+        p1 = transform.map(QtCore.QPointF(x1, y1))
+        p2 = transform.map(QtCore.QPointF(x2, y2))
+        p3 = transform.map(QtCore.QPointF(x3, y3))
+        self._shape_path.cubicTo(p1.x(), p1.y(), p2.x(), p2.y(), p3.x(), p3.y())
+
+    def quadratic_vertex(self, x1, y1, x2, y2):
+        if self._shape_path.elementCount() <= 0:
+            raise RuntimeError("Must call vertex() to set the start point before define bezier curve!")
+        transform = self.get_transform()
+        p1 = transform.map(QtCore.QPointF(x1, y1))
+        p2 = transform.map(QtCore.QPointF(x2, y2))
+        self._shape_path.quadTo(p1.x(), p1.y(), p2.x(), p2.y())
+
+    def end_shape(self):
+        p = self._prepare_painter_for_draw()
+        self.push_transform()
+        self.reset_transform()
+        p.drawPath(self._shape_path)
+        self.pop_transform()
+        self._mask_painter.drawPath(self._shape_path)
+        self._shape_path = None
 
     def set_font(self, font: QtGui.QFont):
         """

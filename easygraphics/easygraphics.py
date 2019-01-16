@@ -37,6 +37,7 @@ __all__ = [
     'bezier', 'draw_bezier', 'lines', 'draw_lines', 'poly_line', 'draw_poly_line', 'polygon', 'draw_polygon',
     'fill_polygon', 'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect',
     'flood_fill', 'draw_image', 'capture_screen', 'clear_device', 'clear_view_port',
+    'quadratic', 'draw_quadratic',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
@@ -1202,34 +1203,62 @@ def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
         _win.invalid()
 
 
-def draw_bezier(control_points: List[float], image: Image = None):
+def draw_bezier(x0: float, y0: float, x1: float, y1: float, x2: float, y2: float, x3: float, y3: float,
+                image: Image = None):
     """
     Draw a cubic bezier curve.
 
-    "control_points" is a list of 4 control points. Each point has 2 coordinate values in the list ,
-    so there should be 8 values int the list.
-
-    That is , if your 4 control points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "control_points" should be
-    [x0,y0,x1,y1,x2,y2,x3,y3].
+    points (x0,y0),(x1,y1),(x2,y2),(x3,y3) are the control points of the curve,
 
     >>> from easygraphics import *
     >>> init_graph(600,400)
     >>> points=[300,50,200,50,200,200,100,200]
-    >>> draw_bezier(points)
+    >>> draw_bezier(*points)
     >>> pause()
     >>> close_graph()
 
-    :param control_points: the control points list
+    :param x0: x coordinate of the first control point
+    :param y0: y coordinate of the first control point
+    :param x1: x coordinate of the second control point
+    :param y1: y coordinate of the second control point
+    :param x2: x coordinate of the third control point
+    :param y2: y coordinate of the third control point
+    :param x3: x coordinate of the fourth control point
+    :param y3: y coordinate of the fourth control point
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
-    image.draw_bezier(control_points)
+    image.draw_bezier(x0, y0, x1, y1, x2, y2, x3, y3)
     if on_screen:
         _win.invalid()
 
 
 bezier = draw_bezier
+
+
+def draw_quadratic(x0: float, y0: float, x1: float, y1: float, x2: float, y2: float, image: Image = None):
+    """
+    Draw a quadratic bezier curve.
+
+    points (x0,y0),(x1,y1),(x2,y2) are the control points of the curve,
+
+    :param x0: x coordinate of the first control point
+    :param y0: y coordinate of the first control point
+    :param x1: x coordinate of the second control point
+    :param y1: y coordinate of the second control point
+    :param x2: x coordinate of the third control point
+    :param y2: y coordinate of the third control point
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    image, on_screen = _check_on_screen(image)
+    image.draw_quadratic(x0, y0, x1, y1, x2, y2)
+    if on_screen:
+        _win.invalid()
+
+
+quadratic = draw_quadratic
 
 
 def draw_lines(points: List[float], image: Image = None):

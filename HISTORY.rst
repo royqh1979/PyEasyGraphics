@@ -9,6 +9,9 @@ History
 * add set_ellipse_mode() and set_rect_mode() to Image class
 * add easygraphics.processing module
 * fix: Image's save_settings()/restore_settings() now save most settings.
+* update: ellipse_mode apply to arc/chord/pie shape drawings.
+* add quadratic()/draw_quadratic() function to Image class and easygraphics.processing subpackage
+* add begin_shape()/vertex()/bezier_vertex()/quadratic_vertex()/end_shape() function to Image class and easygraphics.processing subpackage
 
 0.9.23
 ------------

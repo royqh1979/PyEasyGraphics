@@ -165,9 +165,10 @@ The following program draw a cubic bezier curve with control points at (300,50),
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(600,400)
-    points=[300,50,200,50,200,200,100,200]
-    draw_bezier(points)
+
+    init_graph(600, 400)
+    points = [300, 50, 200, 50, 200, 200, 100, 200]
+    draw_bezier(*points)
     pause()
     close_graph()
 
