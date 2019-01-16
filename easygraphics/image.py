@@ -704,57 +704,57 @@ class Image:
 
     line = draw_line
 
-    def ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
+    def ellipse(self, x1: float, y1: float, x2: float, y2: float):
         """
         Draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.
 
         The ellipse is not filled.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_draw_outline()
-        self._draw_ellipse(p, x, y, radius_x, radius_y)
+        self._draw_ellipse(p, x1, y1, x2, y2)
         self._updated()
 
-    def _draw_ellipse(self, p, x, y, radius_x, radius_y):
-        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
+    def _draw_ellipse(self, p, x1, y1, x2, y2):
+        rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         p.drawEllipse(rect)
         self._mask_painter.drawEllipse(rect)
 
-    def draw_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
+    def draw_ellipse(self, x1: float, y1: float, x2: float, y2: float):
         """
         Draw an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.
 
         The ellipse is filled and has outline.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_draw()
-        self._draw_ellipse(p, x, y, radius_x, radius_y)
+        self._draw_ellipse(p, x1, y1, x2, y2)
         self._updated()
 
-    def fill_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
+    def fill_ellipse(self, x1: float, y1: float, x2: float, y2: float):
         """
         Fill an ellipse centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.
 
         The ellipse dosen't has outline.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_fill()
-        self._draw_ellipse(p, x, y, radius_x, radius_y)
+        self._draw_ellipse(p, x1, y1, x2, y2)
         self._updated()
 
-    def draw_arc(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+    def draw_arc(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
         """
         Draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
@@ -762,16 +762,16 @@ class Image:
           Note: Positive values for the angles mean counter-clockwise
           while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
         :param start_angle: start angle of the arc
         :param end_angle: end angle of the arc
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
-        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
+        rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawArc(rect, s, al)
@@ -780,7 +780,7 @@ class Image:
 
     arc = draw_arc
 
-    def pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+    def pie(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
         """
         Draw an elliptical pie outline from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
@@ -790,23 +790,23 @@ class Image:
           Note: Positive values for the angles mean counter-clockwise
           while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
         :param start_angle: start angle of the pie
         :param end_angle: end angle of the pie
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
-        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
+        rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawPie(rect, s, al)
         self._mask_painter.drawPie(rect, s, al)
         self._updated()
 
-    def draw_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+    def draw_pie(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
         """
         Draw an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
@@ -816,23 +816,23 @@ class Image:
           Note: Positive values for the angles mean counter-clockwise
           while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
         :param start_angle: start angle of the pie
         :param end_angle: end angle of the pie
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_draw()
         angle_len = end_angle - start_angle
-        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
+        rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawPie(rect, s, al)
         self._mask_painter.drawPie(rect, s, al)
         self._updated()
 
-    def fill_pie(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+    def fill_pie(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
         """
         Fill an elliptical pie from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
@@ -842,23 +842,23 @@ class Image:
           Note: Positive values for the angles mean counter-clockwise
           while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
         :param start_angle: start angle of the pie
         :param end_angle: end angle of the pie
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_fill()
         angle_len = end_angle - start_angle
-        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
+        rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawPie(rect, s, al)
         self._mask_painter.drawPie(rect, s, al)
         self._updated()
 
-    def chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+    def chord(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
         """
         Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
@@ -868,23 +868,23 @@ class Image:
           Note: Positive values for the angles mean counter-clockwise
           while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
         :param start_angle: start angle of the chord
         :param end_angle: end angle of the chord
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
-        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
+        rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawChord(rect, s, al)
         self._mask_painter.drawChord(rect, s, al)
         self._updated()
 
-    def draw_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+    def draw_chord(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
         """
         Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
@@ -894,23 +894,23 @@ class Image:
           Note: Positive values for the angles mean counter-clockwise
           while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
         :param start_angle: start angle of the chord
         :param end_angle: end angle of the chord
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_draw()
         angle_len = end_angle - start_angle
-        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
+        rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawChord(rect, s, al)
         self._mask_painter.drawChord(rect, s, al)
         self._updated()
 
-    def fill_chord(self, x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float):
+    def fill_chord(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
         """
         Draw an elliptical chord outline from start_angle to end_angle. The base ellipse is centered at (x,y)
         which radius on x-axis is radius_x and radius on y-axis is radius_y.
@@ -920,16 +920,16 @@ class Image:
           Note: Positive values for the angles mean counter-clockwise
           while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
 
-        :param x: x coordinate value of the ellipse's center
-        :param y: y coordinate value of the ellipse's center
+        :param x1: x coordinate value of the ellipse's center
+        :param y1: y coordinate value of the ellipse's center
         :param start_angle: start angle of the chord
         :param end_angle: end angle of the chord
-        :param radius_x: radius on x-axis of the ellipse
-        :param radius_y: radius on y-axis of the ellipse
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
         """
         p = self._prepare_painter_for_fill()
         angle_len = end_angle - start_angle
-        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
+        rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawChord(rect, s, al)
