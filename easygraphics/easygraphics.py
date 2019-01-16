@@ -912,7 +912,10 @@ def circle(x: float, y: float, r: float, image: Image = None):
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
+    old_mode = image.get_ellipse_mode()
+    image.set_ellipse_mode(ShapeMode.RADIUS)
     image.ellipse(x, y, r, r)
+    image.set_ellipse_mode(old_mode)
     if on_screen:
         _win.invalid()
 
@@ -930,7 +933,10 @@ def draw_circle(x: float, y: float, r: float, image: Image = None):
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
+    old_mode = image.get_ellipse_mode()
+    image.set_ellipse_mode(ShapeMode.RADIUS)
     image.draw_ellipse(x, y, r, r)
+    image.set_ellipse_mode(old_mode)
     if on_screen:
         _win.invalid()
 
@@ -948,7 +954,10 @@ def fill_circle(x: float, y: float, r: float, image: Image = None):
         (see set_target() and get_target()).
     """
     image, on_screen = _check_on_screen(image)
+    old_mode = image.get_ellipse_mode()
+    image.set_ellipse_mode(ShapeMode.RADIUS)
     image.fill_ellipse(x, y, r, r)
+    image.set_ellipse_mode(old_mode)
     if on_screen:
         _win.invalid()
 

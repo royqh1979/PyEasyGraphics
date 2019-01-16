@@ -720,24 +720,9 @@ class Image:
         self._updated()
 
     def _draw_ellipse(self, p, x, y, radius_x, radius_y):
-        if self._ellipse_mode == ShapeMode.RADIUS:
-            p1 = QtCore.QPointF(x, y)
-            p.drawEllipse(p1, radius_x, radius_y)
-            self._mask_painter.drawEllipse(p1, radius_x, radius_y)
-        elif self._ellipse_mode == ShapeMode.CENTER:
-            p1 = QtCore.QPointF(x, y)
-            p.drawEllipse(p1, radius_x / 2, radius_y / 2)
-            self._mask_painter.drawEllipse(p1, radius_x / 2, radius_y / 2)
-        elif self._ellipse_mode == ShapeMode.CORNER:
-            rect = QtCore.QRectF(x, y, radius_x, radius_y)
-            p.drawEllipse(rect)
-            self._mask_painter.drawEllipse(rect)
-        else:
-            p1 = QtCore.QPointF(x, y)
-            p2 = QtCore.QPointF(radius_x, radius_y)
-            rect = QtCore.QRectF(p1, p2)
-            p.drawEllipse(rect)
-            self._mask_painter.drawEllipse(rect)
+        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
+        p.drawEllipse(rect)
+        self._mask_painter.drawEllipse(rect)
 
     def draw_ellipse(self, x: float, y: float, radius_x: float, radius_y: float):
         """
@@ -786,7 +771,7 @@ class Image:
         """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
-        rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
+        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawArc(rect, s, al)
@@ -814,7 +799,7 @@ class Image:
         """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
-        rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
+        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawPie(rect, s, al)
@@ -840,7 +825,7 @@ class Image:
         """
         p = self._prepare_painter_for_draw()
         angle_len = end_angle - start_angle
-        rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
+        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawPie(rect, s, al)
@@ -866,7 +851,7 @@ class Image:
         """
         p = self._prepare_painter_for_fill()
         angle_len = end_angle - start_angle
-        rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
+        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawPie(rect, s, al)
@@ -892,7 +877,7 @@ class Image:
         """
         p = self._prepare_painter_for_draw_outline()
         angle_len = end_angle - start_angle
-        rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
+        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawChord(rect, s, al)
@@ -918,7 +903,7 @@ class Image:
         """
         p = self._prepare_painter_for_draw()
         angle_len = end_angle - start_angle
-        rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
+        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawChord(rect, s, al)
@@ -944,7 +929,7 @@ class Image:
         """
         p = self._prepare_painter_for_fill()
         angle_len = end_angle - start_angle
-        rect = QtCore.QRectF(x - radius_x, y - radius_y, 2 * radius_x, 2 * radius_y)
+        rect = _calc_rect(x, y, radius_x, radius_y, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawChord(rect, s, al)
@@ -1135,79 +1120,62 @@ class Image:
         self._mask_painter.fillPath(path, self._mask_painter.brush())
         self._updated()
 
-    def _draw_rect(self, p, x, y, radius_x, radius_y):
-        rect = self._calc_rect(radius_x, radius_y, x, y)
+    def _draw_rect(self, p, x1, y1, x2, y2):
+        rect = _calc_rect(x1, y1, x2, y2, self._rect_mode)
         p.drawRect(rect)
         self._mask_painter.drawRect(rect)
 
-    def _calc_rect(self, radius_x, radius_y, x, y) -> QtCore.QRectF:
-        if self._rect_mode == ShapeMode.RADIUS:
-            p1 = QtCore.QPointF(x - radius_x, y - radius_y)
-            p2 = QtCore.QPointF(x + radius_x, y + radius_y)
-            rect = QtCore.QRectF(p1, p2)
-        elif self._rect_mode == ShapeMode.CENTER:
-            p1 = QtCore.QPointF(x - radius_x / 2, y - radius_y / 2)
-            p2 = QtCore.QPointF(x + radius_x / 2, y + radius_y / 2)
-            rect = QtCore.QRectF(p1, p2)
-        elif self._rect_mode == ShapeMode.CORNER:
-            rect = QtCore.QRectF(x, y, radius_x, radius_y)
-        else:
-            p1 = QtCore.QPointF(x, y)
-            p2 = QtCore.QPointF(radius_x, radius_y)
-            rect = QtCore.QRectF(p1, p2)
-        return rect
-
-    def rect(self, left: float, top: float, right: float, bottom: float):
+    def rect(self, x1: float, y1: float, x2: float, y2: float):
         """
         Draws a rectangle outline with upper left corner at (left, top) and lower right corner at (right,bottom).
 
         The rectangle is not filled.
 
-        :param left: x coordinate value of the upper left corner
-        :param top: y coordinate value of the upper left corner
-        :param right: x coordinate value of the lower right corner
-        :param bottom: y coordinate value of the lower right corner
+        :param x1: x coordinate value of the upper left corner
+        :param y1: y coordinate value of the upper left corner
+        :param x2: x coordinate value of the lower right corner
+        :param y2: y coordinate value of the lower right corner
         """
         p = self._prepare_painter_for_draw_outline()
-        self._draw_rect(p, left, top, right, bottom)
+        self._draw_rect(p, x1, y1, x2, y2)
         self._updated()
 
-    def draw_rect(self, left: float, top: float, right: float, bottom: float):
+    def draw_rect(self, x1: float, y1: float, x2: float, y2: float):
         """
         Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom).
 
         The rectangle is filled and has outline.
 
-        :param left: x coordinate value of the upper left corner
-        :param top: y coordinate value of the upper left corner
-        :param right: x coordinate value of the lower right corner
-        :param bottom: y coordinate value of the lower right corner
+        :param x1: x coordinate value of the upper left corner
+        :param y1: y coordinate value of the upper left corner
+        :param x2: x coordinate value of the lower right corner
+        :param y2: y coordinate value of the lower right corner
         """
         p = self._prepare_painter_for_draw()
-        self._draw_rect(p, left, top, right, bottom)
+        self._draw_rect(p, x1, y1, x2, y2)
         self._updated()
 
-    def fill_rect(self, left: float, top: float, right: float, bottom: float):
+    def fill_rect(self, x1: float, y1: float, x2: float, y2: float):
         """
         Draws a rectangle with upper left corner at (left, top) and lower right corner at (right,bottom).
 
         The rectangle doesn't have outline.
 
-        :param left: x coordinate value of the upper left corner
-        :param top: y coordinate value of the upper left corner
-        :param right: x coordinate value of the lower right corner
-        :param bottom: y coordinate value of the lower right corner
+        :param x1: x coordinate value of the upper left corner
+        :param y1: y coordinate value of the upper left corner
+        :param x2: x coordinate value of the lower right corner
+        :param y2: y coordinate value of the lower right corner
         """
         p = self._prepare_painter_for_fill()
-        self._draw_rect(p, left, top, right, bottom)
+        self._draw_rect(p, x1, y1, x2, y2)
         self._updated()
 
-    def _draw_rounded_rect(self, p, x, y, radius_x, radius_y, round_x, round_y):
-        rect = self._calc_rect(radius_x, radius_y, x, y)
+    def _draw_rounded_rect(self, p, x1, y1, x2, y2, round_x, round_y):
+        rect = _calc_rect(x1, y1, x2, y2, self._rect_mode)
         p.drawRoundedRect(rect, round_x, round_y)
         self._mask_painter.drawRoundedRect(rect, round_x, round_y)
 
-    def rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
+    def rounded_rect(self, x1: float, y1: float, x2: float, y2: float, round_x: float, round_y: float):
         """
         Draws a rounded rectangle outline with upper left corner at (left, top) , lower right
         corner at (right,bottom). Raidus on x-axis of the corner ellipse arc is round_x,
@@ -1215,51 +1183,51 @@ class Image:
 
         The rectangle is not filled.
 
-        :param left: x coordinate value of the upper left corner
-        :param top: y coordinate value of the upper left corner
-        :param right: x coordinate value of the lower right corner
-        :param bottom: y coordinate value of the lower right corner
+        :param x1: x coordinate value of the upper left corner
+        :param y1: y coordinate value of the upper left corner
+        :param x2: x coordinate value of the lower right corner
+        :param y2: y coordinate value of the lower right corner
         :param round_x: raidus on x-axis of the corner ellipse arc
         :param round_y: radius on y-axis of the corner ellipse arc
         """
         p = self._prepare_painter_for_draw_outline()
-        self._draw_rounded_rect(p, left, top, right, bottom, round_x, round_y)
+        self._draw_rounded_rect(p, x1, y1, x2, y2, round_x, round_y)
         self._updated()
 
-    def draw_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
+    def draw_rounded_rect(self, x1: float, y1: float, x2: float, y2: float, round_x: float, round_y: float):
         """
         Draws a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
         raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
 
         The rectangle is filled and has outline.
 
-        :param left: x coordinate value of the upper left corner
-        :param top: y coordinate value of the upper left corner
-        :param right: x coordinate value of the lower right corner
-        :param bottom: y coordinate value of the lower right corner
+        :param x1: x coordinate value of the upper left corner
+        :param y1: y coordinate value of the upper left corner
+        :param x2: x coordinate value of the lower right corner
+        :param y2: y coordinate value of the lower right corner
         :param round_x: raidus on x-axis of the corner ellipse arc
         :param round_y: radius on y-axis of the corner ellipse arc
         """
         p = self._prepare_painter_for_draw()
-        self._draw_rounded_rect(p, left, top, right, bottom, round_x, round_y)
+        self._draw_rounded_rect(p, x1, y1, x2, y2, round_x, round_y)
         self._updated()
 
-    def fill_rounded_rect(self, left: float, top: float, right: float, bottom: float, round_x: float, round_y: float):
+    def fill_rounded_rect(self, x1: float, y1: float, x2: float, y2: float, round_x: float, round_y: float):
         """
         Fill a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
         raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
 
         The rectangle doesn't have outline.
 
-        :param left: x coordinate value of the upper left corner
-        :param top: y coordinate value of the upper left corner
-        :param right: x coordinate value of the lower right corner
-        :param bottom: y coordinate value of the lower right corner
+        :param x1: x coordinate value of the upper left corner
+        :param y1: y coordinate value of the upper left corner
+        :param x2: x coordinate value of the lower right corner
+        :param y2: y coordinate value of the lower right corner
         :param round_x: radius on x-axis of the corner ellipse arc
         :param round_y: radius on y-axis of the corner ellipse arc
         """
         p = self._prepare_painter_for_fill()
-        self._draw_rounded_rect(p, left, top, right, bottom, round_x, round_y)
+        self._draw_rounded_rect(p, x1, y1, x2, y2, round_x, round_y)
         self._updated()
 
     def clear(self):
@@ -1670,6 +1638,24 @@ class Image:
         """
         image = QtGui.QImage(filename)
         return Image(image)
+
+
+def _calc_rect(x1: float, y1: float, x2: float, y2: float, mode) -> QtCore.QRectF:
+    if mode == ShapeMode.RADIUS:
+        p1 = QtCore.QPointF(x1 - x2, y1 - y2)
+        p2 = QtCore.QPointF(x1 + x2, y1 + y2)
+        rect = QtCore.QRectF(p1, p2)
+    elif mode == ShapeMode.CENTER:
+        p1 = QtCore.QPointF(x1 - x2 / 2, y1 - y2 / 2)
+        p2 = QtCore.QPointF(x1 + x2 / 2, y1 + y2 / 2)
+        rect = QtCore.QRectF(p1, p2)
+    elif mode == ShapeMode.CORNER:
+        rect = QtCore.QRectF(x1, y1, x2, y2)
+    else:
+        p1 = QtCore.QPointF(x1, y1)
+        p2 = QtCore.QPointF(x2, y2)
+        rect = QtCore.QRectF(p1, p2)
+    return rect
 
 
 def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
