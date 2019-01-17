@@ -12,6 +12,10 @@ History
 * update: ellipse_mode apply to arc/chord/pie shape drawings.
 * add quadratic()/draw_quadratic() function to Image class and easygraphics.processing subpackage
 * add begin_shape()/vertex()/bezier_vertex()/quadratic_vertex()/end_shape() function to Image class and easygraphics.processing subpackage
+* change: bezier()/draw_bezier now use seperate coordinate values as paramter instead of list.
+* add VertexType consts
+* add: begin_shape() 's type parameter
+* add: end_shape()'s close parameter
 
 0.9.23
 ------------

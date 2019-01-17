@@ -256,3 +256,14 @@ class ShapeMode:
     CORNER = 1
     CENTER = 2
     RADIUS = 3
+
+
+class VertexType:
+    POLY_LINE = 0
+    POINTS = 1
+    LINES = 2
+    TRIANGLES = 3
+    TRIANGLE_FAN = 4
+    TRIANGLE_STRIP = 5
+    QUADS = 6
+    QUAD_STRIP = 7

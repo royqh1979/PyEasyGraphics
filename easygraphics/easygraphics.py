@@ -17,7 +17,7 @@ from .image import Image
 __all__ = [
     # consts
     'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'CompositionMode', 'TextFlags',
-    'MouseMessageType', 'FillRule',
+    'MouseMessageType', 'FillRule', 'ShapeMode', 'VertexType',
     #  setting functions #
     'set_line_style', 'get_line_style', 'set_line_width', 'get_line_width',
     'get_color', 'set_color', 'get_fill_color', 'set_fill_color', 'get_fill_style', 'set_fill_style',

@@ -5,7 +5,7 @@ import sip
 
 from PyQt5 import QtGui, QtCore
 
-from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode, FillRule, ShapeMode
+from easygraphics.consts import FillStyle, Color, LineStyle, CompositionMode, FillRule, ShapeMode, VertexType
 import qimage2ndarray as qn
 
 _in_ipython = False
@@ -72,7 +72,10 @@ class Image:
         self._old_fill_style = FillStyle.SOLID_FILL
         self._old_fill_rule = FillRule.ODD_EVEN_FILL
         self._old_background_color = _to_qcolor(Color.WHITE)
-        self._shape_path: QtGui.QPainterPath = None
+        self._shape_path = None
+        self._shape_vertext_type = VertexType.POLY_LINE
+        self._shape_vertices = []
+        self._shape_transformed_vertices = []
 
     def _init_painter(self):
         p = self._painter
@@ -1445,22 +1448,85 @@ class Image:
             self._mask_painter.drawText(x, y, width, height, flags, msg)
         self._updated()
 
-    def begin_shape(self):
+    def begin_shape(self, type=VertexType.POLY_LINE):
         if self._shape_path is not None:
             raise RuntimeError("a shape is drawing, end it first!")
+        self._shape_vertext_type = type
         self._shape_path = QtGui.QPainterPath()
+        self._shape_vertices.clear()
+        self._shape_transformed_vertices.clear()
 
     def vertex(self, x: float, y: float):
+        self._shape_vertices.append(x)
+        self._shape_vertices.append(y)
         transform = self.get_transform()
         point = transform.map(QtCore.QPointF(x, y))
-        if self._shape_path.elementCount() > 0:
-            self._shape_path.lineTo(point.x(), point.y())
-        else:
-            self._shape_path.moveTo(point.x(), point.y())
+        self._shape_transformed_vertices.append(point.x())
+        self._shape_transformed_vertices.append(point.y())
+        if self._shape_vertext_type == VertexType.POLY_LINE:
+            if self._shape_path.elementCount() > 0:
+                self._shape_path.lineTo(point.x(), point.y())
+            else:
+                self._shape_path.moveTo(point.x(), point.y())
+        elif self._shape_vertext_type == VertexType.POINTS:
+            self.draw_point(x, y)
+        elif self._shape_vertext_type == VertexType.LINES:
+            if len(self._shape_vertices) % 4 == 0:
+                self.push_transform()
+                self.reset_transform()
+                self.draw_line(self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                               self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1])
+                self.pop_transform()
+        elif self._shape_vertext_type == VertexType.TRIANGLES:
+            if len(self._shape_vertices) % 6 == 0:
+                self.push_transform()
+                self.reset_transform()
+                self.draw_polygon((self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
+                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1]))
+                self.pop_transform()
+        elif self._shape_vertext_type == VertexType.TRIANGLE_STRIP:
+            if len(self._shape_vertices) >= 6:
+                self.push_transform()
+                self.reset_transform()
+                self.draw_polygon((self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
+                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1]))
+                self.pop_transform()
+        elif self._shape_vertext_type == VertexType.TRIANGLE_FAN:
+            if len(self._shape_vertices) >= 6:
+                self.push_transform()
+                self.reset_transform()
+                self.draw_polygon((self._shape_transformed_vertices[0], self._shape_transformed_vertices[1],
+                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1]))
+                self.pop_transform()
+        elif self._shape_vertext_type == VertexType.QUADS:
+            n = len(self._shape_vertices)
+            if n % 8 == 0:
+                self.push_transform()
+                self.reset_transform()
+                self.draw_polygon((self._shape_transformed_vertices[-8], self._shape_transformed_vertices[-7],
+                                   self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
+                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1]))
+                self.pop_transform()
+        elif self._shape_vertext_type == VertexType.QUAD_STRIP:
+            n = len(self._shape_vertices)
+            if n >= 8 and n % 4 == 0:
+                self.push_transform()
+                self.reset_transform()
+                self.draw_polygon((self._shape_transformed_vertices[-8], self._shape_transformed_vertices[-7],
+                                   self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
+                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1],
+                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3]))
+                self.pop_transform()
 
     def bezier_vertex(self, x1, y1, x2, y2, x3, y3):
         if self._shape_path.elementCount() <= 0:
             raise RuntimeError("Must call vertex() to set the start point before define bezier curve!")
+        if self._shape_vertext_type != VertexType.POLY_LINE:
+            raise RuntimeError("berzier_vertex() can only used with VertexType.POLY_LINE vertices!")
         transform = self.get_transform()
         p1 = transform.map(QtCore.QPointF(x1, y1))
         p2 = transform.map(QtCore.QPointF(x2, y2))
@@ -1470,19 +1536,26 @@ class Image:
     def quadratic_vertex(self, x1, y1, x2, y2):
         if self._shape_path.elementCount() <= 0:
             raise RuntimeError("Must call vertex() to set the start point before define bezier curve!")
+        if self._shape_vertext_type != VertexType.POLY_LINE:
+            raise RuntimeError("quadratic_vertex() can only used with VertexType.POLY_LINE vertices!")
         transform = self.get_transform()
         p1 = transform.map(QtCore.QPointF(x1, y1))
         p2 = transform.map(QtCore.QPointF(x2, y2))
         self._shape_path.quadTo(p1.x(), p1.y(), p2.x(), p2.y())
 
-    def end_shape(self):
-        p = self._prepare_painter_for_draw()
-        self.push_transform()
-        self.reset_transform()
-        p.drawPath(self._shape_path)
-        self.pop_transform()
-        self._mask_painter.drawPath(self._shape_path)
+    def end_shape(self, close=False):
+        if self._shape_vertext_type == VertexType.POLY_LINE:
+            if close:
+                self.vertex(self._shape_vertices[0], self._shape_vertices[1])
+            self.push_transform()
+            self.reset_transform()
+            self.draw_path(self._shape_path)
+            self.pop_transform()
+        elif close:
+            raise RuntimeError("Only VertexType.POLY_LINE vertices can close!")
         self._shape_path = None
+        self._shape_vertices.clear()
+        self._shape_transformed_vertices.clear()
 
     def set_font(self, font: QtGui.QFont):
         """

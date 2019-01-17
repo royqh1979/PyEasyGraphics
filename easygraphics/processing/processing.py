@@ -16,7 +16,7 @@ mouse_pressed = False
 __all__ = [
     # consts
     'Color', 'FillStyle', 'LineStyle', 'RenderMode', 'CompositionMode', 'TextFlags',
-    'MouseMessageType', 'FillRule', 'ShapeMode',
+    'MouseMessageType', 'FillRule', 'ShapeMode', 'VertexType',
     # virtual functions
     # control functions
     'redraw', 'loop', 'noloop', 'run_app',
@@ -350,12 +350,12 @@ def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
     _widget.get_canvas().fill_chord(x, y, start_angle, end_angle, radius_x, radius_y)
 
 
-def begin_shape():
-    _widget.get_canvas().begin_shape()
+def begin_shape(type=VertexType.POLY_LINE):
+    _widget.get_canvas().begin_shape(type)
 
 
-def end_shape():
-    _widget.get_canvas().end_shape()
+def end_shape(close=False):
+    _widget.get_canvas().end_shape(close)
 
 
 def vertex(x: float, y: float):
