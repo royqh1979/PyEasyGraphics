@@ -11,6 +11,7 @@ t = 0
 
 def draw():
     global t
+    clear()
     t += 1
     t = t % 90
     rotate(t)

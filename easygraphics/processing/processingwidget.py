@@ -64,7 +64,6 @@ class ProcessingWidget(QtWidgets.QWidget):
         self.mouse_x = pos.x()
         self.mouse_y = pos.y()
         self.get_canvas().save_settings()
-        self.get_canvas().clear()
         self.draw()
         self.update()
         self.get_canvas().restore_settings()

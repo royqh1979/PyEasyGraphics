@@ -11,6 +11,7 @@ t = 0
 
 def draw():
     global t
+    clear()
     t = t + 1
     t = t % 350
     translate(400, 300)
