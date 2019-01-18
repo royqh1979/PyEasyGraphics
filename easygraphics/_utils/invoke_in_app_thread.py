@@ -85,7 +85,7 @@ def __app_thread_func():
     font = _app.font()
     font.setPixelSize(_font_size)
     _app.setFont(font)
-    _app.setQuitOnLastWindowClosed(True)
+    _app.setQuitOnLastWindowClosed(False)
     init_invoke_in_app()
     # init finished, can draw now
     _thread_end_event = threading.Event()
