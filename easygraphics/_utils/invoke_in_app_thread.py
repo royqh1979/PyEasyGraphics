@@ -78,7 +78,7 @@ def destroy_invoke_in_app():
 
 
 def __app_thread_func():
-    global _app
+    global _app, _thread_end_event
     while _app is not None:
         time.sleep(1)
     _app = QtWidgets.QApplication([])
@@ -88,29 +88,33 @@ def __app_thread_func():
     _app.setQuitOnLastWindowClosed(True)
     init_invoke_in_app()
     # init finished, can draw now
-    _start_event.set()
+    _thread_end_event = threading.Event()
+    _thread_end_event.clear()
+    _thread_start_event.set()
     _app.exec_()
     destroy_invoke_in_app()
     _app = None
+    _thread_end_event.set()
 
 
 def _start_app_thread():
-    global _start_event
-    _start_event = threading.Event()
-    _start_event.clear()
+    global _thread_start_event
+    _thread_start_event = threading.Event()
+    _thread_start_event.clear()
     thread = threading.Thread(target=__app_thread_func, name="non gui app thread")
     thread.start()
-    _start_event.wait()
+    _thread_start_event.wait()
 
 
 _app = None
 
 
 def _stop_app_thread():
-    if _app is not None:
-        _app.quit()
+    _app.quit()
+    _thread_end_event.wait()
 
 
+_app_lock = threading.Lock()
 def invoke_in_app_thread(fn, *args, **kwargs):
     """Queue up the executing of a function in the main thread and return immediately.
 
@@ -136,6 +140,7 @@ def invoke_in_app_thread(fn, *args, **kwargs):
        :code:`(fn(*args, **kwargs), exception)` where
        :code:`exception=[type,value,traceback]`.
     """
+    _app_lock.acquire()
     no_drawing = False  # if graphics's init_graph() is not called
     if _caller is None:
         no_drawing = True
@@ -143,6 +148,7 @@ def invoke_in_app_thread(fn, *args, **kwargs):
     result = get_in_app_thread_result(_in_app_thread_later(fn, True, *args, **kwargs))
     if no_drawing:
         _stop_app_thread()
+    _app_lock.release()
     return result
 
 

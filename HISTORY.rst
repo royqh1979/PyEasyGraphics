@@ -16,6 +16,7 @@ History
 * add VertexType consts
 * add: begin_shape() 's type parameter
 * add: end_shape()'s close parameter
+* fix: succesive dialog calls may crash the program
 
 0.9.23
 ------------

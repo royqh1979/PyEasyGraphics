@@ -1265,6 +1265,19 @@ class Image:
         self._mask.fill(MASK_WHITE)
         self._updated()
 
+    def fill_image(self, color):
+        """
+        Fill the whole image with the specified color.
+
+        :param color: the fill color
+        """
+        self.save_settings()
+        self.reset_transform()
+        self.set_rect_mode(ShapeMode.CORNER)
+        self.set_fill_color(color)
+        self.fill_rect(-1, -1, self.get_width() + 2, self.get_height() + 2)
+        self.restore_settings()
+
     def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = -1,
                    src_height: int = -1, with_background=True, composition_mode=None):
         """

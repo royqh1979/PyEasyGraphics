@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-16 20:53+0800\n"
+"POT-Creation-Date: 2019-01-17 23:53+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -446,7 +446,7 @@ msgid ":obj:`clear_device <easygraphics.clear_device>`\\ \\(image\\)"
 msgstr ""
 
 #: ../../api.rst:123:<autosummary>:1 easygraphics.Image.clear:1
-#: easygraphics.clear_device:1 of
+#: easygraphics.clear:1 easygraphics.clear_device:1 of
 msgid "Clear the image to show the background."
 msgstr "清除指定图片上已经绘制的内容（露出背景色）。"
 
@@ -1846,16 +1846,17 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.Image.draw_rect_text easygraphics.Image.draw_rounded_rect
 #: easygraphics.Image.draw_text easygraphics.Image.draw_to_device
 #: easygraphics.Image.ellipse easygraphics.Image.fill_chord
-#: easygraphics.Image.fill_ellipse easygraphics.Image.fill_path
-#: easygraphics.Image.fill_pie easygraphics.Image.fill_polygon
-#: easygraphics.Image.fill_rect easygraphics.Image.fill_rounded_rect
-#: easygraphics.Image.flip easygraphics.Image.flood_fill
-#: easygraphics.Image.get_pixel easygraphics.Image.line
-#: easygraphics.Image.line_rel easygraphics.Image.line_to
-#: easygraphics.Image.lines easygraphics.Image.mirror
-#: easygraphics.Image.move_rel easygraphics.Image.move_to
-#: easygraphics.Image.path easygraphics.Image.pie easygraphics.Image.poly_line
-#: easygraphics.Image.polygon easygraphics.Image.put_pixel
+#: easygraphics.Image.fill_ellipse easygraphics.Image.fill_image
+#: easygraphics.Image.fill_path easygraphics.Image.fill_pie
+#: easygraphics.Image.fill_polygon easygraphics.Image.fill_rect
+#: easygraphics.Image.fill_rounded_rect easygraphics.Image.flip
+#: easygraphics.Image.flood_fill easygraphics.Image.get_pixel
+#: easygraphics.Image.line easygraphics.Image.line_rel
+#: easygraphics.Image.line_to easygraphics.Image.lines
+#: easygraphics.Image.mirror easygraphics.Image.move_rel
+#: easygraphics.Image.move_to easygraphics.Image.path easygraphics.Image.pie
+#: easygraphics.Image.poly_line easygraphics.Image.polygon
+#: easygraphics.Image.put_pixel easygraphics.Image.quadratic
 #: easygraphics.Image.rect easygraphics.Image.reflect
 #: easygraphics.Image.remove_updated_listener easygraphics.Image.rotate
 #: easygraphics.Image.rounded_rect easygraphics.Image.save
@@ -1872,19 +1873,20 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.Image.skew easygraphics.Image.text_width
 #: easygraphics.Image.to_bytes easygraphics.Image.translate easygraphics.arc
 #: easygraphics.bezier easygraphics.capture_screen easygraphics.cart2pol
-#: easygraphics.chord easygraphics.circle easygraphics.clear_device
-#: easygraphics.clear_view_port easygraphics.close_image
-#: easygraphics.color_cmyk easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
-#: easygraphics.draw_circle easygraphics.draw_ellipse easygraphics.draw_image
-#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
-#: easygraphics.draw_point easygraphics.draw_poly_line
-#: easygraphics.draw_polygon easygraphics.draw_rect easygraphics.draw_rect_text
-#: easygraphics.draw_rounded_rect easygraphics.draw_text easygraphics.ellipse
-#: easygraphics.fill_chord easygraphics.fill_circle easygraphics.fill_ellipse
+#: easygraphics.chord easygraphics.circle easygraphics.clear
+#: easygraphics.clear_device easygraphics.clear_view_port
+#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_hsv
+#: easygraphics.color_rgb easygraphics.contains_left_button
+#: easygraphics.contains_mid_button easygraphics.contains_right_button
+#: easygraphics.create_image easygraphics.delay easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.draw_arc easygraphics.draw_bezier
+#: easygraphics.draw_chord easygraphics.draw_circle easygraphics.draw_ellipse
+#: easygraphics.draw_image easygraphics.draw_line easygraphics.draw_lines
+#: easygraphics.draw_pie easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.draw_polygon easygraphics.draw_quadratic easygraphics.draw_rect
+#: easygraphics.draw_rect_text easygraphics.draw_rounded_rect
+#: easygraphics.draw_text easygraphics.ellipse easygraphics.fill_chord
+#: easygraphics.fill_circle easygraphics.fill_ellipse easygraphics.fill_image
 #: easygraphics.fill_pie easygraphics.fill_polygon easygraphics.fill_rect
 #: easygraphics.fill_rounded_rect easygraphics.flip easygraphics.flood_fill
 #: easygraphics.get_background_color easygraphics.get_color
@@ -1900,13 +1902,14 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.load_image easygraphics.mirror easygraphics.move_rel
 #: easygraphics.move_to easygraphics.pie easygraphics.pol2cart
 #: easygraphics.poly_line easygraphics.polygon easygraphics.put_image
-#: easygraphics.put_pixel easygraphics.rect easygraphics.reflect
-#: easygraphics.reset_transform easygraphics.reset_view_port
-#: easygraphics.reset_window easygraphics.restore_settings easygraphics.rgb
-#: easygraphics.rotate easygraphics.rounded_rect easygraphics.save_image
-#: easygraphics.save_settings easygraphics.scale
-#: easygraphics.set_background_color easygraphics.set_caption
-#: easygraphics.set_clip_rect easygraphics.set_clipping easygraphics.set_color
+#: easygraphics.put_pixel easygraphics.quadratic easygraphics.rect
+#: easygraphics.reflect easygraphics.reset_transform
+#: easygraphics.reset_view_port easygraphics.reset_window
+#: easygraphics.restore_settings easygraphics.rgb easygraphics.rotate
+#: easygraphics.rounded_rect easygraphics.save_image easygraphics.save_settings
+#: easygraphics.scale easygraphics.set_background_color
+#: easygraphics.set_caption easygraphics.set_clip_rect
+#: easygraphics.set_clipping easygraphics.set_color
 #: easygraphics.set_composition_mode easygraphics.set_fill_color
 #: easygraphics.set_fill_rule easygraphics.set_fill_style
 #: easygraphics.set_flip_y easygraphics.set_font easygraphics.set_font_size
@@ -2060,6 +2063,7 @@ msgstr "指定图片的填充色"
 msgid "It will be used when drawing and fill shapes."
 msgstr "会用它来填充图形。"
 
+#: easygraphics.Image.fill_image:3 easygraphics.fill_image:3
 #: easygraphics.set_fill_color:9 of
 msgid "the fill color"
 msgstr "填充色"
@@ -2602,25 +2606,27 @@ msgid "y coordinate value of the drawing point"
 msgstr "点的y坐标"
 
 #: easygraphics.arc:13 easygraphics.bezier:20 easygraphics.chord:15
-#: easygraphics.circle:8 easygraphics.clear_device:3
+#: easygraphics.circle:8 easygraphics.clear:3 easygraphics.clear_device:3
 #: easygraphics.clear_view_port:3 easygraphics.draw_arc:13
 #: easygraphics.draw_bezier:20 easygraphics.draw_chord:15
 #: easygraphics.draw_circle:8 easygraphics.draw_ellipse:9
 #: easygraphics.draw_image:26 easygraphics.draw_line:9
 #: easygraphics.draw_lines:18 easygraphics.draw_pie:15
 #: easygraphics.draw_point:5 easygraphics.draw_poly_line:18
-#: easygraphics.draw_polygon:21 easygraphics.draw_rect:9
-#: easygraphics.draw_rect_text:12 easygraphics.draw_rounded_rect:12
-#: easygraphics.draw_text:7 easygraphics.ellipse:9 easygraphics.fill_chord:15
-#: easygraphics.fill_circle:8 easygraphics.fill_ellipse:9
+#: easygraphics.draw_polygon:21 easygraphics.draw_quadratic:11
+#: easygraphics.draw_rect:9 easygraphics.draw_rect_text:12
+#: easygraphics.draw_rounded_rect:12 easygraphics.draw_text:7
+#: easygraphics.ellipse:9 easygraphics.fill_chord:15 easygraphics.fill_circle:8
+#: easygraphics.fill_ellipse:9 easygraphics.fill_image:4
 #: easygraphics.fill_pie:15 easygraphics.fill_polygon:20
 #: easygraphics.fill_rect:9 easygraphics.fill_rounded_rect:12
 #: easygraphics.flood_fill:8 easygraphics.get_pixel:5 easygraphics.line:9
 #: easygraphics.line_rel:6 easygraphics.line_to:5 easygraphics.lines:18
 #: easygraphics.move_rel:9 easygraphics.move_to:7 easygraphics.pie:15
 #: easygraphics.poly_line:18 easygraphics.polygon:20 easygraphics.put_image:26
-#: easygraphics.put_pixel:6 easygraphics.rect:9 easygraphics.rounded_rect:13
-#: easygraphics.text_height:3 easygraphics.text_width:4 of
+#: easygraphics.put_pixel:6 easygraphics.quadratic:11 easygraphics.rect:9
+#: easygraphics.rounded_rect:13 easygraphics.text_height:3
+#: easygraphics.text_width:4 of
 msgid ""
 "the target image which will be painted on. None means it is the target "
 "image (see set_target() and get_target())."
@@ -2909,32 +2915,44 @@ msgid ""
 msgstr "点(x0,y0),(x1,y1),(x2,y2),(x3,y3)是曲线的4个控制点。"
 
 #: easygraphics.Image.bezier:5 easygraphics.Image.draw_bezier:5
-#: easygraphics.bezier:12 easygraphics.draw_bezier:12 of
+#: easygraphics.Image.draw_quadratic:5 easygraphics.Image.quadratic:5
+#: easygraphics.bezier:12 easygraphics.draw_bezier:12
+#: easygraphics.draw_quadratic:5 easygraphics.quadratic:5 of
 msgid "x coordinate of the first control point"
 msgstr "第一个控制点的x轴坐标"
 
 #: easygraphics.Image.bezier:6 easygraphics.Image.draw_bezier:6
-#: easygraphics.bezier:13 easygraphics.draw_bezier:13 of
+#: easygraphics.Image.draw_quadratic:6 easygraphics.Image.quadratic:6
+#: easygraphics.bezier:13 easygraphics.draw_bezier:13
+#: easygraphics.draw_quadratic:6 easygraphics.quadratic:6 of
 msgid "y coordinate of the first control point"
 msgstr "第一个控制点的y轴坐标"
 
 #: easygraphics.Image.bezier:7 easygraphics.Image.draw_bezier:7
-#: easygraphics.bezier:14 easygraphics.draw_bezier:14 of
+#: easygraphics.Image.draw_quadratic:7 easygraphics.Image.quadratic:7
+#: easygraphics.bezier:14 easygraphics.draw_bezier:14
+#: easygraphics.draw_quadratic:7 easygraphics.quadratic:7 of
 msgid "x coordinate of the second control point"
 msgstr "第二个点的x轴坐标"
 
 #: easygraphics.Image.bezier:8 easygraphics.Image.draw_bezier:8
-#: easygraphics.bezier:15 easygraphics.draw_bezier:15 of
+#: easygraphics.Image.draw_quadratic:8 easygraphics.Image.quadratic:8
+#: easygraphics.bezier:15 easygraphics.draw_bezier:15
+#: easygraphics.draw_quadratic:8 easygraphics.quadratic:8 of
 msgid "y coordinate of the second control point"
 msgstr "第二个控制点的y轴坐标"
 
 #: easygraphics.Image.bezier:9 easygraphics.Image.draw_bezier:9
-#: easygraphics.bezier:16 easygraphics.draw_bezier:16 of
+#: easygraphics.Image.draw_quadratic:9 easygraphics.Image.quadratic:9
+#: easygraphics.bezier:16 easygraphics.draw_bezier:16
+#: easygraphics.draw_quadratic:9 easygraphics.quadratic:9 of
 msgid "x coordinate of the third control point"
 msgstr "第三个控制点的x轴坐标"
 
 #: easygraphics.Image.bezier:10 easygraphics.Image.draw_bezier:10
-#: easygraphics.bezier:17 easygraphics.draw_bezier:17 of
+#: easygraphics.Image.draw_quadratic:10 easygraphics.Image.quadratic:10
+#: easygraphics.bezier:17 easygraphics.draw_bezier:17
+#: easygraphics.draw_quadratic:10 easygraphics.quadratic:10 of
 msgid "y coordinate of the third control point"
 msgstr "第三个控制点的x轴坐标"
 
@@ -2945,7 +2963,6 @@ msgstr "第四个控制点的x轴坐标"
 
 #: easygraphics.Image.bezier:12 easygraphics.Image.draw_bezier:12
 #: easygraphics.bezier:19 easygraphics.draw_bezier:19 of
-#, fuzzy
 msgid "y coordinate of the fourth control point"
 msgstr "第四个控制点的y轴坐标"
 
@@ -3241,6 +3258,20 @@ msgstr "截屏区域的右上角y坐标"
 #: easygraphics.capture_screen:7 of
 msgid "image to save the capture"
 msgstr ""
+
+#: easygraphics.Image.draw_quadratic:1 easygraphics.Image.quadratic:1
+#: easygraphics.draw_quadratic:1 easygraphics.quadratic:1 of
+msgid "Draw a quadratic bezier curve."
+msgstr "绘制一条二次贝塞尔曲线（quadratic bezier curve）。"
+
+#: easygraphics.Image.draw_quadratic:3 easygraphics.Image.quadratic:3
+#: easygraphics.draw_quadratic:3 easygraphics.quadratic:3 of
+msgid "points (x0,y0),(x1,y1),(x2,y2) are the control points of the curve,"
+msgstr "点(x0,y0),(x1,y1),(x2,y2),(x3,y3)是曲线的4个控制点。"
+
+#: easygraphics.Image.fill_image:1 easygraphics.fill_image:1 of
+msgid "Fill the whole image with the specified color."
+msgstr "使用指定的颜色填充整个图片"
 
 #: easygraphics.Image.draw_rect_text:9 easygraphics.draw_rect_text:9
 #: easygraphics.draw_text:5 of
@@ -3652,28 +3683,6 @@ msgstr "画和填充一条路径"
 #: easygraphics.Image.draw_path:3 of
 msgid "path to drawn and fill"
 msgstr "待绘制和填充的路径"
-
-#: easygraphics.Image.draw_quadratic:1 of
-msgid "Draw a quadratic bezier curve."
-msgstr "绘制一条二次贝塞尔曲线（quadratic bezier curve）。"
-
-#: easygraphics.Image.draw_quadratic:3 of
-msgid ""
-"\"control_points\" is a list of 4 control points. Each point has 2 "
-"coordinate values in the list , so there should be 8 values int the list."
-msgstr "参数\"control_points\"是个包含4个控制点坐标的列表。因为每个控制点分别有x和y两个坐标值，所以列表里一共有8个数。"
-
-#: easygraphics.Image.draw_quadratic:6 of
-msgid ""
-"That is , if your 4 control points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "
-"\"control_points\" should be [x0,y0,x1,y1,x2,y2,x3,y3]."
-msgstr ""
-"也就是说，如果你的4个控制点分别是(x0,y0),(x1,y1),(x2,y2),(x3,y3)，那么参数“control_points”就应该是"
-" [x0,y0,x1,y1,x2,y2,x3,y3]。"
-
-#: easygraphics.Image.draw_quadratic:9 of
-msgid "the control points list"
-msgstr "控制点列表"
 
 #: easygraphics.Image.draw_text:5 of
 msgid "things to be printed"
@@ -4396,4 +4405,24 @@ msgstr "将坐标轴平移指定的位移。"
 #~ ":obj:`draw_bezier <easygraphics.draw_bezier>`\\ "
 #~ "\\(control\\_points\\, image\\)"
 #~ msgstr ""
+
+#~ msgid ""
+#~ "\"control_points\" is a list of 4 "
+#~ "control points. Each point has 2 "
+#~ "coordinate values in the list , so"
+#~ " there should be 8 values int "
+#~ "the list."
+#~ msgstr "参数\"control_points\"是个包含4个控制点坐标的列表。因为每个控制点分别有x和y两个坐标值，所以列表里一共有8个数。"
+
+#~ msgid ""
+#~ "That is , if your 4 control "
+#~ "points  are (x0,y0),(x1,y1),(x2,y2),(x3,y3), "
+#~ "\"control_points\" should be "
+#~ "[x0,y0,x1,y1,x2,y2,x3,y3]."
+#~ msgstr ""
+#~ "也就是说，如果你的4个控制点分别是(x0,y0),(x1,y1),(x2,y2),(x3,y3)，那么参数“control_points”就应该是"
+#~ " [x0,y0,x1,y1,x2,y2,x3,y3]。"
+
+#~ msgid "the control points list"
+#~ msgstr "控制点列表"
 

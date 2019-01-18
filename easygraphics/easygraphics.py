@@ -29,7 +29,6 @@ __all__ = [
     'reflect', 'flip', 'mirror', 'reset_transform', 'save_settings', 'restore_settings',
     'get_width', 'get_height', 'get_write_mode', 'set_write_mode', 'get_transform', 'set_transform',
     'push_transform', 'pop_transform',
-
     # drawing functions #
     'draw_point', 'put_pixel', 'get_pixel', 'line', 'draw_line', 'move_to', 'move_rel', 'line_to', 'line_rel',
     'circle', 'draw_circle', 'fill_circle', 'ellipse', 'draw_ellipse', 'fill_ellipse',
@@ -37,7 +36,7 @@ __all__ = [
     'bezier', 'draw_bezier', 'lines', 'draw_lines', 'poly_line', 'draw_poly_line', 'polygon', 'draw_polygon',
     'fill_polygon', 'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect',
     'flood_fill', 'draw_image', 'capture_screen', 'clear_device', 'clear_view_port',
-    'quadratic', 'draw_quadratic',
+    'quadratic', 'draw_quadratic', 'fill_image', 'clear',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
@@ -1622,6 +1621,23 @@ def clear_device(image: Image = None):
     """
     image, on_screen = _check_on_screen(image)
     image.clear()
+    if on_screen:
+        _win.invalid()
+
+
+clear = clear_device
+
+
+def fill_image(color, image: Image = None):
+    """
+    Fill the whole image with the specified color.
+
+    :param color: the fill color
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    image, on_screen = _check_on_screen(image)
+    image.fill_image(color)
     if on_screen:
         _win.invalid()
 

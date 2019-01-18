@@ -459,6 +459,10 @@ def clear():
     _widget.get_canvas().clear()
 
 
+def fill_image(color):
+    _widget.get_canvas().fill_image(color)
+
+
 def draw_text(x, y, *args, sep=' '):
     _widget.get_canvas().draw_text(x, y, *args, sep)
 
