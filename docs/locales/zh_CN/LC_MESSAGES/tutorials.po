@@ -24,12 +24,11 @@ msgstr "使用教程"
 
 #: ../../tutorials.rst:5
 msgid "Graphics"
-msgstr ""
+msgstr "基本绘图"
 
 #: ../../tutorials.rst:36 ../../tutorials/101_turtle.rst:2
-#, fuzzy
 msgid "Turtle Graphics"
-msgstr "初始化绘图窗口"
+msgstr "海龟作图（Turtle Graphics）"
 
 #: ../../tutorials.rst:43 ../../tutorials/201_dialogs.rst:2
 msgid "Dialogs"
@@ -37,11 +36,11 @@ msgstr "对话框（Dialog）"
 
 #: ../../tutorials.rst:50
 msgid "Widgets"
-msgstr ""
+msgstr "视窗类（Widgets）"
 
 #: ../../tutorials.rst:57
 msgid "Miscs"
-msgstr ""
+msgstr "其他"
 
 #: ../../tutorials/001_first_window.rst:2
 msgid "The First window"

@@ -6,10 +6,3 @@ draw_lines(points)
 pause()
 close_graph()
 
-
-def add(x: float, y: float):
-    return x + y
-
-
-s = add("200", "400")
-print(s)

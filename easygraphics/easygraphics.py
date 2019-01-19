@@ -52,7 +52,7 @@ __all__ = [
     # animation
     'begin_recording', 'save_recording', 'add_record', 'end_recording',
     # utility functions #
-    'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol',
+    'color_gray', 'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol',
     # 'GraphWin',
     'Image'
 ]
@@ -377,6 +377,7 @@ def set_ellipse_mode(mode, image: Image = None):
 def get_ellipse_mode(image: Image = None) -> int:
     image = _get_target_image(image)
     return image.get_ellipse_mode()
+
 
 def get_transform(image: Image = None) -> QtGui.QTransform:
     """
@@ -1799,6 +1800,17 @@ def create_image_from_file(filename: str) -> Image:
 
 
 # utils
+
+def color_gray(gray: int, alpha: int = 255) -> QtGui.QColor:
+    """
+    Create a gray color.
+
+    :param gray: gray value
+    :param alpha: alpha channel value of the color. 255 means fully opaque
+    :return: the color
+    """
+    return QtGui.QColor(gray, gray, gray, alpha)
+
 
 def color_rgb(red: int, green: int, blue: int, alpha: int = 255) -> QtGui.QColor:
     """

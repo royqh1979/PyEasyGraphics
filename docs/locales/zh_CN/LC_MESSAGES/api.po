@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-17 23:53+0800\n"
+"POT-Creation-Date: 2019-01-19 20:00+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -1875,14 +1875,15 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.bezier easygraphics.capture_screen easygraphics.cart2pol
 #: easygraphics.chord easygraphics.circle easygraphics.clear
 #: easygraphics.clear_device easygraphics.clear_view_port
-#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_hsv
-#: easygraphics.color_rgb easygraphics.contains_left_button
-#: easygraphics.contains_mid_button easygraphics.contains_right_button
-#: easygraphics.create_image easygraphics.delay easygraphics.delay_fps
-#: easygraphics.delay_jfps easygraphics.draw_arc easygraphics.draw_bezier
-#: easygraphics.draw_chord easygraphics.draw_circle easygraphics.draw_ellipse
-#: easygraphics.draw_image easygraphics.draw_line easygraphics.draw_lines
-#: easygraphics.draw_pie easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_gray
+#: easygraphics.color_hsv easygraphics.color_rgb
+#: easygraphics.contains_left_button easygraphics.contains_mid_button
+#: easygraphics.contains_right_button easygraphics.create_image
+#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
+#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
+#: easygraphics.draw_circle easygraphics.draw_ellipse easygraphics.draw_image
+#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
+#: easygraphics.draw_point easygraphics.draw_poly_line
 #: easygraphics.draw_polygon easygraphics.draw_quadratic easygraphics.draw_rect
 #: easygraphics.draw_rect_text easygraphics.draw_rounded_rect
 #: easygraphics.draw_text easygraphics.ellipse easygraphics.fill_chord
@@ -1957,7 +1958,7 @@ msgstr "要获取线型的图片。None表示使用“绘图目标”图片（�
 #: easygraphics.Image.get_x easygraphics.Image.get_y easygraphics.Image.set_pen
 #: easygraphics.Image.text_height easygraphics.Image.text_width
 #: easygraphics.Image.to_bytes easygraphics.cart2pol easygraphics.color_cmyk
-#: easygraphics.color_hsv easygraphics.color_rgb
+#: easygraphics.color_gray easygraphics.color_hsv easygraphics.color_rgb
 #: easygraphics.contains_left_button easygraphics.contains_mid_button
 #: easygraphics.contains_right_button easygraphics.create_image
 #: easygraphics.delay_fps easygraphics.delay_jfps
@@ -2643,8 +2644,8 @@ msgid "y coordinate value of the pixel"
 msgstr "像素的y坐标"
 
 #: easygraphics.Image.put_pixel:5 easygraphics.color_cmyk:8
-#: easygraphics.color_hsv:7 easygraphics.color_rgb:7 easygraphics.put_pixel:5
-#: easygraphics.rgb:7 of
+#: easygraphics.color_gray:5 easygraphics.color_hsv:7 easygraphics.color_rgb:7
+#: easygraphics.put_pixel:5 easygraphics.rgb:7 of
 msgid "the color"
 msgstr "颜色"
 
@@ -3554,6 +3555,19 @@ msgid ""
 "image (see set_target() and get_target())."
 msgstr "要显示的图片。None表示使用“绘图目标”图片（参见set_target()和get_target())"
 
+#: easygraphics.color_gray:1 of
+msgid "Create a gray color."
+msgstr "创建灰色"
+
+#: easygraphics.color_gray:3 of
+msgid "gray value"
+msgstr "灰度值"
+
+#: easygraphics.color_cmyk:7 easygraphics.color_gray:4 easygraphics.color_hsv:6
+#: easygraphics.color_rgb:6 easygraphics.rgb:6 of
+msgid "alpha channel value of the color. 255 means fully opaque"
+msgstr "颜色的alpha通道值。255表示完全不透明"
+
 #: easygraphics.color_rgb:3 easygraphics.rgb:3 of
 msgid "red value"
 msgstr "红色分量(red)值"
@@ -3565,11 +3579,6 @@ msgstr "绿色分量(green)值"
 #: easygraphics.color_rgb:5 easygraphics.rgb:5 of
 msgid "blue value"
 msgstr "蓝色分量(blue)值"
-
-#: easygraphics.color_cmyk:7 easygraphics.color_hsv:6 easygraphics.color_rgb:6
-#: easygraphics.rgb:6 of
-msgid "alpha channel value of the color. 255 means fully opaque"
-msgstr "颜色的alpha通道值。255表示完全不透明"
 
 #: easygraphics.color_cmyk:3 of
 msgid "cyan value"

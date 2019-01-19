@@ -2,6 +2,10 @@
 
 History
 ===========
+0.10.1
+-----------
+* add: color_gray() function
+
 0.10.0
 ------------
 * change: reimplement close_graph(), simplifies graphics window close event processing.
