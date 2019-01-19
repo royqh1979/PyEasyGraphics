@@ -546,7 +546,7 @@ def run_app(_globals):
         on_mouse_wheel = _globals['on_mouse_wheel']
     _app = QtWidgets.QApplication([])
     _widget = _Processing_Widget()
-    _widget.init()
+    _widget.start()
     _widget.show()
     _app.exec()
     _widget = None
@@ -577,7 +577,7 @@ def on_mouse_wheel(e: QtGui.QWheelEvent):
 
 class _Processing_Widget(ProcessingWidget):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, init=False, **kwargs)
+        super().__init__(*args, auto_start=False, **kwargs)
 
     def setup(self):
         setup()

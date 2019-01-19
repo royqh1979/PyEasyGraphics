@@ -6,12 +6,12 @@ __all__ = ['ProcessingWidget']
 
 
 class ProcessingWidget(QtWidgets.QWidget):
-    def __init__(self, *args, init=True, **kwargs):
+    def __init__(self, *args, auto_start=True, **kwargs):
         super().__init__(*args, **kwargs)
-        if init:
-            self.init()
+        if auto_start:
+            self.start()
 
-    def init(self):
+    def start(self):
         self._fps = 60
         self._image: Image = None
         self.setup()
