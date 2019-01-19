@@ -100,8 +100,7 @@ The following example draws a triangle with vertices at (50, 50), (350, 250), (5
     init_graph(400, 300)
     set_color(Color.DARK_BLUE)
     set_fill_color(Color.LIGHT_MAGENTA)
-    points = [50, 50, 350, 250, 50, 150]
-    draw_polygon(points)
+    draw_polygon(50, 50, 350, 250, 50, 150)
     pause()
     close_graph()
 
@@ -127,8 +126,7 @@ The following example draws a polyline connecting (50,50), (350,75), (50,150), (
     from easygraphics import *
 
     init_graph(400, 300)
-    points = [50, 50, 350, 75, 50, 150, 350, 175, 50, 250, 350, 275]
-    draw_poly_line(points)
+    draw_poly_line(50, 50, 350, 75, 50, 150, 350, 175, 50, 250, 350, 275)
     pause()
     close_graph()
 

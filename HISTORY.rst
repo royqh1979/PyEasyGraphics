@@ -4,12 +4,13 @@ History
 ===========
 0.10.1
 -----------
-* add: color_gray() function
+* add: color_gray() function.
+* change: change lines/polylines/polygon functions parameters
 
 0.10.0
 ------------
 * change: reimplement close_graph(), simplifies graphics window close event processing.
-* add: add begin_shape()/vertex()/bezier_vertex()/quadratic_vertex()/end_shape() functions to easygraphics
+* add: add begin_shape()/vertex()/bezier_vertex()/quadratic_vertex()/end_shape() functions to easygraphics.
 
 0.9.24
 ------------

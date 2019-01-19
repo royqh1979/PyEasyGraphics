@@ -390,28 +390,28 @@ def lines(points: List[float]):
     _widget.get_canvas().lines(points)
 
 
-def draw_lines(points: List[float]):
-    _widget.get_canvas().draw_lines(points)
+def draw_lines(*points):
+    _widget.get_canvas().draw_lines(*points)
 
 
 def poly_line(end_points: List[float]):
     _widget.get_canvas().poly_line(end_points)
 
 
-def draw_poly_line(end_points: List[float]):
-    _widget.get_canvas().draw_poly_line(end_points)
+def draw_poly_line(*end_points):
+    _widget.get_canvas().draw_poly_line(*end_points)
 
 
-def polygon(vertices: List[float]):
-    _widget.get_canvas().polygon(vertices)
+def polygon(*vertices):
+    _widget.get_canvas().polygon(*vertices)
 
 
-def draw_polygon(vertices: List[float]):
-    _widget.get_canvas().draw_polygon(vertices)
+def draw_polygon(*vertices):
+    _widget.get_canvas().draw_polygon(*vertices)
 
 
-def fill_polygon(vertices: List[float]):
-    _widget.get_canvas().fill_polygon(vertices)
+def fill_polygon(*vertices):
+    _widget.get_canvas().fill_polygon(*vertices)
 
 
 def rect(left: float, top: float, right: float, bottom: float):

@@ -66,7 +66,7 @@ The following program draws a moving bus on the road (background).Note the use o
     set_composition_mode(CompositionMode.SOURCE)
     set_background_color(Color.TRANSPARENT)
     set_fill_color("white")
-    draw_polygon([0, 0, 0, 60, 160, 60, 160, 40, 125, 20, 110, 0])
+    draw_polygon(0, 0, 0, 60, 160, 60, 160, 40, 125, 20, 110, 0)
     set_fill_color("darkgray")
     draw_circle(35, 60, 20)
     draw_circle(120, 60, 20)

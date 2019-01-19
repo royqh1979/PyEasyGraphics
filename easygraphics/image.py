@@ -986,7 +986,7 @@ class Image:
 
     quadratic = draw_quadratic
 
-    def draw_lines(self, points: List[float]):
+    def draw_lines(self, *points):
         """
         Draw lines.
 
@@ -1012,7 +1012,7 @@ class Image:
 
     lines = draw_lines
 
-    def draw_poly_line(self, end_points: List[float]):
+    def draw_poly_line(self, *end_points):
         """
         Draw a poly line.
 
@@ -1048,7 +1048,7 @@ class Image:
             qpoints.append(QtCore.QPointF(points[i * 2], points[i * 2 + 1]))
         return qpoints
 
-    def polygon(self, vertices: List[float]):
+    def polygon(self, *vertices):
         """
         Draw polygon outline.
 
@@ -1068,7 +1068,7 @@ class Image:
         self._mask_painter.drawPolygon(polygon, self._fill_rule)
         self._updated()
 
-    def draw_polygon(self, vertices: List[float]):
+    def draw_polygon(self, *vertices):
         """
         Draw a polygon.
 
@@ -1093,7 +1093,7 @@ class Image:
         polygon = QtGui.QPolygonF(qpoints)
         return polygon
 
-    def fill_polygon(self, vertices: List[float]):
+    def fill_polygon(self, *vertices):
         """
         Fill a polygon.
 

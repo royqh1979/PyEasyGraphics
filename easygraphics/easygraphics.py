@@ -1241,7 +1241,7 @@ def draw_quadratic(x0: float, y0: float, x1: float, y1: float, x2: float, y2: fl
 quadratic = draw_quadratic
 
 
-def draw_lines(points: List[float], image: Image = None):
+def draw_lines(*points, image: Image = None):
     """
     Draw lines.
 
@@ -1254,8 +1254,7 @@ def draw_lines(points: List[float], image: Image = None):
 
     >>> from easygraphics import *
     >>> init_graph(600,600)
-    >>> points=[50,50,550,350,50,150,550,450,50,250,550,550]
-    >>> draw_lines(points)
+    >>> draw_lines(50, 50, 550, 350, 50, 150, 550, 450, 50, 250, 550, 550)
     >>> pause()
     >>> close_graph()
 
@@ -1264,13 +1263,13 @@ def draw_lines(points: List[float], image: Image = None):
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    image.draw_lines(points)
+    image.draw_lines(*points)
 
 
 lines = draw_lines
 
 
-def draw_poly_line(end_points: List[float], image: Image = None):
+def draw_poly_line(*end_points, image: Image = None):
     """
     Draw a poly line.
 
@@ -1283,8 +1282,7 @@ def draw_poly_line(end_points: List[float], image: Image = None):
 
     >>> from easygraphics import *
     >>> init_graph(600,600)
-    >>> points=[50,50,550,350,50,150,550,450,50,250,550,550]
-    >>> draw_poly_line(points)
+    >>> draw_poly_line(50,50,550,350,50,150,550,450,50,250,550,550)
     >>> pause()
     >>> close_graph()
 
@@ -1293,13 +1291,13 @@ def draw_poly_line(end_points: List[float], image: Image = None):
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    image.draw_poly_line(end_points)
+    image.draw_poly_line(*end_points)
 
 
 poly_line = draw_poly_line
 
 
-def polygon(vertices: List[float], image: Image = None):
+def polygon(*vertices, image: Image = None):
     """
     Draw polygon outline.
 
@@ -1314,8 +1312,7 @@ def polygon(vertices: List[float], image: Image = None):
     >>> from easygraphics import *
     >>> init_graph(600,600)
     >>> set_color(Color.RED)
-    >>> points=[50,50,550,350,50,150]
-    >>> polygon(points)
+    >>> polygon(50,50,550,350,50,150)
     >>> pause()
     >>> close_graph()
 
@@ -1324,10 +1321,10 @@ def polygon(vertices: List[float], image: Image = None):
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    image.polygon(vertices)
+    image.polygon(*vertices)
 
 
-def draw_polygon(vertices: List[float], image: Image = None):
+def draw_polygon(*vertices, image: Image = None):
     """
     Draw a polygon.
 
@@ -1343,8 +1340,7 @@ def draw_polygon(vertices: List[float], image: Image = None):
     >>> init_graph(600,600)
     >>> set_color(Color.RED)
     >>> set_fill_color(Color.LIGHT_MAGENTA)
-    >>> points=[50,50,550,350,50,150]
-    >>> draw_polygon(points)
+    >>> draw_polygon(50,50,550,350,50,150)
     >>> pause()
     >>> close_graph()
 
@@ -1353,10 +1349,10 @@ def draw_polygon(vertices: List[float], image: Image = None):
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    image.draw_polygon(vertices)
+    image.draw_polygon(*vertices)
 
 
-def fill_polygon(vertices: List[float], image: Image = None):
+def fill_polygon(*vertices, image: Image = None):
     """
     Fill a polygon.
 
@@ -1371,8 +1367,7 @@ def fill_polygon(vertices: List[float], image: Image = None):
     >>> from easygraphics import *
     >>> init_graph(600,600)
     >>> set_fill_color(Color.LIGHT_MAGENTA)
-    >>> points=[50,50,550,350,50,150]
-    >>> fill_polygon(points)
+    >>> fill_polygon(50,50,550,350,50,150)
     >>> pause()
     >>> close_graph()
 
@@ -1381,7 +1376,7 @@ def fill_polygon(vertices: List[float], image: Image = None):
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    image.fill_polygon(vertices)
+    image.fill_polygon(*vertices)
 
 
 def rect(left: float, top: float, right: float, bottom: float, image: Image = None):
