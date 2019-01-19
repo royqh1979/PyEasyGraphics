@@ -43,6 +43,7 @@ class GraphWin(QtWidgets.QWidget):
         self._init_screen(width, height)
         self._is_run = True
         self._immediate = True
+        self.set_immediate(True)
         self._skip_count = 0
         self._app = app
         self._frames_to_skip_count = 0
@@ -98,6 +99,10 @@ class GraphWin(QtWidgets.QWidget):
         :param immediate:  if the graphics window will be updated immediately
         """
         self._immediate = immediate
+        if immediate:
+            self._canvas.add_updated_listener(self.invalid)
+        else:
+            self._canvas.remove_updated_listener(self.invalid)
 
     def is_immediate(self) -> bool:
         """

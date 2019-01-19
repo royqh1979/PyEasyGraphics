@@ -5,6 +5,7 @@ History
 0.10.0
 ------------
 * change: reimplement close_graph(), simplifies graphics window close event processing.
+* add: add begin_shape()/vertex()/bezier_vertex()/quadratic_vertex()/end_shape() functions to easygraphics
 
 0.9.24
 ------------

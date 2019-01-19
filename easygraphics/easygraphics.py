@@ -28,7 +28,7 @@ __all__ = [
     'set_window', 'reset_window', 'translate', 'rotate', 'scale', 'skew', 'shear', 'set_flip_y',
     'reflect', 'flip', 'mirror', 'reset_transform', 'save_settings', 'restore_settings',
     'get_width', 'get_height', 'get_write_mode', 'set_write_mode', 'get_transform', 'set_transform',
-    'push_transform', 'pop_transform',
+    'push_transform', 'pop_transform', 'set_rect_mode', 'get_rect_mode', 'set_ellipse_mode', 'get_ellipse_mode',
     # drawing functions #
     'draw_point', 'put_pixel', 'get_pixel', 'line', 'draw_line', 'move_to', 'move_rel', 'line_to', 'line_rel',
     'circle', 'draw_circle', 'fill_circle', 'ellipse', 'draw_ellipse', 'fill_ellipse',
@@ -37,6 +37,7 @@ __all__ = [
     'fill_polygon', 'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect',
     'flood_fill', 'draw_image', 'capture_screen', 'clear_device', 'clear_view_port',
     'quadratic', 'draw_quadratic', 'fill_image', 'clear',
+    'begin_shape', 'end_shape', 'vertex', 'bezier_vertex', 'quadratic_vertex',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
@@ -81,7 +82,7 @@ def set_line_style(line_style, image: Image = None):
     :param image: the target image whose line style is to be set. None means it is the default target image
         (see set_target() and get_target())
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_line_style(line_style)
 
 
@@ -95,7 +96,7 @@ def get_line_style(image: Image = None) -> int:
         (see set_target() and get_target())
     :return: line style used by the specified image
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_line_style()
 
 
@@ -109,7 +110,7 @@ def set_line_width(width: float, image: Image = None):
     :param image: the target image whose line width is to be set. None means it is the target image
         (see set_target() and get_target())
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_line_width(width)
 
 
@@ -123,7 +124,7 @@ def get_line_width(image: Image = None) -> float:
         (see set_target() and get_target())
     :return: line width (line thickness) of the specified image
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_line_width()
 
 
@@ -135,7 +136,7 @@ def get_width(image: Image = None) -> int:
         (see set_target() and get_target()).
     :return: width of the specified image
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_width()
 
 
@@ -147,7 +148,7 @@ def get_height(image: Image = None) -> int:
         (see set_target() and get_target()).
     :return: height of the specified image
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_height()
 
 
@@ -161,7 +162,7 @@ def get_color(image: Image = None) -> QtGui.QColor:
         (see set_target() and get_target()).
     :return: foreground color of the specified image
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_color()
 
 
@@ -179,7 +180,7 @@ def set_color(color, image: Image = None):
     :param image: the target image whose foreground color is to be set. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_color(color)
 
 
@@ -193,7 +194,7 @@ def get_fill_color(image: Image = None) -> QtGui.QColor:
         (see set_target() and get_target()).
     :return: fill color of the specified image
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_fill_color()
 
 
@@ -211,7 +212,7 @@ def set_fill_color(color, image: Image = None):
     :param image: the target image whose fill color is to be set. None means it is the target image
          (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_fill_color(color)
 
 
@@ -225,7 +226,7 @@ def get_fill_style(image: Image = None) -> int:
          (see set_target() and get_target()).
     :return: fill style of the specified image
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_fill_style()
 
 
@@ -241,7 +242,7 @@ def set_fill_style(style, image: Image = None):
          (see set_target() and get_target()).
     :return:
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_fill_style(style)
 
 
@@ -253,7 +254,7 @@ def get_fill_rule(image: Image = None) -> int:
          (see set_target() and get_target()).
     :return: the rule used for filling polygons
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_fill_rule()
 
 
@@ -266,7 +267,7 @@ def set_fill_rule(rule, image: Image = None):
          (see set_target() and get_target()).
     :return:
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_fill_rule(rule)
 
 
@@ -279,7 +280,7 @@ def get_background_color(image: Image = None) -> QtGui.QColor:
     :return: background color of the specified image
     """
 
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_background_color()
 
 
@@ -295,10 +296,8 @@ def set_background_color(color, image: Image = None):
     :param image: the target image whose background color is to be set. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_background_color(color)
-    if on_screen:
-        _win.invalid()
 
 
 def set_font(font: QtGui.QFont, image: Image = None):
@@ -309,7 +308,7 @@ def set_font(font: QtGui.QFont, image: Image = None):
     :param image: the target image whose font is to be set. None means it is the target image
          (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_font(font)
 
 
@@ -321,7 +320,7 @@ def get_font(image: Image = None) -> QtGui.QFont:
          (see set_target() and get_target()).
     :return: the font used by the specified image
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_font()
 
 
@@ -336,7 +335,7 @@ def set_composition_mode(mode, image: Image = None):
     :param image: the target image whose composition mode is to be set. None means it is the target image
          (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_composition_mode(mode)
 
 
@@ -351,7 +350,7 @@ def get_composition_mode(image: Image = None) -> int:
         (see set_target() and get_target()).
     :return: composition mode
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_composition_mode()
 
 
@@ -359,6 +358,25 @@ get_write_mode = get_composition_mode
 
 set_write_mode = set_composition_mode
 
+
+def set_rect_mode(mode, image: Image = None):
+    image = _get_target_image(image)
+    image.set_rect_mode(mode)
+
+
+def get_rect_mode(image: Image = None) -> int:
+    image = _get_target_image(image)
+    return image.get_rect_mode()
+
+
+def set_ellipse_mode(mode, image: Image = None):
+    image = _get_target_image(image)
+    image.set_ellipse_mode(mode)
+
+
+def get_ellipse_mode(image: Image = None) -> int:
+    image = _get_target_image(image)
+    return image.get_ellipse_mode()
 
 def get_transform(image: Image = None) -> QtGui.QTransform:
     """
@@ -368,7 +386,7 @@ def get_transform(image: Image = None) -> QtGui.QTransform:
         (see set_target() and get_target()).
     :return: the transform matrix
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_transform()
 
 
@@ -380,7 +398,7 @@ def set_transform(transform: QtGui.QTransform, image: Image = None):
     :param image: the target image whose transform matrix is to be gotten. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.set_transform(transform)
 
 
@@ -388,7 +406,7 @@ def push_transform(image: Image = None):
     """
     Push (save) the current transform to the transform stack.
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.push_transform()
 
 
@@ -396,7 +414,7 @@ def pop_transform(image: Image = None):
     """
     Pop the last saved transform from the transform stack, and use it as the current transform.
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.pop_transform()
 
 
@@ -408,7 +426,7 @@ def set_font_size(size: int, image: Image = None):
     :param image: the target image whose write mode is to be gotten. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_font_size(size)
 
 
@@ -420,7 +438,7 @@ def get_font_size(image: Image = None) -> int:
         (see set_target() and get_target()).
     :return: font size of the specified image
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_font_size()
 
 
@@ -434,7 +452,7 @@ def get_drawing_x(image: Image = None) -> float:
         (see set_target() and get_target()).
     :return: the x coordinate value of the current drawing position
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_x()
 
 
@@ -448,7 +466,7 @@ def get_drawing_y(image: Image = None) -> float:
         (see set_target() and get_target()).
     :return: the y coordinate value of the current drawing position
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_y()
 
 
@@ -462,7 +480,7 @@ def get_drawing_pos(image: Image = None) -> (float, float):
         (see set_target() and get_target()).
     :return:  the current drawing position (x,y)
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_x(), image.get_y()
 
 
@@ -490,7 +508,7 @@ def set_view_port(left: int, top: int, right: int, bottom: int, clip: bool = Tru
     :param image: the target image whose view port is to be gotten. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_view_port(left, top, right, bottom)
     width = right - left
     height = bottom - top
@@ -508,7 +526,7 @@ def reset_view_port(image: Image = None):
     :param image: the target image whose view port is to be reset. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.reset_view_port()
     image.reset_window()
     image.set_clipping(False)
@@ -527,7 +545,7 @@ def set_clip_rect(left: int, top: int, right: int, bottom: int, image: Image = N
     :param image: the target image whose clip rect is to be gotten. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_clip_rect(left, top, right, bottom)
 
 
@@ -541,7 +559,7 @@ def set_clipping(clipping: bool, image: Image = None):
     :param image: the target image whose clip rect is to be disabled. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_clipping(clipping)
 
 
@@ -568,7 +586,7 @@ def set_window(left: int, top: int, width: int, height: int, image: Image = None
     :param image: the target image whose logical window is to be set. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_window(left, top, width, height)
 
 
@@ -581,7 +599,7 @@ def reset_window(image: Image = None):
     :param image: the target image whose logical window is to be reset. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.reset_window()
 
 
@@ -594,7 +612,7 @@ def translate(offset_x: float, offset_y: float, image: Image = None):
     :param image: the target image to be translated. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.translate(offset_x, offset_y)
 
 
@@ -611,7 +629,7 @@ def rotate(degree: float, x: float = 0, y: float = 0, image: Image = None):
     :param image: the target image to be rotated. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.rotate(degree, x, y)
 
 
@@ -624,7 +642,7 @@ def scale(sx: float, sy: float, image: Image = None):
     :param image: the target image to be scaled. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.scale(sx, sy)
 
 
@@ -639,7 +657,7 @@ def shear(sh: float, sv: float, x: float = 0, y: float = 0, image: Image = None)
     :param image: the target image to be sheared. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.shear(sh, sv, x, y)
 
 
@@ -661,7 +679,7 @@ def reflect(x: float, y: float, x1: float = 0, y1: float = 0, image: Image = Non
     :param image: the target image to be reflected. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.reflect(x, y, x1, y1)
 
 
@@ -688,7 +706,7 @@ def set_flip_y(flip_y: bool, image: Image = None) -> None:
     :param image: the target image to be flipped. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.set_flip_y(flip_y)
 
 
@@ -699,7 +717,7 @@ def reset_transform(image: Image = None):
     :param image: the target image to be reset. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.reset_transform()
 
 
@@ -715,7 +733,7 @@ def save_settings(image: Image = None):
     :param image: the target image whose drawing settings is to be saved. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.save_settings()
 
 
@@ -730,7 +748,7 @@ def restore_settings(image: Image = None):
     :param image: the target image whose drawing settings is to be restored. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.restore_settings()
 
 
@@ -780,10 +798,8 @@ def draw_point(x: float, y: float, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_point(x, y)
-    if on_screen:
-        _win.invalid()
 
 
 def put_pixel(x: int, y: int, color, image: Image = None):
@@ -796,10 +812,8 @@ def put_pixel(x: int, y: int, color, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.put_pixel(x, y, color)
-    if on_screen:
-        _win.invalid()
 
 
 def get_pixel(x: int, y: int, image: Image = None) -> QtGui.QColor:
@@ -812,7 +826,7 @@ def get_pixel(x: int, y: int, image: Image = None) -> QtGui.QColor:
         (see set_target() and get_target()).
     :return: color of the pixel
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.get_pixel(x, y)
 
 
@@ -829,10 +843,8 @@ def draw_line(x1, y1, x2, y2, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_line(x1, y1, x2, y2)
-    if on_screen:
-        _win.invalid()
 
 
 line = draw_line
@@ -849,7 +861,7 @@ def move_to(x: float, y: float, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.move_to(x, y)
 
 
@@ -866,7 +878,7 @@ def move_rel(dx: float, dy: float, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.move_rel(dx, dy)
 
 
@@ -879,10 +891,8 @@ def line_to(x: float, y: float, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.line_to(x, y)
-    if on_screen:
-        _win.invalid()
 
 
 def line_rel(dx: float, dy: float, image: Image = None):
@@ -895,10 +905,8 @@ def line_rel(dx: float, dy: float, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.line_rel(dx, dy)
-    if on_screen:
-        _win.invalid()
 
 
 def circle(x: float, y: float, r: float, image: Image = None):
@@ -913,13 +921,11 @@ def circle(x: float, y: float, r: float, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     old_mode = image.get_ellipse_mode()
     image.set_ellipse_mode(ShapeMode.RADIUS)
     image.ellipse(x, y, r, r)
     image.set_ellipse_mode(old_mode)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_circle(x: float, y: float, r: float, image: Image = None):
@@ -934,13 +940,11 @@ def draw_circle(x: float, y: float, r: float, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     old_mode = image.get_ellipse_mode()
     image.set_ellipse_mode(ShapeMode.RADIUS)
     image.draw_ellipse(x, y, r, r)
     image.set_ellipse_mode(old_mode)
-    if on_screen:
-        _win.invalid()
 
 
 def fill_circle(x: float, y: float, r: float, image: Image = None):
@@ -955,13 +959,11 @@ def fill_circle(x: float, y: float, r: float, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     old_mode = image.get_ellipse_mode()
     image.set_ellipse_mode(ShapeMode.RADIUS)
     image.fill_ellipse(x, y, r, r)
     image.set_ellipse_mode(old_mode)
-    if on_screen:
-        _win.invalid()
 
 
 def ellipse(x, y, radius_x, radius_y, image: Image = None):
@@ -977,10 +979,8 @@ def ellipse(x, y, radius_x, radius_y, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.ellipse(x, y, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_ellipse(x, y, radius_x, radius_y, image: Image = None):
@@ -996,10 +996,8 @@ def draw_ellipse(x, y, radius_x, radius_y, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_ellipse(x, y, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 def fill_ellipse(x, y, radius_x, radius_y, image: Image = None):
@@ -1015,10 +1013,8 @@ def fill_ellipse(x, y, radius_x, radius_y, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.fill_ellipse(x, y, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_arc(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
@@ -1039,10 +1035,8 @@ def draw_arc(x: float, y: float, start_angle: float, end_angle: float, radius_x:
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_arc(x, y, start_angle, end_angle, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 arc = draw_arc
@@ -1068,10 +1062,8 @@ def pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: floa
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.pie(x, y, start_angle, end_angle, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
@@ -1094,10 +1086,8 @@ def draw_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x:
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_pie(x, y, start_angle, end_angle, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 def fill_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
@@ -1120,10 +1110,8 @@ def fill_pie(x: float, y: float, start_angle: float, end_angle: float, radius_x:
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.fill_pie(x, y, start_angle, end_angle, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 def chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
@@ -1146,10 +1134,8 @@ def chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: fl
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.chord(x, y, start_angle, end_angle, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
@@ -1172,10 +1158,8 @@ def draw_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_chord(x, y, start_angle, end_angle, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_x: float, radius_y: float,
@@ -1198,10 +1182,8 @@ def fill_chord(x: float, y: float, start_angle: float, end_angle: float, radius_
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.fill_chord(x, y, start_angle, end_angle, radius_x, radius_y)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_bezier(x0: float, y0: float, x1: float, y1: float, x2: float, y2: float, x3: float, y3: float,
@@ -1229,10 +1211,8 @@ def draw_bezier(x0: float, y0: float, x1: float, y1: float, x2: float, y2: float
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_bezier(x0, y0, x1, y1, x2, y2, x3, y3)
-    if on_screen:
-        _win.invalid()
 
 
 bezier = draw_bezier
@@ -1253,10 +1233,8 @@ def draw_quadratic(x0: float, y0: float, x1: float, y1: float, x2: float, y2: fl
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_quadratic(x0, y0, x1, y1, x2, y2)
-    if on_screen:
-        _win.invalid()
 
 
 quadratic = draw_quadratic
@@ -1284,10 +1262,8 @@ def draw_lines(points: List[float], image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_lines(points)
-    if on_screen:
-        _win.invalid()
 
 
 lines = draw_lines
@@ -1315,10 +1291,8 @@ def draw_poly_line(end_points: List[float], image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_poly_line(end_points)
-    if on_screen:
-        _win.invalid()
 
 
 poly_line = draw_poly_line
@@ -1348,10 +1322,8 @@ def polygon(vertices: List[float], image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.polygon(vertices)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_polygon(vertices: List[float], image: Image = None):
@@ -1379,10 +1351,8 @@ def draw_polygon(vertices: List[float], image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_polygon(vertices)
-    if on_screen:
-        _win.invalid()
 
 
 def fill_polygon(vertices: List[float], image: Image = None):
@@ -1409,10 +1379,8 @@ def fill_polygon(vertices: List[float], image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.fill_polygon(vertices)
-    if on_screen:
-        _win.invalid()
 
 
 def rect(left: float, top: float, right: float, bottom: float, image: Image = None):
@@ -1428,10 +1396,8 @@ def rect(left: float, top: float, right: float, bottom: float, image: Image = No
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.rect(left, top, right, bottom)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_rect(left: float, top: float, right: float, bottom: float, image: Image = None):
@@ -1447,10 +1413,8 @@ def draw_rect(left: float, top: float, right: float, bottom: float, image: Image
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_rect(left, top, right, bottom)
-    if on_screen:
-        _win.invalid()
 
 
 def fill_rect(left: float, top: float, right: float, bottom: float, image: Image = None):
@@ -1466,10 +1430,8 @@ def fill_rect(left: float, top: float, right: float, bottom: float, image: Image
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.fill_rect(left, top, right, bottom)
-    if on_screen:
-        _win.invalid()
 
 
 def rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
@@ -1490,10 +1452,8 @@ def rounded_rect(left: float, top: float, right: float, bottom: float, round_x: 
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.rounded_rect(left, top, right, bottom, round_x, round_y)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
@@ -1513,10 +1473,8 @@ def draw_rounded_rect(left: float, top: float, right: float, bottom: float, roun
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_rounded_rect(left, top, right, bottom, round_x, round_y)
-    if on_screen:
-        _win.invalid()
 
 
 def fill_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
@@ -1536,10 +1494,8 @@ def fill_rounded_rect(left: float, top: float, right: float, bottom: float, roun
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.fill_rounded_rect(left, top, right, bottom, round_x, round_y)
-    if on_screen:
-        _win.invalid()
 
 
 def flood_fill(x: int, y: int, border_color, image: Image = None):
@@ -1554,10 +1510,8 @@ def flood_fill(x: int, y: int, border_color, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.flood_fill(x, y, border_color)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
@@ -1591,10 +1545,8 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
     :param dst_image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    dst_image, on_screen = _check_on_screen(dst_image)
+    dst_image = _get_target_image(dst_image)
     dst_image.draw_image(x, y, src_image, src_x, src_y, src_width, src_height, with_background, composition_mode)
-    if on_screen:
-        _win.invalid()
 
 
 put_image = draw_image
@@ -1622,10 +1574,8 @@ def clear_device(image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.clear()
-    if on_screen:
-        _win.invalid()
 
 
 clear = clear_device
@@ -1639,10 +1589,8 @@ def fill_image(color, image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.fill_image(color)
-    if on_screen:
-        _win.invalid()
 
 
 def clear_view_port(image: Image = None):
@@ -1652,10 +1600,33 @@ def clear_view_port(image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.clear_view_port()
-    if on_screen:
-        _win.invalid()
+
+
+def begin_shape(type=VertexType.POLY_LINE, image: Image = None):
+    image = _get_target_image(image)
+    image.begin_shape(type)
+
+
+def end_shape(close=False, image: Image = None):
+    image = _get_target_image(image)
+    image.end_shape(close)
+
+
+def vertex(x: float, y: float, image: Image = None):
+    image = _get_target_image(image)
+    image.vertex(x, y)
+
+
+def bezier_vertex(x1: float, y1: float, x2: float, y2: float, x3: float, y3: float, image: Image = None):
+    image = _get_target_image(image)
+    image.bezier_vertex(x1, y1, x2, y2, x3, y3)
+
+
+def quadratic_vertex(x1: float, y1: float, x2: float, y2: float, image: Image = None):
+    image = _get_target_image(image)
+    image.quadratic_vertex(x1, y1, x2, y2)
 
 
 # text processing
@@ -1670,10 +1641,8 @@ def draw_text(x, y, *args, sep=' ', image: Image = None):
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_text(x, y, *args, sep=sep)
-    if on_screen:
-        _win.invalid()
 
 
 def draw_rect_text(x: int, y: int, width: int, height: int, *args, flags=QtCore.Qt.AlignCenter, sep: str = ' ',
@@ -1693,10 +1662,8 @@ def draw_rect_text(x: int, y: int, width: int, height: int, *args, flags=QtCore.
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.draw_rect_text(x, y, width, height, flags, *args, sep=sep)
-    if on_screen:
-        _win.invalid()
 
 
 def text_width(text: str, image: Image = None) -> int:
@@ -1708,7 +1675,7 @@ def text_width(text: str, image: Image = None) -> int:
         (see set_target() and get_target()).
     :return: width of the text
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.text_width(text)
 
 
@@ -1720,7 +1687,7 @@ def text_height(image: Image = None) -> int:
         (see set_target() and get_target()).
     :return: height of the text (font height)
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     return image.text_height()
 
 
@@ -1803,7 +1770,7 @@ def save_image(filename: str, with_background=True, image: Image = None):
     :param image: the target image which will be saved. None means it is the target image
         (see set_target() and get_target()).
     """
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.save(filename, with_background)
 
 
@@ -1816,7 +1783,7 @@ def show_image(image: Image = None):
     """
     if not _in_ipython:
         raise RuntimeError("This function is only used for ipython (qtconsole or notebook!)")
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     image.display_in_ipython()
 
 
@@ -2226,24 +2193,12 @@ def _check_not_headless_and_in_shell():
         raise RuntimeError("Easygraphics is running in interacvtive shell (i.e. qtconsole, notebook, etc.)!")
 
 
-def _check_on_screen(image: Image) -> (QtGui.QImage, bool):
+def _get_target_image(image: Image) -> Image:
     if _in_shell:
         _check_app_run()
     if image is None:
         image = _target_image
-        on_screen = _is_target_on_screen
-        if _is_target_on_screen and _headless:
-            raise RuntimeError("There are no graphics window in headless mode!")
-        else:
-            if _target_image is None:
-                raise RuntimeError("No target image. Use set_target() to set default target image first!")
-    else:
-        if not _headless:
-            on_screen = image is _win.get_canvas()
-        else:
-            on_screen = False
-    # _validate_image(image)
-    return image, on_screen
+    return image
 
 
 _png = None
@@ -2257,7 +2212,7 @@ def begin_recording():
 
 
 def add_record(image: Image = None, **options):
-    image, on_screen = _check_on_screen(image)
+    image = _get_target_image(image)
     _png.append(apng.PNG.from_bytes(image.to_bytes("PNG")), **options)
 
 
