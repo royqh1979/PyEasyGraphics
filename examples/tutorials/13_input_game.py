@@ -56,9 +56,7 @@ if __name__ == "__main__":
                     show_goodbye()
                     close_graph()
                     exit()
-            if delay_fps(60):
-                fill_rect(x - 2, y - 22, x + 22, y + 2)  # clear the char
-            else:
-                break
+            delay_fps(60)
+            fill_rect(x - 2, y - 22, x + 22, y + 2)  # clear the char
 
     close_graph()

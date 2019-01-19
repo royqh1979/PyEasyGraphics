@@ -21,11 +21,11 @@ if __name__ == "__main__":
     x, y = pol2cart(pho, theta)
     line(x1, y1, x, y)
     for i in range(0, 360):
-        if delay_fps(10):
-            line(x1, y1, x, y)
-            theta = math.radians(i)
-            x, y = pol2cart(pho, theta)
-            line(x1, y1, x, y)
+        line(x1, y1, x, y)
+        theta = math.radians(i)
+        x, y = pol2cart(pho, theta)
+        line(x1, y1, x, y)
+        delay_fps(10)
 
     pause()
     close_graph()

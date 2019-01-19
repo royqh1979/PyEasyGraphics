@@ -38,11 +38,11 @@ The following example use bitwise XOR to draw and clear the ellipse. Note that o
     set_color("white")
     set_composition_mode(CompositionMode.SRC_XOR_DEST)
     while is_run():
-        old_x=x
+        old_x = x
         x = (x + 5) % 400
-        if delay_fps(30):
-            ellipse(old_x, 100, 100, 50)  # clear the ellipse last drawn
-            ellipse(x, 100, 100, 50)  # draw a new ellipse
+        ellipse(old_x, 100, 100, 50)  # clear the ellipse last drawn
+        ellipse(x, 100, 100, 50)  # draw a new ellipse
+        delay_fps(30)
 
     close_graph()
 

@@ -14,8 +14,8 @@ if __name__ == "__main__":
     while is_run():
         old_x = x
         x = (x + 5) % 400
-        if delay_fps(30):
-            ellipse(old_x, 100, 100, 50)  # clear the ellipse last drawn
-            ellipse(x, 100, 100, 50)  # draw a new ellipse
+        ellipse(old_x, 100, 100, 50)  # clear the ellipse last drawn
+        ellipse(x, 100, 100, 50)  # draw a new ellipse
+        delay_fps(30)
 
     close_graph()

@@ -2,6 +2,10 @@
 
 History
 ===========
+0.10.0
+------------
+* change: reimplement close_graph(), simplifies graphics window close event processing.
+
 0.9.24
 ------------
 * add begin_recording()/add_record()/save_recording()/end_recording() to create animated png files.
@@ -18,6 +22,7 @@ History
 * add: end_shape()'s close parameter
 * fix: succesive dialog calls may crash the program
 * add: fill_image() function to Image class
+
 
 0.9.23
 ------------

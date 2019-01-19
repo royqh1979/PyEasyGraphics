@@ -31,6 +31,5 @@ while theta < 2 * math.pi:
         x += dx
     add_record(delay=15)
 save_recording("test.png")
-end
 
 close_graph()

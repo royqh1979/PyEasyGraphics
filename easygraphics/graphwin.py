@@ -48,7 +48,6 @@ class GraphWin(QtWidgets.QWidget):
         self._frames_to_skip_count = 0
         self._last_fps_time = 0
         self._frames_skipped = 0
-        self._wait_close = False
 
     def get_width(self):
         return self._width
@@ -130,41 +129,20 @@ class GraphWin(QtWidgets.QWidget):
         """
         pause and wait for mouse click or keyboard hit
         """
+        if not self._is_run:
+            return
         self.real_update()
-        if self._wait_close:
-            self._do_close()
-            return False
         self._wait_event.clear()
         self._wait_event.wait()
 
-    def _do_close(self):
-        self.close_signal.emit()
-        self._is_run = False
-        self._canvas.close()
-        self.close()
-        self._app.quit()
-
     def closeEvent(self, e: QtGui.QCloseEvent):
-        if self._wait_event is not None:
-            self._wait_event.set()
-            self._wait_event = None
-        if self._mouse_event is not None:
-            self._mouse_event.set()
-            self._mouse_event = None
-        if self._key_event is not None:
-            self._key_event.set()
-            self._key_event = None
-        if self._char_key_event is not None:
-            self._char_key_event.set()
-            self._char_key_event = None
-        if self._immediate:
-            self._do_close()
-        else:
-            self._is_run = False
-            self._wait_close = True
+        self._is_run = False
+        self._wait_event.set()
+        self._mouse_event.set()
+        self._key_event.set()
+        self._char_key_event.set()
+        self.close_signal.emit()
 
-    def is_quitting(self):
-        return self._wait_close
 
     def is_run(self) -> bool:
         return self._is_run
@@ -186,8 +164,8 @@ class GraphWin(QtWidgets.QWidget):
         """
         if self._immediate:
             raise RuntimeError("Must set render mode to MANUAL to use delay()!")
-        elif self._wait_close:
-            self._do_close()
+        if not self._is_run:
+            return
         self.real_update()
         nanotime = milliseconds * 1000000
         start_wait_time = time.perf_counter_ns()
@@ -203,8 +181,7 @@ class GraphWin(QtWidgets.QWidget):
         """
         if self._immediate:
             raise RuntimeError("Must set render mode to MANUAL to use delay()!")
-        elif self._wait_close:
-            self._do_close()
+        if not self._is_run:
             return False
         nanotime = 1000000000 // fps
         if self._last_fps_time == 0:
@@ -228,8 +205,7 @@ class GraphWin(QtWidgets.QWidget):
         """
         if self._immediate:
             raise RuntimeError("Must set render mode to MANUAL to use delay()!")
-        elif self._wait_close:
-            self._do_close()
+        if not self._is_run:
             return False
         nanotime = 1000000000 // fps
         if self._frames_to_skip_count > 0:
@@ -271,17 +247,14 @@ class GraphWin(QtWidgets.QWidget):
 
         :return: the character inputted by keyboard
         """
+        if not self._is_run:
+            return ' '
         nt = time.perf_counter_ns()
         self.real_update()
         if nt - self._key_char_msg.get_time() > 100000000:
             # if the last char msg is 100ms ago, we wait for a new msg
-            if self._wait_close:
-                self._do_close()
-                return ' '
             self._char_key_event.clear()
             self._char_key_event.wait()
-        if not self._is_run:
-            return ' '
         ch = self._key_char_msg.get_char()
         self._key_char_msg.reset()
         return ch
@@ -295,18 +268,17 @@ class GraphWin(QtWidgets.QWidget):
         :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
             `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
         """
+        if not self._is_run:
+            return QtCore.Qt.Key_Escape, QtCore.Qt.NoModifier
         nt = time.perf_counter_ns()
         self.real_update()
         if nt - self._key_msg.get_time() > 100000000:
             # if the last key msg is 100ms ago, we wait for a new msg
-            if self._wait_close:
-                self._do_close()
-                return QtCore.Qt.Key_Escape, QtCore.Qt.NoModifier
             self._key_event.clear()
             self._key_event.wait()
-        if not self._is_run:
-            return QtCore.Qt.Key_Escape, QtCore.Qt.NoModifier
         e = self._key_msg.get_event()
+        if e is None:
+            return QtCore.Qt.Key_Escape, QtCore.Qt.NoModifier
         self._key_msg.reset()
         return e.key(), e.modifiers()
 
@@ -320,18 +292,17 @@ class GraphWin(QtWidgets.QWidget):
         :return: x of the cursor, y of the cursor , type, mouse buttons down
             ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
         """
+        if not self._is_run:
+            return 0, 0, 0, QtCore.Qt.NoButton
         nt = time.perf_counter_ns()
         self.real_update()
         if nt - self._mouse_msg.get_time() > 100000000:
             # if the last key msg is 100ms ago, we wait for a new msg
-            if self._wait_close:
-                self._do_close()
-                return 0, 0, 0, QtCore.Qt.NoButton
             self._mouse_event.clear()
             self._mouse_event.wait()
-        if not self._is_run:
-            return 0, 0, 0, QtCore.Qt.NoButton
         e = self._mouse_msg.get_event()
+        if e is None:
+            return 0, 0, 0, QtCore.Qt.NoButton
         _type = self._mouse_msg.get_type()
         self._mouse_msg.reset()
         return e.x(), e.y(), _type, e.button()

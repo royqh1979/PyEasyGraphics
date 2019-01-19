@@ -21,9 +21,9 @@ if __name__ == "__main__":
     x = 0
     while is_run():
         x = (x + 3) % 750
-        if delay_fps(60):
-            draw_image(0, 0, background)
-            draw_image(x, 380, moving_object)
+        draw_image(0, 0, background)
+        draw_image(x, 380, moving_object)
+        delay_fps(60)
 
     background.close()
     moving_object.close()

@@ -65,6 +65,8 @@ try:
 except NameError:
     pass
 
+_in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
+
 
 #  settings
 
@@ -1608,6 +1610,7 @@ def capture_screen(left: int, top: int, right: int, bottom: int, target_img: Ima
     :param bottom: y coordinate of the capture region\'s bottom right corner
     :param target_img: image to save the capture
     """
+    _check_not_headless_and_in_shell()
     draw_image(0, 0, _win.get_canvas(), src_x=left, src_y=top,
                src_width=right - left, src_height=bottom - top, dst_image=target_img)
 
@@ -1940,12 +1943,8 @@ def pause():
     >>> pause()
     >>> close_graph()
     """
-    _graphics_lock.acquire()
-    if not _is_run:
-        return
-    _check_not_headless()
+    _check_not_headless_and_in_shell()
     _win.pause()
-    _graphics_lock.release()
 
 
 def is_run() -> bool:
@@ -1954,10 +1953,7 @@ def is_run() -> bool:
 
     :return: True if the graphics system is running.
     """
-    if not _headless:
-        return _is_run and not _win.is_quitting()
-    else:
-        return _is_run
+    return _is_run
 
 
 def delay(milliseconds: int):
@@ -1966,7 +1962,7 @@ def delay(milliseconds: int):
 
     :param milliseconds: time to delay
     """
-    # _check_app_run(True)
+    _check_not_headless_and_in_shell()
     _win.delay(milliseconds)
 
 
@@ -1981,16 +1977,8 @@ def delay_fps(fps: int):
     :param fps: the desire fps
     :return: False the graphics window is closed. True otherwise.
     """
-    # _check_app_run(True)
-    _graphics_lock.acquire()
-    if _win is None:
-        return False
-    result = _win.delay_fps(fps)
-    _graphics_lock.release()
-    return result
-
-
-_graphics_lock = threading.RLock()
+    _check_not_headless_and_in_shell()
+    return _win.delay_fps(fps)
 
 
 def delay_jfps(fps, max_skip_count=0):
@@ -2003,13 +1991,8 @@ def delay_jfps(fps, max_skip_count=0):
     :param max_skip_count: max num of  frames to skip (0 means no limit)
     :return: True if this frame should not be skipped
     """
-    #    _check_app_run(True)
-    _graphics_lock.acquire()
-    if _win is None:
-        return False
-    result = _win.delay_jfps(fps, max_skip_count)
-    _graphics_lock.release()
-    return result
+    _check_not_headless_and_in_shell()
+    return _win.delay_jfps(fps, max_skip_count)
 
 
 # mouse and keyboards #
@@ -2022,7 +2005,7 @@ def has_kb_hit() -> bool:
 
     :return:  True if hit, False otherwise
     """
-    _check_app_run(True)
+    _check_not_headless_and_in_shell()
     return _win.has_kb_hit()
 
 
@@ -2034,7 +2017,7 @@ def has_kb_msg() -> bool:
 
     :return:  True if hit, False otherwise
     """
-    _check_app_run(True)
+    _check_not_headless_and_in_shell()
     return _win.has_kb_msg()
 
 
@@ -2046,7 +2029,7 @@ def has_mouse_msg() -> bool:
 
     :return:  True if any mouse message, False otherwise
     """
-    _check_app_run(True)
+    _check_not_headless_and_in_shell()
     return _win.has_mouse_msg()
 
 
@@ -2060,7 +2043,7 @@ def get_mouse_msg() -> (int, int, int, int):
     :return: x of the cursor, y of the cursor , type, mouse buttons down
         ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
     """
-    _check_app_run(True)
+    _check_not_headless_and_in_shell()
     return _win.get_mouse_msg()
 
 
@@ -2074,11 +2057,13 @@ def get_click() -> (int, int, int):
     :return: x of the cursor, y of the cursor , mouse buttons down
         ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
     """
+    _check_not_headless_and_in_shell()
     while is_run():
-        _check_app_run(True)
         x, y, _type, buttons = _win.get_mouse_msg()
         if _type == MouseMessageType.RELEASE_MESSAGE:
             return x, y, buttons
+
+    return 0, 0, QtCore.Qt.NoButton
 
 
 def contains_left_button(buttons) -> bool:
@@ -2125,7 +2110,7 @@ def get_char() -> str:
 
     :return: the character inputted by keyboard
     """
-    _check_app_run(True)
+    _check_not_headless_and_in_shell()
     return _win.get_char()
 
 
@@ -2138,7 +2123,7 @@ def get_key() -> (int, int):
     :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
         `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
     """
-    _check_app_run(True)
+    _check_not_headless_and_in_shell()
     return _win.get_key()
 
 
@@ -2148,7 +2133,7 @@ def get_cursor_pos() -> (int, int):
 
     :return: position's coordinate values (x,y)
     """
-    _check_app_run(True)
+    _check_not_headless_and_in_shell()
     return _win.get_cursor_pos()
 
 
@@ -2211,28 +2196,39 @@ def close_graph():
     >>> pause()
     >>> close_graph()
     """
+    global _app, _win
+    _app.quit()
+    while _is_run:
+        time.sleep(0.05)
+    _app = None
+    if not _headless:
+        _win.close()
+        _win = None
     for image in _created_images:
         image.close()
     _created_images.clear()
-    if _app is not None:
-        _app.exit(0)
-    time.sleep(0.05)  # wait 50ms for app thread to exit
+    if not _in_shell:
+        sys.exit()
+        os._exit()
 
 
 def _check_app_run(check_not_headless: bool = False):
     if check_not_headless:
-        _check_not_headless()
+        _check_not_headless_and_in_shell()
     if not _is_run:
         raise RuntimeError("Easygraphics is not inited or has been closed! Run init_graph() first!")
 
 
-def _check_not_headless():
+def _check_not_headless_and_in_shell():
     if _headless:
         raise RuntimeError("Easygraphics is running in headless mode!")
+    if _in_shell:
+        raise RuntimeError("Easygraphics is running in interacvtive shell (i.e. qtconsole, notebook, etc.)!")
 
 
 def _check_on_screen(image: Image) -> (QtGui.QImage, bool):
-    _check_app_run()
+    if _in_shell:
+        _check_app_run()
     if image is None:
         image = _target_image
         on_screen = _is_target_on_screen
@@ -2296,7 +2292,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     global _app, _win, _target_image, _is_run, _headless, _is_target_on_screen
     _headless = headless
     _app = QtWidgets.QApplication([])
-    _app.setQuitOnLastWindowClosed(False)
+    _app.setQuitOnLastWindowClosed(True)
     invoke_in_app_thread.init_invoke_in_app()
     if not _headless:
         _win = GraphWin(width, height, _app)
@@ -2313,16 +2309,5 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     # init finished, can draw now
     _start_event.set()
     _app.exec_()
-    _graphics_lock.acquire()
     _is_run = False
     invoke_in_app_thread.destroy_invoke_in_app()
-    if not _headless:
-        _win.close()
-        _win = None
-    _app.quit()
-    _app = None
-    in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
-    _graphics_lock.release()
-    if not in_shell:
-        sys.exit(0)
-        os._exit(0)
