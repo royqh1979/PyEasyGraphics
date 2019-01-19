@@ -36,7 +36,7 @@ __all__ = [
     'bezier', 'draw_bezier', 'lines', 'draw_lines', 'poly_line', 'draw_poly_line', 'polygon', 'draw_polygon',
     'fill_polygon', 'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect',
     'flood_fill', 'draw_image', 'capture_screen', 'clear_device', 'clear_view_port',
-    'quadratic', 'draw_quadratic', 'fill_image', 'clear',
+    'quadratic', 'draw_quadratic', 'fill_image', 'clear', 'draw_curve', 'curve',
     'begin_shape', 'end_shape', 'vertex', 'bezier_vertex', 'quadratic_vertex',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
@@ -1217,6 +1217,21 @@ def draw_bezier(x0: float, y0: float, x1: float, y1: float, x2: float, y2: float
 
 
 bezier = draw_bezier
+
+
+def draw_curve(*points, image: Image = None):
+    """
+    Draw a Catmull-Rom spline.
+
+    :param points: control points
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    image = _get_target_image(image)
+    image.draw_curve
+
+
+curve = draw_curve
 
 
 def draw_quadratic(x0: float, y0: float, x1: float, y1: float, x2: float, y2: float, image: Image = None):

@@ -964,6 +964,25 @@ class Image:
 
     bezier = draw_bezier
 
+    def draw_curve(self, *points):
+        """
+        Draw a Catmull-Rom spline.
+
+        :param points: control points
+        """
+        if len(points) < 8:
+            raise RuntimeError("must have at least 4 control points to draw Catmull-Rom curve!")
+        for i in range(7, len(points), 2):
+            x0, y0 = points[i - 5], points[i - 4]
+            x1 = -points[i - 7] / 6 + points[i - 5] + points[i - 3] / 6
+            y1 = -points[i - 6] / 6 + points[i - 4] + points[i - 2] / 6
+            x2 = points[i - 5] / 6 + points[i - 3] - points[i - 1] / 6
+            y2 = points[i - 4] / 6 + points[i - 2] - points[i] / 6
+            x3, y3 = points[i - 3], points[i - 2]
+            self.draw_bezier(x0, y0, x1, y1, x2, y2, x3, y3)
+
+    curve = draw_curve
+
     def draw_quadratic(self, x0, y0, x1, y1, x2, y2):
         """
         Draw a quadratic bezier curve.
