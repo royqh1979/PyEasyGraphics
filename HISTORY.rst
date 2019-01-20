@@ -7,6 +7,7 @@ History
 * add: color_gray() function.
 * change: change lines/polylines/polygon functions parameters
 * add: curve() / draw_curve() to draw Catmull-Rom splines.
+* add: curve_vertex() to define curve vertices.
 
 0.10.0
 ------------

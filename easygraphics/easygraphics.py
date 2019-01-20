@@ -37,7 +37,7 @@ __all__ = [
     'fill_polygon', 'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect',
     'flood_fill', 'draw_image', 'capture_screen', 'clear_device', 'clear_view_port',
     'quadratic', 'draw_quadratic', 'fill_image', 'clear', 'draw_curve', 'curve',
-    'begin_shape', 'end_shape', 'vertex', 'bezier_vertex', 'quadratic_vertex',
+    'begin_shape', 'end_shape', 'vertex', 'bezier_vertex', 'quadratic_vertex', 'curve_vertex',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
@@ -1228,7 +1228,7 @@ def draw_curve(*points, image: Image = None):
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    image.draw_curve
+    image.draw_curve(*points)
 
 
 curve = draw_curve
@@ -1623,6 +1623,11 @@ def begin_shape(type=VertexType.POLY_LINE, image: Image = None):
 def end_shape(close=False, image: Image = None):
     image = _get_target_image(image)
     image.end_shape(close)
+
+
+def curve_vertex(x: float, y: float, image: Image = None):
+    image = _get_target_image(image)
+    image.curve_vertex(x, y)
 
 
 def vertex(x: float, y: float, image: Image = None):

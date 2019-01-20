@@ -38,7 +38,7 @@ __all__ = [
     'arc', 'draw_arc', 'pie', 'draw_pie', 'fill_pie', 'chord', 'draw_chord', 'fill_chord',
     'bezier', 'draw_bezier', 'lines', 'draw_lines', 'poly_line', 'draw_poly_line', 'polygon', 'draw_polygon',
     'fill_polygon', 'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect',
-    'flood_fill', 'draw_image', 'clear', 'clear_view_port',
+    'flood_fill', 'draw_image', 'clear', 'clear_view_port', 'curve_vertex', 'draw_curve', 'curve',
     'quadratic', 'draw_quadratic', 'begin_shape', 'end_shape', 'vertex', 'bezier_vertex', 'quadratic_vertex',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
@@ -362,6 +362,10 @@ def vertex(x: float, y: float):
     _widget.get_canvas().vertex(x, y)
 
 
+def curve_vertex(x: float, y: float):
+    _widget.get_canvas().curve_vertex(x, y)
+
+
 def bezier_vertex(x1: float, y1: float, x2: float, y2: float, x3: float, y3: float):
     _widget.get_canvas().bezier_vertex(x1, y1, x2, y2, x3, y3)
 
@@ -384,6 +388,13 @@ def quadratic(x0: float, y0: float, x1: float, y1: float, x2: float, y2: float):
 
 def draw_quadratic(x0: float, y0: float, x1: float, y1: float, x2: float, y2: float):
     _widget.get_canvas().draw_bezier(x0, y0, x1, y1, x2, y2)
+
+
+def draw_curve(*points):
+    _widget.get_canvas().draw_curve(*points)
+
+
+curve = draw_curve
 
 
 def lines(points: List[float]):

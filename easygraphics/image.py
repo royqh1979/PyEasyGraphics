@@ -76,6 +76,7 @@ class Image:
         self._shape_vertext_type = VertexType.POLY_LINE
         self._shape_vertices = []
         self._shape_transformed_vertices = []
+        self._is_curve_shape = False
 
     def _init_painter(self):
         p = self._painter
@@ -1487,8 +1488,34 @@ class Image:
         self._shape_path = QtGui.QPainterPath()
         self._shape_vertices.clear()
         self._shape_transformed_vertices.clear()
+        self._is_curve_shape = False
+
+    def curve_vertex(self, x: float, y: float):
+        if len(self._shape_vertices) == 0:
+            if self._shape_vertext_type == VertexType.POLY_LINE:
+                self._is_curve_shape = True
+            else:
+                raise RuntimeError("curve vertex must begin_shape() with VertexType.PLOY_LINE!")
+        if len(self._shape_vertices) > 0 and not self._is_curve_shape:
+            raise RuntimeError("curve vertex must be the first vertex call after begin_shape")
+        self._shape_vertices.append(x)
+        self._shape_vertices.append(y)
+        transform = self.get_transform()
+        point = transform.map(QtCore.QPointF(x, y))
+        self._shape_transformed_vertices.append(point.x())
+        self._shape_transformed_vertices.append(point.y())
+        if len(self._shape_vertices) >= 8:
+            self.push_transform()
+            self.reset_transform()
+            self.draw_curve(self._shape_transformed_vertices[-8], self._shape_transformed_vertices[-7],
+                            self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
+                            self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                            self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1])
+            self.pop_transform()
 
     def vertex(self, x: float, y: float):
+        if self._is_curve_shape:
+            raise RuntimeError("no other vertex can be defined after cuver vertex!")
         self._shape_vertices.append(x)
         self._shape_vertices.append(y)
         transform = self.get_transform()
@@ -1513,48 +1540,50 @@ class Image:
             if len(self._shape_vertices) % 6 == 0:
                 self.push_transform()
                 self.reset_transform()
-                self.draw_polygon((self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
-                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
-                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1]))
+                self.draw_polygon(self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
+                                  self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                                  self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1])
                 self.pop_transform()
         elif self._shape_vertext_type == VertexType.TRIANGLE_STRIP:
             if len(self._shape_vertices) >= 6:
                 self.push_transform()
                 self.reset_transform()
-                self.draw_polygon((self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
-                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
-                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1]))
+                self.draw_polygon(self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
+                                  self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                                  self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1])
                 self.pop_transform()
         elif self._shape_vertext_type == VertexType.TRIANGLE_FAN:
             if len(self._shape_vertices) >= 6:
                 self.push_transform()
                 self.reset_transform()
-                self.draw_polygon((self._shape_transformed_vertices[0], self._shape_transformed_vertices[1],
-                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
-                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1]))
+                self.draw_polygon(self._shape_transformed_vertices[0], self._shape_transformed_vertices[1],
+                                  self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                                  self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1])
                 self.pop_transform()
         elif self._shape_vertext_type == VertexType.QUADS:
             n = len(self._shape_vertices)
             if n % 8 == 0:
                 self.push_transform()
                 self.reset_transform()
-                self.draw_polygon((self._shape_transformed_vertices[-8], self._shape_transformed_vertices[-7],
-                                   self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
-                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
-                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1]))
+                self.draw_polygon(self._shape_transformed_vertices[-8], self._shape_transformed_vertices[-7],
+                                  self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
+                                  self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
+                                  self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1])
                 self.pop_transform()
         elif self._shape_vertext_type == VertexType.QUAD_STRIP:
             n = len(self._shape_vertices)
             if n >= 8 and n % 4 == 0:
                 self.push_transform()
                 self.reset_transform()
-                self.draw_polygon((self._shape_transformed_vertices[-8], self._shape_transformed_vertices[-7],
-                                   self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
-                                   self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1],
-                                   self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3]))
+                self.draw_polygon(self._shape_transformed_vertices[-8], self._shape_transformed_vertices[-7],
+                                  self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
+                                  self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1],
+                                  self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3])
                 self.pop_transform()
 
     def bezier_vertex(self, x1, y1, x2, y2, x3, y3):
+        if self._is_curve_shape:
+            raise RuntimeError("no other vertex can be defined after cuver vertex!")
         if self._shape_path.elementCount() <= 0:
             raise RuntimeError("Must call vertex() to set the start point before define bezier curve!")
         if self._shape_vertext_type != VertexType.POLY_LINE:
@@ -1566,6 +1595,8 @@ class Image:
         self._shape_path.cubicTo(p1.x(), p1.y(), p2.x(), p2.y(), p3.x(), p3.y())
 
     def quadratic_vertex(self, x1, y1, x2, y2):
+        if self._is_curve_shape:
+            raise RuntimeError("no other vertex can be defined after cuver vertex!")
         if self._shape_path.elementCount() <= 0:
             raise RuntimeError("Must call vertex() to set the start point before define bezier curve!")
         if self._shape_vertext_type != VertexType.POLY_LINE:
