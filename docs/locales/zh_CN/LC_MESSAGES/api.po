@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-19 20:00+0800\n"
+"POT-Creation-Date: 2019-01-20 02:58+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -509,7 +509,7 @@ msgid "Draw a line from (x1,y1) to (x2,y2) on the specified image."
 msgstr "在指定图片上画一条从点(x1,y1)到点(x2,y2)的线段。"
 
 #: ../../api.rst:123:<autosummary>:1
-msgid ":obj:`draw_lines <easygraphics.draw_lines>`\\ \\(points\\, image\\)"
+msgid ":obj:`draw_lines <easygraphics.draw_lines>`\\ \\(\\*points\\, image\\)"
 msgstr ""
 
 #: ../../api.rst:123:<autosummary>:1 easygraphics.Image.draw_lines:1
@@ -538,8 +538,8 @@ msgstr "在指定图片的点(x,y)处画一个点。"
 
 #: ../../api.rst:123:<autosummary>:1
 msgid ""
-":obj:`draw_poly_line <easygraphics.draw_poly_line>`\\ \\(end\\_points\\, "
-"image\\)"
+":obj:`draw_poly_line <easygraphics.draw_poly_line>`\\ "
+"\\(\\*end\\_points\\, image\\)"
 msgstr ""
 
 #: ../../api.rst:123:<autosummary>:1 easygraphics.Image.draw_poly_line:1
@@ -549,7 +549,9 @@ msgid "Draw a poly line."
 msgstr "画一条折线(ploy line)。"
 
 #: ../../api.rst:123:<autosummary>:1
-msgid ":obj:`draw_polygon <easygraphics.draw_polygon>`\\ \\(vertices\\, image\\)"
+msgid ""
+":obj:`draw_polygon <easygraphics.draw_polygon>`\\ \\(\\*vertices\\, "
+"image\\)"
 msgstr ""
 
 #: ../../api.rst:123:<autosummary>:1 easygraphics.Image.draw_polygon:1
@@ -656,7 +658,9 @@ msgid "Fill an elliptical pie from start_angle to end_angle."
 msgstr "填充一个椭圆扇形，它的起始角度为start_angle，结束角度为eng_angle。"
 
 #: ../../api.rst:123:<autosummary>:1
-msgid ":obj:`fill_polygon <easygraphics.fill_polygon>`\\ \\(vertices\\, image\\)"
+msgid ""
+":obj:`fill_polygon <easygraphics.fill_polygon>`\\ \\(\\*vertices\\, "
+"image\\)"
 msgstr ""
 
 #: ../../api.rst:123:<autosummary>:1 easygraphics.Image.fill_polygon:1
@@ -731,7 +735,7 @@ msgid ""
 msgstr "从当前绘图位置到(x,y)画线，然后将当前绘图位置更新为(x,y)。"
 
 #: ../../api.rst:123:<autosummary>:1
-msgid ":obj:`lines <easygraphics.lines>`\\ \\(points\\, image\\)"
+msgid ":obj:`lines <easygraphics.lines>`\\ \\(\\*points\\, image\\)"
 msgstr ""
 
 #: ../../api.rst:123:<autosummary>:1
@@ -763,11 +767,11 @@ msgid "Draw an elliptical pie outline from start_angle to end_angle."
 msgstr "画一个空心椭圆扇形，起始角度为“start_angle”，结束角度为“end_angle”。"
 
 #: ../../api.rst:123:<autosummary>:1
-msgid ":obj:`poly_line <easygraphics.poly_line>`\\ \\(end\\_points\\, image\\)"
+msgid ":obj:`poly_line <easygraphics.poly_line>`\\ \\(\\*end\\_points\\, image\\)"
 msgstr ""
 
 #: ../../api.rst:123:<autosummary>:1
-msgid ":obj:`polygon <easygraphics.polygon>`\\ \\(vertices\\, image\\)"
+msgid ":obj:`polygon <easygraphics.polygon>`\\ \\(\\*vertices\\, image\\)"
 msgstr ""
 
 #: ../../api.rst:123:<autosummary>:1 easygraphics.Image.polygon:1
@@ -1836,8 +1840,9 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.Image.add_updated_listener easygraphics.Image.arc
 #: easygraphics.Image.bezier easygraphics.Image.chord easygraphics.Image.close
 #: easygraphics.Image.create easygraphics.Image.create_from_file
-#: easygraphics.Image.draw_arc easygraphics.Image.draw_bezier
-#: easygraphics.Image.draw_chord easygraphics.Image.draw_ellipse
+#: easygraphics.Image.curve easygraphics.Image.draw_arc
+#: easygraphics.Image.draw_bezier easygraphics.Image.draw_chord
+#: easygraphics.Image.draw_curve easygraphics.Image.draw_ellipse
 #: easygraphics.Image.draw_image easygraphics.Image.draw_line
 #: easygraphics.Image.draw_lines easygraphics.Image.draw_path
 #: easygraphics.Image.draw_pie easygraphics.Image.draw_point
@@ -1879,12 +1884,13 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.color_hsv easygraphics.color_rgb
 #: easygraphics.contains_left_button easygraphics.contains_mid_button
 #: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
-#: easygraphics.draw_circle easygraphics.draw_ellipse easygraphics.draw_image
-#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
-#: easygraphics.draw_point easygraphics.draw_poly_line
-#: easygraphics.draw_polygon easygraphics.draw_quadratic easygraphics.draw_rect
+#: easygraphics.curve easygraphics.delay easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.draw_arc easygraphics.draw_bezier
+#: easygraphics.draw_chord easygraphics.draw_circle easygraphics.draw_curve
+#: easygraphics.draw_ellipse easygraphics.draw_image easygraphics.draw_line
+#: easygraphics.draw_lines easygraphics.draw_pie easygraphics.draw_point
+#: easygraphics.draw_poly_line easygraphics.draw_polygon
+#: easygraphics.draw_quadratic easygraphics.draw_rect
 #: easygraphics.draw_rect_text easygraphics.draw_rounded_rect
 #: easygraphics.draw_text easygraphics.ellipse easygraphics.fill_chord
 #: easygraphics.fill_circle easygraphics.fill_ellipse easygraphics.fill_image
@@ -2608,23 +2614,23 @@ msgstr "点的y坐标"
 
 #: easygraphics.arc:13 easygraphics.bezier:20 easygraphics.chord:15
 #: easygraphics.circle:8 easygraphics.clear:3 easygraphics.clear_device:3
-#: easygraphics.clear_view_port:3 easygraphics.draw_arc:13
+#: easygraphics.clear_view_port:3 easygraphics.curve:4 easygraphics.draw_arc:13
 #: easygraphics.draw_bezier:20 easygraphics.draw_chord:15
-#: easygraphics.draw_circle:8 easygraphics.draw_ellipse:9
-#: easygraphics.draw_image:26 easygraphics.draw_line:9
-#: easygraphics.draw_lines:18 easygraphics.draw_pie:15
-#: easygraphics.draw_point:5 easygraphics.draw_poly_line:18
-#: easygraphics.draw_polygon:21 easygraphics.draw_quadratic:11
+#: easygraphics.draw_circle:8 easygraphics.draw_curve:4
+#: easygraphics.draw_ellipse:9 easygraphics.draw_image:26
+#: easygraphics.draw_line:9 easygraphics.draw_lines:17 easygraphics.draw_pie:15
+#: easygraphics.draw_point:5 easygraphics.draw_poly_line:17
+#: easygraphics.draw_polygon:20 easygraphics.draw_quadratic:11
 #: easygraphics.draw_rect:9 easygraphics.draw_rect_text:12
 #: easygraphics.draw_rounded_rect:12 easygraphics.draw_text:7
 #: easygraphics.ellipse:9 easygraphics.fill_chord:15 easygraphics.fill_circle:8
 #: easygraphics.fill_ellipse:9 easygraphics.fill_image:4
-#: easygraphics.fill_pie:15 easygraphics.fill_polygon:20
+#: easygraphics.fill_pie:15 easygraphics.fill_polygon:19
 #: easygraphics.fill_rect:9 easygraphics.fill_rounded_rect:12
 #: easygraphics.flood_fill:8 easygraphics.get_pixel:5 easygraphics.line:9
-#: easygraphics.line_rel:6 easygraphics.line_to:5 easygraphics.lines:18
+#: easygraphics.line_rel:6 easygraphics.line_to:5 easygraphics.lines:17
 #: easygraphics.move_rel:9 easygraphics.move_to:7 easygraphics.pie:15
-#: easygraphics.poly_line:18 easygraphics.polygon:20 easygraphics.put_image:26
+#: easygraphics.poly_line:17 easygraphics.polygon:19 easygraphics.put_image:26
 #: easygraphics.put_pixel:6 easygraphics.quadratic:11 easygraphics.rect:9
 #: easygraphics.rounded_rect:13 easygraphics.text_height:3
 #: easygraphics.text_width:4 of
@@ -2990,10 +2996,10 @@ msgstr ""
 #: easygraphics.Image.draw_lines:10 easygraphics.Image.draw_poly_line:10
 #: easygraphics.Image.draw_polygon:11 easygraphics.Image.fill_polygon:11
 #: easygraphics.Image.lines:10 easygraphics.Image.poly_line:10
-#: easygraphics.Image.polygon:11 easygraphics.draw_lines:17
-#: easygraphics.draw_poly_line:17 easygraphics.draw_polygon:20
-#: easygraphics.fill_polygon:19 easygraphics.lines:17 easygraphics.poly_line:17
-#: easygraphics.polygon:19 of
+#: easygraphics.Image.polygon:11 easygraphics.draw_lines:16
+#: easygraphics.draw_poly_line:16 easygraphics.draw_polygon:19
+#: easygraphics.fill_polygon:18 easygraphics.lines:16 easygraphics.poly_line:16
+#: easygraphics.polygon:18 of
 msgid "point value list"
 msgstr "点坐标值列表"
 
@@ -3273,6 +3279,16 @@ msgstr "点(x0,y0),(x1,y1),(x2,y2),(x3,y3)是曲线的4个控制点。"
 #: easygraphics.Image.fill_image:1 easygraphics.fill_image:1 of
 msgid "Fill the whole image with the specified color."
 msgstr "使用指定的颜色填充整个图片"
+
+#: easygraphics.Image.curve:1 easygraphics.Image.draw_curve:1
+#: easygraphics.curve:1 easygraphics.draw_curve:1 of
+msgid "Draw a Catmull-Rom spline."
+msgstr "绘制一条Catmull-Romy样条曲线。"
+
+#: easygraphics.Image.curve:3 easygraphics.Image.draw_curve:3
+#: easygraphics.curve:3 easygraphics.draw_curve:3 of
+msgid "control points"
+msgstr "控制点坐标"
 
 #: easygraphics.Image.draw_rect_text:9 easygraphics.draw_rect_text:9
 #: easygraphics.draw_text:5 of
@@ -4434,4 +4450,31 @@ msgstr "将坐标轴平移指定的位移。"
 
 #~ msgid "the control points list"
 #~ msgstr "控制点列表"
+
+#~ msgid ":obj:`draw_lines <easygraphics.draw_lines>`\\ \\(points\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_poly_line <easygraphics.draw_poly_line>`\\ "
+#~ "\\(end\\_points\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_polygon <easygraphics.draw_polygon>`\\ "
+#~ "\\(vertices\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`fill_polygon <easygraphics.fill_polygon>`\\ "
+#~ "\\(vertices\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`lines <easygraphics.lines>`\\ \\(points\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`poly_line <easygraphics.poly_line>`\\ \\(end\\_points\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`polygon <easygraphics.polygon>`\\ \\(vertices\\, image\\)"
+#~ msgstr ""
 
