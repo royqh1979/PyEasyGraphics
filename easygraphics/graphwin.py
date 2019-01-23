@@ -96,7 +96,6 @@ class GraphWin(QtWidgets.QWidget):
     def close(self):
         if self._immediate:
             self._canvas.remove_updated_listener(self.update)
-        super().close()
 
     def is_immediate(self) -> bool:
         """

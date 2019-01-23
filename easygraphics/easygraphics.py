@@ -2179,6 +2179,7 @@ def get_graphics_window() -> GraphWin:
     return _win
 
 
+_close_event = threading.Event()
 def close_graph():
     """
     Close the graphics windows.
@@ -2198,7 +2199,7 @@ def close_graph():
         image.close()
     _created_images.clear()
     _app.quit()
-    _app = None
+    _close_event.set()
     while _is_run:
         time.sleep(0.05)
 
@@ -2288,5 +2289,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     # init finished, can draw now
     _start_event.set()
     _app.exec_()
+    _close_event.wait()
     invoke_in_app_thread.destroy_invoke_in_app()
     _is_run = False
+    _app = None

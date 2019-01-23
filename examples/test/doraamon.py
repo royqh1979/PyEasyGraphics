@@ -121,7 +121,6 @@ line(0, 57, 0, 68)
 set_line_width(1)
 line(-16, 40, 16, 40)
 line(-18, 44, 18, 44)
-
 set_background_color(Color.LIGHT_RED)
 pause()
 close_graph()

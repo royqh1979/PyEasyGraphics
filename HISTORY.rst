@@ -2,6 +2,10 @@
 
 History
 ===========
+1.0.0
+-----------
+* fix: hangs in inactive shell when init_graph again after close_graph()
+* add:
 0.10.1
 -----------
 * add: color_gray() function.

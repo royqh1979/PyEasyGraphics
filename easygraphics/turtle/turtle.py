@@ -1,3 +1,5 @@
+import sys
+
 from . import turleclass
 import easygraphics as eg
 
@@ -15,6 +17,8 @@ __all__ = [
 
 _turtle: Turtle = None
 _world: TurtleWorld = None
+
+_in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
 
 
 def create_world(width: int = 800, height: int = 600) -> None:

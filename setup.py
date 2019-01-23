@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='easygraphics',
-    version='0.10.1',
+    version='1.0.0',
     description='"A TC Graphics style like Graphics Library"',
     long_description=readme + '\n\n' + history,
     author='Roy Qu',
@@ -39,7 +39,7 @@ setup(
     zip_safe=False,
     keywords=['easygraphics', 'computer graphics', 'Turbo C graphics', 'Borland Graphics Interface'],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: BSD License',
         'Intended Audience :: Education',
         'Topic :: Multimedia :: Graphics',

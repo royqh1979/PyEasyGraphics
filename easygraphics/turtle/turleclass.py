@@ -172,6 +172,9 @@ class TurtleWorld(object):
         self._refresh_thread = threading.Thread(target=self._refresh_loop)
         self._refresh_thread.start()
 
+    def is_running(self):
+        return self._running
+
     def _refresh_loop(self):
         while eg.is_run():
             if not self._running:
