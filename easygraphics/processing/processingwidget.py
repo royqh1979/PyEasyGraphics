@@ -12,11 +12,11 @@ class ProcessingWidget(QtWidgets.QWidget):
             self.start()
 
     def start(self):
-        self._fps = 60
         self._image: Image = None
         self.setup()
         self._timer = QtCore.QTimer()
         self._timer.timeout.connect(self._on_update_frame)
+        self._fps = 60
         self._frame_duration = 1000 // self._fps
         self._is_looping = True
         self._schedule_next_frame(self._frame_duration)
@@ -117,3 +117,10 @@ class ProcessingWidget(QtWidgets.QWidget):
 
     def get_canvas(self) -> Image:
         return self._image
+
+    def set_frame_rate(self, fps):
+        self._fps = fps
+        self._frame_duration = 1000 // fps
+
+    def get_frame_rate(self):
+        return self._fps
