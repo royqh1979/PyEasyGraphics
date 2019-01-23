@@ -8,6 +8,7 @@ History
 * change: change lines/polylines/polygon functions parameters
 * add: curve() / draw_curve() to draw Catmull-Rom splines.
 * add: curve_vertex() to define curve vertices.
+* fix: crash when close_graph() and init_graph() again
 
 0.10.0
 ------------

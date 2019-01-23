@@ -2191,19 +2191,16 @@ def close_graph():
     >>> close_graph()
     """
     global _app, _win
-    _app.quit()
-    while _is_run:
-        time.sleep(0.05)
-    _app = None
     if not _headless:
         _win.close()
         _win = None
     for image in _created_images:
         image.close()
     _created_images.clear()
-    if not _in_shell:
-        sys.exit()
-        os._exit()
+    _app.quit()
+    _app = None
+    while _is_run:
+        time.sleep(0.05)
 
 
 def _check_app_run(check_not_headless: bool = False):

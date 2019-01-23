@@ -74,16 +74,6 @@ class GraphWin(QtWidgets.QWidget):
             p.drawImage(0, 0, self._device_image)
             p.end()
 
-    def invalid(self):
-        """
-        try to invalidate window
-
-        if is in immediate mode (MODE_AUTO), the window is updated and repaint;
-        otherwise, the window is not updated
-        """
-        if self._immediate:
-            self.update()
-
     def set_immediate(self, immediate: bool):
         """
         set if the graphics window will be updated immediately after things are drawn
@@ -99,9 +89,14 @@ class GraphWin(QtWidgets.QWidget):
         """
         self._immediate = immediate
         if immediate:
-            self._canvas.add_updated_listener(self.invalid)
+            self._canvas.add_updated_listener(self.update)
         else:
-            self._canvas.remove_updated_listener(self.invalid)
+            self._canvas.remove_updated_listener(self.update)
+
+    def close(self):
+        if self._immediate:
+            self._canvas.remove_updated_listener(self.update)
+        super().close()
 
     def is_immediate(self) -> bool:
         """

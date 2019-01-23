@@ -1,7 +1,6 @@
 from collections import deque
-from typing import List, Union, Callable
+from typing import Union, Callable
 import math
-import sip
 
 from PyQt5 import QtGui, QtCore
 

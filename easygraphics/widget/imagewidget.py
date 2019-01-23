@@ -30,3 +30,7 @@ class ImageWidget(QtWidgets.QWidget):
 
     def paintEvent(self, e: QtGui.QPaintEvent):
         self._image.draw_to_device(self)
+
+    def close(self):
+        self._image.remove_updated_listener(self.update)
+        super.close()

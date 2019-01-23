@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='easygraphics',
-    version='0.10.0',
+    version='0.10.1',
     description='"A TC Graphics style like Graphics Library"',
     long_description=readme + '\n\n' + history,
     author='Roy Qu',
