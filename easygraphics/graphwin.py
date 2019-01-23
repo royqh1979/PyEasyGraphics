@@ -28,7 +28,7 @@ class GraphWin(QtWidgets.QWidget):
 
     close_signal = QtCore.pyqtSignal()
 
-    def __init__(self, width: int, height: int, app: QtWidgets.QApplication):
+    def __init__(self, width: int, height: int):
         super().__init__(flags=QtCore.Qt.Window | QtCore.Qt.MSWindowsFixedSizeDialogHint)
         self._width = width
         self._height = height
@@ -45,7 +45,6 @@ class GraphWin(QtWidgets.QWidget):
         self._immediate = True
         self.set_immediate(True)
         self._skip_count = 0
-        self._app = app
         self._frames_to_skip_count = 0
         self._last_fps_time = 0
         self._frames_skipped = 0
@@ -147,7 +146,6 @@ class GraphWin(QtWidgets.QWidget):
         self._key_event.set()
         self._char_key_event.set()
         self.close_signal.emit()
-
 
     def is_run(self) -> bool:
         return self._is_run

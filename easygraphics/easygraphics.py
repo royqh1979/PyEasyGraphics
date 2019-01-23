@@ -2277,7 +2277,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     _app.setQuitOnLastWindowClosed(True)
     invoke_in_app_thread.init_invoke_in_app()
     if not _headless:
-        _win = GraphWin(width, height, _app)
+        _win = GraphWin(width, height)
         _is_target_on_screen = True
         _target_image = _win.get_canvas()
         _win.show()
@@ -2291,5 +2291,5 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     # init finished, can draw now
     _start_event.set()
     _app.exec_()
-    _is_run = False
     invoke_in_app_thread.destroy_invoke_in_app()
+    _is_run = False
