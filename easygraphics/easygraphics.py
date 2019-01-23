@@ -2164,6 +2164,7 @@ def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     _start_event = threading.Event()
     _start_event.clear()
     # start GUI thread
+    _close_event.clear()
     thread = threading.Thread(target=__graphics_thread_func, args=(width, height, headless))
     thread.start()
     # wait GUI initiation finished
@@ -2289,7 +2290,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     # init finished, can draw now
     _start_event.set()
     _app.exec_()
+    _is_run = False
     _close_event.wait()
     invoke_in_app_thread.destroy_invoke_in_app()
-    _is_run = False
     _app = None

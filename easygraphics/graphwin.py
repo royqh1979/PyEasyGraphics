@@ -25,9 +25,6 @@ class GraphWin(QtWidgets.QWidget):
     we use another image object( self._device_image) as an intermediary .\
     The contents on this object is painted to the window  and this object is synced with self._canvas manually
     """
-
-    close_signal = QtCore.pyqtSignal()
-
     def __init__(self, width: int, height: int):
         super().__init__(flags=QtCore.Qt.Window | QtCore.Qt.MSWindowsFixedSizeDialogHint)
         self._width = width
@@ -139,7 +136,6 @@ class GraphWin(QtWidgets.QWidget):
         self._mouse_event.set()
         self._key_event.set()
         self._char_key_event.set()
-        self.close_signal.emit()
 
     def is_run(self) -> bool:
         return self._is_run

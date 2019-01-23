@@ -49,7 +49,6 @@ class TurtleWorld(object):
             self._immediate = False
             self._win.set_immediate(False)
             self._start_refresh_loop()
-            self._win.close_signal.connect(self.close)
             eg.set_target(self._world_image)
         else:
             self._immediate = True
@@ -280,7 +279,7 @@ class Turtle(object):
         image.set_composition_mode(eg.CompositionMode.SOURCE)
         transform = self._world.get_world_image().get_transform()
         image.set_transform(transform)
-        image.draw_polygon(self._fillpath)
+        image.draw_polygon(*self._fillpath)
         self._world.get_world_image().reset_transform()
         self._world.get_world_image().draw_image(0, 0, image, with_background=False,
                                                  composition_mode=eg.CompositionMode.SOURCE_OVER)

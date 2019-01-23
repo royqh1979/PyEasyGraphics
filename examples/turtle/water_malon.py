@@ -40,3 +40,6 @@ draw_point(-50, 0)
 draw_point(0, -100)
 draw_point(100, -100)
 draw_point(-100, -100)
+
+pause()
+close_world()

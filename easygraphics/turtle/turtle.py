@@ -72,6 +72,9 @@ def get_turtle() -> Turtle:
 def _check_turtle():
     if _turtle is None:
         create_world()
+    elif _in_shell:
+        if not eg.is_run():
+            raise RuntimeError("Must run close_world() to clean up the world!")
 
 
 def forward(distance: float):
@@ -203,7 +206,8 @@ def end_fill():
     Fill the shape enclosed by the turtle's drawing path after the last call to begin_fill.
     """
     _check_turtle()
-    _turtle.end_fill()
+    if eg.is_run():
+        _turtle.end_fill()
 
 
 def facing(x: float, y: float):
