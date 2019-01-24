@@ -43,7 +43,7 @@ def draw_compositon_and_save(mode, alpha_value):
     draw_background(20, 200, 200)
     set_target()
     draw_image(0, 0, img1, composition_mode=CompositionMode.SOURCE_OVER, dst_image=img2)
-    img2.save("%s_%d.png" % (mode.lower(), alpha_value))
+    # img2.save("%s_%d.png" % (mode.lower(), alpha_value))
     draw_image(x, y, img2)
     x += 200
     if x >= 1200:
