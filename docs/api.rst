@@ -4,14 +4,12 @@ References
 Subpackages
 -----------
 
-.. toctree::
-
-    apis/easygraphics.dialog
-    apis/easygraphics.legacy
-    apis/easygraphics.music
-    apis/easygraphics.processing
-    apis/easygraphics.turtle
-    apis/easygraphics.widget
+ *   :doc:`apis/easygraphics.dialog`
+ *   :doc:`apis/easygraphics.legacy`
+ *   :doc:`apis/easygraphics.music`
+ *   :doc:`apis/easygraphics.processing`
+ *   :doc:`apis/easygraphics.turtle`
+ *   :doc:`apis/easygraphics.widget`
 
 Package Summary
 ---------------

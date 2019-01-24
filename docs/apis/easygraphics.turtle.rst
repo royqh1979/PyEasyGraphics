@@ -1,5 +1,5 @@
-easygraphics.turtle module
-==========================
+easygraphics.turtle package
+===========================
 The turtle graphics package.
 
 The turtle graphics is a classic and popular way to introducing programming to kids.
@@ -9,6 +9,23 @@ The traces left by its move form drawings.
 
 Note that in the turtle graphics, the origin (0,0) is in the center of the graphics window,
 and Y-axis is bottom-up.
+
+.. code-block:: python
+
+    from easygraphics.turtle import *
+
+    def polyspi(side, angle, inc):
+        while is_run():
+            fd(side)
+            rt(angle)
+            side += inc
+
+    create_world(800, 600)
+    set_speed(100)
+    polyspi(0, 117, 5)
+    close_world()
+
+.. image:: ../images/turtle/infinite.png
 
 Function list
 -------------

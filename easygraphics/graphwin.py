@@ -1,3 +1,4 @@
+import os
 import threading
 import time
 from PyQt5 import QtWidgets
@@ -25,6 +26,7 @@ class GraphWin(QtWidgets.QWidget):
     we use another image object( self._device_image) as an intermediary .\
     The contents on this object is painted to the window  and this object is synced with self._canvas manually
     """
+
     def __init__(self, width: int, height: int):
         super().__init__(flags=QtCore.Qt.Window | QtCore.Qt.MSWindowsFixedSizeDialogHint)
         self._width = width
@@ -45,6 +47,8 @@ class GraphWin(QtWidgets.QWidget):
         self._frames_to_skip_count = 0
         self._last_fps_time = 0
         self._frames_skipped = 0
+        self._capture_dir = "."
+        self._capture_count = 0
 
     def get_width(self):
         return self._width
@@ -113,6 +117,13 @@ class GraphWin(QtWidgets.QWidget):
 
     def keyPressEvent(self, e: QtGui.QKeyEvent):
         self._wait_event.set()
+        if e.key() == QtCore.Qt.Key_F10:
+            modifiers = e.modifiers()
+            if modifiers & (QtCore.Qt.ControlModifier |
+                            QtCore.Qt.ShiftModifier |
+                            QtCore.Qt.AltModifier):
+                self._capture_count += 1
+                self._canvas.save(self._capture_dir + os.sep + "save{0}.png".format(self._capture_count))
         if e.key() < 127 or e.key() == QtCore.Qt.Key_Return:
             # ascii char key pressed
             self._key_char_msg.set_char(e)

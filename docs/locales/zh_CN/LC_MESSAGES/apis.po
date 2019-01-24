@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-24 11:29+0800\n"
+"POT-Creation-Date: 2019-01-24 11:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -815,7 +815,7 @@ msgstr "显示在表头的各字段名（列表名）"
 
 #: ../../apis/easygraphics.legacy.rst:2
 msgid "easygraphics.legacy package"
-msgstr ""
+msgstr "easygraphics.legacy包"
 
 #: ../../apis/easygraphics.legacy.rst:3
 msgid "The BGI compatible module."
@@ -1676,8 +1676,8 @@ msgid "fade out time (in milliseconds)"
 msgstr "淡出时间(单位为毫秒)"
 
 #: ../../apis/easygraphics.processing.rst:2
-msgid "easygraphics.processing module"
-msgstr "easygraphics.processing模块"
+msgid "easygraphics.processing package"
+msgstr "easygraphics.processing包"
 
 #: ../../apis/easygraphics.processing.rst:3
 msgid "A Processing (http://processing.org) like animation graphics module"
@@ -1688,123 +1688,202 @@ msgid "Main App"
 msgstr "主程序"
 
 #: ../../apis/easygraphics.processing.rst:15:<autosummary>:1
-msgid ":obj:`run_app <run_app>`\\"
+msgid ":obj:`run_app <easygraphics.processing.run_app>`\\ \\(\\_globals\\)"
 msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:15:<autosummary>:1
+#: easygraphics.processing.run_app:1 of
+msgid "Run the processing app."
+msgstr "运行Processing程序。"
 
 #: ../../apis/easygraphics.processing.rst:17
 msgid "To be redefined(Override)"
 msgstr "待自定义（覆写）函数"
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`draw <draw>`\\"
+msgid ":obj:`draw <easygraphics.processing.draw>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`setup <setup>`\\"
+#: easygraphics.processing.ProcessingWidget.draw:1
+#: easygraphics.processing.draw:1 of
+msgid "Draw an animation frame."
+msgstr "绘制一帧动画。"
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+msgid ":obj:`setup <easygraphics.processing.setup>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_clicked <on_mouse_clicked>`\\"
+#: easygraphics.processing.setup:1 of
+msgid "Set up the processing context."
+msgstr "设置Processing环境。"
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+msgid ""
+":obj:`on_mouse_clicked <easygraphics.processing.on_mouse_clicked>`\\ "
+"\\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_dragged <on_mouse_dragged>`\\"
+#: easygraphics.processing.ProcessingWidget.on_mouse_clicked:1
+#: easygraphics.processing.on_mouse_clicked:1 of
+msgid "The mouse click event handler."
+msgstr "鼠标点击事件处理函数（方法）。"
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+msgid ""
+":obj:`on_mouse_dragged <easygraphics.processing.on_mouse_dragged>`\\ "
+"\\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_pressed <on_mouse_pressed>`\\"
+#: easygraphics.processing.ProcessingWidget.on_mouse_dragged:1
+#: easygraphics.processing.on_mouse_dragged:1 of
+msgid "The mouse drag event handler."
+msgstr "鼠标拖动事件处理函数（方法）。"
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+msgid ""
+":obj:`on_mouse_pressed <easygraphics.processing.on_mouse_pressed>`\\ "
+"\\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_released <on_mouse_released>`\\"
+#: easygraphics.processing.ProcessingWidget.on_mouse_pressed:1
+#: easygraphics.processing.on_mouse_pressed:1 of
+msgid "The mouse press event handler."
+msgstr "按下鼠标按钮事件处理函数（方法）。"
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+msgid ""
+":obj:`on_mouse_released <easygraphics.processing.on_mouse_released>`\\ "
+"\\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_wheel <on_mouse_wheel>`\\"
+#: easygraphics.processing.ProcessingWidget.on_mouse_released:1
+#: easygraphics.processing.on_mouse_released:1 of
+msgid "The mouse release event handler."
+msgstr "松开鼠标按钮事件处理函数（方法）。"
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+msgid ":obj:`on_mouse_wheel <easygraphics.processing.on_mouse_wheel>`\\ \\(e\\)"
 msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: easygraphics.processing.ProcessingWidget.on_mouse_wheel:1
+#: easygraphics.processing.on_mouse_wheel:1 of
+msgid "The mouse wheel event handler."
+msgstr "鼠标滚轮事件处理函数（方法）。"
 
 #: ../../apis/easygraphics.processing.rst:30
 msgid "Control and Settings"
 msgstr "控制与设置"
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`full_screen <full_screen>`\\"
+msgid ":obj:`full_screen <easygraphics.processing.full_screen>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`get_frame_rate <get_frame_rate>`\\"
+#: easygraphics.processing.full_screen:1 of
+msgid "Open a full screen canvas."
+msgstr "打开一个全屏幕大小的画布。"
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`get_frame_rate <easygraphics.processing.get_frame_rate>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`loop <loop>`\\"
+#: easygraphics.processing.ProcessingWidget.get_frame_rate:1
+#: easygraphics.processing.get_frame_rate:1 of
+msgid "Get the animation frame rate (fps)."
+msgstr "获取动画的帧率(fps)。"
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`loop <easygraphics.processing.loop>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`mouse_pressed <mouse_pressed>`\\"
-msgstr ""
-
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`mouse_x <mouse_x>`\\"
-msgstr ""
-
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`mouse_y <mouse_y>`\\"
-msgstr ""
-
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`noloop <noloop>`\\"
-msgstr ""
-
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`prev_mouse_x <prev_mouse_x>`\\"
-msgstr ""
-
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`prev_mouse_y <prev_mouse_y>`\\"
-msgstr ""
-
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`redraw <redraw>`\\"
-msgstr ""
-
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`set_frame_rate <set_frame_rate>`\\"
-msgstr ""
-
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`set_size <set_size>`\\"
-msgstr ""
-
-#: easygraphics.processing.ProcessingWidget.redraw:1
-#: easygraphics.processing.redraw:1 of
-msgid "Call draw() to draw a frame once."
-msgstr "调用一次draw()函数，来绘制动画的一帧。"
-
-#: easygraphics.processing.redraw:3 of
-msgid "You must NOT redefine this function!"
-msgstr "不要自定义（覆写）该函数！"
-
 #: easygraphics.processing.ProcessingWidget.loop:1
 #: easygraphics.processing.loop:1 of
 msgid "Start looping."
 msgstr "开始动画循环。"
 
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`mouse_pressed <easygraphics.processing.mouse_pressed>`\\"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid "bool(x) -> bool"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`mouse_x <easygraphics.processing.mouse_x>`\\"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid "int([x]) -> integer int(x, base=10) -> integer"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`mouse_y <easygraphics.processing.mouse_y>`\\"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`noloop <easygraphics.processing.noloop>`\\ \\(\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.noloop:1
 #: easygraphics.processing.noloop:1 of
 msgid "Stop looping."
 msgstr "停止动画循环。"
 
-#: easygraphics.processing.run_app:1 of
-msgid "Run the processing app."
-msgstr "运行Processing程序。"
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`prev_mouse_x <easygraphics.processing.prev_mouse_x>`\\"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`prev_mouse_y <easygraphics.processing.prev_mouse_y>`\\"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`redraw <easygraphics.processing.redraw>`\\ \\(\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: easygraphics.processing.ProcessingWidget.redraw:1
+#: easygraphics.processing.redraw:1 of
+msgid "Call draw() to draw a frame once."
+msgstr "调用一次draw()函数，来绘制动画的一帧。"
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`set_frame_rate <easygraphics.processing.set_frame_rate>`\\ \\(fps\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: easygraphics.processing.ProcessingWidget.set_frame_rate:1
+#: easygraphics.processing.set_frame_rate:1 of
+msgid "Set the animation frame rate (fps)."
+msgstr "获取动画的帧率(fps)。"
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`set_size <easygraphics.processing.set_size>`\\ \\(width\\, height\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: easygraphics.processing.set_size:1 of
+msgid "Open a canvas window with the specified size."
+msgstr "打开指定大小的画布(canvas)窗口。"
+
+#: easygraphics.processing.redraw:3 of
+msgid "You must NOT redefine this function!"
+msgstr "不要自定义（覆写）该函数！"
 
 #: easygraphics.processing.run_app:3 of
 msgid "the python globals dict."
 msgstr "python的全局变量字典"
-
-#: easygraphics.processing.set_size:1 of
-msgid "Open a canvas window with the specified size."
-msgstr "打开指定大小的画布(canvas)窗口。"
 
 #: easygraphics.processing.set_size:3 of
 msgid "width of the canvas"
@@ -1814,28 +1893,9 @@ msgstr "画布的宽度"
 msgid "height of the canvas"
 msgstr "画布的高度"
 
-#: easygraphics.processing.full_screen:1 of
-msgid "Open a full screen canvas."
-msgstr "打开一个全屏幕大小的画布。"
-
-#: easygraphics.processing.ProcessingWidget.draw:1
-#: easygraphics.processing.draw:1 of
-msgid "Draw an animation frame."
-msgstr "绘制一帧动画。"
-
 #: easygraphics.processing.draw:3 easygraphics.processing.setup:3 of
 msgid "You should redefine this function in your program."
 msgstr "你应该在程序中重新定义该函数。"
-
-#: easygraphics.processing.setup:1 of
-msgid "Set up the processing context."
-msgstr "设置Processing环境。"
-
-#: easygraphics.processing.ProcessingWidget.set_frame_rate:1
-#: easygraphics.processing.set_frame_rate:1 of
-#, fuzzy
-msgid "Set the animation frame rate (fps)."
-msgstr "获取动画的帧率(fps)。"
 
 #: easygraphics.processing.ProcessingWidget.get_frame_rate:3
 #: easygraphics.processing.ProcessingWidget.set_frame_rate:3
@@ -1844,51 +1904,21 @@ msgstr "获取动画的帧率(fps)。"
 msgid "the frame rate"
 msgstr "帧率"
 
-#: easygraphics.processing.ProcessingWidget.get_frame_rate:1
-#: easygraphics.processing.get_frame_rate:1 of
-msgid "Get the animation frame rate (fps)."
-msgstr "获取动画的帧率(fps)。"
-
-#: easygraphics.processing.ProcessingWidget.on_mouse_wheel:1
-#: easygraphics.processing.on_mouse_wheel:1 of
-msgid "The mouse wheel event handler."
-msgstr "鼠标滚轮事件处理函数（方法）。"
-
 #: easygraphics.processing.on_mouse_wheel:3 of
 msgid "You can redefine this function to handle the mouse wheel event."
 msgstr "你应该在程序中重新定义该函数，以处理鼠标滚轮事件。"
-
-#: easygraphics.processing.ProcessingWidget.on_mouse_dragged:1
-#: easygraphics.processing.on_mouse_dragged:1 of
-msgid "The mouse drag event handler."
-msgstr "鼠标拖动事件处理函数（方法）。"
 
 #: easygraphics.processing.on_mouse_dragged:3 of
 msgid "You can redefine this function to handle the mouse drag event."
 msgstr "你应该在程序中重新定义该函数，以处理鼠标拖动事件。"
 
-#: easygraphics.processing.ProcessingWidget.on_mouse_released:1
-#: easygraphics.processing.on_mouse_released:1 of
-msgid "The mouse release event handler."
-msgstr "松开鼠标按钮事件处理函数（方法）。"
-
 #: easygraphics.processing.on_mouse_released:3 of
 msgid "You can redefine this function to handle the mouse release event."
 msgstr "你应该在程序中重新定义该函数，以处理松开鼠标按钮事件。"
 
-#: easygraphics.processing.ProcessingWidget.on_mouse_pressed:1
-#: easygraphics.processing.on_mouse_pressed:1 of
-msgid "The mouse press event handler."
-msgstr "按下鼠标按钮事件处理函数（方法）。"
-
 #: easygraphics.processing.on_mouse_pressed:3 of
 msgid "You can redefine this function to handle the mouse press event."
 msgstr "你应该在程序中重新定义该函数，以处理按下鼠标按钮事件。"
-
-#: easygraphics.processing.ProcessingWidget.on_mouse_clicked:1
-#: easygraphics.processing.on_mouse_clicked:1 of
-msgid "The mouse click event handler."
-msgstr "鼠标点击事件处理函数（方法）。"
 
 #: easygraphics.processing.on_mouse_clicked:3 of
 msgid "You can redefine this function to handle the mouse click event."
@@ -1956,8 +1986,8 @@ msgid "Start the animation manually."
 msgstr "手动开始准备动画环境，开始动画循环。"
 
 #: ../../apis/easygraphics.turtle.rst:2
-msgid "easygraphics.turtle module"
-msgstr "easygraphics.turtle模块"
+msgid "easygraphics.turtle package"
+msgstr "easygraphics.turtle包"
 
 #: ../../apis/easygraphics.turtle.rst:3
 msgid "The turtle graphics package."
@@ -2116,9 +2146,8 @@ msgid ":obj:`gotoxy <easygraphics.turtle.gotoxy>`\\ \\(x\\, y\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
-#, fuzzy
 msgid "Move the turtle to point (x,y)."
-msgstr "转动海龟，朝向点(x,y)。"
+msgstr "移动海龟到点(x,y)。"
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
 msgid ":obj:`get_heading <easygraphics.turtle.get_heading>`\\ \\(\\)"
@@ -2153,7 +2182,6 @@ msgid ":obj:`home <easygraphics.turtle.home>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
-#, fuzzy
 msgid "Move the turtle back to the origin(0,0), and heading up."
 msgstr "将海龟移动到原点(0,0)，朝向向上。如果画笔处于落下状态，则会留下移动的痕迹。"
 
@@ -2192,18 +2220,16 @@ msgid ":obj:`left_turn <easygraphics.turtle.left_turn>`\\ \\(degree\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
-#, fuzzy
 msgid ":obj:`lt <easygraphics.turtle.lt>`\\ \\(degree\\)"
-msgstr "easygraphics.turtle模块"
+msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
 msgid ":obj:`move_arc <easygraphics.turtle.move_arc>`\\ \\(radius\\, angle\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
-#, fuzzy
 msgid "The center is radius units left of the turtle."
-msgstr "获取海龟的图标图片"
+msgstr "圆心在海龟左侧距离海龟radius远处"
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
 msgid ""
@@ -2233,9 +2259,8 @@ msgid ":obj:`right_turn <easygraphics.turtle.right_turn>`\\ \\(degree\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
-#, fuzzy
 msgid ":obj:`rt <easygraphics.turtle.rt>`\\ \\(degree\\)"
-msgstr "easygraphics.turtle模块"
+msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
 msgid ":obj:`set_heading <easygraphics.turtle.set_heading>`\\ \\(angle\\)"
@@ -2252,7 +2277,6 @@ msgid ":obj:`setxy <easygraphics.turtle.setxy>`\\ \\(x\\, y\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
-#, fuzzy
 msgid "Set the turtle's current position to point (x,y)."
 msgstr "将海龟的当前位置设置到点(x,y)。不会留下移动的痕迹。"
 
@@ -2292,14 +2316,12 @@ msgid ":obj:`clear_screen <easygraphics.turtle.clear_screen>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
-#, fuzzy
 msgid "Delete all drawings from the screen."
 msgstr "从屏幕上清除所有已绘制的图形。不改变海龟的位置和朝向。"
 
 #: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
-#, fuzzy
 msgid ":obj:`cs <easygraphics.turtle.cs>`\\ \\(\\)"
-msgstr "easygraphics.turtle模块"
+msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
 msgid ":obj:`begin_fill <easygraphics.turtle.begin_fill>`\\ \\(\\)"
@@ -2322,9 +2344,8 @@ msgid ""
 msgstr "填充从上一次begin_fill()开始，海龟移动的轨迹形成的封闭图形。"
 
 #: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
-#, fuzzy
 msgid ":obj:`pd <easygraphics.turtle.pd>`\\ \\(\\)"
-msgstr "easygraphics.turtle模块"
+msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
 #: easygraphics.turtle.Turtle.pd:1 easygraphics.turtle.Turtle.pen_down:1
@@ -2347,9 +2368,8 @@ msgid "Pull the pen up – no drawing when the turtle moving."
 msgstr "画笔抬起（海龟移动时不留痕迹）。"
 
 #: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
-#, fuzzy
 msgid ":obj:`pu <easygraphics.turtle.pu>`\\ \\(\\)"
-msgstr "easygraphics.turtle模块"
+msgstr ""
 
 #: easygraphics.turtle.create_world:3 of
 msgid "width of the graphics window"
@@ -2755,9 +2775,8 @@ msgid "y coordinate value of the target position"
 msgstr "目标位置的y坐标"
 
 #: ../../apis/easygraphics.widget.rst:2
-#, fuzzy
-msgid "easygraphics.widget module"
-msgstr "easygraphics.turtle模块"
+msgid "easygraphics.widget package"
+msgstr "easygraphics.widget包"
 
 #: ../../apis/easygraphics.widget.rst:3
 msgid "The qt widget package."
@@ -4284,5 +4303,65 @@ msgstr "要运行的函数或者方法"
 #~ msgstr ""
 
 #~ msgid "Set the animation frame rate (fps). :param fps: the frame rate"
+#~ msgstr ""
+
+#~ msgid ":obj:`run_app <run_app>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`draw <draw>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`setup <setup>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_clicked <on_mouse_clicked>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_dragged <on_mouse_dragged>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_pressed <on_mouse_pressed>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_released <on_mouse_released>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_wheel <on_mouse_wheel>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`full_screen <full_screen>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_frame_rate <get_frame_rate>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`loop <loop>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`mouse_pressed <mouse_pressed>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`mouse_x <mouse_x>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`mouse_y <mouse_y>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`noloop <noloop>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`prev_mouse_x <prev_mouse_x>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`prev_mouse_y <prev_mouse_y>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`redraw <redraw>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`set_frame_rate <set_frame_rate>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`set_size <set_size>`\\"
 #~ msgstr ""
 

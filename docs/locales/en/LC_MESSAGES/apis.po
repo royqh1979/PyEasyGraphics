@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-24 11:29+0800\n"
+"POT-Creation-Date: 2019-01-24 11:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1669,7 +1669,7 @@ msgid "fade out time (in milliseconds)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:2
-msgid "easygraphics.processing module"
+msgid "easygraphics.processing package"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:3
@@ -1681,7 +1681,12 @@ msgid "Main App"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:15:<autosummary>:1
-msgid ":obj:`run_app <run_app>`\\"
+msgid ":obj:`run_app <easygraphics.processing.run_app>`\\ \\(\\_globals\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:15:<autosummary>:1
+#: easygraphics.processing.run_app:1 of
+msgid "Run the processing app."
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:17
@@ -1689,31 +1694,80 @@ msgid "To be redefined(Override)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`draw <draw>`\\"
+msgid ":obj:`draw <easygraphics.processing.draw>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`setup <setup>`\\"
+#: easygraphics.processing.ProcessingWidget.draw:1
+#: easygraphics.processing.draw:1 of
+msgid "Draw an animation frame."
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_clicked <on_mouse_clicked>`\\"
+msgid ":obj:`setup <easygraphics.processing.setup>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_dragged <on_mouse_dragged>`\\"
+#: easygraphics.processing.setup:1 of
+msgid "Set up the processing context."
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_pressed <on_mouse_pressed>`\\"
+msgid ""
+":obj:`on_mouse_clicked <easygraphics.processing.on_mouse_clicked>`\\ "
+"\\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_released <on_mouse_released>`\\"
+#: easygraphics.processing.ProcessingWidget.on_mouse_clicked:1
+#: easygraphics.processing.on_mouse_clicked:1 of
+msgid "The mouse click event handler."
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
-msgid ":obj:`on_mouse_wheel <on_mouse_wheel>`\\"
+msgid ""
+":obj:`on_mouse_dragged <easygraphics.processing.on_mouse_dragged>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: easygraphics.processing.ProcessingWidget.on_mouse_dragged:1
+#: easygraphics.processing.on_mouse_dragged:1 of
+msgid "The mouse drag event handler."
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+msgid ""
+":obj:`on_mouse_pressed <easygraphics.processing.on_mouse_pressed>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: easygraphics.processing.ProcessingWidget.on_mouse_pressed:1
+#: easygraphics.processing.on_mouse_pressed:1 of
+msgid "The mouse press event handler."
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+msgid ""
+":obj:`on_mouse_released <easygraphics.processing.on_mouse_released>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: easygraphics.processing.ProcessingWidget.on_mouse_released:1
+#: easygraphics.processing.on_mouse_released:1 of
+msgid "The mouse release event handler."
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+msgid ":obj:`on_mouse_wheel <easygraphics.processing.on_mouse_wheel>`\\ \\(e\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: easygraphics.processing.ProcessingWidget.on_mouse_wheel:1
+#: easygraphics.processing.on_mouse_wheel:1 of
+msgid "The mouse wheel event handler."
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:30
@@ -1721,82 +1775,107 @@ msgid "Control and Settings"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`full_screen <full_screen>`\\"
+msgid ":obj:`full_screen <easygraphics.processing.full_screen>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`get_frame_rate <get_frame_rate>`\\"
+#: easygraphics.processing.full_screen:1 of
+msgid "Open a full screen canvas."
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`loop <loop>`\\"
+msgid ":obj:`get_frame_rate <easygraphics.processing.get_frame_rate>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`mouse_pressed <mouse_pressed>`\\"
+#: easygraphics.processing.ProcessingWidget.get_frame_rate:1
+#: easygraphics.processing.get_frame_rate:1 of
+msgid "Get the animation frame rate (fps)."
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`mouse_x <mouse_x>`\\"
+msgid ":obj:`loop <easygraphics.processing.loop>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`mouse_y <mouse_y>`\\"
+#: easygraphics.processing.ProcessingWidget.loop:1
+#: easygraphics.processing.loop:1 of
+msgid "Start looping."
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`noloop <noloop>`\\"
+msgid ":obj:`mouse_pressed <easygraphics.processing.mouse_pressed>`\\"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`prev_mouse_x <prev_mouse_x>`\\"
+msgid "bool(x) -> bool"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`prev_mouse_y <prev_mouse_y>`\\"
+msgid ":obj:`mouse_x <easygraphics.processing.mouse_x>`\\"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`redraw <redraw>`\\"
+msgid "int([x]) -> integer int(x, base=10) -> integer"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`set_frame_rate <set_frame_rate>`\\"
+msgid ":obj:`mouse_y <easygraphics.processing.mouse_y>`\\"
 msgstr ""
 
 #: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
-msgid ":obj:`set_size <set_size>`\\"
+msgid ":obj:`noloop <easygraphics.processing.noloop>`\\ \\(\\)"
 msgstr ""
 
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: easygraphics.processing.ProcessingWidget.noloop:1
+#: easygraphics.processing.noloop:1 of
+msgid "Stop looping."
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`prev_mouse_x <easygraphics.processing.prev_mouse_x>`\\"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`prev_mouse_y <easygraphics.processing.prev_mouse_y>`\\"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`redraw <easygraphics.processing.redraw>`\\ \\(\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.redraw:1
 #: easygraphics.processing.redraw:1 of
 msgid "Call draw() to draw a frame once."
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`set_frame_rate <easygraphics.processing.set_frame_rate>`\\ \\(fps\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: easygraphics.processing.ProcessingWidget.set_frame_rate:1
+#: easygraphics.processing.set_frame_rate:1 of
+msgid "Set the animation frame rate (fps)."
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+msgid ":obj:`set_size <easygraphics.processing.set_size>`\\ \\(width\\, height\\)"
+msgstr ""
+
+#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: easygraphics.processing.set_size:1 of
+msgid "Open a canvas window with the specified size."
 msgstr ""
 
 #: easygraphics.processing.redraw:3 of
 msgid "You must NOT redefine this function!"
 msgstr ""
 
-#: easygraphics.processing.ProcessingWidget.loop:1
-#: easygraphics.processing.loop:1 of
-msgid "Start looping."
-msgstr ""
-
-#: easygraphics.processing.ProcessingWidget.noloop:1
-#: easygraphics.processing.noloop:1 of
-msgid "Stop looping."
-msgstr ""
-
-#: easygraphics.processing.run_app:1 of
-msgid "Run the processing app."
-msgstr ""
-
 #: easygraphics.processing.run_app:3 of
 msgid "the python globals dict."
-msgstr ""
-
-#: easygraphics.processing.set_size:1 of
-msgid "Open a canvas window with the specified size."
 msgstr ""
 
 #: easygraphics.processing.set_size:3 of
@@ -1807,26 +1886,8 @@ msgstr ""
 msgid "height of the canvas"
 msgstr ""
 
-#: easygraphics.processing.full_screen:1 of
-msgid "Open a full screen canvas."
-msgstr ""
-
-#: easygraphics.processing.ProcessingWidget.draw:1
-#: easygraphics.processing.draw:1 of
-msgid "Draw an animation frame."
-msgstr ""
-
 #: easygraphics.processing.draw:3 easygraphics.processing.setup:3 of
 msgid "You should redefine this function in your program."
-msgstr ""
-
-#: easygraphics.processing.setup:1 of
-msgid "Set up the processing context."
-msgstr ""
-
-#: easygraphics.processing.ProcessingWidget.set_frame_rate:1
-#: easygraphics.processing.set_frame_rate:1 of
-msgid "Set the animation frame rate (fps)."
 msgstr ""
 
 #: easygraphics.processing.ProcessingWidget.get_frame_rate:3
@@ -1836,50 +1897,20 @@ msgstr ""
 msgid "the frame rate"
 msgstr ""
 
-#: easygraphics.processing.ProcessingWidget.get_frame_rate:1
-#: easygraphics.processing.get_frame_rate:1 of
-msgid "Get the animation frame rate (fps)."
-msgstr ""
-
-#: easygraphics.processing.ProcessingWidget.on_mouse_wheel:1
-#: easygraphics.processing.on_mouse_wheel:1 of
-msgid "The mouse wheel event handler."
-msgstr ""
-
 #: easygraphics.processing.on_mouse_wheel:3 of
 msgid "You can redefine this function to handle the mouse wheel event."
-msgstr ""
-
-#: easygraphics.processing.ProcessingWidget.on_mouse_dragged:1
-#: easygraphics.processing.on_mouse_dragged:1 of
-msgid "The mouse drag event handler."
 msgstr ""
 
 #: easygraphics.processing.on_mouse_dragged:3 of
 msgid "You can redefine this function to handle the mouse drag event."
 msgstr ""
 
-#: easygraphics.processing.ProcessingWidget.on_mouse_released:1
-#: easygraphics.processing.on_mouse_released:1 of
-msgid "The mouse release event handler."
-msgstr ""
-
 #: easygraphics.processing.on_mouse_released:3 of
 msgid "You can redefine this function to handle the mouse release event."
 msgstr ""
 
-#: easygraphics.processing.ProcessingWidget.on_mouse_pressed:1
-#: easygraphics.processing.on_mouse_pressed:1 of
-msgid "The mouse press event handler."
-msgstr ""
-
 #: easygraphics.processing.on_mouse_pressed:3 of
 msgid "You can redefine this function to handle the mouse press event."
-msgstr ""
-
-#: easygraphics.processing.ProcessingWidget.on_mouse_clicked:1
-#: easygraphics.processing.on_mouse_clicked:1 of
-msgid "The mouse click event handler."
 msgstr ""
 
 #: easygraphics.processing.on_mouse_clicked:3 of
@@ -1948,7 +1979,7 @@ msgid "Start the animation manually."
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:2
-msgid "easygraphics.turtle module"
+msgid "easygraphics.turtle package"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:3
@@ -2735,7 +2766,7 @@ msgid "y coordinate value of the target position"
 msgstr ""
 
 #: ../../apis/easygraphics.widget.rst:2
-msgid "easygraphics.widget module"
+msgid "easygraphics.widget package"
 msgstr ""
 
 #: ../../apis/easygraphics.widget.rst:3
@@ -5377,5 +5408,74 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Set the animation frame rate (fps). :param fps: the frame rate"
+#~ msgstr ""
+
+#~ msgid "easygraphics.processing module"
+#~ msgstr ""
+
+#~ msgid ":obj:`run_app <run_app>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`draw <draw>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`setup <setup>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_clicked <on_mouse_clicked>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_dragged <on_mouse_dragged>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_pressed <on_mouse_pressed>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_released <on_mouse_released>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`on_mouse_wheel <on_mouse_wheel>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`full_screen <full_screen>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_frame_rate <get_frame_rate>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`loop <loop>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`mouse_pressed <mouse_pressed>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`mouse_x <mouse_x>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`mouse_y <mouse_y>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`noloop <noloop>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`prev_mouse_x <prev_mouse_x>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`prev_mouse_y <prev_mouse_y>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`redraw <redraw>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`set_frame_rate <set_frame_rate>`\\"
+#~ msgstr ""
+
+#~ msgid ":obj:`set_size <set_size>`\\"
+#~ msgstr ""
+
+#~ msgid "easygraphics.turtle module"
+#~ msgstr ""
+
+#~ msgid "easygraphics.widget module"
 #~ msgstr ""
 

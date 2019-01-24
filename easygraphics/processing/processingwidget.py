@@ -1,3 +1,5 @@
+import os
+
 from PyQt5 import QtCore, QtWidgets, QtGui
 from easygraphics import Image
 import time
@@ -16,6 +18,8 @@ class ProcessingWidget(QtWidgets.QWidget):
         :param auto_start: True to start the animation automatically.
         """
         super().__init__(*args, **kwargs)
+        self._capture_dir = "."
+        self._capture_count = 0
         if auto_start:
             self.start()
 
@@ -135,6 +139,15 @@ class ProcessingWidget(QtWidgets.QWidget):
 
     def wheelEvent(self, e: QtGui.QWheelEvent):
         self.on_mouse_wheel(e)
+
+    def keyPressEvent(self, e: QtGui.QKeyEvent):
+        if e.key() == QtCore.Qt.Key_F10:
+            modifiers = e.modifiers()
+            if modifiers & (QtCore.Qt.ControlModifier |
+                            QtCore.Qt.ShiftModifier |
+                            QtCore.Qt.AltModifier):
+                self._capture_count += 1
+                self._image.save(self._capture_dir + os.sep + "save{0}.png".format(self._capture_count))
 
     def on_mouse_clicked(self):
         """
