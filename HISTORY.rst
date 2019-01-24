@@ -2,6 +2,12 @@
 
 History
 ===========
+1.0.2
+------------
+* add: press ctrl+shift+alt+F10 will create a snapshot of the graphics window.
+    The snapshot is saved in the running folder.
+* change: close turtle window will automatically close the animation of turtle moving.
+
 1.0.1
 -----------
 * add: fps settings in easygraphics.processing module

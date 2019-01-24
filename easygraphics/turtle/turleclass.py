@@ -176,6 +176,8 @@ class TurtleWorld(object):
 
     def _refresh_loop(self):
         while eg.is_run():
+            if not self._win.isVisible():
+                self.set_immediate(True)
             if not self._running:
                 break
             if self._win.delay_fps(60):

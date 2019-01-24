@@ -3,7 +3,7 @@ from easygraphics.turtle import *
 create_world()
 
 set_speed(50)
-while True:
+while is_run():
     fd(100)
     rt(90)
     fd(100)
