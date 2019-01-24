@@ -1709,8 +1709,6 @@ def text_height(image: Image = None) -> int:
 
 # image processing #
 
-_is_target_on_screen = True
-
 _target_image = None
 
 
@@ -1720,15 +1718,13 @@ def set_target(image: Image = None):
 
     :param image: the target image which will be painted on. None means paint on the graphics window.
     """
-    global _target_image, _is_target_on_screen
-    _check_app_run()
+    global _target_image
+    # _check_app_run()
     if image is None:
         if _headless:
             raise RuntimeError("Can't set target to graphics window in headless mode!")
-        _is_target_on_screen = True
         _target_image = _win.get_canvas()
     else:
-        _is_target_on_screen = False
         _target_image = image
 
 
@@ -1738,8 +1734,6 @@ def get_target() -> Optional[Image]:
 
     :return: the target image which will be painted on. None means paint on the graphics window.
     """
-    if _is_target_on_screen:
-        _check_app_run()
     return _target_image
 
 
@@ -1956,8 +1950,11 @@ def delay(milliseconds: int):
 
     :param milliseconds: time to delay
     """
-    _check_not_headless_and_in_shell()
-    _win.delay(milliseconds)
+    if _win is None:
+        QtCore.QThread.msleep(milliseconds)
+    else:
+        _check_not_headless_and_in_shell()
+        _win.delay(milliseconds)
 
 
 def delay_fps(fps: int):
@@ -2270,14 +2267,13 @@ _created_images = []
 
 
 def __graphics_thread_func(width: int, height: int, headless=False):
-    global _app, _win, _target_image, _is_run, _headless, _is_target_on_screen
+    global _app, _win, _target_image, _is_run, _headless
     _headless = headless
     _app = QtWidgets.QApplication([])
     _app.setQuitOnLastWindowClosed(True)
     invoke_in_app_thread.init_invoke_in_app()
     if not _headless:
         _win = GraphWin(width, height)
-        _is_target_on_screen = True
         _target_image = _win.get_canvas()
         _win.show()
         set_caption("Python Easy Graphics")
@@ -2285,7 +2281,6 @@ def __graphics_thread_func(width: int, height: int, headless=False):
         set_font_size(18)
     else:
         _is_run = True
-        _is_target_on_screen = False
         _target_image = create_image(width, height)
     # init finished, can draw now
     _start_event.set()

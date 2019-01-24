@@ -11,11 +11,11 @@ class MyProcessingWidget(ProcessingWidget):
 
     def setup(self):
         self.set_size(200, 150)
-        self.translate(0, 0)
+        self.get_canvas().translate(0, 0)
 
     def draw(self):
         self._t = self._t + 2
-        self.ellipse(self._t, self._t, 20, 20)
+        self.get_canvas().ellipse(self._t, self._t, 20, 20)
 
 
 class MyWindow(QWidget):

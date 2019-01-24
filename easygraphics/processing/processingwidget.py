@@ -6,12 +6,23 @@ __all__ = ['ProcessingWidget']
 
 
 class ProcessingWidget(QtWidgets.QWidget):
+    """
+    The processing-like widget.
+    """
     def __init__(self, *args, auto_start=True, **kwargs):
+        """
+        The initiator.
+
+        :param auto_start: True to start the animation automatically.
+        """
         super().__init__(*args, **kwargs)
         if auto_start:
             self.start()
 
     def start(self):
+        """
+        Start the animation manually.
+        """
         self._image: Image = None
         self.setup()
         self._timer = QtCore.QTimer()
@@ -28,6 +39,12 @@ class ProcessingWidget(QtWidgets.QWidget):
         self.prev_mouse_y = 0
 
     def set_size(self, width: int, height: int):
+        """
+        Set the canvas size.
+
+        :param width: width of the canvas.
+        :param height: height of the canvas.
+        """
         if self._image is not None:
             raise RuntimeError("set_size and fullscreen() can run only once!")
         self._image = Image.create(width, height)
@@ -35,20 +52,39 @@ class ProcessingWidget(QtWidgets.QWidget):
         self.setFixedHeight(height)
 
     def full_screen(self):
+        """
+        Set the canvas size to full screen.
+        """
         desktop = QtWidgets.QApplication.desktop()
         rect = desktop.screenGeometry()
         self.set_size(rect.width(), rect.height())
 
     def setup(self):
+        """
+        Setup the drawing context.
+
+        You should override this method.
+        """
         self.set_size(800, 600)
 
     def draw(self):
+        """
+        Draw an animation frame.
+
+        You should override this method.
+        """
         raise RuntimeError("Must overload draw() method!")
 
     def noloop(self):
+        """
+        Stop looping.
+        """
         self._is_looping = False
 
     def loop(self):
+        """
+        Start looping.
+        """
         self._is_looping = True
         self.redraw()
         self._schedule_next_frame(self._frame_duration)
@@ -60,6 +96,9 @@ class ProcessingWidget(QtWidgets.QWidget):
         self._image.draw_to_device(self)
 
     def redraw(self):
+        """
+        Call draw() to draw a frame once.
+        """
         pos = self.mapFromGlobal(QtGui.QCursor.pos())
         self.mouse_x = pos.x()
         self.mouse_y = pos.y()
@@ -98,29 +137,69 @@ class ProcessingWidget(QtWidgets.QWidget):
         self.on_mouse_wheel(e)
 
     def on_mouse_clicked(self):
+        """
+        The mouse click event handler.
+
+        You can override it to handle the mouse click event.
+        """
         pass
 
     def on_mouse_pressed(self):
+        """
+        The mouse press event handler.
+
+        You can override it to handle the mouse press event.
+        """
         pass
 
     def on_mouse_released(self):
+        """
+        The mouse release event handler.
+
+        You can override it to handle the mouse release event.
+        """
         pass
 
     def on_mouse_dragged(self):
+        """
+        The mouse drag event handler.
+
+        You can override it to handle the mouse drag event.
+        """
         pass
 
     def on_mouse_wheel(self, e: QtGui.QWheelEvent):
+        """
+        The mouse wheel event handler.
+
+        You can override it to handle the mouse wheel event.
+        """
         pass
 
     def __del__(self):
         self.close()
 
     def get_canvas(self) -> Image:
+        """
+        Get the canvas image.
+
+        :return: the canvas image
+        """
         return self._image
 
     def set_frame_rate(self, fps):
+        """
+        Set the animation frame rate (fps).
+
+        :param fps: the frame rate
+        """
         self._fps = fps
         self._frame_duration = 1000 // fps
 
-    def get_frame_rate(self):
+    def get_frame_rate(self) -> int:
+        """
+        Get the animation frame rate (fps).
+
+        :return: the frame rate
+        """
         return self._fps

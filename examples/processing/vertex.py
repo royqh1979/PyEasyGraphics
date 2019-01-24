@@ -1,4 +1,5 @@
 from easygraphics.processing import *
+from easygraphics import *
 
 
 def setup():

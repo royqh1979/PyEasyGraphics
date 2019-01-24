@@ -2,10 +2,16 @@
 
 History
 ===========
+1.0.1
+-----------
+* add: fps settings in easygraphics.processing module
+* update: translations
+* change: easygraphics.processing module now use functions in easygraphics modules to draw. (Remove duplication defines.)
+
 1.0.0
 -----------
 * fix: hangs in inactive shell when init_graph again after close_graph()
-* add:
+
 0.10.1
 -----------
 * add: color_gray() function.
