@@ -1,4 +1,4 @@
-import easygraphics
+import easygraphics.turtle
 
-for f in sorted(easygraphics.__all__):
+for f in sorted(easygraphics.turtle.__all__):
     print(f)

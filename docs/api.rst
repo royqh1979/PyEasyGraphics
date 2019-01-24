@@ -1,4 +1,4 @@
-API
+References
 ====================
 
 Subpackages
@@ -9,6 +9,7 @@ Subpackages
     apis/easygraphics.dialog
     apis/easygraphics.legacy
     apis/easygraphics.music
+    apis/easygraphics.processing
     apis/easygraphics.turtle
     apis/easygraphics.widget
 

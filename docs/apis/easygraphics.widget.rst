@@ -1,4 +1,4 @@
-easygraphics.turtle module
+easygraphics.widget module
 ==========================
 The qt widget package.
 
