@@ -341,7 +341,7 @@ pu = pen_up
 
 def set_speed(speed):
     """
-    Set the turtle's moving speed.
+    Set moving speed of the turtle.
 
     :param speed: the new speed
     """

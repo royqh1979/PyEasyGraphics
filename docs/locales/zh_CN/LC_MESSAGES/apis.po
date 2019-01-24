@@ -2069,7 +2069,7 @@ msgstr ""
 #: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
 #: easygraphics.turtle.pause:1 of
 msgid "Pause the program and wait for mouse clicking or keyboard hitting."
-msgstr ""
+msgstr "暂停程序，等待鼠标或者键盘按键。"
 
 #: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
 msgid ":obj:`set_immediate <easygraphics.turtle.set_immediate>`\\ \\(immediate\\)"
@@ -2213,7 +2213,7 @@ msgstr ""
 #: easygraphics.turtle.Turtle.lt:1 easygraphics.turtle.left:1
 #: easygraphics.turtle.left_turn:1 easygraphics.turtle.lt:1 of
 msgid "Turn turtle left (counter-clockwise) by \"degree\" degree."
-msgstr ""
+msgstr "让海龟向左（逆时针）转动“degree”度。"
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
 msgid ":obj:`left_turn <easygraphics.turtle.left_turn>`\\ \\(degree\\)"
@@ -2286,8 +2286,8 @@ msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
 #: easygraphics.turtle.Turtle.set_speed:1 easygraphics.turtle.set_speed:1 of
-msgid "Set the turtle's moving speed."
-msgstr " 设置海龟的移动速度"
+msgid "Set moving speed of the turtle."
+msgstr "设置海龟的移动速度"
 
 #: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
 msgid ":obj:`turn_to <easygraphics.turtle.turn_to>`\\ \\(angle\\)"

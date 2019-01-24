@@ -233,7 +233,7 @@ class Turtle(object):
 
     def set_speed(self, speed: int):
         """
-        Set the turtle's moving speed.
+        Set moving speed of the turtle.
 
         :param speed: the new speed
         """
