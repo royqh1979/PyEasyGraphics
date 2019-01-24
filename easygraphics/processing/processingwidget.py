@@ -23,7 +23,7 @@ class ProcessingWidget(QtWidgets.QWidget):
         """
         Start the animation manually.
         """
-        self._image: Image = None
+        self._image = None
         self.setup()
         self._timer = QtCore.QTimer()
         self._timer.timeout.connect(self._on_update_frame)

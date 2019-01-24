@@ -15,8 +15,8 @@ __all__ = [
     'is_run', 'is_out_of_window',
     'Turtle', 'TurtleWorld']
 
-_turtle: Turtle = None
-_world: TurtleWorld = None
+_turtle = None
+_world = None
 
 _in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
 
