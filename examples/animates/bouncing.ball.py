@@ -28,3 +28,5 @@ while is_run():
 
     fill_ellipse(x_pos, y_pos, ball_radius, ball_radius)
     delay_fps(30)
+
+close_graph()

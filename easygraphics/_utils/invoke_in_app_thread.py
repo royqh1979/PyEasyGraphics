@@ -70,11 +70,13 @@ _caller = None
 def init_invoke_in_app():
     global _caller
     _caller = Caller()
+    _wait_for_quit = False
 
 
 def destroy_invoke_in_app():
-    global _caller
+    global _caller, _wait_for_quit
     _caller = None
+    _wait_for_quit = False
 
 
 def __app_thread_func():
@@ -114,6 +116,13 @@ def _stop_app_thread():
     _thread_end_event.wait()
 
 
+_wait_for_quit = False
+
+
+def wait_for_quit():
+    global _wait_for_quit
+    _wait_for_quit = True
+
 _app_lock = threading.Lock()
 def invoke_in_app_thread(fn, *args, **kwargs):
     """Queue up the executing of a function in the main thread and return immediately.
@@ -141,15 +150,19 @@ def invoke_in_app_thread(fn, *args, **kwargs):
        :code:`exception=[type,value,traceback]`.
     """
     _app_lock.acquire()
-    no_drawing = False  # if graphics's init_graph() is not called
-    if _caller is None:
-        no_drawing = True
-        _start_app_thread()
-    result = get_in_app_thread_result(_in_app_thread_later(fn, True, *args, **kwargs))
-    if no_drawing:
-        _stop_app_thread()
-    _app_lock.release()
-    return result
+    try:
+        no_drawing = False  # if graphics's init_graph() is not called
+        if _caller is None:
+            no_drawing = True
+            _start_app_thread()
+        elif _wait_for_quit:  # the app is quitting. don't show the dialog
+            return None
+        result = get_in_app_thread_result(_in_app_thread_later(fn, True, *args, **kwargs))
+        if no_drawing:
+            _stop_app_thread()
+        return result
+    finally:
+        _app_lock.release()
 
 
 def _in_app_thread_later(fn, exceptions_in_main, *args, **kwargs):

@@ -18,7 +18,7 @@ def triangle(size):
     """
     size_b = size * math.sqrt(3) / 2
     size_c = size / 2
-    polygon([0, -size, -size_b, size_c, size_b, size_c])
+    polygon(0, -size, -size_b, size_c, size_b, size_c)
 
 
 random.seed()

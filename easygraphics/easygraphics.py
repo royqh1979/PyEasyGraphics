@@ -2201,7 +2201,7 @@ def close_graph():
     _created_images.clear()
     _app.quit()
     _close_event.set()
-    while _is_run:
+    while _app is not None:
         time.sleep(0.05)
 
 
@@ -2291,6 +2291,7 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     _start_event.set()
     _app.exec_()
     _is_run = False
+    invoke_in_app_thread.wait_for_quit()
     _close_event.wait()
     invoke_in_app_thread.destroy_invoke_in_app()
     _app = None
