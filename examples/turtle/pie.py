@@ -2,7 +2,7 @@ from easygraphics.turtle import *
 
 create_world(800, 600)
 
-set_speed(20)
+set_speed(1)
 
 move_ellipse(200, 140, 60)
 pen_up()

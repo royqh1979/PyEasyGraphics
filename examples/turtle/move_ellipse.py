@@ -2,7 +2,7 @@ from easygraphics.turtle import *
 from easygraphics import *
 
 create_world(800, 600)
-set_speed(100)
+set_speed(5)
 
 lt(45)
 
