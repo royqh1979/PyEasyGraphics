@@ -1,11 +1,15 @@
 from PyQt5.QtGui import QMatrix4x4, QVector3D
 import math
 
-__all__ = ['ortho_look_at']
+__all__ = ['ortho_look_at', 'ortho_45']
 
 
-def ortho_look_at(eye_x, eye_y, eye_z,
-                  up_x, up_y, up_z):
+def ortho_45():
+    return ortho_look_at(1, 1, 1, -1, -1, 1)
+
+
+def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
+                  up_x: float, up_y: float, up_z: float):
     eye = QVector3D(eye_x, eye_y, eye_z)
     up = QVector3D(up_x, up_y, up_z)
     center = QVector3D(0, 0, 0)
@@ -24,8 +28,8 @@ def ortho_look_at(eye_x, eye_y, eye_z,
                      0, cos_x, -sin_x, 0,
                      0, sin_x, cos_x, 0,
                      0, 0, 0, 1)
-    print(angle_up_and_z)
-    print(m_x)
+    # print(angle_up_and_z)
+    # print(m_x)
 
     # 求视线矢量到z轴的投影
     eye_project_z_factor = QVector3D.dotProduct(eye, z_axis) / z_axis.lengthSquared()
@@ -45,11 +49,11 @@ def ortho_look_at(eye_x, eye_y, eye_z,
     if eye_project_xy.y() < 0:
         angle_project_xy_and_x = 2 * math.pi - angle_project_xy_and_x
 
-    print("eye", eye)
-    print("eye_project_z", eye_project_z)
-    print("eye_project_xy", eye_project_xy)
-    print(angle_eye_and_xy)
-    print(angle_project_xy_and_x)
+    # print("eye", eye)
+    # print("eye_project_z", eye_project_z)
+    # print("eye_project_xy", eye_project_xy)
+    # print(angle_eye_and_xy)
+    # print(angle_project_xy_and_x)
 
     # 绕y轴逆时针旋转 angle_eye_and_xy 度
     cos_1 = math.cos(angle_eye_and_xy)

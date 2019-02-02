@@ -5,7 +5,7 @@ History
 1.0.3
 ------------
 * add: ortho_look_at() function to map 3d point to 2d
-
+* add: ortho_45() function to map 3d point to 2d from 45degree view port
 
 1.0.2
 ------------
