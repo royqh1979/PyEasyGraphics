@@ -1903,7 +1903,6 @@ def pol2cart(rho, theta):
     """
     return rho * math.cos(theta), rho * math.sin(theta)
 
-
 def _qpoint_to_point_list_fun(lst: List[float], p: QtCore.QPointF) -> List[float]:
     lst.append(p.x())
     lst.append(p.y())

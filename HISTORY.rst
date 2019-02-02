@@ -2,6 +2,11 @@
 
 History
 ===========
+1.0.3
+------------
+* add: ortho_look_at() function to map 3d point to 2d
+
+
 1.0.2
 ------------
 * add: press ctrl+shift+alt+F10 will create a snapshot of the graphics window.
