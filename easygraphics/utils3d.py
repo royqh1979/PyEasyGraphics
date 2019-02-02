@@ -5,30 +5,57 @@ __all__ = ['ortho_look_at', 'ortho_45']
 
 
 def ortho_45():
+    """
+    Return the ortho projection matrion from 45 degree
+    :return:
+    """
     return ortho_look_at(1, 1, 1, -1, -1, 1)
 
 
 def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
                   up_x: float, up_y: float, up_z: float):
+    """
+    Return the ortho projection matrix
+
+    :param eye_x:
+    :param eye_y:
+    :param eye_z:
+    :param up_x:
+    :param up_y:
+    :param up_z:
+    :return: the matrix
+    """
     eye = QVector3D(eye_x, eye_y, eye_z)
     up = QVector3D(up_x, up_y, up_z)
     center = QVector3D(0, 0, 0)
     view = center - eye
     right = QVector3D.crossProduct(up, eye)
     z_axis = QVector3D(0, 0, 1)
-    # 求 up 到 z轴的投影
-    up_project_z_factor = QVector3D.dotProduct(up, z_axis) / z_axis.lengthSquared()
-    up_project_z = z_axis * up_project_z_factor
-    # 求 z轴 和 up到z轴投影之间的夹角
-    cos_up_and_z = QVector3D.dotProduct(z_axis, up_project_z) / z_axis.length() / up_project_z.length()
-    angle_up_and_z = math.acos(cos_up_and_z)
-    cos_x = math.cos(angle_up_and_z)
-    sin_x = math.sin(angle_up_and_z)
+
+    r, θ, φ = cart2spher(eye_x, eye_y, eye_z)
+    angle = math.pi / 2 - θ
+    angle2 = φ + math.pi
+    base_up = QVector3D(*spher2cart(r, angle, angle2))
+    # print("up", up)
+    # print("base_up",base_up)
+    dot_up_base_up = QVector3D.dotProduct(up, base_up)
+    if math.isclose(dot_up_base_up, 0):
+        angle_up_base_up = 0
+    else:
+        cos_up_base_up = round(dot_up_base_up / base_up.length() / up.length(), 5)
+        # print("cos_up_base_up",cos_up_base_up)
+        cross_up_base_up = QVector3D.crossProduct(up, base_up)
+        if QVector3D.dotProduct(cross_up_base_up, eye) < 0:
+            angle_up_base_up = math.acos(cos_up_base_up)
+        else:
+            angle_up_base_up = math.pi * 2 - math.acos(cos_up_base_up)
+    cos_x = math.cos(angle_up_base_up)
+    sin_x = math.sin(angle_up_base_up)
     m_x = QMatrix4x4(1, 0, 0, 0,
                      0, cos_x, -sin_x, 0,
                      0, sin_x, cos_x, 0,
                      0, 0, 0, 1)
-    # print(angle_up_and_z)
+    # print("angle",math.degrees(angle_up_base_up))
     # print(m_x)
 
     # 求视线矢量到z轴的投影
@@ -76,3 +103,24 @@ def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
                          0, 0, 0, 1)
 
     return m_ortho * m_x.transposed() * m_y.transposed() * m_z.transposed()
+
+
+def cart2spher(x: float, y: float, z: float) -> (float, float, float):
+    """
+    Convert cartesian coordinate to spherical coordinate
+    :param x:
+    :param y:
+    :param z:
+    :return: radius,θ,φ
+    """
+    r = math.sqrt(x ** 2 + y ** 2 + z ** 2)
+    θ = math.acos(z / r)
+    φ = math.atan2(y, x)
+    return r, θ, φ
+
+
+def spher2cart(radius: float, θ: float, φ: float) -> (float, float, float):
+    x = radius * math.sin(θ) * math.cos(φ)
+    y = radius * math.sin(θ) * math.sin(φ)
+    z = radius * math.cos(θ)
+    return x, y, z

@@ -1,6 +1,6 @@
 from easygraphics import *
-from easygraphics.utils3d import ortho_look_at
-from PyQt5.QtGui import QVector3D
+from easygraphics.utils3d import ortho_look_at, ortho_45
+from PyQt5.QtGui import QVector3D, QMatrix4x4
 import math
 
 
@@ -26,19 +26,24 @@ points_3d.append((0, 1, 1))
 points_3d.append((1, 1, 1))
 
 points = []
-z_1 = QVector3D(0, 0, 3)
+degree = -1
+length = 1
 
-degree = 0
-length = math.sqrt(2)
+eye = QVector3D(1, 1, 1)
+right = QVector3D(-1, 1, 0)
+up_base = QVector3D.crossProduct(eye, right)
+# print(up_base)
+
 while is_run():
     clear()
     degree += 1
-    rad = math.radians(degree)
-    len_x = length * math.cos(rad)
-    len_y = length * math.sin(rad)
-    # print(len_x, len_y)
-    eye = QVector3D(len_x, len_y, 1)
-    up = z_1 - eye
+
+    rotate_m = QMatrix4x4()
+    rotate_m.rotate(degree, eye)
+    up = rotate_m.map(up_base)
+    # up = up_base
+    # print(degree)
+
     matrix_ortho = ortho_look_at(eye.x(), eye.y(), eye.z(),
                                  up.x(), up.y(), up.z())
 

@@ -3,6 +3,7 @@ import math
 from easygraphics import *
 from easygraphics.utils3d import ortho_45
 from PyQt5.QtGui import QMatrix4x4, QVector3D
+import random
 
 
 class box:
@@ -50,9 +51,9 @@ def init_boxes(numbers):
 
 n = 50
 init_boxes(n)
-
+random.seed()
 init_graph(800, 600)
-set_color("lightgray")
+set_color("gray")
 translate(400, 300)
 set_render_mode(RenderMode.RENDER_MANUAL)
 degree = 0
@@ -61,6 +62,10 @@ m_o = ortho_45()
 points = []
 
 while is_run():
+    if random.choice((-1, 1)) == 1:
+        clock_wise = True
+    else:
+        clock_wise = False
     for degree in range(0, 180 + (n) * 5, 5):
         if not is_run():
             break
@@ -69,6 +74,8 @@ while is_run():
             box = boxes[i]
             dd = max(degree - i * 5, 0)
             dd = min(dd, 180)
+            if not clock_wise:
+                dd = -dd
             rad = math.radians(dd)
             cos_2 = math.cos(rad)
             sin_2 = math.sin(rad)
