@@ -1,5 +1,5 @@
 from easygraphics import *
-from easygraphics.utils3d import ortho_look_at, ortho_45
+from easygraphics.utils3d import ortho_look_at, isometric_projection
 from PyQt5.QtGui import QVector3D
 import math
 
@@ -36,7 +36,7 @@ print(eye)
 print(up)
 # matrix_ortho = ortho_look_at(eye.x(), eye.y(), eye.z(),
 #                              up.x(), up.y(), up.z())
-matrix_ortho = ortho_45()
+matrix_ortho = isometric_projection()
 
 points = []
 for p_3d in points_3d:

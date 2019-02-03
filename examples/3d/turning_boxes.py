@@ -1,7 +1,7 @@
 import math
 
 from easygraphics import *
-from easygraphics.utils3d import ortho_45
+from easygraphics.utils3d import isometric_projection
 from PyQt5.QtGui import QMatrix4x4, QVector3D
 import random
 
@@ -58,7 +58,7 @@ translate(400, 300)
 set_render_mode(RenderMode.RENDER_MANUAL)
 degree = 0
 fps = 30
-m_o = ortho_45()
+m_o = isometric_projection()
 points = []
 
 while is_run():

@@ -1,17 +1,18 @@
 from PyQt5.QtGui import QMatrix4x4, QVector3D
 import math
 
-__all__ = ['ortho_look_at', 'ortho_45', 'spher2cart', 'cart2spher']
+__all__ = ['ortho_look_at', 'isometric_projection', 'spher2cart', 'cart2spher']
 
 
-def ortho_45():
+def isometric_projection():
     """
-    Return the ortho projection matrion from 45 degree
+    Return the  isometric perspective projection matrix
     :return:
     """
     return ortho_look_at(1, 1, 1,
                          0, 0, 0,
                          -1, -1, 1)
+
 
 def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
                   center_x: float, center_y: float, center_z: float,
@@ -42,7 +43,7 @@ def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
 
 def _ortho_look_at_custom(eye_x: float, eye_y: float, eye_z: float,
                           center_x: float, center_y: float, center_z: float,
-                  up_x: float, up_y: float, up_z: float):
+                          up_x: float, up_y: float, up_z: float):
     """
     Return the ortho projection matrix
 

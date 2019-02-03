@@ -1,5 +1,5 @@
 from easygraphics import *
-from easygraphics.utils3d import ortho_look_at, ortho_45
+from easygraphics.utils3d import ortho_look_at, isometric_projection
 from PyQt5.QtGui import QVector3D, QMatrix4x4
 import math
 
