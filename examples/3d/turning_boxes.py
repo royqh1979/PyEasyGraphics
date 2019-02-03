@@ -1,7 +1,6 @@
 import math
 
 from easygraphics import *
-from easygraphics.utils3d import isometric_projection
 from PyQt5.QtGui import QMatrix4x4, QVector3D
 import random
 

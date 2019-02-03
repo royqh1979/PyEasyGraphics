@@ -13,6 +13,7 @@ from .consts import *
 from ._utils import invoke_in_app_thread
 from .graphwin import GraphWin
 from .image import Image
+from .utils3d import *
 
 __all__ = [
     # consts
@@ -53,8 +54,10 @@ __all__ = [
     'begin_recording', 'save_recording', 'add_record', 'end_recording',
     # utility functions #
     'color_gray', 'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol',
+    # utility functions for 3d
+    'ortho_look_at', 'isometric_projection', 'cart2spher', 'spher2cart',
     # 'GraphWin',
-    'Image'
+    'Image',
 ]
 
 _in_ipython = False

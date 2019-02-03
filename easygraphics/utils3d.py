@@ -4,7 +4,7 @@ import math
 __all__ = ['ortho_look_at', 'isometric_projection', 'spher2cart', 'cart2spher']
 
 
-def isometric_projection():
+def isometric_projection() -> QMatrix4x4:
     """
     Return the  isometric perspective projection matrix
     :return:
@@ -16,7 +16,7 @@ def isometric_projection():
 
 def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
                   center_x: float, center_y: float, center_z: float,
-                  up_x: float, up_y: float, up_z: float):
+                  up_x: float, up_y: float, up_z: float) -> QMatrix4x4:
     """
     Return the ortho projection matrix
 
@@ -66,9 +66,9 @@ def _ortho_look_at_custom(eye_x: float, eye_y: float, eye_z: float,
     up = QVector3D.crossProduct(eye, right)
     z_axis = QVector3D(0, 0, 1)
 
-    r, θ, φ = cart2spher(eye_x, eye_y, eye_z)
-    angle = math.pi / 2 - θ
-    angle2 = φ + math.pi
+    r, theta, phi = cart2spher(eye_x, eye_y, eye_z)
+    angle = math.pi / 2 - theta
+    angle2 = phi + math.pi
     base_up = QVector3D(*spher2cart(r, angle, angle2))
     # print("up", up)
     # print("base_up",base_up)
@@ -109,7 +109,7 @@ def _ortho_look_at_custom(eye_x: float, eye_y: float, eye_z: float,
     # angle_project_xy_and_x = math.acos(cos_project_xy_and_x)
     # if eye_project_xy.y() < 0:
     #     angle_project_xy_and_x = 2 * math.pi - angle_project_xy_and_x
-    angle_project_xy_and_x = φ
+    angle_project_xy_and_x = phi
 
     # print("eye", eye)
     # print("eye_project_z", eye_project_z)
@@ -154,8 +154,16 @@ def cart2spher(x: float, y: float, z: float) -> (float, float, float):
     return r, θ, φ
 
 
-def spher2cart(radius: float, θ: float, φ: float) -> (float, float, float):
-    x = radius * math.sin(θ) * math.cos(φ)
-    y = radius * math.sin(θ) * math.sin(φ)
-    z = radius * math.cos(θ)
+def spher2cart(r: float, theta: float, phi: float) -> (float, float, float):
+    """
+    Convert spherical coordinate to cartesian coordinate
+
+    :param r: radius
+    :param theta: θ
+    :param phi: φ
+    :return: x,y,z
+    """
+    x = r * math.sin(theta) * math.cos(phi)
+    y = r * math.sin(theta) * math.sin(phi)
+    z = r * math.cos(theta)
     return x, y, z

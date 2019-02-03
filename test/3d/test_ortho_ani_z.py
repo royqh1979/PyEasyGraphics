@@ -1,5 +1,4 @@
 from easygraphics import *
-from easygraphics.utils3d import ortho_look_at
 from PyQt5.QtGui import QVector3D
 import math
 
@@ -45,6 +44,7 @@ while is_run():
     eye = get_vector(degree, length)
     up = get_vector(degree + 90, length)
     matrix_ortho = ortho_look_at(eye.x(), eye.y(), eye.z(),
+                                 0, 0, 0,
                                  up.x(), up.y(), up.z())
 
     points.clear()
