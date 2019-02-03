@@ -26,7 +26,7 @@ points_3d.append((0, 1, 1))
 points_3d.append((1, 1, 1))
 
 points = []
-z_1 = QVector3D(0, 0, 3)
+z_1 = QVector3D(0, 0, 2)
 
 degree = 0
 length = math.sqrt(2)

@@ -30,6 +30,7 @@ def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
     center = QVector3D(0, 0, 0)
     view = center - eye
     right = QVector3D.crossProduct(up, eye)
+    up = QVector3D.crossProduct(eye, right)
     z_axis = QVector3D(0, 0, 1)
 
     r, θ, φ = cart2spher(eye_x, eye_y, eye_z)
