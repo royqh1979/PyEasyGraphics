@@ -70,11 +70,12 @@ def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
         angle_eye_and_xy = - angle_eye_and_xy
 
     # 求 视线矢量在xy平面上的投影 与 x轴夹角
-    x_axis = QVector3D(1, 0, 0)
-    cos_project_xy_and_x = QVector3D.dotProduct(x_axis, eye_project_xy) / x_axis.length() / eye_project_xy.length()
-    angle_project_xy_and_x = math.acos(cos_project_xy_and_x)
-    if eye_project_xy.y() < 0:
-        angle_project_xy_and_x = 2 * math.pi - angle_project_xy_and_x
+    # x_axis = QVector3D(1, 0, 0)
+    # cos_project_xy_and_x = QVector3D.dotProduct(x_axis, eye_project_xy) / x_axis.length() / eye_project_xy.length()
+    # angle_project_xy_and_x = math.acos(cos_project_xy_and_x)
+    # if eye_project_xy.y() < 0:
+    #     angle_project_xy_and_x = 2 * math.pi - angle_project_xy_and_x
+    angle_project_xy_and_x = φ
 
     # print("eye", eye)
     # print("eye_project_z", eye_project_z)
