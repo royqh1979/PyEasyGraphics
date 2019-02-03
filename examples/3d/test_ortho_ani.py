@@ -40,6 +40,7 @@ while is_run():
     eye = QVector3D(len_x, len_y, 1)
     up = z_1 - eye
     matrix_ortho = ortho_look_at(eye.x(), eye.y(), eye.z(),
+                                 0, 0, 0,
                                  up.x(), up.y(), up.z())
 
     points.clear()

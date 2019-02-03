@@ -1,7 +1,7 @@
 from PyQt5.QtGui import QMatrix4x4, QVector3D
 import math
 
-__all__ = ['ortho_look_at', 'ortho_45']
+__all__ = ['ortho_look_at', 'ortho_45', 'spher2cart', 'cart2spher']
 
 
 def ortho_45():
@@ -9,10 +9,12 @@ def ortho_45():
     Return the ortho projection matrion from 45 degree
     :return:
     """
-    return ortho_look_at(1, 1, 1, -1, -1, 1)
-
+    return ortho_look_at(1, 1, 1,
+                         0, 0, 0,
+                         -1, -1, 1)
 
 def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
+                  center_x: float, center_y: float, center_z: float,
                   up_x: float, up_y: float, up_z: float):
     """
     Return the ortho projection matrix
@@ -20,15 +22,45 @@ def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
     :param eye_x:
     :param eye_y:
     :param eye_z:
+    :param center_x:
+    :param center_y:
+    :param center_z:
     :param up_x:
     :param up_y:
     :param up_z:
     :return: the matrix
     """
-    eye = QVector3D(eye_x, eye_y, eye_z)
+    matrix = QMatrix4x4(1, 0, 0, 0,
+                        0, -1, 0, 0,
+                        0, 0, 0, 0,
+                        0, 0, 0, 1)
+    matrix.lookAt(QVector3D(eye_x, eye_y, eye_z),
+                  QVector3D(center_x, center_y, center_z),
+                  QVector3D(up_x, up_y, up_z))
+    return matrix
+
+
+def _ortho_look_at_custom(eye_x: float, eye_y: float, eye_z: float,
+                          center_x: float, center_y: float, center_z: float,
+                  up_x: float, up_y: float, up_z: float):
+    """
+    Return the ortho projection matrix
+
+    :param eye_x:
+    :param eye_y:
+    :param eye_z:
+    :param center_x:
+    :param center_y:
+    :param center_z:
+    :param up_x:
+    :param up_y:
+    :param up_z:
+    :return: the matrix
+    """
+    eye_base = QVector3D(eye_x, eye_y, eye_z)
     up = QVector3D(up_x, up_y, up_z)
-    center = QVector3D(0, 0, 0)
-    view = center - eye
+    center = QVector3D(center_x, center_y, center_y)
+    eye = eye_base - center
     right = QVector3D.crossProduct(up, eye)
     up = QVector3D.crossProduct(eye, right)
     z_axis = QVector3D(0, 0, 1)

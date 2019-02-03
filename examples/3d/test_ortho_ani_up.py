@@ -45,6 +45,7 @@ while is_run():
     # print(degree)
 
     matrix_ortho = ortho_look_at(eye.x(), eye.y(), eye.z(),
+                                 0, 0, 0,
                                  up.x(), up.y(), up.z())
 
     points.clear()
