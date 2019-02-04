@@ -32,7 +32,7 @@ def ortho_look_at(eye_x: float, eye_y: float, eye_z: float,
     :return: the matrix
     """
     matrix = QMatrix4x4(1, 0, 0, 0,
-                        0, -1, 0, 0,
+                        0, 1, 0, 0,
                         0, 0, 0, 0,
                         0, 0, 0, 1)
     matrix.lookAt(QVector3D(eye_x, eye_y, eye_z),

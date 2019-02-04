@@ -15,6 +15,7 @@ def get_vector(degree1, degree2, length):
 
 init_graph(800, 600)
 translate(400, 300)
+set_flip_y(True)
 scale(100, 100)
 points_3d = []
 points_3d.append((0, 0, 0))

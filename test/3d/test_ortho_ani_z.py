@@ -13,6 +13,7 @@ def edge(i, j, color):
 init_graph(800, 600)
 set_render_mode(RenderMode.RENDER_MANUAL)
 translate(400, 300)
+set_flip_y(True)
 scale(100, 100)
 points_3d = []
 points_3d.append((0, 0, 0))
