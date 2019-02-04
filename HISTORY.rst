@@ -2,6 +2,11 @@
 
 History
 ===========
+1.0.4
+------------
+* remove the y-flip setting in ortho_look_at(). If you want to flip y, use set_flip_y() instead
+
+
 1.0.3
 ------------
 * add: ortho_look_at() function to map 3d point to 2d
