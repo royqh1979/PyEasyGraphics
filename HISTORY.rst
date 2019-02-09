@@ -2,6 +2,11 @@
 
 History
 ===========
+1.0.5
+------------
+add: get_open_file_name() to dialog package.
+
+
 1.0.4
 ------------
 * remove the y-flip setting in ortho_look_at(). If you want to flip y, use set_flip_y() instead

@@ -22,7 +22,7 @@ __all__ = [
     'get_abort', 'get_choice', 'get_color_hex', 'get_color_rgb', 'get_color',
     'get_continue_or_cancel', 'get_date', 'get_directory_name', 'get_file_names',
     'get_float', 'get_int', 'get_integer', 'get_list_of_choices', 'get_many_strings',
-    'get_new_password', 'get_password', 'get_save_file_name', 'get_string',
+    'get_new_password', 'get_open_file_name', 'get_password', 'get_save_file_name', 'get_string',
     'get_username_password', 'get_yes_or_no', 'show_image_dialog', 'show_table',
     'show_lists_table', 'show_html'
 ]
@@ -531,6 +531,20 @@ def get_directory_name(title: str = "Get directory") -> str:
                                                            title, os.getcwd(), options)
     return directory
 
+
+@invoke_in_thread()
+def get_open_file_name(title: str = "Get file name for open") -> str:
+    """
+    Get a file name for open
+
+    :param title: title of the dialog
+    :return: the file name
+    """
+    options = QtWidgets.QFileDialog.Options()
+    options |= QtWidgets.QFileDialog.DontUseNativeDialog
+    file = QtWidgets.QFileDialog.getOpenFileName(None, title, os.getcwd(),
+                                                 "All Files (*.*)", options)
+    return file
 
 @invoke_in_thread()
 def get_file_names(title: str = "Get existing file names") -> str:
