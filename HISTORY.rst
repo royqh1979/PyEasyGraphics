@@ -4,7 +4,7 @@ History
 ===========
 1.0.5
 ------------
-add: get_open_file_name() to dialog package.
+* add: get_open_file_name() to dialog package.
 
 
 1.0.4
