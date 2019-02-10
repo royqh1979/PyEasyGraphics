@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-24 11:56+0800\n"
+"POT-Creation-Date: 2019-02-10 17:29+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -1931,10 +1931,10 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.get_write_mode easygraphics.init_graph easygraphics.line
 #: easygraphics.line_rel easygraphics.line_to easygraphics.lines
 #: easygraphics.load_image easygraphics.mirror easygraphics.move_rel
-#: easygraphics.move_to easygraphics.pie easygraphics.pol2cart
-#: easygraphics.poly_line easygraphics.polygon easygraphics.put_image
-#: easygraphics.put_pixel easygraphics.quadratic easygraphics.rect
-#: easygraphics.reflect easygraphics.reset_transform
+#: easygraphics.move_to easygraphics.ortho_look_at easygraphics.pie
+#: easygraphics.pol2cart easygraphics.poly_line easygraphics.polygon
+#: easygraphics.put_image easygraphics.put_pixel easygraphics.quadratic
+#: easygraphics.rect easygraphics.reflect easygraphics.reset_transform
 #: easygraphics.reset_view_port easygraphics.reset_window
 #: easygraphics.restore_settings easygraphics.rgb easygraphics.rotate
 #: easygraphics.rounded_rect easygraphics.save_image easygraphics.save_settings
@@ -1948,8 +1948,9 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.set_origin easygraphics.set_render_mode easygraphics.set_target
 #: easygraphics.set_transform easygraphics.set_view_port
 #: easygraphics.set_window easygraphics.set_write_mode easygraphics.shear
-#: easygraphics.show_image easygraphics.skew easygraphics.text_height
-#: easygraphics.text_width easygraphics.to_alpha easygraphics.translate of
+#: easygraphics.show_image easygraphics.skew easygraphics.spher2cart
+#: easygraphics.text_height easygraphics.text_width easygraphics.to_alpha
+#: easygraphics.translate of
 msgid "Parameters"
 msgstr "参数"
 
@@ -2005,8 +2006,9 @@ msgstr "要获取线型的图片。None表示使用“绘图目标”图片（�
 #: easygraphics.get_transform easygraphics.get_width
 #: easygraphics.get_write_mode easygraphics.has_kb_hit easygraphics.has_kb_msg
 #: easygraphics.has_mouse_msg easygraphics.is_run easygraphics.load_image
-#: easygraphics.pol2cart easygraphics.rgb easygraphics.set_fill_rule
-#: easygraphics.set_fill_style easygraphics.text_height easygraphics.text_width
+#: easygraphics.ortho_look_at easygraphics.pol2cart easygraphics.rgb
+#: easygraphics.set_fill_rule easygraphics.set_fill_style
+#: easygraphics.spher2cart easygraphics.text_height easygraphics.text_width
 #: easygraphics.to_alpha of
 msgid "Returns"
 msgstr "返回值"
@@ -3686,6 +3688,46 @@ msgid ""
 "between the polar-axis and the line connecting the pole and the point, in"
 " radians)"
 msgstr "极径rho(点到极点的距离), 极角theta(极轴和点到极点间线段的夹角，单位为弧度)"
+
+#: easygraphics.ortho_look_at:1 of
+msgid "Return the ortho projection matrix"
+msgstr ""
+
+#: easygraphics.ortho_look_at:12 of
+#, fuzzy
+msgid "the matrix"
+msgstr "几何变换（Transform)"
+
+#: easygraphics.isometric_projection:1 of
+msgid "Return the  isometric perspective projection matrix :return:"
+msgstr ""
+
+#: easygraphics.cart2spher:1 of
+msgid ""
+"Convert cartesian coordinate to spherical coordinate :param x: :param y: "
+":param z: :return: radius,θ,φ"
+msgstr ""
+
+#: easygraphics.spher2cart:1 of
+#, fuzzy
+msgid "Convert spherical coordinate to cartesian coordinate"
+msgstr "从极坐标转换为笛卡尔坐标。"
+
+#: easygraphics.spher2cart:3 of
+msgid "radius"
+msgstr ""
+
+#: easygraphics.spher2cart:4 of
+msgid "θ"
+msgstr ""
+
+#: easygraphics.spher2cart:5 of
+msgid "φ"
+msgstr ""
+
+#: easygraphics.spher2cart:6 of
+msgid "x,y,z"
+msgstr ""
 
 #: easygraphics.Image:1 of
 msgid "The image class."

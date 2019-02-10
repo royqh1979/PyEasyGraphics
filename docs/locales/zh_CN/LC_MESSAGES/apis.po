@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-24 11:56+0800\n"
+"POT-Creation-Date: 2019-02-10 17:29+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,8 +44,8 @@ msgid "A simple example:"
 msgstr "一个简单的例子："
 
 #: ../../apis/easygraphics.dialog.rst:17
-#: ../../apis/easygraphics.processing.rst:6
-#: ../../apis/easygraphics.turtle.rst:14
+#: ../../apis/easygraphics.processing.rst:41
+#: ../../apis/easygraphics.turtle.rst:31
 msgid "Function list"
 msgstr "函数列表"
 
@@ -343,9 +343,10 @@ msgstr ""
 msgid "Displays a file in a window."
 msgstr "在窗口中显示文件内容。"
 
-#: ../../apis/easygraphics.dialog.rst:52 ../../apis/easygraphics.music.rst:27
-#: ../../apis/easygraphics.processing.rst:50
-#: ../../apis/easygraphics.turtle.rst:84
+#: ../../apis/easygraphics.dialog.rst:52 ../../apis/easygraphics.legacy.rst:9
+#: ../../apis/easygraphics.music.rst:27
+#: ../../apis/easygraphics.processing.rst:85
+#: ../../apis/easygraphics.turtle.rst:101 ../../apis/easygraphics.widget.rst:12
 msgid "Functions"
 msgstr "函数"
 
@@ -355,33 +356,33 @@ msgstr "函数"
 #: easygraphics.dialog.get_float easygraphics.dialog.get_int
 #: easygraphics.dialog.get_integer easygraphics.dialog.get_list_of_choices
 #: easygraphics.dialog.get_many_strings easygraphics.dialog.get_new_password
-#: easygraphics.dialog.get_password easygraphics.dialog.get_save_file_name
-#: easygraphics.dialog.get_string easygraphics.dialog.get_username_password
-#: easygraphics.dialog.get_yes_or_no easygraphics.dialog.set_dialog_font_size
-#: easygraphics.dialog.show_code easygraphics.dialog.show_file
-#: easygraphics.dialog.show_html easygraphics.dialog.show_image_dialog
-#: easygraphics.dialog.show_lists_table easygraphics.dialog.show_message
-#: easygraphics.dialog.show_objects easygraphics.dialog.show_table
-#: easygraphics.dialog.show_text easygraphics.legacy.bar
-#: easygraphics.legacy.circle easygraphics.legacy.cleardevice
-#: easygraphics.legacy.clearviewport easygraphics.legacy.drawpoly
-#: easygraphics.legacy.ellipse easygraphics.legacy.fillellipse
-#: easygraphics.legacy.fillpoly easygraphics.legacy.floodfill
-#: easygraphics.legacy.getbkcolor easygraphics.legacy.getcolor
-#: easygraphics.legacy.getimage easygraphics.legacy.getpixel
-#: easygraphics.legacy.getx easygraphics.legacy.gety
-#: easygraphics.legacy.initgraph easygraphics.legacy.line
-#: easygraphics.legacy.linerel easygraphics.legacy.lineto
-#: easygraphics.legacy.moverel easygraphics.legacy.moveto
-#: easygraphics.legacy.outtext easygraphics.legacy.outtextxy
-#: easygraphics.legacy.putimage easygraphics.legacy.putpixel
-#: easygraphics.legacy.rectangle easygraphics.legacy.sector
-#: easygraphics.legacy.setbkcolor easygraphics.legacy.setcolor
-#: easygraphics.legacy.setviewport easygraphics.legacy.textheight
-#: easygraphics.legacy.textwidth easygraphics.music.fade_out_music
-#: easygraphics.music.load_music easygraphics.music.play_music
-#: easygraphics.music.queue_music easygraphics.music.set_music_pos
-#: easygraphics.music.set_music_volume
+#: easygraphics.dialog.get_open_file_name easygraphics.dialog.get_password
+#: easygraphics.dialog.get_save_file_name easygraphics.dialog.get_string
+#: easygraphics.dialog.get_username_password easygraphics.dialog.get_yes_or_no
+#: easygraphics.dialog.set_dialog_font_size easygraphics.dialog.show_code
+#: easygraphics.dialog.show_file easygraphics.dialog.show_html
+#: easygraphics.dialog.show_image_dialog easygraphics.dialog.show_lists_table
+#: easygraphics.dialog.show_message easygraphics.dialog.show_objects
+#: easygraphics.dialog.show_table easygraphics.dialog.show_text
+#: easygraphics.legacy.bar easygraphics.legacy.circle
+#: easygraphics.legacy.cleardevice easygraphics.legacy.clearviewport
+#: easygraphics.legacy.drawpoly easygraphics.legacy.ellipse
+#: easygraphics.legacy.fillellipse easygraphics.legacy.fillpoly
+#: easygraphics.legacy.floodfill easygraphics.legacy.getbkcolor
+#: easygraphics.legacy.getcolor easygraphics.legacy.getimage
+#: easygraphics.legacy.getpixel easygraphics.legacy.getx
+#: easygraphics.legacy.gety easygraphics.legacy.initgraph
+#: easygraphics.legacy.line easygraphics.legacy.linerel
+#: easygraphics.legacy.lineto easygraphics.legacy.moverel
+#: easygraphics.legacy.moveto easygraphics.legacy.outtext
+#: easygraphics.legacy.outtextxy easygraphics.legacy.putimage
+#: easygraphics.legacy.putpixel easygraphics.legacy.rectangle
+#: easygraphics.legacy.sector easygraphics.legacy.setbkcolor
+#: easygraphics.legacy.setcolor easygraphics.legacy.setviewport
+#: easygraphics.legacy.textheight easygraphics.legacy.textwidth
+#: easygraphics.music.fade_out_music easygraphics.music.load_music
+#: easygraphics.music.play_music easygraphics.music.queue_music
+#: easygraphics.music.set_music_pos easygraphics.music.set_music_volume
 #: easygraphics.processing.ProcessingWidget.set_frame_rate
 #: easygraphics.processing.ProcessingWidget.set_size
 #: easygraphics.processing.run_app easygraphics.processing.set_frame_rate
@@ -536,16 +537,16 @@ msgstr "包含待选择项名称的列表。"
 #: easygraphics.dialog.get_float easygraphics.dialog.get_int
 #: easygraphics.dialog.get_integer easygraphics.dialog.get_list_of_choices
 #: easygraphics.dialog.get_many_strings easygraphics.dialog.get_new_password
-#: easygraphics.dialog.get_password easygraphics.dialog.get_save_file_name
-#: easygraphics.dialog.get_string easygraphics.dialog.get_username_password
-#: easygraphics.dialog.get_yes_or_no easygraphics.legacy.getbkcolor
-#: easygraphics.legacy.getcolor easygraphics.legacy.getfillsettings
-#: easygraphics.legacy.getlinesettings easygraphics.legacy.getmaxx
-#: easygraphics.legacy.getmaxy easygraphics.legacy.getpixel
-#: easygraphics.legacy.getx easygraphics.legacy.gety
-#: easygraphics.legacy.textheight easygraphics.legacy.textwidth
-#: easygraphics.music.get_music_pos easygraphics.music.get_music_volume
-#: easygraphics.music.is_music_playing
+#: easygraphics.dialog.get_open_file_name easygraphics.dialog.get_password
+#: easygraphics.dialog.get_save_file_name easygraphics.dialog.get_string
+#: easygraphics.dialog.get_username_password easygraphics.dialog.get_yes_or_no
+#: easygraphics.legacy.getbkcolor easygraphics.legacy.getcolor
+#: easygraphics.legacy.getfillsettings easygraphics.legacy.getlinesettings
+#: easygraphics.legacy.getmaxx easygraphics.legacy.getmaxy
+#: easygraphics.legacy.getpixel easygraphics.legacy.getx
+#: easygraphics.legacy.gety easygraphics.legacy.textheight
+#: easygraphics.legacy.textwidth easygraphics.music.get_music_pos
+#: easygraphics.music.get_music_volume easygraphics.music.is_music_playing
 #: easygraphics.processing.ProcessingWidget.get_canvas
 #: easygraphics.processing.ProcessingWidget.get_frame_rate
 #: easygraphics.processing.draw easygraphics.processing.get_frame_rate
@@ -761,6 +762,18 @@ msgid ""
 "Note: this function is a special case of ``get_many_strings`` where the "
 "required masks are provided automatically.."
 msgstr "注意：该函数是``get_many_strings``的特例，密码会被自动隐藏显示。"
+
+#: easygraphics.dialog.get_open_file_name:1 of
+msgid "Get a file name for open"
+msgstr "选择要打开的文件"
+
+#: easygraphics.dialog.get_open_file_name:3 of
+msgid "title of the dialog"
+msgstr "对话框窗口标题"
+
+#: easygraphics.dialog.get_open_file_name:4 of
+msgid "the file name"
+msgstr "文件路径"
 
 #: easygraphics.dialog.get_password:1 of
 msgid "Simple password input box.  Used to query the user and get a string back."
@@ -1683,196 +1696,196 @@ msgstr "easygraphics.processing包"
 msgid "A Processing (http://processing.org) like animation graphics module"
 msgstr "模仿Processing(http://processing.org)的动画模块。"
 
-#: ../../apis/easygraphics.processing.rst:11
+#: ../../apis/easygraphics.processing.rst:46
 msgid "Main App"
 msgstr "主程序"
 
-#: ../../apis/easygraphics.processing.rst:15:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:50:<autosummary>:1
 msgid ":obj:`run_app <easygraphics.processing.run_app>`\\ \\(\\_globals\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:15:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:50:<autosummary>:1
 #: easygraphics.processing.run_app:1 of
 msgid "Run the processing app."
 msgstr "运行Processing程序。"
 
-#: ../../apis/easygraphics.processing.rst:17
+#: ../../apis/easygraphics.processing.rst:52
 msgid "To be redefined(Override)"
 msgstr "待自定义（覆写）函数"
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ":obj:`draw <easygraphics.processing.draw>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.draw:1
 #: easygraphics.processing.draw:1 of
 msgid "Draw an animation frame."
 msgstr "绘制一帧动画。"
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ":obj:`setup <easygraphics.processing.setup>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.setup:1 of
 msgid "Set up the processing context."
 msgstr "设置Processing环境。"
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ""
 ":obj:`on_mouse_clicked <easygraphics.processing.on_mouse_clicked>`\\ "
 "\\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_clicked:1
 #: easygraphics.processing.on_mouse_clicked:1 of
 msgid "The mouse click event handler."
 msgstr "鼠标点击事件处理函数（方法）。"
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ""
 ":obj:`on_mouse_dragged <easygraphics.processing.on_mouse_dragged>`\\ "
 "\\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_dragged:1
 #: easygraphics.processing.on_mouse_dragged:1 of
 msgid "The mouse drag event handler."
 msgstr "鼠标拖动事件处理函数（方法）。"
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ""
 ":obj:`on_mouse_pressed <easygraphics.processing.on_mouse_pressed>`\\ "
 "\\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_pressed:1
 #: easygraphics.processing.on_mouse_pressed:1 of
 msgid "The mouse press event handler."
 msgstr "按下鼠标按钮事件处理函数（方法）。"
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ""
 ":obj:`on_mouse_released <easygraphics.processing.on_mouse_released>`\\ "
 "\\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_released:1
 #: easygraphics.processing.on_mouse_released:1 of
 msgid "The mouse release event handler."
 msgstr "松开鼠标按钮事件处理函数（方法）。"
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ":obj:`on_mouse_wheel <easygraphics.processing.on_mouse_wheel>`\\ \\(e\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:28:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_wheel:1
 #: easygraphics.processing.on_mouse_wheel:1 of
 msgid "The mouse wheel event handler."
 msgstr "鼠标滚轮事件处理函数（方法）。"
 
-#: ../../apis/easygraphics.processing.rst:30
+#: ../../apis/easygraphics.processing.rst:65
 msgid "Control and Settings"
 msgstr "控制与设置"
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`full_screen <easygraphics.processing.full_screen>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.full_screen:1 of
 msgid "Open a full screen canvas."
 msgstr "打开一个全屏幕大小的画布。"
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`get_frame_rate <easygraphics.processing.get_frame_rate>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.get_frame_rate:1
 #: easygraphics.processing.get_frame_rate:1 of
 msgid "Get the animation frame rate (fps)."
 msgstr "获取动画的帧率(fps)。"
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`loop <easygraphics.processing.loop>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.loop:1
 #: easygraphics.processing.loop:1 of
 msgid "Start looping."
 msgstr "开始动画循环。"
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`mouse_pressed <easygraphics.processing.mouse_pressed>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid "bool(x) -> bool"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`mouse_x <easygraphics.processing.mouse_x>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid "int([x]) -> integer int(x, base=10) -> integer"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`mouse_y <easygraphics.processing.mouse_y>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`noloop <easygraphics.processing.noloop>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.noloop:1
 #: easygraphics.processing.noloop:1 of
 msgid "Stop looping."
 msgstr "停止动画循环。"
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`prev_mouse_x <easygraphics.processing.prev_mouse_x>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`prev_mouse_y <easygraphics.processing.prev_mouse_y>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`redraw <easygraphics.processing.redraw>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.redraw:1
 #: easygraphics.processing.redraw:1 of
 msgid "Call draw() to draw a frame once."
 msgstr "调用一次draw()函数，来绘制动画的一帧。"
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`set_frame_rate <easygraphics.processing.set_frame_rate>`\\ \\(fps\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.set_frame_rate:1
 #: easygraphics.processing.set_frame_rate:1 of
 msgid "Set the animation frame rate (fps)."
 msgstr "获取动画的帧率(fps)。"
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`set_size <easygraphics.processing.set_size>`\\ \\(width\\, height\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:48:<autosummary>:1
+#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.set_size:1 of
 msgid "Open a canvas window with the specified size."
 msgstr "打开指定大小的画布(canvas)窗口。"
@@ -2011,95 +2024,95 @@ msgid ""
 "the graphics window, and Y-axis is bottom-up."
 msgstr "注意，在海龟作图中，原点(0,0)是绘图窗口的中心，Y轴朝上。"
 
-#: ../../apis/easygraphics.turtle.rst:19
+#: ../../apis/easygraphics.turtle.rst:36
 msgid "World Setting"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ""
 ":obj:`create_world <easygraphics.turtle.create_world>`\\ \\(width\\, "
 "height\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.create_world:1 of
 msgid "Create an world for turtle drawing."
 msgstr "创建一个海龟作图的世界。"
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`close_world <easygraphics.turtle.close_world>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.close_world:1 of
 msgid "Close the turtle world and the graphics window."
 msgstr "关闭海龟世界和绘图窗口"
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`get_turtle <easygraphics.turtle.get_turtle>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.get_turtle:1 of
 msgid "Get the current turtle."
 msgstr "获取当前的海龟。"
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`get_turtle_world <easygraphics.turtle.get_turtle_world>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.get_turtle_world:1 of
 msgid "Get the current turtle world."
 msgstr "获取当前的海龟世界。"
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`is_run <easygraphics.turtle.is_run>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.is_run:1 of
 msgid "Test if the graphics system is running."
 msgstr "检查图形系统是否在运行。"
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`pause <easygraphics.turtle.pause>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.pause:1 of
 msgid "Pause the program and wait for mouse clicking or keyboard hitting."
 msgstr "暂停程序，等待鼠标或者键盘按键。"
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`set_immediate <easygraphics.turtle.set_immediate>`\\ \\(immediate\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.set_immediate:1 of
 msgid "Set if there are animations when the turtle moving."
 msgstr "设置当海龟移动时，是否显示动画"
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ""
 ":obj:`set_pen_size <easygraphics.turtle.set_pen_size>`\\ \\(width\\, "
 "image\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:30:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.set_pen_size:1 of
 msgid "Set line width (thickness) of the specified image."
 msgstr "设置指定图片的线宽（笔宽）。"
 
-#: ../../apis/easygraphics.turtle.rst:32
+#: ../../apis/easygraphics.turtle.rst:49
 msgid "Turtle movement"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`back <easygraphics.turtle.back>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.back:1 easygraphics.turtle.Turtle.backward:1
 #: easygraphics.turtle.Turtle.bk:1 easygraphics.turtle.back:1
 #: easygraphics.turtle.backward:1 easygraphics.turtle.bk:1 of
@@ -2108,28 +2121,28 @@ msgid ""
 "turtle is heading."
 msgstr "让海龟沿着当前的朝向向后移动指定的距离。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`backward <easygraphics.turtle.backward>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`bk <easygraphics.turtle.bk>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`facing <easygraphics.turtle.facing>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.facing:1 easygraphics.turtle.facing:1 of
 msgid "Turn the turtle to face the point(x,y)."
 msgstr "转动海龟，朝向点(x,y)。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`fd <easygraphics.turtle.fd>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.fd:1 easygraphics.turtle.Turtle.forward:1
 #: easygraphics.turtle.fd:1 easygraphics.turtle.forward:1 of
 msgid ""
@@ -2137,237 +2150,237 @@ msgid ""
 "turtle is heading."
 msgstr "让海龟顺着当前朝向移动指定的距离。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`forward <easygraphics.turtle.forward>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`gotoxy <easygraphics.turtle.gotoxy>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid "Move the turtle to point (x,y)."
 msgstr "移动海龟到点(x,y)。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`get_heading <easygraphics.turtle.get_heading>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.get_heading:1 easygraphics.turtle.get_heading:1
 #: of
 msgid "Get the turtle's heading angle."
 msgstr "获取海龟的朝向（角度）"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`get_x <easygraphics.turtle.get_x>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.get_x:1 easygraphics.turtle.get_x:1 of
 msgid "Get the turtle's current x position."
 msgstr "获取海龟当前位置的x坐标。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`get_y <easygraphics.turtle.get_y>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.get_y:1 easygraphics.turtle.get_y:1 of
 msgid "Get the turtle's current y position."
 msgstr "获取海龟当前位置的y坐标。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`home <easygraphics.turtle.home>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid "Move the turtle back to the origin(0,0), and heading up."
 msgstr "将海龟移动到原点(0,0)，朝向向上。如果画笔处于落下状态，则会留下移动的痕迹。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`is_out_of_window <easygraphics.turtle.is_out_of_window>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.is_out_of_window:1
 #: easygraphics.turtle.is_out_of_window:1 of
 msgid "Test if the turtle is out of the graphics window."
 msgstr "检查海龟是否到图形窗口外。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`hide <easygraphics.turtle.hide>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.hide:1 easygraphics.turtle.hide:1 of
 msgid "Hide the turtle."
 msgstr "隐藏海龟。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`left <easygraphics.turtle.left>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.left:1 easygraphics.turtle.Turtle.left_turn:1
 #: easygraphics.turtle.Turtle.lt:1 easygraphics.turtle.left:1
 #: easygraphics.turtle.left_turn:1 easygraphics.turtle.lt:1 of
 msgid "Turn turtle left (counter-clockwise) by \"degree\" degree."
 msgstr "让海龟向左（逆时针）转动“degree”度。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`left_turn <easygraphics.turtle.left_turn>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`lt <easygraphics.turtle.lt>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`move_arc <easygraphics.turtle.move_arc>`\\ \\(radius\\, angle\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid "The center is radius units left of the turtle."
 msgstr "圆心在海龟左侧距离海龟radius远处"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ""
 ":obj:`move_ellipse <easygraphics.turtle.move_ellipse>`\\ "
 "\\(radius\\_left\\, radius\\_top\\, angle\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.move_ellipse:1 easygraphics.turtle.move_ellipse:1
 #: of
 msgid "Move the turtle in an elliptical path."
 msgstr "让海龟沿椭圆弧移动。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`right <easygraphics.turtle.right>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.right:1 easygraphics.turtle.Turtle.right_turn:1
 #: easygraphics.turtle.Turtle.rt:1 easygraphics.turtle.right:1
 #: easygraphics.turtle.right_turn:1 easygraphics.turtle.rt:1 of
 msgid "Turn turtle right (clockwise) by \"degree\" degree."
 msgstr "让海龟向右（顺时针）转动“degree”度。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`right_turn <easygraphics.turtle.right_turn>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`rt <easygraphics.turtle.rt>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`set_heading <easygraphics.turtle.set_heading>`\\ \\(angle\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.set_heading:1 easygraphics.turtle.set_heading:1
 #: of
 msgid "Set the angle current heading to the specified angle."
 msgstr "设置海龟朝向指定的角度。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`setxy <easygraphics.turtle.setxy>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid "Set the turtle's current position to point (x,y)."
 msgstr "将海龟的当前位置设置到点(x,y)。不会留下移动的痕迹。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`set_speed <easygraphics.turtle.set_speed>`\\ \\(speed\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.set_speed:1 easygraphics.turtle.set_speed:1 of
 msgid "Set moving speed of the turtle."
 msgstr "设置海龟的移动速度"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`turn_to <easygraphics.turtle.turn_to>`\\ \\(angle\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.turn_to:1 easygraphics.turtle.turn_to:1 of
 msgid "Turn the angle to orient to the specified angle."
 msgstr "让海龟转动到朝向指定的角度。"
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`show <easygraphics.turtle.show>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:61:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.show:1 easygraphics.turtle.show:1 of
 msgid "Show the turtle."
 msgstr "显示海龟。"
 
-#: ../../apis/easygraphics.turtle.rst:63
+#: ../../apis/easygraphics.turtle.rst:80
 msgid "Pen and Screen Settings"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`clear_screen <easygraphics.turtle.clear_screen>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid "Delete all drawings from the screen."
 msgstr "从屏幕上清除所有已绘制的图形。不改变海龟的位置和朝向。"
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`cs <easygraphics.turtle.cs>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`begin_fill <easygraphics.turtle.begin_fill>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 #: easygraphics.turtle.Turtle.begin_fill:1 easygraphics.turtle.begin_fill:1 of
 msgid "Begin to record the turtle's shape drawing path for filling."
 msgstr "开始记录海龟的移动轨迹，用于填充。"
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`end_fill <easygraphics.turtle.end_fill>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 #: easygraphics.turtle.Turtle.end_fill:1 easygraphics.turtle.end_fill:1 of
 msgid ""
 "Fill the shape enclosed by the turtle's drawing path after the last call "
 "to begin_fill."
 msgstr "填充从上一次begin_fill()开始，海龟移动的轨迹形成的封闭图形。"
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`pd <easygraphics.turtle.pd>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 #: easygraphics.turtle.Turtle.pd:1 easygraphics.turtle.Turtle.pen_down:1
 #: easygraphics.turtle.pd:1 easygraphics.turtle.pen_down:1 of
 msgid "Pull the pen down – drawing when the turtle moving."
 msgstr "画笔落下（海龟移动时留下痕迹）。"
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`pen_down <easygraphics.turtle.pen_down>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`pen_up <easygraphics.turtle.pen_up>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 #: easygraphics.turtle.Turtle.pen_up:1 easygraphics.turtle.Turtle.pu:1
 #: easygraphics.turtle.pen_up:1 easygraphics.turtle.pu:1 of
 msgid "Pull the pen up – no drawing when the turtle moving."
 msgstr "画笔抬起（海龟移动时不留痕迹）。"
 
-#: ../../apis/easygraphics.turtle.rst:82:<autosummary>:1
+#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`pu <easygraphics.turtle.pu>`\\ \\(\\)"
 msgstr ""
 
