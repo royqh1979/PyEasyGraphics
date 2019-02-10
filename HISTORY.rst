@@ -5,6 +5,8 @@ History
 1.0.5
 ------------
 * add: get_open_file_name() to dialog package.
+* fix: get_open_file_name()/get_file_names()/get_save_file_name() not work
+* change: get_open_file_name()/get_file_names()/get_save_file_name() return filename(s), instead of tuple
 
 
 1.0.4

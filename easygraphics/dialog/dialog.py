@@ -223,7 +223,7 @@ def get_int(message: str = "Choose a number", title: str = "Title",
        If ``default_value`` is larger than ``max_``, it is set to ``max_``;
        if it is smaller than ``min_``, it is set to ``min_``.
 
-       >>> number = easy.get_integer("Enter a number", default_value=125)
+       >>> number = get_integer("Enter a number", default_value=125)
 
        .. image:: ../../docs/images/dialogs/get_int2.png
 
@@ -388,7 +388,7 @@ def get_username_password(title: str = "Title", labels: List[str] = None) -> Ind
     the required masks are provided automatically..
 
     >>> from easygraphics.dialog import *
-    >>> reply = easy.get_username_password()
+    >>> reply = get_username_password()
     >>> reply
     OrderedDict([('User name', 'aroberge'), ('Password', 'not a good password')])
 
@@ -423,7 +423,7 @@ def get_new_password(title: str = "Title", labels: List[str] = None) -> IndexedO
     the required masks are provided automatically..
 
     >>> from easygraphics.dialog import *
-    >>> reply = easy.get_new_password()
+    >>> reply = get_new_password()
 
     .. image:: ../../docs/images/dialogs/get_new_password.png
     """
@@ -542,8 +542,8 @@ def get_open_file_name(title: str = "Get file name for open") -> str:
     """
     options = QtWidgets.QFileDialog.Options()
     options |= QtWidgets.QFileDialog.DontUseNativeDialog
-    file = QtWidgets.QFileDialog.getOpenFileName(None, title, os.getcwd(),
-                                                 "All Files (*.*)", options)
+    file, _ = QtWidgets.QFileDialog.getOpenFileName(None, title, os.getcwd(),
+                                                    "All Files (*.*)", "", options)
     return file
 
 @invoke_in_thread()
@@ -556,7 +556,7 @@ def get_file_names(title: str = "Get existing file names") -> str:
            (It can be an empty list.)
 
     >>> from easygraphics.dialog import *
-    >>> easy.get_file_names()
+    >>> get_file_names()
 
     .. image:: ../../docs/images/dialogs/get_file_names.png
 
@@ -565,8 +565,8 @@ def get_file_names(title: str = "Get existing file names") -> str:
     """
     options = QtWidgets.QFileDialog.Options()
     options |= QtWidgets.QFileDialog.DontUseNativeDialog
-    files = QtWidgets.QFileDialog.getOpenFileNames(None, title, os.getcwd(),
-                                                   "All Files (*.*)", options)
+    files, _ = QtWidgets.QFileDialog.getOpenFileNames(None, title, os.getcwd(),
+                                                      "All Files (*.*)", "", options)
     return files
 
 
@@ -583,7 +583,7 @@ def get_save_file_name(title: str = "File name to save") -> str:
     only return a string containing the full path of the chosen file.
 
     >>> from easygraphics.dialog import *
-    >>> easy.get_save_file_name()
+    >>> get_save_file_name()
 
     .. image:: ../../docs/images/dialogs/get_save_file_name.png
 
@@ -592,8 +592,8 @@ def get_save_file_name(title: str = "File name to save") -> str:
     """
     options = QtWidgets.QFileDialog.Options()
     options |= QtWidgets.QFileDialog.DontUseNativeDialog  # see get_directory_name
-    file_name = QtWidgets.QFileDialog.getSaveFileName(None, title, os.getcwd(),
-                                                      "All Files (*.*)", options)
+    file_name, _ = QtWidgets.QFileDialog.getSaveFileName(None, title, os.getcwd(),
+                                                         "All Files (*.*)", "", options)
     return file_name
 
 
@@ -629,7 +629,7 @@ def show_file(file_name: str = None, title: str = "Title", file_type: str = "tex
     **Note**: a better Python code hightlighter would be most welcome!
 
     >>> from easygraphics.dialog import *
-    >>> easy.show_file()
+    >>> show_file()
 
     .. image:: ../../docs/images/dialogs/show_file.png
     """
