@@ -2,6 +2,10 @@
 
 History
 ===========
+1.0.6
+------------
+* change: get_open_file_name()/get_file_names()/get_save_file_name() now use native dialogs, to avoid
+  crash on pyqt >= 5.11.3
 1.0.5
 ------------
 * add: get_open_file_name() to dialog package.

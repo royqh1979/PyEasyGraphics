@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-24 15:21+0800\n"
+"POT-Creation-Date: 2019-02-10 17:29+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -354,33 +354,33 @@ msgstr ""
 #: easygraphics.dialog.get_float easygraphics.dialog.get_int
 #: easygraphics.dialog.get_integer easygraphics.dialog.get_list_of_choices
 #: easygraphics.dialog.get_many_strings easygraphics.dialog.get_new_password
-#: easygraphics.dialog.get_password easygraphics.dialog.get_save_file_name
-#: easygraphics.dialog.get_string easygraphics.dialog.get_username_password
-#: easygraphics.dialog.get_yes_or_no easygraphics.dialog.set_dialog_font_size
-#: easygraphics.dialog.show_code easygraphics.dialog.show_file
-#: easygraphics.dialog.show_html easygraphics.dialog.show_image_dialog
-#: easygraphics.dialog.show_lists_table easygraphics.dialog.show_message
-#: easygraphics.dialog.show_objects easygraphics.dialog.show_table
-#: easygraphics.dialog.show_text easygraphics.legacy.bar
-#: easygraphics.legacy.circle easygraphics.legacy.cleardevice
-#: easygraphics.legacy.clearviewport easygraphics.legacy.drawpoly
-#: easygraphics.legacy.ellipse easygraphics.legacy.fillellipse
-#: easygraphics.legacy.fillpoly easygraphics.legacy.floodfill
-#: easygraphics.legacy.getbkcolor easygraphics.legacy.getcolor
-#: easygraphics.legacy.getimage easygraphics.legacy.getpixel
-#: easygraphics.legacy.getx easygraphics.legacy.gety
-#: easygraphics.legacy.initgraph easygraphics.legacy.line
-#: easygraphics.legacy.linerel easygraphics.legacy.lineto
-#: easygraphics.legacy.moverel easygraphics.legacy.moveto
-#: easygraphics.legacy.outtext easygraphics.legacy.outtextxy
-#: easygraphics.legacy.putimage easygraphics.legacy.putpixel
-#: easygraphics.legacy.rectangle easygraphics.legacy.sector
-#: easygraphics.legacy.setbkcolor easygraphics.legacy.setcolor
-#: easygraphics.legacy.setviewport easygraphics.legacy.textheight
-#: easygraphics.legacy.textwidth easygraphics.music.fade_out_music
-#: easygraphics.music.load_music easygraphics.music.play_music
-#: easygraphics.music.queue_music easygraphics.music.set_music_pos
-#: easygraphics.music.set_music_volume
+#: easygraphics.dialog.get_open_file_name easygraphics.dialog.get_password
+#: easygraphics.dialog.get_save_file_name easygraphics.dialog.get_string
+#: easygraphics.dialog.get_username_password easygraphics.dialog.get_yes_or_no
+#: easygraphics.dialog.set_dialog_font_size easygraphics.dialog.show_code
+#: easygraphics.dialog.show_file easygraphics.dialog.show_html
+#: easygraphics.dialog.show_image_dialog easygraphics.dialog.show_lists_table
+#: easygraphics.dialog.show_message easygraphics.dialog.show_objects
+#: easygraphics.dialog.show_table easygraphics.dialog.show_text
+#: easygraphics.legacy.bar easygraphics.legacy.circle
+#: easygraphics.legacy.cleardevice easygraphics.legacy.clearviewport
+#: easygraphics.legacy.drawpoly easygraphics.legacy.ellipse
+#: easygraphics.legacy.fillellipse easygraphics.legacy.fillpoly
+#: easygraphics.legacy.floodfill easygraphics.legacy.getbkcolor
+#: easygraphics.legacy.getcolor easygraphics.legacy.getimage
+#: easygraphics.legacy.getpixel easygraphics.legacy.getx
+#: easygraphics.legacy.gety easygraphics.legacy.initgraph
+#: easygraphics.legacy.line easygraphics.legacy.linerel
+#: easygraphics.legacy.lineto easygraphics.legacy.moverel
+#: easygraphics.legacy.moveto easygraphics.legacy.outtext
+#: easygraphics.legacy.outtextxy easygraphics.legacy.putimage
+#: easygraphics.legacy.putpixel easygraphics.legacy.rectangle
+#: easygraphics.legacy.sector easygraphics.legacy.setbkcolor
+#: easygraphics.legacy.setcolor easygraphics.legacy.setviewport
+#: easygraphics.legacy.textheight easygraphics.legacy.textwidth
+#: easygraphics.music.fade_out_music easygraphics.music.load_music
+#: easygraphics.music.play_music easygraphics.music.queue_music
+#: easygraphics.music.set_music_pos easygraphics.music.set_music_volume
 #: easygraphics.processing.ProcessingWidget.set_frame_rate
 #: easygraphics.processing.ProcessingWidget.set_size
 #: easygraphics.processing.run_app easygraphics.processing.set_frame_rate
@@ -532,16 +532,16 @@ msgstr ""
 #: easygraphics.dialog.get_float easygraphics.dialog.get_int
 #: easygraphics.dialog.get_integer easygraphics.dialog.get_list_of_choices
 #: easygraphics.dialog.get_many_strings easygraphics.dialog.get_new_password
-#: easygraphics.dialog.get_password easygraphics.dialog.get_save_file_name
-#: easygraphics.dialog.get_string easygraphics.dialog.get_username_password
-#: easygraphics.dialog.get_yes_or_no easygraphics.legacy.getbkcolor
-#: easygraphics.legacy.getcolor easygraphics.legacy.getfillsettings
-#: easygraphics.legacy.getlinesettings easygraphics.legacy.getmaxx
-#: easygraphics.legacy.getmaxy easygraphics.legacy.getpixel
-#: easygraphics.legacy.getx easygraphics.legacy.gety
-#: easygraphics.legacy.textheight easygraphics.legacy.textwidth
-#: easygraphics.music.get_music_pos easygraphics.music.get_music_volume
-#: easygraphics.music.is_music_playing
+#: easygraphics.dialog.get_open_file_name easygraphics.dialog.get_password
+#: easygraphics.dialog.get_save_file_name easygraphics.dialog.get_string
+#: easygraphics.dialog.get_username_password easygraphics.dialog.get_yes_or_no
+#: easygraphics.legacy.getbkcolor easygraphics.legacy.getcolor
+#: easygraphics.legacy.getfillsettings easygraphics.legacy.getlinesettings
+#: easygraphics.legacy.getmaxx easygraphics.legacy.getmaxy
+#: easygraphics.legacy.getpixel easygraphics.legacy.getx
+#: easygraphics.legacy.gety easygraphics.legacy.textheight
+#: easygraphics.legacy.textwidth easygraphics.music.get_music_pos
+#: easygraphics.music.get_music_volume easygraphics.music.is_music_playing
 #: easygraphics.processing.ProcessingWidget.get_canvas
 #: easygraphics.processing.ProcessingWidget.get_frame_rate
 #: easygraphics.processing.draw easygraphics.processing.get_frame_rate
@@ -754,6 +754,18 @@ msgstr ""
 msgid ""
 "Note: this function is a special case of ``get_many_strings`` where the "
 "required masks are provided automatically.."
+msgstr ""
+
+#: easygraphics.dialog.get_open_file_name:1 of
+msgid "Get a file name for open"
+msgstr ""
+
+#: easygraphics.dialog.get_open_file_name:3 of
+msgid "title of the dialog"
+msgstr ""
+
+#: easygraphics.dialog.get_open_file_name:4 of
+msgid "the file name"
 msgstr ""
 
 #: easygraphics.dialog.get_password:1 of

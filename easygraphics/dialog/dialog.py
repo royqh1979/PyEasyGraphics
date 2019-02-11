@@ -541,9 +541,9 @@ def get_open_file_name(title: str = "Get file name for open") -> str:
     :return: the file name
     """
     options = QtWidgets.QFileDialog.Options()
-    options |= QtWidgets.QFileDialog.DontUseNativeDialog
+    #    options |= QtWidgets.QFileDialog.DontUseNativeDialog
     file, _ = QtWidgets.QFileDialog.getOpenFileName(None, title, os.getcwd(),
-                                                    "All Files (*.*)", "", options)
+                                                    "All Files (*.*)", None, options)
     return file
 
 @invoke_in_thread()
@@ -564,9 +564,9 @@ def get_file_names(title: str = "Get existing file names") -> str:
     working directory.
     """
     options = QtWidgets.QFileDialog.Options()
-    options |= QtWidgets.QFileDialog.DontUseNativeDialog
+    #    options |= QtWidgets.QFileDialog.DontUseNativeDialog
     files, _ = QtWidgets.QFileDialog.getOpenFileNames(None, title, os.getcwd(),
-                                                      "All Files (*.*)", "", options)
+                                                      "All Files (*.*)", None, options)
     return files
 
 
@@ -591,9 +591,9 @@ def get_save_file_name(title: str = "File name to save") -> str:
     working directory.
     """
     options = QtWidgets.QFileDialog.Options()
-    options |= QtWidgets.QFileDialog.DontUseNativeDialog  # see get_directory_name
+    #    options |= QtWidgets.QFileDialog.DontUseNativeDialog  # see get_directory_name
     file_name, _ = QtWidgets.QFileDialog.getSaveFileName(None, title, os.getcwd(),
-                                                         "All Files (*.*)", "", options)
+                                                         "All Files (*.*)", None, options)
     return file_name
 
 
