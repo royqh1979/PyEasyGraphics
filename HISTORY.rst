@@ -6,6 +6,8 @@ History
 ------------
 * change: get_open_file_name()/get_file_names()/get_save_file_name() now use native dialogs, to avoid
   crash on pyqt >= 5.11.3
+* add: FileFilter const class, and filter parameter in get_open_file_name()/get_file_names()/get_save_file_name()
+
 1.0.5
 ------------
 * add: get_open_file_name() to dialog package.

@@ -24,7 +24,7 @@ __all__ = [
     'get_float', 'get_int', 'get_integer', 'get_list_of_choices', 'get_many_strings',
     'get_new_password', 'get_open_file_name', 'get_password', 'get_save_file_name', 'get_string',
     'get_username_password', 'get_yes_or_no', 'show_image_dialog', 'show_table',
-    'show_lists_table', 'show_html'
+    'show_lists_table', 'show_html', 'FileFilter'
 ]
 
 
@@ -524,7 +524,7 @@ def get_directory_name(title: str = "Get directory") -> str:
     options = QtWidgets.QFileDialog.Options()
     # Without the following option (i.e. using native dialogs),
     # calling this function twice in a row made Python crash.
-    options |= QtWidgets.QFileDialog.DontUseNativeDialog
+    # options |= QtWidgets.QFileDialog.DontUseNativeDialog
     options |= QtWidgets.QFileDialog.DontResolveSymlinks
     options |= QtWidgets.QFileDialog.ShowDirsOnly
     directory = QtWidgets.QFileDialog.getExistingDirectory(None,
@@ -532,26 +532,34 @@ def get_directory_name(title: str = "Get directory") -> str:
     return directory
 
 
+class FileFilter:
+    AllFiles = "All Files (*.*)"
+    ImageFiles = "Image Files (*.png *.gif *.jpg *.webp *.bmp)"
+    TxtFiles = "Text Files (*.txt)"
+    PythonFiles = "Python Files (*.py)"
+
 @invoke_in_thread()
-def get_open_file_name(title: str = "Get file name for open") -> str:
+def get_open_file_name(title: str = "Get file name for open", filter: str = FileFilter.AllFiles) -> str:
     """
     Get a file name for open
 
     :param title: title of the dialog
+    :param filter: file filter
     :return: the file name
     """
     options = QtWidgets.QFileDialog.Options()
     #    options |= QtWidgets.QFileDialog.DontUseNativeDialog
     file, _ = QtWidgets.QFileDialog.getOpenFileName(None, title, os.getcwd(),
-                                                    "All Files (*.*)", None, options)
+                                                    filter, None, options)
     return file
 
 @invoke_in_thread()
-def get_file_names(title: str = "Get existing file names") -> str:
+def get_file_names(title: str = "Get existing file names", filter: str = FileFilter.AllFiles) -> str:
     """
     Gets the names (full path) of existing files
 
     :param title: Window title
+    :param filter: file filter
     :return: the list of names (paths) of files selected.
            (It can be an empty list.)
 
@@ -566,15 +574,16 @@ def get_file_names(title: str = "Get existing file names") -> str:
     options = QtWidgets.QFileDialog.Options()
     #    options |= QtWidgets.QFileDialog.DontUseNativeDialog
     files, _ = QtWidgets.QFileDialog.getOpenFileNames(None, title, os.getcwd(),
-                                                      "All Files (*.*)", None, options)
+                                                      filter, None, options)
     return files
 
 
 @invoke_in_thread()
-def get_save_file_name(title: str = "File name to save") -> str:
+def get_save_file_name(title: str = "File name to save", filter: str = FileFilter.AllFiles) -> str:
     """
     Gets the name (full path) of of a file to be saved.
 
+    :param title: Window title
     :param title: Window title
     :return: the name (path) of file selected
 
@@ -593,7 +602,7 @@ def get_save_file_name(title: str = "File name to save") -> str:
     options = QtWidgets.QFileDialog.Options()
     #    options |= QtWidgets.QFileDialog.DontUseNativeDialog  # see get_directory_name
     file_name, _ = QtWidgets.QFileDialog.getSaveFileName(None, title, os.getcwd(),
-                                                         "All Files (*.*)", None, options)
+                                                         filter, None, options)
     return file_name
 
 
