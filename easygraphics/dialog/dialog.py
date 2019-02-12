@@ -537,6 +537,7 @@ class FileFilter:
     ImageFiles = "Image Files (*.png *.gif *.jpg *.webp *.bmp)"
     TxtFiles = "Text Files (*.txt)"
     PythonFiles = "Python Files (*.py)"
+    CSVFiles = "CSV Files (*.csv)"
 
 @invoke_in_thread()
 def get_open_file_name(title: str = "Get file name for open", filter: str = FileFilter.AllFiles) -> str:
