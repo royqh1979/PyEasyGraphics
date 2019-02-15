@@ -128,10 +128,16 @@ def invoke_in_app_thread(fn, *args, **kwargs):
     try:
         if _caller is None:
             app = _start_app_thread()
-            result = fn(*args, **kwargs)
+            ex = None
+            try:
+                result = fn(*args, **kwargs)
+            except Exception as e:
+                ex = e
             destroy_invoke_in_app()
             app.quit()
             app = None
+            if ex is not None:
+                raise ex
             return result
         elif _wait_for_quit:  # the app is quitting. don't show the dialog
             return None
