@@ -14,3 +14,5 @@ sale = Sale("Cole", Decimal(2.5), 100)
 sales.append(sale)
 
 dlg.show_objects(sales)
+
+dlg.show_objects(sales)

@@ -2,6 +2,10 @@
 
 History
 ===========
+1.0.8
+-----------
+* fix: crash when show_objects() called successively.
+
 1.0.7
 -----------
 * fix: show_objects() don't show non-primitive-type properties correctly

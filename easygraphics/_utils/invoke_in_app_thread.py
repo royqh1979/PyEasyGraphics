@@ -79,41 +79,16 @@ def destroy_invoke_in_app():
     _wait_for_quit = False
 
 
-def __app_thread_func():
-    global _app, _thread_end_event
-    while _app is not None:
-        time.sleep(1)
-    _app = QtWidgets.QApplication([])
-    font = _app.font()
+def _start_app_thread():
+    app = QtWidgets.QApplication([])
+    font = app.font()
     font.setPixelSize(_font_size)
-    _app.setFont(font)
-    _app.setQuitOnLastWindowClosed(False)
+    app.setFont(font)
+    app.setQuitOnLastWindowClosed(False)
     init_invoke_in_app()
     # init finished, can draw now
-    _thread_end_event = threading.Event()
-    _thread_end_event.clear()
-    _thread_start_event.set()
-    _app.exec_()
-    destroy_invoke_in_app()
-    _app = None
-    _thread_end_event.set()
+    return app
 
-
-def _start_app_thread():
-    global _thread_start_event
-    _thread_start_event = threading.Event()
-    _thread_start_event.clear()
-    thread = threading.Thread(target=__app_thread_func, name="non gui app thread")
-    thread.start()
-    _thread_start_event.wait()
-
-
-_app = None
-
-
-def _stop_app_thread():
-    _app.quit()
-    _thread_end_event.wait()
 
 
 _wait_for_quit = False
@@ -151,15 +126,16 @@ def invoke_in_app_thread(fn, *args, **kwargs):
     """
     _app_lock.acquire()
     try:
-        no_drawing = False  # if graphics's init_graph() is not called
         if _caller is None:
-            no_drawing = True
-            _start_app_thread()
+            app = _start_app_thread()
+            result = fn(*args, **kwargs)
+            destroy_invoke_in_app()
+            app.quit()
+            app = None
+            return result
         elif _wait_for_quit:  # the app is quitting. don't show the dialog
             return None
         result = get_in_app_thread_result(_in_app_thread_later(fn, True, *args, **kwargs))
-        if no_drawing:
-            _stop_app_thread()
         return result
     finally:
         _app_lock.release()
