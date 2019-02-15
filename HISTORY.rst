@@ -2,6 +2,10 @@
 
 History
 ===========
+1.0.7
+-----------
+* fix: show_objects() don't show non-primitive-type properties correctly
+
 1.0.6
 ------------
 * change: get_open_file_name()/get_file_names()/get_save_file_name() now use native dialogs, to avoid

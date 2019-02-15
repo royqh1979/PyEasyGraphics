@@ -40,7 +40,7 @@ class ListTableViewModel(QtCore.QAbstractTableModel):
             lst = self._datas[index.column()]
             if len(lst) <= index.row():
                 return QtCore.QVariant()
-            return lst[index.row()]
+            return str(lst[index.row()])
         return QtCore.QVariant()
 
     def headerData(self, section: int, orientation, role=None):
@@ -85,7 +85,7 @@ class ObjectTableViewModel(QtCore.QAbstractTableModel):
         elif role == QtCore.Qt.DisplayRole:
             data = self._datas[index.row()]
             field = self._fields[index.column()]
-            return getattr(data, field, "")
+            return str(getattr(data, field, ""))
         return QtCore.QVariant()
 
     def headerData(self, section: int, orientation, role=None):
