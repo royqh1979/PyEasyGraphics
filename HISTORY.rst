@@ -2,9 +2,14 @@
 
 History
 ===========
+1.0.9
+----------
+* add: enable_sorting parameter in show_objects()
+
 1.0.8
 -----------
 * fix: crash when show_objects() called successively.
+* dialogs will close the auto-started qapplication instance when exception raised.
 
 1.0.7
 -----------

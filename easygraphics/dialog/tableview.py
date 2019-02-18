@@ -111,7 +111,7 @@ class ObjectTableViewModel(QtCore.QAbstractTableModel):
 
 
 class TableViewDialog(QtWidgets.QDialog):
-    def __init__(self, model: Union[ObjectTableViewModel, ListTableViewModel], title="Demo"):
+    def __init__(self, model: Union[ObjectTableViewModel, ListTableViewModel], title="Demo", enable_sorting=False):
         super().__init__(None,
                          QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint | QtCore.Qt.WindowCloseButtonHint)
         self.setWindowTitle(title)
@@ -122,7 +122,7 @@ class TableViewDialog(QtWidgets.QDialog):
         self._model = model
         self._table_view = QtWidgets.QTableView()
         self._table_view.setModel(self._model)
-        if isinstance(model, ObjectTableViewModel):
+        if enable_sorting:
             self._table_view.setSortingEnabled(True)
         self._table_view.setAlternatingRowColors(True)
         self._table_view.setStyleSheet("QTableView {"

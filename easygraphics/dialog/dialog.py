@@ -737,7 +737,7 @@ def get_abort(message: str = "Major problem - or at least we think there is one.
 
 @invoke_in_thread()
 def show_objects(objects: List, fields: List[str] = None, field_names: List[str] = None, title: str = "Title",
-                 width: int = 720, height: int = 450):
+                 width: int = 720, height: int = 450, enable_sorting=False):
     """
     Displays list of objects in a table
 
@@ -761,7 +761,7 @@ def show_objects(objects: List, fields: List[str] = None, field_names: List[str]
     """
 
     model = tableview.ObjectTableViewModel(datas=objects, fields=fields, field_names=field_names)
-    dialog = tableview.TableViewDialog(title=title, model=model)
+    dialog = tableview.TableViewDialog(title=title, model=model, enable_sorting=enable_sorting)
     dialog.resize(width, height)
     _send_to_front(dialog)
     dialog.exec()
