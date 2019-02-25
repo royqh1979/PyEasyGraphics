@@ -1,12 +1,20 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
-from typing import List, Union
+from typing import Sequence, Union
 import inspect
+
+try:
+    import numpy as np
+    import pandas as pd
+
+    _has_pandas = True
+except:
+    _has_pandas = False
 
 
 class ListTableViewModel(QtCore.QAbstractTableModel):
-    def __init__(self, *args, column_names: List[str] = None):
+    def __init__(self, *args, column_names: Sequence[str] = None):
         super().__init__()
         # check we have valid data lists
         if len(args) < 1:
@@ -55,13 +63,21 @@ class ListTableViewModel(QtCore.QAbstractTableModel):
 
 
 class ObjectTableViewModel(QtCore.QAbstractTableModel):
-    def __init__(self, datas: List, fields: List[str], field_names: List[str] = None):
+    def __init__(self, datas: Sequence, fields: Sequence[str], field_names: Sequence[str] = None):
         super().__init__()
         self._datas = datas
+        self._is_dataframe = False
+        if _has_pandas:
+            if isinstance(self._datas, pd.DataFrame):
+                self._is_dataframe = True
+
 
         if fields is None:
             if len(datas) > 0:
-                fields = list(filter(lambda x: not x.startswith("_"), dir(datas[0])))
+                if self._is_dataframe:
+                    fields = self._datas.columns
+                else:
+                    fields = list(filter(lambda x: not x.startswith("_"), dir(datas[0])))
             else:
                 fields = []
         self._fields = fields
@@ -83,9 +99,14 @@ class ObjectTableViewModel(QtCore.QAbstractTableModel):
         if role == QtCore.Qt.TextAlignmentRole:
             return QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
         elif role == QtCore.Qt.DisplayRole:
-            data = self._datas[index.row()]
-            field = self._fields[index.column()]
-            return str(getattr(data, field, ""))
+            if self._is_dataframe:
+                data = self._datas.iloc[index.row()]
+                field = self._fields[index.column()]
+                return str(data[field])
+            else:
+                data = self._datas[index.row()]
+                field = self._fields[index.column()]
+                return str(getattr(data, field, ""))
         return QtCore.QVariant()
 
     def headerData(self, section: int, orientation, role=None):

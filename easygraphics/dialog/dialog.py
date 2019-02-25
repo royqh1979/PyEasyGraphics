@@ -3,7 +3,7 @@ import os
 import sys
 import traceback
 import webbrowser
-from typing import List, Optional
+from typing import List, Optional, Sequence
 
 from PyQt5 import QtCore, QtWidgets, QtGui
 
@@ -736,7 +736,7 @@ def get_abort(message: str = "Major problem - or at least we think there is one.
 
 
 @invoke_in_thread()
-def show_objects(objects: List, fields: List[str] = None, field_names: List[str] = None, title: str = "Title",
+def show_objects(datas: Sequence, fields: Sequence[str] = None, field_names: Sequence[str] = None, title: str = "Title",
                  width: int = 720, height: int = 450, enable_sorting=False):
     """
     Displays list of objects in a table
@@ -748,7 +748,7 @@ def show_objects(objects: List, fields: List[str] = None, field_names: List[str]
     >>>         self.age = age
     >>>         self.sex = sex
     >>> objs = [Person("Jack", 22, "M"), Person("Micheal", 40, "F"), Person("David", 24, "M")]
-    >>> show_objects(title="peoples",objects=objs,fields=["name","age","sex"],field_names=["NAME","AGE","SEX"])
+    >>> show_objects(title="peoples",datas=objs,fields=["name","age","sex"],field_names=["NAME","AGE","SEX"])
 
     .. image:: ../../docs/images/dialogs/show_objects.png
 
@@ -758,9 +758,10 @@ def show_objects(objects: List, fields: List[str] = None, field_names: List[str]
     :param title: title of the dialog window
     :param width: width of the dialog window
     :param height: height of the dialog window
+    :param enable_sorting: if data can be sorted by clicking the column name
     """
 
-    model = tableview.ObjectTableViewModel(datas=objects, fields=fields, field_names=field_names)
+    model = tableview.ObjectTableViewModel(datas=datas, fields=fields, field_names=field_names)
     dialog = tableview.TableViewDialog(title=title, model=model, enable_sorting=enable_sorting)
     dialog.resize(width, height)
     _send_to_front(dialog)

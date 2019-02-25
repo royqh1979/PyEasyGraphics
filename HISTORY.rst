@@ -2,6 +2,10 @@
 
 History
 ===========
+1.0.10
+----------
+* add: show_objects() now can show a DataFrame.
+
 1.0.9
 ----------
 * add: enable_sorting parameter in show_objects()

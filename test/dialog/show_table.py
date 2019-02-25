@@ -9,4 +9,4 @@ class Person:
 
 
 objs = [Person("Jack", 22, "M"), Person("Micheal", 40, "F"), Person("David", 24, "M")]
-show_objects(title="peoples", objects=objs, fields=["name", "age", "sex"], field_names=["NAME", "AGE", "SEX"])
+show_objects(title="peoples", datas=objs, fields=["name", "age", "sex"], field_names=["NAME", "AGE", "SEX"])
