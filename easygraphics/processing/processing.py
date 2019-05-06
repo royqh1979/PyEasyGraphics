@@ -43,7 +43,7 @@ def draw():
 
     :return:
     """
-    raise RuntimeError("Must implement draw() function!")
+    pass
 
 
 # functions from Processing Widget
@@ -133,7 +133,9 @@ def run_app(_globals):
     global on_mouse_pressed, on_mouse_released, on_mouse_dragged, on_mouse_wheel
     if 'setup' in _globals:
         setup = _globals['setup']
-    if 'draw' in _globals:
+    if draw is _globals['draw']:
+        raise RuntimeError("Must implement draw() function!")
+    else:
         draw = _globals['draw']
     if 'on_mouse_clicked' in _globals:
         on_mouse_clicked = _globals['on_mouse_clicked']

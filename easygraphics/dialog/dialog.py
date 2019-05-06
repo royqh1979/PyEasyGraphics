@@ -122,6 +122,7 @@ def get_color_hex(color="white") -> Optional[str]:
 
        .. image:: ../../docs/images/dialogs/select_color.png
        """
+    color = QtGui.QColor(color)
     color = QtWidgets.QColorDialog.getColor(color, None)
     if color.isValid():
         return color.name()
@@ -139,6 +140,7 @@ def get_color(color="white") -> QtGui.QColor:
 
     :return: the color selected
     """
+    color = QtGui.QColor(color)
     color = QtWidgets.QColorDialog.getColor(color, None)
     if color.isValid():
         return color
@@ -154,6 +156,7 @@ def get_color_rgb(color="white") -> (int, int, int):
 
     .. image:: ../../docs/images/dialogs/select_color_fr.png
     """
+    color = QtGui.QColor(color)
     color = QtWidgets.QColorDialog.getColor(color, None)
     if color.isValid():
         return color.red(), color.green(), color.blue()
