@@ -5,6 +5,7 @@ History
 1.0.11
 ----------
 * fix: dialog get_username_password() hangs.
+* fix: dialog get_color() not work
 
 1.0.10
 ----------
