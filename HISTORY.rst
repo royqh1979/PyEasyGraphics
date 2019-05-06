@@ -2,6 +2,10 @@
 
 History
 ===========
+1.0.11
+----------
+* fix: dialog get_username_password() hangs.
+
 1.0.10
 ----------
 * add: show_objects() now can show a DataFrame.

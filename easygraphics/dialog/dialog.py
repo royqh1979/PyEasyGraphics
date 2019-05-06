@@ -371,7 +371,6 @@ def get_choice(message: str = "Select one item", title: str = "Title", choices: 
         return choice
 
 
-@invoke_in_thread()
 def get_username_password(title: str = "Title", labels: List[str] = None) -> IndexedOrderedDict:
     """
     User name and password input box.
@@ -684,6 +683,7 @@ def show_code(title: str = "Title", code: str = "", width: int = 720, height: in
     editor = show_text_window.TextWindow(title=title, text_type='code', text=code)
     editor.resize(width, height)
     editor.show()
+    _send_to_front(editor)
 
 
 @invoke_in_thread()
