@@ -13,7 +13,7 @@ import sys
 from io import StringIO
 
 
-class TextWindow(qt_widgets.QMainWindow):
+class TextDialog(qt_widgets.QDialog):
     def __init__(self, file_name=None, title="Title", text_type='text',
                  text='Default text'):
         """Simple text window whose input comes from a file, if a file_name 
@@ -22,12 +22,14 @@ class TextWindow(qt_widgets.QMainWindow):
            text_type can be one of  4 values: 'text', 'code', 'html', 'python'.
            If 'python' is specified, some basic syntax highlighting is added.
         """
-        super(TextWindow, self).__init__(None)
+        super(TextDialog, self).__init__(None)
+
+        layout = qt_widgets.QVBoxLayout()
 
         self.setWindowTitle(title)
         self.resize(900, 600)
         self.editor = qt_widgets.QTextEdit(self)
-        self.setCentralWidget(self.editor)
+        layout.addWidget(self.editor)
         self.editor.setFocus()
 
         if file_name is not None:
@@ -48,6 +50,8 @@ class TextWindow(qt_widgets.QMainWindow):
             self.editor.setHtml(text)
         else:
             self.editor.setPlainText(text)
+
+        self.setLayout(layout)
 
     def set_text_font(self):
         font = QtGui.QFont()
@@ -125,23 +129,23 @@ class Highlighter(QtGui.QSyntaxHighlighter):
 if __name__ == '__main__':
     app = qt_widgets.QApplication([])
 
-    editor1 = TextWindow(file_name="../README.rst",
+    editor1 = TextDialog(file_name="../README.rst",
                          title="Demo of text file",
                          text_type='text')
     editor1.move(10, 10)
     editor1.show()
 
-    editor2 = TextWindow(file_name="readme.html",
+    editor2 = TextDialog(file_name="readme.html",
                          title="Demo of html file",
                          text_type="html")
     editor2.move(840, 10)
     editor2.show()
 
-    editor3 = TextWindow(title="Demo of Python file", file_name=__file__, text_type='python')
+    editor3 = TextDialog(title="Demo of Python file", file_name=__file__, text_type='python')
     editor3.move(440, 410)
     editor3.show()
 
-    editor4 = TextWindow(file_name="../README.rst",
+    editor4 = TextDialog(file_name="../README.rst",
                          title="Demo of unknown test_type",
                          text_type='unknown')
     editor4.show()

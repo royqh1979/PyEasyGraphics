@@ -2,11 +2,11 @@ from PyQt5 import QtGui, QtCore
 from PyQt5 import QtWidgets as qt_widgets
 
 
-class CalendarWidget(qt_widgets.QWidget):
+class CalendarDialog(qt_widgets.QDialog):
     """Creates a calendar widget allowing the user to select a date."""
 
     def __init__(self, title="Calendar"):
-        super(CalendarWidget, self).__init__()
+        super(CalendarDialog, self).__init__()
 
         self.setWindowTitle(title)
         layout = qt_widgets.QGridLayout()
@@ -28,8 +28,6 @@ class CalendarWidget(qt_widgets.QWidget):
         layout.addWidget(button_box, 1, 1)
 
         self.setLayout(layout)
-        self.show()
-        self.raise_()
 
     def show_date(self, date):
         self.date = self.cal.selectedDate()
@@ -42,7 +40,7 @@ class CalendarWidget(qt_widgets.QWidget):
 
 if __name__ == '__main__':
     app = qt_widgets.QApplication([])
-    cal = CalendarWidget(title="title")
+    cal = CalendarDialog(title="title")
     app.exec_()
     date = cal.date.toString()
     print(date)

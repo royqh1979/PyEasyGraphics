@@ -7,10 +7,10 @@ from typing import List, Optional, Sequence
 
 from PyQt5 import QtCore, QtWidgets, QtGui
 
-from . import calendar_widget
+from . import calendardialog
 from . import multichoice
 from . import multifields
-from . import show_text_window
+from . import textdialog
 from . import tableview
 from . import imagedialog
 from ._indexed_order_list import IndexedOrderedDict
@@ -175,8 +175,10 @@ def get_date(title: str = "Select Date") -> datetime.date:
 
        .. image:: ../../docs/images/dialogs/get_date.png
     """
-    cal = calendar_widget.CalendarWidget(title=title)
-    date = cal.date.toPyDate()
+    dialog = calendardialog.CalendarDialog(title=title)
+    _send_to_front(dialog)
+    dialog.exec()
+    date = dialog.date.toPyDate()
     return date
 
 
@@ -622,7 +624,7 @@ def show_image_dialog(image: QtGui.QImage, title: str = "Title"):
     dialog.exec_()
 
 @invoke_in_thread()
-def show_file(file_name: str = None, title: str = "Title", file_type: str = "text"):
+def show_file(file_name: str = None, title: str = "Title", file_type: str = "text",width: int = 720, height: int = 450):
     """
     Displays a file in a window.  While it looks as though the file
     can be edited, the only changes that happened are in the window
@@ -631,6 +633,8 @@ def show_file(file_name: str = None, title: str = "Title", file_type: str = "tex
     :param title: the window title
     :param file_name: the file name, (path) relative to the calling program
     :param file_type: possible values: ``text``, ``code``, ``html``, ``python``.
+        :param width: width of the dialog window
+    :param height:  height of the dialog window
 
     By default, file_type is assumed to be ``text``; if set to ``code``,
     the content is displayed with a monospace font and, if
@@ -645,10 +649,12 @@ def show_file(file_name: str = None, title: str = "Title", file_type: str = "tex
 
     .. image:: ../../docs/images/dialogs/show_file.png
     """
-    editor = show_text_window.TextWindow(file_name=file_name,
-                                         title=title,
-                                         text_type=file_type)
-    editor.show()
+    dialog = textdialog.TextDialog(file_name=file_name,
+                                   title=title,
+                                   text_type=file_type)
+    dialog.resize(width, height)
+    _send_to_front(dialog)
+    dialog.exec_()
 
 
 @invoke_in_thread()
@@ -666,9 +672,10 @@ def show_text(title: str = "Title", text: str = "", width: int = 720, height: in
 
     .. image:: ../../docs/images/dialogs/show_text.png
     """
-    editor = show_text_window.TextWindow(title=title, text_type='text', text=text)
-    editor.resize(width, height)
-    editor.show()
+    dialog = textdialog.TextDialog(title=title, text_type='text', text=text)
+    dialog.resize(width, height)
+    _send_to_front(dialog)
+    dialog.exec_()
 
 
 @invoke_in_thread()
@@ -683,10 +690,10 @@ def show_code(title: str = "Title", code: str = "", width: int = 720, height: in
 
     .. image:: ../../docs/images/dialogs/show_code.png
     """
-    editor = show_text_window.TextWindow(title=title, text_type='code', text=code)
-    editor.resize(width, height)
-    editor.show()
-    _send_to_front(editor)
+    dialog = textdialog.TextDialog(title=title, text_type='code', text=code)
+    dialog.resize(width, height)
+    _send_to_front(dialog)
+    dialog.exec_()
 
 
 @invoke_in_thread()
@@ -704,9 +711,10 @@ def show_html(title: str = "Title", text: str = "", width: int = 720, height: in
 
     .. image:: ../../docs/images/dialogs/show_html.png
     """
-    editor = show_text_window.TextWindow(title=title, text_type='html', text=text)
-    editor.resize(width, height)
-    _send_to_front(editor)
+    dialog = textdialog.TextDialog(title=title, text_type='html', text=text)
+    dialog.resize(width, height)
+    _send_to_front(dialog)
+    dialog.exec_()
 
 
 @invoke_in_thread()

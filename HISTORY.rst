@@ -6,6 +6,7 @@ History
 ----------
 * fix: dialog get_username_password() hangs.
 * fix: dialog get_color() not work
+* fix: dialog show_html()/show_code()/show_text() not work
 
 1.0.10
 ----------
