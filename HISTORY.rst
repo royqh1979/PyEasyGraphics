@@ -2,6 +2,10 @@
 
 History
 ===========
+1.0.12
+----------
+* fix: the drawing is not stopped immediately after the turtle window is closed()
+
 1.0.11
 ----------
 * fix: dialog get_username_password() hangs.
