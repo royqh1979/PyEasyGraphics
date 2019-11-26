@@ -1678,8 +1678,12 @@ class Image:
 
         :param image: the image to be closed
         """
-        self._painter.end()
-        self._mask_painter.end()
+        if self._painter is not None and self._painter.isActive():
+            self._painter.end()
+        self._painter = None
+        if self._mask_painter is not None and self._mask_painter.isActive():
+            self._mask_painter.end()
+        self._mask_painter = None
         self._updated_listeners.clear()
 
     def get_painter(self) -> QtGui.QPainter:

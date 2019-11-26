@@ -61,6 +61,7 @@ class TurtleWorld(object):
         for turtle in self._turtles:
             turtle.close()
         self._turtles.clear()
+        self._buffer_image.close()
         self._world_image.close()
 
     def create_snap_shot(self) -> Image:
@@ -175,12 +176,12 @@ class TurtleWorld(object):
         return self._running
 
     def _refresh_loop(self):
-        while eg.is_run():
+        while eg.is_run() :
             if not self._win.isVisible():
                 self.set_immediate(True)
-            if not self._running:
-                break
             if self._win.delay_fps(60):
+                if not self._running:
+                    break
                 self._render()
 
         self.close()
