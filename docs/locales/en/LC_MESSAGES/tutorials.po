@@ -440,7 +440,7 @@ msgstr ""
 msgid ""
 "Non-regular shapes can be filled by flood fill. The shape to be filled "
 "must be enclosed by an outline. The follow program uses flood fill to "
-"fill a pedal."
+"fill a petal."
 msgstr ""
 
 #: ../../tutorials/004_shapes.rst:193

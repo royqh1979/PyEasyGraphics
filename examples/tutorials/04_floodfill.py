@@ -1,5 +1,5 @@
 """
-Use flood fill to draw a pedal
+Use flood fill to draw a petal
 """
 if __name__ == "__main__":
     from easygraphics import *

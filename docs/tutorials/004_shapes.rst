@@ -173,7 +173,7 @@ The following program draw a cubic bezier curve with control points at (300,50),
 Flood Fill
 ----------
 Non-regular shapes can be filled by flood fill. The shape to be filled must be enclosed by an outline.
-The follow program uses flood fill to fill a pedal.
+The follow program uses flood fill to fill a petal.
 
 .. code-block:: python
 

@@ -86,11 +86,11 @@ msgstr "**提示3**"
 msgid ""
 "You can use the graphics window's close button to close the graphics "
 "system. But"
-msgstr "你可以是用图形窗口的关闭按钮来关闭图形系统。但是，"
+msgstr "你可以使用图形窗口的关闭按钮来关闭图形系统。但是，"
 
 #: examples.tutorials.01_first_window:14 of
 msgid "this may cause exception. (When there are unfinished drawing operations.）"
-msgstr "这有可能会导致程序异常。（当程序后面还有没完成的绘图操作时。）"
+msgstr "这有可能会导致程序异常。（当程序后台还有没完成的绘图操作时。）"
 
 #: ../../tutorials/002_first_drawing.rst:2
 msgid "The First Drawing"
@@ -282,7 +282,7 @@ msgid ""
 "draw a red circle with a blue outline."
 msgstr ""
 "同时绘制形状轮廓并填充形状内部的函数。这类函数用\\'draw_xxx()\\' "
-"的形式命名(\\\"xxx\\\"是所绘制形状的名称，如draw_circle)下面的程序绘制了一个边线为蓝色内部为红色的圆。"
+"的形式命名(\\\"xxx\\\"是所绘制形状的名称，如draw_circle)。下面的程序绘制了一个边线为蓝色内部为红色的圆。"
 
 #: ../../tutorials/004_shapes.rst:35
 msgid ""
@@ -291,7 +291,7 @@ msgid ""
 "draw a red circle without outline."
 msgstr ""
 "不绘制形状轮廓线，只填充形状内部的函数。这类函数用\\'fill_xxx()\\' "
-"形式命名(\\\"xxx\\\"是所绘制形状的名称，如fill_circle)下面的程序绘制（填充）了一个无边线内部为红色的圆。"
+"形式命名(\\\"xxx\\\"是所绘制形状的名称，如fill_circle)。下面的程序绘制（填充）了一个无边线内部为红色的圆。"
 
 #: ../../tutorials/004_shapes.rst:51
 msgid "|circle|"
@@ -460,8 +460,8 @@ msgstr "泛洪填充（Flood Fill）"
 msgid ""
 "Non-regular shapes can be filled by flood fill. The shape to be filled "
 "must be enclosed by an outline. The follow program uses flood fill to "
-"fill a pedal."
-msgstr ""
+"fill a petal."
+msgstr "不规则图形可以使用泛洪（flood fill）方式填充。被填充形状的外轮廓线必须完全闭合。下面的程序使用泛洪填充一个花瓣"
 
 #: ../../tutorials/004_shapes.rst:193
 msgid "Below is the result:"
