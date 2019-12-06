@@ -52,7 +52,7 @@ msgstr "第一个EasyGraphics程序"
 
 #: examples.tutorials.01_first_window:3 of
 msgid "In this program, we will:"
-msgstr "在这里程序里，我们将要："
+msgstr "在这个程序里，我们将要："
 
 #: examples.tutorials.01_first_window:5 of
 msgid "Init the graphics windows"
