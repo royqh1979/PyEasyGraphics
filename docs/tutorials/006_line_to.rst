@@ -10,8 +10,8 @@ The related functions are:
 
 .. autosummary::
 
-    get_x
-    get_y
+    get_drawing_x
+    get_drawing_y
     get_drawing_pos
     move_to
     move_rel

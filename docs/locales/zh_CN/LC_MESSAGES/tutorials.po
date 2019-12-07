@@ -461,7 +461,7 @@ msgid ""
 "Non-regular shapes can be filled by flood fill. The shape to be filled "
 "must be enclosed by an outline. The follow program uses flood fill to "
 "fill a petal."
-msgstr "不规则图形可以使用泛洪（flood fill）方式填充。被填充形状的外轮廓线必须完全闭合。下面的程序使用泛洪填充一个花瓣"
+msgstr "不规则图形可以使用泛洪（flood fill）方式填充。被填充形状的外轮廓线必须完全闭合。下面的程序使用泛洪填充一个花瓣。"
 
 #: ../../tutorials/004_shapes.rst:193
 msgid "Below is the result:"
@@ -1119,7 +1119,7 @@ msgid ""
 "We can use reflect() ( or its alias mirror() and flip() ) to do a "
 "reflection. It reflect the drawing again the line passing its parameters "
 "(x1,y1) and  (x,y)."
-msgstr "我们可以使用reflect()（或者它的别名mirror()和flip()）来生成图像的镜像。它将图像以经过原点(x1,y1)和参数点(x,y)的直线为对称轴进行反射。"
+msgstr "我们可以使用reflect()（或者它的别名mirror()和flip()）来生成图像的镜像。它将图像以经过两点(x1,y1)和(x,y)的直线为对称轴进行反射。"
 
 #: ../../tutorials/009_transforms.rst:192
 msgid "Reflection against the y-axis"
@@ -2466,14 +2466,14 @@ msgstr ""
 #~ msgid ":obj:`get_x <easygraphics.get_x>`\\ \\(image\\)"
 #~ msgstr ""
 
-#~ msgid "Get the x coordinate value of the current drawing position (x,y)."
-#~ msgstr "获取当前绘图位置(x,y)的x坐标值"
+msgid "Get the x coordinate value of the current drawing position (x,y)."
+msgstr "获取当前绘图位置(x,y)的x坐标值"
 
 #~ msgid ":obj:`get_y <easygraphics.get_y>`\\ \\(image\\)"
 #~ msgstr ""
 
-#~ msgid "Get the y coordinate value of the current drawing position (x,y)."
-#~ msgstr "获取当前绘图位置(x,y)的y坐标值"
+msgid "Get the y coordinate value of the current drawing position (x,y)."
+msgstr "获取当前绘图位置(x,y)的y坐标值"
 
 #~ msgid ""
 #~ "Degree 0,90,180 and 270 are always "

@@ -489,7 +489,7 @@ class Image:
         """
         Reflect with x-aixs as the axis (upside down). Texts will not flip.
 
-        **Don't translate the origin to other points**(but you can translate and then translate back)
+        **Don't translate the origin to other points** (but you can translate and then translate back)
         before drawing any text. Or the text position's calculation will get wrong! So if you want to
         set the origin to the image/image's center, call set_flip_y() after the set_origin() or
         translate()!

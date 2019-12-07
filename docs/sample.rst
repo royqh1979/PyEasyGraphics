@@ -23,4 +23,3 @@ This is a simple moving ball sample.
     mainloop()
     close_graph()
 
-See :doc:`samples/index`
