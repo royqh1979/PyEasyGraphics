@@ -1673,7 +1673,7 @@ msgstr "**注意**：在变换和复制图片前先保存旧的设置，然后�
 
 #: ../../tutorials/011_image.rst:215
 msgid "Load Image"
-msgstr "入图片文件"
+msgstr "读入图片文件"
 
 #: ../../tutorials/011_image.rst:216
 msgid "We can load image from files."

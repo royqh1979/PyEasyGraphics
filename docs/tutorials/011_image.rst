@@ -56,17 +56,18 @@ We can use save_image() to save a image to the disk.
 
 The following program draw a bus and save it to "bus_screen.png" in the current folder.
 
-  Note that because:
+Note that because:
 
-  1. By default save_image() will save the drawing target image;
-  2. By default the target image is the graphics window.
+1. By default save_image() will save the drawing target image;
+2. By default the target image is the graphics window.
 
-  So we are saving the graphics window.
+So we are saving the graphics window.
 
-.. code-block::python
+.. code-block:: python
 
     from easygraphics import *
     import draw_bus
+
     init_graph(600,400)
     draw_bus.draw_bus()
     save_image("bus_screen.png")
