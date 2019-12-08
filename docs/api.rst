@@ -84,14 +84,19 @@ Basic Drawing
 
     arc
     bezier
+    bezier_vertex
+    begin_shape
     chord
     circle
     clear_device
     clear_view_port
+    curve
+    curve_vertex
     draw_arc
     draw_bezier
     draw_chord
     draw_circle
+    draw_curve
     draw_ellipse
     draw_line
     draw_lines
@@ -99,11 +104,13 @@ Basic Drawing
     draw_point
     draw_poly_line
     draw_polygon
+    draw_quadratic
     draw_rect
     draw_rect_text
     draw_rounded_rect
     draw_text
     ellipse
+    end_shape
     fill_chord
     fill_circle
     fill_ellipse
@@ -123,8 +130,11 @@ Basic Drawing
     poly_line
     polygon
     put_pixel
+    quadratic
+    quadratic_vertex
     rect
     rounded_rect
+    vertex
 
 
 Transform

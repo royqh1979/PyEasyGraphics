@@ -3,7 +3,7 @@ Dialogs
 Easygraphics provides many predefined dialogs to communicate with user interactively.
 
 Output Dialogs
--------------
+---------------
 .. currentmodule:: easygraphics.dialog
 
 .. autosummary::
@@ -49,15 +49,8 @@ In the following program, click the graphics window to open a color dialog, sele
     from easygraphics import *
     from easygraphics.dialog import *
 
-    init_graph(600, 400)
-    set_render_mode(RenderMode.RENDER_MANUAL)
+    bg_color = get_color()
+    set_background_color(bg_color)
 
-    while is_run():
-        if has_mouse_msg():
-            x, y, type, buttons = get_mouse_msg()
-            if type == MouseMessageType.PRESS_MESSAGE:
-                color = get_color(get_background_color())
-                set_background_color(color)
-        delay_fps(60)
-
+    pause()
     close_graph()

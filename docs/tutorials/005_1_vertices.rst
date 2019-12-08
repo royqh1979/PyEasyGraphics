@@ -1,5 +1,5 @@
-Drawing Shapes
-==============
+Drawing Polygon using Vertices
+==============================
 
 Three Types of Drawing Functions
 --------------------------------

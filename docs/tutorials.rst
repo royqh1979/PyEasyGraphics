@@ -12,11 +12,13 @@ Graphics
 
     tutorials/003_colors
 
-    tutorials/004_shapes
+    tutorials/004_line
 
-    tutorials/005_line_styles
+    tutorials/005_shapes
 
-    tutorials/006_line_to
+    tutorials/005_1_vertices
+
+    tutorials/006_line_styles
 
     tutorials/007_texts
 
@@ -46,12 +48,14 @@ Dialogs
 
     tutorials/201_dialogs
 
-Widgets
+Processing
 --------------
 .. toctree::
     :maxdepth: 1
 
-    tutorials/301_widgets
+    tutorials/301_intro_processing.rst
+
+    tutorials/302_mouse
 
 Miscs
 --------------

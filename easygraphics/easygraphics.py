@@ -1619,31 +1619,73 @@ def clear_view_port(image: Image = None):
 
 
 def begin_shape(type=VertexType.POLY_LINE, image: Image = None):
+    """
+    Begin a shape definition
+
+    :param type: the type of the shape. See VertexType const for more information
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image = _get_target_image(image)
     image.begin_shape(type)
 
 
 def end_shape(close=False, image: Image = None):
+    """
+    End a shape definition
+
+    :param type: if the shape should be closed. Only polylines can be closed.
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image = _get_target_image(image)
     image.end_shape(close)
 
 
 def curve_vertex(x: float, y: float, image: Image = None):
+    """
+    Define a Catmull-Rom curve vertex.
+
+    :param x: x pos of the vertext
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image = _get_target_image(image)
     image.curve_vertex(x, y)
 
 
 def vertex(x: float, y: float, image: Image = None):
+    """
+    Define a vertex.
+
+    :param x: x pos of the vertext
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image = _get_target_image(image)
     image.vertex(x, y)
 
 
 def bezier_vertex(x1: float, y1: float, x2: float, y2: float, x3: float, y3: float, image: Image = None):
+    """
+    Define a cubic Bezier curve vertex.
+
+    :param x: x pos of the vertext
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image = _get_target_image(image)
     image.bezier_vertex(x1, y1, x2, y2, x3, y3)
 
 
 def quadratic_vertex(x1: float, y1: float, x2: float, y2: float, image: Image = None):
+    """
+    Define a quadratic Bezier curve vertex.
+
+    :param x: x pos of the vertext
+    :param image: the target image which will be painted on. None means it is the target image
+        (see set_target() and get_target()).
+    """
     image = _get_target_image(image)
     image.quadratic_vertex(x1, y1, x2, y2)
 
@@ -2230,6 +2272,9 @@ _png = None
 
 
 def begin_recording():
+    """
+    Start recording png animation
+    """
     global _png
     if _png is not None:
         raise RuntimeError("There is a png in use!")
@@ -2237,15 +2282,29 @@ def begin_recording():
 
 
 def add_record(image: Image = None, **options):
+    """
+    Add one frame to the recording animation
+
+    :param image: the target image whose content will be captured. None means it is the target image
+    (see set_target() and get_target()).
+    """
     image = _get_target_image(image)
     _png.append(apng.PNG.from_bytes(image.to_bytes("PNG")), **options)
 
 
 def save_recording(filename: str):
+    """
+    Save the recording animation in PNG format.
+
+    :param filename: the filename of the save file.
+    """
     _png.save(filename)
 
 
 def end_recording():
+    """
+    End the recording of the animation.
+    """
     global _png
     _png = None
 

@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='easygraphics',
-    version='1.0.12',
+    version='1.0.12.1',
     description='"A TC Graphics style like Graphics Library"',
     long_description=readme + '\n\n' + history,
     author='Roy Qu',
@@ -28,7 +28,7 @@ setup(
     url='https://github.com/royqh1979/PyEasyGraphics',
     packages=[
         'easygraphics', 'easygraphics.dialog', 'easygraphics._utils', 'easygraphics.legacy',
-        'easygraphics.music', 'easygraphics.turtle', 'easygraphics.widget'
+        'easygraphics.music', 'easygraphics.turtle', 'easygraphics.widget','easygraphics.processing',
     ],
     package_dir={'easygraphics':
                      'easygraphics'},

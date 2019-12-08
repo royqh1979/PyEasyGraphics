@@ -1,7 +1,7 @@
 from easygraphics.processing import *
 from easygraphics import *
 
-
+# this overriding function is called by processing at the beginning
 def setup():
     set_size(800, 600)
     set_fill_color("red")
@@ -9,12 +9,12 @@ def setup():
 
 t = 0
 
-
+# this overriding function is called by processing every frame
 def draw():
     global t
     clear()
     t = t + 1
-    t = t % 350
+    t = t % 360
     translate(400, 300)
     rotate(t)
     begin_shape()
@@ -24,4 +24,5 @@ def draw():
     end_shape()
 
 
+# run the processing app
 run_app(globals())

@@ -82,5 +82,3 @@ The following code set the foreground color to a red with 150 as alpha value ( a
 
 
 
-
-

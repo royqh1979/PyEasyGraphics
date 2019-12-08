@@ -252,6 +252,9 @@ class FillRule:
 
 
 class ShapeMode:
+    """
+    This flag controls how shapes will be drawn.
+    """
     CORNERS = 0
     CORNER = 1
     CENTER = 2
@@ -259,6 +262,9 @@ class ShapeMode:
 
 
 class VertexType:
+    """
+    These are the type of shape defined by a vertex list.
+    """
     POLY_LINE = 0
     POINTS = 1
     LINES = 2

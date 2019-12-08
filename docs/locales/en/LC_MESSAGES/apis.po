@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 17:29+0800\n"
+"POT-Creation-Date: 2019-12-06 17:30+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,7 +119,9 @@ msgid "Gets the name (full path) of an existing directory"
 msgstr ""
 
 #: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
-msgid ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\)"
+msgid ""
+":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\, "
+"filter\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
@@ -197,7 +199,7 @@ msgstr ""
 #: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
-"\\(title\\)"
+"\\(title\\, filter\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
@@ -294,7 +296,7 @@ msgstr ""
 
 #: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`show_objects <easygraphics.dialog.show_objects>`\\ \\(objects\\, "
+":obj:`show_objects <easygraphics.dialog.show_objects>`\\ \\(datas\\, "
 "fields\\, field\\_names\\, ...\\)"
 msgstr ""
 
@@ -316,7 +318,7 @@ msgstr ""
 
 #: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(objects\\, "
+":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\, "
 "fields\\, field\\_names\\, ...\\)"
 msgstr ""
 
@@ -334,7 +336,7 @@ msgstr ""
 #: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
-"title\\, file\\_type\\)"
+"title\\, file\\_type\\, ...\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
@@ -441,9 +443,10 @@ msgstr ""
 msgid "width of the dialog window"
 msgstr ""
 
-#: easygraphics.dialog.show_code:6 easygraphics.dialog.show_html:6
-#: easygraphics.dialog.show_lists_table:13 easygraphics.dialog.show_objects:19
-#: easygraphics.dialog.show_table:19 easygraphics.dialog.show_text:6 of
+#: easygraphics.dialog.show_code:6 easygraphics.dialog.show_file:9
+#: easygraphics.dialog.show_html:6 easygraphics.dialog.show_lists_table:13
+#: easygraphics.dialog.show_objects:19 easygraphics.dialog.show_table:19
+#: easygraphics.dialog.show_text:6 of
 msgid "height of the dialog window"
 msgstr ""
 
@@ -459,10 +462,12 @@ msgid "the file name, (path) relative to the calling program"
 msgstr ""
 
 #: easygraphics.dialog.show_file:7 of
-msgid "possible values: ``text``, ``code``, ``html``, ``python``."
+msgid ""
+"possible values: ``text``, ``code``, ``html``, ``python``. :param width: "
+"width of the dialog window"
 msgstr ""
 
-#: easygraphics.dialog.show_file:9 of
+#: easygraphics.dialog.show_file:11 of
 msgid ""
 "By default, file_type is assumed to be ``text``; if set to ``code``, the "
 "content is displayed with a monospace font and, if set to ``python``, "
@@ -470,7 +475,7 @@ msgid ""
 "processed assuming it follows html syntax."
 msgstr ""
 
-#: easygraphics.dialog.show_file:15 of
+#: easygraphics.dialog.show_file:17 of
 msgid "**Note**: a better Python code hightlighter would be most welcome!"
 msgstr ""
 
@@ -489,6 +494,10 @@ msgstr ""
 #: easygraphics.dialog.show_lists_table:11 easygraphics.dialog.show_objects:17
 #: easygraphics.dialog.show_table:17 of
 msgid "title of the dialog window"
+msgstr ""
+
+#: easygraphics.dialog.show_objects:20 easygraphics.dialog.show_table:20 of
+msgid "if data can be sorted by clicking the column name"
 msgstr ""
 
 #: easygraphics.dialog.get_abort:1 of
@@ -514,7 +523,8 @@ msgstr ""
 #: easygraphics.dialog.get_list_of_choices:3
 #: easygraphics.dialog.get_many_strings:3
 #: easygraphics.dialog.get_new_password:3 easygraphics.dialog.get_password:4
-#: easygraphics.dialog.get_save_file_name:3 easygraphics.dialog.get_string:4
+#: easygraphics.dialog.get_save_file_name:3
+#: easygraphics.dialog.get_save_file_name:4 easygraphics.dialog.get_string:4
 #: easygraphics.dialog.get_username_password:3
 #: easygraphics.dialog.show_image_dialog:4 of
 msgid "Window title"
@@ -623,14 +633,19 @@ msgid "the name of a directory or an empty string if cancelled."
 msgstr ""
 
 #: easygraphics.dialog.get_directory_name:11
-#: easygraphics.dialog.get_file_names:12
-#: easygraphics.dialog.get_save_file_name:15 of
+#: easygraphics.dialog.get_file_names:13
+#: easygraphics.dialog.get_save_file_name:16 of
 msgid ""
 "By default, this dialog initially displays the content of the current "
 "working directory."
 msgstr ""
 
-#: easygraphics.dialog.get_file_names:4 of
+#: easygraphics.dialog.get_file_names:4
+#: easygraphics.dialog.get_open_file_name:4 of
+msgid "file filter"
+msgstr ""
+
+#: easygraphics.dialog.get_file_names:5 of
 msgid "the list of names (paths) of files selected. (It can be an empty list.)"
 msgstr ""
 
@@ -764,7 +779,7 @@ msgstr ""
 msgid "title of the dialog"
 msgstr ""
 
-#: easygraphics.dialog.get_open_file_name:4 of
+#: easygraphics.dialog.get_open_file_name:5 of
 msgid "the file name"
 msgstr ""
 
@@ -772,11 +787,11 @@ msgstr ""
 msgid "Simple password input box.  Used to query the user and get a string back."
 msgstr ""
 
-#: easygraphics.dialog.get_save_file_name:4 of
+#: easygraphics.dialog.get_save_file_name:5 of
 msgid "the name (path) of file selected"
 msgstr ""
 
-#: easygraphics.dialog.get_save_file_name:6 of
+#: easygraphics.dialog.get_save_file_name:7 of
 msgid ""
 "The user is warned if the file already exists and can choose to cancel.  "
 "However, this dialog actually does NOT save any file: it only return a "
@@ -5493,5 +5508,33 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Set the turtle's moving speed."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ "
+#~ "\\(title\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_save_file_name "
+#~ "<easygraphics.dialog.get_save_file_name>`\\ \\(title\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_objects <easygraphics.dialog.show_objects>`\\ "
+#~ "\\(objects\\, fields\\, field\\_names\\, ...\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_table <easygraphics.dialog.show_table>`\\ "
+#~ "\\(objects\\, fields\\, field\\_names\\, ...\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_file <easygraphics.dialog.show_file>`\\ "
+#~ "\\(file\\_name\\, title\\, file\\_type\\)"
+#~ msgstr ""
+
+#~ msgid "possible values: ``text``, ``code``, ``html``, ``python``."
 #~ msgstr ""
 

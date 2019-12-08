@@ -10,20 +10,21 @@ In the following program, we use turtle graphics to draw a star.
 
 .. code-block:: python
 
+    from easygraphics import *
     from easygraphics.turtle import *
 
-    create_world(800,600)
-    set_render_mode(RenderMode.RENDER_MANUAL)
-
-    while is_run():
-        if has_mouse_msg():
-            x,y,type,buttons = get_mouse_msg()
-            if type == MouseMessageType.PRESS_MESSAGE:
-                color = get_color(get_background_color())
-                set_background_color(color)
-        delay_fps(60)
-
-    close_graph()
+    create_world()
+    set_color("red")
+    set_fill_color("red")
+    set_fill_rule(FillRule.WINDING_FILL)
+    rt(90)
+    begin_fill()
+    for i in range(5):
+        forward(100)
+        right(144)
+    end_fill()
+    pause()
+    close_world()
 
 
 .. toctree::

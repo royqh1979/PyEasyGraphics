@@ -1,5 +1,17 @@
+Lines and Points
+================
+
+Drawing Points
+--------------
+You can use draw_point() to draw a point. The size of point is determined by line width (pen size);
+If you want to draw a pixel, use put_pixel() instead.
+
+Drawing Lines
+-------------
+You can use line() to draw a line.
+
 Draw with the Current Position
-==============================
+------------------------------
 
 In easygraphics, each image (including the graphics window) stores "a current position".
 Use this position, we can draw lines relatively.

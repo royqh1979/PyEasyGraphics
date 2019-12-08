@@ -6,9 +6,7 @@ def setup():
     set_size(400, 300)
     set_fill_color("red")
 
-
 t = 0
-
 
 def draw():
     global t
