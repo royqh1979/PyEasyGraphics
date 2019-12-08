@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 22:23+0800\n"
+"POT-Creation-Date: 2019-12-08 22:34+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -1087,9 +1087,17 @@ msgstr "图片处理"
 msgid ":obj:`add_record <easygraphics.add_record>`\\ \\(image\\, \\*\\*options\\)"
 msgstr ""
 
+#: ../../api.rst:196:<autosummary>:1 easygraphics.add_record:1 of
+msgid "Add one frame to the recording animation"
+msgstr "向录制中的动画中加入一帧"
+
 #: ../../api.rst:196:<autosummary>:1
 msgid ":obj:`begin_recording <easygraphics.begin_recording>`\\ \\(\\)"
 msgstr ""
+
+#: ../../api.rst:196:<autosummary>:1 easygraphics.begin_recording:1 of
+msgid "Start recording png animation"
+msgstr "开始录制PNG格式动画"
 
 #: ../../api.rst:196:<autosummary>:1
 msgid ""
@@ -1136,6 +1144,10 @@ msgstr "将来源图片(src_image)复制到目的图片(dst_image)。"
 msgid ":obj:`end_recording <easygraphics.end_recording>`\\ \\(\\)"
 msgstr ""
 
+#: ../../api.rst:196:<autosummary>:1 easygraphics.end_recording:1 of
+msgid "End the recording of the animation."
+msgstr "结束录制动画"
+
 #: ../../api.rst:196:<autosummary>:1
 msgid ":obj:`get_target <easygraphics.get_target>`\\ \\(\\)"
 msgstr ""
@@ -1173,6 +1185,10 @@ msgstr "保存图片到文件。"
 #: ../../api.rst:196:<autosummary>:1
 msgid ":obj:`save_recording <easygraphics.save_recording>`\\ \\(filename\\)"
 msgstr ""
+
+#: ../../api.rst:196:<autosummary>:1 easygraphics.save_recording:1 of
+msgid "Save the recording animation in PNG format."
+msgstr "以PNG格式保存录制中的动画到文件中"
 
 #: ../../api.rst:196:<autosummary>:1
 msgid ":obj:`set_target <easygraphics.set_target>`\\ \\(image\\)"
@@ -1916,9 +1932,8 @@ msgid "Specifies that the region is filled using the non zero winding rule."
 msgstr "使用Winding算法（non zero winding rule）。"
 
 #: easygraphics.ShapeMode:1 of
-#, fuzzy
-msgid "These are the shape mode."
-msgstr "这些是图形窗口的渲染模式。"
+msgid "This flag controls how shapes will be drawn."
+msgstr ""
 
 #: easygraphics.VertexType:1 of
 msgid "These are the type of shape defined by a vertex list."
@@ -1969,20 +1984,21 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.Image.set_transform easygraphics.Image.set_view_port
 #: easygraphics.Image.set_window easygraphics.Image.shear
 #: easygraphics.Image.skew easygraphics.Image.text_width
-#: easygraphics.Image.to_bytes easygraphics.Image.translate easygraphics.arc
-#: easygraphics.begin_shape easygraphics.bezier easygraphics.bezier_vertex
-#: easygraphics.capture_screen easygraphics.cart2pol easygraphics.chord
-#: easygraphics.circle easygraphics.clear easygraphics.clear_device
-#: easygraphics.clear_view_port easygraphics.close_image
-#: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsv
-#: easygraphics.color_rgb easygraphics.contains_left_button
-#: easygraphics.contains_mid_button easygraphics.contains_right_button
-#: easygraphics.create_image easygraphics.curve easygraphics.curve_vertex
-#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
-#: easygraphics.draw_circle easygraphics.draw_curve easygraphics.draw_ellipse
-#: easygraphics.draw_image easygraphics.draw_line easygraphics.draw_lines
-#: easygraphics.draw_pie easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.Image.to_bytes easygraphics.Image.translate
+#: easygraphics.add_record easygraphics.arc easygraphics.begin_shape
+#: easygraphics.bezier easygraphics.bezier_vertex easygraphics.capture_screen
+#: easygraphics.cart2pol easygraphics.chord easygraphics.circle
+#: easygraphics.clear easygraphics.clear_device easygraphics.clear_view_port
+#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_gray
+#: easygraphics.color_hsv easygraphics.color_rgb
+#: easygraphics.contains_left_button easygraphics.contains_mid_button
+#: easygraphics.contains_right_button easygraphics.create_image
+#: easygraphics.curve easygraphics.curve_vertex easygraphics.delay
+#: easygraphics.delay_fps easygraphics.delay_jfps easygraphics.draw_arc
+#: easygraphics.draw_bezier easygraphics.draw_chord easygraphics.draw_circle
+#: easygraphics.draw_curve easygraphics.draw_ellipse easygraphics.draw_image
+#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
+#: easygraphics.draw_point easygraphics.draw_poly_line
 #: easygraphics.draw_polygon easygraphics.draw_quadratic easygraphics.draw_rect
 #: easygraphics.draw_rect_text easygraphics.draw_rounded_rect
 #: easygraphics.draw_text easygraphics.ellipse easygraphics.end_shape
@@ -2007,7 +2023,7 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.reset_transform easygraphics.reset_view_port
 #: easygraphics.reset_window easygraphics.restore_settings easygraphics.rgb
 #: easygraphics.rotate easygraphics.rounded_rect easygraphics.save_image
-#: easygraphics.save_settings easygraphics.scale
+#: easygraphics.save_recording easygraphics.save_settings easygraphics.scale
 #: easygraphics.set_background_color easygraphics.set_caption
 #: easygraphics.set_clip_rect easygraphics.set_clipping easygraphics.set_color
 #: easygraphics.set_composition_mode easygraphics.set_fill_color
@@ -3673,6 +3689,22 @@ msgid ""
 "image (see set_target() and get_target())."
 msgstr "要显示的图片。None表示使用“绘图目标”图片（参见set_target()和get_target())"
 
+#: easygraphics.save_recording:3 of
+#, fuzzy
+msgid "the filename of the save file."
+msgstr "错切中心的y轴坐标"
+
+#: easygraphics.add_record:3 of
+#, fuzzy
+msgid ""
+"the target image whose content will be captured. None means it is the "
+"target image"
+msgstr "要保存的图片。None表示使用“绘图目标”图片（参见set_target()和get_target())"
+
+#: easygraphics.add_record:4 of
+msgid "(see set_target() and get_target())."
+msgstr ""
+
 #: easygraphics.color_gray:1 of
 msgid "Create a gray color."
 msgstr "创建灰色"
@@ -4631,4 +4663,7 @@ msgstr "将坐标轴平移指定的位移。"
 
 #~ msgid ":doc:`apis/easygraphics.widget`"
 #~ msgstr ""
+
+#~ msgid "These are the shape mode."
+#~ msgstr "这些是图形窗口的渲染模式。"
 

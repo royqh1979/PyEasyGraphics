@@ -253,7 +253,7 @@ class FillRule:
 
 class ShapeMode:
     """
-    This flag controls how shapes will be drawn.
+    This flag controls how shapes will be drawn. The framework's default value is RADIUS.
     """
     CORNERS = 0
     CORNER = 1

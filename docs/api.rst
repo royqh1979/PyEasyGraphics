@@ -84,14 +84,11 @@ Basic Drawing
 
     arc
     bezier
-    bezier_vertex
-    begin_shape
     chord
     circle
     clear_device
     clear_view_port
     curve
-    curve_vertex
     draw_arc
     draw_bezier
     draw_chord
@@ -110,7 +107,6 @@ Basic Drawing
     draw_rounded_rect
     draw_text
     ellipse
-    end_shape
     fill_chord
     fill_circle
     fill_ellipse
@@ -131,11 +127,22 @@ Basic Drawing
     polygon
     put_pixel
     quadratic
-    quadratic_vertex
     rect
     rounded_rect
-    vertex
 
+Drawing using vertex
+^^^^^^^^^^^^^^^^^^^^
+
+.. currentmodule:: easygraphics
+
+.. autosummary::
+
+    begin_shape
+    end_shape
+    bezier_vertex
+    curve_vertex
+    quadratic_vertex
+    vertex
 
 Transform
 ^^^^^^^^^
@@ -243,6 +250,8 @@ Constants
     MouseMessageType
     RenderMode
     TextFlags
+    ShapeMode
+    VertexType
 
 API Details
 -----------

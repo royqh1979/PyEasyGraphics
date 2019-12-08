@@ -2268,17 +2268,17 @@ def _get_target_image(image: Image) -> Image:
     return image
 
 
-_png = None
+_animation = None
 
 
 def begin_recording():
     """
     Start recording png animation
     """
-    global _png
-    if _png is not None:
+    global _animation
+    if _animation is not None:
         raise RuntimeError("There is a png in use!")
-    _png = apng.APNG()
+    _animation = apng.APNG()
 
 
 def add_record(image: Image = None, **options):
@@ -2288,8 +2288,10 @@ def add_record(image: Image = None, **options):
     :param image: the target image whose content will be captured. None means it is the target image
     (see set_target() and get_target()).
     """
+    if _animation is None:
+        raise RuntimeError("There's no animation in recording!")
     image = _get_target_image(image)
-    _png.append(apng.PNG.from_bytes(image.to_bytes("PNG")), **options)
+    _animation.append(apng.PNG.from_bytes(image.to_bytes("PNG")), **options)
 
 
 def save_recording(filename: str):
@@ -2298,15 +2300,17 @@ def save_recording(filename: str):
 
     :param filename: the filename of the save file.
     """
-    _png.save(filename)
+    if _animation is None:
+        raise RuntimeError("There's no animation in recording!")
+    _animation.save(filename)
 
 
 def end_recording():
     """
     End the recording of the animation.
     """
-    global _png
-    _png = None
+    global _animation
+    _animation = None
 
 
 def _validate_image(image: Image):
