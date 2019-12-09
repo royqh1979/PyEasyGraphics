@@ -6,7 +6,6 @@ from functools import reduce
 from typing import List, Optional
 import os
 import apng
-
 from PyQt5 import QtWidgets
 
 from .consts import *
@@ -1634,7 +1633,7 @@ def end_shape(close=False, image: Image = None):
     """
     End a shape definition
 
-    :param type: if the shape should be closed. Only polylines can be closed.
+    :param close: if the shape should be closed. Only polylines can be closed.
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
@@ -1646,7 +1645,8 @@ def curve_vertex(x: float, y: float, image: Image = None):
     """
     Define a Catmull-Rom curve vertex.
 
-    :param x: x pos of the vertext
+    :param x: x pos of the vertex
+    :param y: y pos of the vertex
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
@@ -1658,7 +1658,8 @@ def vertex(x: float, y: float, image: Image = None):
     """
     Define a vertex.
 
-    :param x: x pos of the vertext
+    :param x: x pos of the vertex
+    :param y: y pos of the vertex
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
@@ -1668,9 +1669,14 @@ def vertex(x: float, y: float, image: Image = None):
 
 def bezier_vertex(x1: float, y1: float, x2: float, y2: float, x3: float, y3: float, image: Image = None):
     """
-    Define a cubic Bezier curve vertex.
+    Define a cubic Bezier curve. The first control point of the curve the vertex defined last time.
 
-    :param x: x pos of the vertext
+    :param x1: x pos of the second control point
+    :param y1: y pos of the second control point
+    :param x2: x pos of the third control point
+    :param y2: y pos of the third control point
+    :param x3: x pos of the fourth control point
+    :param y3: y pos of the fourth control point
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
@@ -1680,9 +1686,12 @@ def bezier_vertex(x1: float, y1: float, x2: float, y2: float, x3: float, y3: flo
 
 def quadratic_vertex(x1: float, y1: float, x2: float, y2: float, image: Image = None):
     """
-    Define a quadratic Bezier curve vertex.
+    Define a quadratic Bezier curve vertex. The first control point of the curve the vertex defined last time.
 
-    :param x: x pos of the vertext
+    :param x1: x pos of the second control point
+    :param y1: y pos of the second control point
+    :param x2: x pos of the third control point
+    :param y2: y pos of the third control point
     :param image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """

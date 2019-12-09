@@ -1481,6 +1481,11 @@ class Image:
         self._updated()
 
     def begin_shape(self, type=VertexType.POLY_LINE):
+        """
+        Begin a shape definition
+
+        :param type: the type of the shape. See VertexType const for more information
+        """
         if self._shape_path is not None:
             raise RuntimeError("a shape is drawing, end it first!")
         self._shape_vertext_type = type
@@ -1490,6 +1495,12 @@ class Image:
         self._is_curve_shape = False
 
     def curve_vertex(self, x: float, y: float):
+        """
+        Define a Catmull-Rom curve vertex.
+
+        :param x: x pos of the vertex
+        :param y: y pos of the vertex
+        """
         if len(self._shape_vertices) == 0:
             if self._shape_vertext_type == VertexType.POLY_LINE:
                 self._is_curve_shape = True
@@ -1510,11 +1521,31 @@ class Image:
                             self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
                             self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
                             self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1])
+
+            x0, y0 = self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5]
+            x1 = -self._shape_transformed_vertices[-8] / 6 + self._shape_transformed_vertices[-6] + self._shape_transformed_vertices[-4] / 6
+            y1 = -self._shape_transformed_vertices[-7] / 6 + self._shape_transformed_vertices[-5] + self._shape_transformed_vertices[-3] / 6
+            x2 = self._shape_transformed_vertices[-6] / 6 + self._shape_transformed_vertices[-4] - self._shape_transformed_vertices[-2] / 6
+            y2 = self._shape_transformed_vertices[-5] / 6 + self._shape_transformed_vertices[-3] - self._shape_transformed_vertices[-1] / 6
+            x3, y3 = self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3]
+
+            if len(self._shape_vertices)==8:
+                self._shape_path.moveTo(x0,y0)
+            self._shape_path.cubicTo(x1,y1,x2,y2,x3,y3)
             self.pop_transform()
 
     def vertex(self, x: float, y: float):
+        """
+        Define a vertex.
+
+        :param x: x pos of the vertex
+        :param y: y pos of the vertex
+        """
         if self._is_curve_shape:
-            raise RuntimeError("no other vertex can be defined after cuver vertex!")
+            raise RuntimeError("no other vertex can be defined after curve vertex!")
+        self._vertex(x,y)
+
+    def _vertex(self, x: float, y: float):
         self._shape_vertices.append(x)
         self._shape_vertices.append(y)
         transform = self.get_transform()
@@ -1581,8 +1612,18 @@ class Image:
                 self.pop_transform()
 
     def bezier_vertex(self, x1, y1, x2, y2, x3, y3):
+        """
+        Define a cubic Bezier curve. The first control point of the curve the vertex defined last time.
+
+        :param x1: x pos of the second control point
+        :param y1: y pos of the second control point
+        :param x2: x pos of the third control point
+        :param y2: y pos of the third control point
+        :param x3: x pos of the fourth control point
+        :param y3: y pos of the fourth control point
+        """
         if self._is_curve_shape:
-            raise RuntimeError("no other vertex can be defined after cuver vertex!")
+            raise RuntimeError("no other vertex can be defined after curve vertex!")
         if self._shape_path.elementCount() <= 0:
             raise RuntimeError("Must call vertex() to set the start point before define bezier curve!")
         if self._shape_vertext_type != VertexType.POLY_LINE:
@@ -1594,6 +1635,14 @@ class Image:
         self._shape_path.cubicTo(p1.x(), p1.y(), p2.x(), p2.y(), p3.x(), p3.y())
 
     def quadratic_vertex(self, x1, y1, x2, y2):
+        """
+        Define a quadratic Bezier curve vertex. The first control point of the curve the vertex defined last time.
+
+        :param x1: x pos of the second control point
+        :param y1: y pos of the second control point
+        :param x2: x pos of the third control point
+        :param y2: y pos of the third control point
+        """
         if self._is_curve_shape:
             raise RuntimeError("no other vertex can be defined after cuver vertex!")
         if self._shape_path.elementCount() <= 0:
@@ -1606,9 +1655,14 @@ class Image:
         self._shape_path.quadTo(p1.x(), p1.y(), p2.x(), p2.y())
 
     def end_shape(self, close=False):
+        """
+        End a shape definition
+
+        :param close: if the shape should be closed. Only polylines can be closed.
+        """
         if self._shape_vertext_type == VertexType.POLY_LINE:
             if close:
-                self.vertex(self._shape_vertices[0], self._shape_vertices[1])
+                self._vertex(self._shape_vertices[0], self._shape_vertices[1])
             self.push_transform()
             self.reset_transform()
             self.draw_path(self._shape_path)

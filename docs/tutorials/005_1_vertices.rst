@@ -1,8 +1,38 @@
 Drawing Polygon using Vertices
 ==============================
 
-Three Types of Drawing Functions
---------------------------------
+We can use vertices to draw complex shapes.
+
+The following code draws a star.
+**Note**:
+ * We use a for loop to define 5 vertices of the star.
+ * We set end_shape()'s parameter to True to draw a closed polyline. If you want a polyline that not closed, use end_shape(False).
+ * If you don't want fill, set fill color to Color.TRANSPARENT
+
+.. code:: python
+
+    from easygraphics import *
+
+    init_graph(400,300)
+    set_color(Color.BLACK)
+    set_fill_color(Color.LIGHT_GRAY)
+    # set the axis origin to (200,150)
+    translate(200, 150)
+
+    begin_shape()
+    for i in range(5):
+        vertex(0,-100)
+        rotate(144)
+    end_shape(True)
+
+
+Spline Curve
+-------------
+
+We can use vertices to draw a curve.
+
+
+
 
 In EasyGraphics, there are three types of functions to draw shapes:
 

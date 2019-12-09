@@ -156,43 +156,43 @@ class Color:
     """Black color"""
     DARK_GRAY = QtCore.Qt.darkGray
     """Dark Gray color"""
-    LIGHT_GRAY = QtGui.QColor(0xA8, 0xA8, 0xA8)
+    LIGHT_GRAY = 0xA8A8A8
     """Light Gray"""
     BLUE = QtCore.Qt.blue
     """Blue"""
-    LIGHT_BLUE = QtGui.QColor(0x54, 0x54, 0xFC)
+    LIGHT_BLUE = 0x5454FC
     """Light blue"""
     DARK_BLUE = QtCore.Qt.darkBlue
     """dark blue"""
     GREEN = QtCore.Qt.green
     """Green"""
-    LIGHT_GREEN = QtGui.QColor(0x54, 0xFC, 0x54)
+    LIGHT_GREEN = 0x54FC54
     """Light green"""
     DARK_GREEN = QtCore.Qt.darkGreen
     """dark green"""
     CYAN = QtCore.Qt.cyan
     """cyan"""
-    LIGHT_CYAN = QtGui.QColor(0x54, 0xFC, 0xFC)
+    LIGHT_CYAN = 0x54FCFC
     """light cyan"""
     DARK_CYAN = QtCore.Qt.darkCyan
     """dark cyan"""
     RED = QtCore.Qt.red
     """red"""
-    LIGHT_RED = QtGui.QColor(0xFC, 0x54, 0x54)
+    LIGHT_RED = 0xFC5454
     """light red"""
     DARK_RED = QtCore.Qt.darkRed
     """dark red"""
-    MAGENTA = QtGui.QColor(0xA8, 0, 0xA8)
+    MAGENTA = 0xA800A8
     """magenta"""
-    LIGHT_MAGENTA = QtGui.QColor(0xFC, 0x54, 0xFC)
+    LIGHT_MAGENTA = 0xFC54FC
     """light magenta"""
     DARK_MAGENTA = QtCore.Qt.darkMagenta
     """dark magenta"""
-    BROWN = QtGui.QColor(0xA8, 0xA8, 0)
+    BROWN = "#A8A800"
     """brown"""
     YELLOW = QtCore.Qt.yellow
     """yellow"""
-    LIGHT_YELLOW = QtGui.QColor(0xFC, 0xFC, 0x54)
+    LIGHT_YELLOW = 0xFCFC54
     """light yellow"""
     DARK_YELLOW = QtCore.Qt.darkYellow
     """dark yellow"""
