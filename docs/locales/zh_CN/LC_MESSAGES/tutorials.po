@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 22:23+0800\n"
+"POT-Creation-Date: 2019-12-09 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -402,19 +402,75 @@ msgid "The following program plot a sin(x) curve on [-3,3]."
 msgstr "下面的程序使用上述方法绘制[-3,3]区间上的sin(x)曲线。"
 
 #: ../../tutorials/005_1_vertices.rst:2
-#, fuzzy
-msgid "Drawing Polygon using Vertices"
-msgstr "使用Processing方式绘图"
+msgid "Drawing a Shape using Vertices"
+msgstr "通过定义顶点来绘制形状"
 
-#: ../../tutorials/005_1_vertices.rst:5 ../../tutorials/005_shapes.rst:5
+#: ../../tutorials/005_1_vertices.rst:4
+msgid "We can use vertices to draw complex shapes."
+msgstr "我们可以通过给出顶点的位置，来绘制复杂的形状"
+
+#: ../../tutorials/005_1_vertices.rst:6
+msgid "The following code draws a star."
+msgstr "下面的代码绘制了一个五角星。"
+
+#: ../../tutorials/005_1_vertices.rst:8
+msgid "**Note**:"
+msgstr "**提示**："
+
+#: ../../tutorials/005_1_vertices.rst:10
+msgid "We use a for loop to define 5 vertices of the star."
+msgstr "我们用for循环定义了五角星的5个顶点。"
+
+#: ../../tutorials/005_1_vertices.rst:12
+msgid ""
+"We set end_shape()'s parameter to True to draw a closed polyline. If you "
+"want a polyline that not closed, use end_shape()'s default False "
+"parameter."
+msgstr "**我们将end_shape()的参数设为True，以绘制一个封闭的图形。如果你要绘制一个不封闭的复合线（Polyline），请使用end_shape()的缺省参数False。"
+
+#: ../../tutorials/005_1_vertices.rst:14
+msgid ""
+"If you don't want fill, you should not close the shape,  or you can set "
+"the fill color to Color.TRANSPARENT"
+msgstr "如果你不想填充绘制出来的形状，那么end_shape()时不要封闭形状。也可以通过将填充色设为Color.TRANSPARENT（透明）来实现不填充的效果。"
+
+#: ../../tutorials/005_1_vertices.rst:34
+msgid "Let's see what happens if we don't close the shape:"
+msgstr "看看如果end_shape()时不封闭形状，画出来的形状什么样。"
+
+#: ../../tutorials/005_1_vertices.rst:56
+msgid "Spline Curve (Catmull-Rom Curve)"
+msgstr "样条曲线（Catmull-Rom曲线）"
+
+#: ../../tutorials/005_1_vertices.rst:58
+msgid "We can use vertices to draw a spline curve (Catmull-Rom curve)."
+msgstr "我们可以使用顶点定义来绘制Catmull-Rom样条曲线。"
+
+#: ../../tutorials/005_1_vertices.rst:91
+msgid "See what happens if we close the shape."
+msgstr "看看如果end_shape()时封闭形状，画出来的形状什么样。"
+
+#: ../../tutorials/005_1_vertices.rst:125
+msgid "Bezier Curve"
+msgstr "贝塞尔曲线（Bézier curve）"
+
+#: ../../tutorials/005_1_vertices.rst:126
+msgid "The following code use vertices to draw a cubic bezier curve."
+msgstr "在下面的程序中，我们使用顶点定义来绘制一个三次贝塞尔曲线。"
+
+#: ../../tutorials/005_shapes.rst:2
+msgid "Drawing Shapes"
+msgstr "绘制几何形状"
+
+#: ../../tutorials/005_shapes.rst:5
 msgid "Three Types of Drawing Functions"
 msgstr "三大类形状绘制函数"
 
-#: ../../tutorials/005_1_vertices.rst:7 ../../tutorials/005_shapes.rst:7
+#: ../../tutorials/005_shapes.rst:7
 msgid "In EasyGraphics, there are three types of functions to draw shapes:"
 msgstr "在Easy Graphics中，绘制形状的函数可以分为三大类："
 
-#: ../../tutorials/005_1_vertices.rst:9 ../../tutorials/005_shapes.rst:9
+#: ../../tutorials/005_shapes.rst:9
 msgid ""
 "Functions that only draw shape outlines. These functions are named like "
 "\\'xxx()\\' (\\\"xxx\\\" is the shape\\'s name). \\ The example below "
@@ -423,7 +479,7 @@ msgstr ""
 "只绘制形状轮廓线的函数。这类函数用\\'xxx()\\' "
 "的形式命名(\\\"xxx\\\"是所绘制形状的名称，如circle)。下面的程序绘制了一个边线为蓝色的圆。"
 
-#: ../../tutorials/005_1_vertices.rst:22 ../../tutorials/005_shapes.rst:22
+#: ../../tutorials/005_shapes.rst:22
 msgid ""
 "Functions that both draw and fill a shape. These functions are named like"
 " \\'draw_xxx()\\'(\\\"xxx\\\" is the shape\\'s name). The example below "
@@ -432,7 +488,7 @@ msgstr ""
 "同时绘制形状轮廓并填充形状内部的函数。这类函数用\\'draw_xxx()\\' "
 "的形式命名(\\\"xxx\\\"是所绘制形状的名称，如draw_circle)。下面的程序绘制了一个边线为蓝色内部为红色的圆。"
 
-#: ../../tutorials/005_1_vertices.rst:35 ../../tutorials/005_shapes.rst:35
+#: ../../tutorials/005_shapes.rst:35
 msgid ""
 "Functions that only fill a shape. These functions are named like "
 "\\'fill_xxx()\\'( \\\"xxx\\\" is the shape\\'s name). The example below "
@@ -441,85 +497,85 @@ msgstr ""
 "不绘制形状轮廓线，只填充形状内部的函数。这类函数用\\'fill_xxx()\\' "
 "形式命名(\\\"xxx\\\"是所绘制形状的名称，如fill_circle)。下面的程序绘制（填充）了一个无边线内部为红色的圆。"
 
-#: ../../tutorials/005_1_vertices.rst:51 ../../tutorials/005_shapes.rst:51
+#: ../../tutorials/005_shapes.rst:51
 msgid "|circle|"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:52 ../../tutorials/005_shapes.rst:52
+#: ../../tutorials/005_shapes.rst:52
 msgid "|draw_circle|"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:53 ../../tutorials/005_shapes.rst:53
+#: ../../tutorials/005_shapes.rst:53
 msgid "|fill_circle|"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:54 ../../tutorials/005_shapes.rst:54
+#: ../../tutorials/005_shapes.rst:54
 msgid "circle()"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:55 ../../tutorials/005_shapes.rst:55
+#: ../../tutorials/005_shapes.rst:55
 msgid "draw_circle()"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:56 ../../tutorials/005_shapes.rst:56
+#: ../../tutorials/005_shapes.rst:56
 msgid "fill_circle()"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:65 ../../tutorials/005_shapes.rst:65
+#: ../../tutorials/005_shapes.rst:65
 msgid "Angle"
 msgstr "角"
 
-#: ../../tutorials/005_1_vertices.rst:66 ../../tutorials/005_shapes.rst:66
+#: ../../tutorials/005_shapes.rst:66
 msgid "In easygraphics, all angles use degree as the unit."
 msgstr "在Easygraphics中，所有的角都使用“角度”作为单位。"
 
-#: ../../tutorials/005_1_vertices.rst:68 ../../tutorials/005_shapes.rst:68
+#: ../../tutorials/005_shapes.rst:68
 msgid ""
 "When drawing arc,pie and chords, positive values for the angles mean "
 "counter-clockwise while negative values mean the clockwise direction. "
 "Zero degrees is at the 3 o'clock position."
 msgstr "在画弧(arc)，饼(pie)和弓形(chord)时，正的角度值为逆时针旋转；负的角度值为顺时针旋转。0度位于三点钟方向(X轴正向)。"
 
-#: ../../tutorials/005_1_vertices.rst:70 ../../tutorials/005_shapes.rst:70
+#: ../../tutorials/005_shapes.rst:70
 msgid "The following program draws a pie from 45 degree to 135 degree."
 msgstr "下面的程序画了一个从45度到135度的饼（pie）。"
 
-#: ../../tutorials/005_1_vertices.rst:85 ../../tutorials/005_shapes.rst:85
+#: ../../tutorials/005_shapes.rst:85
 msgid "Polygon"
 msgstr "多边形(Polygon)"
 
-#: ../../tutorials/005_1_vertices.rst:86 ../../tutorials/005_shapes.rst:86
+#: ../../tutorials/005_shapes.rst:86
 msgid ""
 "Use polygon()/draw_polygon()/fill_polygon(), we can draw and fill "
 "polygons."
 msgstr "使用polygon()/draw_polygon()/fill_polygon()函数，我们可以绘制或者填充多边形（polygon）。"
 
-#: ../../tutorials/005_1_vertices.rst:88 ../../tutorials/005_shapes.rst:88
+#: ../../tutorials/005_shapes.rst:88
 msgid "To draw a polygon, we should specify the vertices."
 msgstr "在绘制多边形时，我们必须指明多边形的各个顶点（vertices）"
 
-#: ../../tutorials/005_1_vertices.rst:90 ../../tutorials/005_shapes.rst:90
+#: ../../tutorials/005_shapes.rst:90
 msgid ""
 "polygon()/draw_polygon()/fill_polygon() expect a list as the verticis\\' "
 "postions. In the list, each vertex is represented as 2 values (x and y). "
 "So n vertices is represented by a list with 2n values."
 msgstr "polygon()/draw_polygon()/fill_polygon()需要提供一个list（列表）参数，其中存放着各顶点的位置。在列表中，每个顶点用两个数来表示（其x和y坐标）。所以，如果有n个顶点，那么列表中应该有2n个数。"
 
-#: ../../tutorials/005_1_vertices.rst:94 ../../tutorials/005_shapes.rst:94
+#: ../../tutorials/005_shapes.rst:94
 msgid ""
 "The following example draws a triangle with vertices at (50, 50), (350, "
 "250), (50, 150):"
 msgstr "下面的程序绘制了一个三角形，它的三个顶点分别位于 (50, 50), (350,250)和(50, 150):"
 
-#: ../../tutorials/005_1_vertices.rst:110 ../../tutorials/005_shapes.rst:110
+#: ../../tutorials/005_shapes.rst:110
 msgid "Polylines"
 msgstr "折线（Polylines）"
 
-#: ../../tutorials/005_1_vertices.rst:111 ../../tutorials/005_shapes.rst:111
+#: ../../tutorials/005_shapes.rst:111
 msgid "Using poly_line() or draw_poly_line(), we can draw polylines."
 msgstr "使用poly_line()或draw_poly_line()，我们可以绘制折线。"
 
-#: ../../tutorials/005_1_vertices.rst:115 ../../tutorials/005_shapes.rst:115
+#: ../../tutorials/005_shapes.rst:115
 msgid ""
 "A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a "
 "continuous line composed of one or more line segments. So to draw a "
@@ -528,7 +584,7 @@ msgstr ""
 "`折线（Polyline） <https://www.webopedia.com/TERM/P/polyline.html>`_ "
 "是一条由一个或多个依次相连的线段组成的线。因此，要绘制一条折线，我们必须指明连接各线段的端点"
 
-#: ../../tutorials/005_1_vertices.rst:118 ../../tutorials/005_shapes.rst:118
+#: ../../tutorials/005_shapes.rst:118
 msgid ""
 "poly_line() and draw_poly_line() expect a list as the endpoint\\'s "
 "postions. In the list, each endpoint is represented as 2 values (x and "
@@ -537,17 +593,17 @@ msgstr ""
 "poly_line() and "
 "draw_poly_line()需要提供一个list（列表）参数，其中存放着各端点的位置。在列表中，每个端点用两个数来表示（其x和y坐标）。所以n个端点就需要2n个数来表示。"
 
-#: ../../tutorials/005_1_vertices.rst:122 ../../tutorials/005_shapes.rst:122
+#: ../../tutorials/005_shapes.rst:122
 msgid ""
 "The following example draws a polyline connecting (50,50), (350,75), "
 "(50,150), (350,175), (50,250), (350,275)."
 msgstr "下面程序绘制了一条依次连接了点(50,50)、(350,75)、(50,150)、(350,175)、(50,250)和(350,275)的折线。"
 
-#: ../../tutorials/005_1_vertices.rst:136 ../../tutorials/005_shapes.rst:136
+#: ../../tutorials/005_shapes.rst:136
 msgid "Bézier curve"
 msgstr "贝塞尔曲线（Bézier curve）"
 
-#: ../../tutorials/005_1_vertices.rst:137 ../../tutorials/005_shapes.rst:137
+#: ../../tutorials/005_shapes.rst:137
 msgid ""
 "`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve>`_ is a "
 "parametric curve that uses the Bernstein polynomials as a basis."
@@ -558,7 +614,7 @@ msgstr ""
 "<https://baike.baidu.com/item/%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F>`_"
 " 为基础的参数曲线。"
 
-#: ../../tutorials/005_1_vertices.rst:139 ../../tutorials/005_shapes.rst:139
+#: ../../tutorials/005_shapes.rst:139
 msgid ""
 "A Bézier curve is defined by a set of control points P0 through Pn, where"
 " n is called its order (n = 1 for linear, 2 for quadratic, 3 for cubic "
@@ -567,11 +623,11 @@ msgid ""
 "not lie on the curve."
 msgstr "每条贝塞尔曲线由一组控制点P0到Pn定义，其中n是曲线的阶数（n=1称为线性曲线，2为二次曲线，3为三次曲线，以此类推）。第一个和最后一个控制点是曲线的端点，中间的控制点一般则不在曲线上。"
 
-#: ../../tutorials/005_1_vertices.rst:143 ../../tutorials/005_shapes.rst:143
+#: ../../tutorials/005_shapes.rst:143
 msgid "Cubic Bézier curves are the mostly used Bézier curves."
 msgstr "三次贝塞尔曲线（Cubic Bézier curves）是最常见的贝塞尔曲线。"
 
-#: ../../tutorials/005_1_vertices.rst:147 ../../tutorials/005_shapes.rst:147
+#: ../../tutorials/005_shapes.rst:147
 msgid ""
 "Four points P0, P1, P2 and P3 in the plane or in higher-dimensional space"
 " define a cubic Bézier curve. The curve starts at P0 going toward P1 and "
@@ -581,11 +637,11 @@ msgid ""
 "\"how fast\" the curve moves towards P1 before turning towards P2."
 msgstr "平面或者空间中的4个点P0、P1、P2和P3定义了一条贝塞尔曲线。这条曲线从P0出发，走向P1，并从P2的方向到达P3。通常该曲线不会通过P1和P2，这两个点只是为曲线提供方向信息。P1和P2之间的距离决定了曲线在转向P2前，向P1方向前进\"多远\"和\"多快\"。"
 
-#: ../../tutorials/005_1_vertices.rst:153 ../../tutorials/005_shapes.rst:153
+#: ../../tutorials/005_shapes.rst:153
 msgid "The explicit form of the curve is:"
 msgstr "曲线的参数形式为："
 
-#: ../../tutorials/005_1_vertices.rst:157 ../../tutorials/005_shapes.rst:157
+#: ../../tutorials/005_shapes.rst:157
 msgid ""
 "We can use bezier() or draw_bezier() to draw cubic Bézier curves. They "
 "expect a list as the control points\\' postions. In the list, each "
@@ -594,47 +650,11 @@ msgid ""
 "list."
 msgstr "我们可以使用bezier()或draw_bezier()来绘制贝塞尔曲线。它们需要一个列表作为参数来指明各控制点的位置。在列表中，每个控制点对应两个数值（x和y坐标）。因为一条贝塞尔曲线需要4个控制点，因此列表中应该有8个数。"
 
-#: ../../tutorials/005_1_vertices.rst:161 ../../tutorials/005_shapes.rst:161
+#: ../../tutorials/005_shapes.rst:161
 msgid ""
 "The following program draw a cubic bezier curve with control points at "
 "(300,50),(200,50),(200,200) and (100,200)."
 msgstr "下面的程序绘制了一条三次贝塞尔曲线，其四个控制点分别为(300,50)、(200,50)、(200,200)和(100,200)。"
-
-#: ../../tutorials/005_1_vertices.rst:174 ../../tutorials/005_shapes.rst:190
-msgid "Flood Fill"
-msgstr "泛洪填充（Flood Fill）"
-
-#: ../../tutorials/005_1_vertices.rst:175 ../../tutorials/005_shapes.rst:191
-msgid ""
-"Non-regular shapes can be filled by flood fill. The shape to be filled "
-"must be enclosed by an outline. The follow program uses flood fill to "
-"fill a petal."
-msgstr "不规则图形可以使用泛洪（flood fill）方式填充。被填充形状的外轮廓线必须完全闭合。下面的程序使用泛洪填充一个花瓣。"
-
-#: ../../tutorials/005_1_vertices.rst:192 ../../tutorials/005_shapes.rst:208
-msgid "Below is the result:"
-msgstr "下面是绘制的结果："
-
-#: ../../tutorials/005_1_vertices.rst:197 ../../tutorials/005_shapes.rst:213
-msgid "Advanced Drawing"
-msgstr "高级绘图"
-
-#: ../../tutorials/005_1_vertices.rst:199 ../../tutorials/005_shapes.rst:215
-msgid ""
-"EasyGraphics supports drawing all the basic shape: point, line, circle, "
-"ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
-"need more advanced drawing, you can use Image object's get_painter() "
-"method to get the `QPainter "
-"<http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ instance and "
-"draw."
-msgstr ""
-"EasyGraphics支持绘制所有的基本图形：点、线、圆、椭圆（弧、扇形、弓形）、矩形、多边形、圆角矩形等。如果需要更高级的绘制功能，可以通过 "
-"Image 对象的成员方法get_painter()来获取内部的 `QPainter "
-"<http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ 对象，然后直接用它来进行绘制。"
-
-#: ../../tutorials/005_shapes.rst:2
-msgid "Drawing Shapes"
-msgstr "绘制几何形状"
 
 #: ../../tutorials/005_shapes.rst:173
 #, fuzzy
@@ -652,6 +672,38 @@ msgid ""
 "The following program draw a quadratic bezier curve with control points "
 "at (300,50),(200,50),(200,200) and (100,200)."
 msgstr "下面的程序绘制了一条三次贝塞尔曲线，其四个控制点分别为(300,50)、(200,50)、(200,200)和(100,200)。"
+
+#: ../../tutorials/005_shapes.rst:190
+msgid "Flood Fill"
+msgstr "泛洪填充（Flood Fill）"
+
+#: ../../tutorials/005_shapes.rst:191
+msgid ""
+"Non-regular shapes can be filled by flood fill. The shape to be filled "
+"must be enclosed by an outline. The follow program uses flood fill to "
+"fill a petal."
+msgstr "不规则图形可以使用泛洪（flood fill）方式填充。被填充形状的外轮廓线必须完全闭合。下面的程序使用泛洪填充一个花瓣。"
+
+#: ../../tutorials/005_shapes.rst:208
+msgid "Below is the result:"
+msgstr "下面是绘制的结果："
+
+#: ../../tutorials/005_shapes.rst:213
+msgid "Advanced Drawing"
+msgstr "高级绘图"
+
+#: ../../tutorials/005_shapes.rst:215
+msgid ""
+"EasyGraphics supports drawing all the basic shape: point, line, circle, "
+"ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
+"need more advanced drawing, you can use Image object's get_painter() "
+"method to get the `QPainter "
+"<http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ instance and "
+"draw."
+msgstr ""
+"EasyGraphics支持绘制所有的基本图形：点、线、圆、椭圆（弧、扇形、弓形）、矩形、多边形、圆角矩形等。如果需要更高级的绘制功能，可以通过 "
+"Image 对象的成员方法get_painter()来获取内部的 `QPainter "
+"<http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ 对象，然后直接用它来进行绘制。"
 
 #: ../../tutorials/006_line_styles.rst:2
 msgid "Line Styles"

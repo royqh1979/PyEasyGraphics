@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 22:47+0800\n"
+"POT-Creation-Date: 2019-12-09 15:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -852,7 +852,8 @@ msgstr ""
 msgid ":obj:`begin_shape <easygraphics.begin_shape>`\\ \\(\\[type\\]\\)"
 msgstr ""
 
-#: ../../api.rst:146:<autosummary>:1 easygraphics.begin_shape:1 of
+#: ../../api.rst:146:<autosummary>:1 easygraphics.Image.begin_shape:1
+#: easygraphics.begin_shape:1 of
 msgid "Begin a shape definition"
 msgstr ""
 
@@ -860,7 +861,8 @@ msgstr ""
 msgid ":obj:`end_shape <easygraphics.end_shape>`\\ \\(\\[close\\]\\)"
 msgstr ""
 
-#: ../../api.rst:146:<autosummary>:1 easygraphics.end_shape:1 of
+#: ../../api.rst:146:<autosummary>:1 easygraphics.Image.end_shape:1
+#: easygraphics.end_shape:1 of
 msgid "End a shape definition"
 msgstr ""
 
@@ -870,15 +872,16 @@ msgid ""
 "y2\\, x3\\, y3\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:146:<autosummary>:1 easygraphics.bezier_vertex:1 of
-msgid "Define a cubic Bezier curve vertex."
+#: ../../api.rst:146:<autosummary>:1
+msgid "Define a cubic Bezier curve."
 msgstr ""
 
 #: ../../api.rst:146:<autosummary>:1
 msgid ":obj:`curve_vertex <easygraphics.curve_vertex>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:146:<autosummary>:1 easygraphics.curve_vertex:1 of
+#: ../../api.rst:146:<autosummary>:1 easygraphics.Image.curve_vertex:1
+#: easygraphics.curve_vertex:1 of
 msgid "Define a Catmull-Rom curve vertex."
 msgstr ""
 
@@ -888,7 +891,7 @@ msgid ""
 "x2\\, y2\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:146:<autosummary>:1 easygraphics.quadratic_vertex:1 of
+#: ../../api.rst:146:<autosummary>:1
 msgid "Define a quadratic Bezier curve vertex."
 msgstr ""
 
@@ -896,7 +899,8 @@ msgstr ""
 msgid ":obj:`vertex <easygraphics.vertex>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: ../../api.rst:146:<autosummary>:1 easygraphics.vertex:1 of
+#: ../../api.rst:146:<autosummary>:1 easygraphics.Image.vertex:1
+#: easygraphics.vertex:1 of
 msgid "Define a vertex."
 msgstr ""
 
@@ -1963,9 +1967,11 @@ msgid ""
 msgstr ""
 
 #: easygraphics.Image.add_updated_listener easygraphics.Image.arc
-#: easygraphics.Image.bezier easygraphics.Image.chord easygraphics.Image.close
-#: easygraphics.Image.create easygraphics.Image.create_from_file
-#: easygraphics.Image.curve easygraphics.Image.draw_arc
+#: easygraphics.Image.begin_shape easygraphics.Image.bezier
+#: easygraphics.Image.bezier_vertex easygraphics.Image.chord
+#: easygraphics.Image.close easygraphics.Image.create
+#: easygraphics.Image.create_from_file easygraphics.Image.curve
+#: easygraphics.Image.curve_vertex easygraphics.Image.draw_arc
 #: easygraphics.Image.draw_bezier easygraphics.Image.draw_chord
 #: easygraphics.Image.draw_curve easygraphics.Image.draw_ellipse
 #: easygraphics.Image.draw_image easygraphics.Image.draw_line
@@ -1975,18 +1981,19 @@ msgstr ""
 #: easygraphics.Image.draw_quadratic easygraphics.Image.draw_rect
 #: easygraphics.Image.draw_rect_text easygraphics.Image.draw_rounded_rect
 #: easygraphics.Image.draw_text easygraphics.Image.draw_to_device
-#: easygraphics.Image.ellipse easygraphics.Image.fill_chord
-#: easygraphics.Image.fill_ellipse easygraphics.Image.fill_image
-#: easygraphics.Image.fill_path easygraphics.Image.fill_pie
-#: easygraphics.Image.fill_polygon easygraphics.Image.fill_rect
-#: easygraphics.Image.fill_rounded_rect easygraphics.Image.flip
-#: easygraphics.Image.flood_fill easygraphics.Image.get_pixel
-#: easygraphics.Image.line easygraphics.Image.line_rel
-#: easygraphics.Image.line_to easygraphics.Image.lines
-#: easygraphics.Image.mirror easygraphics.Image.move_rel
-#: easygraphics.Image.move_to easygraphics.Image.path easygraphics.Image.pie
-#: easygraphics.Image.poly_line easygraphics.Image.polygon
-#: easygraphics.Image.put_pixel easygraphics.Image.quadratic
+#: easygraphics.Image.ellipse easygraphics.Image.end_shape
+#: easygraphics.Image.fill_chord easygraphics.Image.fill_ellipse
+#: easygraphics.Image.fill_image easygraphics.Image.fill_path
+#: easygraphics.Image.fill_pie easygraphics.Image.fill_polygon
+#: easygraphics.Image.fill_rect easygraphics.Image.fill_rounded_rect
+#: easygraphics.Image.flip easygraphics.Image.flood_fill
+#: easygraphics.Image.get_pixel easygraphics.Image.line
+#: easygraphics.Image.line_rel easygraphics.Image.line_to
+#: easygraphics.Image.lines easygraphics.Image.mirror
+#: easygraphics.Image.move_rel easygraphics.Image.move_to
+#: easygraphics.Image.path easygraphics.Image.pie easygraphics.Image.poly_line
+#: easygraphics.Image.polygon easygraphics.Image.put_pixel
+#: easygraphics.Image.quadratic easygraphics.Image.quadratic_vertex
 #: easygraphics.Image.rect easygraphics.Image.reflect
 #: easygraphics.Image.remove_updated_listener easygraphics.Image.rotate
 #: easygraphics.Image.rounded_rect easygraphics.Image.save
@@ -2002,20 +2009,20 @@ msgstr ""
 #: easygraphics.Image.set_window easygraphics.Image.shear
 #: easygraphics.Image.skew easygraphics.Image.text_width
 #: easygraphics.Image.to_bytes easygraphics.Image.translate
-#: easygraphics.add_record easygraphics.arc easygraphics.begin_shape
-#: easygraphics.bezier easygraphics.bezier_vertex easygraphics.capture_screen
-#: easygraphics.cart2pol easygraphics.chord easygraphics.circle
-#: easygraphics.clear easygraphics.clear_device easygraphics.clear_view_port
-#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_gray
-#: easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.curve easygraphics.curve_vertex easygraphics.delay
-#: easygraphics.delay_fps easygraphics.delay_jfps easygraphics.draw_arc
-#: easygraphics.draw_bezier easygraphics.draw_chord easygraphics.draw_circle
-#: easygraphics.draw_curve easygraphics.draw_ellipse easygraphics.draw_image
-#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
-#: easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.Image.vertex easygraphics.add_record easygraphics.arc
+#: easygraphics.begin_shape easygraphics.bezier easygraphics.bezier_vertex
+#: easygraphics.capture_screen easygraphics.cart2pol easygraphics.chord
+#: easygraphics.circle easygraphics.clear easygraphics.clear_device
+#: easygraphics.clear_view_port easygraphics.close_image
+#: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsv
+#: easygraphics.color_rgb easygraphics.contains_left_button
+#: easygraphics.contains_mid_button easygraphics.contains_right_button
+#: easygraphics.create_image easygraphics.curve easygraphics.curve_vertex
+#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
+#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
+#: easygraphics.draw_circle easygraphics.draw_curve easygraphics.draw_ellipse
+#: easygraphics.draw_image easygraphics.draw_line easygraphics.draw_lines
+#: easygraphics.draw_pie easygraphics.draw_point easygraphics.draw_poly_line
 #: easygraphics.draw_polygon easygraphics.draw_quadratic easygraphics.draw_rect
 #: easygraphics.draw_rect_text easygraphics.draw_rounded_rect
 #: easygraphics.draw_text easygraphics.ellipse easygraphics.end_shape
@@ -2739,10 +2746,10 @@ msgid "y coordinate value of the drawing point"
 msgstr ""
 
 #: easygraphics.arc:13 easygraphics.begin_shape:4 easygraphics.bezier:20
-#: easygraphics.bezier_vertex:4 easygraphics.chord:15 easygraphics.circle:8
+#: easygraphics.bezier_vertex:9 easygraphics.chord:15 easygraphics.circle:8
 #: easygraphics.clear:3 easygraphics.clear_device:3
 #: easygraphics.clear_view_port:3 easygraphics.curve:4
-#: easygraphics.curve_vertex:4 easygraphics.draw_arc:13
+#: easygraphics.curve_vertex:5 easygraphics.draw_arc:13
 #: easygraphics.draw_bezier:20 easygraphics.draw_chord:15
 #: easygraphics.draw_circle:8 easygraphics.draw_curve:4
 #: easygraphics.draw_ellipse:9 easygraphics.draw_image:26
@@ -2760,9 +2767,9 @@ msgstr ""
 #: easygraphics.line_to:5 easygraphics.lines:17 easygraphics.move_rel:9
 #: easygraphics.move_to:7 easygraphics.pie:15 easygraphics.poly_line:17
 #: easygraphics.polygon:19 easygraphics.put_image:26 easygraphics.put_pixel:6
-#: easygraphics.quadratic:11 easygraphics.quadratic_vertex:4
+#: easygraphics.quadratic:11 easygraphics.quadratic_vertex:7
 #: easygraphics.rect:9 easygraphics.rounded_rect:13 easygraphics.text_height:3
-#: easygraphics.text_width:4 easygraphics.vertex:4 of
+#: easygraphics.text_width:4 easygraphics.vertex:5 of
 msgid ""
 "the target image which will be painted on. None means it is the target "
 "image (see set_target() and get_target())."
@@ -3396,17 +3403,62 @@ msgstr ""
 msgid "control points"
 msgstr ""
 
-#: easygraphics.begin_shape:3 of
+#: easygraphics.Image.begin_shape:3 easygraphics.begin_shape:3 of
 msgid "the type of the shape. See VertexType const for more information"
 msgstr ""
 
-#: easygraphics.end_shape:3 of
+#: easygraphics.Image.end_shape:3 easygraphics.end_shape:3 of
 msgid "if the shape should be closed. Only polylines can be closed."
 msgstr ""
 
-#: easygraphics.bezier_vertex:3 easygraphics.curve_vertex:3
-#: easygraphics.quadratic_vertex:3 easygraphics.vertex:3 of
-msgid "x pos of the vertext"
+#: easygraphics.Image.curve_vertex:3 easygraphics.Image.vertex:3
+#: easygraphics.curve_vertex:3 easygraphics.vertex:3 of
+msgid "x pos of the vertex"
+msgstr ""
+
+#: easygraphics.Image.curve_vertex:4 easygraphics.Image.vertex:4
+#: easygraphics.curve_vertex:4 easygraphics.vertex:4 of
+msgid "y pos of the vertex"
+msgstr ""
+
+#: easygraphics.Image.bezier_vertex:1 easygraphics.bezier_vertex:1 of
+msgid ""
+"Define a cubic Bezier curve. The first control point of the curve the "
+"vertex defined last time."
+msgstr ""
+
+#: easygraphics.Image.bezier_vertex:3 easygraphics.Image.quadratic_vertex:3
+#: easygraphics.bezier_vertex:3 easygraphics.quadratic_vertex:3 of
+msgid "x pos of the second control point"
+msgstr ""
+
+#: easygraphics.Image.bezier_vertex:4 easygraphics.Image.quadratic_vertex:4
+#: easygraphics.bezier_vertex:4 easygraphics.quadratic_vertex:4 of
+msgid "y pos of the second control point"
+msgstr ""
+
+#: easygraphics.Image.bezier_vertex:5 easygraphics.Image.quadratic_vertex:5
+#: easygraphics.bezier_vertex:5 easygraphics.quadratic_vertex:5 of
+msgid "x pos of the third control point"
+msgstr ""
+
+#: easygraphics.Image.bezier_vertex:6 easygraphics.Image.quadratic_vertex:6
+#: easygraphics.bezier_vertex:6 easygraphics.quadratic_vertex:6 of
+msgid "y pos of the third control point"
+msgstr ""
+
+#: easygraphics.Image.bezier_vertex:7 easygraphics.bezier_vertex:7 of
+msgid "x pos of the fourth control point"
+msgstr ""
+
+#: easygraphics.Image.bezier_vertex:8 easygraphics.bezier_vertex:8 of
+msgid "y pos of the fourth control point"
+msgstr ""
+
+#: easygraphics.Image.quadratic_vertex:1 easygraphics.quadratic_vertex:1 of
+msgid ""
+"Define a quadratic Bezier curve vertex. The first control point of the "
+"curve the vertex defined last time."
 msgstr ""
 
 #: easygraphics.Image.draw_rect_text:9 easygraphics.draw_rect_text:9
@@ -5566,5 +5618,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "These are the shape mode."
+#~ msgstr ""
+
+#~ msgid "Define a cubic Bezier curve vertex."
+#~ msgstr ""
+
+#~ msgid "x pos of the vertext"
 #~ msgstr ""
 

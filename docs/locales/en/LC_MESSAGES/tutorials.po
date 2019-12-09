@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-08 22:23+0800\n"
+"POT-Creation-Date: 2019-12-09 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -396,147 +396,204 @@ msgid "The following program plot a sin(x) curve on [-3,3]."
 msgstr ""
 
 #: ../../tutorials/005_1_vertices.rst:2
-msgid "Drawing Polygon using Vertices"
+msgid "Drawing a Shape using Vertices"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:5 ../../tutorials/005_shapes.rst:5
+#: ../../tutorials/005_1_vertices.rst:4
+msgid "We can use vertices to draw complex shapes."
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:6
+msgid "The following code draws a star."
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:8
+msgid "**Note**:"
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:10
+msgid "We use a for loop to define 5 vertices of the star."
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:12
+msgid ""
+"We set end_shape()'s parameter to True to draw a closed polyline. If you "
+"want a polyline that not closed, use end_shape()'s default False "
+"parameter."
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:14
+msgid ""
+"If you don't want fill, you should not close the shape,  or you can set "
+"the fill color to Color.TRANSPARENT"
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:34
+msgid "Let's see what happens if we don't close the shape:"
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:56
+msgid "Spline Curve (Catmull-Rom Curve)"
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:58
+msgid "We can use vertices to draw a spline curve (Catmull-Rom curve)."
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:91
+msgid "See what happens if we close the shape."
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:125
+msgid "Bezier Curve"
+msgstr ""
+
+#: ../../tutorials/005_1_vertices.rst:126
+msgid "The following code use vertices to draw a cubic bezier curve."
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:2
+msgid "Drawing Shapes"
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:5
 msgid "Three Types of Drawing Functions"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:7 ../../tutorials/005_shapes.rst:7
+#: ../../tutorials/005_shapes.rst:7
 msgid "In EasyGraphics, there are three types of functions to draw shapes:"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:9 ../../tutorials/005_shapes.rst:9
+#: ../../tutorials/005_shapes.rst:9
 msgid ""
 "Functions that only draw shape outlines. These functions are named like "
 "\\'xxx()\\' (\\\"xxx\\\" is the shape\\'s name). \\ The example below "
 "draw a circle with a blue outline."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:22 ../../tutorials/005_shapes.rst:22
+#: ../../tutorials/005_shapes.rst:22
 msgid ""
 "Functions that both draw and fill a shape. These functions are named like"
 " \\'draw_xxx()\\'(\\\"xxx\\\" is the shape\\'s name). The example below "
 "draw a red circle with a blue outline."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:35 ../../tutorials/005_shapes.rst:35
+#: ../../tutorials/005_shapes.rst:35
 msgid ""
 "Functions that only fill a shape. These functions are named like "
 "\\'fill_xxx()\\'( \\\"xxx\\\" is the shape\\'s name). The example below "
 "draw a red circle without outline."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:51 ../../tutorials/005_shapes.rst:51
+#: ../../tutorials/005_shapes.rst:51
 msgid "|circle|"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:52 ../../tutorials/005_shapes.rst:52
+#: ../../tutorials/005_shapes.rst:52
 msgid "|draw_circle|"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:53 ../../tutorials/005_shapes.rst:53
+#: ../../tutorials/005_shapes.rst:53
 msgid "|fill_circle|"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:54 ../../tutorials/005_shapes.rst:54
+#: ../../tutorials/005_shapes.rst:54
 msgid "circle()"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:55 ../../tutorials/005_shapes.rst:55
+#: ../../tutorials/005_shapes.rst:55
 msgid "draw_circle()"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:56 ../../tutorials/005_shapes.rst:56
+#: ../../tutorials/005_shapes.rst:56
 msgid "fill_circle()"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:65 ../../tutorials/005_shapes.rst:65
+#: ../../tutorials/005_shapes.rst:65
 msgid "Angle"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:66 ../../tutorials/005_shapes.rst:66
+#: ../../tutorials/005_shapes.rst:66
 msgid "In easygraphics, all angles use degree as the unit."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:68 ../../tutorials/005_shapes.rst:68
+#: ../../tutorials/005_shapes.rst:68
 msgid ""
 "When drawing arc,pie and chords, positive values for the angles mean "
 "counter-clockwise while negative values mean the clockwise direction. "
 "Zero degrees is at the 3 o'clock position."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:70 ../../tutorials/005_shapes.rst:70
+#: ../../tutorials/005_shapes.rst:70
 msgid "The following program draws a pie from 45 degree to 135 degree."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:85 ../../tutorials/005_shapes.rst:85
+#: ../../tutorials/005_shapes.rst:85
 msgid "Polygon"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:86 ../../tutorials/005_shapes.rst:86
+#: ../../tutorials/005_shapes.rst:86
 msgid ""
 "Use polygon()/draw_polygon()/fill_polygon(), we can draw and fill "
 "polygons."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:88 ../../tutorials/005_shapes.rst:88
+#: ../../tutorials/005_shapes.rst:88
 msgid "To draw a polygon, we should specify the vertices."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:90 ../../tutorials/005_shapes.rst:90
+#: ../../tutorials/005_shapes.rst:90
 msgid ""
 "polygon()/draw_polygon()/fill_polygon() expect a list as the verticis\\' "
 "postions. In the list, each vertex is represented as 2 values (x and y). "
 "So n vertices is represented by a list with 2n values."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:94 ../../tutorials/005_shapes.rst:94
+#: ../../tutorials/005_shapes.rst:94
 msgid ""
 "The following example draws a triangle with vertices at (50, 50), (350, "
 "250), (50, 150):"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:110 ../../tutorials/005_shapes.rst:110
+#: ../../tutorials/005_shapes.rst:110
 msgid "Polylines"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:111 ../../tutorials/005_shapes.rst:111
+#: ../../tutorials/005_shapes.rst:111
 msgid "Using poly_line() or draw_poly_line(), we can draw polylines."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:115 ../../tutorials/005_shapes.rst:115
+#: ../../tutorials/005_shapes.rst:115
 msgid ""
 "A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a "
 "continuous line composed of one or more line segments. So to draw a "
 "polyline, we should specify the endpoints connecting each line segment."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:118 ../../tutorials/005_shapes.rst:118
+#: ../../tutorials/005_shapes.rst:118
 msgid ""
 "poly_line() and draw_poly_line() expect a list as the endpoint\\'s "
 "postions. In the list, each endpoint is represented as 2 values (x and "
 "y). So n endpoints is represented by a list with 2n values."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:122 ../../tutorials/005_shapes.rst:122
+#: ../../tutorials/005_shapes.rst:122
 msgid ""
 "The following example draws a polyline connecting (50,50), (350,75), "
 "(50,150), (350,175), (50,250), (350,275)."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:136 ../../tutorials/005_shapes.rst:136
+#: ../../tutorials/005_shapes.rst:136
 msgid "Bézier curve"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:137 ../../tutorials/005_shapes.rst:137
+#: ../../tutorials/005_shapes.rst:137
 msgid ""
 "`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve>`_ is a "
 "parametric curve that uses the Bernstein polynomials as a basis."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:139 ../../tutorials/005_shapes.rst:139
+#: ../../tutorials/005_shapes.rst:139
 msgid ""
 "A Bézier curve is defined by a set of control points P0 through Pn, where"
 " n is called its order (n = 1 for linear, 2 for quadratic, 3 for cubic "
@@ -545,11 +602,11 @@ msgid ""
 "not lie on the curve."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:143 ../../tutorials/005_shapes.rst:143
+#: ../../tutorials/005_shapes.rst:143
 msgid "Cubic Bézier curves are the mostly used Bézier curves."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:147 ../../tutorials/005_shapes.rst:147
+#: ../../tutorials/005_shapes.rst:147
 msgid ""
 "Four points P0, P1, P2 and P3 in the plane or in higher-dimensional space"
 " define a cubic Bézier curve. The curve starts at P0 going toward P1 and "
@@ -559,11 +616,11 @@ msgid ""
 "\"how fast\" the curve moves towards P1 before turning towards P2."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:153 ../../tutorials/005_shapes.rst:153
+#: ../../tutorials/005_shapes.rst:153
 msgid "The explicit form of the curve is:"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:157 ../../tutorials/005_shapes.rst:157
+#: ../../tutorials/005_shapes.rst:157
 msgid ""
 "We can use bezier() or draw_bezier() to draw cubic Bézier curves. They "
 "expect a list as the control points\\' postions. In the list, each "
@@ -572,43 +629,10 @@ msgid ""
 "list."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:161 ../../tutorials/005_shapes.rst:161
+#: ../../tutorials/005_shapes.rst:161
 msgid ""
 "The following program draw a cubic bezier curve with control points at "
 "(300,50),(200,50),(200,200) and (100,200)."
-msgstr ""
-
-#: ../../tutorials/005_1_vertices.rst:174 ../../tutorials/005_shapes.rst:190
-msgid "Flood Fill"
-msgstr ""
-
-#: ../../tutorials/005_1_vertices.rst:175 ../../tutorials/005_shapes.rst:191
-msgid ""
-"Non-regular shapes can be filled by flood fill. The shape to be filled "
-"must be enclosed by an outline. The follow program uses flood fill to "
-"fill a petal."
-msgstr ""
-
-#: ../../tutorials/005_1_vertices.rst:192 ../../tutorials/005_shapes.rst:208
-msgid "Below is the result:"
-msgstr ""
-
-#: ../../tutorials/005_1_vertices.rst:197 ../../tutorials/005_shapes.rst:213
-msgid "Advanced Drawing"
-msgstr ""
-
-#: ../../tutorials/005_1_vertices.rst:199 ../../tutorials/005_shapes.rst:215
-msgid ""
-"EasyGraphics supports drawing all the basic shape: point, line, circle, "
-"ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
-"need more advanced drawing, you can use Image object's get_painter() "
-"method to get the `QPainter "
-"<http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ instance and "
-"draw."
-msgstr ""
-
-#: ../../tutorials/005_shapes.rst:2
-msgid "Drawing Shapes"
 msgstr ""
 
 #: ../../tutorials/005_shapes.rst:173
@@ -624,6 +648,35 @@ msgstr ""
 msgid ""
 "The following program draw a quadratic bezier curve with control points "
 "at (300,50),(200,50),(200,200) and (100,200)."
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:190
+msgid "Flood Fill"
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:191
+msgid ""
+"Non-regular shapes can be filled by flood fill. The shape to be filled "
+"must be enclosed by an outline. The follow program uses flood fill to "
+"fill a petal."
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:208
+msgid "Below is the result:"
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:213
+msgid "Advanced Drawing"
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:215
+msgid ""
+"EasyGraphics supports drawing all the basic shape: point, line, circle, "
+"ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
+"need more advanced drawing, you can use Image object's get_painter() "
+"method to get the `QPainter "
+"<http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ instance and "
+"draw."
 msgstr ""
 
 #: ../../tutorials/006_line_styles.rst:2
@@ -2769,5 +2822,21 @@ msgstr ""
 #~ "In the following program, we redefined"
 #~ " two functions to draw a rotating "
 #~ "star."
+#~ msgstr ""
+
+#~ msgid "Drawing Polygon using Vertices"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Note**: * We use a for loop "
+#~ "to define 5 vertices of the star."
+#~ " * We set end_shape()'s parameter to"
+#~ " True to draw a closed polyline. "
+#~ "If you want a polyline that not"
+#~ " closed, use end_shape()'s default False"
+#~ " parameter. * If you don't want "
+#~ "fill, you should not close the "
+#~ "shape,  or you can set the fill"
+#~ " color to Color.TRANSPARENT"
 #~ msgstr ""
 

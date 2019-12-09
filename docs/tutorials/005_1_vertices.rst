@@ -1,13 +1,17 @@
-Drawing Polygon using Vertices
+Drawing a Shape using Vertices
 ==============================
 
 We can use vertices to draw complex shapes.
 
 The following code draws a star.
+
 **Note**:
- * We use a for loop to define 5 vertices of the star.
- * We set end_shape()'s parameter to True to draw a closed polyline. If you want a polyline that not closed, use end_shape(False).
- * If you don't want fill, set fill color to Color.TRANSPARENT
+
+* We use a for loop to define 5 vertices of the star.
+
+* We set end_shape()'s parameter to True to draw a closed polyline. If you want a polyline that not closed, use end_shape()'s default False parameter.
+
+* If you don't want fill, you should not close the shape,  or you can set the fill color to Color.TRANSPARENT
 
 .. code:: python
 
@@ -25,209 +29,138 @@ The following code draws a star.
         rotate(144)
     end_shape(True)
 
+.. image:: ../images/tutorials/05_1_vertices_1.png
 
-Spline Curve
--------------
-
-We can use vertices to draw a curve.
-
-
-
-
-In EasyGraphics, there are three types of functions to draw shapes:
-
-* Functions that only draw shape outlines. These functions are named like \'xxx()\' (\"xxx\" is the shape\'s name). \
-  The example below draw a circle with a blue outline.
+Let's see what happens if we don't close the shape:
 
 .. code:: python
 
     from easygraphics import *
-    init_graph(200, 150)
-    set_color(Color.BLUE)
-    set_fill_color(Color.RED)
-    circle(100, 75, 60)
-    pause()
-    close_graph()
 
-* Functions that both draw and fill a shape. These functions are named like \'draw_xxx()\'(\"xxx\" is the shape\'s name).
-  The example below draw a red circle with a blue outline.
-
-.. code:: python
-
-    from easygraphics import *
-    init_graph(200, 150)
-    set_color(Color.BLUE)
-    set_fill_color(Color.RED)
-    draw_circle(100, 75, 60)
-    pause()
-    close_graph()
-
-* Functions that only fill a shape. These functions are named like \'fill_xxx()\'( \"xxx\" is the shape\'s name).
-  The example below draw a red circle without outline.
-
-.. code:: python
-
-    from easygraphics import *
-    init_graph(200, 150)
-    set_color(Color.BLUE)
-    set_fill_color(Color.RED)
-    fill_circle(100, 75, 60)
-    pause()
-    close_graph()
-
-.. list-table::
-    :align: center
-
-    * - |circle|
-      - |draw_circle|
-      - |fill_circle|
-    * - circle()
-      - draw_circle()
-      - fill_circle()
-
-.. |circle| image:: ../images/graphics/circle.png
-
-.. |draw_circle| image:: ../images/graphics/draw_circle.png
-
-.. |fill_circle| image:: ../images/graphics/fill_circle.png
-
-Angle
------
-In easygraphics, all angles use degree as the unit.
-
-When drawing arc,pie and chords, positive values for the angles mean counter-clockwise while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
-
-The following program draws a pie from 45 degree to 135 degree.
-
-.. code-block:: python
-
-    init_graph(400, 300)
-
-    set_color("red")
-    set_fill_color("lightyellow")
-    draw_pie(200, 150, 45, 135, 100, 70)
-    pause()
-    close_graph()
-
-.. image:: ../images/tutorials/04_pie.png
-
-Polygon
--------
-Use polygon()/draw_polygon()/fill_polygon(), we can draw and fill polygons.
-
-To draw a polygon, we should specify the vertices.
-
-polygon()/draw_polygon()/fill_polygon() expect a list as the verticis\' postions. In the list,
-each vertex is represented as 2 values (x and y). So n vertices is represented by a
-list with 2n values.
-
-The following example draws a triangle with vertices at (50, 50), (350, 250), (50, 150):
-
-.. code-block:: python
-
-    from easygraphics import *
-
-    init_graph(400, 300)
-    set_color(Color.DARK_BLUE)
-    set_fill_color(Color.LIGHT_MAGENTA)
-    draw_polygon(50, 50, 350, 250, 50, 150)
-    pause()
-    close_graph()
-
-.. image:: ../images/tutorials/04_polygon.png
-
-Polylines
----------
-Using poly_line() or draw_poly_line(), we can draw polylines.
-
-.. image:: ../images/graphics/polyline.gif
-
-A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a continuous line composed of one or more
-line segments. So to draw a polyline, we should specify the endpoints connecting each line segment.
-
-poly_line() and draw_poly_line() expect a list as the endpoint\'s postions. In the list,
-each endpoint is represented as 2 values (x and y). So n endpoints is represented by a
-list with 2n values.
-
-The following example draws a polyline connecting (50,50), (350,75), (50,150), (350,175), (50,250), (350,275).
-
-.. code-block:: python
-
-    from easygraphics import *
-
-    init_graph(400, 300)
-    draw_poly_line(50, 50, 350, 75, 50, 150, 350, 175, 50, 250, 350, 275)
-    pause()
-    close_graph()
-
-.. image:: ../images/tutorials/04_polyline.png
-
-Bézier curve
-------------
-`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve>`_ is a parametric curve that uses the Bernstein polynomials as a basis.
-
-A Bézier curve is defined by a set of control points P0 through Pn, where n is called its order (n = 1 for linear,
-2 for quadratic, 3 for cubic etc.). The first and last control points are always the end points of the curve;
-however, the intermediate control points (if any) generally do not lie on the curve.
-
-Cubic Bézier curves are the mostly used Bézier curves.
-
-.. image:: ../images/graphics/bezier_curve.png
-
-Four points P0, P1, P2 and P3 in the plane or in higher-dimensional space define a cubic Bézier curve.
-The curve starts at P0 going toward P1 and arrives at P3 coming from the direction of P2. Usually,
-it will not pass through P1 or P2; these points are only there to provide directional information.
-The distance between P1 and P2 determines "how far" and "how fast" the curve moves towards P1 before
-turning towards P2.
-
-The explicit form of the curve is:
-
-.. image:: ../images/graphics/bezier_curve_formula.svg
-
-We can use bezier() or draw_bezier() to draw cubic Bézier curves. They expect a list as the control points\' postions.
-In the list, each control point is represented as 2 values (x and y). Because a cubic Bézier curve needs 4 control
-points, so there should be 8 values in the list.
-
-The following program draw a cubic bezier curve with control points at (300,50),(200,50),(200,200) and (100,200).
-
-.. code-block:: python
-
-    from easygraphics import *
-
-    init_graph(600, 400)
-    points = [300, 50, 200, 50, 200, 200, 100, 200]
-    draw_bezier(*points)
-    pause()
-    close_graph()
-
-Flood Fill
-----------
-Non-regular shapes can be filled by flood fill. The shape to be filled must be enclosed by an outline.
-The follow program uses flood fill to fill a petal.
-
-.. code-block:: python
-
-    from easygraphics import *
-
-    init_graph(400,200)
+    init_graph(400,300)
     set_color(Color.BLACK)
-    arc(200,-40,180,360,220,220)
-    arc(200,240,0,180,220,220)
+    set_fill_color(Color.LIGHT_GRAY)
+    # set the axis origin to (200,150)
+    translate(200, 150)
 
-    set_fill_color(Color.DARK_RED)
-    flood_fill(200,100,Color.BLACK)
+    begin_shape()
+    for i in range(5):
+        vertex(0,-100)
+        rotate(144)
+    end_shape()
+
+.. image:: ../images/tutorials/05_1_vertices_2.png
+
+
+Spline Curve (Catmull-Rom Curve)
+--------------------------------
+
+We can use vertices to draw a spline curve (Catmull-Rom curve).
+
+.. code:: python
+
+    from easygraphics import *
+
+    init_graph(200,200)
+    set_color(Color.BLACK)
+    set_fill_color(Color.LIGHT_GRAY)
+    points = [(40,40),
+              (80,60),
+              (100,100),
+              (60,120),
+              (50,150)]
+
+    # draw the curve
+    begin_shape()
+    curve_vertex(40,40) # the first control point is also the start point of the curve
+    for point in points:
+        curve_vertex(point[0],point[1])
+    curve_vertex(50,150) # the last control point is also the end point of the curve
+    end_shape()
+
+    # draw control points
+    set_fill_color(Color.RED)
+    for point in points:
+        fill_circle(point[0],point[1],3)
+
     pause()
     close_graph()
 
-Below is the result:
+.. image:: ../images/tutorials/05_1_curve_2.png
 
-.. image:: ../images/tutorials/04_pedal.png
+See what happens if we close the shape.
 
-Advanced Drawing
-----------------
+.. code:: python
 
-EasyGraphics supports drawing all the basic shape: point, line, circle, ellipse, rectangle, polygon, rectangle with
-rounded corner, etc. If you need more advanced drawing, you can use Image object's get_painter() method
-to get the `QPainter <http://pyqt.sourceforge.net/Docs/PyQt4/qpainter.html>`_ instance and draw.
+    from easygraphics import *
 
+    init_graph(200,200)
+    set_color(Color.BLACK)
+    set_fill_color(Color.LIGHT_GRAY)
+    points = [(40,40),
+              (80,60),
+              (100,100),
+              (60,120),
+              (50,150)]
 
+    # draw the curve
+    begin_shape()
+    curve_vertex(40,40) # the first control point is also the start point of the curve
+    for point in points:
+        curve_vertex(point[0],point[1])
+    curve_vertex(50,150) # the last control point is also the end point of the curve
+    end_shape(True)
+
+    # draw control points
+    set_fill_color(Color.RED)
+    for point in points:
+        fill_circle(point[0],point[1],3)
+
+    pause()
+    close_graph()
+
+.. image:: ../images/tutorials/05_1_curve_1.png
+
+Bezier Curve
+------------
+The following code use vertices to draw a cubic bezier curve.
+
+.. code:: python
+
+    from easygraphics import *
+
+    init_graph(200,200)
+
+    #draw bezier curves
+    set_color("black")
+    set_fill_color("yellow")
+    begin_shape()
+    vertex(30, 70) # first point
+    bezier_vertex(25, 25, 100, 50, 50, 100)
+    bezier_vertex(20, 130, 75, 140, 120, 120)
+    end_shape()
+
+    # draw control lines
+    set_color("lightgray")
+    line(30,70,25,25)
+    line(100,50,50,100)
+
+    line(50,100,20,130)
+    line(75,40,120,120)
+
+    # draw control points
+    set_fill_color("red")
+    fill_circle(30,70,3)
+    fill_circle(25,25,3)
+    fill_circle(100,50,3)
+
+    set_fill_color("blue")
+    fill_circle(50,100,3)
+    fill_circle(20,130,3)
+    fill_circle(75,40,3)
+    fill_circle(120,120,3)
+
+    pause()
+    close_graph()
+
+.. image:: ../images/tutorials/05_1_bezier_1.png

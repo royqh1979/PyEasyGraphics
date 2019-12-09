@@ -1515,13 +1515,6 @@ class Image:
         self._shape_transformed_vertices.append(point.x())
         self._shape_transformed_vertices.append(point.y())
         if len(self._shape_vertices) >= 8:
-            self.push_transform()
-            self.reset_transform()
-            self.draw_curve(self._shape_transformed_vertices[-8], self._shape_transformed_vertices[-7],
-                            self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5],
-                            self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3],
-                            self._shape_transformed_vertices[-2], self._shape_transformed_vertices[-1])
-
             x0, y0 = self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5]
             x1 = -self._shape_transformed_vertices[-8] / 6 + self._shape_transformed_vertices[-6] + self._shape_transformed_vertices[-4] / 6
             y1 = -self._shape_transformed_vertices[-7] / 6 + self._shape_transformed_vertices[-5] + self._shape_transformed_vertices[-3] / 6
@@ -1532,7 +1525,6 @@ class Image:
             if len(self._shape_vertices)==8:
                 self._shape_path.moveTo(x0,y0)
             self._shape_path.cubicTo(x1,y1,x2,y2,x3,y3)
-            self.pop_transform()
 
     def vertex(self, x: float, y: float):
         """
@@ -1663,10 +1655,15 @@ class Image:
         if self._shape_vertext_type == VertexType.POLY_LINE:
             if close:
                 self._vertex(self._shape_vertices[0], self._shape_vertices[1])
-            self.push_transform()
-            self.reset_transform()
-            self.draw_path(self._shape_path)
-            self.pop_transform()
+                self.push_transform()
+                self.reset_transform()
+                self.draw_path(self._shape_path)
+                self.pop_transform()
+            else:
+                self.push_transform()
+                self.reset_transform()
+                self.path(self._shape_path)
+                self.pop_transform()
         elif close:
             raise RuntimeError("Only VertexType.POLY_LINE vertices can close!")
         self._shape_path = None
