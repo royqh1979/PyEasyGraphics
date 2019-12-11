@@ -184,8 +184,6 @@ class TurtleWorld(object):
                     break
                 self._render()
 
-        self.close()
-
     def get_world_image(self):
         """
         Return the drawing image of the world.
@@ -306,7 +304,7 @@ class Turtle(object):
         old_y = y = self._y
         i = 0
         image = self._world.get_world_image()
-        while i < distance:
+        while i < distance and self._world.is_running():
             if i + 1 < distance:
                 x += delta_x
                 y += delta_y
@@ -349,14 +347,14 @@ class Turtle(object):
         if not self._world.is_immediate():
             if degree > 0:
                 i = 0
-                while i < degree:
+                while i < degree and self._world.is_running():
                     self._heading = start_angle + i
                     self._refresh()
                     i += 2
             else:
                 n_degree = - degree
                 i = 0
-                while i < n_degree:
+                while i < n_degree and self._world.is_running():
                     self._heading = start_angle - i
                     self._refresh()
                     i += 2
@@ -415,7 +413,7 @@ class Turtle(object):
         step = abs_radius * math.radians(1)
         abs_angle = abs(angle)
         i = 1
-        while i < abs_angle:
+        while i < abs_angle and self._world.is_running():
             if angle > 0:
                 self.forward(step)
                 if radius > 0:
@@ -482,7 +480,7 @@ class Turtle(object):
             signed_angle = -90
         i = 1
         # print(a, b, base_angle, center_x, center_y, old_heading)
-        while i < abs_angle:
+        while i < abs_angle and self._world.is_running():
             if angle > 0:
                 signed_i = i
             else:

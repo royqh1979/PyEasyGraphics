@@ -59,7 +59,7 @@ __all__ = [
     # 'GraphWin',
     'Image',
     # Easy run mode
-    "easy_run","in_easy_run_mode",
+    "easy_run","in_easy_run_mode", "register_for_clean_up",
 ]
 
 # internal variables
@@ -84,6 +84,7 @@ _animation = None
 _start_event = None
 _close_event = threading.Event()
 _win :GraphWin = None
+_for_clean_ups = []
 
 #  settings
 
@@ -2248,6 +2249,20 @@ def get_graphics_window() -> GraphWin:
     """
     return _win
 
+
+def _cleanup():
+    global _win,_created_images,_for_clean_ups
+    if not _headless_mode:
+        _win.close()
+        _win = None
+    for image in _created_images:
+        image.close()
+    _created_images.clear()
+    for obj in _for_clean_ups:
+        obj.close()
+    _for_clean_ups.clear()
+
+
 def close_graph():
     """
     Close the graphics windows.
@@ -2260,17 +2275,14 @@ def close_graph():
     >>> close_graph()
     """
     global _app, _win
-    if not _headless_mode:
-        _win.close()
-        _win = None
-    for image in _created_images:
-        image.close()
-    _created_images.clear()
+    if _easy_run_mode:
+        _app.quit()
+        return
+    _cleanup()
     _app.quit()
     _close_event.set()
-    if not _easy_run_mode:
-        while _app is not None:
-            time.sleep(0.05)
+    while _app is not None:
+        time.sleep(0.05)
 
 
 def _check_app_run(check_not_headless: bool = False):
@@ -2405,11 +2417,7 @@ def easy_run(main_func, width=640, height=480):
     set_caption("Python Easy Graphics")
     _is_run = True
     set_font_size(18)
-    def _main_func():
-        main_func()
-        if _win!=None:
-            close_graph()
-    thread = threading.Thread(target=_main_func)
+    thread = threading.Thread(target=main_func)
     thread.start()
     # wait GUI initiation finished
     _app.exec_()
@@ -2417,8 +2425,16 @@ def easy_run(main_func, width=640, height=480):
     _is_run = False
     invoke_in_app_thread.wait_for_quit()
     invoke_in_app_thread.destroy_invoke_in_app()
-    _close_event.wait()
+    thread.join()
+    _cleanup()
     _app = None
+
+
+def register_for_clean_up(obj):
+    """
+    Register an object for clean up when the app quits.
+    """
+    _for_clean_ups.append(obj)
 
 def in_easy_run_mode()->bool:
     return _easy_run_mode

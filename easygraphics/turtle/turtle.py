@@ -15,8 +15,8 @@ __all__ = [
     'is_run', 'is_out_of_window',
     'Turtle', 'TurtleWorld','easy_run']
 
-_turtle = None
-_world = None
+_turtle : Turtle = None
+_world : TurtleWorld = None
 
 _in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
 
@@ -36,6 +36,8 @@ def create_world(width: int = 800, height: int = 600) -> None:
         eg.init_graph(width, height)
     _world = TurtleWorld()
     _turtle = Turtle(_world)
+    eg.register_for_clean_up(_world)
+    eg.register_for_clean_up(_turtle)
 
 
 def close_world() -> None:
@@ -198,8 +200,9 @@ def begin_fill():
     """
     Begin to record the turtle's shape drawing path for filling.
     """
-    _check_turtle()
-    _turtle.begin_fill()
+    if eg.is_run():
+        _check_turtle()
+        _turtle.begin_fill()
 
 
 def end_fill():
