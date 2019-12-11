@@ -17,4 +17,4 @@ def main_func():
     pause()
     close_world()
 
-turtle_run(main_func)
+easy_run(main_func)

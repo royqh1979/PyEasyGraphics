@@ -8,10 +8,13 @@ def polyspi(side, angle, inc):
         side += inc
 
 
-create_world(800, 600)
+def main():
+    create_world(800, 600)
 
-set_speed(100)
+    set_speed(100)
 
-polyspi(0, 117, 5)
+    polyspi(0, 117, 5)
 
-close_world()
+    close_world()
+
+easy_run(main)

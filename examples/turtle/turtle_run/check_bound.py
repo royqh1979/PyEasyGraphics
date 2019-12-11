@@ -38,4 +38,4 @@ def main():
 
     close_world()
 
-turtle_run(main)
+easy_run(main)

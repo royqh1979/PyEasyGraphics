@@ -481,7 +481,7 @@ class Turtle(object):
         else:
             signed_angle = -90
         i = 1
-        print(a, b, base_angle, center_x, center_y, old_heading)
+        # print(a, b, base_angle, center_x, center_y, old_heading)
         while i < abs_angle:
             if angle > 0:
                 signed_i = i

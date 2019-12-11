@@ -75,7 +75,7 @@ def arrowHead():
     end_fill()
 
 
-if __name__ == "__main__":
+def main():
     create_world(800, 600)
 
     set_color('red')
@@ -94,3 +94,5 @@ if __name__ == "__main__":
     hide()
     pause()
     close_world()
+
+easy_run(main)
