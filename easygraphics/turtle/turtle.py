@@ -13,12 +13,20 @@ __all__ = [
     'get_y', 'get_x', 'get_heading', 'get_turtle', 'get_turtle_world', 'set_pen_size',
     'set_immediate', 'set_speed', 'pen_down', 'pen_up', 'pu', 'pd', 'hide', 'show', 'pause',
     'is_run', 'is_out_of_window',
-    'Turtle', 'TurtleWorld']
+    'Turtle', 'TurtleWorld', 'turtle_run']
 
 _turtle = None
 _world = None
 
 _in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
+
+def turtle_run(main_func,width: int = 800, height: int = 600) -> None:
+    def _main_func():
+        global _turtle, _world
+        _world = TurtleWorld()
+        _turtle = Turtle(_world)
+        main_func()
+    eg.easy_run(_main_func,width,height)
 
 
 def create_world(width: int = 800, height: int = 600) -> None:
@@ -29,6 +37,11 @@ def create_world(width: int = 800, height: int = 600) -> None:
     :param height: height of the graphics window
     """
     global _turtle, _world
+    if eg.in_easy_run_mode():
+        if not _world:
+            raise RuntimeError("Must use turtle_run to run turtle code!")
+        eg.init_graph(width,height)
+        return
     if _world is not None:
         raise ValueError("The world has been created! ")
     if not eg.is_run():

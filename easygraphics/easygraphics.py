@@ -59,7 +59,7 @@ __all__ = [
     # 'GraphWin',
     'Image',
     # Easy run mode
-    "easy_run",
+    "easy_run","in_easy_run_mode",
 ]
 
 # internal variables
@@ -2419,3 +2419,6 @@ def easy_run(main_func, width=640, height=480):
     invoke_in_app_thread.destroy_invoke_in_app()
     _close_event.wait()
     _app = None
+
+def in_easy_run_mode()->bool:
+    return _easy_run_mode
