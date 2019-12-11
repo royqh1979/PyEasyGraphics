@@ -50,6 +50,14 @@ class GraphWin(QtWidgets.QWidget):
         self._capture_dir = "."
         self._capture_count = 0
 
+    def resize(self,width:int,height:int):
+        self._width = width
+        self._height = height
+        self.setGeometry(100, 100, width, height)
+        _old_canvas = self._canvas
+        _old_canvas.close()
+        self._init_screen(width, height)
+
     def get_width(self):
         return self._width
 

@@ -1856,7 +1856,10 @@ class Image:
 
         :param listener: the listener to remove
         """
-        self._updated_listeners.remove(listener)
+        try:
+            self._updated_listeners.remove(listener)
+        except ValueError:
+            pass
 
     if _in_ipython:
         def display_in_ipython(self):

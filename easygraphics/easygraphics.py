@@ -1,3 +1,4 @@
+import ctypes
 import sys
 import threading
 import time
@@ -57,7 +58,11 @@ __all__ = [
     'ortho_look_at', 'isometric_projection', 'cart2spher', 'spher2cart',
     # 'GraphWin',
     'Image',
+    # Easy run mode
+    "easy_run",
 ]
+
+# internal variables
 
 _in_ipython = False
 try:
@@ -70,6 +75,15 @@ except NameError:
 
 _in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
 
+_is_run = False
+_headless_mode = False # if easygraphics is working in headless mode
+_easy_run_mode = False # if easygraphics is working in easy_run mode
+_created_images = []
+_target_image = None
+_animation = None
+_start_event = None
+_close_event = threading.Event()
+_win :GraphWin = None
 
 #  settings
 
@@ -1762,10 +1776,6 @@ def text_height(image: Image = None) -> int:
 
 
 # image processing #
-
-_target_image = None
-
-
 def set_target(image: Image = None):
     """
     Set the target image for drawing on.
@@ -1775,7 +1785,7 @@ def set_target(image: Image = None):
     global _target_image
     # _check_app_run()
     if image is None:
-        if _headless:
+        if _headless_mode:
             raise RuntimeError("Can't set target to graphics window in headless mode!")
         _target_image = _win.get_canvas()
     else:
@@ -2191,6 +2201,11 @@ def set_caption(title: str):
     """
     _win.setWindowTitle(title)
 
+@invoke_in_app_thread.invoke_in_thread()
+def _set_window_size(width,height):
+    global _target_image
+    _win.resize(width,height)
+    _target_image = _win.get_canvas()
 
 def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     """
@@ -2207,10 +2222,14 @@ def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     >>> from easygraphics import *
     >>> init_graph(800,600) #prepare and show a 800*600 window
     """
-    global _start_event
+    global _start_event,_easy_run_mode
+    if _easy_run_mode and _is_run:
+        _set_window_size(width,height)
+        return
     # prepare Events
     if _is_run:
         raise RuntimeError("The Graphics Windows is already inited!")
+    _easy_run_mode = False
     _start_event = threading.Event()
     _start_event.clear()
     # start GUI thread
@@ -2229,8 +2248,6 @@ def get_graphics_window() -> GraphWin:
     """
     return _win
 
-
-_close_event = threading.Event()
 def close_graph():
     """
     Close the graphics windows.
@@ -2243,7 +2260,7 @@ def close_graph():
     >>> close_graph()
     """
     global _app, _win
-    if not _headless:
+    if not _headless_mode:
         _win.close()
         _win = None
     for image in _created_images:
@@ -2251,8 +2268,9 @@ def close_graph():
     _created_images.clear()
     _app.quit()
     _close_event.set()
-    while _app is not None:
-        time.sleep(0.05)
+    if not _easy_run_mode:
+        while _app is not None:
+            time.sleep(0.05)
 
 
 def _check_app_run(check_not_headless: bool = False):
@@ -2263,7 +2281,7 @@ def _check_app_run(check_not_headless: bool = False):
 
 
 def _check_not_headless_and_in_shell():
-    if _headless:
+    if _headless_mode:
         raise RuntimeError("Easygraphics is running in headless mode!")
     if _in_shell:
         raise RuntimeError("Easygraphics is running in interacvtive shell (i.e. qtconsole, notebook, etc.)!")
@@ -2276,8 +2294,6 @@ def _get_target_image(image: Image) -> Image:
         image = _target_image
     return image
 
-
-_animation = None
 
 
 def begin_recording():
@@ -2334,19 +2350,14 @@ def _validate_image(image: Image):
         raise ValueError("don't have valid pen")
 
 
-_is_run = False
-_headless = False
-
-_created_images = []
-
 
 def __graphics_thread_func(width: int, height: int, headless=False):
-    global _app, _win, _target_image, _is_run, _headless
-    _headless = headless
+    global _app, _win, _target_image, _is_run, _headless_mode
+    _headless_mode = headless
     _app = QtWidgets.QApplication([])
     _app.setQuitOnLastWindowClosed(True)
     invoke_in_app_thread.init_invoke_in_app()
-    if not _headless:
+    if not _headless_mode:
         _win = GraphWin(width, height)
         _target_image = _win.get_canvas()
         _win.show()
@@ -2363,4 +2374,48 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     invoke_in_app_thread.wait_for_quit()
     _close_event.wait()
     invoke_in_app_thread.destroy_invoke_in_app()
+    _app = None
+
+def _stop_thread(_thread):
+    for id, thread in threading._active.items():
+        if thread is _thread:
+            res = ctypes.pythonapi.PyThreadState_SetAsyncExc(id,
+              ctypes.py_object(SystemExit))
+        return
+
+def easy_run(main_func, width=640, height=480):
+    if main_func==None:
+        raise RuntimeError("Must provide main function!")
+    if not callable(main_func):
+        raise RuntimeError("Must provide main function!")
+
+    global _app, _win, _target_image, _is_run, _headless_mode, _easy_run_mode
+
+    if _is_run:
+        raise RuntimeError("The Graphics Windows is already inited!")
+    _close_event.clear()
+    _headless_mode = False
+    _easy_run_mode = True
+    _app = QtWidgets.QApplication([])
+    _app.setQuitOnLastWindowClosed(True)
+    invoke_in_app_thread.init_invoke_in_app()
+    _win = GraphWin(width, height)
+    _target_image = _win.get_canvas()
+    _win.show()
+    set_caption("Python Easy Graphics")
+    _is_run = True
+    set_font_size(18)
+    def _main_func():
+        main_func()
+        if _win!=None:
+            close_graph()
+    thread = threading.Thread(target=_main_func)
+    thread.start()
+    # wait GUI initiation finished
+    _app.exec_()
+    _stop_thread(thread)
+    _is_run = False
+    invoke_in_app_thread.wait_for_quit()
+    invoke_in_app_thread.destroy_invoke_in_app()
+    _close_event.wait()
     _app = None
