@@ -32,7 +32,7 @@ def create_world(width: int = 800, height: int = 600) -> None:
     global _turtle, _world
     if _world is not None:
         raise ValueError("The world has been created! ")
-    if not eg.is_run() or eg.in_easy_run_mode():
+    if not eg.is_run():
         eg.init_graph(width, height)
     _world = TurtleWorld()
     _turtle = Turtle(_world)

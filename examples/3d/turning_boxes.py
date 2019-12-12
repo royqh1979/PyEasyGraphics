@@ -44,53 +44,55 @@ boxes = []
 
 
 def init_boxes(numbers):
-    for i in range(n):
+    for i in range(numbers):
         boxes.append(box((i + 1) * 4))
 
+def main():
+    n = 50
+    init_boxes(n)
+    random.seed()
+    init_graph(800, 600)
+    set_color("gray")
+    translate(400, 300)
+    set_render_mode(RenderMode.RENDER_MANUAL)
+    degree = 0
+    fps = 30
+    m_o = isometric_projection()
+    points = []
 
-n = 50
-init_boxes(n)
-random.seed()
-init_graph(800, 600)
-set_color("gray")
-translate(400, 300)
-set_render_mode(RenderMode.RENDER_MANUAL)
-degree = 0
-fps = 30
-m_o = isometric_projection()
-points = []
+    while is_run():
+        if random.choice((-1, 1)) == 1:
+            clock_wise = True
+        else:
+            clock_wise = False
+        for degree in range(0, 180 + (n) * 5, 5):
+            if not is_run():
+                break
+            clear()
+            for i in range(n):
+                box = boxes[i]
+                dd = max(degree - i * 5, 0)
+                dd = min(dd, 180)
+                if not clock_wise:
+                    dd = -dd
+                rad = math.radians(dd)
+                cos_2 = math.cos(rad)
+                sin_2 = math.sin(rad)
+                m = QMatrix4x4(cos_2, sin_2, 0, 0,
+                               -sin_2, cos_2, 0, 0,
+                               0, 0, 1, 0,
+                               0, 0, 0, 1)
+                points.clear()
+                for p in box.points:
+                    x, y, z = p
+                    v = QVector3D(x, y, z)
+                    v2 = m.map(v)
+                    v3 = m_o.map(v2)
+                    points.append((v3.x(), v3.y()))
+                draw_box(points)
+            delay_fps(fps)
+        delay(1000)
 
-while is_run():
-    if random.choice((-1, 1)) == 1:
-        clock_wise = True
-    else:
-        clock_wise = False
-    for degree in range(0, 180 + (n) * 5, 5):
-        if not is_run():
-            break
-        clear()
-        for i in range(n):
-            box = boxes[i]
-            dd = max(degree - i * 5, 0)
-            dd = min(dd, 180)
-            if not clock_wise:
-                dd = -dd
-            rad = math.radians(dd)
-            cos_2 = math.cos(rad)
-            sin_2 = math.sin(rad)
-            m = QMatrix4x4(cos_2, sin_2, 0, 0,
-                           -sin_2, cos_2, 0, 0,
-                           0, 0, 1, 0,
-                           0, 0, 0, 1)
-            points.clear()
-            for p in box.points:
-                x, y, z = p
-                v = QVector3D(x, y, z)
-                v2 = m.map(v)
-                v3 = m_o.map(v2)
-                points.append((v3.x(), v3.y()))
-            draw_box(points)
-        delay_fps(fps)
-    delay(1000)
+    close_graph()
 
-close_graph()
+easy_run(main)

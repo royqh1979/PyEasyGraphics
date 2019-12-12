@@ -4,7 +4,7 @@ import threading
 import time
 import math
 from functools import reduce
-from typing import List, Optional
+from typing import List, Optional, Callable
 import os
 import apng
 from PyQt5 import QtWidgets
@@ -2203,10 +2203,20 @@ def set_caption(title: str):
     _win.setWindowTitle(title)
 
 @invoke_in_app_thread.invoke_in_thread()
-def _set_window_size(width,height):
-    global _target_image
-    _win.resize(width,height)
-    _target_image = _win.get_canvas()
+def _init_graph(width:int ,height:int,headless:bool):
+    global _target_image,_win,_is_run,_headless_mode
+    _is_run = True
+    _headless_mode = headless
+    if headless:
+        _target_image = create_image(width, height)
+    else:
+        _win = GraphWin(width, height)
+        _target_image = _win.get_canvas()
+        _win.show()
+        set_caption("Python Easy Graphics")
+        set_font_size(18)
+
+
 
 def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     """
@@ -2224,13 +2234,13 @@ def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     >>> init_graph(800,600) #prepare and show a 800*600 window
     """
     global _start_event,_easy_run_mode
-    if _easy_run_mode and _is_run:
-        _set_window_size(width,height)
-        return
-    # prepare Events
     if _is_run:
         raise RuntimeError("The Graphics Windows is already inited!")
-    _easy_run_mode = False
+    if _easy_run_mode:
+        _init_graph(width,height,headless)
+        return
+
+    # prepare Events
     _start_event = threading.Event()
     _start_event.clear()
     # start GUI thread
@@ -2395,7 +2405,7 @@ def _stop_thread(_thread):
               ctypes.py_object(SystemExit))
         return
 
-def easy_run(main_func, width=640, height=480):
+def easy_run(main_func:Callable, width=640, height=480):
     if main_func==None:
         raise RuntimeError("Must provide main function!")
     if not callable(main_func):
@@ -2411,12 +2421,7 @@ def easy_run(main_func, width=640, height=480):
     _app = QtWidgets.QApplication([])
     _app.setQuitOnLastWindowClosed(True)
     invoke_in_app_thread.init_invoke_in_app()
-    _win = GraphWin(width, height)
-    _target_image = _win.get_canvas()
-    _win.show()
-    set_caption("Python Easy Graphics")
-    _is_run = True
-    set_font_size(18)
+
     thread = threading.Thread(target=main_func)
     thread.start()
     # wait GUI initiation finished
@@ -2428,6 +2433,7 @@ def easy_run(main_func, width=640, height=480):
     thread.join()
     _cleanup()
     _app = None
+    _easy_run_mode = False
 
 
 def register_for_clean_up(obj):

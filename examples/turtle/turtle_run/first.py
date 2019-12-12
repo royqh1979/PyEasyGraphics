@@ -1,7 +1,7 @@
 from easygraphics import *
 from easygraphics.turtle import *
 
-def main_func():
+def main():
     create_world(800, 600)
 
     set_speed(5)
@@ -17,4 +17,4 @@ def main_func():
     pause()
     close_world()
 
-easy_run(main_func)
+easy_run(main)

@@ -131,21 +131,21 @@ def run_app(_globals):
     """
     global _app, _widget, setup, draw, on_mouse_clicked
     global on_mouse_pressed, on_mouse_released, on_mouse_dragged, on_mouse_wheel
-    if 'setup' in _globals:
+    if 'setup' in _globals and callable(_globals['setup']):
         setup = _globals['setup']
-    if draw is _globals['draw']:
+    if draw not in _globals['draw'] or not callable(_globals['draw']):
         raise RuntimeError("Must implement draw() function!")
     else:
         draw = _globals['draw']
-    if 'on_mouse_clicked' in _globals:
+    if 'on_mouse_clicked' in _globals and callable(_globals['on_mouse_clicked']):
         on_mouse_clicked = _globals['on_mouse_clicked']
-    if 'on_mouse_pressed' in _globals:
+    if 'on_mouse_pressed' in _globals and callable(_globals['on_mouse_pressed']):
         on_mouse_pressed = _globals['on_mouse_pressed']
-    if 'on_mouse_released' in _globals:
+    if 'on_mouse_released' in _globals and callable(_globals['on_mouse_released']):
         on_mouse_released = _globals['on_mouse_released']
-    if 'on_mouse_dragged' in _globals:
+    if 'on_mouse_dragged' in _globals and callable(_globals['on_mouse_dragged']):
         on_mouse_dragged = _globals['on_mouse_dragged']
-    if 'on_mouse_wheel' in _globals:
+    if 'on_mouse_wheel' in _globals and callable(_globals['on_mouse_wheel']):
         on_mouse_wheel = _globals['on_mouse_wheel']
     _app = QtWidgets.QApplication([])
     _widget = _ProcessingWidget()

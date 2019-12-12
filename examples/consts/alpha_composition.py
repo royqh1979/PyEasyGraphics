@@ -69,7 +69,7 @@ def draw_compositions2(alpha_value):
     draw_compositon_and_save("XOR", alpha_value)
 
 
-if __name__ == "__main__":
+def main():
     init_graph(1200, 800)
     draw_compositions(255)
     draw_compositions(150)
@@ -78,3 +78,5 @@ if __name__ == "__main__":
     draw_compositions2(150)
     pause()
     close_graph()
+
+easy_run(main)

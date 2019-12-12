@@ -2,6 +2,7 @@
 Draw a color table
 """
 from PyQt5.QtCore import Qt
+from easygraphics import *
 
 _x = 0
 _y = 0
@@ -21,8 +22,8 @@ def draw_color(color_str):
         _y += _height
 
 
-if __name__ == "__main__":
-    from easygraphics import *
+def main():
+
 
     init_graph(600, 560)
 
@@ -61,3 +62,5 @@ if __name__ == "__main__":
     pause()
     save_image("consts-color.jpg")
     close_graph()
+
+easy_run(main)
