@@ -1,7 +1,7 @@
-if __name__ == "__main__":
-    from easygraphics import *
-    from PyQt5 import QtCore
+from easygraphics import *
+from PyQt5 import QtCore
 
+def main():
     init_graph(800, 600)
     set_render_mode(RenderMode.RENDER_MANUAL)
 
@@ -68,3 +68,5 @@ if __name__ == "__main__":
 
 
     close_graph()
+
+easy_run(main)

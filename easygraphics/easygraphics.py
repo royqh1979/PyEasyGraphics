@@ -2295,9 +2295,7 @@ def close_graph():
         time.sleep(0.05)
 
 
-def _check_app_run(check_not_headless: bool = False):
-    if check_not_headless:
-        _check_not_headless_and_in_shell()
+def _check_app_run():
     if not _is_run:
         raise RuntimeError("Easygraphics is not inited or has been closed! Run init_graph() first!")
 

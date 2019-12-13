@@ -15,9 +15,11 @@ In this program, we will:
    this may cause exception. (When there are unfinished drawing operations.）
 
 """
-if __name__ == '__main__':
-    from easygraphics import *
+from easygraphics import *
 
+def main():
     init_graph(800, 600)
     pause()
     close_graph()
+
+easy_run(main)

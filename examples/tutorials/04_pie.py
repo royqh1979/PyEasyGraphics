@@ -1,6 +1,6 @@
 from easygraphics import *
 
-if __name__ == "__main__":
+def main():
     init_graph(400, 300)
 
     set_color("red")
@@ -8,3 +8,5 @@ if __name__ == "__main__":
     draw_pie(200, 150, 135, 45, 100, 70)
     pause()
     close_graph()
+
+easy_run(main)

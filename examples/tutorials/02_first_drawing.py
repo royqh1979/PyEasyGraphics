@@ -14,10 +14,13 @@ So the result is a line from upper left corner to lower right corner.
 .. image:: ../../docs/images/tutorials/02_first_drawing.png
 
 """
-if __name__ == '__main__':
-    from easygraphics import *
+from easygraphics import *
 
+
+def main():
     init_graph(640, 480)
     line(0, 0, 640, 480)
     pause()
     close_graph()
+
+easy_run(main)

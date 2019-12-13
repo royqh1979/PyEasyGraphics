@@ -1,9 +1,9 @@
 """
 Circle
 """
-if __name__ == "__main__":
-    from easygraphics import *
+from easygraphics import *
 
+def main():
     init_graph(600, 160)
     set_color(Color.BLACK)
     set_fill_color(Color.RED)
@@ -20,3 +20,5 @@ if __name__ == "__main__":
     pause()
     # save_image("circles.png")
     close_graph()
+
+easy_run(main)

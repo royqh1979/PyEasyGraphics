@@ -1,9 +1,10 @@
 """
 Use the current position to draw a dash line
 """
-if __name__ == "__main__":
-    from easygraphics import *
-    import math as m
+from easygraphics import *
+import math as m
+
+def main():
 
     init_graph(600, 400)
     translate(300, 200)  # move origin to the center
@@ -17,3 +18,5 @@ if __name__ == "__main__":
         x = x + delta
     pause()
     close_graph()
+
+easy_run(main)

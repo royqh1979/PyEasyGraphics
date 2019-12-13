@@ -12,7 +12,10 @@ def mainloop():
             clear_device()
             draw_ellipse(x + 100, 200, 100, 100)
 
-init_graph(640, 480)
-set_render_mode(RenderMode.RENDER_MANUAL)
-mainloop()
-close_graph()
+def main():
+    init_graph(640, 480)
+    set_render_mode(RenderMode.RENDER_MANUAL)
+    mainloop()
+    close_graph()
+
+easy_run(main)

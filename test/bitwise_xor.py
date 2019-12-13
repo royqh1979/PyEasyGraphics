@@ -1,9 +1,11 @@
 """
 Draw a elastical line
 """
-if __name__ == "__main__":
-    from easygraphics import *
-    import math
+from easygraphics import *
+import math
+
+
+def main():
 
     init_graph(400, 300)
     set_render_mode(RenderMode.RENDER_MANUAL)
@@ -29,3 +31,5 @@ if __name__ == "__main__":
 
     pause()
     close_graph()
+
+easy_run(main)
