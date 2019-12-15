@@ -1,10 +1,10 @@
 """
 Draw a bus without transformations
 """
-if __name__ == "__main__":
-    from easygraphics import *
-    import draw_bus
+from easygraphics import *
+import draw_bus
 
+def main():
     init_graph(500, 300)
 
     translate(250, 150)
@@ -24,3 +24,5 @@ if __name__ == "__main__":
     draw_rect_text(0, 0, 210, 130, "This is a very good day!")
     pause()
     close_graph()
+
+easy_run(main)

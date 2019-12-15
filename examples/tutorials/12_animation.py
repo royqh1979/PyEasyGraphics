@@ -1,9 +1,9 @@
 """
 Draws an animation
 """
-if __name__ == "__main__":
-    from easygraphics import *
+from easygraphics import *
 
+def main():
     init_graph(800, 600)
     set_render_mode(RenderMode.RENDER_MANUAL)
 
@@ -39,3 +39,5 @@ if __name__ == "__main__":
     background.close()
     car.close()
     close_graph()
+
+easy_run(main)

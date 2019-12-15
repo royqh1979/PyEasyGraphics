@@ -1,9 +1,9 @@
 """
 Draw a elastical line
 """
-if __name__ == "__main__":
-    from easygraphics import *
+from easygraphics import *
 
+def main():
     init_graph(400, 200)
     set_render_mode(RenderMode.RENDER_MANUAL)
     set_background_color("white")
@@ -19,3 +19,5 @@ if __name__ == "__main__":
         delay_fps(30)
 
     close_graph()
+
+easy_run(main)

@@ -1,10 +1,10 @@
 """
 Draw a bus with a transparent background and copy it many times
 """
-if __name__ == "__main__":
-    from easygraphics import *
-    import draw_bus
+from easygraphics import *
+import draw_bus
 
+def main():
     init_graph(headless=True)
     img = create_image(210, 130)
     set_target(img)
@@ -12,3 +12,5 @@ if __name__ == "__main__":
     save_image("headless_bus.png")
     img.close()
     close_graph()
+
+easy_run(main)

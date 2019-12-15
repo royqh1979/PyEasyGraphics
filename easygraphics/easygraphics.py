@@ -73,11 +73,12 @@ try:
 except NameError:
     pass
 
+# flags
 _in_shell = bool(getattr(sys, 'ps1', sys.flags.interactive))  # if in interactive mode (eg. in IPython shell)
-
-_is_run = False
+_is_run = False # if the graphic context is ok for run
 _headless_mode = False # if easygraphics is working in headless mode
-_easy_run_mode = False # if easygraphics is working in easy_run mode
+_easy_run_mode = False # if easygraphics is working in easy_run mode (the default mode)
+
 _created_images = []
 _target_image = None
 _animation = None
@@ -2204,6 +2205,9 @@ def set_caption(title: str):
 
 @invoke_in_app_thread.invoke_in_thread()
 def _init_graph(width:int ,height:int,headless:bool):
+    """
+    Init the graphics context
+    """
     global _target_image,_win,_is_run,_headless_mode
     _is_run = True
     _headless_mode = headless
@@ -2215,8 +2219,10 @@ def _init_graph(width:int ,height:int,headless:bool):
         _win.show()
         set_caption("Python Easy Graphics")
         set_font_size(18)
-
-
+    if _in_shell:
+        _get_target_image = _get_target_image_in_shell
+    else:
+        _get_target_image = _get_target_image_normal
 
 def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     """
@@ -2307,13 +2313,18 @@ def _check_not_headless_and_in_shell():
         raise RuntimeError("Easygraphics is running in interacvtive shell (i.e. qtconsole, notebook, etc.)!")
 
 
-def _get_target_image(image: Image) -> Image:
-    if _in_shell:
-        _check_app_run()
+def _get_target_image_in_shell(image: Image) -> Image:
+    _check_app_run()
     if image is None:
         image = _target_image
     return image
 
+def _get_target_image_normal(image: Image) -> Image:
+    if image is None:
+        image = _target_image
+    return image
+
+_get_target_image = _get_target_image_normal
 
 
 def begin_recording():
@@ -2377,16 +2388,8 @@ def __graphics_thread_func(width: int, height: int, headless=False):
     _app = QtWidgets.QApplication([])
     _app.setQuitOnLastWindowClosed(True)
     invoke_in_app_thread.init_invoke_in_app()
-    if not _headless_mode:
-        _win = GraphWin(width, height)
-        _target_image = _win.get_canvas()
-        _win.show()
-        set_caption("Python Easy Graphics")
-        _is_run = True
-        set_font_size(18)
-    else:
-        _is_run = True
-        _target_image = create_image(width, height)
+    _init_graph(width,height,headless)
+    _is_run = True
     # init finished, can draw now
     _start_event.set()
     _app.exec_()

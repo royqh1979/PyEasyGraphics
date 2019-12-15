@@ -5,7 +5,6 @@ from easygraphics import *
 import math as m
 
 def main():
-
     init_graph(600, 400)
     translate(300, 200)  # move origin to the center
     scale(100, -100)  # zoom each axis 100 times, and make y-axis grow from bottom to top.

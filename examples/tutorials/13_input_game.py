@@ -31,7 +31,7 @@ def show_goodbye():
     pause()
 
 
-if __name__ == "__main__":
+def main():
     init_graph(640, 480)
     set_render_mode(RenderMode.RENDER_MANUAL)
     set_background_color("black")
@@ -60,3 +60,5 @@ if __name__ == "__main__":
             fill_rect(x - 2, y - 22, x + 22, y + 2)  # clear the char
 
     close_graph()
+
+easy_run(main)

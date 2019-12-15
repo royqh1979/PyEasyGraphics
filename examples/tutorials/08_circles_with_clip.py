@@ -1,9 +1,9 @@
 """
 Draw circles
 """
-if __name__ == "__main__":
-    from easygraphics import *
+from easygraphics import *
 
+def main():
     init_graph(400, 300)
     set_color("lightgray")
     draw_rect(100, 50, 300, 250)
@@ -15,3 +15,5 @@ if __name__ == "__main__":
     circle(100, 100, 120)
     pause()
     close_graph()
+
+easy_run(main)

@@ -6,10 +6,10 @@ Then click on the window to set the second control point of the curve.
 Then drag from any of the above two control points to set the third and the fourth control point.
 
 """
-if __name__ == "__main__":
-    from easygraphics import *
-    from PyQt5 import QtCore
+from easygraphics import *
+from PyQt5 import QtCore
 
+def main():
     init_graph(800, 600)
     set_render_mode(RenderMode.RENDER_MANUAL)
 
@@ -74,3 +74,5 @@ if __name__ == "__main__":
         delay_fps(60)
 
     close_graph()
+
+easy_run(main)

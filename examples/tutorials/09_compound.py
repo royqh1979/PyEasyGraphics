@@ -1,10 +1,10 @@
 """
 Draw a bus without transformations
 """
-if __name__ == "__main__":
-    from easygraphics import *
-    import draw_bus
+from easygraphics import *
+import draw_bus
 
+def main():
     init_graph(500, 300)
 
     # move the origin to the center of the image
@@ -25,3 +25,5 @@ if __name__ == "__main__":
     draw_bus.draw_bus()
     pause()
     close_graph()
+
+easy_run(main)

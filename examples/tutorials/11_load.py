@@ -1,9 +1,9 @@
 """
 Load and display a image
 """
-if __name__ == "__main__":
-    from easygraphics import *
+from easygraphics import *
 
+def main():
     init_graph(800, 600)
     img = load_image("test.png")
     draw_image((get_width() - img.get_width()) // 2,
@@ -11,3 +11,5 @@ if __name__ == "__main__":
     pause()
     img.close()
     close_graph()
+
+easy_run(main)
