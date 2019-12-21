@@ -1,16 +1,15 @@
 import ctypes
+import math
 import sys
 import threading
 import time
-import math
 from functools import reduce
 from typing import List, Optional, Callable
-import os
 import apng
+import qimage2ndarray as q2n
 from PyQt5 import QtWidgets
-
-from .consts import *
 from ._utils import invoke_in_app_thread
+from .consts import *
 from .graphwin import GraphWin
 from .image import Image
 from .utils3d import *
@@ -42,7 +41,7 @@ __all__ = [
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
-    'set_target', 'get_target', 'create_image', 'save_image', 'close_image', 'load_image', 'put_image',
+    'set_target', 'get_target', 'create_image','create_image_from_ndarray', 'save_image', 'close_image', 'load_image', 'put_image',
     # time control functions#
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
     # keyboard and mouse functions #
@@ -1813,6 +1812,11 @@ def create_image(width, height) -> Image:
     """
     return Image.create(width, height)
 
+def create_image_from_ndarray(array) -> Image:
+    """
+    Convert a ndarray (opencv 3.0 image) to an Image object
+    """
+    return Image(q2n.array2qimage(array))
 
 def close_image(image: Image):
     """
