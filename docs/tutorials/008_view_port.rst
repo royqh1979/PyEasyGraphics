@@ -15,12 +15,16 @@ The following program draws 3 circles on the graphics window. Pay attention to t
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(400,300)
-    circle(100,100,50)
-    circle(100,100,100)
-    circle(100,100,120)
-    pause()
-    close_graph()
+
+    def main():
+        init_graph(400, 300)
+        circle(100, 100, 50)
+        circle(100, 100, 100)
+        circle(100, 100, 120)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/08_without_view_port.png
 
@@ -31,17 +35,21 @@ around the view port to better see effect of the clipping.
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(400,300)
-    set_color("lightgray")
-    draw_rect(100,50,300,250)
-    set_color("black")
 
-    set_view_port(100,50,300,250)
-    circle(100,100,50)
-    circle(100,100,100)
-    circle(100,100,120)
-    pause()
-    close_graph()
+    def main():
+        init_graph(400, 300)
+        set_color("lightgray")
+        draw_rect(100, 50, 300, 250)
+        set_color("black")
+
+        set_view_port(100, 50, 300, 250)
+        circle(100, 100, 50)
+        circle(100, 100, 100)
+        circle(100, 100, 120)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/08_with_clip.png
 
@@ -51,17 +59,21 @@ this feature by set the "clip" parameter to False:
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(400,300)
-    set_color("lightgray")
-    draw_rect(100,50,300,250)
-    set_color("black")
 
-    set_view_port(100,50,300,250,clip=False)
-    circle(100,100,50)
-    circle(100,100,100)
-    circle(100,100,120)
-    pause()
-    close_graph()
+    def main():
+        init_graph(400, 300)
+        set_color("lightgray")
+        draw_rect(100, 50, 300, 250)
+        set_color("black")
+
+        set_view_port(100, 50, 300, 250, clip=False)
+        circle(100, 100, 50)
+        circle(100, 100, 100)
+        circle(100, 100, 120)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/08_without_clip.png
 
@@ -95,14 +107,16 @@ x and y axis:
 .. code-block:: python
 
     from easygraphics import *
-    import math as m
 
-    init_graph(600,400)
-    set_window(-3,-2,6,4)
+    def main():
+        init_graph(600, 400)
+        set_window(-3, -2, 6, 4)
 
-    circle(0,0,1.5)
-    pause()
-    close_graph()
+        circle(0, 0, 1.5)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/08_window.png
 

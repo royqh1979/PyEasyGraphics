@@ -16,7 +16,6 @@ So the result is a line from upper left corner to lower right corner.
 """
 from easygraphics import *
 
-
 def main():
     init_graph(640, 480)
     line(0, 0, 640, 480)

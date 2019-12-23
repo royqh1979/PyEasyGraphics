@@ -13,23 +13,26 @@ In the following program, we use turtle graphics to draw a star.
     from easygraphics import *
     from easygraphics.turtle import *
 
-    create_world()
-    set_color("red")
-    set_fill_color("red")
-    set_fill_rule(FillRule.WINDING_FILL)
-    rt(90)
-    begin_fill()
-    for i in range(5):
-        forward(100)
-        right(144)
-    end_fill()
-    pause()
-    close_world()
+    def main():
+        create_world()
+        set_color("red")
+        set_fill_color("red")
+        set_fill_rule(FillRule.WINDING_FILL)
+        rt(90)
+        begin_fill()
+        for i in range(5):
+            forward(100)
+            right(144)
+        end_fill()
+        pause()
+        close_world()
+
+    easy_run(main)
 
 
 .. toctree::
     :max-depth: 1
 
-    apis/102_turtle_basic_commands
-    apis/103_pen_and_fill
-    apis/104_coordinations
+    tutorials/102_turtle_basic_commands
+    tutorials/103_pen_and_fill
+    tutorials/104_coordinations

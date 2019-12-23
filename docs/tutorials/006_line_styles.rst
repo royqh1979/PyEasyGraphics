@@ -17,11 +17,15 @@ The following program draws a rectangle whose borders width is 10.
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(400,300)
-    set_line_width(10)
-    draw_rect(50,50,350,250)
-    pause()
-    close_graph()
+
+    def main():
+        init_graph(400, 300)
+        set_line_width(10)
+        draw_rect(50, 50, 350, 250)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 
 Predefined Line Shapes
@@ -57,12 +61,16 @@ The following program draws a rectangle with dash outlines.
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(400,300)
-    set_line_width(10)
-    set_line_style(LineStyle.DASH_LINE)
-    draw_rect(50,50,350,250)
-    pause()
-    close_graph()
+
+    def main():
+        init_graph(400, 300)
+        set_line_width(10)
+        set_line_style(LineStyle.DASH_LINE)
+        draw_rect(50, 50, 350, 250)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 Custom Line Shapes
 ------------------
@@ -78,14 +86,18 @@ To do this, you should:
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(400,300)
-    set_line_width(10)
-    target_image=get_target()
-    pen=target_image.get_pen()
-    pen.setDashPattern([1,5,2,5])
-    draw_rect(50,50,350,250)
-    pause()
-    close_graph()
+
+    def main():
+        init_graph(400, 300)
+        set_line_width(10)
+        target_image = get_target()
+        pen = target_image.get_pen()
+        pen.setDashPattern([1, 5, 2, 5])
+        draw_rect(50, 50, 350, 250)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 More Line Styles
 ----------------

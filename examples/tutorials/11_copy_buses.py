@@ -4,7 +4,6 @@ Draw a bus and copy it many times
 from easygraphics import *
 import draw_bus
 
-
 def main():
     init_graph(750, 450)
     img = create_image(210, 130)

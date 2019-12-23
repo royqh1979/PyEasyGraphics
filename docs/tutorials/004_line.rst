@@ -36,14 +36,17 @@ The following program draws a dash line by using the current position.
 
     from easygraphics import *
 
-    init_graph(400,100)
+    def main():
+        init_graph(400, 100)
 
-    move_to(50,50)
-    for i in range(10):
-        line_rel(10,0)
-        move_rel(20,0)
-    pause()
-    close_graph()
+        move_to(50, 50)
+        for i in range(10):
+            line_rel(10, 0)
+            move_rel(20, 0)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 Approximate a function curve
 ----------------------------
@@ -69,18 +72,21 @@ The following program plot a sin(x) curve on [-3,3].
     from easygraphics import *
     import math as m
 
-    init_graph(600,400)
-    translate(300,200) # move origin to the center
-    scale(100,-100) # zoom each axis 100 times, and make y-axis grow from bottom to top.
+    def main():
+        init_graph(600, 400)
+        translate(300, 200)  # move origin to the center
+        scale(100, -100)  # zoom each axis 100 times, and make y-axis grow from bottom to top.
 
-    x=-3
-    delta=0.01
-    move_to(x,m.sin(x))
-    while x<=3:
-        line_to(x,m.sin(x))
-        x=x+delta
-    pause()
-    close_graph()
+        x = -3
+        delta = 0.01
+        move_to(x, m.sin(x))
+        while x <= 3:
+            line_to(x, m.sin(x))
+            x = x + delta
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 
 

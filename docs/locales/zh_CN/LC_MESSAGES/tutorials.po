@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 15:12+0800\n"
+"POT-Creation-Date: 2019-12-23 15:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,49 +47,61 @@ msgstr "其他"
 msgid "The First window"
 msgstr "第一个绘图窗口程序"
 
-#: examples.tutorials.01_first_window:1 of
-msgid "First easy graphics program"
-msgstr "第一个EasyGraphics程序"
+#: ../../tutorials/001_first_window.rst:4
+msgid "In this program, we will create and show a graphics window:"
+msgstr "在本教程中，我们将创建并显示绘图窗口。"
 
-#: examples.tutorials.01_first_window:3 of
-msgid "In this program, we will:"
-msgstr "在这个程序里，我们将要："
+#: ../../tutorials/001_first_window.rst:6
+msgid "Define the easygraphics main function"
+msgstr "定义easygraphics的main函数。"
 
-#: examples.tutorials.01_first_window:5 of
-msgid "Init the graphics windows"
+#: ../../tutorials/001_first_window.rst:8
+msgid "In the main function, we:"
+msgstr "在main函数中："
+
+#: ../../tutorials/001_first_window.rst:10
+msgid "Init the graphics window"
 msgstr "初始化绘图窗口"
 
-#: examples.tutorials.01_first_window:6 of
+#: ../../tutorials/001_first_window.rst:11
 msgid "wait for mouse click or keyboard hitting"
 msgstr "等待鼠标点击或者任意键盘输入"
 
-#: examples.tutorials.01_first_window:7 of
+#: ../../tutorials/001_first_window.rst:12
 msgid "close the graphics system (and graphics window)"
 msgstr "关闭图形系统和窗口"
 
-#: examples.tutorials.01_first_window:9 of
+#: ../../tutorials/001_first_window.rst:14
+msgid "Run the main function"
+msgstr "执行main函数"
+
+#: ../../tutorials/001_first_window.rst:16
+msgid "**note 1** : You must use easy_run() to run the main function."
+msgstr "**提示1**：必须使用easy_run运行主函数，来启动easygraphics系统。"
+
+#: ../../tutorials/001_first_window.rst:18
 msgid ""
-"**note 1** : init_graph() must be called before any easygraphics drawing "
+"**note 2** : init_graph() must be called before any easygraphics drawing "
 "functions."
-msgstr "**提示1**：在使用其他绘图函数之前，必须先调用init_graph()。"
+msgstr "**提示2**：在使用其他绘图函数之前，必须先调用init_graph()。"
 
-#: examples.tutorials.01_first_window:11 of
+#: ../../tutorials/001_first_window.rst:20
 msgid ""
-"**note 2** : Don't forget to close_graph() to clean up the system after "
+"**note 3** : Don't forget to close_graph() to clean up the system after "
 "all drawing work is done."
-msgstr "**提示2**：绘图完毕后，不要忘了使用close_graph()来清理和关闭图形系统。"
+msgstr "**提示3**：绘图完毕后，不要忘了使用close_graph()来清理和关闭图形系统。"
 
-#: examples.tutorials.01_first_window:14 of
-msgid "**note 3**"
-msgstr "**提示3**"
+#: ../../tutorials/001_first_window.rst:23
+msgid "**note 4**"
+msgstr "**提示4**"
 
-#: examples.tutorials.01_first_window:13 of
+#: ../../tutorials/001_first_window.rst:22
 msgid ""
-"You can use the graphics window's close button to close the graphics "
+"You can use the graphics window\\'s close button to close the graphics "
 "system. But"
 msgstr "你可以使用图形窗口的关闭按钮来关闭图形系统。但是，"
 
-#: examples.tutorials.01_first_window:14 of
+#: ../../tutorials/001_first_window.rst:23
 msgid "this may cause exception. (When there are unfinished drawing operations.）"
 msgstr "这有可能会导致程序异常。（当程序后台还有没完成的绘图操作时。）"
 
@@ -97,25 +109,21 @@ msgstr "这有可能会导致程序异常。（当程序后台还有没完成的
 msgid "The First Drawing"
 msgstr "第一次绘图"
 
-#: examples.tutorials.02_first_drawing:1 of
-msgid "Fist drawing program"
-msgstr "第一个绘图程序"
-
-#: examples.tutorials.02_first_drawing:3 of
-msgid "Let's draw a line from (0,0) to (640,480)"
+#: ../../tutorials/002_first_drawing.rst:4
+msgid "Let\\'s draw a line from (0,0) to (640,480)"
 msgstr "让我们画一条从(0,0)到(640,480)的线段。"
 
-#: examples.tutorials.02_first_drawing:5 of
+#: ../../tutorials/002_first_drawing.rst:6
 msgid "In computer graphics, we normally use a screen coordinate system as below:"
 msgstr "在计算机图形学(Computer Graphics)中，我们通常使用如下的二维屏幕坐标系"
 
-#: examples.tutorials.02_first_drawing:9 of
+#: ../../tutorials/002_first_drawing.rst:10
 msgid ""
-"In this system, the origin (0,0) is at screen's upper left corner, and "
+"In this system, the origin (0,0) is at screen\\'s upper left corner, and "
 "y-axis is growing top-down."
 msgstr "在该坐标系中，原点(0,0)位于屏幕的左上角，X轴正向向右，Y轴正向向下。"
 
-#: examples.tutorials.02_first_drawing:11 of
+#: ../../tutorials/002_first_drawing.rst:12
 msgid "So the result is a line from upper left corner to lower right corner."
 msgstr "所以绘制的结果就是一条从屏幕左上角到右下角的线段。"
 
@@ -648,7 +656,7 @@ msgid ""
 "control point is represented as 2 values (x and y). Because a cubic "
 "Bézier curve needs 4 control points, so there should be 8 values in the "
 "list."
-msgstr "我们可以使用bezier()或draw_bezier()来绘制贝塞尔曲线。它们需要一个列表作为参数来指明各控制点的位置。在列表中，每个控制点对应两个数值（x和y坐标）。因为一条贝塞尔曲线需要4个控制点，因此列表中应该有8个数。"
+msgstr "我们可以使用bezier()或draw_bezier()来绘制三次贝塞尔曲线。它们需要一个列表作为参数来指明各控制点的位置。在列表中，每个控制点对应两个数值（x和y坐标）。因为一条贝塞尔曲线需要4个控制点，因此列表中应该有8个数。"
 
 #: ../../tutorials/005_shapes.rst:161
 msgid ""
@@ -657,21 +665,19 @@ msgid ""
 msgstr "下面的程序绘制了一条三次贝塞尔曲线，其四个控制点分别为(300,50)、(200,50)、(200,200)和(100,200)。"
 
 #: ../../tutorials/005_shapes.rst:173
-#, fuzzy
 msgid ""
 "We can use quadratic() or draw_quadratic() to draw quadratic Bézier "
 "curves. They expect a list as the control points\\' postions. In the "
 "list, each control point is represented as 2 values (x and y). Because a "
 "quadratic Bézier curve needs 3 control points, so there should be 6 "
 "values in the list."
-msgstr "我们可以使用bezier()或draw_bezier()来绘制贝塞尔曲线。它们需要一个列表作为参数来指明各控制点的位置。在列表中，每个控制点对应两个数值（x和y坐标）。因为一条贝塞尔曲线需要4个控制点，因此列表中应该有8个数。"
+msgstr "我们可以使用quadratic()或draw_quadratic()来绘制二次贝塞尔曲线。它们需要一个列表作为参数来指明各控制点的位置。在列表中，每个控制点对应两个数值（x和y坐标）。因为一条贝塞尔曲线需要3个控制点，因此列表中应该有6个数。"
 
 #: ../../tutorials/005_shapes.rst:177
-#, fuzzy
 msgid ""
 "The following program draw a quadratic bezier curve with control points "
-"at (300,50),(200,50),(200,200) and (100,200)."
-msgstr "下面的程序绘制了一条三次贝塞尔曲线，其四个控制点分别为(300,50)、(200,50)、(200,200)和(100,200)。"
+"at (300,50),(200,50) and (100,200)."
+msgstr "下面的程序绘制了一条二次贝塞尔曲线，其三个控制点分别为(300,50)、(200,50)和(100,200)。"
 
 #: ../../tutorials/005_shapes.rst:190
 msgid "Flood Fill"
@@ -1039,13 +1045,12 @@ msgid ""
 msgstr "说明2：逻辑窗口的宽是6，高是4，并且我们把逻辑窗口的左上角放到了(-3,-2)，因此(0,0)就到了窗口的正中。"
 
 #: ../../tutorials/008_view_port.rst:109
-#, fuzzy
 msgid ""
 "**Note:**  Obviously the logical window is difficult to understand and "
 "use. We can use :doc:`transform <009_transforms>` to achieve the same "
 "result."
 msgstr ""
-"**注意:**  显然逻辑窗口又难懂又难用。因此，在实际中更多用 :doc:`几何变换（Transform） <09_transforms>` "
+"**注意:**  显然逻辑窗口又难懂又难用。因此，在实际中更多用 :doc:`几何变换（Transform） <009_transforms>` "
 "来实现上面的功能。"
 
 #: ../../tutorials/009_transforms.rst:2
@@ -2695,5 +2700,23 @@ msgstr ""
 #~ "the framework to draw frames. Each "
 #~ "time before a frame is to be "
 #~ "displayed, this function is called."
+#~ msgstr ""
+
+#~ msgid "In this program, we will:"
+#~ msgstr "在这个程序里，我们将要："
+
+#~ msgid "Fist drawing program"
+#~ msgstr "第一个绘图程序"
+
+#~ msgid "from easygraphics import *"
+#~ msgstr "第一个EasyGraphics程序"
+
+#~ msgid "def main():"
+#~ msgstr ""
+
+#~ msgid "init_graph(800, 600) pause() close_graph()"
+#~ msgstr ""
+
+#~ msgid "easy_run(main)"
 #~ msgstr ""
 

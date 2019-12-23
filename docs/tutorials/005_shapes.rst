@@ -12,12 +12,16 @@ In EasyGraphics, there are three types of functions to draw shapes:
 .. code:: python
 
     from easygraphics import *
-    init_graph(200, 150)
-    set_color(Color.BLUE)
-    set_fill_color(Color.RED)
-    circle(100, 75, 60)
-    pause()
-    close_graph()
+
+    def main():
+        init_graph(200, 150)
+        set_color(Color.BLUE)
+        set_fill_color(Color.RED)
+        circle(100, 75, 60)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 * Functions that both draw and fill a shape. These functions are named like \'draw_xxx()\'(\"xxx\" is the shape\'s name).
   The example below draw a red circle with a blue outline.
@@ -25,12 +29,16 @@ In EasyGraphics, there are three types of functions to draw shapes:
 .. code:: python
 
     from easygraphics import *
-    init_graph(200, 150)
-    set_color(Color.BLUE)
-    set_fill_color(Color.RED)
-    draw_circle(100, 75, 60)
-    pause()
-    close_graph()
+
+    def main():
+        init_graph(200, 150)
+        set_color(Color.BLUE)
+        set_fill_color(Color.RED)
+        draw_circle(100, 75, 60)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 * Functions that only fill a shape. These functions are named like \'fill_xxx()\'( \"xxx\" is the shape\'s name).
   The example below draw a red circle without outline.
@@ -38,12 +46,16 @@ In EasyGraphics, there are three types of functions to draw shapes:
 .. code:: python
 
     from easygraphics import *
-    init_graph(200, 150)
-    set_color(Color.BLUE)
-    set_fill_color(Color.RED)
-    fill_circle(100, 75, 60)
-    pause()
-    close_graph()
+
+    def main():
+        init_graph(200, 150)
+        set_color(Color.BLUE)
+        set_fill_color(Color.RED)
+        fill_circle(100, 75, 60)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. list-table::
     :align: center
@@ -71,13 +83,17 @@ The following program draws a pie from 45 degree to 135 degree.
 
 .. code-block:: python
 
-    init_graph(400, 300)
+    from easygraphics import *
 
-    set_color("red")
-    set_fill_color("lightyellow")
-    draw_pie(200, 150, 45, 135, 100, 70)
-    pause()
-    close_graph()
+    def main():
+        init_graph(400, 300)
+        set_color("red")
+        set_fill_color("lightyellow")
+        draw_pie(200, 150, 45, 135, 100, 70)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/04_pie.png
 
@@ -97,12 +113,15 @@ The following example draws a triangle with vertices at (50, 50), (350, 250), (5
 
     from easygraphics import *
 
-    init_graph(400, 300)
-    set_color(Color.DARK_BLUE)
-    set_fill_color(Color.LIGHT_MAGENTA)
-    draw_polygon(50, 50, 350, 250, 50, 150)
-    pause()
-    close_graph()
+    def main():
+        init_graph(400, 300)
+        set_color(Color.DARK_BLUE)
+        set_fill_color(Color.LIGHT_MAGENTA)
+        draw_polygon(50, 50, 350, 250, 50, 150)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/04_polygon.png
 
@@ -125,10 +144,13 @@ The following example draws a polyline connecting (50,50), (350,75), (50,150), (
 
     from easygraphics import *
 
-    init_graph(400, 300)
-    draw_poly_line(50, 50, 350, 75, 50, 150, 350, 175, 50, 250, 350, 275)
-    pause()
-    close_graph()
+    def main():
+        init_graph(400, 300)
+        draw_poly_line(50, 50, 350, 75, 50, 150, 350, 175, 50, 250, 350, 275)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/04_polyline.png
 
@@ -164,27 +186,33 @@ The following program draw a cubic bezier curve with control points at (300,50),
 
     from easygraphics import *
 
-    init_graph(600, 400)
-    points = [300, 50, 200, 50, 200, 200, 100, 200]
-    draw_bezier(*points)
-    pause()
-    close_graph()
+    def main():
+        init_graph(600, 400)
+        points = [300, 50, 200, 50, 200, 200, 100, 200]
+        draw_bezier(*points)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 We can use quadratic() or draw_quadratic() to draw quadratic Bézier curves. They expect a list as the control points\' postions.
 In the list, each control point is represented as 2 values (x and y). Because a quadratic Bézier curve needs 3 control
 points, so there should be 6 values in the list.
 
-The following program draw a quadratic bezier curve with control points at (300,50),(200,50),(200,200) and (100,200).
+The following program draw a quadratic bezier curve with control points at (300,50),(200,50) and (100,200).
 
 .. code-block:: python
 
     from easygraphics import *
 
-    init_graph(600, 400)
-    points = [300, 50, 200, 50, 200, 200, 100, 200]
-    draw_bezier(*points)
-    pause()
-    close_graph()
+    def main():
+        init_graph(600, 400)
+        points = [300, 50, 200, 50, 100, 200]
+        draw_quadratic(*points)
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 Flood Fill
 ----------
@@ -195,15 +223,16 @@ The follow program uses flood fill to fill a petal.
 
     from easygraphics import *
 
-    init_graph(400,200)
-    set_color(Color.BLACK)
-    arc(200,-40,180,360,220,220)
-    arc(200,240,0,180,220,220)
+    def main():
+        init_graph(400, 200)
+        arc(200, -40, 180, 360, 220, 220)
+        arc(200, 240, 0, 180, 220, 220)
+        set_fill_color(Color.DARK_RED)
+        flood_fill(200, 100, Color.BLACK)
+        pause()
+        close_graph()
 
-    set_fill_color(Color.DARK_RED)
-    flood_fill(200,100,Color.BLACK)
-    pause()
-    close_graph()
+    easy_run(main)
 
 Below is the result:
 

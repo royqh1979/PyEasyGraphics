@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 16:13+0800\n"
+"POT-Creation-Date: 2019-12-23 15:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,11 +63,15 @@ msgstr "中文文档: http://easygraphics.royqh.net"
 msgid "Sample program"
 msgstr "范例程序"
 
-#: ../../../README.rst:49
+#: ../../../README.rst:29
+msgid "The following code shows a moving ellipse."
+msgstr "以下是一个简单的范例程序，其效果是绘制一个移动的椭圆。"
+
+#: ../../../README.rst:56
 msgid "Special Thanks"
 msgstr "特别感谢"
 
-#: ../../../README.rst:50
+#: ../../../README.rst:57
 msgid ""
 "Some code is taken from `easygui_qt "
 "<https://github.com/aroberge/easygui_qt/>`_ and `qtutils "

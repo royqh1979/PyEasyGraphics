@@ -45,23 +45,33 @@ So to set the pen's color to red , we can:
 
  1. Use predefined Color const
 
-    >>> set_color(Color.RED)
+    .. code-block:: python
+
+        set_color(Color.RED)
 
  2. Use RGB values and color_rgb() function
 
-    >>> set_color(color_rgb(255,0,0))
+    .. code-block:: python
+
+        set_color(color_rgb(255,0,0))
 
  3. Use a color name
 
-    >>> set_color("red")
+    .. code-block:: python
+
+        set_color("red")
 
  4. Use a css web color string
 
-    >>> set_color("#ff0000")
+    .. code-block:: python
+
+        set_color("#ff0000")
 
  5. Use a rgb integer
 
-    >>> set_color(0xff0000)
+    .. code-block:: python
+
+        set_color(0xff0000)
 
 Transparency (Alpha Value)
 --------------------------
@@ -76,7 +86,10 @@ You can use to_alpha() function to make a tranparency color by string or rgb int
 
 The following code set the foreground color to a red with 150 as alpha value ( about half transparent)
 
->>> set_color(to_alpha("red",150))
+
+.. code-block:: python
+
+    set_color(to_alpha("red",150))
 
 
 

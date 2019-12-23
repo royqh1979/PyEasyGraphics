@@ -16,22 +16,26 @@ return the x,y coordinates of the position clicked, and buttons that are pressed
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(800,600)
-    set_render_mode(RenderMode.RENDER_MANUAL)
 
-    while is_run():
-        x,y,buttons=get_click()
-        str="clicked on %d,%d ."%(x,y)
-        if contains_left_button(buttons):
-            str+=" left button down"
-        if contains_right_button(buttons):
-            str+=" right button down"
-        if contains_mid_button(buttons):
-            str+=" mid button down"
-        clear_device()
-        draw_text(0,600,str)
+    def main():
+        init_graph(800, 600)
+        set_render_mode(RenderMode.RENDER_MANUAL)
 
-    close_graph()
+        while is_run():
+            x, y, buttons = get_click()
+            str = "clicked on %d,%d ." % (x, y)
+            if contains_left_button(buttons):
+                str += " left button down"
+            if contains_right_button(buttons):
+                str += " right button down"
+            if contains_mid_button(buttons):
+                str += " mid button down"
+            clear_device()
+            draw_text(0, 600, str)
+
+        close_graph()
+
+    easy_run(main)
 
 Cursor Positions
 ----------------
@@ -43,16 +47,19 @@ The following program continuously displays mouse cursor's position.
 
     from easygraphics import *
 
-    init_graph(800, 600)
-    set_render_mode(RenderMode.RENDER_MANUAL)
+    def main():
+        init_graph(800, 600)
+        set_render_mode(RenderMode.RENDER_MANUAL)
 
-    while is_run():
-        x, y = get_cursor_pos()
-        clear_device()
-        draw_text(0, 600, "%d,%d" % (x, y))
-        delay_fps(30)
+        while is_run():
+            x, y = get_cursor_pos()
+            clear_device()
+            draw_text(0, 600, "%d,%d" % (x, y))
+            delay_fps(30)
 
-    close_graph()
+        close_graph()
+
+    easy_run(main)
 
 Mouse Button Press and Release
 ------------------------------
@@ -70,25 +77,28 @@ The following program continuously check display cursor's postion and mouse butt
 
     from easygraphics import *
 
-    init_graph(800, 600)
-    set_render_mode(RenderMode.RENDER_MANUAL)
+    def main():
+        init_graph(800, 600)
+        set_render_mode(RenderMode.RENDER_MANUAL)
 
-    set_fill_color("white")
-    while is_run():
-        x, y = get_cursor_pos()
-        fill_rect(0, 580, 390, 600)
-        draw_text(0, 600, "%d,%d" % (x, y))
-        if has_mouse_msg():
-            x, y, type, buttons = get_mouse_msg()
-            if type == MouseMessageType.PRESS_MESSAGE:
-                typestr = "pressed"
-            else:
-                typestr = "released"
-            fill_rect(400, 580, 800, 600)
-            draw_text(400, 600, "button %s at %d,%d" % (typestr, x, y))
-        delay_fps(30)
+        set_fill_color("white")
+        while is_run():
+            x, y = get_cursor_pos()
+            fill_rect(0, 580, 390, 600)
+            draw_text(0, 600, "%d,%d" % (x, y))
+            if has_mouse_msg():
+                x, y, type, buttons = get_mouse_msg()
+                if type == MouseMessageType.PRESS_MESSAGE:
+                    typestr = "pressed"
+                else:
+                    typestr = "released"
+                fill_rect(400, 580, 800, 600)
+                draw_text(400, 600, "button %s at %d,%d" % (typestr, x, y))
+            delay_fps(30)
 
-    close_graph()
+        close_graph()
+
+    easy_run(main)
 
 Mouse Message Demo
 ------------------
@@ -104,70 +114,73 @@ Then drag from any of the above two control points to set the third and the four
     from easygraphics import *
     from PyQt5 import QtCore
 
-    init_graph(800, 600)
-    set_render_mode(RenderMode.RENDER_MANUAL)
+    def main():
+        init_graph(800, 600)
+        set_render_mode(RenderMode.RENDER_MANUAL)
 
-    x1, y1, buttons = get_click()
-    circle(x1, y1, 3)
-    x2, y2, buttons = get_click()
-    circle(x2, y2, 3)
-    line(x1, y1, x2, y2)
+        x1, y1, buttons = get_click()
+        circle(x1, y1, 3)
+        x2, y2, buttons = get_click()
+        circle(x2, y2, 3)
+        line(x1, y1, x2, y2)
 
-    x3, y3 = x1, y1
-    x4, y4 = x2, y2
-    reg1 = QtCore.QRect(x1 - 2, y1 - 2, 5, 5)
-    reg2 = QtCore.QRect(x2 - 2, y2 - 2, 5, 5)
-    draging_which_point = 0
-    while is_run():
-        if draging_which_point == 1:
-            draw_line(x1, y1, x, y)
-            draw_bezier(x1, y1, x, y, x4, y4, x2, y2)
-        elif draging_which_point == 2:
-            draw_line(x2, y2, x, y)
-            draw_bezier(x1, y1, x3, y3, x, y, x2, y2)
-
-        if has_mouse_msg():
-            x, y, type, buttons = get_mouse_msg()
-            if type == MouseMessageType.PRESS_MESSAGE:
-                if reg1.contains(x, y):
-                    draging_which_point = 1
-                    set_color(Color.WHITE)
-                    set_composition_mode(CompositionMode.SRC_XOR_DEST)
-                    x, y = x3, y3
-                elif reg2.contains(x, y):
-                    draging_which_point = 2
-                    set_color(Color.WHITE)
-                    set_composition_mode(CompositionMode.SRC_XOR_DEST)
-                    x, y = x4, y4
-                else:
-                    draging_which_point = 0
-            elif type == MouseMessageType.RELEASE_MESSAGE:
-                if draging_which_point == 1:
-                    x3, y3 = x, y
-                elif draging_which_point == 2:
-                    x4, y4 = x, y
-                draging_which_point = 0
-
-                set_color(Color.BLACK)
-                set_composition_mode(CompositionMode.SOURCE)
-                clear_device()
-                draw_line(x1, y1, x3, y3)
-                draw_line(x2, y2, x4, y4)
-                circle(x1, y1, 3)
-                circle(x2, y2, 3)
-                draw_bezier(x1, y1, x3, y3, x4, y4, x2, y2)
-        else:
+        x3, y3 = x1, y1
+        x4, y4 = x2, y2
+        reg1 = QtCore.QRect(x1 - 2, y1 - 2, 5, 5)
+        reg2 = QtCore.QRect(x2 - 2, y2 - 2, 5, 5)
+        draging_which_point = 0
+        while is_run():
             if draging_which_point == 1:
-                x, y = get_cursor_pos()
                 draw_line(x1, y1, x, y)
                 draw_bezier(x1, y1, x, y, x4, y4, x2, y2)
             elif draging_which_point == 2:
-                x, y = get_cursor_pos()
                 draw_line(x2, y2, x, y)
                 draw_bezier(x1, y1, x3, y3, x, y, x2, y2)
-        delay_fps(60)
 
-    close_graph()
+            if has_mouse_msg():
+                x, y, type, buttons = get_mouse_msg()
+                if type == MouseMessageType.PRESS_MESSAGE:
+                    if reg1.contains(x, y):
+                        draging_which_point = 1
+                        set_color(Color.WHITE)
+                        set_composition_mode(CompositionMode.SRC_XOR_DEST)
+                        x, y = x3, y3
+                    elif reg2.contains(x, y):
+                        draging_which_point = 2
+                        set_color(Color.WHITE)
+                        set_composition_mode(CompositionMode.SRC_XOR_DEST)
+                        x, y = x4, y4
+                    else:
+                        draging_which_point = 0
+                elif type == MouseMessageType.RELEASE_MESSAGE:
+                    if draging_which_point == 1:
+                        x3, y3 = x, y
+                    elif draging_which_point == 2:
+                        x4, y4 = x, y
+                    draging_which_point = 0
+
+                    set_color(Color.BLACK)
+                    set_composition_mode(CompositionMode.SOURCE)
+                    clear_device()
+                    draw_line(x1, y1, x3, y3)
+                    draw_line(x2, y2, x4, y4)
+                    circle(x1, y1, 3)
+                    circle(x2, y2, 3)
+                    draw_bezier(x1, y1, x3, y3, x4, y4, x2, y2)
+            else:
+                if draging_which_point == 1:
+                    x, y = get_cursor_pos()
+                    draw_line(x1, y1, x, y)
+                    draw_bezier(x1, y1, x, y, x4, y4, x2, y2)
+                elif draging_which_point == 2:
+                    x, y = get_cursor_pos()
+                    draw_line(x2, y2, x, y)
+                    draw_bezier(x1, y1, x3, y3, x, y, x2, y2)
+            delay_fps(60)
+
+        close_graph()
+
+    easy_run(main)
 
 Char Input
 ----------
@@ -180,7 +193,6 @@ The following program is a simple print game.
 
     from easygraphics import *
     import random
-
 
     def show_welcome():
         clear_device()
@@ -208,7 +220,7 @@ The following program is a simple print game.
         pause()
 
 
-    if __name__ == "__main__":
+    def main():
         init_graph(640, 480)
         set_render_mode(RenderMode.RENDER_MANUAL)
         set_background_color("black")
@@ -237,6 +249,8 @@ The following program is a simple print game.
                 fill_rect(x - 2, y - 22, x + 22, y + 2)  # clear the char
 
         close_graph()
+
+    easy_run(main)
 
 Key Pressed
 -----------

@@ -41,17 +41,21 @@ The following code draws a simple bus. We'll use it as the basis for  this chapt
         line(230, 60, 230, 120);
         circle(230, 90, 5);
 
-
 The following program draws a un-transformed bus:
 
 .. code-block:: python
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
-    draw_bus.draw_bus()
-    pause()
-    close_graph()
+
+
+    def main():
+        init_graph(500, 300)
+        draw_bus.draw_bus()
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_no_transform.png
 
@@ -67,11 +71,15 @@ then draw the bus.
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
-    translate(250,150)
-    draw_bus.draw_bus()
-    pause()
-    close_graph()
+
+    def main():
+        init_graph(500, 300)
+        translate(250, 150)
+        draw_bus.draw_bus()
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_translation.png
 
@@ -91,14 +99,17 @@ The following program draws a bus rotated 45 degree counter-clockwise around it\
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
 
-    # rotate around the (105,65)
-    rotate(-45, 105, 65)
+    def main():
+        init_graph(500, 300)
+        # rotate around the (105,65)
+        rotate(-45, 105, 65)
 
-    draw_bus.draw_bus()
-    pause()
-    close_graph()
+        draw_bus.draw_bus()
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_rotation.png
 
@@ -112,13 +123,17 @@ The following program draws a x-axis shrinked and y-axis enlarged bus.
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
 
-    scale(0.5,2)
-    draw_bus.draw_bus()
+    def main():
+        init_graph(500, 300)
 
-    pause()
-    close_graph()
+        scale(0.5, 2)
+        draw_bus.draw_bus()
+
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_scale.png
 
@@ -135,13 +150,17 @@ In the follow example, we shear the bus along the x-axis. Note that the default 
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
 
-    shear(0.5,0)
-    draw_bus.draw_bus()
+    def main():
+        init_graph(500, 300)
 
-    pause()
-    close_graph()
+        shear(0.5, 0)
+        draw_bus.draw_bus()
+
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_skew_x.png
 
@@ -154,13 +173,18 @@ In the follow example, we shear the bus along the y-axis.
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
 
-    shear(0,0.5)
-    draw_bus.draw_bus()
 
-    pause()
-    close_graph()
+    def main():
+        init_graph(500, 300)
+
+        shear(0, 0.5)
+        draw_bus.draw_bus()
+
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_skew_y.png
 
@@ -172,13 +196,17 @@ In the follow example, we shear the bus along the x and y-axis at the same time.
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
 
-    shear(0.5,0.5)
-    draw_bus.draw_bus()
+    def main():
+        init_graph(500, 300)
 
-    pause()
-    close_graph()
+        shear(0.5, 0.5)
+        draw_bus.draw_bus()
+
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_skew.png
 
@@ -196,12 +224,15 @@ The following program flip the bus horizontally ( reflection against the bus\'s 
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
 
-    reflect(105, 0,105,1)
-    draw_bus.draw_bus()
-    pause()
-    close_graph()
+    def main():
+        init_graph(500, 300)
+        reflect(105, 0, 105, 1)
+        draw_bus.draw_bus()
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_flip_h.png
 
@@ -213,13 +244,17 @@ The following program flip the bus vertically ( reflection against the bus\'s ho
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
 
-    reflect(0, 65,1,65)
+    def main():
+        init_graph(500, 300)
 
-    draw_bus.draw_bus()
-    pause()
-    close_graph()
+        reflect(0, 65, 1, 65)
+
+        draw_bus.draw_bus()
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_flip_v.png
 
@@ -232,19 +267,23 @@ we first draw a non-transformed bus, a mirror line, then draw the flipped bus.
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
 
-    draw_bus.draw_bus()
+    def main():
+        init_graph(500, 300)
 
-    set_color("gray")
-    set_line_style(LineStyle.DASH_LINE)
-    line(0, 300, 500, 0)
-    set_line_style(LineStyle.SOLID_LINE)
+        draw_bus.draw_bus()
 
-    reflect(0, 300, 500,0)
-    draw_bus.draw_bus()
-    pause()
-    close_graph()
+        set_color("gray")
+        set_line_style(LineStyle.DASH_LINE)
+        line(0, 300, 500, 0)
+        set_line_style(LineStyle.SOLID_LINE)
+
+        reflect(0, 300, 500, 0)
+        draw_bus.draw_bus()
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_flip.png
 
@@ -260,26 +299,30 @@ then shear it around its center, then scale it by a factor of 1.2 .
 
     from easygraphics import *
     import draw_bus
-    init_graph(500, 300)
 
-    #move the origin to the center of the image
-    translate(250,150)
+    def main():
+        init_graph(500, 300)
 
-    # rotate around the bus center
-    translate(105,65)
-    rotate(180)
-    translate(-105,-65)
+        # move the origin to the center of the image
+        translate(250, 150)
 
-    # shear arount the bus center
-    translate(105,65)
-    shear(0.5,0.5)
-    translate(-105,-65)
+        # rotate around the bus center
+        translate(105, 65)
+        rotate(180)
+        translate(-105, -65)
 
-    #scale
-    scale(1.2,1.2)
-    draw_bus.draw_bus()
-    pause()
-    close_graph()
+        # shear arount the bus center
+        translate(105, 65)
+        shear(0.5, 0.5)
+        translate(-105, -65)
+
+        # scale
+        scale(1.2, 1.2)
+        draw_bus.draw_bus()
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_compound.png
 
@@ -305,24 +348,28 @@ Use set_flip_y() to make y-axis grows bottom-up:
     from easygraphics import *
     import draw_bus
 
-    init_graph(500, 300)
+    def main():
+        init_graph(500, 300)
 
-    translate(250, 150)
-    translate(105,65)
-    rotate(-45)
-    translate(-105,-65)
+        translate(250, 150)
+        translate(105, 65)
+        rotate(-45)
+        translate(-105, -65)
 
-    set_flip_y(True)
+        set_flip_y(True)
+        # reflect(1,0)
 
-    translate(105, -65)
-    shear(0.2,0.2)
-    translate(-105, 65)
+        translate(105, -65)
+        shear(0.2, 0.2)
+        translate(-105, 65)
 
-    draw_bus.draw_bus()
-    set_color("blue")
-    draw_rect_text(0,0,210,130,"This is a very good day!")
-    pause()
-    close_graph()
+        draw_bus.draw_bus()
+        set_color("blue")
+        draw_rect_text(0, 0, 210, 130, "This is a very good day!")
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_y_set.png
 
@@ -333,23 +380,26 @@ Use reflect(1,0) to make y-axis grows bottom-up:
     from easygraphics import *
     import draw_bus
 
-    init_graph(500, 300)
+    def main():
+        init_graph(500, 300)
 
-    translate(250, 150)
-    translate(105,65)
-    rotate(-45)
-    translate(-105,-65)
+        translate(250, 150)
+        translate(105,65)
+        rotate(-45)
+        translate(-105,-65)
 
-    reflect(1,0)
+        reflect(1,0)
 
-    translate(105, -65)
-    shear(0.2,0.2)
-    translate(-105, 65)
+        translate(105, -65)
+        shear(0.2,0.2)
+        translate(-105, 65)
 
-    draw_bus.draw_bus()
-    set_color("blue")
-    draw_rect_text(0,0,210,130,"This is a very good day!")
-    pause()
-    close_graph()
+        draw_bus.draw_bus()
+        set_color("blue")
+        draw_rect_text(0,0,210,130,"This is a very good day!")
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/09_y_reflect.png

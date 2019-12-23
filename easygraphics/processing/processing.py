@@ -1,3 +1,5 @@
+from typing import Callable
+
 from .processingwidget import ProcessingWidget
 from easygraphics import *
 from PyQt5 import QtWidgets, QtGui
@@ -16,6 +18,9 @@ mouse_pressed = False
 # if the mouse button is pressed
 
 __all__ = [
+    # register functions
+    'register_setup','register_on_mouse_clicked','register_on_mouse_dragged',
+    'register_on_mouse_pressed','register_on_mouse_released','register_on_mouse_wheel',
     # control functions
     'redraw', 'loop', 'noloop', 'run_app',
     'set_size', 'full_screen', 'draw', 'setup', 'set_frame_rate', 'get_frame_rate',
@@ -122,6 +127,53 @@ def set_frame_rate(fps: int):
     """
     _widget.set_frame_rate(fps)
 
+def register_setup(setup_func:Callable):
+    """
+    Register the setup function
+    :param setup_func: the setup function
+    """
+    global setup
+    setup = setup_func
+
+def register_on_mouse_clicked(func:Callable):
+    """
+    Register the on mouse clicked event handler
+    :param func: the mouse clicked event handler
+    """
+    global on_mouse_clicked
+    on_mouse_clicked = func
+
+def register_on_mouse_pressed(func:Callable):
+    """
+    Register the on mouse pressed event handler
+    :param func: the mouse pressed event handler
+    """
+    global on_mouse_pressed
+    on_mouse_pressed = func
+
+def register_on_mouse_released(func:Callable):
+    """
+    Register the on mouse released event handler
+    :param func: the mouse released event handler
+    """
+    global on_mouse_released
+    on_mouse_released = func
+
+def register_on_mouse_dragged(func:Callable):
+    """
+    Register the on mouse dragged event handler
+    :param func: the mouse dragged event handler
+    """
+    global on_mouse_dragged
+    on_mouse_dragged = func
+
+def register_on_mouse_wheel(func:Callable):
+    """
+    Register the on mouse wheel event handler
+    :param func: the mouse wheel event handler
+    """
+    global on_mouse_wheel
+    on_mouse_wheel = func
 
 def run_app(_globals):
     """

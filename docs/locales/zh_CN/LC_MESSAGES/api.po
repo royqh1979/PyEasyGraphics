@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 15:09+0800\n"
+"POT-Creation-Date: 2019-12-23 15:07+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -3550,6 +3550,10 @@ msgstr "新图片的高度"
 msgid "the created image"
 msgstr "创建的图片"
 
+#: easygraphics.create_image_from_ndarray:1 of
+msgid "Convert a ndarray (opencv 3.0 image) to an Image object"
+msgstr ""
+
 #: easygraphics.Image.save:3 easygraphics.save_image:3 of
 msgid "Set with_background to False to get a transparent background image."
 msgstr "将with_background参数设为False，可以得到一个透明背景的图片。"
@@ -4221,6 +4225,10 @@ msgid ""
 "Translates the coordinate system by the given offset; i.e. the given "
 "offset is added to points."
 msgstr "将坐标轴平移指定的位移。"
+
+#: easygraphics.register_for_clean_up:1 of
+msgid "Register an object for clean up when the app quits."
+msgstr ""
 
 #~ msgid "Get composition mode of the specified image"
 #~ msgstr "设置指定图片的合成模式。"

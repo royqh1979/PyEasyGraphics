@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 15:12+0800\n"
+"POT-Creation-Date: 2019-12-23 15:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,49 +46,61 @@ msgstr ""
 msgid "The First window"
 msgstr ""
 
-#: examples.tutorials.01_first_window:1 of
-msgid "First easy graphics program"
+#: ../../tutorials/001_first_window.rst:4
+msgid "In this program, we will create and show a graphics window:"
 msgstr ""
 
-#: examples.tutorials.01_first_window:3 of
-msgid "In this program, we will:"
+#: ../../tutorials/001_first_window.rst:6
+msgid "Define the easygraphics main function"
 msgstr ""
 
-#: examples.tutorials.01_first_window:5 of
-msgid "Init the graphics windows"
+#: ../../tutorials/001_first_window.rst:8
+msgid "In the main function, we:"
 msgstr ""
 
-#: examples.tutorials.01_first_window:6 of
+#: ../../tutorials/001_first_window.rst:10
+msgid "Init the graphics window"
+msgstr ""
+
+#: ../../tutorials/001_first_window.rst:11
 msgid "wait for mouse click or keyboard hitting"
 msgstr ""
 
-#: examples.tutorials.01_first_window:7 of
+#: ../../tutorials/001_first_window.rst:12
 msgid "close the graphics system (and graphics window)"
 msgstr ""
 
-#: examples.tutorials.01_first_window:9 of
+#: ../../tutorials/001_first_window.rst:14
+msgid "Run the main function"
+msgstr ""
+
+#: ../../tutorials/001_first_window.rst:16
+msgid "**note 1** : You must use easy_run() to run the main function."
+msgstr ""
+
+#: ../../tutorials/001_first_window.rst:18
 msgid ""
-"**note 1** : init_graph() must be called before any easygraphics drawing "
+"**note 2** : init_graph() must be called before any easygraphics drawing "
 "functions."
 msgstr ""
 
-#: examples.tutorials.01_first_window:11 of
+#: ../../tutorials/001_first_window.rst:20
 msgid ""
-"**note 2** : Don't forget to close_graph() to clean up the system after "
+"**note 3** : Don't forget to close_graph() to clean up the system after "
 "all drawing work is done."
 msgstr ""
 
-#: examples.tutorials.01_first_window:14 of
-msgid "**note 3**"
+#: ../../tutorials/001_first_window.rst:23
+msgid "**note 4**"
 msgstr ""
 
-#: examples.tutorials.01_first_window:13 of
+#: ../../tutorials/001_first_window.rst:22
 msgid ""
-"You can use the graphics window's close button to close the graphics "
+"You can use the graphics window\\'s close button to close the graphics "
 "system. But"
 msgstr ""
 
-#: examples.tutorials.01_first_window:14 of
+#: ../../tutorials/001_first_window.rst:23
 msgid "this may cause exception. (When there are unfinished drawing operations.）"
 msgstr ""
 
@@ -96,25 +108,21 @@ msgstr ""
 msgid "The First Drawing"
 msgstr ""
 
-#: examples.tutorials.02_first_drawing:1 of
-msgid "Fist drawing program"
+#: ../../tutorials/002_first_drawing.rst:4
+msgid "Let\\'s draw a line from (0,0) to (640,480)"
 msgstr ""
 
-#: examples.tutorials.02_first_drawing:3 of
-msgid "Let's draw a line from (0,0) to (640,480)"
-msgstr ""
-
-#: examples.tutorials.02_first_drawing:5 of
+#: ../../tutorials/002_first_drawing.rst:6
 msgid "In computer graphics, we normally use a screen coordinate system as below:"
 msgstr ""
 
-#: examples.tutorials.02_first_drawing:9 of
+#: ../../tutorials/002_first_drawing.rst:10
 msgid ""
-"In this system, the origin (0,0) is at screen's upper left corner, and "
+"In this system, the origin (0,0) is at screen\\'s upper left corner, and "
 "y-axis is growing top-down."
 msgstr ""
 
-#: examples.tutorials.02_first_drawing:11 of
+#: ../../tutorials/002_first_drawing.rst:12
 msgid "So the result is a line from upper left corner to lower right corner."
 msgstr ""
 
@@ -2838,5 +2846,59 @@ msgstr ""
 #~ "fill, you should not close the "
 #~ "shape,  or you can set the fill"
 #~ " color to Color.TRANSPARENT"
+#~ msgstr ""
+
+#~ msgid "First easy graphics program"
+#~ msgstr ""
+
+#~ msgid "In this program, we will:"
+#~ msgstr ""
+
+#~ msgid "Init the graphics windows"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**note 1** : init_graph() must be "
+#~ "called before any easygraphics drawing "
+#~ "functions."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**note 2** : Don't forget to "
+#~ "close_graph() to clean up the system "
+#~ "after all drawing work is done."
+#~ msgstr ""
+
+#~ msgid "**note 3**"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can use the graphics window's "
+#~ "close button to close the graphics "
+#~ "system. But"
+#~ msgstr ""
+
+#~ msgid "Fist drawing program"
+#~ msgstr ""
+
+#~ msgid "Let's draw a line from (0,0) to (640,480)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this system, the origin (0,0) "
+#~ "is at screen's upper left corner, "
+#~ "and y-axis is growing top-down."
+#~ msgstr ""
+
+#~ msgid "from easygraphics import *"
+#~ msgstr ""
+
+#~ msgid "def main():"
+#~ msgstr ""
+
+#~ msgid "init_graph(800, 600) pause() close_graph()"
+#~ msgstr ""
+
+#~ msgid "easy_run(main)"
 #~ msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 15:09+0800\n"
+"POT-Creation-Date: 2019-12-23 15:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3525,6 +3525,10 @@ msgstr ""
 msgid "the created image"
 msgstr ""
 
+#: easygraphics.create_image_from_ndarray:1 of
+msgid "Convert a ndarray (opencv 3.0 image) to an Image object"
+msgstr ""
+
 #: easygraphics.Image.save:3 easygraphics.save_image:3 of
 msgid "Set with_background to False to get a transparent background image."
 msgstr ""
@@ -4188,6 +4192,10 @@ msgstr ""
 msgid ""
 "Translates the coordinate system by the given offset; i.e. the given "
 "offset is added to points."
+msgstr ""
+
+#: easygraphics.register_for_clean_up:1 of
+msgid "Register an object for clean up when the app quits."
 msgstr ""
 
 #~ msgid "APIs"

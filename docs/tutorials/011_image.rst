@@ -68,11 +68,14 @@ So we are saving the graphics window.
     from easygraphics import *
     import draw_bus
 
-    init_graph(600,400)
-    draw_bus.draw_bus()
-    save_image("bus_screen.png")
-    pause()
-    close_graph()
+    def main():
+        init_graph(600,400)
+        draw_bus.draw_bus()
+        save_image("bus_screen.png")
+        pause()
+        close_graph()
+
+    easy_run(main)
 
 Copy Image
 ----------
@@ -91,20 +94,23 @@ In the following example, we:
     from easygraphics import *
     import draw_bus
 
-    init_graph(750,450)
-    img=create_image(210,130)
-    set_target(img) # set target to img
-    draw_bus.draw_bus()
-    set_target() # set target back to the graphics window
-    set_background_color("black")
-    for i in range(0,9):
-        x = i % 3 * 250
-        y = i // 3 * 150
-        draw_image(x+20,y+10,img)
+    def main():
+        init_graph(750, 450)
+        img = create_image(210, 130)
+        set_target(img)  # set target to img
+        draw_bus.draw_bus()
+        set_target()  # set target back to the graphics window
+        set_background_color("black")
+        for i in range(0, 9):
+            x = i % 3 * 250
+            y = i // 3 * 150
+            draw_image(x + 20, y + 10, img)
 
-    pause()
-    img.close()
-    close_graph()
+        pause()
+        img.close()
+        close_graph()
+
+    easy_run(main)
 
 The result:
 
@@ -123,21 +129,24 @@ before drawing the bus.
     from easygraphics import *
     import draw_bus
 
-    init_graph(750,450)
-    img=create_image(210,130)
-    set_background_color(Color.TRANSPARENT,img) # set img's background to transparency
-    set_target(img) # set target to img
-    draw_bus.draw_bus()
-    set_target() # set target back to the graphics window
-    set_background_color("black")
-    for i in range(0,9):
-        x = i % 3 * 250
-        y = i // 3 * 150
-        draw_image(x+20,y+10,img)
+    def main():
+        init_graph(750, 450)
+        img = create_image(210, 130)
+        set_background_color(Color.TRANSPARENT, img)  # set img's background to transparency
+        set_target(img)  # set target to img
+        draw_bus.draw_bus()
+        set_target()  # set target back to the graphics window
+        set_background_color("black")
+        for i in range(0, 9):
+            x = i % 3 * 250
+            y = i // 3 * 150
+            draw_image(x + 20, y + 10, img)
 
-    pause()
-    img.close()
-    close_graph()
+        pause()
+        img.close()
+        close_graph()
+
+    easy_run(main)
 
 The result is :
 
@@ -156,20 +165,23 @@ and we do the copy without background.
     from easygraphics import *
     import draw_bus
 
-    init_graph(750,450)
-    img=create_image(210,130)
-    set_target(img) # set target to img
-    draw_bus.draw_bus()
-    set_target() # set target back to the graphics window
-    set_background_color("black")
-    for i in range(0,9):
-        x = i % 3 * 250
-        y = i // 3 * 150
-        draw_image(x+20,y+10,img,with_background=False)
+    def main():
+        init_graph(750, 450)
+        img = create_image(210, 130)
+        set_target(img)  # set target to img
+        draw_bus.draw_bus()
+        set_target()  # set target back to the graphics window
+        set_background_color("black")
+        for i in range(0, 9):
+            x = i % 3 * 250
+            y = i // 3 * 150
+            draw_image(x + 20, y + 10, img, with_background=False)
 
-    pause()
-    img.close()
-    close_graph()
+        pause()
+        img.close()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/11_copy_bus_trans.png
 
@@ -188,27 +200,30 @@ use it to save and restore image's transforms.
     from easygraphics import *
     import draw_bus
 
-    init_graph(750,450)
-    img=create_image(210,130)
-    set_target(img) # set target to img
-    draw_bus.draw_bus()
-    set_target() # set target back to the graphics window
-    set_background_color("black")
-    for i in range(0,9):
-        x = i % 3 * 250 + 20
-        y = i // 3 * 150 + 10
-        save_settings()
-        # transforms
-        translate(x,y)
-        translate(105,65)
-        rotate(45)
-        translate(-105,-65)
+    def main():
+        init_graph(750, 450)
+        img = create_image(210, 130)
+        set_target(img)  # set target to img
+        draw_bus.draw_bus()
+        set_target()  # set target back to the graphics window
+        set_background_color("black")
+        for i in range(0, 9):
+            x = i % 3 * 250 + 20
+            y = i // 3 * 150 + 10
+            save_settings()
+            # transforms
+            translate(x, y)
+            translate(105, 65)
+            rotate(45)
+            translate(-105, -65)
 
-        draw_image(0,0,img,with_background=False)
-        restore_settings()
-    pause()
-    img.close()
-    close_graph()
+            draw_image(0, 0, img, with_background=False)
+            restore_settings()
+        pause()
+        img.close()
+        close_graph()
+
+    easy_run(main)
 
 .. image:: ../images/tutorials/11_copy_bus_transform.png
 
@@ -225,13 +240,17 @@ The following example load and display a image.
 .. code-block:: python
 
     from easygraphics import *
-    init_graph(800, 600)
-    img = load_image("test.png")
-    draw_image((get_width() - img.get_width()) // 2,
-               (get_height() - img.get_height()) // 2, img)
-    pause()
-    img.close()
-    close_graph()
+
+    def main():
+        init_graph(800, 600)
+        img = load_image("test.png")
+        draw_image((get_width() - img.get_width()) // 2,
+                   (get_height() - img.get_height()) // 2, img)
+        pause()
+        img.close()
+        close_graph()
+
+    easy_run(main)
 
 Headless Mode
 -------------
@@ -246,13 +265,16 @@ The following program shows how to use init_graph() to create a headless mode.
     from easygraphics import *
     import draw_bus
 
-    init_graph(headless=True)
-    img=create_image(210,130)
-    set_target(img)
-    draw_bus.draw_bus()
-    save_image("headless_bus.png")
-    img.close()
-    close_graph()
+    def main():
+        init_graph(headless=True)
+        img = create_image(210, 130)
+        set_target(img)
+        draw_bus.draw_bus()
+        save_image("headless_bus.png")
+        img.close()
+        close_graph()
+
+    easy_run(main)
 
 
 
