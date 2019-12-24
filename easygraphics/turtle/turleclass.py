@@ -1,7 +1,7 @@
 import math
 import os
 import threading
-from typing import Optional
+from typing import Optional, List
 import time
 
 from PyQt5 import QtGui, QtCore
@@ -37,13 +37,9 @@ class TurtleWorld(object):
             self._win = None
         self._width = self._world_image.get_width()
         self._height = self._world_image.get_height()
-        self._world_image.reset_transform()
-        self._world_image.translate(self._width // 2, self._height // 2)
-        self._world_image.set_flip_y(True)
         self._buffer_image = eg.create_image(self._width, self._height)
-        self._buffer_image.translate(self._width // 2, self._height // 2)
-        self._buffer_image.set_flip_y(True)
-        self._turtles = []
+        self._reset_world_image()
+        self._turtles : List[Turtle] = []
         self._running = True
         if self._win is not None:
             self._immediate = False
@@ -52,6 +48,24 @@ class TurtleWorld(object):
             eg.set_target(self._world_image)
         else:
             self._immediate = True
+
+    def _reset_world_image(self):
+        self._world_image.set_color(eg.Color.BLACK)
+        self._world_image.set_line_style(eg.LineStyle.SOLID_LINE)
+        self._world_image.set_line_width(1)
+        self._world_image.set_fill_color( eg.Color.WHITE )
+        self._world_image.set_fill_style( eg.FillStyle.SOLID_FILL)
+        self._world_image.set_fill_rule( eg.FillRule.ODD_EVEN_FILL)
+        self._world_image.set_background_color(eg.Color.WHITE)
+        self._world_image.set_rect_mode(eg.ShapeMode.CORNERS)
+        self._world_image.set_ellipse_mode(eg.ShapeMode.RADIUS)
+        self._world_image.set_flip_y(False)
+        self._world_image.reset_window()
+        self._world_image.reset_view_port()
+        self._world_image.reset_transform()
+        self._world_image.translate(self._width // 2, self._height // 2)
+        self._world_image.set_flip_y(True)
+
 
     def close(self):
         """
@@ -88,7 +102,6 @@ class TurtleWorld(object):
         :param y: y coordinate value of the target position
         """
         buffer = self._buffer_image
-        buffer.save_settings()
         buffer.reset_transform()
         buffer.draw_image(0, 0, self._world_image, composition_mode=eg.CompositionMode.SOURCE)
         buffer.set_transform(self._world_image.get_transform())
@@ -101,7 +114,6 @@ class TurtleWorld(object):
                                   -turtle.get_icon().get_height() // 2, turtle.get_icon(),
                                   composition_mode=eg.CompositionMode.SOURCE_OVER)
                 buffer.pop_transform()
-        buffer.restore_settings()
         image.draw_image(x, y, buffer, composition_mode=eg.CompositionMode.SOURCE)
 
     def add_turtle(self, turtle: "Turtle"):
@@ -194,10 +206,11 @@ class TurtleWorld(object):
 
     def clear_screen(self):
         """
-        Delete all drawings from the screen. Do not move turtle.
+        Delete all drawings from the screen and reset turtles to its original state.
         """
         for turtle in self._turtles:
-            turtle.cancle_fill()
+            turtle.reset()
+        self._reset_world_image()
         self.get_world_image().clear()
 
     cs = clear_screen
@@ -219,18 +232,27 @@ class Turtle(object):
         :param world: the turtle world that the turtle will live in.
         """
         self._world = world
+        self._icon = self.create_turtle_icon()
+        self._last_fps_time = 0
+        self._fillpath = []
+        self._lock = threading.Lock()
+        self._drawing_event = threading.Event()
+        self.reset()
+        world.add_turtle(self)
+
+
+    def reset(self):
+        """
+        Reset the turtle's state
+        """
         self._x = 0
         self._y = 0
         self._heading = self.DEFAULT_ORENTATION
         self._pen_down = True
         self._speed = 500
         self._show_turtle = True
-        self._icon = self.create_turtle_icon()
-        self._last_fps_time = 0
-        self._fillpath = []
-        self._lock = threading.Lock()
-        self._drawing_event = threading.Event()
-        world.add_turtle(self)
+        self._fillpath.clear()
+
 
     def set_speed(self, speed: int):
         """

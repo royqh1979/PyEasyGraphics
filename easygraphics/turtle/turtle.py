@@ -187,7 +187,7 @@ def move_ellipse(radius_left: float, radius_top: float, angle: float = 360):
 
 def clear_screen():
     """
-    Delete all drawings from the screen. Do not move turtle.
+    Delete all drawings from the screen and reset turtles to its original state.
     """
     _check_turtle()
     _world.clear_screen()

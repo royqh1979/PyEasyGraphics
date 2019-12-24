@@ -2,6 +2,7 @@ from easygraphics import *
 from easygraphics.turtle import *
 
 create_world()
+cs()
 set_speed(10)
 set_fill_color("yellow")
 begin_fill()

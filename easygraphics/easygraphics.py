@@ -2207,7 +2207,11 @@ def set_caption(title: str):
     """
     _win.setWindowTitle(title)
 
+
 @invoke_in_app_thread.invoke_in_thread()
+def _init_graph_in_thread(width:int ,height:int,headless:bool):
+    _init_graph(width,height,headless)
+
 def _init_graph(width:int ,height:int,headless:bool):
     """
     Init the graphics context
@@ -2247,7 +2251,7 @@ def init_graph(width: int = 800, height: int = 600, headless: bool = False):
     if _is_run:
         raise RuntimeError("The Graphics Windows is already inited!")
     if _easy_run_mode:
-        _init_graph(width,height,headless)
+        _init_graph_in_thread(width,height,headless)
         return
 
     # prepare Events

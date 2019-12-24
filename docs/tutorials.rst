@@ -41,6 +41,8 @@ Turtle Graphics
 
     tutorials/101_turtle
 
+    tutorials/102_turtle_basic_commands
+
 Dialogs
 --------------
 .. toctree::
