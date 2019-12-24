@@ -541,6 +541,7 @@ class Image:
         """
         Reset all transforms (translate/rotate/scale).
         """
+        self._flip_y = False
         self._painter.resetTransform()
         self._mask_painter.resetTransform()
 

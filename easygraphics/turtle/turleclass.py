@@ -59,7 +59,6 @@ class TurtleWorld(object):
         self._world_image.set_background_color(eg.Color.WHITE)
         self._world_image.set_rect_mode(eg.ShapeMode.CORNERS)
         self._world_image.set_ellipse_mode(eg.ShapeMode.RADIUS)
-        self._world_image.set_flip_y(False)
         self._world_image.reset_window()
         self._world_image.reset_view_port()
         self._world_image.reset_transform()
