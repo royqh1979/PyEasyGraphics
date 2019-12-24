@@ -2,6 +2,16 @@
 
 History
 ===========
+1.0.13.1
+-----------
+* fix: immediate mode not work
+* fix: set_flip_y() dosen't work when reused after reset_transform()
+
+1.0.13
+----------
+* add easy_run mode
+* now the easy_run mode is the preferred mode to run easygraphics. It can work under Linux, macOS and windows.
+
 1.0.12
 ----------
 * fix: the drawing is not stopped immediately after the turtle window is closed()
