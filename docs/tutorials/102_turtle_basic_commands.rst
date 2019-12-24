@@ -64,58 +64,73 @@ The following program draws a 30 degree angle.
 
 .. image:: ../../docs/images/turtle/01_angle.png
 
-Return to Home
---------------
+Speed of the turtle
+-------------------
+We can use set_speed() to control the turtle's moving speed. Speed is the more  the fast, and 1 is the slowest.
+If you don't need the animation, use set_immediate(True) to disable it.
 
 Pen Up and Pen Down
 -------------------
+If you want to move the turtle without a trace, you can use pen_up and pen_down.
 
-Show and Hide the Turtle
-------------------------
+By default the turtle is in pen down state, which means its move will leave a trace.
 
-Clear the screen/canvas
------------------------
+If the turtle is in pen up state, its move will not leave a trace.
 
-Fill the shapes
----------------
-
-
-
-
-
-
-The turtle graphics is a classic and popular way to introducing programming to kids.
-
-In the turtle graphics, you control a turtle to move around the graphics window.
-The traces left by its move form drawings.
-
-In the following program, we use turtle graphics to draw a star.
+The following program use pen up and down to draw one square inside another.
 
 .. code-block:: python
 
-    from easygraphics import *
     from easygraphics.turtle import *
 
     def main():
-        create_world()
-        set_color("red")
-        set_fill_color("red")
-        set_fill_rule(FillRule.WINDING_FILL)
-        right(90)
-        begin_fill()
-        for i in range(5):
-            forward(100)
-            right(144)
-        end_fill()
+        create_world(400,400)
+
+        # draw the inside rectangle
+        for i in range(4):
+            fd(100)
+            lt(90)
+
+        # use pen_up to move the turtle without a trace
+        pen_up()
+        rt(135)
+        fd(70)
+        lt(135)
+        pen_down()
+
+        # draw the outside rectangle
+        for i in range(4):
+            fd(200)
+            lt(90)
+
         pause()
         close_world()
 
     easy_run(main)
 
+.. image:: ../../docs/images/turtle/01_pen_up.png
 
-.. toctree::
-    :max-depth: 1
+Show and Hide the Turtle
+------------------------
+When the drawing is finished, we can hide() the turtle.
 
-    tutorials/102_turtle_basic_commands
-    tutorials/103_pen_and_fill
-    tutorials/104_coordinations
+And show() makes the turtle visible again.
+
+.. code-block:: python
+
+    from easygraphics.turtle import *
+
+    def main():
+        create_world(400,400)
+        for i in range(4):
+            fd(100)
+            lt(90)
+
+        hide()
+        pause()
+        close_world()
+
+    easy_run(main)
+
+.. image:: ../../docs/images/turtle/01_hide.png
+

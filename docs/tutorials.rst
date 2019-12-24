@@ -43,6 +43,12 @@ Turtle Graphics
 
     tutorials/102_turtle_basic_commands
 
+    tutorials/103_interactive_mode
+
+    tutorials/104_turtle_coordinates
+
+    tutorials/105_turtle_advanced_commands
+
 Dialogs
 --------------
 .. toctree::
