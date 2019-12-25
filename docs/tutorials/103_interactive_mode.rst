@@ -4,6 +4,7 @@ On Windows and Linux, we can run easygraphics in python's interactive mode.
 
 Demo fro easygraphics
 ---------------------
+
 .. code-block:: python
 
     from easygraphics import *
@@ -14,7 +15,9 @@ Demo fro easygraphics
 
 Demo for Turtle Graphics
 ------------------------
+
 .. code-block:: python
+
     from easygraphics.turtle import *
     create_world()
     fd(100)

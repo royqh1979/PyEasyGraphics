@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-06 17:30+0800\n"
+"POT-Creation-Date: 2019-12-24 19:54+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2345,7 +2345,14 @@ msgid ":obj:`clear_screen <easygraphics.turtle.clear_screen>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
-msgid "Delete all drawings from the screen."
+#: easygraphics.turtle.TurtleWorld.clear:1
+#: easygraphics.turtle.TurtleWorld.clear_screen:1
+#: easygraphics.turtle.TurtleWorld.cs:1 easygraphics.turtle.clear_screen:1
+#: easygraphics.turtle.cs:1 of
+#, fuzzy
+msgid ""
+"Delete all drawings from the screen and reset turtles to its original "
+"state."
 msgstr "从屏幕上清除所有已绘制的图形。不改变海龟的位置和朝向。"
 
 #: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
@@ -2424,13 +2431,6 @@ msgstr "要移动的距离"
 #: easygraphics.turtle.right_turn:3 easygraphics.turtle.rt:3 of
 msgid "the degree to turn"
 msgstr "要转动的角度"
-
-#: easygraphics.turtle.TurtleWorld.clear:1
-#: easygraphics.turtle.TurtleWorld.clear_screen:1
-#: easygraphics.turtle.TurtleWorld.cs:1 easygraphics.turtle.clear_screen:1
-#: easygraphics.turtle.cs:1 of
-msgid "Delete all drawings from the screen. Do not move turtle."
-msgstr "从屏幕上清除所有已绘制的图形。不改变海龟的位置和朝向。"
 
 #: easygraphics.turtle.Turtle.gotoxy:1 easygraphics.turtle.gotoxy:1 of
 msgid "Move the turtle to point (x,y). Will leave traces if the pen is down."
@@ -2682,6 +2682,11 @@ msgstr "True表示显示海龟，False表示隐藏。"
 #: easygraphics.turtle.Turtle.move_arc:1 of
 msgid "Move the turtle in a arc path."
 msgstr " 让海鬼沿圆弧移动。"
+
+#: easygraphics.turtle.Turtle.reset:1 of
+#, fuzzy
+msgid "Reset the turtle's state"
+msgstr "获取海龟。"
 
 #: easygraphics.turtle.TurtleWorld:1 of
 msgid ""
@@ -4418,4 +4423,7 @@ msgstr "要运行的函数或者方法"
 #~ ":obj:`show_file <easygraphics.dialog.show_file>`\\ "
 #~ "\\(file\\_name\\, title\\, file\\_type\\)"
 #~ msgstr ""
+
+#~ msgid "Delete all drawings from the screen."
+#~ msgstr "从屏幕上清除所有已绘制的图形。不改变海龟的位置和朝向。"
 

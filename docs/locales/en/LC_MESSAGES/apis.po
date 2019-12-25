@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-06 17:30+0800\n"
+"POT-Creation-Date: 2019-12-24 19:54+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2337,7 +2337,13 @@ msgid ":obj:`clear_screen <easygraphics.turtle.clear_screen>`\\ \\(\\)"
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
-msgid "Delete all drawings from the screen."
+#: easygraphics.turtle.TurtleWorld.clear:1
+#: easygraphics.turtle.TurtleWorld.clear_screen:1
+#: easygraphics.turtle.TurtleWorld.cs:1 easygraphics.turtle.clear_screen:1
+#: easygraphics.turtle.cs:1 of
+msgid ""
+"Delete all drawings from the screen and reset turtles to its original "
+"state."
 msgstr ""
 
 #: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
@@ -2415,13 +2421,6 @@ msgstr ""
 #: easygraphics.turtle.lt:3 easygraphics.turtle.right:3
 #: easygraphics.turtle.right_turn:3 easygraphics.turtle.rt:3 of
 msgid "the degree to turn"
-msgstr ""
-
-#: easygraphics.turtle.TurtleWorld.clear:1
-#: easygraphics.turtle.TurtleWorld.clear_screen:1
-#: easygraphics.turtle.TurtleWorld.cs:1 easygraphics.turtle.clear_screen:1
-#: easygraphics.turtle.cs:1 of
-msgid "Delete all drawings from the screen. Do not move turtle."
 msgstr ""
 
 #: easygraphics.turtle.Turtle.gotoxy:1 easygraphics.turtle.gotoxy:1 of
@@ -2671,6 +2670,10 @@ msgstr ""
 
 #: easygraphics.turtle.Turtle.move_arc:1 of
 msgid "Move the turtle in a arc path."
+msgstr ""
+
+#: easygraphics.turtle.Turtle.reset:1 of
+msgid "Reset the turtle's state"
 msgstr ""
 
 #: easygraphics.turtle.TurtleWorld:1 of
@@ -5536,5 +5539,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "possible values: ``text``, ``code``, ``html``, ``python``."
+#~ msgstr ""
+
+#~ msgid "Delete all drawings from the screen."
+#~ msgstr ""
+
+#~ msgid "Delete all drawings from the screen. Do not move turtle."
 #~ msgstr ""
 

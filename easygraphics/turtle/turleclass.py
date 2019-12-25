@@ -53,7 +53,7 @@ class TurtleWorld(object):
         self._world_image.set_color(eg.Color.BLACK)
         self._world_image.set_line_style(eg.LineStyle.SOLID_LINE)
         self._world_image.set_line_width(1)
-        self._world_image.set_fill_color( eg.Color.WHITE )
+        self._world_image.set_fill_color(eg.Color.LIGHT_GRAY)
         self._world_image.set_fill_style( eg.FillStyle.SOLID_FILL)
         self._world_image.set_fill_rule( eg.FillRule.ODD_EVEN_FILL)
         self._world_image.set_background_color(eg.Color.WHITE)

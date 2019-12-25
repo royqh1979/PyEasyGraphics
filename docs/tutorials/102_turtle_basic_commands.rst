@@ -4,7 +4,7 @@ In this tutorial, we will introduce basic commands of the turtle graphics.
 
 Move the turtle
 ---------------
-Forward(x) function move the turtle x steps forward.
+forward(x) function move the turtle x steps forward.
 fd(x) is the short form of forward(x).
 
 .. code-block:: python
@@ -24,7 +24,7 @@ fd(x) is the short form of forward(x).
 backward(x) function move the turtle x steps backward.
 back(x) and bk(x) is the short form of backward(x).
 
-    .. code-block:: python
+.. code-block:: python
 
     from easygraphics.turtle import *
 

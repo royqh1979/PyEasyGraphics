@@ -12,9 +12,9 @@ In the main function, we:
     #. use create_world(800,600) to create a 800x600 drawing canvas (drawing window)
     #. set the pen color to red and the fill color to red
     #. use right(90) command to turn the turtle 90 degrees clockwise.
-    #. use forward(100) command to move the turtle 100 steps forward,the turn the turtle 144 degrees clockwise.
+    #. use forward(100) command to move the turtle 100 steps forward,then turn the turtle 144 degrees clockwise.
     #. repeat the above step 5 times
-    #. use close_world() to close the drawing window()
+    #. use close_world() to close the drawing window.
 
 .. code-block:: python
 

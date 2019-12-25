@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 15:38+0800\n"
+"POT-Creation-Date: 2019-12-24 20:03+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,15 +30,15 @@ msgstr ""
 msgid "Turtle Graphics"
 msgstr ""
 
-#: ../../tutorials.rst:45 ../../tutorials/201_dialogs.rst:2
+#: ../../tutorials.rst:53 ../../tutorials/201_dialogs.rst:2
 msgid "Dialogs"
 msgstr ""
 
-#: ../../tutorials.rst:52
+#: ../../tutorials.rst:60
 msgid "Processing"
 msgstr ""
 
-#: ../../tutorials.rst:61
+#: ../../tutorials.rst:69
 msgid "Miscs"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Define the easygraphics main function"
 msgstr ""
 
-#: ../../tutorials/001_first_window.rst:8
+#: ../../tutorials/001_first_window.rst:8 ../../tutorials/101_turtle.rst:10
 msgid "In the main function, we:"
 msgstr ""
 
@@ -209,27 +209,27 @@ msgstr ""
 msgid "Use predefined Color const"
 msgstr ""
 
-#: ../../tutorials/003_colors.rst:50
+#: ../../tutorials/003_colors.rst:52
 msgid "Use RGB values and color_rgb() function"
 msgstr ""
 
-#: ../../tutorials/003_colors.rst:54
+#: ../../tutorials/003_colors.rst:58
 msgid "Use a color name"
 msgstr ""
 
-#: ../../tutorials/003_colors.rst:58
+#: ../../tutorials/003_colors.rst:64
 msgid "Use a css web color string"
 msgstr ""
 
-#: ../../tutorials/003_colors.rst:62
+#: ../../tutorials/003_colors.rst:70
 msgid "Use a rgb integer"
 msgstr ""
 
-#: ../../tutorials/003_colors.rst:67
+#: ../../tutorials/003_colors.rst:77
 msgid "Transparency (Alpha Value)"
 msgstr ""
 
-#: ../../tutorials/003_colors.rst:68
+#: ../../tutorials/003_colors.rst:78
 msgid ""
 "Like most modern graphic systems, Easygraphics ( and its underlying Qt "
 "System) use a alpha component to represent the transparency of a pixel on"
@@ -237,7 +237,7 @@ msgid ""
 "the alpha value is 0, the pixel is fully tranparent."
 msgstr ""
 
-#: ../../tutorials/003_colors.rst:72
+#: ../../tutorials/003_colors.rst:82
 msgid ""
 "All the color functions (color_rgb()/color_hsv()/color_cmyk()) has an "
 "optional parameter \"alpha\" to make a color with transparency. The "
@@ -245,13 +245,13 @@ msgid ""
 "opaque."
 msgstr ""
 
-#: ../../tutorials/003_colors.rst:75
+#: ../../tutorials/003_colors.rst:85
 msgid ""
 "You can use to_alpha() function to make a tranparency color by string or "
 "rgb integers."
 msgstr ""
 
-#: ../../tutorials/003_colors.rst:77
+#: ../../tutorials/003_colors.rst:87
 msgid ""
 "The following code set the foreground color to a red with 150 as alpha "
 "value ( about half transparent)"
@@ -358,48 +358,48 @@ msgstr ""
 msgid "The following program draws a dash line by using the current position."
 msgstr ""
 
-#: ../../tutorials/004_line.rst:49
+#: ../../tutorials/004_line.rst:52
 msgid "Approximate a function curve"
 msgstr ""
 
-#: ../../tutorials/004_line.rst:51
+#: ../../tutorials/004_line.rst:54
 msgid "Sometimes we need to draw line segments successively."
 msgstr ""
 
-#: ../../tutorials/004_line.rst:53
+#: ../../tutorials/004_line.rst:56
 msgid ""
 "For example, to plot the function f(x)=sin(x)\\'s curve on [-3,3] ,we can"
 " use many successive line segements to approximate the curve:"
 msgstr ""
 
-#: ../../tutorials/004_line.rst:56
+#: ../../tutorials/004_line.rst:59
 msgid ""
 "divide [-3,3] into n equal intervals, to get n+1 values evenly "
 "distributed on [-3,3]: x0,x1,x2,x3,...,xn, and x0=-3, xn=3"
 msgstr ""
 
-#: ../../tutorials/004_line.rst:58
+#: ../../tutorials/004_line.rst:61
 msgid "cacluate function values f(x0),f(x1),f(x2),f(x3), ..., f(xn)."
 msgstr ""
 
-#: ../../tutorials/004_line.rst:59
+#: ../../tutorials/004_line.rst:62
 msgid ""
 "draw n line segements:  (x0,f(x0)) to (x1,f(x1)), (x1,f(x1)) to "
 "(x2,f(x2)) ..., (xn-1,f(xn-1)) to (xn,f(xn))"
 msgstr ""
 
-#: ../../tutorials/004_line.rst:60
+#: ../../tutorials/004_line.rst:63
 msgid "the resulting line segments is the curve approximation we need."
 msgstr ""
 
-#: ../../tutorials/004_line.rst:62
+#: ../../tutorials/004_line.rst:65
 msgid ""
 "Apparently, the more greater n is, the more precisely the appoximation "
 "is. To minimize the usage of memory, we should calculate and draw the "
 "line segments one by one."
 msgstr ""
 
-#: ../../tutorials/004_line.rst:65
+#: ../../tutorials/004_line.rst:68
 msgid "The following program plot a sin(x) curve on [-3,3]."
 msgstr ""
 
@@ -436,27 +436,27 @@ msgid ""
 "the fill color to Color.TRANSPARENT"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:34
+#: ../../tutorials/005_1_vertices.rst:38
 msgid "Let's see what happens if we don't close the shape:"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:56
+#: ../../tutorials/005_1_vertices.rst:64
 msgid "Spline Curve (Catmull-Rom Curve)"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:58
+#: ../../tutorials/005_1_vertices.rst:66
 msgid "We can use vertices to draw a spline curve (Catmull-Rom curve)."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:91
+#: ../../tutorials/005_1_vertices.rst:102
 msgid "See what happens if we close the shape."
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:125
+#: ../../tutorials/005_1_vertices.rst:139
 msgid "Bezier Curve"
 msgstr ""
 
-#: ../../tutorials/005_1_vertices.rst:126
+#: ../../tutorials/005_1_vertices.rst:140
 msgid "The following code use vertices to draw a cubic bezier curve."
 msgstr ""
 
@@ -479,129 +479,129 @@ msgid ""
 "draw a circle with a blue outline."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:22
+#: ../../tutorials/005_shapes.rst:26
 msgid ""
 "Functions that both draw and fill a shape. These functions are named like"
 " \\'draw_xxx()\\'(\\\"xxx\\\" is the shape\\'s name). The example below "
 "draw a red circle with a blue outline."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:35
+#: ../../tutorials/005_shapes.rst:43
 msgid ""
 "Functions that only fill a shape. These functions are named like "
 "\\'fill_xxx()\\'( \\\"xxx\\\" is the shape\\'s name). The example below "
 "draw a red circle without outline."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:51
+#: ../../tutorials/005_shapes.rst:63
 msgid "|circle|"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:52
+#: ../../tutorials/005_shapes.rst:64
 msgid "|draw_circle|"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:53
+#: ../../tutorials/005_shapes.rst:65
 msgid "|fill_circle|"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:54
+#: ../../tutorials/005_shapes.rst:66
 msgid "circle()"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:55
+#: ../../tutorials/005_shapes.rst:67
 msgid "draw_circle()"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:56
+#: ../../tutorials/005_shapes.rst:68
 msgid "fill_circle()"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:65
+#: ../../tutorials/005_shapes.rst:77
 msgid "Angle"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:66
+#: ../../tutorials/005_shapes.rst:78
 msgid "In easygraphics, all angles use degree as the unit."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:68
+#: ../../tutorials/005_shapes.rst:80
 msgid ""
 "When drawing arc,pie and chords, positive values for the angles mean "
 "counter-clockwise while negative values mean the clockwise direction. "
 "Zero degrees is at the 3 o'clock position."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:70
+#: ../../tutorials/005_shapes.rst:82
 msgid "The following program draws a pie from 45 degree to 135 degree."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:85
+#: ../../tutorials/005_shapes.rst:101
 msgid "Polygon"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:86
+#: ../../tutorials/005_shapes.rst:102
 msgid ""
 "Use polygon()/draw_polygon()/fill_polygon(), we can draw and fill "
 "polygons."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:88
+#: ../../tutorials/005_shapes.rst:104
 msgid "To draw a polygon, we should specify the vertices."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:90
+#: ../../tutorials/005_shapes.rst:106
 msgid ""
 "polygon()/draw_polygon()/fill_polygon() expect a list as the verticis\\' "
 "postions. In the list, each vertex is represented as 2 values (x and y). "
 "So n vertices is represented by a list with 2n values."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:94
+#: ../../tutorials/005_shapes.rst:110
 msgid ""
 "The following example draws a triangle with vertices at (50, 50), (350, "
 "250), (50, 150):"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:110
+#: ../../tutorials/005_shapes.rst:129
 msgid "Polylines"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:111
+#: ../../tutorials/005_shapes.rst:130
 msgid "Using poly_line() or draw_poly_line(), we can draw polylines."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:115
+#: ../../tutorials/005_shapes.rst:134
 msgid ""
 "A `polyline <https://www.webopedia.com/TERM/P/polyline.html>`_ is a "
 "continuous line composed of one or more line segments. So to draw a "
 "polyline, we should specify the endpoints connecting each line segment."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:118
+#: ../../tutorials/005_shapes.rst:137
 msgid ""
 "poly_line() and draw_poly_line() expect a list as the endpoint\\'s "
 "postions. In the list, each endpoint is represented as 2 values (x and "
 "y). So n endpoints is represented by a list with 2n values."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:122
+#: ../../tutorials/005_shapes.rst:141
 msgid ""
 "The following example draws a polyline connecting (50,50), (350,75), "
 "(50,150), (350,175), (50,250), (350,275)."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:136
+#: ../../tutorials/005_shapes.rst:158
 msgid "Bézier curve"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:137
+#: ../../tutorials/005_shapes.rst:159
 msgid ""
 "`A Bézier curve <https://en.wikipedia.org/wiki/B%C3%A9zier_curve>`_ is a "
 "parametric curve that uses the Bernstein polynomials as a basis."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:139
+#: ../../tutorials/005_shapes.rst:161
 msgid ""
 "A Bézier curve is defined by a set of control points P0 through Pn, where"
 " n is called its order (n = 1 for linear, 2 for quadratic, 3 for cubic "
@@ -610,11 +610,11 @@ msgid ""
 "not lie on the curve."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:143
+#: ../../tutorials/005_shapes.rst:165
 msgid "Cubic Bézier curves are the mostly used Bézier curves."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:147
+#: ../../tutorials/005_shapes.rst:169
 msgid ""
 "Four points P0, P1, P2 and P3 in the plane or in higher-dimensional space"
 " define a cubic Bézier curve. The curve starts at P0 going toward P1 and "
@@ -624,11 +624,11 @@ msgid ""
 "\"how fast\" the curve moves towards P1 before turning towards P2."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:153
+#: ../../tutorials/005_shapes.rst:175
 msgid "The explicit form of the curve is:"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:157
+#: ../../tutorials/005_shapes.rst:179
 msgid ""
 "We can use bezier() or draw_bezier() to draw cubic Bézier curves. They "
 "expect a list as the control points\\' postions. In the list, each "
@@ -637,13 +637,13 @@ msgid ""
 "list."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:161
+#: ../../tutorials/005_shapes.rst:183
 msgid ""
 "The following program draw a cubic bezier curve with control points at "
 "(300,50),(200,50),(200,200) and (100,200)."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:173
+#: ../../tutorials/005_shapes.rst:198
 msgid ""
 "We can use quadratic() or draw_quadratic() to draw quadratic Bézier "
 "curves. They expect a list as the control points\\' postions. In the "
@@ -652,32 +652,48 @@ msgid ""
 "values in the list."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:177
+#: ../../tutorials/005_shapes.rst:202
 msgid ""
 "The following program draw a quadratic bezier curve with control points "
-"at (300,50),(200,50),(200,200) and (100,200)."
+"at (300,50),(200,50) and (100,200)."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:190
+#: ../../tutorials/005_shapes.rst:218
 msgid "Flood Fill"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:191
+#: ../../tutorials/005_shapes.rst:219
 msgid ""
 "Non-regular shapes can be filled by flood fill. The shape to be filled "
 "must be enclosed by an outline. The follow program uses flood fill to "
 "fill a petal."
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:208
+#: ../../tutorials/005_shapes.rst:237
 msgid "Below is the result:"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:213
+#: ../../tutorials/005_shapes.rst:242
+msgid "Fill Rule"
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:243
+msgid "Fill rule controls how non-convex shapes are filled."
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:247
+msgid "You can use set_fill_rule() to change the fill rule."
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:249
+msgid "The default fill rule is odd even fill."
+msgstr ""
+
+#: ../../tutorials/005_shapes.rst:279
 msgid "Advanced Drawing"
 msgstr ""
 
-#: ../../tutorials/005_shapes.rst:215
+#: ../../tutorials/005_shapes.rst:281
 msgid ""
 "EasyGraphics supports drawing all the basic shape: point, line, circle, "
 "ellipse, rectangle, polygon, rectangle with rounded corner, etc. If you "
@@ -717,102 +733,102 @@ msgstr ""
 msgid "The following program draws a rectangle whose borders width is 10."
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:28
+#: ../../tutorials/006_line_styles.rst:32
 msgid "Predefined Line Shapes"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:29
+#: ../../tutorials/006_line_styles.rst:33
 msgid ""
 "Using line shapes, you can draw dash line or dot line. Use "
 "set_line_style()/get_line_style() to set line shape."
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:35
+#: ../../tutorials/006_line_styles.rst:39
 msgid "|solid_line|"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:36
+#: ../../tutorials/006_line_styles.rst:40
 msgid "|dash_line|"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:37
+#: ../../tutorials/006_line_styles.rst:41
 msgid "|dot_line|"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:38
+#: ../../tutorials/006_line_styles.rst:42
 msgid "LineStyle.SOLID_LINE"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:39
+#: ../../tutorials/006_line_styles.rst:43
 msgid "LineStyle.DASH_LINE"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:40
+#: ../../tutorials/006_line_styles.rst:44
 msgid "LineStyle.DOT_LINE"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:41
+#: ../../tutorials/006_line_styles.rst:45
 msgid "|dash_dot_line|"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:42
+#: ../../tutorials/006_line_styles.rst:46
 msgid "|dash_dot_dot_line|"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:43
+#: ../../tutorials/006_line_styles.rst:47
 msgid "|no_pen|"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:44
+#: ../../tutorials/006_line_styles.rst:48
 msgid "LineStyle.DASH_DOT_LINE"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:45
+#: ../../tutorials/006_line_styles.rst:49
 msgid "LineStyle.DASH_DOT_DOT_LINE"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:46
+#: ../../tutorials/006_line_styles.rst:50
 msgid "LineStyle.NO_PEN"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:55
+#: ../../tutorials/006_line_styles.rst:59
 msgid "The following program draws a rectangle with dash outlines."
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:68
+#: ../../tutorials/006_line_styles.rst:76
 msgid "Custom Line Shapes"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:69
+#: ../../tutorials/006_line_styles.rst:77
 msgid ""
 "If predefined line shapes is not satisfying, you can set custome line "
 "shape. To do this, you should:"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:72
+#: ../../tutorials/006_line_styles.rst:80
 msgid ""
 "use get_target() or create_image() to get the Image object you want to "
 "draw."
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:73
+#: ../../tutorials/006_line_styles.rst:81
 msgid ""
 "use the Image object\\'s get_pen() to get the pen. It\\'s a PyQt\\'s "
 "`QPen <http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html>`_ object."
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:75
+#: ../../tutorials/006_line_styles.rst:83
 msgid ""
 "Use the pen\\'s `setDashPattern() "
 "<http://pyqt.sourceforge.net/Docs/PyQt4/qpen.html#setDashPattern>`_ to "
 "set custom line shape."
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:91
+#: ../../tutorials/006_line_styles.rst:103
 msgid "More Line Styles"
 msgstr ""
 
-#: ../../tutorials/006_line_styles.rst:92
+#: ../../tutorials/006_line_styles.rst:104
 msgid ""
 "After getting the pen object, you can set other pen attributes to get "
 "more line styles. See `QPen's documentation "
@@ -833,67 +849,67 @@ msgid ""
 "in one function call:"
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:15
+#: ../../tutorials/007_texts.rst:19
 msgid "Running the program above will get the follow result:"
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:19
+#: ../../tutorials/007_texts.rst:23
 msgid ""
 "If you want to use seperators instead of space, just provide the \"sep\" "
 "parameter:"
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:29
+#: ../../tutorials/007_texts.rst:37
 msgid "The result of the above program is:"
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:34
+#: ../../tutorials/007_texts.rst:42
 msgid "Drawing Positions"
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:35
+#: ../../tutorials/007_texts.rst:43
 msgid ""
 "In draw_text(), the first 2 paramenter (x,y) specify the start drawing "
 "position of the text. This start position is left-bottom corner of the "
 "text's out border."
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:38
+#: ../../tutorials/007_texts.rst:46
 msgid "So the following code will draw text out of the graphics window:"
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:49
+#: ../../tutorials/007_texts.rst:61
 msgid "Drawing Text in the Specified Rectangle"
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:50
+#: ../../tutorials/007_texts.rst:62
 msgid "Using draw_rect_text(), we can draw a text in a bounded rectangle."
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:52
+#: ../../tutorials/007_texts.rst:64
 msgid ""
 "Note that the first 2 parameters (left,top) is the bounding rectangle's "
 "left-top corner, and the 3rd and 4th parameters (width, height) is the "
 "bounding rectangle's width and height."
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:55
+#: ../../tutorials/007_texts.rst:67
 msgid "You can use flags to control text alignment in the rectangle."
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:57
+#: ../../tutorials/007_texts.rst:69
 msgid ""
 "If the bound rectangle is not big enough to enclose the whole text, the "
 "text will be clipped."
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:59
+#: ../../tutorials/007_texts.rst:71
 msgid ""
 "If flag \"TextFlags.TEXT_WORD_WRAP\" is set, the text will auto wrap if "
 "it is too long to hold in one line."
 msgstr ""
 
-#: ../../tutorials/007_texts.rst:71
+#: ../../tutorials/007_texts.rst:87
 msgid ""
 "Following is the result of the above program. Note that we use "
 "draw_rect() to draw a border around the bounding rect to better show "
@@ -934,7 +950,7 @@ msgid ""
 "attention to their positions."
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:27
+#: ../../tutorials/008_view_port.rst:31
 msgid ""
 "The following program set view port to the rectangle from (100,50) to "
 "(300,250), then draw 3 circles with the code as the above programming. "
@@ -942,24 +958,24 @@ msgid ""
 "around the view port to better see effect of the clipping."
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:48
+#: ../../tutorials/008_view_port.rst:56
 msgid ""
 "In the above example, all drawings outside the view port is not painted "
 "(is clipped). We can turn off this feature by set the \"clip\" parameter "
 "to False:"
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:69
+#: ../../tutorials/008_view_port.rst:81
 msgid "The Logical Window"
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:70
+#: ../../tutorials/008_view_port.rst:82
 msgid ""
 "In easygraphics ( and the qt underlying) , there are 2 coordinates, **the"
 " logical coordinates** and **the physical coordinates**."
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:73
+#: ../../tutorials/008_view_port.rst:85
 msgid ""
 "**The physical coordinates** is the coordinate on the drawing device ( "
 "the graphics window or an Image object). (0,0) is always at the "
@@ -967,14 +983,14 @@ msgid ""
 "grows from top to bottom."
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:77
+#: ../../tutorials/008_view_port.rst:89
 msgid ""
 "**The logical coordinates** is the coordinate we are using when "
 "specifying drawing parameters. That is, when we call circle(50,50,100), "
 "the circle's center (50,50) is a logical coordinate."
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:80
+#: ../../tutorials/008_view_port.rst:92
 msgid ""
 "Easygraphics will translate the logical coordinates to the physical "
 "coordinates when drawing. By default, the logical coordinates and the "
@@ -982,32 +998,32 @@ msgid ""
 "the logical coordinates are translated."
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:84
+#: ../../tutorials/008_view_port.rst:96
 msgid ""
 "`Qt's document <http://doc.qt.io/qt-5/coordsys.html#window-viewport-"
 "conversion>`_ explains how the coordinates are translated."
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:87
+#: ../../tutorials/008_view_port.rst:99
 msgid ""
 "The following example move the logical origin to the center, and zoom the"
 " drawing 100 times on x and y axis:"
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:90
+#: ../../tutorials/008_view_port.rst:102
 msgid ""
 "the default view port is 600 width, 400 height. and the window is 6 "
 "width, 4 height, so on x-axis we gets 600/6=100 times zoom, and on y-axis"
 " we gets 400/4=100 times zoom."
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:92
+#: ../../tutorials/008_view_port.rst:104
 msgid ""
 "the window is 6 width, 4 height, and we put the left-top corner at "
 "(-3,-2), so we get (0,0) at the center."
 msgstr ""
 
-#: ../../tutorials/008_view_port.rst:109
+#: ../../tutorials/008_view_port.rst:123
 msgid ""
 "**Note:**  Obviously the logical window is difficult to understand and "
 "use. We can use :doc:`transform <009_transforms>` to achieve the same "
@@ -1066,74 +1082,74 @@ msgid ""
 "this chapter\\'s examples."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:45
+#: ../../tutorials/009_transforms.rst:44
 msgid "The following program draws a un-transformed bus:"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:59
+#: ../../tutorials/009_transforms.rst:63
 msgid "Translation"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:60
+#: ../../tutorials/009_transforms.rst:64
 msgid ""
 "Translation is the most commonly used transformation.  It moves each "
 "point by offset_x on x-axis, and offset_y on y-axis. We use it to move "
 "the origin\\'s position ( and the whole drawing)."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:63
+#: ../../tutorials/009_transforms.rst:67
 msgid ""
 "The following program use translate() to move the origin to the center of"
 " the graphics window, then draw the bus."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:78
+#: ../../tutorials/009_transforms.rst:86
 msgid "**Note:** set_origin() is an alias of translate()"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:81
+#: ../../tutorials/009_transforms.rst:89
 msgid "Rotation"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:82
+#: ../../tutorials/009_transforms.rst:90
 msgid "Use rotate() to rotate the coordinate around the point (x,y) clockwise."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:84
+#: ../../tutorials/009_transforms.rst:92
 msgid ""
 "Note: the angle directions in rotate() and in shape functions (i.e. "
 "draw_pie()) are opposite!"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:86
+#: ../../tutorials/009_transforms.rst:94
 msgid ""
 "If you need a counter-clockwise rotation, just give a negative rotation "
 "degree."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:88
+#: ../../tutorials/009_transforms.rst:96
 msgid ""
 "The following program draws a bus rotated 45 degree counter-clockwise "
 "around it\\'s center (105,65)."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:106
+#: ../../tutorials/009_transforms.rst:117
 msgid "Scaling"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:107
+#: ../../tutorials/009_transforms.rst:118
 msgid "We can use scale() to scale the drawing in x and y axis separately."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:109
+#: ../../tutorials/009_transforms.rst:120
 msgid "The following program draws a x-axis shrinked and y-axis enlarged bus."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:126
+#: ../../tutorials/009_transforms.rst:141
 msgid "Shear Mapping (Skew)"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:127
+#: ../../tutorials/009_transforms.rst:142
 msgid ""
 "We use shear() or its alias skew to shear a drawing around the center. "
 "shear() needs 2 parameters \"sv\" and \"sh\". After shearing, each point "
@@ -1141,96 +1157,96 @@ msgid ""
 "following examples."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:131
+#: ../../tutorials/009_transforms.rst:146
 msgid "Shear on X-axis"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:132
+#: ../../tutorials/009_transforms.rst:147
 msgid ""
 "In the follow example, we shear the bus along the x-axis. Note that the "
 "default y-axis is from top to bottom."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:150
+#: ../../tutorials/009_transforms.rst:169
 msgid "Shear on Y-axis"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:151
+#: ../../tutorials/009_transforms.rst:170
 msgid "In the follow example, we shear the bus along the y-axis."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:168
+#: ../../tutorials/009_transforms.rst:192
 msgid "Shear on both axis"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:169
+#: ../../tutorials/009_transforms.rst:193
 msgid ""
 "In the follow example, we shear the bus along the x and y-axis at the "
 "same time."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:187
+#: ../../tutorials/009_transforms.rst:215
 msgid "Reflection (Mirror, Flipping)"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:188
+#: ../../tutorials/009_transforms.rst:216
 msgid ""
 "We can use reflect() ( or its alias mirror() and flip() ) to do a "
 "reflection. It reflect the drawing again the line passing its parameters "
 "(x1,y1) and  (x,y)."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:192
+#: ../../tutorials/009_transforms.rst:220
 msgid "Reflection against the y-axis"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:193
+#: ../../tutorials/009_transforms.rst:221
 msgid ""
 "The following program flip the bus horizontally ( reflection against the "
 "bus\\'s vertical center line x=105 ) :"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:209
+#: ../../tutorials/009_transforms.rst:240
 msgid "Reflection against the x-axis"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:210
+#: ../../tutorials/009_transforms.rst:241
 msgid ""
 "The following program flip the bus vertically ( reflection against the "
 "bus\\'s horizontal center line y=65 ) :"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:227
+#: ../../tutorials/009_transforms.rst:262
 msgid "Reflection against other lines"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:228
+#: ../../tutorials/009_transforms.rst:263
 msgid ""
 "The following program flip the bus against the line passing (0, 300) and "
 "(500,0). To clearly see the result, we first draw a non-transformed bus, "
 "a mirror line, then draw the flipped bus."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:253
+#: ../../tutorials/009_transforms.rst:292
 msgid "Compound Transforms"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:254
+#: ../../tutorials/009_transforms.rst:293
 msgid "Transforms can be compounded."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:256
+#: ../../tutorials/009_transforms.rst:295
 msgid ""
 "In the following example, we first translate the origin to the image "
 "center, then rotate the bus around its center, then shear it around its "
 "center, then scale it by a factor of 1.2 ."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:287
+#: ../../tutorials/009_transforms.rst:330
 msgid "Drawing with Y-Axis Grows Bottom-Up"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:288
+#: ../../tutorials/009_transforms.rst:331
 msgid ""
 "You may have noticed that when you reflect the image, the texts drawing "
 "on the image will also get reflected. When what you want is to draw on an"
@@ -1238,11 +1254,11 @@ msgid ""
 "be what you what."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:292
+#: ../../tutorials/009_transforms.rst:335
 msgid "Easygraphics provides a set_flip_y() function to used in this situation."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:294
+#: ../../tutorials/009_transforms.rst:337
 msgid ""
 "Also notice that if you turn on the set_flip_y(), all the angles "
 "parameters used in the drawing functions should be mirrored too. That is,"
@@ -1250,18 +1266,18 @@ msgid ""
 "set_flip_y() is on, a positive angle will mean turn counter-clockwise."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:298
+#: ../../tutorials/009_transforms.rst:341
 msgid ""
 "Compare the following two programs. The first one use set_flip_y() to "
 "make y-axis grows bottom-up; and the second one use reflect(1,0) to do "
 "that job. See the results."
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:301
+#: ../../tutorials/009_transforms.rst:344
 msgid "Use set_flip_y() to make y-axis grows bottom-up:"
 msgstr ""
 
-#: ../../tutorials/009_transforms.rst:329
+#: ../../tutorials/009_transforms.rst:376
 msgid "Use reflect(1,0) to make y-axis grows bottom-up:"
 msgstr ""
 
@@ -1334,182 +1350,182 @@ msgid ""
 " that other colors will not do the job."
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:50
+#: ../../tutorials/010_composition_mode.rst:53
 msgid "Alpha Compositing"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:51
+#: ../../tutorials/010_composition_mode.rst:54
 msgid "Alpha Compositing is the mostly used composition type."
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:53
+#: ../../tutorials/010_composition_mode.rst:56
 msgid "The following table shows the result of the alpha compositings."
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:55
+#: ../../tutorials/010_composition_mode.rst:58
 msgid "Source and Source Over is the mostly used compistings."
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:60
+#: ../../tutorials/010_composition_mode.rst:63
 msgid "Source and Destination are opaque"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:61
+#: ../../tutorials/010_composition_mode.rst:64
 msgid "|source_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:62
+#: ../../tutorials/010_composition_mode.rst:65
 msgid "|source_over_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:63
+#: ../../tutorials/010_composition_mode.rst:66
 msgid "|source_in_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:65
-#: ../../tutorials/010_composition_mode.rst:97
+#: ../../tutorials/010_composition_mode.rst:68
+#: ../../tutorials/010_composition_mode.rst:100
 msgid "Source"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:66
-#: ../../tutorials/010_composition_mode.rst:98
+#: ../../tutorials/010_composition_mode.rst:69
+#: ../../tutorials/010_composition_mode.rst:101
 msgid "Source Over"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:67
-#: ../../tutorials/010_composition_mode.rst:99
+#: ../../tutorials/010_composition_mode.rst:70
+#: ../../tutorials/010_composition_mode.rst:102
 msgid "source in"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:69
+#: ../../tutorials/010_composition_mode.rst:72
 msgid "|source_out_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:70
+#: ../../tutorials/010_composition_mode.rst:73
 msgid "|source_atop_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:71
-#: ../../tutorials/010_composition_mode.rst:87
+#: ../../tutorials/010_composition_mode.rst:74
+#: ../../tutorials/010_composition_mode.rst:90
 msgid "|xor_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:73
-#: ../../tutorials/010_composition_mode.rst:105
+#: ../../tutorials/010_composition_mode.rst:76
+#: ../../tutorials/010_composition_mode.rst:108
 msgid "source out"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:74
-#: ../../tutorials/010_composition_mode.rst:106
+#: ../../tutorials/010_composition_mode.rst:77
+#: ../../tutorials/010_composition_mode.rst:109
 msgid "source atop"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:75
-#: ../../tutorials/010_composition_mode.rst:91
-#: ../../tutorials/010_composition_mode.rst:107
-#: ../../tutorials/010_composition_mode.rst:123
+#: ../../tutorials/010_composition_mode.rst:78
+#: ../../tutorials/010_composition_mode.rst:94
+#: ../../tutorials/010_composition_mode.rst:110
+#: ../../tutorials/010_composition_mode.rst:126
 msgid "xor"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:77
+#: ../../tutorials/010_composition_mode.rst:80
 msgid "|destination_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:78
+#: ../../tutorials/010_composition_mode.rst:81
 msgid "|destination_over_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:79
+#: ../../tutorials/010_composition_mode.rst:82
 msgid "|destination_in_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:81
-#: ../../tutorials/010_composition_mode.rst:113
+#: ../../tutorials/010_composition_mode.rst:84
+#: ../../tutorials/010_composition_mode.rst:116
 msgid "Destination"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:82
-#: ../../tutorials/010_composition_mode.rst:114
+#: ../../tutorials/010_composition_mode.rst:85
+#: ../../tutorials/010_composition_mode.rst:117
 msgid "Destination Over"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:83
-#: ../../tutorials/010_composition_mode.rst:115
+#: ../../tutorials/010_composition_mode.rst:86
+#: ../../tutorials/010_composition_mode.rst:118
 msgid "Destination in"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:85
+#: ../../tutorials/010_composition_mode.rst:88
 msgid "|destination_out_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:86
+#: ../../tutorials/010_composition_mode.rst:89
 msgid "|destination_atop_o|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:89
-#: ../../tutorials/010_composition_mode.rst:121
+#: ../../tutorials/010_composition_mode.rst:92
+#: ../../tutorials/010_composition_mode.rst:124
 msgid "Destination out"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:90
-#: ../../tutorials/010_composition_mode.rst:122
+#: ../../tutorials/010_composition_mode.rst:93
+#: ../../tutorials/010_composition_mode.rst:125
 msgid "Destination atop"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:92
+#: ../../tutorials/010_composition_mode.rst:95
 msgid "Source and Destination are partially transparent"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:93
+#: ../../tutorials/010_composition_mode.rst:96
 msgid "|source_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:94
+#: ../../tutorials/010_composition_mode.rst:97
 msgid "|source_over_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:95
+#: ../../tutorials/010_composition_mode.rst:98
 msgid "|source_in_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:101
+#: ../../tutorials/010_composition_mode.rst:104
 msgid "|source_out_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:102
+#: ../../tutorials/010_composition_mode.rst:105
 msgid "|source_atop_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:103
-#: ../../tutorials/010_composition_mode.rst:119
+#: ../../tutorials/010_composition_mode.rst:106
+#: ../../tutorials/010_composition_mode.rst:122
 msgid "|xor_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:109
+#: ../../tutorials/010_composition_mode.rst:112
 msgid "|destination_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:110
+#: ../../tutorials/010_composition_mode.rst:113
 msgid "|destination_over_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:111
+#: ../../tutorials/010_composition_mode.rst:114
 msgid "|destination_in_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:117
+#: ../../tutorials/010_composition_mode.rst:120
 msgid "|destination_out_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:118
+#: ../../tutorials/010_composition_mode.rst:121
 msgid "|destination_atop_t|"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:149
+#: ../../tutorials/010_composition_mode.rst:152
 msgid "Blend"
 msgstr ""
 
-#: ../../tutorials/010_composition_mode.rst:150
+#: ../../tutorials/010_composition_mode.rst:153
 msgid ""
 "Blend is mainly used for image or photo processing. See `wikipedia "
 "<https://en.wikipedia.org/wiki/Blend_modes>`_ for more details about it."
@@ -1619,126 +1635,126 @@ msgstr ""
 msgid "So we are saving the graphics window."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:78
+#: ../../tutorials/011_image.rst:81
 msgid "Copy Image"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:79
+#: ../../tutorials/011_image.rst:82
 msgid "We can use draw_image() to copy part of one image to another image."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:81
+#: ../../tutorials/011_image.rst:84
 msgid "In the following example, we:"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:83
+#: ../../tutorials/011_image.rst:86
 msgid "create a image and save it to variable \"img\""
 msgstr ""
 
-#: ../../tutorials/011_image.rst:84
+#: ../../tutorials/011_image.rst:87
 msgid "set drawing target to \"img\""
 msgstr ""
 
-#: ../../tutorials/011_image.rst:85
+#: ../../tutorials/011_image.rst:88
 msgid "draw a bus to \"img\" (the drawing target)"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:86
+#: ../../tutorials/011_image.rst:89
 msgid "set drawing target back to the graphics window"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:87
+#: ../../tutorials/011_image.rst:90
 msgid "copy the content on \"img\" to the graphics window's different positions."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:109
+#: ../../tutorials/011_image.rst:115
 msgid "The result:"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:114
+#: ../../tutorials/011_image.rst:120
 msgid "Image Transparency and Composition Mode"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:115
+#: ../../tutorials/011_image.rst:121
 msgid ""
 "put_image() copy a rectangle area to the destination image. If you want "
 "to copy things that are not rectanglely outlined, you can draw it on a "
 "image with fully transparent background, then copy"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:118
+#: ../../tutorials/011_image.rst:124
 msgid ""
 "The following example is identical to the above example, expect that it "
 "set the source image's background to transparent before drawing the bus."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:142
+#: ../../tutorials/011_image.rst:151
 msgid "The result is :"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:147
+#: ../../tutorials/011_image.rst:156
 msgid "Copy Image without the Background"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:148
+#: ../../tutorials/011_image.rst:157
 msgid ""
 "If you can't draw with a transparent background, you can copy the image "
 "without the background, by set the parameter \"with_background\" to "
 "False."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:151
+#: ../../tutorials/011_image.rst:160
 msgid ""
 "In the following example, we don't use a transparent backround, and we do"
 " the copy without background."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:177
+#: ../../tutorials/011_image.rst:189
 msgid "Copy Image with transforms"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:178
+#: ../../tutorials/011_image.rst:190
 msgid ""
 "If you want to copy a image with transforms such as rotation, you should "
 "set the transforms before the copy."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:180
+#: ../../tutorials/011_image.rst:192
 msgid ""
 "The following program copy images with rotation. Note the use of "
 "save_settings() and restore_settings(), we use it to save and restore "
 "image's transforms."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:183
+#: ../../tutorials/011_image.rst:195
 msgid ""
 "**Note:** It's a good practice to save the old transfrom before doing any"
 " transforms before copy, and restore the old settings after the copy."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:216
+#: ../../tutorials/011_image.rst:231
 msgid "Load Image"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:217
+#: ../../tutorials/011_image.rst:232
 msgid "We can load image from files."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:219
+#: ../../tutorials/011_image.rst:234
 msgid ""
 "**Note:** JPEG format doesn't support transparency. So use the PNG format"
 " if you want to save and load image with transparent backgrounds."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:223
+#: ../../tutorials/011_image.rst:238
 msgid "The following example load and display a image."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:237
+#: ../../tutorials/011_image.rst:256
 msgid "Headless Mode"
 msgstr ""
 
-#: ../../tutorials/011_image.rst:238
+#: ../../tutorials/011_image.rst:257
 msgid ""
 "Sometimes we just want to draw and save the image, and don't need to "
 "display it on the screen. Easygraphics provides a headless mode to do the"
@@ -1746,7 +1762,7 @@ msgid ""
 "animations such as pause() won't work."
 msgstr ""
 
-#: ../../tutorials/011_image.rst:242
+#: ../../tutorials/011_image.rst:261
 msgid ""
 "The following program shows how to use init_graph() to create a headless "
 "mode."
@@ -1861,25 +1877,25 @@ msgid ""
 "the use of the is_run() function."
 msgstr ""
 
-#: ../../tutorials/012_animation.rst:90
+#: ../../tutorials/012_animation.rst:93
 msgid "Skipping Frames"
 msgstr ""
 
-#: ../../tutorials/012_animation.rst:91
+#: ../../tutorials/012_animation.rst:94
 msgid ""
 "Sometimes a drawing can be complicated and slow, and we can't finish a "
 "frame's drawing in the specified frame time. This will create lags in the"
 " animation."
 msgstr ""
 
-#: ../../tutorials/012_animation.rst:94
+#: ../../tutorials/012_animation.rst:97
 msgid ""
 "The delay_jfps() can skip some frames ( if a frame is using too mush "
 "time, the successive frames will be skipped to keep up with the specified"
 " fps)."
 msgstr ""
 
-#: ../../tutorials/012_animation.rst:97
+#: ../../tutorials/012_animation.rst:100
 msgid ""
 "The following example shows how to use delay_jfps() to control time. Note"
 " that we use sleep() to simulate a long-time drawing operation."
@@ -1917,35 +1933,35 @@ msgid ""
 "clicked, and buttons that are pressed when clicking."
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:37
+#: ../../tutorials/013_mouse_and_keyboard.rst:41
 msgid "Cursor Positions"
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:38
+#: ../../tutorials/013_mouse_and_keyboard.rst:42
 msgid ""
 "Sometimes we need to get the position of the cursor. We can use "
 "get_cursor_pos() to get this job done."
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:40
+#: ../../tutorials/013_mouse_and_keyboard.rst:44
 msgid "The following program continuously displays mouse cursor's position."
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:58
+#: ../../tutorials/013_mouse_and_keyboard.rst:65
 msgid "Mouse Button Press and Release"
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:59
+#: ../../tutorials/013_mouse_and_keyboard.rst:66
 msgid ""
 "You can use get_mouse_msg() to get mouse button press and release "
 "messages."
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:62
+#: ../../tutorials/013_mouse_and_keyboard.rst:69
 msgid "Non-Blocking mouse processing"
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:63
+#: ../../tutorials/013_mouse_and_keyboard.rst:70
 msgid ""
 "get_click()/get_mouse_msg() will block the program if there are no mouse "
 "press/click in the last 100ms. If you want to check the mouse operation "
@@ -1954,21 +1970,21 @@ msgid ""
 "the mouse message."
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:67
+#: ../../tutorials/013_mouse_and_keyboard.rst:74
 msgid ""
 "The following program continuously check display cursor's postion and "
 "mouse button press/release events."
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:94
+#: ../../tutorials/013_mouse_and_keyboard.rst:104
 msgid "Mouse Message Demo"
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:96
+#: ../../tutorials/013_mouse_and_keyboard.rst:106
 msgid "The following program draws a bezier curve interactively"
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:98
+#: ../../tutorials/013_mouse_and_keyboard.rst:108
 msgid ""
 "First click on the window to set the first control point of the curve. "
 "Then click on the window to set the second control point of the curve. "
@@ -1976,26 +1992,26 @@ msgid ""
 "the fourth control point."
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:173
+#: ../../tutorials/013_mouse_and_keyboard.rst:186
 msgid "Char Input"
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:174
+#: ../../tutorials/013_mouse_and_keyboard.rst:187
 msgid ""
 "We can use has_kb_hit() to see if there is any ascii char pressed, and "
 "use get_char() to get the inputted char. has_kb_hit() is non-blocking, "
 "and get_char() is blocking."
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:177
+#: ../../tutorials/013_mouse_and_keyboard.rst:190
 msgid "The following program is a simple print game."
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:242
+#: ../../tutorials/013_mouse_and_keyboard.rst:256
 msgid "Key Pressed"
 msgstr ""
 
-#: ../../tutorials/013_mouse_and_keyboard.rst:243
+#: ../../tutorials/013_mouse_and_keyboard.rst:257
 msgid ""
 "We can use has_kb_msg() to see if there is any key pressed, and use "
 "get_key() to get the pressed key. has_kb_msg() is non-blocking, and "
@@ -2014,8 +2030,270 @@ msgid ""
 "window. The traces left by its move form drawings."
 msgstr ""
 
-#: ../../tutorials/101_turtle.rst:9
-msgid "In the following program, we use turtle graphics to draw a star."
+#: ../../tutorials/101_turtle.rst:8
+msgid "In the following program, we use turtle graphics to draw a star:"
+msgstr ""
+
+#: ../../tutorials/101_turtle.rst:12
+msgid ""
+"use create_world(800,600) to create a 800x600 drawing canvas (drawing "
+"window)"
+msgstr ""
+
+#: ../../tutorials/101_turtle.rst:13
+msgid "set the pen color to red and the fill color to red"
+msgstr ""
+
+#: ../../tutorials/101_turtle.rst:14
+msgid "use right(90) command to turn the turtle 90 degrees clockwise."
+msgstr ""
+
+#: ../../tutorials/101_turtle.rst:15
+msgid ""
+"use forward(100) command to move the turtle 100 steps forward,then turn "
+"the turtle 144 degrees clockwise."
+msgstr ""
+
+#: ../../tutorials/101_turtle.rst:16
+msgid "repeat the above step 5 times"
+msgstr ""
+
+#: ../../tutorials/101_turtle.rst:17
+msgid "use close_world() to close the drawing window."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:2
+msgid "Basic Commands"
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:3
+msgid "In this tutorial, we will introduce basic commands of the turtle graphics."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:6
+msgid "Move the turtle"
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:7
+msgid ""
+"forward(x) function move the turtle x steps forward. fd(x) is the short "
+"form of forward(x)."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:24
+msgid ""
+"backward(x) function move the turtle x steps backward. back(x) and bk(x) "
+"is the short form of backward(x)."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:42
+msgid "Turning the turtle"
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:44
+msgid ""
+"right_turn(x) turns the turtle x degrees clockwise. right(x) and rt(x) "
+"are its short form."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:46
+msgid ""
+"left_turn(x) turns the turtle x degrees counter-clockwise. left(x) and "
+"lt(x) are its short form"
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:48
+msgid "The following program draws a 30 degree angle."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:68
+msgid "Speed of the turtle"
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:69
+msgid ""
+"We can use set_speed() to control the turtle's moving speed. Speed is the"
+" more  the fast, and 1 is the slowest. If you don't need the animation, "
+"use set_immediate(True) to disable it."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:73
+msgid "Pen Up and Pen Down"
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:74
+msgid ""
+"If you want to move the turtle without a trace, you can use pen_up and "
+"pen_down."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:76
+msgid ""
+"By default the turtle is in pen down state, which means its move will "
+"leave a trace."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:78
+msgid "If the turtle is in pen up state, its move will not leave a trace."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:80
+msgid ""
+"The following program use pen up and down to draw one square inside "
+"another."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:114
+msgid "Show and Hide the Turtle"
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:115
+msgid "When the drawing is finished, we can hide() the turtle."
+msgstr ""
+
+#: ../../tutorials/102_turtle_basic_commands.rst:117
+msgid "And show() makes the turtle visible again."
+msgstr ""
+
+#: ../../tutorials/103_interactive_mode.rst:2
+msgid "Interactive Mode"
+msgstr ""
+
+#: ../../tutorials/103_interactive_mode.rst:3
+msgid ""
+"On Windows and Linux, we can run easygraphics in python's interactive "
+"mode."
+msgstr ""
+
+#: ../../tutorials/103_interactive_mode.rst:6
+msgid "Demo fro easygraphics"
+msgstr ""
+
+#: ../../tutorials/103_interactive_mode.rst:17
+msgid "Demo for Turtle Graphics"
+msgstr ""
+
+#: ../../tutorials/103_interactive_mode.rst:30
+msgid "Clear the screen"
+msgstr ""
+
+#: ../../tutorials/103_interactive_mode.rst:31
+msgid ""
+"If you are using turtle graphics, clear_screen() clears the turtle "
+"graphics window, and reset the turtle to its initial position and state. "
+"cs() / clear() is the short form."
+msgstr ""
+
+#: ../../tutorials/103_interactive_mode.rst:34
+msgid "If you are using easygraphics, clear_device() clears the graphics window."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:2
+msgid "Coordinates of the Turtle World"
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:4
+#: ../../tutorials/105_turtle_advanced_commands.rst:4
+msgid "Int the turtle world, we use a coordinate system as the following:"
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:6
+#: ../../tutorials/105_turtle_advanced_commands.rst:6
+msgid "The origin (0,0) is at the center of the graphics window."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:7
+#: ../../tutorials/105_turtle_advanced_commands.rst:7
+msgid "The x axis grows from left to right."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:8
+#: ../../tutorials/105_turtle_advanced_commands.rst:8
+msgid "The y axis grows from bottom to top."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:13
+msgid "Set the turtle's position"
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:15
+msgid "setxy(x,y) set the turtle's position to point(x,y) without a trace."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:17
+msgid ""
+"gotoxy(x,y) move the turtle to point(x,y). So if the pen is down, there "
+"will be a trace."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:19
+msgid "The turtle's heading direction will not change."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:21
+msgid "The following program demonstrated the result of gotoxy() and setxy()."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:48
+msgid "Set the Turtle's heading"
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:50
+msgid "facing(x,y) set the turtle heading to facing point(x,y)."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:69
+msgid "set_heading(angle) set the turtle's new orientation to angle."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:71
+msgid "Values of the angles in the turtle world are as the following:"
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:93
+msgid "Get turtle's current state"
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:95
+msgid "get_x() return the x coordinate value of the turtle's position."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:97
+msgid "get_y() return the y coordinate value of the turtle's position."
+msgstr ""
+
+#: ../../tutorials/104_turtle_coordinates.rst:99
+msgid "get_heading() return the angle value of the turtle's heading."
+msgstr ""
+
+#: ../../tutorials/105_turtle_advanced_commands.rst:2
+msgid "Advanced Commands"
+msgstr ""
+
+#: ../../tutorials/105_turtle_advanced_commands.rst:13
+msgid "Fill the drawings"
+msgstr ""
+
+#: ../../tutorials/105_turtle_advanced_commands.rst:17
+msgid "Move and draw arcs"
+msgstr ""
+
+#: ../../tutorials/105_turtle_advanced_commands.rst:21
+msgid "Move and draw ellipse arcs"
+msgstr ""
+
+#: ../../tutorials/105_turtle_advanced_commands.rst:24
+msgid "Use easygraphics functions"
+msgstr ""
+
+#: ../../tutorials/105_turtle_advanced_commands.rst:25
+msgid "Most of the easygraphics functions can be used in turtle graphics."
+msgstr ""
+
+#: ../../tutorials/105_turtle_advanced_commands.rst:27
+msgid ""
+"The following program use easygraphics functions to set the line width "
+"and colors, draw a circle, and fill a rectangle."
 msgstr ""
 
 #: ../../tutorials/201_dialogs.rst:3
@@ -2900,5 +3178,35 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "easy_run(main)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following program draw a quadratic"
+#~ " bezier curve with control points at"
+#~ " (300,50),(200,50),(200,200) and (100,200)."
+#~ msgstr ""
+
+#~ msgid "In the following program, we use turtle graphics to draw a star."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "use forward(100) command to move the "
+#~ "turtle 100 steps forward,the turn the"
+#~ " turtle 144 degrees clockwise."
+#~ msgstr ""
+
+#~ msgid "use close_world() to close the drawing window()"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Forward(x) function move the turtle x"
+#~ " steps forward. fd(x) is the short"
+#~ " form of forward(x)."
+#~ msgstr ""
+
+#~ msgid "from easygraphics.turtle import *"
+#~ msgstr ""
+
+#~ msgid "create_world(400,400) bk(100) pause() close_world()"
 #~ msgstr ""
 
