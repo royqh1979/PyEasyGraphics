@@ -2,12 +2,12 @@ from easygraphics.turtle import *
 from easygraphics import *
 
 def main():
-    create_world(800, 600)
+    create_world(400, 300)
     set_speed(5)
 
     lt(45)
 
-    set_fill_color("red")
+    set_fill_color(Color.LIGHT_RED)
     begin_fill()
     fd(100)
     lt(90)

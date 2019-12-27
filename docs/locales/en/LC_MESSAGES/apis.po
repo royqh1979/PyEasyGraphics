@@ -9,344 +9,348 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-24 19:54+0800\n"
+"POT-Creation-Date: 2019-12-27 13:54+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
+"Generated-By: Babel 2.7.0\n"
 
-#: ../../apis/easygraphics.dialog.rst:2
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:2
 msgid "easygraphics.dialog package"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:3
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:3
 msgid "An easy-to-use dialogs library."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:5
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:5
 msgid "You can use it to create and show dialogs."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:7
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:7
 msgid ""
 "Based on code from EasyGUI_Qt(https://github.com/aroberge/easygui_qt/). "
 "The original EasyGUI-Qt library won't work properly with EasyGraphics. So"
 " use this library instead."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:10 easygraphics.music:5 of
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:10
+#: easygraphics.music:5 of
 msgid "A simple example:"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:17
-#: ../../apis/easygraphics.processing.rst:41
-#: ../../apis/easygraphics.turtle.rst:31
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:17
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:41
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:31
 msgid "Function list"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(message\\, "
-"title\\, choices\\)"
+":obj:`get_choice <easygraphics.dialog.get_choice>`\\ \\(\\[message\\, "
+"title\\, choices\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_choice:1 of
 msgid "Simple dialog to ask a user to select an item within a drop-down list"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ":obj:`get_color <easygraphics.dialog.get_color>`\\ \\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_color:1 of
 msgid "Display a color picker and return the selected color"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_color_hex <easygraphics.dialog.get_color_hex>`\\ "
 "\\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid "Using a color dialog, returns a color in hexadecimal notation i.e."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_color_rgb <easygraphics.dialog.get_color_rgb>`\\ "
 "\\(\\[color\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid "Using a color dialog, returns a color in rgb notation i.e."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_continue_or_cancel "
-"<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\, title\\, "
-"...\\)"
+"<easygraphics.dialog.get_continue_or_cancel>`\\ \\(\\[question\\, "
+"title\\, ...\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid "Continue or cancel question, shown as a warning (i.e."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
-msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
+msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(\\[title\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_date:1 of
 msgid "Calendar widget"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_directory_name <easygraphics.dialog.get_directory_name>`\\ "
-"\\(title\\)"
+"\\(\\[title\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_directory_name:1 of
 msgid "Gets the name (full path) of an existing directory"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ \\(title\\, "
-"filter\\)"
+":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ "
+"\\(\\[title\\, filter\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_file_names:1 of
 msgid "Gets the names (full path) of existing files"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(message\\, title\\,"
-" default\\_value\\, ...\\)"
+":obj:`get_float <easygraphics.dialog.get_float>`\\ \\(\\[message\\, "
+"title\\, default\\_value\\, ...\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_float:1 of
 msgid ""
 "Simple dialog to ask a user to select a floating point number within a "
 "certain range and a maximum precision."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(message\\, title\\, "
-"default\\_value\\, min\\_\\, ...\\)"
+":obj:`get_int <easygraphics.dialog.get_int>`\\ \\(\\[message\\, title\\, "
+"default\\_value\\, ...\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_int:1 easygraphics.dialog.get_integer:1 of
 msgid "Simple dialog to ask a user to select an integer within a certain range."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_list_of_choices <easygraphics.dialog.get_list_of_choices>`\\ "
-"\\(title\\, choices\\)"
+"\\(\\[title\\, choices\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_list_of_choices:1 of
 msgid "Show a list of possible choices to be selected."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\ "
-"\\(title\\, labels\\, masks\\)"
+"\\(\\[title\\, labels\\, masks\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_many_strings:1 of
 msgid "Multiple strings input"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\ "
-"\\(title\\, labels\\)"
+"\\(\\[title\\, labels\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_new_password:1 of
 msgid "Change password input box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(message\\, "
-"title\\)"
+":obj:`get_password <easygraphics.dialog.get_password>`\\ \\(\\[message\\,"
+" title\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid "Simple password input box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_save_file_name <easygraphics.dialog.get_save_file_name>`\\ "
-"\\(title\\, filter\\)"
+"\\(\\[title\\, filter\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_save_file_name:1 of
 msgid "Gets the name (full path) of of a file to be saved."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(message\\, "
-"title\\, default\\_response\\)"
+":obj:`get_string <easygraphics.dialog.get_string>`\\ \\(\\[message\\, "
+"title\\, default\\_response\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid "Simple text input box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`get_username_password "
-"<easygraphics.dialog.get_username_password>`\\ \\(title\\, labels\\)"
+"<easygraphics.dialog.get_username_password>`\\ \\(\\[title\\, "
+"labels\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_username_password:1 of
 msgid "User name and password input box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ \\(question\\,"
-" title\\)"
+":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ "
+"\\(\\[question\\, title\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.get_yes_or_no:1 of
 msgid "Simple yes or no question."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`set_dialog_font_size <easygraphics.dialog.set_dialog_font_size>`\\ "
 "\\(size\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.set_dialog_font_size:1 of
 msgid "Set font size of the dialogs."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`show_html <easygraphics.dialog.show_html>`\\ \\(title\\, text\\, "
-"width\\, height\\)"
+":obj:`show_html <easygraphics.dialog.show_html>`\\ \\(\\[title\\, text\\,"
+" width\\, height\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.show_html:1 of
 msgid "Displays some html text in a window."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`show_image_dialog <easygraphics.dialog.show_image_dialog>`\\ "
-"\\(image\\, title\\)"
+"\\(image\\[\\, title\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.show_image_dialog:1 of
 msgid "Display the image in a dialog."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
 ":obj:`show_lists_table <easygraphics.dialog.show_lists_table>`\\ "
-"\\(\\*args\\, column\\_names\\, title\\, ...\\)"
+"\\(\\*args\\[\\, column\\_names\\, ...\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.show_lists_table:1 of
 msgid "Displays list of datas in a table"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(message\\, "
-"title\\)"
+":obj:`show_message <easygraphics.dialog.show_message>`\\ \\(\\[message\\,"
+" title\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.show_message:1 of
 msgid "Simple message box."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`show_objects <easygraphics.dialog.show_objects>`\\ \\(datas\\, "
-"fields\\, field\\_names\\, ...\\)"
+":obj:`show_objects <easygraphics.dialog.show_objects>`\\ \\(datas\\[\\, "
+"fields\\, field\\_names\\, ...\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.show_objects:1 easygraphics.dialog.show_table:1 of
 msgid "Displays list of objects in a table"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(title\\, text\\, "
-"width\\, height\\)"
+":obj:`show_text <easygraphics.dialog.show_text>`\\ \\(\\[title\\, text\\,"
+" width\\, height\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.show_text:1 of
 msgid "Displays some text in a window."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\, "
-"fields\\, field\\_names\\, ...\\)"
+":obj:`show_table <easygraphics.dialog.show_table>`\\ \\(datas\\[\\, "
+"fields\\, field\\_names\\, ...\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(title\\, code\\, "
-"width\\, height\\)"
+":obj:`show_code <easygraphics.dialog.show_code>`\\ \\(\\[title\\, code\\,"
+" width\\, height\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 #: easygraphics.dialog.show_code:1 of
 msgid "Displays some text in a window, in a monospace font."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid ""
-":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(file\\_name\\, "
-"title\\, file\\_type\\, ...\\)"
+":obj:`show_file <easygraphics.dialog.show_file>`\\ \\(\\[file\\_name\\, "
+"title\\, file\\_type\\, ...\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:50:<autosummary>:1
 msgid "Displays a file in a window."
 msgstr ""
 
-#: ../../apis/easygraphics.dialog.rst:52 ../../apis/easygraphics.legacy.rst:9
-#: ../../apis/easygraphics.music.rst:27
-#: ../../apis/easygraphics.processing.rst:85
-#: ../../apis/easygraphics.turtle.rst:101 ../../apis/easygraphics.widget.rst:12
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.dialog.rst:52
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.legacy.rst:9
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:27
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:85
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:101
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.widget.rst:12
 msgid "Functions"
 msgstr ""
 
@@ -385,17 +389,23 @@ msgstr ""
 #: easygraphics.music.set_music_pos easygraphics.music.set_music_volume
 #: easygraphics.processing.ProcessingWidget.set_frame_rate
 #: easygraphics.processing.ProcessingWidget.set_size
-#: easygraphics.processing.run_app easygraphics.processing.set_frame_rate
-#: easygraphics.processing.set_size easygraphics.turtle.Turtle.back
-#: easygraphics.turtle.Turtle.backward easygraphics.turtle.Turtle.bk
-#: easygraphics.turtle.Turtle.facing easygraphics.turtle.Turtle.fd
-#: easygraphics.turtle.Turtle.forward easygraphics.turtle.Turtle.gotoxy
-#: easygraphics.turtle.Turtle.left easygraphics.turtle.Turtle.left_turn
-#: easygraphics.turtle.Turtle.lt easygraphics.turtle.Turtle.move_arc
-#: easygraphics.turtle.Turtle.move_ellipse easygraphics.turtle.Turtle.right
-#: easygraphics.turtle.Turtle.right_turn easygraphics.turtle.Turtle.rt
-#: easygraphics.turtle.Turtle.set_heading easygraphics.turtle.Turtle.set_speed
-#: easygraphics.turtle.Turtle.setxy easygraphics.turtle.Turtle.turn_to
+#: easygraphics.processing.register_on_mouse_clicked
+#: easygraphics.processing.register_on_mouse_dragged
+#: easygraphics.processing.register_on_mouse_pressed
+#: easygraphics.processing.register_on_mouse_released
+#: easygraphics.processing.register_on_mouse_wheel
+#: easygraphics.processing.register_setup easygraphics.processing.run_app
+#: easygraphics.processing.set_frame_rate easygraphics.processing.set_size
+#: easygraphics.turtle.Turtle.back easygraphics.turtle.Turtle.backward
+#: easygraphics.turtle.Turtle.bk easygraphics.turtle.Turtle.facing
+#: easygraphics.turtle.Turtle.fd easygraphics.turtle.Turtle.forward
+#: easygraphics.turtle.Turtle.gotoxy easygraphics.turtle.Turtle.left
+#: easygraphics.turtle.Turtle.left_turn easygraphics.turtle.Turtle.lt
+#: easygraphics.turtle.Turtle.move_arc easygraphics.turtle.Turtle.move_ellipse
+#: easygraphics.turtle.Turtle.right easygraphics.turtle.Turtle.right_turn
+#: easygraphics.turtle.Turtle.rt easygraphics.turtle.Turtle.set_heading
+#: easygraphics.turtle.Turtle.set_speed easygraphics.turtle.Turtle.setxy
+#: easygraphics.turtle.Turtle.turn_to
 #: easygraphics.turtle.TurtleWorld.add_turtle
 #: easygraphics.turtle.TurtleWorld.set_immediate
 #: easygraphics.turtle.TurtleWorld.snap_shot_to_image easygraphics.turtle.back
@@ -834,15 +844,15 @@ msgstr ""
 msgid "the column names displayed on the table header"
 msgstr ""
 
-#: ../../apis/easygraphics.legacy.rst:2
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.legacy.rst:2
 msgid "easygraphics.legacy package"
 msgstr ""
 
-#: ../../apis/easygraphics.legacy.rst:3
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.legacy.rst:3
 msgid "The BGI compatible module."
 msgstr ""
 
-#: ../../apis/easygraphics.legacy.rst:5
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.legacy.rst:5
 msgid ""
 "This module redefines the functions using the same names used in the BGI,"
 " for easily porting BGI graphics programs to python."
@@ -1507,133 +1517,135 @@ msgstr ""
 msgid "width of the text"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:2
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:2
 msgid "easygraphics.music package"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:3
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:3
 msgid "A simple music play module."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:6
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:6
 msgid "Function List"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`load_music <easygraphics.music.load_music>`\\ \\(filename\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.load_music:1 of
 msgid "Load a music file for playback."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`close_music <easygraphics.music.close_music>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.close_music:1 of
 msgid "Close the music playback device."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
-msgid ":obj:`play_music <easygraphics.music.play_music>`\\ \\(loops\\, start\\)"
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
+msgid ""
+":obj:`play_music <easygraphics.music.play_music>`\\ \\(\\[loops\\, "
+"start\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.play_music:1 of
 msgid "Play the music."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`pause_music <easygraphics.music.pause_music>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.pause_music:1 of
 msgid "Pause the music playback."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`unpause_music <easygraphics.music.unpause_music>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.unpause_music:1 of
 msgid "Unpause the music playback."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`stop_music <easygraphics.music.stop_music>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.stop_music:1 of
 msgid "Stop the music playback."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`queue_music <easygraphics.music.queue_music>`\\ \\(filename\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.queue_music:1 of
 msgid "Add music to the playing queue."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`is_music_playing <easygraphics.music.is_music_playing>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.is_music_playing:1 of
 msgid "Get if the music is playing."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`get_music_pos <easygraphics.music.get_music_pos>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.get_music_pos:1 of
 msgid "Get current music playback position ."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`get_music_volume <easygraphics.music.get_music_volume>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.get_music_volume:1 of
 msgid "Return the music playback volume."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`set_music_pos <easygraphics.music.set_music_pos>`\\ \\(pos\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.set_music_pos:1 of
 msgid "Set current music play position."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ""
 ":obj:`set_music_volume <easygraphics.music.set_music_volume>`\\ "
 "\\(volume\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.set_music_volume:1 of
 msgid "Set volume of the music playback."
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 msgid ":obj:`fade_out_music <easygraphics.music.fade_out_music>`\\ \\(time\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.music.rst:25:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.music.rst:25:<autosummary>:1
 #: easygraphics.music.fade_out_music:1 of
 msgid "Fade out and stop the music."
 msgstr ""
@@ -1696,206 +1708,254 @@ msgstr ""
 msgid "fade out time (in milliseconds)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:2
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:2
 msgid "easygraphics.processing package"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:3
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:3
 msgid "A Processing (http://processing.org) like animation graphics module"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:46
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:46
 msgid "Main App"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:50:<autosummary>:1
 msgid ":obj:`run_app <easygraphics.processing.run_app>`\\ \\(\\_globals\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:50:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:50:<autosummary>:1
 #: easygraphics.processing.run_app:1 of
 msgid "Run the processing app."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:52
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:52
 msgid "To be redefined(Override)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ":obj:`draw <easygraphics.processing.draw>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.draw:1
 #: easygraphics.processing.draw:1 of
 msgid "Draw an animation frame."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ":obj:`setup <easygraphics.processing.setup>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.setup:1 of
 msgid "Set up the processing context."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ""
 ":obj:`on_mouse_clicked <easygraphics.processing.on_mouse_clicked>`\\ "
 "\\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_clicked:1
 #: easygraphics.processing.on_mouse_clicked:1 of
 msgid "The mouse click event handler."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ""
 ":obj:`on_mouse_dragged <easygraphics.processing.on_mouse_dragged>`\\ "
 "\\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_dragged:1
 #: easygraphics.processing.on_mouse_dragged:1 of
 msgid "The mouse drag event handler."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ""
 ":obj:`on_mouse_pressed <easygraphics.processing.on_mouse_pressed>`\\ "
 "\\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_pressed:1
 #: easygraphics.processing.on_mouse_pressed:1 of
 msgid "The mouse press event handler."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ""
 ":obj:`on_mouse_released <easygraphics.processing.on_mouse_released>`\\ "
 "\\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_released:1
 #: easygraphics.processing.on_mouse_released:1 of
 msgid "The mouse release event handler."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 msgid ":obj:`on_mouse_wheel <easygraphics.processing.on_mouse_wheel>`\\ \\(e\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:63:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:63:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.on_mouse_wheel:1
 #: easygraphics.processing.on_mouse_wheel:1 of
 msgid "The mouse wheel event handler."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:65
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:65
 msgid "Control and Settings"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`full_screen <easygraphics.processing.full_screen>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.full_screen:1 of
 msgid "Open a full screen canvas."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`get_frame_rate <easygraphics.processing.get_frame_rate>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.get_frame_rate:1
 #: easygraphics.processing.get_frame_rate:1 of
 msgid "Get the animation frame rate (fps)."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`loop <easygraphics.processing.loop>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.loop:1
 #: easygraphics.processing.loop:1 of
 msgid "Start looping."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`mouse_pressed <easygraphics.processing.mouse_pressed>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid "bool(x) -> bool"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`mouse_x <easygraphics.processing.mouse_x>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid "int([x]) -> integer int(x, base=10) -> integer"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`mouse_y <easygraphics.processing.mouse_y>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`noloop <easygraphics.processing.noloop>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.noloop:1
 #: easygraphics.processing.noloop:1 of
 msgid "Stop looping."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`prev_mouse_x <easygraphics.processing.prev_mouse_x>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`prev_mouse_y <easygraphics.processing.prev_mouse_y>`\\"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`redraw <easygraphics.processing.redraw>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.redraw:1
 #: easygraphics.processing.redraw:1 of
 msgid "Call draw() to draw a frame once."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`set_frame_rate <easygraphics.processing.set_frame_rate>`\\ \\(fps\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.ProcessingWidget.set_frame_rate:1
 #: easygraphics.processing.set_frame_rate:1 of
 msgid "Set the animation frame rate (fps)."
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 msgid ":obj:`set_size <easygraphics.processing.set_size>`\\ \\(width\\, height\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.processing.rst:83:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.processing.rst:83:<autosummary>:1
 #: easygraphics.processing.set_size:1 of
 msgid "Open a canvas window with the specified size."
+msgstr ""
+
+#: easygraphics.processing.register_setup:1 of
+msgid "Register the setup function."
+msgstr ""
+
+#: easygraphics.processing.register_setup:3 of
+msgid "the setup function"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_clicked:1 of
+msgid "Register the on mouse clicked event handler"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_clicked:3 of
+msgid "the mouse clicked event handler"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_dragged:1 of
+msgid "Register the on mouse dragged event handler"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_dragged:3 of
+msgid "the mouse dragged event handler"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_pressed:1 of
+msgid "Register the on mouse pressed event handler"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_pressed:3 of
+msgid "the mouse pressed event handler"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_released:1 of
+msgid "Register the on mouse released event handler"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_released:3 of
+msgid "the mouse released event handler"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_wheel:1 of
+msgid "Register the on mouse wheel event handler"
+msgstr ""
+
+#: easygraphics.processing.register_on_mouse_wheel:3 of
+msgid "the mouse wheel event handler"
 msgstr ""
 
 #: easygraphics.processing.redraw:3 of
@@ -2006,121 +2066,121 @@ msgstr ""
 msgid "Start the animation manually."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:2
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:2
 msgid "easygraphics.turtle package"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:3
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:3
 msgid "The turtle graphics package."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:5
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:5
 msgid ""
 "The turtle graphics is a classic and popular way to introducing "
 "programming to kids."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:7
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:7
 msgid ""
 "In the turtle graphics, you control a turtle to move around the graphics "
 "window. The traces left by its move form drawings."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:10
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:10
 msgid ""
 "Note that in the turtle graphics, the origin (0,0) is in the center of "
 "the graphics window, and Y-axis is bottom-up."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:36
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:36
 msgid "World Setting"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ""
-":obj:`create_world <easygraphics.turtle.create_world>`\\ \\(width\\, "
-"height\\)"
+":obj:`create_world <easygraphics.turtle.create_world>`\\ \\(\\[width\\, "
+"height\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.create_world:1 of
 msgid "Create an world for turtle drawing."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`close_world <easygraphics.turtle.close_world>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.close_world:1 of
 msgid "Close the turtle world and the graphics window."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`get_turtle <easygraphics.turtle.get_turtle>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.get_turtle:1 of
 msgid "Get the current turtle."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`get_turtle_world <easygraphics.turtle.get_turtle_world>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.get_turtle_world:1 of
 msgid "Get the current turtle world."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`is_run <easygraphics.turtle.is_run>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.is_run:1 of
 msgid "Test if the graphics system is running."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`pause <easygraphics.turtle.pause>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.pause:1 of
 msgid "Pause the program and wait for mouse clicking or keyboard hitting."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ":obj:`set_immediate <easygraphics.turtle.set_immediate>`\\ \\(immediate\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.set_immediate:1 of
 msgid "Set if there are animations when the turtle moving."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 msgid ""
-":obj:`set_pen_size <easygraphics.turtle.set_pen_size>`\\ \\(width\\, "
-"image\\)"
+":obj:`set_pen_size <easygraphics.turtle.set_pen_size>`\\ \\(width\\[\\, "
+"image\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:47:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:47:<autosummary>:1
 #: easygraphics.turtle.set_pen_size:1 of
 msgid "Set line width (thickness) of the specified image."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:49
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:49
 msgid "Turtle movement"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`back <easygraphics.turtle.back>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.back:1 easygraphics.turtle.Turtle.backward:1
 #: easygraphics.turtle.Turtle.bk:1 easygraphics.turtle.back:1
 #: easygraphics.turtle.backward:1 easygraphics.turtle.bk:1 of
@@ -2129,28 +2189,28 @@ msgid ""
 "turtle is heading."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`backward <easygraphics.turtle.backward>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`bk <easygraphics.turtle.bk>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`facing <easygraphics.turtle.facing>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.facing:1 easygraphics.turtle.facing:1 of
 msgid "Turn the turtle to face the point(x,y)."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`fd <easygraphics.turtle.fd>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.fd:1 easygraphics.turtle.Turtle.forward:1
 #: easygraphics.turtle.fd:1 easygraphics.turtle.forward:1 of
 msgid ""
@@ -2158,185 +2218,188 @@ msgid ""
 "turtle is heading."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`forward <easygraphics.turtle.forward>`\\ \\(distance\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`gotoxy <easygraphics.turtle.gotoxy>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid "Move the turtle to point (x,y)."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`get_heading <easygraphics.turtle.get_heading>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.get_heading:1 easygraphics.turtle.get_heading:1
 #: of
 msgid "Get the turtle's heading angle."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`get_x <easygraphics.turtle.get_x>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.get_x:1 easygraphics.turtle.get_x:1 of
 msgid "Get the turtle's current x position."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`get_y <easygraphics.turtle.get_y>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.get_y:1 easygraphics.turtle.get_y:1 of
 msgid "Get the turtle's current y position."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`home <easygraphics.turtle.home>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid "Move the turtle back to the origin(0,0), and heading up."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`is_out_of_window <easygraphics.turtle.is_out_of_window>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.is_out_of_window:1
 #: easygraphics.turtle.is_out_of_window:1 of
 msgid "Test if the turtle is out of the graphics window."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`hide <easygraphics.turtle.hide>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.hide:1 easygraphics.turtle.hide:1 of
 msgid "Hide the turtle."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`left <easygraphics.turtle.left>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.left:1 easygraphics.turtle.Turtle.left_turn:1
 #: easygraphics.turtle.Turtle.lt:1 easygraphics.turtle.left:1
 #: easygraphics.turtle.left_turn:1 easygraphics.turtle.lt:1 of
 msgid "Turn turtle left (counter-clockwise) by \"degree\" degree."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`left_turn <easygraphics.turtle.left_turn>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`lt <easygraphics.turtle.lt>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
-msgid ":obj:`move_arc <easygraphics.turtle.move_arc>`\\ \\(radius\\, angle\\)"
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
+msgid ""
+":obj:`move_arc <easygraphics.turtle.move_arc>`\\ \\(radius\\[\\, "
+"angle\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
-msgid "The center is radius units left of the turtle."
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: easygraphics.turtle.Turtle.move_arc:1 easygraphics.turtle.move_arc:1 of
+msgid "Move the turtle in a arc path."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ""
 ":obj:`move_ellipse <easygraphics.turtle.move_ellipse>`\\ "
-"\\(radius\\_left\\, radius\\_top\\, angle\\)"
+"\\(radius\\_left\\, radius\\_top\\[\\, angle\\]\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.move_ellipse:1 easygraphics.turtle.move_ellipse:1
 #: of
 msgid "Move the turtle in an elliptical path."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`right <easygraphics.turtle.right>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.right:1 easygraphics.turtle.Turtle.right_turn:1
 #: easygraphics.turtle.Turtle.rt:1 easygraphics.turtle.right:1
 #: easygraphics.turtle.right_turn:1 easygraphics.turtle.rt:1 of
 msgid "Turn turtle right (clockwise) by \"degree\" degree."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`right_turn <easygraphics.turtle.right_turn>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`rt <easygraphics.turtle.rt>`\\ \\(degree\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`set_heading <easygraphics.turtle.set_heading>`\\ \\(angle\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.set_heading:1 easygraphics.turtle.set_heading:1
 #: of
 msgid "Set the angle current heading to the specified angle."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`setxy <easygraphics.turtle.setxy>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid "Set the turtle's current position to point (x,y)."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`set_speed <easygraphics.turtle.set_speed>`\\ \\(speed\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.set_speed:1 easygraphics.turtle.set_speed:1 of
 msgid "Set moving speed of the turtle."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`turn_to <easygraphics.turtle.turn_to>`\\ \\(angle\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.turn_to:1 easygraphics.turtle.turn_to:1 of
 msgid "Turn the angle to orient to the specified angle."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 msgid ":obj:`show <easygraphics.turtle.show>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:78:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:78:<autosummary>:1
 #: easygraphics.turtle.Turtle.show:1 easygraphics.turtle.show:1 of
 msgid "Show the turtle."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:80
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:80
 msgid "Pen and Screen Settings"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`clear_screen <easygraphics.turtle.clear_screen>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 #: easygraphics.turtle.TurtleWorld.clear:1
 #: easygraphics.turtle.TurtleWorld.clear_screen:1
 #: easygraphics.turtle.TurtleWorld.cs:1 easygraphics.turtle.clear_screen:1
@@ -2346,55 +2409,55 @@ msgid ""
 "state."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`cs <easygraphics.turtle.cs>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`begin_fill <easygraphics.turtle.begin_fill>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 #: easygraphics.turtle.Turtle.begin_fill:1 easygraphics.turtle.begin_fill:1 of
 msgid "Begin to record the turtle's shape drawing path for filling."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`end_fill <easygraphics.turtle.end_fill>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 #: easygraphics.turtle.Turtle.end_fill:1 easygraphics.turtle.end_fill:1 of
 msgid ""
 "Fill the shape enclosed by the turtle's drawing path after the last call "
 "to begin_fill."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`pd <easygraphics.turtle.pd>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 #: easygraphics.turtle.Turtle.pd:1 easygraphics.turtle.Turtle.pen_down:1
 #: easygraphics.turtle.pd:1 easygraphics.turtle.pen_down:1 of
 msgid "Pull the pen down – drawing when the turtle moving."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`pen_down <easygraphics.turtle.pen_down>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`pen_up <easygraphics.turtle.pen_up>`\\ \\(\\)"
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 #: easygraphics.turtle.Turtle.pen_up:1 easygraphics.turtle.Turtle.pu:1
 #: easygraphics.turtle.pen_up:1 easygraphics.turtle.pu:1 of
 msgid "Pull the pen up – no drawing when the turtle moving."
 msgstr ""
 
-#: ../../apis/easygraphics.turtle.rst:99:<autosummary>:1
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.turtle.rst:99:<autosummary>:1
 msgid ":obj:`pu <easygraphics.turtle.pu>`\\ \\(\\)"
 msgstr ""
 
@@ -2461,7 +2524,7 @@ msgstr ""
 msgid "y coordinate value of the destination point."
 msgstr ""
 
-#: easygraphics.turtle.Turtle.move_arc:3 easygraphics.turtle.move_arc:1 of
+#: easygraphics.turtle.Turtle.move_arc:3 easygraphics.turtle.move_arc:3 of
 msgid ""
 "The center is radius units left of the turtle. That is, if radius > 0, "
 "the center is on the left of the turtle; if radius < 0, the center is on "
@@ -2469,39 +2532,39 @@ msgid ""
 msgstr ""
 
 #: easygraphics.turtle.Turtle.move_arc:6
-#: easygraphics.turtle.Turtle.move_ellipse:10 easygraphics.turtle.move_arc:4
+#: easygraphics.turtle.Turtle.move_ellipse:10 easygraphics.turtle.move_arc:6
 #: easygraphics.turtle.move_ellipse:10 of
 msgid ""
 "If angle > 0, the turtle moves forward around the center; if angle < 0, "
 "the turtle moves backward around the center. So:"
 msgstr ""
 
-#: easygraphics.turtle.Turtle.move_arc:9 easygraphics.turtle.move_arc:7 of
+#: easygraphics.turtle.Turtle.move_arc:9 easygraphics.turtle.move_arc:9 of
 msgid ""
 "if angle > 0 and radius > 0, the turtle moves forward and turns counter-"
 "clockwise;"
 msgstr ""
 
-#: easygraphics.turtle.Turtle.move_arc:10 easygraphics.turtle.move_arc:8 of
+#: easygraphics.turtle.Turtle.move_arc:10 easygraphics.turtle.move_arc:10 of
 msgid "if angle > 0 and raidus < 0, the turtle move forward and turns clockwise;"
 msgstr ""
 
-#: easygraphics.turtle.Turtle.move_arc:11 easygraphics.turtle.move_arc:9 of
+#: easygraphics.turtle.Turtle.move_arc:11 easygraphics.turtle.move_arc:11 of
 msgid "if angle <0 and radius > 0, the turtle moves backward and turns clockwise;"
 msgstr ""
 
-#: easygraphics.turtle.Turtle.move_arc:12 easygraphics.turtle.move_arc:10 of
+#: easygraphics.turtle.Turtle.move_arc:12 easygraphics.turtle.move_arc:12 of
 msgid ""
 "if angle <0 and radius < 0, the turtle moves backward and turns counter-"
 "clockwise."
 msgstr ""
 
-#: easygraphics.turtle.Turtle.move_arc:14 easygraphics.turtle.move_arc:12 of
+#: easygraphics.turtle.Turtle.move_arc:14 easygraphics.turtle.move_arc:14 of
 msgid "radius of the arc"
 msgstr ""
 
 #: easygraphics.turtle.Turtle.move_arc:15
-#: easygraphics.turtle.Turtle.move_ellipse:20 easygraphics.turtle.move_arc:13
+#: easygraphics.turtle.Turtle.move_ellipse:20 easygraphics.turtle.move_arc:15
 #: easygraphics.turtle.move_ellipse:20 of
 msgid "how many degrees the turtle will move"
 msgstr ""
@@ -2668,10 +2731,6 @@ msgstr ""
 msgid "True the turtle is shown, False the turtle is hiding."
 msgstr ""
 
-#: easygraphics.turtle.Turtle.move_arc:1 of
-msgid "Move the turtle in a arc path."
-msgstr ""
-
 #: easygraphics.turtle.Turtle.reset:1 of
 msgid "Reset the turtle's state"
 msgstr ""
@@ -2796,27 +2855,27 @@ msgstr ""
 msgid "y coordinate value of the target position"
 msgstr ""
 
-#: ../../apis/easygraphics.widget.rst:2
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.widget.rst:2
 msgid "easygraphics.widget package"
 msgstr ""
 
-#: ../../apis/easygraphics.widget.rst:3
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.widget.rst:3
 msgid "The qt widget package."
 msgstr ""
 
-#: ../../apis/easygraphics.widget.rst:5
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.widget.rst:5
 msgid ""
 "This package provides two qt widget classes, for embeding easygraphics "
 "image or turtle graphics in qt applications:"
 msgstr ""
 
-#: ../../apis/easygraphics.widget.rst:8
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.widget.rst:8
 msgid ""
 "ImageWidget: this class is for embedding easygraphics image in qt "
 "applications. No animation support"
 msgstr ""
 
-#: ../../apis/easygraphics.widget.rst:9
+#: E:/Workspaces/PyEasyGraphics/docs/apis/easygraphics.widget.rst:9
 msgid ""
 "TurtleWidget: this class is for embedding turtle graphics in qt "
 "applications. Can run animation code (using run_animated_code() method)."
@@ -5545,5 +5604,183 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Delete all drawings from the screen. Do not move turtle."
+#~ msgstr ""
+
+#~ msgid "The center is radius units left of the turtle."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_choice <easygraphics.dialog.get_choice>`\\ "
+#~ "\\(message\\, title\\, choices\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_continue_or_cancel "
+#~ "<easygraphics.dialog.get_continue_or_cancel>`\\ \\(question\\,"
+#~ " title\\, ...\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_date <easygraphics.dialog.get_date>`\\ \\(title\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_directory_name "
+#~ "<easygraphics.dialog.get_directory_name>`\\ \\(title\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_file_names <easygraphics.dialog.get_file_names>`\\ "
+#~ "\\(title\\, filter\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_float <easygraphics.dialog.get_float>`\\ "
+#~ "\\(message\\, title\\, default\\_value\\, ...\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_int <easygraphics.dialog.get_int>`\\ "
+#~ "\\(message\\, title\\, default\\_value\\, min\\_\\,"
+#~ " ...\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_list_of_choices "
+#~ "<easygraphics.dialog.get_list_of_choices>`\\ \\(title\\, "
+#~ "choices\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_many_strings <easygraphics.dialog.get_many_strings>`\\"
+#~ " \\(title\\, labels\\, masks\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_new_password <easygraphics.dialog.get_new_password>`\\"
+#~ " \\(title\\, labels\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_password <easygraphics.dialog.get_password>`\\ "
+#~ "\\(message\\, title\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_save_file_name "
+#~ "<easygraphics.dialog.get_save_file_name>`\\ \\(title\\, "
+#~ "filter\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_string <easygraphics.dialog.get_string>`\\ "
+#~ "\\(message\\, title\\, default\\_response\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_username_password "
+#~ "<easygraphics.dialog.get_username_password>`\\ \\(title\\, "
+#~ "labels\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_yes_or_no <easygraphics.dialog.get_yes_or_no>`\\ "
+#~ "\\(question\\, title\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_html <easygraphics.dialog.show_html>`\\ "
+#~ "\\(title\\, text\\, width\\, height\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_image_dialog "
+#~ "<easygraphics.dialog.show_image_dialog>`\\ \\(image\\, "
+#~ "title\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_lists_table <easygraphics.dialog.show_lists_table>`\\"
+#~ " \\(\\*args\\, column\\_names\\, title\\, ...\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_message <easygraphics.dialog.show_message>`\\ "
+#~ "\\(message\\, title\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_objects <easygraphics.dialog.show_objects>`\\ "
+#~ "\\(datas\\, fields\\, field\\_names\\, ...\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_text <easygraphics.dialog.show_text>`\\ "
+#~ "\\(title\\, text\\, width\\, height\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_code <easygraphics.dialog.show_code>`\\ "
+#~ "\\(title\\, code\\, width\\, height\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`show_file <easygraphics.dialog.show_file>`\\ "
+#~ "\\(file\\_name\\, title\\, file\\_type\\, ...\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`play_music <easygraphics.music.play_music>`\\ "
+#~ "\\(loops\\, start\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`create_world <easygraphics.turtle.create_world>`\\ "
+#~ "\\(width\\, height\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_pen_size <easygraphics.turtle.set_pen_size>`\\ "
+#~ "\\(width\\, image\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`move_arc <easygraphics.turtle.move_arc>`\\ \\(radius\\, angle\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`move_ellipse <easygraphics.turtle.move_ellipse>`\\ "
+#~ "\\(radius\\_left\\, radius\\_top\\, angle\\)"
+#~ msgstr ""
+
+#~ msgid "Register the setup function :param setup_func: the setup function"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Register the on mouse clicked event "
+#~ "handler :param func: the mouse clicked"
+#~ " event handler"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Register the on mouse dragged event "
+#~ "handler :param func: the mouse dragged"
+#~ " event handler"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Register the on mouse pressed event "
+#~ "handler :param func: the mouse pressed"
+#~ " event handler"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Register the on mouse released event "
+#~ "handler :param func: the mouse released"
+#~ " event handler"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Register the on mouse wheel event "
+#~ "handler :param func: the mouse wheel "
+#~ "event handler"
 #~ msgstr ""
 

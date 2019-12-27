@@ -140,6 +140,8 @@ right = right_turn
 
 def move_arc(radius: float, angle: float = 360):
     """
+    Move the turtle in a arc path.
+
     The center is radius units left of the turtle. That is, if radius > 0,
     the center is on the left of the turtle; if radius < 0, the center is on the right of the turtle.
 

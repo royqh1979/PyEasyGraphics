@@ -129,7 +129,8 @@ def set_frame_rate(fps: int):
 
 def register_setup(setup_func:Callable):
     """
-    Register the setup function
+    Register the setup function.
+
     :param setup_func: the setup function
     """
     global setup
@@ -138,6 +139,7 @@ def register_setup(setup_func:Callable):
 def register_on_mouse_clicked(func:Callable):
     """
     Register the on mouse clicked event handler
+
     :param func: the mouse clicked event handler
     """
     global on_mouse_clicked
@@ -146,6 +148,7 @@ def register_on_mouse_clicked(func:Callable):
 def register_on_mouse_pressed(func:Callable):
     """
     Register the on mouse pressed event handler
+
     :param func: the mouse pressed event handler
     """
     global on_mouse_pressed
@@ -154,6 +157,7 @@ def register_on_mouse_pressed(func:Callable):
 def register_on_mouse_released(func:Callable):
     """
     Register the on mouse released event handler
+
     :param func: the mouse released event handler
     """
     global on_mouse_released
@@ -162,6 +166,7 @@ def register_on_mouse_released(func:Callable):
 def register_on_mouse_dragged(func:Callable):
     """
     Register the on mouse dragged event handler
+
     :param func: the mouse dragged event handler
     """
     global on_mouse_dragged
@@ -170,6 +175,7 @@ def register_on_mouse_dragged(func:Callable):
 def register_on_mouse_wheel(func:Callable):
     """
     Register the on mouse wheel event handler
+
     :param func: the mouse wheel event handler
     """
     global on_mouse_wheel

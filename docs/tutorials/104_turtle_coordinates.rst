@@ -1,7 +1,7 @@
 Coordinates of the Turtle World
 ================================
 
-Int the turtle world, we use a coordinate system as the following:
+In the turtle world, we use a coordinate system as the following:
 
 1. The origin (0,0) is at the center of the graphics window.
 2. The x axis grows from left to right.

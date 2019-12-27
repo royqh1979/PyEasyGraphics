@@ -3,8 +3,9 @@ from easygraphics import *
 
 
 def main():
-    create_world(300, 300)
+    create_world(150, 150)
 
+    setxy(20, -50)
     set_fill_rule(FillRule.WINDING_FILL)
     begin_fill()
     for i in range(5):

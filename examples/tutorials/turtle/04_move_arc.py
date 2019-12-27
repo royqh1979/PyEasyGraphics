@@ -1,7 +1,7 @@
 from easygraphics.turtle import *
 
 def main():
-    create_world(800, 600)
+    create_world(400, 300)
     set_speed(10)
 
     lt(45)

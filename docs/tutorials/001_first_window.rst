@@ -19,8 +19,7 @@ In this program, we will create and show a graphics window:
 
   **note 3** : Don't forget to close_graph() to clean up the system after all drawing work is done.
 
-  **note 4** : You can use the graphics window\'s close button to close the graphics system. But
-   this may cause exception. (When there are unfinished drawing operations.）
+  **note 4** : You can use the graphics window\'s close button to close the graphics system. But this may cause exception. (When there are unfinished drawing operations.）
 
 .. code-block:: python
 
