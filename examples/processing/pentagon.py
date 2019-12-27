@@ -21,7 +21,7 @@ def draw():
     for i in range(5):
         vertex(100, 0)
         rotate(144)
-    end_shape()
+    end_shape(True)
 
 
 # run the processing app

@@ -18,7 +18,7 @@ def draw():
     vertex(65, 75)
     vertex(85, 20)
     vertex(85, 75)
-    end_shape(True)
+    end_shape()
 
 
 run_app(globals())
