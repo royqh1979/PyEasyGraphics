@@ -84,6 +84,8 @@ Basic Drawing
 
     arc
     bezier
+    bezier_point
+    bezier_tangent
     chord
     circle
     clear_device

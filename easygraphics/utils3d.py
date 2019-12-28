@@ -1,7 +1,7 @@
 from PyQt5.QtGui import QMatrix4x4, QVector3D
 import math
 
-__all__ = ['ortho_look_at', 'isometric_projection', 'spher2cart', 'cart2spher']
+__all__ = ['ortho_look_at', 'isometric_projection', 'sphere2cart', 'cart2sphere']
 
 
 def isometric_projection() -> QMatrix4x4:
@@ -66,10 +66,10 @@ def _ortho_look_at_custom(eye_x: float, eye_y: float, eye_z: float,
     up = QVector3D.crossProduct(eye, right)
     z_axis = QVector3D(0, 0, 1)
 
-    r, theta, phi = cart2spher(eye_x, eye_y, eye_z)
+    r, theta, phi = cart2sphere(eye_x, eye_y, eye_z)
     angle = math.pi / 2 - theta
     angle2 = phi + math.pi
-    base_up = QVector3D(*spher2cart(r, angle, angle2))
+    base_up = QVector3D(*sphere2cart(r, angle, angle2))
     # print("up", up)
     # print("base_up",base_up)
     dot_up_base_up = QVector3D.dotProduct(up, base_up)
@@ -140,12 +140,13 @@ def _ortho_look_at_custom(eye_x: float, eye_y: float, eye_z: float,
     return m_ortho * m_x.transposed() * m_y.transposed() * m_z.transposed()
 
 
-def cart2spher(x: float, y: float, z: float) -> (float, float, float):
+def cart2sphere(x: float, y: float, z: float) -> (float, float, float):
     """
     Convert cartesian coordinate to spherical coordinate
-    :param x:
-    :param y:
-    :param z:
+
+    :param x: x
+    :param y: y
+    :param z: z
     :return: radius,θ,φ
     """
     r = math.sqrt(x ** 2 + y ** 2 + z ** 2)
@@ -154,7 +155,7 @@ def cart2spher(x: float, y: float, z: float) -> (float, float, float):
     return r, θ, φ
 
 
-def spher2cart(r: float, theta: float, phi: float) -> (float, float, float):
+def sphere2cart(r: float, theta: float, phi: float) -> (float, float, float):
     """
     Convert spherical coordinate to cartesian coordinate
 

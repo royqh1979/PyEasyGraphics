@@ -9,1568 +9,1486 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-27 11:15+0800\n"
+"POT-Creation-Date: 2019-12-28 23:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Babel 2.6.0\n"
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:2
+#: ../../api.rst:2
 msgid "References"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:5
+#: ../../api.rst:5
 msgid "Subpackages"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:22
+#: ../../api.rst:22
 msgid "Package Summary"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:25
+#: ../../api.rst:25
 msgid "System init and close"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:32:<autosummary>:1
+#: ../../api.rst:32:<autosummary>:1
 msgid ":obj:`close_graph <easygraphics.close_graph>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:32:<autosummary>:1
-#: easygraphics.close_graph:1 of
+#: ../../api.rst:32:<autosummary>:1 easygraphics.close_graph:1 of
 msgid "Close the graphics windows."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:32:<autosummary>:1
+#: ../../api.rst:32:<autosummary>:1
 msgid ""
-":obj:`init_graph <easygraphics.init_graph>`\\ \\(\\[width\\, height\\, "
-"headless\\]\\)"
+":obj:`init_graph <easygraphics.init_graph>`\\ \\(width\\, height\\, "
+"headless\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:32:<autosummary>:1
-#: easygraphics.init_graph:1 of
+#: ../../api.rst:32:<autosummary>:1 easygraphics.init_graph:1 of
 msgid "Init the easygraphics system and show the graphics window."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:34
+#: ../../api.rst:34
 msgid "Drawing Settings"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
+#: ../../api.rst:77:<autosummary>:1
 msgid ""
 ":obj:`get_background_color <easygraphics.get_background_color>`\\ "
-"\\(\\[image\\]\\)"
+"\\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_background_color:1
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_background_color:1
 #: easygraphics.get_background_color:1 of
 msgid "Get the background color of the image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_color <easygraphics.get_color>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_color <easygraphics.get_color>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_color:1 easygraphics.get_color:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_color:1
+#: easygraphics.get_color:1 of
 msgid "Get the foreground (drawing) color of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
+#: ../../api.rst:77:<autosummary>:1
 msgid ""
 ":obj:`get_composition_mode <easygraphics.get_composition_mode>`\\ "
-"\\(\\[image\\]\\)"
+"\\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_composition_mode:1
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_composition_mode:1
 #: easygraphics.Image.set_composition_mode:1
 #: easygraphics.get_composition_mode:1 easygraphics.get_write_mode:1 of
 msgid "Get composition mode of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_drawing_pos <easygraphics.get_drawing_pos>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_drawing_pos <easygraphics.get_drawing_pos>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.get_drawing_pos:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.get_drawing_pos:1 of
 msgid "Get the current drawing position (x,y)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_fill_color <easygraphics.get_fill_color>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_fill_color <easygraphics.get_fill_color>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_fill_color:1 easygraphics.get_fill_color:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_fill_color:1
+#: easygraphics.get_fill_color:1 of
 msgid "Get the fill color of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_fill_rule <easygraphics.get_fill_rule>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_fill_rule <easygraphics.get_fill_rule>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_fill_rule:1 easygraphics.get_fill_rule:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_fill_rule:1
+#: easygraphics.get_fill_rule:1 of
 msgid "Get the fill rule (algorithm) for filling polygons."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_fill_style <easygraphics.get_fill_style>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_fill_style <easygraphics.get_fill_style>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_fill_style:1 easygraphics.get_fill_style:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_fill_style:1
+#: easygraphics.get_fill_style:1 of
 msgid "Get fill style of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_font <easygraphics.get_font>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_font <easygraphics.get_font>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_font:1 easygraphics.get_font:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_font:1
+#: easygraphics.get_font:1 of
 msgid "Get font of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_font_size <easygraphics.get_font_size>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_font_size <easygraphics.get_font_size>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_font_size:1 easygraphics.get_font_size:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_font_size:1
+#: easygraphics.get_font_size:1 of
 msgid "Get font size of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_height <easygraphics.get_height>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_height <easygraphics.get_height>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.get_height:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.get_height:1 of
 msgid "Get height of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_line_style <easygraphics.get_line_style>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_line_style <easygraphics.get_line_style>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.get_line_style:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.get_line_style:1 of
 msgid "Get line style of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_line_width <easygraphics.get_line_width>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_line_width <easygraphics.get_line_width>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.get_line_width:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.get_line_width:1 of
 msgid "Get line width (thinkness) of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_width <easygraphics.get_width>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_width <easygraphics.get_width>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.get_width:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.get_width:1 of
 msgid "Get width of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_write_mode <easygraphics.get_write_mode>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_write_mode <easygraphics.get_write_mode>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_drawing_x <easygraphics.get_drawing_x>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_drawing_x <easygraphics.get_drawing_x>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_x:1 easygraphics.get_drawing_x:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_x:1
+#: easygraphics.get_drawing_x:1 of
 msgid "Get the x coordinate value of the current drawing position (x,y)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`get_drawing_y <easygraphics.get_drawing_y>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`get_drawing_y <easygraphics.get_drawing_y>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.get_y:1 easygraphics.get_drawing_y:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.get_y:1
+#: easygraphics.get_drawing_y:1 of
 msgid "Get the y coordinate value of the current drawing position (x,y)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`reset_view_port <easygraphics.reset_view_port>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`reset_view_port <easygraphics.reset_view_port>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.reset_view_port:1 easygraphics.reset_view_port:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.reset_view_port:1
+#: easygraphics.reset_view_port:1 of
 msgid "Reset the view port setting."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`reset_window <easygraphics.reset_window>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`reset_window <easygraphics.reset_window>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.reset_window:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.reset_window:1 of
 msgid "Reset/remove the logical window."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ""
-":obj:`restore_settings <easygraphics.restore_settings>`\\ "
-"\\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`restore_settings <easygraphics.restore_settings>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.restore_settings:1 easygraphics.restore_settings:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.restore_settings:1
+#: easygraphics.restore_settings:1 of
 msgid "Restore previously saved drawing settings."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`save_settings <easygraphics.save_settings>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`save_settings <easygraphics.save_settings>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.save_settings:1 easygraphics.save_settings:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.save_settings:1
+#: easygraphics.save_settings:1 of
 msgid "Save current drawing settings."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
+#: ../../api.rst:77:<autosummary>:1
 msgid ""
 ":obj:`set_background_color <easygraphics.set_background_color>`\\ "
-"\\(color\\[\\, image\\]\\)"
+"\\(color\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_background_color:1
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_background_color:1
 #: easygraphics.set_background_color:1 of
 msgid "Set and change the background color."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
+#: ../../api.rst:77:<autosummary>:1
 msgid ":obj:`set_caption <easygraphics.set_caption>`\\ \\(title\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.set_caption:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.set_caption:1 of
 msgid "Set the graph window's caption"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
+#: ../../api.rst:77:<autosummary>:1
 msgid ""
 ":obj:`set_clip_rect <easygraphics.set_clip_rect>`\\ \\(left\\, top\\, "
-"right\\, bottom\\[\\, image\\]\\)"
+"right\\, bottom\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_clip_rect:1 easygraphics.set_clip_rect:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_clip_rect:1
+#: easygraphics.set_clip_rect:1 of
 msgid "Set the clip rect."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ""
-":obj:`set_clipping <easygraphics.set_clipping>`\\ \\(clipping\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`set_clipping <easygraphics.set_clipping>`\\ \\(clipping\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_clipping:1 easygraphics.set_clipping:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_clipping:1
+#: easygraphics.set_clipping:1 of
 msgid "Set clipping."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`set_color <easygraphics.set_color>`\\ \\(color\\[\\, image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`set_color <easygraphics.set_color>`\\ \\(color\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_color:1 easygraphics.set_color:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_color:1
+#: easygraphics.set_color:1 of
 msgid "Set the foreground (drawing) color of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
+#: ../../api.rst:77:<autosummary>:1
 msgid ""
 ":obj:`set_composition_mode <easygraphics.set_composition_mode>`\\ "
-"\\(mode\\[\\, image\\]\\)"
+"\\(mode\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.set_composition_mode:1 easygraphics.set_write_mode:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.set_composition_mode:1
+#: easygraphics.set_write_mode:1 of
 msgid "Set composition mode of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ""
-":obj:`set_fill_color <easygraphics.set_fill_color>`\\ \\(color\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`set_fill_color <easygraphics.set_fill_color>`\\ \\(color\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_fill_color:1 easygraphics.set_fill_color:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_fill_color:1
+#: easygraphics.set_fill_color:1 of
 msgid "Set the fill (drawing) color of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ""
-":obj:`set_fill_rule <easygraphics.set_fill_rule>`\\ \\(rule\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`set_fill_rule <easygraphics.set_fill_rule>`\\ \\(rule\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_fill_rule:1 easygraphics.set_fill_rule:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_fill_rule:1
+#: easygraphics.set_fill_rule:1 of
 msgid "Set the fill rule (algorithm) for filling polygons."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ""
-":obj:`set_fill_style <easygraphics.set_fill_style>`\\ \\(style\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`set_fill_style <easygraphics.set_fill_style>`\\ \\(style\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_fill_style:1 easygraphics.set_fill_style:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_fill_style:1
+#: easygraphics.set_fill_style:1 of
 msgid "Set fill style of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`set_font <easygraphics.set_font>`\\ \\(font\\[\\, image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`set_font <easygraphics.set_font>`\\ \\(font\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_font:1 easygraphics.set_font:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_font:1
+#: easygraphics.set_font:1 of
 msgid "Set font of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ""
-":obj:`set_font_size <easygraphics.set_font_size>`\\ \\(size\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`set_font_size <easygraphics.set_font_size>`\\ \\(size\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_font_size:1 easygraphics.set_font_size:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_font_size:1
+#: easygraphics.set_font_size:1 of
 msgid "Set font size of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
+#: ../../api.rst:77:<autosummary>:1
 msgid ""
-":obj:`set_line_style <easygraphics.set_line_style>`\\ "
-"\\(line\\_style\\[\\, image\\]\\)"
+":obj:`set_line_style <easygraphics.set_line_style>`\\ \\(line\\_style\\, "
+"image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.set_line_style:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.set_line_style:1 of
 msgid "Set line style of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ""
-":obj:`set_line_width <easygraphics.set_line_width>`\\ \\(width\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`set_line_width <easygraphics.set_line_width>`\\ \\(width\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.set_line_width:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.set_line_width:1 of
 msgid "Set line width (thickness) of the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
+#: ../../api.rst:77:<autosummary>:1
 msgid ""
 ":obj:`set_view_port <easygraphics.set_view_port>`\\ \\(left\\, top\\, "
-"right\\, bottom\\[\\, ...\\]\\)"
+"right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_view_port:1 easygraphics.set_view_port:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_view_port:1
+#: easygraphics.set_view_port:1 of
 msgid "Set the view port of the the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
+#: ../../api.rst:77:<autosummary>:1
 msgid ""
 ":obj:`set_window <easygraphics.set_window>`\\ \\(left\\, top\\, width\\, "
-"height\\[\\, image\\]\\)"
+"height\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.set_window:1 easygraphics.set_window:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.set_window:1
+#: easygraphics.set_window:1 of
 msgid "Set the logical drawing window."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ""
-":obj:`set_write_mode <easygraphics.set_write_mode>`\\ \\(mode\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`set_write_mode <easygraphics.set_write_mode>`\\ \\(mode\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`text_height <easygraphics.text_height>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`text_height <easygraphics.text_height>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.text_height:1 easygraphics.text_height:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.text_height:1
+#: easygraphics.text_height:1 of
 msgid "Return height of the text (font height)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-msgid ":obj:`text_width <easygraphics.text_width>`\\ \\(text\\[\\, image\\]\\)"
+#: ../../api.rst:77:<autosummary>:1
+msgid ":obj:`text_width <easygraphics.text_width>`\\ \\(text\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:77:<autosummary>:1
-#: easygraphics.Image.text_width:1 easygraphics.text_width:1 of
+#: ../../api.rst:77:<autosummary>:1 easygraphics.Image.text_width:1
+#: easygraphics.text_width:1 of
 msgid "Return width of the text."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:79
+#: ../../api.rst:79
 msgid "Basic Drawing"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`arc <easygraphics.arc>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, radius\\_x\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid "Draw an elliptical arc from start_angle to end_angle."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`bezier <easygraphics.bezier>`\\ \\(x0\\, y0\\, x1\\, y1\\, x2\\, "
-"y2\\, x3\\, y3\\[\\, image\\]\\)"
+"y2\\, x3\\, y3\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.bezier:1 easygraphics.Image.draw_bezier:1
-#: easygraphics.bezier:1 easygraphics.draw_bezier:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.bezier:1
+#: easygraphics.Image.draw_bezier:1 easygraphics.bezier:1
+#: easygraphics.draw_bezier:1 of
 msgid "Draw a cubic bezier curve."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
-":obj:`chord <easygraphics.chord>`\\ \\(x\\, y\\, start\\_angle\\, "
-"end\\_angle\\, ...\\[\\, image\\]\\)"
+":obj:`bezier_point <easygraphics.bezier_point>`\\ \\(p0\\, p1\\, p2\\, "
+"p3\\, t\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1 easygraphics.bezier_point:1 of
+msgid ""
+"Calculate the position of a point with parameter t on the cubic bezier "
+"curve."
+msgstr ""
+
+#: ../../api.rst:134:<autosummary>:1
+msgid ""
+":obj:`bezier_tangent <easygraphics.bezier_tangent>`\\ \\(p0\\, p1\\, "
+"p2\\, p3\\, t\\)"
+msgstr ""
+
+#: ../../api.rst:134:<autosummary>:1 easygraphics.bezier_tangent:1 of
+msgid ""
+"Calculate the tangent of the point with parameter t on the cubic bezier "
+"curve."
+msgstr ""
+
+#: ../../api.rst:134:<autosummary>:1
+msgid ""
+":obj:`chord <easygraphics.chord>`\\ \\(x\\, y\\, start\\_angle\\, "
+"end\\_angle\\, ...\\)"
+msgstr ""
+
+#: ../../api.rst:134:<autosummary>:1
 msgid "Draw an elliptical chord outline from start_angle to end_angle."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`circle <easygraphics.circle>`\\ \\(x\\, y\\, r\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`circle <easygraphics.circle>`\\ \\(x\\, y\\, r\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.circle:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.circle:1 of
 msgid "Draw a circle outline centered at (x,y) with radius r."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`clear_device <easygraphics.clear_device>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`clear_device <easygraphics.clear_device>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.clear:1 easygraphics.clear:1 easygraphics.clear_device:1
-#: of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.clear:1
+#: easygraphics.clear:1 easygraphics.clear_device:1 of
 msgid "Clear the image to show the background."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`clear_view_port <easygraphics.clear_view_port>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`clear_view_port <easygraphics.clear_view_port>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.clear_view_port:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.clear_view_port:1 of
 msgid "clear view port to show the background."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`curve <easygraphics.curve>`\\ \\(\\*points\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`curve <easygraphics.curve>`\\ \\(\\*points\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.curve:1 easygraphics.Image.draw_curve:1
-#: easygraphics.curve:1 easygraphics.draw_curve:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.curve:1
+#: easygraphics.Image.draw_curve:1 easygraphics.curve:1
+#: easygraphics.draw_curve:1 of
 msgid "Draw a Catmull-Rom spline."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_arc <easygraphics.draw_arc>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_bezier <easygraphics.draw_bezier>`\\ \\(x0\\, y0\\, x1\\, "
-"y1\\, x2\\, y2\\, x3\\, y3\\)"
+"y1\\, x2\\, y2\\, x3\\, y3\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_chord <easygraphics.draw_chord>`\\ \\(x\\, y\\, "
 "start\\_angle\\, end\\_angle\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ""
-":obj:`draw_circle <easygraphics.draw_circle>`\\ \\(x\\, y\\, r\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`draw_circle <easygraphics.draw_circle>`\\ \\(x\\, y\\, r\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.draw_circle:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.draw_circle:1 of
 msgid "Draw a circle centered at (x,y) with radius r."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ""
-":obj:`draw_curve <easygraphics.draw_curve>`\\ \\(\\*points\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`draw_curve <easygraphics.draw_curve>`\\ \\(\\*points\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_ellipse <easygraphics.draw_ellipse>`\\ \\(x\\, y\\, "
-"radius\\_x\\, radius\\_y\\[\\, image\\]\\)"
+"radius\\_x\\, radius\\_y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_ellipse:1 easygraphics.draw_ellipse:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_ellipse:1
+#: easygraphics.draw_ellipse:1 of
 msgid ""
 "Draw an ellipse centered at (x,y) , radius on x-axis is radius_x, radius "
 "on y-axis is radius_y."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
-":obj:`draw_line <easygraphics.draw_line>`\\ \\(x1\\, y1\\, x2\\, y2\\[\\,"
-" image\\]\\)"
+":obj:`draw_line <easygraphics.draw_line>`\\ \\(x1\\, y1\\, x2\\, y2\\, "
+"image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_line:1 easygraphics.Image.line:1
-#: easygraphics.draw_line:1 easygraphics.line:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_line:1
+#: easygraphics.Image.line:1 easygraphics.draw_line:1 easygraphics.line:1 of
 msgid "Draw a line from (x1,y1) to (x2,y2) on the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ""
-":obj:`draw_lines <easygraphics.draw_lines>`\\ \\(\\*points\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`draw_lines <easygraphics.draw_lines>`\\ \\(\\*points\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_lines:1 easygraphics.Image.lines:1
-#: easygraphics.draw_lines:1 easygraphics.lines:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_lines:1
+#: easygraphics.Image.lines:1 easygraphics.draw_lines:1 easygraphics.lines:1 of
 msgid "Draw lines."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_pie <easygraphics.draw_pie>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid "Draw an elliptical pie from start_angle to end_angle."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`draw_point <easygraphics.draw_point>`\\ \\(x\\, y\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`draw_point <easygraphics.draw_point>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_point:1 easygraphics.draw_point:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_point:1
+#: easygraphics.draw_point:1 of
 msgid "Draw a point at (x,y) on the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_poly_line <easygraphics.draw_poly_line>`\\ "
-"\\(\\*end\\_points\\[\\, image\\]\\)"
+"\\(\\*end\\_points\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_poly_line:1 easygraphics.Image.poly_line:1
-#: easygraphics.draw_poly_line:1 easygraphics.poly_line:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_poly_line:1
+#: easygraphics.Image.poly_line:1 easygraphics.draw_poly_line:1
+#: easygraphics.poly_line:1 of
 msgid "Draw a poly line."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
-":obj:`draw_polygon <easygraphics.draw_polygon>`\\ \\(\\*vertices\\[\\, "
-"image\\]\\)"
+":obj:`draw_polygon <easygraphics.draw_polygon>`\\ \\(\\*vertices\\, "
+"image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_polygon:1 easygraphics.draw_polygon:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_polygon:1
+#: easygraphics.draw_polygon:1 of
 msgid "Draw a polygon."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_quadratic <easygraphics.draw_quadratic>`\\ \\(x0\\, y0\\, "
-"x1\\, y1\\, x2\\, y2\\[\\, image\\]\\)"
+"x1\\, y1\\, x2\\, y2\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_quadratic:1 easygraphics.Image.quadratic:1
-#: easygraphics.draw_quadratic:1 easygraphics.quadratic:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_quadratic:1
+#: easygraphics.Image.quadratic:1 easygraphics.draw_quadratic:1
+#: easygraphics.quadratic:1 of
 msgid "Draw a quadratic bezier curve."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_rect <easygraphics.draw_rect>`\\ \\(left\\, top\\, right\\, "
-"bottom\\[\\, image\\]\\)"
+"bottom\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_rect:1 easygraphics.Image.fill_rect:1
-#: easygraphics.draw_rect:1 easygraphics.fill_rect:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_rect:1
+#: easygraphics.Image.fill_rect:1 easygraphics.draw_rect:1
+#: easygraphics.fill_rect:1 of
 msgid ""
 "Draws a rectangle with upper left corner at (left, top) and lower right "
 "corner at (right,bottom)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_rect_text <easygraphics.draw_rect_text>`\\ \\(x\\, y\\, "
 "width\\, height\\, \\*args\\[\\, ...\\]\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_rect_text:1 easygraphics.draw_rect_text:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_rect_text:1
+#: easygraphics.draw_rect_text:1 of
 msgid "Print the given texts in the specified rectangle area."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_rounded_rect <easygraphics.draw_rounded_rect>`\\ \\(left\\, "
 "top\\, right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 "Draws a rounded rectangle with upper left corner at (left, top) , lower "
 "right corner at (right,bottom)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`draw_text <easygraphics.draw_text>`\\ \\(x\\, y\\, \\*args\\[\\, "
-"sep\\, image\\]\\)"
+"sep\\]\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.draw_text:1 easygraphics.draw_text:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.draw_text:1
+#: easygraphics.draw_text:1 of
 msgid "Prints the given texts beginning at the given position (x,y)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`ellipse <easygraphics.ellipse>`\\ \\(x\\, y\\, radius\\_x\\, "
-"radius\\_y\\[\\, image\\]\\)"
+"radius\\_y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.ellipse:1 easygraphics.ellipse:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.ellipse:1
+#: easygraphics.ellipse:1 of
 msgid ""
 "Draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x,"
 " radius on y-axis is radius_y."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`fill_chord <easygraphics.fill_chord>`\\ \\(x\\, y\\, "
 "start\\_angle\\, end\\_angle\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ""
-":obj:`fill_circle <easygraphics.fill_circle>`\\ \\(x\\, y\\, r\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`fill_circle <easygraphics.fill_circle>`\\ \\(x\\, y\\, r\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.fill_circle:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.fill_circle:1 of
 msgid "Fill a circle centered at (x,y) with radius r."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`fill_ellipse <easygraphics.fill_ellipse>`\\ \\(x\\, y\\, "
-"radius\\_x\\, radius\\_y\\[\\, image\\]\\)"
+"radius\\_x\\, radius\\_y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.fill_ellipse:1 easygraphics.fill_ellipse:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.fill_ellipse:1
+#: easygraphics.fill_ellipse:1 of
 msgid ""
 "Fill an ellipse centered at (x,y) , radius on x-axis is radius_x, radius "
 "on y-axis is radius_y."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`fill_pie <easygraphics.fill_pie>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid "Fill an elliptical pie from start_angle to end_angle."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
-":obj:`fill_polygon <easygraphics.fill_polygon>`\\ \\(\\*vertices\\[\\, "
-"image\\]\\)"
+":obj:`fill_polygon <easygraphics.fill_polygon>`\\ \\(\\*vertices\\, "
+"image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.fill_polygon:1 easygraphics.fill_polygon:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.fill_polygon:1
+#: easygraphics.fill_polygon:1 of
 msgid "Fill a polygon."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`fill_rect <easygraphics.fill_rect>`\\ \\(left\\, top\\, right\\, "
-"bottom\\[\\, image\\]\\)"
+"bottom\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`fill_rounded_rect <easygraphics.fill_rounded_rect>`\\ \\(left\\, "
 "top\\, right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 "Fill a rounded rectangle with upper left corner at (left, top) , lower "
 "right corner at (right,bottom)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`flood_fill <easygraphics.flood_fill>`\\ \\(x\\, y\\, "
-"border\\_color\\[\\, image\\]\\)"
+"border\\_color\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.flood_fill:1 easygraphics.flood_fill:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.flood_fill:1
+#: easygraphics.flood_fill:1 of
 msgid ""
 "Flood fill the image starting from(x,y) and ending at borders with "
 "border_color."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`get_pixel <easygraphics.get_pixel>`\\ \\(x\\, y\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`get_pixel <easygraphics.get_pixel>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.get_pixel:1 easygraphics.get_pixel:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.get_pixel:1
+#: easygraphics.get_pixel:1 of
 msgid "Get a pixel's color on the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ""
-":obj:`line <easygraphics.line>`\\ \\(x1\\, y1\\, x2\\, y2\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`line <easygraphics.line>`\\ \\(x1\\, y1\\, x2\\, y2\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`line_rel <easygraphics.line_rel>`\\ \\(dx\\, dy\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`line_rel <easygraphics.line_rel>`\\ \\(dx\\, dy\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.line_rel:1 easygraphics.line_rel:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.line_rel:1
+#: easygraphics.line_rel:1 of
 msgid ""
 "Draw a line from the current drawing position (x,y) to (x+dx,y+dy), then "
 "set the drawing position is set to (x+dx,y+dy)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`line_to <easygraphics.line_to>`\\ \\(x\\, y\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`line_to <easygraphics.line_to>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.line_to:1 easygraphics.line_to:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.line_to:1
+#: easygraphics.line_to:1 of
 msgid ""
 "Draw a line from the current drawing position to (x,y), then set the "
 "drawing position is set to (x,y)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`lines <easygraphics.lines>`\\ \\(\\*points\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`lines <easygraphics.lines>`\\ \\(\\*points\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`move_rel <easygraphics.move_rel>`\\ \\(dx\\, dy\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`move_rel <easygraphics.move_rel>`\\ \\(dx\\, dy\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.move_rel:1 easygraphics.move_rel:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.move_rel:1
+#: easygraphics.move_rel:1 of
 msgid "Move the drawing position by (dx,dy)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`move_to <easygraphics.move_to>`\\ \\(x\\, y\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`move_to <easygraphics.move_to>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.move_to:1 easygraphics.move_to:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.move_to:1
+#: easygraphics.move_to:1 of
 msgid "Set the drawing position to (x,y)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`pie <easygraphics.pie>`\\ \\(x\\, y\\, start\\_angle\\, "
 "end\\_angle\\, radius\\_x\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid "Draw an elliptical pie outline from start_angle to end_angle."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ""
-":obj:`poly_line <easygraphics.poly_line>`\\ \\(\\*end\\_points\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`poly_line <easygraphics.poly_line>`\\ \\(\\*end\\_points\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ":obj:`polygon <easygraphics.polygon>`\\ \\(\\*vertices\\[\\, image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`polygon <easygraphics.polygon>`\\ \\(\\*vertices\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.polygon:1 easygraphics.polygon:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.polygon:1
+#: easygraphics.polygon:1 of
 msgid "Draw polygon outline."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-msgid ""
-":obj:`put_pixel <easygraphics.put_pixel>`\\ \\(x\\, y\\, color\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:134:<autosummary>:1
+msgid ":obj:`put_pixel <easygraphics.put_pixel>`\\ \\(x\\, y\\, color\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.put_pixel:1 easygraphics.put_pixel:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.put_pixel:1
+#: easygraphics.put_pixel:1 of
 msgid "Set a pixel's color on the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`quadratic <easygraphics.quadratic>`\\ \\(x0\\, y0\\, x1\\, y1\\, "
-"x2\\, y2\\[\\, image\\]\\)"
+"x2\\, y2\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
-":obj:`rect <easygraphics.rect>`\\ \\(left\\, top\\, right\\, bottom\\[\\,"
-" image\\]\\)"
+":obj:`rect <easygraphics.rect>`\\ \\(left\\, top\\, right\\, bottom\\, "
+"image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
-#: easygraphics.Image.rect:1 easygraphics.rect:1 of
+#: ../../api.rst:134:<autosummary>:1 easygraphics.Image.rect:1
+#: easygraphics.rect:1 of
 msgid ""
 "Draws a rectangle outline with upper left corner at (left, top) and lower"
 " right corner at (right,bottom)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 ":obj:`rounded_rect <easygraphics.rounded_rect>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:132:<autosummary>:1
+#: ../../api.rst:134:<autosummary>:1
 msgid ""
 "Draws a rounded rectangle outline with upper left corner at (left, top) ,"
 " lower right corner at (right,bottom)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:134
+#: ../../api.rst:136
 msgid "Drawing using vertex"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
-msgid ":obj:`begin_shape <easygraphics.begin_shape>`\\ \\(\\[type\\, image\\]\\)"
+#: ../../api.rst:148:<autosummary>:1
+msgid ":obj:`begin_shape <easygraphics.begin_shape>`\\ \\(\\[type\\]\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
-#: easygraphics.Image.begin_shape:1 easygraphics.begin_shape:1 of
+#: ../../api.rst:148:<autosummary>:1 easygraphics.Image.begin_shape:1
+#: easygraphics.begin_shape:1 of
 msgid "Begin a shape definition"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
-msgid ":obj:`end_shape <easygraphics.end_shape>`\\ \\(\\[close\\, image\\]\\)"
+#: ../../api.rst:148:<autosummary>:1
+msgid ":obj:`end_shape <easygraphics.end_shape>`\\ \\(\\[close\\]\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
-#: easygraphics.Image.end_shape:1 easygraphics.end_shape:1 of
+#: ../../api.rst:148:<autosummary>:1 easygraphics.Image.end_shape:1
+#: easygraphics.end_shape:1 of
 msgid "End a shape definition"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
+#: ../../api.rst:148:<autosummary>:1
 msgid ""
 ":obj:`bezier_vertex <easygraphics.bezier_vertex>`\\ \\(x1\\, y1\\, x2\\, "
-"y2\\, x3\\, y3\\[\\, image\\]\\)"
+"y2\\, x3\\, y3\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
+#: ../../api.rst:148:<autosummary>:1
 msgid "Define a cubic Bezier curve."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
-msgid ""
-":obj:`curve_vertex <easygraphics.curve_vertex>`\\ \\(x\\, y\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:148:<autosummary>:1
+msgid ":obj:`curve_vertex <easygraphics.curve_vertex>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
-#: easygraphics.Image.curve_vertex:1 easygraphics.curve_vertex:1 of
+#: ../../api.rst:148:<autosummary>:1 easygraphics.Image.curve_vertex:1
+#: easygraphics.curve_vertex:1 of
 msgid "Define a Catmull-Rom curve vertex."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
+#: ../../api.rst:148:<autosummary>:1
 msgid ""
 ":obj:`quadratic_vertex <easygraphics.quadratic_vertex>`\\ \\(x1\\, y1\\, "
-"x2\\, y2\\[\\, image\\]\\)"
+"x2\\, y2\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
+#: ../../api.rst:148:<autosummary>:1
 msgid "Define a quadratic Bezier curve vertex."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
-msgid ":obj:`vertex <easygraphics.vertex>`\\ \\(x\\, y\\[\\, image\\]\\)"
+#: ../../api.rst:148:<autosummary>:1
+msgid ":obj:`vertex <easygraphics.vertex>`\\ \\(x\\, y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:146:<autosummary>:1
-#: easygraphics.Image.vertex:1 easygraphics.vertex:1 of
+#: ../../api.rst:148:<autosummary>:1 easygraphics.Image.vertex:1
+#: easygraphics.vertex:1 of
 msgid "Define a vertex."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:148
+#: ../../api.rst:150
 msgid "Transform"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ":obj:`flip <easygraphics.flip>`\\ \\(x\\, y\\[\\, x1\\, y1\\, image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`flip <easygraphics.flip>`\\ \\(x\\, y\\, x1\\, y1\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.Image.flip:1 easygraphics.Image.mirror:1
-#: easygraphics.Image.reflect:1 easygraphics.flip:1 easygraphics.mirror:1
-#: easygraphics.reflect:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.flip:1
+#: easygraphics.Image.mirror:1 easygraphics.Image.reflect:1 easygraphics.flip:1
+#: easygraphics.mirror:1 easygraphics.reflect:1 of
 msgid "Reflect the coordinates against the line passing (x1,y1) and (x,y)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ":obj:`get_transform <easygraphics.get_transform>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`get_transform <easygraphics.get_transform>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.Image.get_transform:1 easygraphics.get_transform:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.get_transform:1
+#: easygraphics.get_transform:1 of
 msgid "Get transform matrix of the image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ""
-":obj:`mirror <easygraphics.mirror>`\\ \\(x\\, y\\[\\, x1\\, y1\\, "
-"image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`mirror <easygraphics.mirror>`\\ \\(x\\, y\\, x1\\, y1\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ":obj:`pop_transform <easygraphics.pop_transform>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`pop_transform <easygraphics.pop_transform>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.Image.pop_transform:1 easygraphics.pop_transform:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.pop_transform:1
+#: easygraphics.pop_transform:1 of
 msgid ""
 "Pop the last saved transform from the transform stack, and use it as the "
 "current transform."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ":obj:`push_transform <easygraphics.push_transform>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`push_transform <easygraphics.push_transform>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.Image.push_transform:1 easygraphics.push_transform:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.push_transform:1
+#: easygraphics.push_transform:1 of
 msgid "Push (save) the current transform to the transform stack."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ""
-":obj:`reflect <easygraphics.reflect>`\\ \\(x\\, y\\[\\, x1\\, y1\\, "
-"image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`reflect <easygraphics.reflect>`\\ \\(x\\, y\\, x1\\, y1\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ":obj:`reset_transform <easygraphics.reset_transform>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`reset_transform <easygraphics.reset_transform>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.Image.reset_transform:1 easygraphics.reset_transform:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.reset_transform:1
+#: easygraphics.reset_transform:1 of
 msgid "Reset all transforms (translate/rotate/scale)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ""
-":obj:`rotate <easygraphics.rotate>`\\ \\(degree\\[\\, x\\, y\\, "
-"image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`rotate <easygraphics.rotate>`\\ \\(degree\\, x\\, y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.Image.rotate:1 easygraphics.rotate:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.rotate:1
+#: easygraphics.rotate:1 of
 msgid ""
 "Rotates the coordinate system around the point (x,y) with the given angle"
 " (in degree) clockwise."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ":obj:`scale <easygraphics.scale>`\\ \\(sx\\, sy\\[\\, image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`scale <easygraphics.scale>`\\ \\(sx\\, sy\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.Image.scale:1 easygraphics.scale:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.scale:1
+#: easygraphics.scale:1 of
 msgid "Scales the coordinate system by (sx, sy)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ""
-":obj:`set_flip_y <easygraphics.set_flip_y>`\\ \\(flip\\_y\\[\\, "
-"image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`set_flip_y <easygraphics.set_flip_y>`\\ \\(flip\\_y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.set_flip_y:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.set_flip_y:1 of
 msgid "Reflect without texts using the x-axis as the axis (image upside down)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ""
 ":obj:`set_origin <easygraphics.set_origin>`\\ \\(offset\\_x\\, "
-"offset\\_y\\[\\, image\\]\\)"
+"offset\\_y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.set_origin:1 easygraphics.translate:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.set_origin:1
+#: easygraphics.translate:1 of
 msgid ""
 "Translates the coordinate system by the given offset; i.e.the given "
 "offset is added to points."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ""
-":obj:`set_transform <easygraphics.set_transform>`\\ \\(transform\\[\\, "
-"image\\]\\)"
+":obj:`set_transform <easygraphics.set_transform>`\\ \\(transform\\, "
+"image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.Image.set_transform:1 easygraphics.set_transform:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.set_transform:1
+#: easygraphics.set_transform:1 of
 msgid "Set image's transform matrix."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ""
-":obj:`shear <easygraphics.shear>`\\ \\(sh\\, sv\\[\\, x\\, y\\, "
-"image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`shear <easygraphics.shear>`\\ \\(sh\\, sv\\, x\\, y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-#: easygraphics.Image.shear:1 easygraphics.Image.skew:1 easygraphics.shear:1
-#: easygraphics.skew:1 of
+#: ../../api.rst:171:<autosummary>:1 easygraphics.Image.shear:1
+#: easygraphics.Image.skew:1 easygraphics.shear:1 easygraphics.skew:1 of
 msgid "Shear (skew) the coordinates around the point (x,y) by sh,sv."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
-msgid ":obj:`skew <easygraphics.skew>`\\ \\(sh\\, sv\\[\\, x\\, y\\, image\\]\\)"
+#: ../../api.rst:171:<autosummary>:1
+msgid ":obj:`skew <easygraphics.skew>`\\ \\(sh\\, sv\\, x\\, y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:169:<autosummary>:1
+#: ../../api.rst:171:<autosummary>:1
 msgid ""
 ":obj:`translate <easygraphics.translate>`\\ \\(offset\\_x\\, "
-"offset\\_y\\[\\, image\\]\\)"
+"offset\\_y\\, image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:171
+#: ../../api.rst:173
 msgid "Animation"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
+#: ../../api.rst:185:<autosummary>:1
 msgid ":obj:`delay <easygraphics.delay>`\\ \\(milliseconds\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
-#: easygraphics.delay:1 of
+#: ../../api.rst:185:<autosummary>:1 easygraphics.delay:1 of
 msgid "Delay the program for specified milliseconds."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
+#: ../../api.rst:185:<autosummary>:1
 msgid ":obj:`delay_fps <easygraphics.delay_fps>`\\ \\(fps\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
-#: easygraphics.delay_fps:1 of
+#: ../../api.rst:185:<autosummary>:1 easygraphics.delay_fps:1 of
 msgid "Delay the program to control fps (Frame per seconds)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
+#: ../../api.rst:185:<autosummary>:1
 msgid ""
 ":obj:`delay_jfps <easygraphics.delay_jfps>`\\ \\(fps\\[\\, "
 "max\\_skip\\_count\\]\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
-#: easygraphics.delay_jfps:1 of
+#: ../../api.rst:185:<autosummary>:1 easygraphics.delay_jfps:1 of
 msgid "Delay to control fps with frame skipping."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
+#: ../../api.rst:185:<autosummary>:1
 msgid ":obj:`get_render_mode <easygraphics.get_render_mode>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
-#: easygraphics.get_render_mode:1 easygraphics.set_render_mode:1 of
+#: ../../api.rst:185:<autosummary>:1 easygraphics.get_render_mode:1
+#: easygraphics.set_render_mode:1 of
 msgid "Set render mode of the graphics window."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
+#: ../../api.rst:185:<autosummary>:1
 msgid ":obj:`is_run <easygraphics.is_run>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
-#: easygraphics.is_run:1 of
+#: ../../api.rst:185:<autosummary>:1 easygraphics.is_run:1 of
 msgid "Test if the graphics system is running."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:183:<autosummary>:1
+#: ../../api.rst:185:<autosummary>:1
 msgid ":obj:`set_render_mode <easygraphics.set_render_mode>`\\ \\(mode\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:185
+#: ../../api.rst:187
 msgid "Image Processing"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-msgid ":obj:`add_record <easygraphics.add_record>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:205:<autosummary>:1
+msgid ":obj:`add_record <easygraphics.add_record>`\\ \\(image\\, \\*\\*options\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.add_record:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.add_record:1 of
 msgid "Add one frame to the recording animation"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ":obj:`begin_recording <easygraphics.begin_recording>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.begin_recording:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.begin_recording:1 of
 msgid "Start recording png animation"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ""
 ":obj:`capture_screen <easygraphics.capture_screen>`\\ \\(left\\, top\\, "
 "right\\, bottom\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.capture_screen:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.capture_screen:1 of
 msgid "Caputre specified region on the graphics windows to target image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ":obj:`close_image <easygraphics.close_image>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.Image.close:1 easygraphics.close_image:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.Image.close:1
+#: easygraphics.close_image:1 of
 msgid "Close and clean up the specified image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ":obj:`create_image <easygraphics.create_image>`\\ \\(width\\, height\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.Image.create:1 easygraphics.create_image:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.Image.create:1
+#: easygraphics.create_image:1 of
 msgid "Create a new image."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ""
-":obj:`draw_image <easygraphics.draw_image>`\\ \\(x\\, y\\, "
-"src\\_image\\[\\, src\\_x\\, src\\_y\\, ...\\]\\)"
+":obj:`draw_image <easygraphics.draw_image>`\\ \\(x\\, y\\, src\\_image\\,"
+" src\\_x\\, src\\_y\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.Image.draw_image:1 easygraphics.draw_image:1
-#: easygraphics.put_image:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.Image.draw_image:1
+#: easygraphics.draw_image:1 easygraphics.put_image:1 of
 msgid ""
 "Copy part of the source image (src_image) to the destination image "
 "(dst_image)."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ":obj:`end_recording <easygraphics.end_recording>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.end_recording:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.end_recording:1 of
 msgid "End the recording of the animation."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ":obj:`get_target <easygraphics.get_target>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.get_target:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.get_target:1 of
 msgid "Get the target image for drawing on."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ":obj:`load_image <easygraphics.load_image>`\\ \\(filename\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.Image.create_from_file:1 easygraphics.load_image:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.Image.create_from_file:1
+#: easygraphics.load_image:1 of
 msgid "Load a image from the file."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ""
-":obj:`put_image <easygraphics.put_image>`\\ \\(x\\, y\\, "
-"src\\_image\\[\\, src\\_x\\, src\\_y\\, ...\\]\\)"
+":obj:`put_image <easygraphics.put_image>`\\ \\(x\\, y\\, src\\_image\\, "
+"src\\_x\\, src\\_y\\, ...\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ""
 ":obj:`save_image <easygraphics.save_image>`\\ \\(filename\\[\\, "
-"with\\_background\\, image\\]\\)"
+"with\\_background\\]\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.Image.save:1 easygraphics.save_image:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.Image.save:1
+#: easygraphics.save_image:1 of
 msgid "Save image to file."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
+#: ../../api.rst:205:<autosummary>:1
 msgid ":obj:`save_recording <easygraphics.save_recording>`\\ \\(filename\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.save_recording:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.save_recording:1 of
 msgid "Save the recording animation in PNG format."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-msgid ":obj:`set_target <easygraphics.set_target>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:205:<autosummary>:1
+msgid ":obj:`set_target <easygraphics.set_target>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:203:<autosummary>:1
-#: easygraphics.set_target:1 of
+#: ../../api.rst:205:<autosummary>:1 easygraphics.set_target:1 of
 msgid "Set the target image for drawing on."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:205
+#: ../../api.rst:207
 msgid "Keyboard and Mouse"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ""
 ":obj:`contains_left_button <easygraphics.contains_left_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.contains_left_button:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.contains_left_button:1 of
 msgid "Test if the buttons contains the left mouse button."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ""
 ":obj:`contains_mid_button <easygraphics.contains_mid_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.contains_mid_button:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.contains_mid_button:1 of
 msgid "Test if the buttons contains the middle mouse button."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ""
 ":obj:`contains_right_button <easygraphics.contains_right_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.contains_right_button:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.contains_right_button:1 of
 msgid "Test if the buttons contains the right mouse button."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ":obj:`get_char <easygraphics.get_char>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.get_char:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.get_char:1 of
 msgid "Get the ascii char inputted by keyboard."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ":obj:`get_click <easygraphics.get_click>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.get_click:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.get_click:1 of
 msgid "Get the mouse click message."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ":obj:`get_cursor_pos <easygraphics.get_cursor_pos>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.get_cursor_pos:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.get_cursor_pos:1 of
 msgid "Get position of the mouse cursor"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ":obj:`get_key <easygraphics.get_key>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.get_key:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.get_key:1 of
 msgid "Get the key inputted by keyboard."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ":obj:`get_mouse_msg <easygraphics.get_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.get_mouse_msg:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.get_mouse_msg:1 of
 msgid "Get the mouse message."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ":obj:`has_kb_hit <easygraphics.has_kb_hit>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.has_kb_hit:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.has_kb_hit:1 of
 msgid "See if any ascii char key is hitted in the last 100 ms."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ":obj:`has_kb_msg <easygraphics.has_kb_msg>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.has_kb_msg:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.has_kb_msg:1 of
 msgid "See if any key is hit in the last 100 ms."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ":obj:`has_mouse_msg <easygraphics.has_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.has_mouse_msg:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.has_mouse_msg:1 of
 msgid "See if there is any mouse message(event) in the last 100 ms."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
+#: ../../api.rst:224:<autosummary>:1
 msgid ":obj:`pause <easygraphics.pause>`\\ \\(\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:222:<autosummary>:1
-#: easygraphics.pause:1 of
+#: ../../api.rst:224:<autosummary>:1 easygraphics.pause:1 of
 msgid "Pause the program and wait for mouse clicking or keyboard hitting."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:224
+#: ../../api.rst:226
 msgid "Color & utilities"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
+#: ../../api.rst:240:<autosummary>:1
 msgid ":obj:`cart2pol <easygraphics.cart2pol>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-#: easygraphics.cart2pol:1 of
+#: ../../api.rst:240:<autosummary>:1 easygraphics.cart2pol:1 of
 msgid "Transform a point from cartesian coordinates to polar coordinates."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
+#: ../../api.rst:240:<autosummary>:1
 msgid ""
-":obj:`color_cmyk <easygraphics.color_cmyk>`\\ \\(c\\, m\\, y\\, k\\[\\, "
-"alpha\\]\\)"
+":obj:`color_cmyk <easygraphics.color_cmyk>`\\ \\(c\\, m\\, y\\, k\\, "
+"alpha\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-#: easygraphics.color_cmyk:1 of
+#: ../../api.rst:240:<autosummary>:1 easygraphics.color_cmyk:1 of
 msgid "Create a color with CMYK color values c,m,y,k."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-msgid ""
-":obj:`color_hsv <easygraphics.color_hsv>`\\ \\(h\\, s\\, v\\[\\, "
-"alpha\\]\\)"
+#: ../../api.rst:240:<autosummary>:1
+msgid ":obj:`color_hsv <easygraphics.color_hsv>`\\ \\(h\\, s\\, v\\, alpha\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-#: easygraphics.color_hsv:1 of
+#: ../../api.rst:240:<autosummary>:1 easygraphics.color_hsv:1 of
 msgid "Create a color with HSV color values h,s,v."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
+#: ../../api.rst:240:<autosummary>:1
 msgid ""
-":obj:`color_rgb <easygraphics.color_rgb>`\\ \\(red\\, green\\, blue\\[\\,"
-" alpha\\]\\)"
+":obj:`color_rgb <easygraphics.color_rgb>`\\ \\(red\\, green\\, blue\\, "
+"alpha\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-#: easygraphics.color_rgb:1 easygraphics.rgb:1 of
+#: ../../api.rst:240:<autosummary>:1 easygraphics.color_rgb:1
+#: easygraphics.rgb:1 of
 msgid "Create a color with RGB color values r,g,b."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
+#: ../../api.rst:240:<autosummary>:1
 msgid ":obj:`pol2cart <easygraphics.pol2cart>`\\ \\(rho\\, theta\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-#: easygraphics.pol2cart:1 of
+#: ../../api.rst:240:<autosummary>:1 easygraphics.pol2cart:1 of
 msgid "Transform a point from polar coordinates to cartesian coordinates."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-msgid ":obj:`rgb <easygraphics.rgb>`\\ \\(red\\, green\\, blue\\[\\, alpha\\]\\)"
+#: ../../api.rst:240:<autosummary>:1
+msgid ":obj:`rgb <easygraphics.rgb>`\\ \\(red\\, green\\, blue\\, alpha\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-msgid ":obj:`show_image <easygraphics.show_image>`\\ \\(\\[image\\]\\)"
+#: ../../api.rst:240:<autosummary>:1
+msgid ":obj:`show_image <easygraphics.show_image>`\\ \\(image\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-#: easygraphics.show_image:1 of
+#: ../../api.rst:240:<autosummary>:1 easygraphics.show_image:1 of
 msgid "Display the image in ipython console or notebook."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-msgid ":obj:`to_alpha <easygraphics.to_alpha>`\\ \\(new\\_color\\[\\, alpha\\]\\)"
+#: ../../api.rst:240:<autosummary>:1
+msgid ":obj:`to_alpha <easygraphics.to_alpha>`\\ \\(new\\_color\\, alpha\\)"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:238:<autosummary>:1
-#: easygraphics.to_alpha:1 of
+#: ../../api.rst:240:<autosummary>:1 easygraphics.to_alpha:1 of
 msgid "Get new color based on the given color and alpha."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:240
+#: ../../api.rst:242
 msgid "Constants"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`Color <easygraphics.Color>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
-#: easygraphics.Color:1 of
+#: ../../api.rst:257:<autosummary>:1 easygraphics.Color:1 of
 msgid "These are the predefined Color constants."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`CompositionMode <easygraphics.CompositionMode>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
-#: easygraphics.CompositionMode:1 of
+#: ../../api.rst:257:<autosummary>:1 easygraphics.CompositionMode:1 of
 msgid "Defines the modes supported for digital image compositing."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`FillStyle <easygraphics.FillStyle>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
-#: easygraphics.FillStyle:1 of
+#: ../../api.rst:257:<autosummary>:1 easygraphics.FillStyle:1 of
 msgid "These are the fill style used by draw and fill functions."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`FillRule <easygraphics.FillRule>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
-#: easygraphics.FillRule:1 of
+#: ../../api.rst:257:<autosummary>:1 easygraphics.FillRule:1 of
 msgid "The Rule for fill polygons."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`LineStyle <easygraphics.LineStyle>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid "These are the line styles that can be drawn."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`MouseMessageType <easygraphics.MouseMessageType>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
-#: easygraphics.MouseMessageType:1 of
+#: ../../api.rst:257:<autosummary>:1 easygraphics.MouseMessageType:1 of
 msgid "These are the mouse message types."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`RenderMode <easygraphics.RenderMode>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
-#: easygraphics.RenderMode:1 of
+#: ../../api.rst:257:<autosummary>:1 easygraphics.RenderMode:1 of
 msgid "These are the graphics window render mode."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`TextFlags <easygraphics.TextFlags>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
-#: easygraphics.TextFlags:1 of
+#: ../../api.rst:257:<autosummary>:1 easygraphics.TextFlags:1 of
 msgid "These are the text drawing flags."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`ShapeMode <easygraphics.ShapeMode>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid "This flag controls how shapes will be drawn."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
+#: ../../api.rst:257:<autosummary>:1
 msgid ":obj:`VertexType <easygraphics.VertexType>`\\"
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:255:<autosummary>:1
-#: easygraphics.VertexType:1 of
+#: ../../api.rst:257:<autosummary>:1 easygraphics.VertexType:1 of
 msgid "These are the type of shape defined by a vertex list."
 msgstr ""
 
-#: E:/Workspaces/PyEasyGraphics/docs/api.rst:257
+#: ../../api.rst:259
 msgid "API Details"
 msgstr ""
 
@@ -2116,19 +2034,21 @@ msgstr ""
 #: easygraphics.Image.skew easygraphics.Image.text_width
 #: easygraphics.Image.to_bytes easygraphics.Image.translate
 #: easygraphics.Image.vertex easygraphics.add_record easygraphics.arc
-#: easygraphics.begin_shape easygraphics.bezier easygraphics.bezier_vertex
-#: easygraphics.capture_screen easygraphics.cart2pol easygraphics.chord
-#: easygraphics.circle easygraphics.clear easygraphics.clear_device
-#: easygraphics.clear_view_port easygraphics.close_image
-#: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsv
-#: easygraphics.color_rgb easygraphics.contains_left_button
-#: easygraphics.contains_mid_button easygraphics.contains_right_button
-#: easygraphics.create_image easygraphics.curve easygraphics.curve_vertex
-#: easygraphics.delay easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.draw_arc easygraphics.draw_bezier easygraphics.draw_chord
-#: easygraphics.draw_circle easygraphics.draw_curve easygraphics.draw_ellipse
-#: easygraphics.draw_image easygraphics.draw_line easygraphics.draw_lines
-#: easygraphics.draw_pie easygraphics.draw_point easygraphics.draw_poly_line
+#: easygraphics.begin_shape easygraphics.bezier easygraphics.bezier_point
+#: easygraphics.bezier_tangent easygraphics.bezier_vertex
+#: easygraphics.capture_screen easygraphics.cart2pol easygraphics.cart2sphere
+#: easygraphics.chord easygraphics.circle easygraphics.clear
+#: easygraphics.clear_device easygraphics.clear_view_port
+#: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_gray
+#: easygraphics.color_hsv easygraphics.color_rgb
+#: easygraphics.contains_left_button easygraphics.contains_mid_button
+#: easygraphics.contains_right_button easygraphics.create_image
+#: easygraphics.curve easygraphics.curve_vertex easygraphics.delay
+#: easygraphics.delay_fps easygraphics.delay_jfps easygraphics.draw_arc
+#: easygraphics.draw_bezier easygraphics.draw_chord easygraphics.draw_circle
+#: easygraphics.draw_curve easygraphics.draw_ellipse easygraphics.draw_image
+#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
+#: easygraphics.draw_point easygraphics.draw_poly_line
 #: easygraphics.draw_polygon easygraphics.draw_quadratic easygraphics.draw_rect
 #: easygraphics.draw_rect_text easygraphics.draw_rounded_rect
 #: easygraphics.draw_text easygraphics.ellipse easygraphics.end_shape
@@ -2163,7 +2083,7 @@ msgstr ""
 #: easygraphics.set_origin easygraphics.set_render_mode easygraphics.set_target
 #: easygraphics.set_transform easygraphics.set_view_port
 #: easygraphics.set_window easygraphics.set_write_mode easygraphics.shear
-#: easygraphics.show_image easygraphics.skew easygraphics.spher2cart
+#: easygraphics.show_image easygraphics.skew easygraphics.sphere2cart
 #: easygraphics.text_height easygraphics.text_width easygraphics.to_alpha
 #: easygraphics.translate easygraphics.vertex of
 msgid "Parameters"
@@ -2203,11 +2123,12 @@ msgstr ""
 #: easygraphics.Image.get_transform easygraphics.Image.get_width
 #: easygraphics.Image.get_x easygraphics.Image.get_y easygraphics.Image.set_pen
 #: easygraphics.Image.text_height easygraphics.Image.text_width
-#: easygraphics.Image.to_bytes easygraphics.cart2pol easygraphics.color_cmyk
-#: easygraphics.color_gray easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.delay_fps easygraphics.delay_jfps
+#: easygraphics.Image.to_bytes easygraphics.bezier_point
+#: easygraphics.bezier_tangent easygraphics.cart2pol easygraphics.cart2sphere
+#: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsv
+#: easygraphics.color_rgb easygraphics.contains_left_button
+#: easygraphics.contains_mid_button easygraphics.contains_right_button
+#: easygraphics.create_image easygraphics.delay_fps easygraphics.delay_jfps
 #: easygraphics.get_background_color easygraphics.get_char
 #: easygraphics.get_click easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
@@ -2223,7 +2144,7 @@ msgstr ""
 #: easygraphics.has_mouse_msg easygraphics.is_run easygraphics.load_image
 #: easygraphics.ortho_look_at easygraphics.pol2cart easygraphics.rgb
 #: easygraphics.set_fill_rule easygraphics.set_fill_style
-#: easygraphics.spher2cart easygraphics.text_height easygraphics.text_width
+#: easygraphics.sphere2cart easygraphics.text_height easygraphics.text_width
 #: easygraphics.to_alpha of
 msgid "Returns"
 msgstr ""
@@ -3567,6 +3488,38 @@ msgid ""
 "curve the vertex defined last time."
 msgstr ""
 
+#: easygraphics.bezier_point:3 easygraphics.bezier_tangent:3 of
+msgid "Note that the parameter t must >=0 and <=1 ."
+msgstr ""
+
+#: easygraphics.bezier_point:5 easygraphics.bezier_tangent:5 of
+msgid "position of the first control point"
+msgstr ""
+
+#: easygraphics.bezier_point:6 easygraphics.bezier_tangent:6 of
+msgid "position of the second control point"
+msgstr ""
+
+#: easygraphics.bezier_point:7 easygraphics.bezier_tangent:7 of
+msgid "position of the third control point"
+msgstr ""
+
+#: easygraphics.bezier_point:8 easygraphics.bezier_tangent:8 of
+msgid "position of the forth control point"
+msgstr ""
+
+#: easygraphics.bezier_point:9 easygraphics.bezier_tangent:9 of
+msgid "the parameter t"
+msgstr ""
+
+#: easygraphics.bezier_point:10 of
+msgid "position of the point"
+msgstr ""
+
+#: easygraphics.bezier_tangent:10 of
+msgid "tangent of the point"
+msgstr ""
+
 #: easygraphics.Image.draw_rect_text:9 easygraphics.draw_rect_text:9
 #: easygraphics.draw_text:5 of
 msgid "things to be printed (like print())"
@@ -3856,11 +3809,7 @@ msgstr ""
 #: easygraphics.add_record:3 of
 msgid ""
 "the target image whose content will be captured. None means it is the "
-"target image"
-msgstr ""
-
-#: easygraphics.add_record:4 of
-msgid "(see set_target() and get_target())."
+"target image (see set_target() and get_target())."
 msgstr ""
 
 #: easygraphics.color_gray:1 of
@@ -3967,29 +3916,43 @@ msgstr ""
 msgid "Return the  isometric perspective projection matrix :return:"
 msgstr ""
 
-#: easygraphics.cart2spher:1 of
-msgid ""
-"Convert cartesian coordinate to spherical coordinate :param x: :param y: "
-":param z: :return: radius,θ,φ"
+#: easygraphics.cart2sphere:1 of
+msgid "Convert cartesian coordinate to spherical coordinate"
 msgstr ""
 
-#: easygraphics.spher2cart:1 of
+#: easygraphics.cart2sphere:3 of
+msgid "x"
+msgstr ""
+
+#: easygraphics.cart2sphere:4 of
+msgid "y"
+msgstr ""
+
+#: easygraphics.cart2sphere:5 of
+msgid "z"
+msgstr ""
+
+#: easygraphics.cart2sphere:6 of
+msgid "radius,θ,φ"
+msgstr ""
+
+#: easygraphics.sphere2cart:1 of
 msgid "Convert spherical coordinate to cartesian coordinate"
 msgstr ""
 
-#: easygraphics.spher2cart:3 of
+#: easygraphics.sphere2cart:3 of
 msgid "radius"
 msgstr ""
 
-#: easygraphics.spher2cart:4 of
+#: easygraphics.sphere2cart:4 of
 msgid "θ"
 msgstr ""
 
-#: easygraphics.spher2cart:5 of
+#: easygraphics.sphere2cart:5 of
 msgid "φ"
 msgstr ""
 
-#: easygraphics.spher2cart:6 of
+#: easygraphics.sphere2cart:6 of
 msgid "x,y,z"
 msgstr ""
 
@@ -6157,5 +6120,485 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ":obj:`to_alpha <easygraphics.to_alpha>`\\ \\(new\\_color\\, alpha\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`init_graph <easygraphics.init_graph>`\\ "
+#~ "\\(\\[width\\, height\\, headless\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_background_color "
+#~ "<easygraphics.get_background_color>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_color <easygraphics.get_color>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_composition_mode "
+#~ "<easygraphics.get_composition_mode>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`get_drawing_pos <easygraphics.get_drawing_pos>`\\ "
+#~ "\\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_fill_color <easygraphics.get_fill_color>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_fill_rule <easygraphics.get_fill_rule>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_fill_style <easygraphics.get_fill_style>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_font <easygraphics.get_font>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_font_size <easygraphics.get_font_size>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_height <easygraphics.get_height>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_line_style <easygraphics.get_line_style>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_line_width <easygraphics.get_line_width>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_width <easygraphics.get_width>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_write_mode <easygraphics.get_write_mode>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_drawing_x <easygraphics.get_drawing_x>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_drawing_y <easygraphics.get_drawing_y>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`reset_view_port <easygraphics.reset_view_port>`\\ "
+#~ "\\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`reset_window <easygraphics.reset_window>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`restore_settings <easygraphics.restore_settings>`\\ "
+#~ "\\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`save_settings <easygraphics.save_settings>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_background_color "
+#~ "<easygraphics.set_background_color>`\\ \\(color\\[\\, "
+#~ "image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_clip_rect <easygraphics.set_clip_rect>`\\ "
+#~ "\\(left\\, top\\, right\\, bottom\\[\\, "
+#~ "image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_clipping <easygraphics.set_clipping>`\\ "
+#~ "\\(clipping\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`set_color <easygraphics.set_color>`\\ \\(color\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_composition_mode "
+#~ "<easygraphics.set_composition_mode>`\\ \\(mode\\[\\, "
+#~ "image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_fill_color <easygraphics.set_fill_color>`\\ "
+#~ "\\(color\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_fill_rule <easygraphics.set_fill_rule>`\\ "
+#~ "\\(rule\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_fill_style <easygraphics.set_fill_style>`\\ "
+#~ "\\(style\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`set_font <easygraphics.set_font>`\\ \\(font\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_font_size <easygraphics.set_font_size>`\\ "
+#~ "\\(size\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_line_style <easygraphics.set_line_style>`\\ "
+#~ "\\(line\\_style\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_line_width <easygraphics.set_line_width>`\\ "
+#~ "\\(width\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_view_port <easygraphics.set_view_port>`\\ "
+#~ "\\(left\\, top\\, right\\, bottom\\[\\, "
+#~ "...\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_window <easygraphics.set_window>`\\ \\(left\\,"
+#~ " top\\, width\\, height\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_write_mode <easygraphics.set_write_mode>`\\ "
+#~ "\\(mode\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`text_height <easygraphics.text_height>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`text_width <easygraphics.text_width>`\\ \\(text\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`bezier <easygraphics.bezier>`\\ \\(x0\\, y0\\,"
+#~ " x1\\, y1\\, x2\\, y2\\, x3\\, "
+#~ "y3\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`chord <easygraphics.chord>`\\ \\(x\\, y\\, "
+#~ "start\\_angle\\, end\\_angle\\, ...\\[\\, "
+#~ "image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`circle <easygraphics.circle>`\\ \\(x\\, y\\, r\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`clear_device <easygraphics.clear_device>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`clear_view_port <easygraphics.clear_view_port>`\\ "
+#~ "\\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`curve <easygraphics.curve>`\\ \\(\\*points\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_bezier <easygraphics.draw_bezier>`\\ \\(x0\\,"
+#~ " y0\\, x1\\, y1\\, x2\\, y2\\, x3\\,"
+#~ " y3\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_circle <easygraphics.draw_circle>`\\ \\(x\\,"
+#~ " y\\, r\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_curve <easygraphics.draw_curve>`\\ "
+#~ "\\(\\*points\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_ellipse <easygraphics.draw_ellipse>`\\ \\(x\\,"
+#~ " y\\, radius\\_x\\, radius\\_y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_line <easygraphics.draw_line>`\\ \\(x1\\, "
+#~ "y1\\, x2\\, y2\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_lines <easygraphics.draw_lines>`\\ "
+#~ "\\(\\*points\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_point <easygraphics.draw_point>`\\ \\(x\\, "
+#~ "y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_poly_line <easygraphics.draw_poly_line>`\\ "
+#~ "\\(\\*end\\_points\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_polygon <easygraphics.draw_polygon>`\\ "
+#~ "\\(\\*vertices\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_quadratic <easygraphics.draw_quadratic>`\\ "
+#~ "\\(x0\\, y0\\, x1\\, y1\\, x2\\, "
+#~ "y2\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_rect <easygraphics.draw_rect>`\\ \\(left\\, "
+#~ "top\\, right\\, bottom\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_text <easygraphics.draw_text>`\\ \\(x\\, "
+#~ "y\\, \\*args\\[\\, sep\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`ellipse <easygraphics.ellipse>`\\ \\(x\\, y\\,"
+#~ " radius\\_x\\, radius\\_y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`fill_circle <easygraphics.fill_circle>`\\ \\(x\\,"
+#~ " y\\, r\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`fill_ellipse <easygraphics.fill_ellipse>`\\ \\(x\\,"
+#~ " y\\, radius\\_x\\, radius\\_y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`fill_polygon <easygraphics.fill_polygon>`\\ "
+#~ "\\(\\*vertices\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`fill_rect <easygraphics.fill_rect>`\\ \\(left\\, "
+#~ "top\\, right\\, bottom\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`flood_fill <easygraphics.flood_fill>`\\ \\(x\\, "
+#~ "y\\, border\\_color\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_pixel <easygraphics.get_pixel>`\\ \\(x\\, y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`line <easygraphics.line>`\\ \\(x1\\, y1\\, "
+#~ "x2\\, y2\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`line_rel <easygraphics.line_rel>`\\ \\(dx\\, dy\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`line_to <easygraphics.line_to>`\\ \\(x\\, y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`lines <easygraphics.lines>`\\ \\(\\*points\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`move_rel <easygraphics.move_rel>`\\ \\(dx\\, dy\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`move_to <easygraphics.move_to>`\\ \\(x\\, y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`poly_line <easygraphics.poly_line>`\\ "
+#~ "\\(\\*end\\_points\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`polygon <easygraphics.polygon>`\\ "
+#~ "\\(\\*vertices\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`put_pixel <easygraphics.put_pixel>`\\ \\(x\\, "
+#~ "y\\, color\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`quadratic <easygraphics.quadratic>`\\ \\(x0\\, "
+#~ "y0\\, x1\\, y1\\, x2\\, y2\\[\\, "
+#~ "image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`rect <easygraphics.rect>`\\ \\(left\\, top\\,"
+#~ " right\\, bottom\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`begin_shape <easygraphics.begin_shape>`\\ "
+#~ "\\(\\[type\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`end_shape <easygraphics.end_shape>`\\ \\(\\[close\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`bezier_vertex <easygraphics.bezier_vertex>`\\ "
+#~ "\\(x1\\, y1\\, x2\\, y2\\, x3\\, "
+#~ "y3\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`curve_vertex <easygraphics.curve_vertex>`\\ \\(x\\,"
+#~ " y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`quadratic_vertex <easygraphics.quadratic_vertex>`\\ "
+#~ "\\(x1\\, y1\\, x2\\, y2\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`vertex <easygraphics.vertex>`\\ \\(x\\, y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`flip <easygraphics.flip>`\\ \\(x\\, y\\[\\,"
+#~ " x1\\, y1\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`get_transform <easygraphics.get_transform>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`mirror <easygraphics.mirror>`\\ \\(x\\, "
+#~ "y\\[\\, x1\\, y1\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`pop_transform <easygraphics.pop_transform>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`push_transform <easygraphics.push_transform>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`reflect <easygraphics.reflect>`\\ \\(x\\, "
+#~ "y\\[\\, x1\\, y1\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`reset_transform <easygraphics.reset_transform>`\\ "
+#~ "\\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`rotate <easygraphics.rotate>`\\ \\(degree\\[\\, "
+#~ "x\\, y\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`scale <easygraphics.scale>`\\ \\(sx\\, sy\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_flip_y <easygraphics.set_flip_y>`\\ "
+#~ "\\(flip\\_y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_origin <easygraphics.set_origin>`\\ "
+#~ "\\(offset\\_x\\, offset\\_y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`set_transform <easygraphics.set_transform>`\\ "
+#~ "\\(transform\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`shear <easygraphics.shear>`\\ \\(sh\\, "
+#~ "sv\\[\\, x\\, y\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`skew <easygraphics.skew>`\\ \\(sh\\, sv\\[\\,"
+#~ " x\\, y\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`translate <easygraphics.translate>`\\ "
+#~ "\\(offset\\_x\\, offset\\_y\\[\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`add_record <easygraphics.add_record>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`draw_image <easygraphics.draw_image>`\\ \\(x\\, "
+#~ "y\\, src\\_image\\[\\, src\\_x\\, src\\_y\\, "
+#~ "...\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`put_image <easygraphics.put_image>`\\ \\(x\\, "
+#~ "y\\, src\\_image\\[\\, src\\_x\\, src\\_y\\, "
+#~ "...\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`save_image <easygraphics.save_image>`\\ "
+#~ "\\(filename\\[\\, with\\_background\\, image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`set_target <easygraphics.set_target>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`color_cmyk <easygraphics.color_cmyk>`\\ \\(c\\, "
+#~ "m\\, y\\, k\\[\\, alpha\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`color_hsv <easygraphics.color_hsv>`\\ \\(h\\, "
+#~ "s\\, v\\[\\, alpha\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`color_rgb <easygraphics.color_rgb>`\\ \\(red\\, "
+#~ "green\\, blue\\[\\, alpha\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`rgb <easygraphics.rgb>`\\ \\(red\\, green\\,"
+#~ " blue\\[\\, alpha\\]\\)"
+#~ msgstr ""
+
+#~ msgid ":obj:`show_image <easygraphics.show_image>`\\ \\(\\[image\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":obj:`to_alpha <easygraphics.to_alpha>`\\ "
+#~ "\\(new\\_color\\[\\, alpha\\]\\)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Convert cartesian coordinate to spherical "
+#~ "coordinate :param x: :param y: :param"
+#~ " z: :return: radius,θ,φ"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "the target image whose content will "
+#~ "be captured. None means it is the"
+#~ " target image"
 #~ msgstr ""
 

@@ -38,6 +38,7 @@ __all__ = [
     'flood_fill', 'draw_image', 'capture_screen', 'clear_device', 'clear_view_port',
     'quadratic', 'draw_quadratic', 'fill_image', 'clear', 'draw_curve', 'curve',
     'begin_shape', 'end_shape', 'vertex', 'bezier_vertex', 'quadratic_vertex', 'curve_vertex',
+    'bezier_point','bezier_tangent',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
@@ -54,7 +55,7 @@ __all__ = [
     # utility functions #
     'color_gray', 'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol',
     # utility functions for 3d
-    'ortho_look_at', 'isometric_projection', 'cart2spher', 'spher2cart',
+    'ortho_look_at', 'isometric_projection', 'cart2sphere', 'sphere2cart',
     # 'GraphWin',
     'Image',
     # Easy run mode
@@ -1632,6 +1633,40 @@ def clear_view_port(image: Image = None):
     image.clear_view_port()
 
 
+def bezier_point(p0:float, p1:float, p2:float, p3:float, t:float):
+    """
+    Calculate the position of a point with parameter t on the cubic bezier curve.
+
+    Note that the parameter t must >=0 and <=1 .
+
+    :param p0: position of the first control point
+    :param p1: position of the second control point
+    :param p2: position of the third control point
+    :param p3: position of the forth control point
+    :param t: the parameter t
+    :return: position of the point
+    """
+    if t<0 or t>1:
+        raise ValueError("t must in [0..1]")
+    return (1-t) ** 3 * p0 + 3 * (1 - t) ** 2 * t * p1 + 3 * (1 - t) * t ** 2 * p2 + t ** 3 * p3
+
+def bezier_tangent(p0:float, p1:float, p2:float, p3:float, t:float):
+    """
+    Calculate the tangent of the point with parameter t on the cubic bezier curve.
+
+    Note that the parameter t must >=0 and <=1 .
+
+    :param p0: position of the first control point
+    :param p1: position of the second control point
+    :param p2: position of the third control point
+    :param p3: position of the forth control point
+    :param t: the parameter t
+    :return: tangent of the point
+    """
+    if t<0 or t>1:
+        raise ValueError("t must in [0..1]")
+    return 3*(1-t)**2*(p1-p0)+6*(1-t)*t*(p2-p1)+3*t**2*(p3-p2)
+
 def begin_shape(type=VertexType.POLY_LINE, image: Image = None):
     """
     Begin a shape definition
@@ -2349,8 +2384,7 @@ def add_record(image: Image = None, **options):
     """
     Add one frame to the recording animation
 
-    :param image: the target image whose content will be captured. None means it is the target image
-    (see set_target() and get_target()).
+    :param image: the target image whose content will be captured. None means it is the target image (see set_target() and get_target()).
     """
     if _animation is None:
         raise RuntimeError("There's no animation in recording!")
