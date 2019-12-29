@@ -38,7 +38,7 @@ __all__ = [
     'flood_fill', 'draw_image', 'capture_screen', 'clear_device', 'clear_view_port',
     'quadratic', 'draw_quadratic', 'fill_image', 'clear', 'draw_curve', 'curve',
     'begin_shape', 'end_shape', 'vertex', 'bezier_vertex', 'quadratic_vertex', 'curve_vertex',
-    'bezier_point','bezier_tangent',
+    'bezier_point','bezier_tangent','curve_point','curve_tangent',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
@@ -1666,6 +1666,53 @@ def bezier_tangent(p0:float, p1:float, p2:float, p3:float, t:float):
     if t<0 or t>1:
         raise ValueError("t must in [0..1]")
     return 3*(1-t)**2*(p1-p0)+6*(1-t)*t*(p2-p1)+3*t**2*(p3-p2)
+
+
+def curve_point(p0:float, p1:float, p2:float, p3:float, t:float):
+    """
+    Calculate the position of the point with parameter t on a Catmull-Rom spline.
+
+    Note that the parameter t must >=0 and <=1 .
+
+    :param p0: position of the first control point
+    :param p1: position of the second control point
+    :param p2: position of the third control point
+    :param p3: position of the forth control point
+    :param t: the parameter t
+    :return: position of the point
+    """
+    if t<0 or t>1:
+        raise ValueError("t must in [0..1]")
+
+    x0 = p1
+    x1 = -p0 / 6 + p1 + p2 / 6
+    x2 = p1 / 6 + p2 - p3 / 6
+    x3 = p2
+
+    return bezier_point(x0,x1,x2,x3,t)
+
+def curve_tangent(p0:float, p1:float, p2:float, p3:float, t:float):
+    """
+    Calculate the tangent of the point with parameter t on a Catmull-Rom spline.
+
+    Note that the parameter t must >=0 and <=1 .
+
+    :param p0: position of the first control point
+    :param p1: position of the second control point
+    :param p2: position of the third control point
+    :param p3: position of the forth control point
+    :param t: the parameter t
+    :return: tangent of the point
+    """
+    if t<0 or t>1:
+        raise ValueError("t must in [0..1]")
+
+    x0 = p1
+    x1 = -p0 / 6 + p1 + p2 / 6
+    x2 = p1 / 6 + p2 - p3 / 6
+    x3 = p2
+
+    return bezier_tangent(x0,x1,x2,x3,t)
 
 def begin_shape(type=VertexType.POLY_LINE, image: Image = None):
     """
