@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-28 23:10+0800\n"
+"POT-Creation-Date: 2019-12-29 19:43+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -2044,13 +2044,14 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.color_hsv easygraphics.color_rgb
 #: easygraphics.contains_left_button easygraphics.contains_mid_button
 #: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.curve easygraphics.curve_vertex easygraphics.delay
-#: easygraphics.delay_fps easygraphics.delay_jfps easygraphics.draw_arc
-#: easygraphics.draw_bezier easygraphics.draw_chord easygraphics.draw_circle
-#: easygraphics.draw_curve easygraphics.draw_ellipse easygraphics.draw_image
-#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
-#: easygraphics.draw_point easygraphics.draw_poly_line
-#: easygraphics.draw_polygon easygraphics.draw_quadratic easygraphics.draw_rect
+#: easygraphics.curve easygraphics.curve_point easygraphics.curve_tangent
+#: easygraphics.curve_vertex easygraphics.delay easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.draw_arc easygraphics.draw_bezier
+#: easygraphics.draw_chord easygraphics.draw_circle easygraphics.draw_curve
+#: easygraphics.draw_ellipse easygraphics.draw_image easygraphics.draw_line
+#: easygraphics.draw_lines easygraphics.draw_pie easygraphics.draw_point
+#: easygraphics.draw_poly_line easygraphics.draw_polygon
+#: easygraphics.draw_quadratic easygraphics.draw_rect
 #: easygraphics.draw_rect_text easygraphics.draw_rounded_rect
 #: easygraphics.draw_text easygraphics.ellipse easygraphics.end_shape
 #: easygraphics.fill_chord easygraphics.fill_circle easygraphics.fill_ellipse
@@ -2129,7 +2130,8 @@ msgstr "要获取线型的图片。None表示使用“绘图目标”图片（�
 #: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsv
 #: easygraphics.color_rgb easygraphics.contains_left_button
 #: easygraphics.contains_mid_button easygraphics.contains_right_button
-#: easygraphics.create_image easygraphics.delay_fps easygraphics.delay_jfps
+#: easygraphics.create_image easygraphics.curve_point
+#: easygraphics.curve_tangent easygraphics.delay_fps easygraphics.delay_jfps
 #: easygraphics.get_background_color easygraphics.get_char
 #: easygraphics.get_click easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
@@ -3448,11 +3450,11 @@ msgstr "控制点坐标"
 
 #: easygraphics.Image.begin_shape:3 easygraphics.begin_shape:3 of
 msgid "the type of the shape. See VertexType const for more information"
-msgstr ""
+msgstr "形状的类型。参见VertexType常量说明。"
 
 #: easygraphics.Image.end_shape:3 easygraphics.end_shape:3 of
 msgid "if the shape should be closed. Only polylines can be closed."
-msgstr ""
+msgstr "形状是否应该自动闭合。只有多义线（polyline）能自动闭合。"
 
 #: easygraphics.Image.curve_vertex:3 easygraphics.Image.vertex:3
 #: easygraphics.curve_vertex:3 easygraphics.vertex:3 of
@@ -3468,7 +3470,7 @@ msgstr "顶点的y坐标"
 msgid ""
 "Define a cubic Bezier curve. The first control point of the curve the "
 "vertex defined last time."
-msgstr ""
+msgstr "定义一个三次贝塞尔曲线的顶点。曲线的第一个控制点是上次提供的最后一个顶点。"
 
 #: easygraphics.Image.bezier_vertex:3 easygraphics.Image.quadratic_vertex:3
 #: easygraphics.bezier_vertex:3 easygraphics.quadratic_vertex:3 of
@@ -3504,37 +3506,55 @@ msgid ""
 "curve the vertex defined last time."
 msgstr ""
 
-#: easygraphics.bezier_point:3 easygraphics.bezier_tangent:3 of
+#: easygraphics.bezier_point:3 easygraphics.bezier_tangent:3
+#: easygraphics.curve_point:3 easygraphics.curve_tangent:3 of
 msgid "Note that the parameter t must >=0 and <=1 ."
 msgstr "注意，参数t的值必须介于0和1之间"
 
-#: easygraphics.bezier_point:5 easygraphics.bezier_tangent:5 of
+#: easygraphics.bezier_point:5 easygraphics.bezier_tangent:5
+#: easygraphics.curve_point:5 easygraphics.curve_tangent:5 of
 msgid "position of the first control point"
 msgstr "第一个控制点的位置"
 
-#: easygraphics.bezier_point:6 easygraphics.bezier_tangent:6 of
+#: easygraphics.bezier_point:6 easygraphics.bezier_tangent:6
+#: easygraphics.curve_point:6 easygraphics.curve_tangent:6 of
 msgid "position of the second control point"
 msgstr "第二个控制点的位置"
 
-#: easygraphics.bezier_point:7 easygraphics.bezier_tangent:7 of
+#: easygraphics.bezier_point:7 easygraphics.bezier_tangent:7
+#: easygraphics.curve_point:7 easygraphics.curve_tangent:7 of
 msgid "position of the third control point"
 msgstr "第三个控制点的位置"
 
-#: easygraphics.bezier_point:8 easygraphics.bezier_tangent:8 of
+#: easygraphics.bezier_point:8 easygraphics.bezier_tangent:8
+#: easygraphics.curve_point:8 easygraphics.curve_tangent:8 of
 msgid "position of the forth control point"
 msgstr "第四个控制点的位置"
 
-#: easygraphics.bezier_point:9 easygraphics.bezier_tangent:9 of
+#: easygraphics.bezier_point:9 easygraphics.bezier_tangent:9
+#: easygraphics.curve_point:9 easygraphics.curve_tangent:9 of
 msgid "the parameter t"
 msgstr "参数t"
 
-#: easygraphics.bezier_point:10 of
+#: easygraphics.bezier_point:10 easygraphics.curve_point:10 of
 msgid "position of the point"
 msgstr "点的位置"
 
-#: easygraphics.bezier_tangent:10 of
+#: easygraphics.bezier_tangent:10 easygraphics.curve_tangent:10 of
 msgid "tangent of the point"
 msgstr "点的切线斜率"
+
+#: easygraphics.curve_point:1 of
+msgid ""
+"Calculate the position of the point with parameter t on a Catmull-Rom "
+"spline."
+msgstr "计算Catmull-Rom曲线上参数值为t的点的位置"
+
+#: easygraphics.curve_tangent:1 of
+msgid ""
+"Calculate the tangent of the point with parameter t on a Catmull-Rom "
+"spline."
+msgstr "计算Catmull-Rom曲线上参数值为t的点的切线斜率。"
 
 #: easygraphics.Image.draw_rect_text:9 easygraphics.draw_rect_text:9
 #: easygraphics.draw_text:5 of
@@ -3602,7 +3622,7 @@ msgstr "创建的图片"
 
 #: easygraphics.create_image_from_ndarray:1 of
 msgid "Convert a ndarray (opencv 3.0 image) to an Image object"
-msgstr ""
+msgstr "将一个ndarray（opencv 3.0的图像格式）转化为easygraphics image对象。"
 
 #: easygraphics.Image.save:3 easygraphics.save_image:3 of
 msgid "Set with_background to False to get a transparent background image."
@@ -3826,14 +3846,11 @@ msgid "the filename of the save file."
 msgstr "要保存的文件名"
 
 #: easygraphics.add_record:3 of
+#, fuzzy
 msgid ""
 "the target image whose content will be captured. None means it is the "
-"target image"
-msgstr "要被截取内容的图片。None表示使用“绘图目标”图片"
-
-#: easygraphics.add_record:4 of
-msgid "(see set_target() and get_target())."
-msgstr "（参见set_target()和get_target())"
+"target image (see set_target() and get_target())."
+msgstr "要保存的图片。None表示使用“绘图目标”图片（参见set_target()和get_target())"
 
 #: easygraphics.color_gray:1 of
 msgid "Create a gray color."
@@ -3953,7 +3970,7 @@ msgstr "y"
 
 #: easygraphics.cart2sphere:5 of
 msgid "z"
-msgstr ""
+msgstr "z"
 
 #: easygraphics.cart2sphere:6 of
 msgid "radius,θ,φ"
@@ -3965,19 +3982,19 @@ msgstr "从球坐标转换为笛卡尔坐标。"
 
 #: easygraphics.sphere2cart:3 of
 msgid "radius"
-msgstr ""
+msgstr "radius"
 
 #: easygraphics.sphere2cart:4 of
 msgid "θ"
-msgstr ""
+msgstr "θ"
 
 #: easygraphics.sphere2cart:5 of
 msgid "φ"
-msgstr ""
+msgstr "φ"
 
 #: easygraphics.sphere2cart:6 of
 msgid "x,y,z"
-msgstr ""
+msgstr "x,y,z"
 
 #: easygraphics.Image:1 of
 msgid "The image class."
@@ -4000,11 +4017,11 @@ msgstr "注意，Image对象内部保存并反复使用painter来绘图。因此
 
 #: easygraphics.Image.add_updated_listener:1 of
 msgid "Add a listener for updated event."
-msgstr ""
+msgstr "添加一个更新事件的监听器"
 
 #: easygraphics.Image.add_updated_listener:3 of
 msgid "the listener to add"
-msgstr ""
+msgstr "要添加的监听器"
 
 #: easygraphics.Image.arc:1 easygraphics.Image.draw_arc:1 of
 msgid ""
@@ -4203,11 +4220,11 @@ msgstr "要绘制的路径"
 
 #: easygraphics.Image.remove_updated_listener:1 of
 msgid "Remove a updated event listener."
-msgstr ""
+msgstr "删除一个更新事件监听器"
 
 #: easygraphics.Image.remove_updated_listener:3 of
 msgid "the listener to remove"
-msgstr ""
+msgstr "要删除的监听器"
 
 #: easygraphics.Image.reset_window:1 of
 msgid "Reset/remove the logical window.(see set_window())"
@@ -4270,11 +4287,11 @@ msgstr "**如果视口和逻辑窗口的宽度和高度不一致，绘制的内�
 
 #: easygraphics.Image.to_bytes:1 of
 msgid "Convert the image to the specified format (i.e. PNG format) bytes."
-msgstr ""
+msgstr "将图片转换为指定的格式（如PNG格式）的字节流"
 
 #: easygraphics.Image.to_bytes:4 of
 msgid "format of the bytes content"
-msgstr ""
+msgstr "字节流内容的格式"
 
 #: easygraphics.Image.to_bytes:5 of
 msgid "bytes in the specified format"
@@ -4288,7 +4305,7 @@ msgstr "将坐标轴平移指定的位移。"
 
 #: easygraphics.register_for_clean_up:1 of
 msgid "Register an object for clean up when the app quits."
-msgstr ""
+msgstr "将一个对象注册，程序退出时会对其进行清理（调用其close()方法）"
 
 #~ msgid "Get composition mode of the specified image"
 #~ msgstr "设置指定图片的合成模式。"
@@ -4335,7 +4352,7 @@ msgstr ""
 #~ msgstr "要翻转的图片。None表示使用“绘图目标”图片"
 
 #~ msgid "(see set_target() and get_target())."
-#~ msgstr "(参阅set_target()和get_target()"
+#~ msgstr "（参见set_target()和get_target())"
 
 #~ msgid "Submodules"
 #~ msgstr "子模块(Submodules)"
@@ -5705,4 +5722,10 @@ msgstr ""
 #~ "coordinate :param x: :param y: :param"
 #~ " z: :return: radius,θ,φ"
 #~ msgstr "将笛卡尔坐标值转换为球坐标值"
+
+#~ msgid ""
+#~ "the target image whose content will "
+#~ "be captured. None means it is the"
+#~ " target image"
+#~ msgstr "要被截取内容的图片。None表示使用“绘图目标”图片"
 

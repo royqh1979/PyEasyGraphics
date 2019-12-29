@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-28 23:11+0800\n"
+"POT-Creation-Date: 2019-12-29 19:43+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2043,13 +2043,14 @@ msgstr ""
 #: easygraphics.color_hsv easygraphics.color_rgb
 #: easygraphics.contains_left_button easygraphics.contains_mid_button
 #: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.curve easygraphics.curve_vertex easygraphics.delay
-#: easygraphics.delay_fps easygraphics.delay_jfps easygraphics.draw_arc
-#: easygraphics.draw_bezier easygraphics.draw_chord easygraphics.draw_circle
-#: easygraphics.draw_curve easygraphics.draw_ellipse easygraphics.draw_image
-#: easygraphics.draw_line easygraphics.draw_lines easygraphics.draw_pie
-#: easygraphics.draw_point easygraphics.draw_poly_line
-#: easygraphics.draw_polygon easygraphics.draw_quadratic easygraphics.draw_rect
+#: easygraphics.curve easygraphics.curve_point easygraphics.curve_tangent
+#: easygraphics.curve_vertex easygraphics.delay easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.draw_arc easygraphics.draw_bezier
+#: easygraphics.draw_chord easygraphics.draw_circle easygraphics.draw_curve
+#: easygraphics.draw_ellipse easygraphics.draw_image easygraphics.draw_line
+#: easygraphics.draw_lines easygraphics.draw_pie easygraphics.draw_point
+#: easygraphics.draw_poly_line easygraphics.draw_polygon
+#: easygraphics.draw_quadratic easygraphics.draw_rect
 #: easygraphics.draw_rect_text easygraphics.draw_rounded_rect
 #: easygraphics.draw_text easygraphics.ellipse easygraphics.end_shape
 #: easygraphics.fill_chord easygraphics.fill_circle easygraphics.fill_ellipse
@@ -2128,7 +2129,8 @@ msgstr ""
 #: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsv
 #: easygraphics.color_rgb easygraphics.contains_left_button
 #: easygraphics.contains_mid_button easygraphics.contains_right_button
-#: easygraphics.create_image easygraphics.delay_fps easygraphics.delay_jfps
+#: easygraphics.create_image easygraphics.curve_point
+#: easygraphics.curve_tangent easygraphics.delay_fps easygraphics.delay_jfps
 #: easygraphics.get_background_color easygraphics.get_char
 #: easygraphics.get_click easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
@@ -3488,36 +3490,54 @@ msgid ""
 "curve the vertex defined last time."
 msgstr ""
 
-#: easygraphics.bezier_point:3 easygraphics.bezier_tangent:3 of
+#: easygraphics.bezier_point:3 easygraphics.bezier_tangent:3
+#: easygraphics.curve_point:3 easygraphics.curve_tangent:3 of
 msgid "Note that the parameter t must >=0 and <=1 ."
 msgstr ""
 
-#: easygraphics.bezier_point:5 easygraphics.bezier_tangent:5 of
+#: easygraphics.bezier_point:5 easygraphics.bezier_tangent:5
+#: easygraphics.curve_point:5 easygraphics.curve_tangent:5 of
 msgid "position of the first control point"
 msgstr ""
 
-#: easygraphics.bezier_point:6 easygraphics.bezier_tangent:6 of
+#: easygraphics.bezier_point:6 easygraphics.bezier_tangent:6
+#: easygraphics.curve_point:6 easygraphics.curve_tangent:6 of
 msgid "position of the second control point"
 msgstr ""
 
-#: easygraphics.bezier_point:7 easygraphics.bezier_tangent:7 of
+#: easygraphics.bezier_point:7 easygraphics.bezier_tangent:7
+#: easygraphics.curve_point:7 easygraphics.curve_tangent:7 of
 msgid "position of the third control point"
 msgstr ""
 
-#: easygraphics.bezier_point:8 easygraphics.bezier_tangent:8 of
+#: easygraphics.bezier_point:8 easygraphics.bezier_tangent:8
+#: easygraphics.curve_point:8 easygraphics.curve_tangent:8 of
 msgid "position of the forth control point"
 msgstr ""
 
-#: easygraphics.bezier_point:9 easygraphics.bezier_tangent:9 of
+#: easygraphics.bezier_point:9 easygraphics.bezier_tangent:9
+#: easygraphics.curve_point:9 easygraphics.curve_tangent:9 of
 msgid "the parameter t"
 msgstr ""
 
-#: easygraphics.bezier_point:10 of
+#: easygraphics.bezier_point:10 easygraphics.curve_point:10 of
 msgid "position of the point"
 msgstr ""
 
-#: easygraphics.bezier_tangent:10 of
+#: easygraphics.bezier_tangent:10 easygraphics.curve_tangent:10 of
 msgid "tangent of the point"
+msgstr ""
+
+#: easygraphics.curve_point:1 of
+msgid ""
+"Calculate the position of the point with parameter t on a Catmull-Rom "
+"spline."
+msgstr ""
+
+#: easygraphics.curve_tangent:1 of
+msgid ""
+"Calculate the tangent of the point with parameter t on a Catmull-Rom "
+"spline."
 msgstr ""
 
 #: easygraphics.Image.draw_rect_text:9 easygraphics.draw_rect_text:9
