@@ -288,11 +288,11 @@ class GraphWin(QtWidgets.QWidget):
             # if the last key msg is 100ms ago, we wait for a new msg
             self._key_event.clear()
             self._key_event.wait()
-        e = self._key_msg.get_event()
-        if e is None:
+        k = self._key_msg.get_key()
+        modifiers = self._key_msg.get_modifiers()
+        if k is None:
             return QtCore.Qt.Key_Escape, QtCore.Qt.NoModifier
-        self._key_msg.reset()
-        return e.key(), e.modifiers()
+        return k,modifiers
 
     def get_mouse_msg(self) -> (int, int, int, int):
         """
@@ -339,7 +339,7 @@ class GraphWin(QtWidgets.QWidget):
         :return:  True if hit, False otherwise
         """
         nt = time.perf_counter_ns()
-        return nt - self._key_char_msg.get_time() <= 100000000
+        return nt - self._key_msg.get_time() <= 100000000
 
     def has_mouse_msg(self) -> bool:
         """
@@ -369,21 +369,27 @@ class _KeyMsg:
 
     def __init__(self):
         self._time = 0
-        self._key_event = None
+        self._key = None
+        self._modifiers = None
 
     def set_event(self, key_event: QtGui.QKeyEvent):
-        self._key_event = key_event
+        self._key = key_event.key()
+        self._modifiers = key_event.modifiers()
         self._time = time.perf_counter_ns()
 
-    def get_event(self) -> QtGui.QKeyEvent:
-        return self._key_event
+    def get_key(self) -> int:
+        return self._key
+
+    def get_modifiers(self)->QtCore.Qt.KeyboardModifiers:
+        return self._modifiers
 
     def get_time(self) -> int:
         return self._time
 
     def reset(self):
         self._time = 0
-        self._key_event = None
+        self._key = None
+        self._modifiers = None
 
 
 class _KeyCharMsg:

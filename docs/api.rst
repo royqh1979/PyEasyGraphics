@@ -91,6 +91,8 @@ Basic Drawing
     clear_device
     clear_view_port
     curve
+    curve_point
+    curve_tangent
     draw_arc
     draw_bezier
     draw_chord
