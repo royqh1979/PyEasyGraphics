@@ -2,6 +2,15 @@
 
 History
 ===========
+1.0.14
+-----------
+ * fix: processing not working
+ * fix: get_key() and has_kb_msg() not working
+ * add: set_message_outdate_duration()
+ * add: bezier_point and bezier_tangent functions
+ * add: curve_point and curve_tanget functions
+ * add more documents and examples
+
 1.0.13.1
 -----------
 * fix: immediate mode not work
