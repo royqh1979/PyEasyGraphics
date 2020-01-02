@@ -1,3 +1,4 @@
+import os
 import time
 import random
 
@@ -11,201 +12,178 @@ RIGHT = 4
 DOWN = 2
 LEFT = 1
 
+GRID_SIZE = 20
+
+START_X = 21
+START_Y = 21
+END_X = 481
+END_Y = 361
+
+SNAKE_COLOR = Color.YELLOW
+
+SNAKE_SIZE_X = 3
+SNAKE_SIZE_Y = 9
 
 class Snake:
     def __init__(self):
-        self.dsp = 20
-        self.n = 5
-        self.prev = 4
-        i = self.n
+        self.length = 5
+        self.now = RIGHT
+        self.prev = self.now
         self.pos = [ [0,0] for x in range(100)]
-        while i>=0:
-            self.pos[i][0] = 201 + (self.n - i - 1) * self.dsp
+        for i in range(self.length):
+            self.pos[i][0] = 201 + (self.length - i - 1) * GRID_SIZE
             self.pos[i][1] = 301
-            i-=1
-        self.strtX = 21
-        self.strtY = 21
-        self.endX = 481
-        self.endY = 361
-        self.colr = 14
-        self.now = self.prev
-        self.dsp = 20
-        self.stp = 1
-        self.cnt = -1
-        self.scr = 0
-        self.dly = 150
-        self.xr = 3
-        self.yr = 9
-        self.v1=0
-        self.v2=0
-        self.p1=0
-        self.p2=0
+        self.caught = False
+        self.score = 0
+        self.delay_time = 150
         self.generate_egg()
         self.egGen = 1
-        self.score()
         old_color = get_color()
         set_line_style(LineStyle.DASH_DOT_DOT_LINE)
         set_color(Color.RED)
-        rect(self.strtX-15, self.strtY-15, self.endX+15, self.endY+15)
-        rect(self.endX+25, self.strtY-15, get_width()-15, self.endY+15)
-        rect(self.strtX-15, self.endY+25, get_width()-15, get_height()-5)
-        line(self.endX+25, self.strtY+75, get_width()-15, self.strtY+75)
-        line(self.endX+25, self.strtY+200, get_width()-15, self.strtY+200)
-        line(self.endX+25, self.strtY+275, get_width()-15, self.strtY+275)
-        # set_line_style(0, 1, 1)
-        # settextstyle(8,0,1);
+        rect(START_X - 15, START_Y - 15, END_X + 15, END_Y + 15)
+        rect(END_X + 25, START_Y - 15, get_width() - 15, END_Y + 15)
+        rect(START_X - 15, END_Y + 25, get_width() - 15, get_height() - 5)
+        line(END_X + 25, START_Y + 75, get_width() - 15, START_Y + 75)
+        line(END_X + 25, START_Y + 200, get_width() - 15, START_Y + 200)
+        line(END_X + 25, START_Y + 275, get_width() - 15, START_Y + 275)
         set_color(Color.BLUE)
         draw_text(514, 40, "SCORE")
         set_color(Color.GREEN)
-        # set_text_style(11, 0, 5);
         draw_text(524, 110, " CONTROLS ")
         draw_text(522, 135, "p = PAUSE")
-        draw_text(522, 155, "g = RESUME")
-        draw_text(522, 175, "e = EXIT")
-        draw_text(513, 195, "ARROWS")
-        draw_text(512, 205, "    -MOVEMENT")
+        draw_text(522, 155, "ARROWS - MOVEMENT")
         set_color(Color.LIGHT_RED)
-        #settextstyle(4, 0, 9)
         draw_text(get_width()-500, get_height()-110, "SNAKE")
-        #settextstyle(8, 0, 1)
         set_color(old_color)
+        self.display_score()
 
-    def checkEgg(self)->bool:
-        if (self.e1 == self.p1)  and (self.e2 == self.p2):
-            self.sndEt()
+    def check_eat_egg(self)->bool:
+        if (self.e1 == self.pos[0][0])  and (self.e2 == self.pos[0][1]):
+            self.sound_eat()
             self.generate_egg()
-            self.dly-=1
-            self.score()
-            self.n+=1
-    def sndEt(self):
-        winsound.Beep(2500,2)
+            self.delay_time-=1
+            self.update_score()
+            self.length+=1
 
-    def sndCgt(self):
-        for x in range(1000,0,-1):
-            winsound.Beep(x,1)
+    def sound_eat(self):
+        if os.name == 'nt':
+            winsound.Beep(2500,2)
 
-    def score(self):
+    def sound_caught(self):
+        if os.name == 'nt':
+            for x in range(1000,40,-1):
+                winsound.Beep(x,1)
+
+    def update_score(self):
         #settextstyle(8,0,1);
-        set_color(Color.WHITE)
-        draw_text(585,40,self.scr)
-        if self.egGen != 1:
-            self.scr = self.scr + self.dly / 10
+        self.score = self.score + self.delay_time // 10
+        self.display_score()
+
+    def display_score(self):
+        set_fill_color(get_background_color())
+        fill_rect(585, 20, 700,50)
         set_color(Color.RED)
-        draw_text(585,40,self.scr)
+        draw_text(585, 40, self.score)
 
-    def gnrtCond(self):
-        if self.n>=367:
-            return
-        if self.now == UP and self.prev != UP and self.prev != DOWN:
-            self.pos[0][0] = self.p1
-            self.pos[0][1] = self.p2 - self.dsp
-            self.prev = self.now
-        elif self.now == RIGHT and self.prev != RIGHT and self.prev != LEFT:
-            self.pos[0][0] = self.p1 + self.dsp
-            self.pos[0][1] = self.p2
-            self.prev = self.now
-        elif self.now == DOWN and self.prev != UP and self.prev != DOWN:
-            self.pos[0][0] = self.p1
-            self.pos[0][1] = self.p2 + self.dsp
-            self.prev = self.now
-        elif self.now == LEFT and self.prev != LEFT and self.prev != RIGHT:
-            self.pos[0][0] = self.p1 - self.dsp
-            self.pos[0][1] = self.p2
-            self.prev = self.now
-
-    def gnrtUnCond(self):
+    def update_head_position(self):
         if self.prev == UP :
-            self.pos[0][0] = self.p1
-            self.pos[0][1] = self.p2 - self.dsp
+            self.pos[0][1] -= GRID_SIZE
         if self.prev == RIGHT :
-            self.pos[0][0] = self.p1 + self.dsp
-            self.pos[0][1] = self.p2
+            self.pos[0][0] += GRID_SIZE
         if self.prev == DOWN :
-            self.pos[0][0] = self.p1
-            self.pos[0][1] = self.p2 + self.dsp
+            self.pos[0][1] += GRID_SIZE
         if self.prev == LEFT :
-            self.pos[0][0] = self.p1 - self.dsp
-            self.pos[0][1] = self.p2
-        self.p1 = self.pos[0][0]
-        self.p2 = self.pos[0][1]
+            self.pos[0][0] -= GRID_SIZE
 
     def check(self):
-        if self.p1 > self.endX:
-            self.p1 = self.strtX
-        elif self.p1 < self.strtX:
-            self.p1 = self.endX
-        if self.p2 > self.endY:
-            self.p2 = self.strtY
-        elif self.p2 < self.strtY:
-            self.p2 = self.endY
-        self.pos[0][0] = self.p1
-        self.pos[0][1] = self.p2
-        for i in range(1,self.n):
-            if self.p1 == self.pos[i][0] and self.p2 == self.pos[i][1]:
-                self.caught()
-                break
+        if self.is_caught():
+            self.do_caught()
+
+    def is_caught(self):
+        x=self.pos[0][0]
+        y=self.pos[0][1]
+        if x > END_X:
+            return True
+        elif x < START_X:
+            return True
+        if y > END_Y:
+            return True
+        elif y < START_Y:
+            return True
+        for i in range(1, self.length):
+            if x == self.pos[i][0] and y == self.pos[i][1]:
+                return True
+        return False
+
 
     def show(self):
-        old_color = get_color()
-        if self.egGen != 1:
-            set_color(get_background_color())
-            # setfillstyle(1,getbkcolor())
-            set_fill_color(get_background_color())
-            fill_ellipse(self.v1,self.v2,self.yr,self.yr)
-        else:
-            self.egGen = 0
-        if self.egGen == 2:
-            self.egGen-=1
-        set_color(self.colr)
-        #setfillstyle(1,9)
-        set_fill_color(Color.LIGHT_BLUE)
-        if self.now == 8 or  self.now == 2:
-            fill_ellipse(self.pos[0][0],self.pos[0][1],self.xr,self.yr)
-        elif self.now == 4 or self.now == 1:
-            fill_ellipse(self.pos[0][0],self.pos[0][1],self.yr,self.xr)
-        set_color(old_color)
+        # erase tail
+        set_fill_color(get_background_color())
+        fill_ellipse(self.pos[self.length-1][0], self.pos[self.length-1][1], SNAKE_SIZE_Y, SNAKE_SIZE_Y)
 
-    def transpose(self):
-        self.p1 = self.pos[0][0]
-        self.p2 = self.pos[0][1]
-        if self.egGen==0:
-            self.v1 = self.pos[self.n-1][0]
-            self.v2 = self.pos[self.n-1][1]
-        else:
-            self.egGen = 0
-        i=self.n-1
+        #erase head background
+        set_fill_color(get_background_color())
+        fill_ellipse(self.pos[0][0],self.pos[0][1], SNAKE_SIZE_Y, SNAKE_SIZE_Y)
+
+        # draw head
+        set_fill_color(SNAKE_COLOR)
+        if self.now == UP or  self.now == DOWN:
+            fill_ellipse(self.pos[0][0],self.pos[0][1],SNAKE_SIZE_X,SNAKE_SIZE_Y)
+        elif self.now == RIGHT or self.now == LEFT:
+            fill_ellipse(self.pos[0][0],self.pos[0][1],SNAKE_SIZE_Y,SNAKE_SIZE_X)
+
+    def update_body_pos(self):
+        i= self.length - 1
         while i>=1:
             self.pos[i][0] = self.pos[i - 1][0]
             self.pos[i][1] = self.pos[i - 1][1]
             i-=1
 
     def move(self):
-        st = 0
+        set_message_outdate_duration(self.delay_time+20)
         while is_run():
-            if not has_kb_msg():
-                self.checkEgg()
-                if st == 0:
-                    self.show()
-                else:
-                    st = 0
-                delay(self.dly//4)
-                self.transpose()
-                delay(self.dly//4)
-                self.gnrtUnCond()
-                delay(self.dly//4)
-                self.check()
-            elif self.stp!=0:
-                self.chngDir()
-                self.gnrtCond()
-                self.check()
-                self.show()
-                st == 1
-            if self.stp == 0:
+            self.prev = self.now
+            if has_kb_msg():
+                self.check_keys()
+                self.correct_direction()
+            self.update_head_position()
+            self.check()
+            if self.caught:
                 break
+            self.check_eat_egg()
+            self.update_body_pos()
+            self.show()
+            delay(self.delay_time)
 
-    def caught(self):
-        self.stp = 0
-        self.sndCgt()
+    def on_y(self,direction):
+        if direction == DOWN or direction == UP:
+            return True
+        return False
+
+    def on_x(self,direction):
+        if direction == LEFT or direction == RIGHT:
+            return True
+        return False
+
+    def same_direction(self,dir1,dir2):
+        if self.on_x(dir1) and self.on_x(dir2):
+            return True
+        if self.on_y(dir1) and self.on_y(dir2):
+            return True
+        return False
+
+    def correct_direction(self) -> None:
+        """
+        If the new direction is not valid, reset it to previous direction
+
+        """
+        if self.same_direction(self.now,self.prev):
+            self.now=self.prev
+
+    def do_caught(self):
+        self.caught = True
+        self.sound_caught()
         for i in range(7):
             if i %2 !=0:
                 set_color(Color.LIGHT_GREEN)
@@ -217,7 +195,7 @@ class Snake:
                 delay(500)
         delay(1000)
 
-    def chngDir(self):
+    def check_keys(self):
         x,modifiers = get_key()
         if x == QtCore.Qt.Key_Up:
             self.now = UP
@@ -228,71 +206,34 @@ class Snake:
         elif x == QtCore.Qt.Key_Left:
             self.now = LEFT
         elif x == QtCore.Qt.Key_E:
-            self.caught()
-        elif x == QtCore.Qt.Key_P:
-            # PAUSE
-            self.pause()
-
-    def pause(self):
-        twnkl = True
-        old_size = get_font_size()
-        set_font_size(9)
-        while is_run():
-            if has_kb_hit():
-                x,modifiers=get_key()
-                if x == QtCore.Qt.Key_G:
-                    old_color = get_color()
-                    set_color(Color.BLACK)
-                    rect(self.endX+40,self.endY-10,self.getmaxx()-35,self.getmaxy()-160)
-                    draw_text(self.endX+60,self.endY-29,"PAUSE")
-                    set_color(old_color)
-                    break
-            else:
-                if twnkl:
-                    old_clr = get_color()
-                    set_color(Color.LIGHT_GREEN)
-                    rect(self.endX+40,self.endY-10,get_width()-35,get_height()-160)
-                    draw_text(self.endX+60,self.endY-29,"PAUSE")
-                    set_color(old_clr)
-                    delay(1000)
-                else:
-                    old_clr = get_color()
-                    set_color(Color.BLACK)
-                    rect(self.endX+40,self.endY-10,get_width()-35,get_height()-160)
-                    draw_text(self.endX+60,self.endY-29,"PAUSE")
-                    set_color(old_clr)
-                    delay(1000)
-            twnkl=not twnkl
-        set_font_size(old_size)
+            self.caught = True
 
     def generate_egg(self):
         """
         Generate an egg
         """
         while True:
-            self.e1 = random.randrange(0,100) * self.dsp + self.strtX
-            self.e2 = random.randrange(0,100) * self.dsp + self.strtY
+            self.e1 = random.randrange(0,100) * GRID_SIZE + START_X
+            self.e2 = random.randrange(0,100) * GRID_SIZE + START_Y
             if self.is_egg_valid():
                 break
         old_color = get_color()
         set_color(Color.LIGHT_GRAY)
-        set_fill_color(Color.Values[random.randrange(len(Color.Values))])
-        fill_ellipse(self.e1,self.e2,self.xr+2,self.xr+2)
+        set_fill_color(Color.Values[random.randrange(1,len(Color.Values))])
+        fill_ellipse(self.e1,self.e2,SNAKE_SIZE_X+2,SNAKE_SIZE_X+2)
         set_color(old_color)
-        self.egGen = 2;
 
     def is_egg_valid(self) -> bool:
-        if self.e1 >= self.endX + 1 or self.e2 >= self.endY + 1:
+        if self.e1 >= END_X + 1 or self.e2 >= END_Y + 1:
             return False
-        if self.v1 == self.e1 and self.v2 == self.e2:
-            return False
-        for i in range(self.n):
+        for i in range(self.length):
             if self.e1 == self.pos[i][0] and self.e2 == self.pos[i][1]:
                 return False
         return True
 
 def main():
     init_graph(800,600)
+    set_background_color(Color.BLACK)
     set_render_mode(RenderMode.RENDER_MANUAL)
     snake = Snake()
     snake.move()

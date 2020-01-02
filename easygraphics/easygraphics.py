@@ -47,7 +47,7 @@ __all__ = [
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
     # keyboard and mouse functions #
     'has_kb_msg', 'has_kb_hit', 'has_mouse_msg', 'get_key', 'get_char', 'get_mouse_msg', 'get_cursor_pos', 'get_click',
-    "contains_left_button", "contains_right_button", "contains_mid_button",
+    "contains_left_button", "contains_right_button", "contains_mid_button","set_message_outdate_duration",
     # init and close graph window #
     'init_graph', 'close_graph', 'set_caption', 'get_graphics_window', 'show_image',
     # animation
@@ -2138,6 +2138,10 @@ def delay_jfps(fps, max_skip_count=0):
 
 
 # mouse and keyboards #
+
+def set_message_outdate_duration(milliseconds:int)->None:
+    _check_not_headless_and_in_shell()
+    _win.set_message_outdate_duration(milliseconds)
 
 def has_kb_hit() -> bool:
     """

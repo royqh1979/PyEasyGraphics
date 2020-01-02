@@ -49,6 +49,16 @@ class GraphWin(QtWidgets.QWidget):
         self._frames_skipped = 0
         self._capture_dir = "."
         self._capture_count = 0
+        self._key_and_mouse_outdate_duration = 100000000
+
+    def set_message_outdate_duration(self,milliseconds:int) -> None:
+        """
+        Set the outdate duration of mouse and keyboard messages.
+
+        :param milliseconds: time duration to outdate
+        """
+        
+        self._key_and_mouse_outdate_duration = int(milliseconds) * 1000000
 
     def resize(self,width:int,height:int):
         self._width = width
@@ -263,7 +273,7 @@ class GraphWin(QtWidgets.QWidget):
             return ' '
         nt = time.perf_counter_ns()
         self.real_update()
-        if nt - self._key_char_msg.get_time() > 100000000:
+        if nt - self._key_char_msg.get_time() > self._key_and_mouse_outdate_duration:
             # if the last char msg is 100ms ago, we wait for a new msg
             self._char_key_event.clear()
             self._char_key_event.wait()
@@ -284,8 +294,8 @@ class GraphWin(QtWidgets.QWidget):
             return QtCore.Qt.Key_Escape, QtCore.Qt.NoModifier
         nt = time.perf_counter_ns()
         self.real_update()
-        if nt - self._key_msg.get_time() > 100000000:
-            # if the last key msg is 100ms ago, we wait for a new msg
+        if not self._key_msg.is_checked():
+            # if the last key msg is not checked by has_key_, we wait for a new msg
             self._key_event.clear()
             self._key_event.wait()
         k = self._key_msg.get_key()
@@ -308,7 +318,7 @@ class GraphWin(QtWidgets.QWidget):
             return 0, 0, 0, QtCore.Qt.NoButton
         nt = time.perf_counter_ns()
         self.real_update()
-        if nt - self._mouse_msg.get_time() > 100000000:
+        if nt - self._mouse_msg.get_time() > self._key_and_mouse_outdate_duration:
             # if the last key msg is 100ms ago, we wait for a new msg
             self._mouse_event.clear()
             self._mouse_event.wait()
@@ -328,7 +338,7 @@ class GraphWin(QtWidgets.QWidget):
         :return:  True if hit, False otherwise
         """
         nt = time.perf_counter_ns()
-        return nt - self._key_char_msg.get_time() <= 100000000
+        return nt - self._key_char_msg.get_time() <= self._key_and_mouse_outdate_duration
 
     def has_kb_msg(self) -> bool:
         """
@@ -339,7 +349,12 @@ class GraphWin(QtWidgets.QWidget):
         :return:  True if hit, False otherwise
         """
         nt = time.perf_counter_ns()
-        return nt - self._key_msg.get_time() <= 100000000
+        if nt - self._key_msg.get_time() <= self._key_and_mouse_outdate_duration:
+            self._key_msg.set_checked(True)
+            return True
+        else:
+            return False
+
 
     def has_mouse_msg(self) -> bool:
         """
@@ -350,7 +365,7 @@ class GraphWin(QtWidgets.QWidget):
         :return:  True if any mouse message, False otherwise
         """
         nt = time.perf_counter_ns()
-        return nt - self._mouse_msg.get_time() <= 100000000
+        return nt - self._mouse_msg.get_time() <= self._key_and_mouse_outdate_duration
 
     def get_cursor_pos(self) -> (int, int):
         """
@@ -371,11 +386,15 @@ class _KeyMsg:
         self._time = 0
         self._key = None
         self._modifiers = None
+        self._checked = False
 
     def set_event(self, key_event: QtGui.QKeyEvent):
         self._key = key_event.key()
         self._modifiers = key_event.modifiers()
         self._time = time.perf_counter_ns()
+
+    def is_checked(self)->bool:
+        return self._checked
 
     def get_key(self) -> int:
         return self._key
@@ -390,6 +409,10 @@ class _KeyMsg:
         self._time = 0
         self._key = None
         self._modifiers = None
+        self._checked = False
+
+    def set_checked(self,checked):
+        self._checked = checked
 
 
 class _KeyCharMsg:
