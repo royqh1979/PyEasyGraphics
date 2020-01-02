@@ -51,7 +51,7 @@ class Snake:
         draw_text(514, 40, "SCORE")
         set_color(Color.GREEN)
         draw_text(524, 110, " CONTROLS ")
-        draw_text(522, 135, "p = PAUSE")
+        draw_text(522, 135, "e = QUIT")
         draw_text(522, 155, "ARROWS - MOVEMENT")
         set_color(Color.LIGHT_RED)
         draw_text(get_width()-500, get_height()-110, "SNAKE")
@@ -72,8 +72,7 @@ class Snake:
 
     def sound_caught(self):
         if os.name == 'nt':
-            for x in range(1000,40,-1):
-                winsound.Beep(x,1)
+            winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
 
     def update_score(self):
         #settextstyle(8,0,1);
@@ -190,8 +189,8 @@ class Snake:
                 draw_text(512,250,"GAME OVER")
                 delay(900)
             else:
-                set_color(Color.BLACK)
-                draw_text(512,250,"GAME OVER")
+                set_fill_color(get_background_color())
+                fill_rect(512,230,612,250)
                 delay(500)
         delay(1000)
 
