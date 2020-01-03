@@ -1,3 +1,5 @@
+from enum import Enum
+
 from PyQt5 import QtGui, QtCore
 
 
@@ -235,11 +237,10 @@ class TextFlags:
     """Breaks lines at appropriate points, e.g. at word boundaries."""
 
 
-class MouseMessageType:
+class MouseMessageType(Enum):
     """
     These are the mouse message types.
     """
-    NO_MESSAGE = 0
     PRESS_MESSAGE = 1
     RELEASE_MESSAGE = 2
     DOUBLE_CLICK_MESSAGE = 3

@@ -50,6 +50,7 @@ __all__ = [
     # keyboard and mouse functions #
     'has_kb_msg', 'has_kb_hit', 'has_mouse_msg', 'get_key', 'get_char', 'get_mouse_msg', 'get_cursor_pos', 'get_click',
     "contains_left_button", "contains_right_button", "contains_mid_button","clear_key_msg","clear_char_msg","clear_mouse_msg",
+    "contains_alt","contains_control","contains_meta","contains_shift",
     # init and close graph window #
     'init_graph', 'close_graph', 'set_caption', 'get_graphics_window', 'show_image',
     # animation
@@ -2257,6 +2258,41 @@ def clear_mouse_msg(self):
     _check_not_headless_and_in_shell()
     _win.clear_mouse_msg()
 
+def contains_control(modifiers)->bool:
+    """
+    Test if the modifiers contains the control key
+
+    :param modifiers: the modifiers to be tested
+    :return: if the modifiers contains the control key
+    """
+    return modifiers & QtCore.Qt.ControlModifier
+
+def contains_shift(modifiers)->bool:
+    """
+    Test if the modifiers contains the shift key
+
+    :param modifiers: the modifiers to be tested
+    :return: if the modifiers contains the shift key
+    """
+    return modifiers & QtCore.Qt.ShiftModifier
+
+def contains_alt(modifiers)->bool:
+    """
+    Test if the modifiers contains the alt key
+
+    :param modifiers: the modifiers to be tested
+    :return: if the modifiers contains the alt key
+    """
+    return modifiers & QtCore.Qt.AltModifier
+
+def contains_meta(modifiers)->bool:
+    """
+    Test if the modifiers contains the meta key
+
+    :param modifiers: the modifiers to be tested
+    :return: if the modifiers contains the meta key
+    """
+    return modifiers & QtCore.Qt.MetaModifier
 
 def contains_left_button(buttons) -> bool:
     """
