@@ -29,6 +29,7 @@ __all__ = [
     'reflect', 'flip', 'mirror', 'reset_transform', 'save_settings', 'restore_settings',
     'get_width', 'get_height', 'get_write_mode', 'set_write_mode', 'get_transform', 'set_transform',
     'push_transform', 'pop_transform', 'set_rect_mode', 'get_rect_mode', 'set_ellipse_mode', 'get_ellipse_mode',
+    'set_antialiasing',
     # drawing functions #
     'draw_point', 'put_pixel', 'get_pixel', 'line', 'draw_line', 'move_to', 'move_rel', 'line_to', 'line_rel',
     'circle', 'draw_circle', 'fill_circle', 'ellipse', 'draw_ellipse', 'fill_ellipse',
@@ -54,7 +55,7 @@ __all__ = [
     # animation
     'begin_recording', 'save_recording', 'add_record', 'end_recording',
     # utility functions #
-    'color_gray', 'color_rgb', 'color_cmyk', 'color_hsv', 'rgb', 'to_alpha', 'pol2cart', 'cart2pol',
+    'color_gray', 'color_rgb', 'color_cmyk', 'color_hsv', 'color_hsl','rgb', 'to_alpha', 'pol2cart', 'cart2pol',
     # utility functions for 3d
     'ortho_look_at', 'isometric_projection', 'cart2sphere', 'sphere2cart',
     # 'GraphWin',
@@ -396,6 +397,18 @@ def set_ellipse_mode(mode, image: Image = None):
 def get_ellipse_mode(image: Image = None) -> int:
     image = _get_target_image(image)
     return image.get_ellipse_mode()
+
+
+def set_antialiasing(anti:bool=True, image: Image = None)->None:
+    """
+    Set Anti Aliasing
+
+    :param anti: if antialiasing should be set
+    :param image: the image to set anti aliasing. None means it is the target image
+        (see set_target() and get_target()).
+    """
+    image = _get_target_image(image)
+    image.set_antialiasing(anti)
 
 
 def get_transform(image: Image = None) -> QtGui.QTransform:
@@ -2004,6 +2017,18 @@ def color_cmyk(c: int, m: int, y: int, k: int, alpha: int = 255) -> QtGui.QColor
     """
     return QtGui.QColor.fromCmyk(c, m, y, k, alpha)
 
+def color_hsl(h: int, s: int, l: int, alpha: int = 255) -> QtGui.QColor:
+    """
+    Create a color with HSL color values h,s,l.
+
+    :param h: hue value
+    :param s: saturation value
+    :param l: lightness value
+    :param alpha: alpha channel value of the color. 255 means fully opaque
+    :return: the color
+    """
+    return QtGui.QColor.fromHsl(h, s, l, alpha)
+
 
 def color_hsv(h: int, s: int, v: int, alpha: int = 255) -> QtGui.QColor:
     """
@@ -2011,7 +2036,7 @@ def color_hsv(h: int, s: int, v: int, alpha: int = 255) -> QtGui.QColor:
 
     :param h: hue value
     :param s: saturation value
-    :param v: lightness value
+    :param v: Value
     :param alpha: alpha channel value of the color. 255 means fully opaque
     :return: the color
     """

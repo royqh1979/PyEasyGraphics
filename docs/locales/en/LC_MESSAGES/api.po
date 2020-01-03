@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-03 16:32+0800\n"
+"POT-Creation-Date: 2020-01-03 19:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2045,26 +2045,26 @@ msgstr ""
 #: easygraphics.Image.rect easygraphics.Image.reflect
 #: easygraphics.Image.remove_updated_listener easygraphics.Image.rotate
 #: easygraphics.Image.rounded_rect easygraphics.Image.save
-#: easygraphics.Image.scale easygraphics.Image.set_background_color
-#: easygraphics.Image.set_brush easygraphics.Image.set_clip_rect
-#: easygraphics.Image.set_clipping easygraphics.Image.set_color
-#: easygraphics.Image.set_composition_mode easygraphics.Image.set_fill_color
-#: easygraphics.Image.set_fill_rule easygraphics.Image.set_fill_style
-#: easygraphics.Image.set_flip_y easygraphics.Image.set_font
-#: easygraphics.Image.set_font_size easygraphics.Image.set_line_style
-#: easygraphics.Image.set_line_width easygraphics.Image.set_pen
-#: easygraphics.Image.set_transform easygraphics.Image.set_view_port
-#: easygraphics.Image.set_window easygraphics.Image.shear
-#: easygraphics.Image.skew easygraphics.Image.text_width
-#: easygraphics.Image.to_bytes easygraphics.Image.translate
-#: easygraphics.Image.vertex easygraphics.add_record easygraphics.arc
-#: easygraphics.begin_shape easygraphics.bezier easygraphics.bezier_point
-#: easygraphics.bezier_tangent easygraphics.bezier_vertex
-#: easygraphics.capture_screen easygraphics.cart2pol easygraphics.cart2sphere
-#: easygraphics.chord easygraphics.circle easygraphics.clear
-#: easygraphics.clear_device easygraphics.clear_view_port
+#: easygraphics.Image.scale easygraphics.Image.set_antialiasing
+#: easygraphics.Image.set_background_color easygraphics.Image.set_brush
+#: easygraphics.Image.set_clip_rect easygraphics.Image.set_clipping
+#: easygraphics.Image.set_color easygraphics.Image.set_composition_mode
+#: easygraphics.Image.set_fill_color easygraphics.Image.set_fill_rule
+#: easygraphics.Image.set_fill_style easygraphics.Image.set_flip_y
+#: easygraphics.Image.set_font easygraphics.Image.set_font_size
+#: easygraphics.Image.set_line_style easygraphics.Image.set_line_width
+#: easygraphics.Image.set_pen easygraphics.Image.set_transform
+#: easygraphics.Image.set_view_port easygraphics.Image.set_window
+#: easygraphics.Image.shear easygraphics.Image.skew
+#: easygraphics.Image.text_width easygraphics.Image.to_bytes
+#: easygraphics.Image.translate easygraphics.Image.vertex
+#: easygraphics.add_record easygraphics.arc easygraphics.begin_shape
+#: easygraphics.bezier easygraphics.bezier_point easygraphics.bezier_tangent
+#: easygraphics.bezier_vertex easygraphics.capture_screen easygraphics.cart2pol
+#: easygraphics.cart2sphere easygraphics.chord easygraphics.circle
+#: easygraphics.clear easygraphics.clear_device easygraphics.clear_view_port
 #: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_gray
-#: easygraphics.color_hsv easygraphics.color_rgb
+#: easygraphics.color_hsl easygraphics.color_hsv easygraphics.color_rgb
 #: easygraphics.contains_left_button easygraphics.contains_mid_button
 #: easygraphics.contains_right_button easygraphics.create_image
 #: easygraphics.create_image_from_file easygraphics.curve
@@ -2100,8 +2100,9 @@ msgstr ""
 #: easygraphics.reset_window easygraphics.restore_settings easygraphics.rgb
 #: easygraphics.rotate easygraphics.rounded_rect easygraphics.save_image
 #: easygraphics.save_recording easygraphics.save_settings easygraphics.scale
-#: easygraphics.set_background_color easygraphics.set_caption
-#: easygraphics.set_clip_rect easygraphics.set_clipping easygraphics.set_color
+#: easygraphics.set_antialiasing easygraphics.set_background_color
+#: easygraphics.set_caption easygraphics.set_clip_rect
+#: easygraphics.set_clipping easygraphics.set_color
 #: easygraphics.set_composition_mode easygraphics.set_fill_color
 #: easygraphics.set_fill_rule easygraphics.set_fill_style
 #: easygraphics.set_flip_y easygraphics.set_font easygraphics.set_font_size
@@ -2151,13 +2152,14 @@ msgstr ""
 #: easygraphics.Image.text_height easygraphics.Image.text_width
 #: easygraphics.Image.to_bytes easygraphics.bezier_point
 #: easygraphics.bezier_tangent easygraphics.cart2pol easygraphics.cart2sphere
-#: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsv
-#: easygraphics.color_rgb easygraphics.contains_left_button
-#: easygraphics.contains_mid_button easygraphics.contains_right_button
-#: easygraphics.create_image easygraphics.create_image_from_file
-#: easygraphics.curve_point easygraphics.curve_tangent easygraphics.delay_fps
-#: easygraphics.delay_jfps easygraphics.get_background_color
-#: easygraphics.get_char easygraphics.get_click easygraphics.get_color
+#: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsl
+#: easygraphics.color_hsv easygraphics.color_rgb
+#: easygraphics.contains_left_button easygraphics.contains_mid_button
+#: easygraphics.contains_right_button easygraphics.create_image
+#: easygraphics.create_image_from_file easygraphics.curve_point
+#: easygraphics.curve_tangent easygraphics.delay_fps easygraphics.delay_jfps
+#: easygraphics.get_background_color easygraphics.get_char
+#: easygraphics.get_click easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
 #: easygraphics.get_drawing_pos easygraphics.get_drawing_x
 #: easygraphics.get_drawing_y easygraphics.get_fill_color
@@ -2791,6 +2793,20 @@ msgstr ""
 msgid "the transform matrix to set"
 msgstr ""
 
+#: easygraphics.Image.set_antialiasing:1 easygraphics.set_antialiasing:1 of
+msgid "Set Anti Aliasing"
+msgstr ""
+
+#: easygraphics.Image.set_antialiasing:3 easygraphics.set_antialiasing:3 of
+msgid "if antialiasing should be set"
+msgstr ""
+
+#: easygraphics.set_antialiasing:4 of
+msgid ""
+"the image to set anti aliasing. None means it is the target image (see "
+"set_target() and get_target())."
+msgstr ""
+
 #: easygraphics.Image.draw_point:3 easygraphics.draw_point:3 of
 msgid "x coordinate value of the drawing point"
 msgstr ""
@@ -2840,8 +2856,8 @@ msgid "y coordinate value of the pixel"
 msgstr ""
 
 #: easygraphics.Image.put_pixel:5 easygraphics.color_cmyk:8
-#: easygraphics.color_gray:5 easygraphics.color_hsv:7 easygraphics.color_rgb:7
-#: easygraphics.put_pixel:5 easygraphics.rgb:7 of
+#: easygraphics.color_gray:5 easygraphics.color_hsl:7 easygraphics.color_hsv:7
+#: easygraphics.color_rgb:7 easygraphics.put_pixel:5 easygraphics.rgb:7 of
 msgid "the color"
 msgstr ""
 
@@ -3660,7 +3676,7 @@ msgid "the loaded image"
 msgstr ""
 
 #: easygraphics.create_image_from_file:1 of
-msgid "Load image form the specified file."
+msgid "Load image from the specified file."
 msgstr ""
 
 #: easygraphics.create_image_from_file:4 of
@@ -3874,8 +3890,8 @@ msgstr ""
 msgid "gray value"
 msgstr ""
 
-#: easygraphics.color_cmyk:7 easygraphics.color_gray:4 easygraphics.color_hsv:6
-#: easygraphics.color_rgb:6 easygraphics.rgb:6 of
+#: easygraphics.color_cmyk:7 easygraphics.color_gray:4 easygraphics.color_hsl:6
+#: easygraphics.color_hsv:6 easygraphics.color_rgb:6 easygraphics.rgb:6 of
 msgid "alpha channel value of the color. 255 means fully opaque"
 msgstr ""
 
@@ -3907,15 +3923,23 @@ msgstr ""
 msgid "black value"
 msgstr ""
 
-#: easygraphics.color_hsv:3 of
+#: easygraphics.color_hsl:3 easygraphics.color_hsv:3 of
 msgid "hue value"
 msgstr ""
 
-#: easygraphics.color_hsv:4 of
+#: easygraphics.color_hsl:4 easygraphics.color_hsv:4 of
 msgid "saturation value"
 msgstr ""
 
 #: easygraphics.color_hsv:5 of
+msgid "Value"
+msgstr ""
+
+#: easygraphics.color_hsl:1 of
+msgid "Create a color with HSL color values h,s,l."
+msgstr ""
+
+#: easygraphics.color_hsl:5 of
 msgid "lightness value"
 msgstr ""
 
@@ -6670,5 +6694,8 @@ msgstr ""
 #~ "cursor , type, mouse buttons down "
 #~ "( QtCore.Qt.LeftButton or QtCore.Qt.RightButton "
 #~ "or QtCore.Qt.MidButton or QtCore.Qt.NoButton)"
+#~ msgstr ""
+
+#~ msgid "Load image form the specified file."
 #~ msgstr ""
 

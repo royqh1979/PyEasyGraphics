@@ -84,6 +84,14 @@ class Image:
         # p.setRenderHint(QtGui.QPainter.Antialiasing) # flood fill will not work when anti-aliasing is on
         self._default_rect = p.viewport()
 
+    def set_antialiasing(self,anti:bool=True):
+        """
+        Set Anti Aliasing
+
+        :param anti: if antialiasing should be set
+        """
+        self._painter.setRenderHint(QtGui.QPainter.Antialiasing,anti)
+
     def _init_mask_painter(self):
         p = self._mask_painter
         p.begin(self._mask)

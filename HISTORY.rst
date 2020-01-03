@@ -2,6 +2,10 @@
 
 History
 ===========
+1.0.16
+-----------
+ * add: set_antialiasing()
+
 1.0.15
 -----------
  * change: use queue to store keyboard/mouse message

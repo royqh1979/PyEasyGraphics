@@ -21,8 +21,7 @@ def init_star(i:int):
     star[i].x=0
     star[i].y = random.randrange(get_height())
     star[i].step = random.randrange(5000)/1000+1
-    color = star[i].step * 255 / 6 + 0.5
-    star[i].color = rgb(color,color,color)
+    star[i].color = color_gray(star[i].step * 255 / 6 + 0.5)
 
 def move_star(i:int):
     # erase old star

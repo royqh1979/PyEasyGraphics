@@ -45,6 +45,7 @@ Fill Pattern
 ------------
 
 .. list-table::
+
    * - Name
      - Value
    * - EMPTY_FILL

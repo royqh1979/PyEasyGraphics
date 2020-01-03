@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-03 16:32+0800\n"
+"POT-Creation-Date: 2020-01-03 19:27+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,11 +26,11 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: ../../legacy.rst:9
+#: ../../legacy.rst:9 ../../legacy.rst:49
 msgid "Name"
 msgstr ""
 
-#: ../../legacy.rst:10
+#: ../../legacy.rst:10 ../../legacy.rst:50
 msgid "Value"
 msgstr ""
 
@@ -38,7 +38,7 @@ msgstr ""
 msgid "BLACK"
 msgstr ""
 
-#: ../../legacy.rst:12
+#: ../../legacy.rst:12 ../../legacy.rst:52
 msgid "0"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "BLUE"
 msgstr ""
 
-#: ../../legacy.rst:14
+#: ../../legacy.rst:14 ../../legacy.rst:54
 msgid "1"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "GREEN"
 msgstr ""
 
-#: ../../legacy.rst:16
+#: ../../legacy.rst:16 ../../legacy.rst:56
 msgid "2"
 msgstr ""
 
@@ -62,7 +62,7 @@ msgstr ""
 msgid "CYAN"
 msgstr ""
 
-#: ../../legacy.rst:18
+#: ../../legacy.rst:18 ../../legacy.rst:58
 msgid "3"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr ""
 msgid "RED"
 msgstr ""
 
-#: ../../legacy.rst:20
+#: ../../legacy.rst:20 ../../legacy.rst:60
 msgid "4"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 msgid "MAGENTA"
 msgstr ""
 
-#: ../../legacy.rst:22
+#: ../../legacy.rst:22 ../../legacy.rst:62
 msgid "5"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgstr ""
 msgid "BROWN"
 msgstr ""
 
-#: ../../legacy.rst:24
+#: ../../legacy.rst:24 ../../legacy.rst:64
 msgid "6"
 msgstr ""
 
@@ -94,7 +94,7 @@ msgstr ""
 msgid "LIGHTGRAY"
 msgstr ""
 
-#: ../../legacy.rst:26
+#: ../../legacy.rst:26 ../../legacy.rst:66
 msgid "7"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "DARKGRAY"
 msgstr ""
 
-#: ../../legacy.rst:28
+#: ../../legacy.rst:28 ../../legacy.rst:68
 msgid "8"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "LIGHTBLUE"
 msgstr ""
 
-#: ../../legacy.rst:30
+#: ../../legacy.rst:30 ../../legacy.rst:70
 msgid "9"
 msgstr ""
 
@@ -118,7 +118,7 @@ msgstr ""
 msgid "LIGHTGREEN"
 msgstr ""
 
-#: ../../legacy.rst:32
+#: ../../legacy.rst:32 ../../legacy.rst:72
 msgid "10"
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "LIGHTCYAN"
 msgstr ""
 
-#: ../../legacy.rst:34
+#: ../../legacy.rst:34 ../../legacy.rst:74
 msgid "11"
 msgstr ""
 
@@ -134,7 +134,7 @@ msgstr ""
 msgid "LIGHTRED"
 msgstr ""
 
-#: ../../legacy.rst:36
+#: ../../legacy.rst:36 ../../legacy.rst:76
 msgid "12"
 msgstr ""
 
@@ -164,5 +164,57 @@ msgstr ""
 
 #: ../../legacy.rst:45
 msgid "Fill Pattern"
+msgstr ""
+
+#: ../../legacy.rst:51
+msgid "EMPTY_FILL"
+msgstr ""
+
+#: ../../legacy.rst:53
+msgid "SOLID_FILL"
+msgstr ""
+
+#: ../../legacy.rst:55
+msgid "LINE_FILL"
+msgstr ""
+
+#: ../../legacy.rst:57
+msgid "LTSLASH_FILL"
+msgstr ""
+
+#: ../../legacy.rst:59
+msgid "SLASH_FILL"
+msgstr ""
+
+#: ../../legacy.rst:61
+msgid "BKSLASH_FILL"
+msgstr ""
+
+#: ../../legacy.rst:63
+msgid "LTBKSLASH_FILL"
+msgstr ""
+
+#: ../../legacy.rst:65
+msgid "HATCH_FILL"
+msgstr ""
+
+#: ../../legacy.rst:67
+msgid "XHATCH_FILL"
+msgstr ""
+
+#: ../../legacy.rst:69
+msgid "INTERLEAVE_FILL"
+msgstr ""
+
+#: ../../legacy.rst:71
+msgid "WIDE_DOT_FILL"
+msgstr ""
+
+#: ../../legacy.rst:73
+msgid "CLOSE_DOT_FILL"
+msgstr ""
+
+#: ../../legacy.rst:75
+msgid "USER_FILL"
 msgstr ""
 
