@@ -127,18 +127,21 @@ def invoke_in_app_thread(fn, *args, **kwargs):
     _app_lock.acquire()
     try:
         if _caller is None:
-            app = _start_app_thread()
-            ex = None
-            try:
-                result = fn(*args, **kwargs)
-            except Exception as e:
-                ex = e
-            destroy_invoke_in_app()
-            app.quit()
-            app = None
-            if ex is not None:
-                raise ex
-            return result
+            if QtWidgets.QApplication.instance() is None:
+                app = _start_app_thread()
+                ex = None
+                try:
+                    result = fn(*args, **kwargs)
+                except Exception as e:
+                    ex = e
+                destroy_invoke_in_app()
+                app.quit()
+                app = None
+                if ex is not None:
+                    raise ex
+                return result
+            else:
+                return fn(*args, **kwargs)
         elif _wait_for_quit:  # the app is quitting. don't show the dialog
             return None
         result = get_in_app_thread_result(_in_app_thread_later(fn, True, *args, **kwargs))

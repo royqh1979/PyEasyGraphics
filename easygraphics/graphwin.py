@@ -32,6 +32,8 @@ class GraphWin(QtWidgets.QWidget):
         super().__init__(flags=QtCore.Qt.Window | QtCore.Qt.MSWindowsFixedSizeDialogHint)
         self._width = width
         self._height = height
+        self.setFixedWidth(width)
+        self.setFixedHeight(height)
         self._wait_event = threading.Event()
         self._key_msg_queue = queue.Queue(10)
         self._key_char_msg_queue = queue.Queue(10)

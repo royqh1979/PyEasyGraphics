@@ -2,6 +2,10 @@
 
 History
 ===========
+1.0.17
+-----------
+ * fix: dialogs dosen't work in normal pyqt program
+
 1.0.16
 -----------
  * add: set_antialiasing()
