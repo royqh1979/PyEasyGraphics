@@ -117,15 +117,21 @@ class GraphWin(QtWidgets.QWidget):
 
     def mousePressEvent(self, e: QtGui.QMouseEvent):
         self._wait_event.set()
-        mouse_msg=_MouseMsg(e, MouseMessageType.PRESS_MESSAGE)
+        mouse_msg=MouseMessage(e, MouseMessageType.PRESS_MESSAGE)
         try:
             self._mouse_msg_queue.put_nowait(mouse_msg)
         except queue.Full as e:
             pass
 
+    def mouseDoubleClickEvent(self, e: QtGui.QMouseEvent) -> None:
+        mouse_msg=MouseMessage(e, MouseMessageType.DOUBLE_CLICK_MESSAGE)
+        try:
+            self._mouse_msg_queue.put_nowait(mouse_msg)
+        except queue.Full as e:
+            pass
 
     def mouseReleaseEvent(self, e: QtGui.QMouseEvent):
-        mouse_msg=_MouseMsg(e, MouseMessageType.RELEASE_MESSAGE)
+        mouse_msg=MouseMessage(e, MouseMessageType.RELEASE_MESSAGE)
         try:
             self._mouse_msg_queue.put_nowait(mouse_msg)
         except queue.Full as e:
@@ -147,7 +153,7 @@ class GraphWin(QtWidgets.QWidget):
                 self._key_char_msg_queue.put_nowait(key_char_msg)
             except queue.Full as e:
                 pass
-        key_msg = _KeyMsg(e)
+        key_msg = KeyMessage(e)
         try:
             self._key_msg_queue.put_nowait(key_msg)
         except queue.Full as e:
@@ -278,41 +284,36 @@ class GraphWin(QtWidgets.QWidget):
         key_char_msg = self._key_char_msg_queue.get()
         return key_char_msg.get_char()
 
-    def get_key(self) -> (int, int):
+    def get_key(self) -> "KeyMessage":
         """
         Get the key inputted by keyboard.
 
         If not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting.
 
-        :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
-            `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
+        :return: key message
         """
         if not self._is_run:
             return QtCore.Qt.Key_Escape, QtCore.Qt.NoModifier
         nt = time.perf_counter_ns()
         self.real_update()
         key_msg = self._key_msg_queue.get()
-        k = key_msg.get_key()
-        modifiers = key_msg.get_modifiers()
-        return k,modifiers
+        return key_msg
 
-    def get_mouse_msg(self) -> (int, int, int, int):
+    def get_mouse_msg(self) -> "MouseMessage":
         """
         Get the mouse message.
 
         If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait for
         the next mouse message.
 
-        :return: x of the cursor, y of the cursor , type, mouse buttons down
-            ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton),
-            Keyboard Modifiers
+        :return: mouse message
         """
         if not self._is_run:
             return 0, 0, 0, QtCore.Qt.NoButton
         nt = time.perf_counter_ns()
         self.real_update()
         mouse_msg = self._mouse_msg_queue.get()
-        return mouse_msg.get_x(), mouse_msg.get_y(), mouse_msg.get_type(), mouse_msg.get_button(),mouse_msg.get_modifiers()
+        return mouse_msg
 
     def has_kb_hit(self) -> bool:
         """
@@ -371,20 +372,17 @@ class GraphWin(QtWidgets.QWidget):
         """
         self._mouse_msg_queue.queue.clear()
 
-class _KeyMsg:
+class KeyMessage:
     """
     class for saving keyboard message
     """
 
     def __init__(self,key_event: QtGui.QKeyEvent):
-        self._key = key_event.key()
-        self._modifiers = key_event.modifiers()
+        self.key = key_event.key()
+        self.char = key_event.text()
+        self.count = key_event.count()
+        self.modifiers = key_event.modifiers()
 
-    def get_key(self) -> int:
-        return self._key
-
-    def get_modifiers(self)->QtCore.Qt.KeyboardModifiers:
-        return self._modifiers
 
 class _KeyCharMsg:
     """
@@ -397,34 +395,13 @@ class _KeyCharMsg:
     def get_char(self) -> str:
         return self._key
 
-class _MouseMsg:
-    def __init__(self, e: QtGui.QMouseEvent, _type: int):
+class MouseMessage:
+    def __init__(self, e: QtGui.QMouseEvent, _type: MouseMessageType):
         self._time = time.perf_counter_ns()
-        self._x = e.x()
-        self._y = e.y()
-        self._modifiers = e.modifiers()
-        self._global_x = e.globalX()
-        self._global_y = e.globalY()
-        self._type = _type
-        self._button = e.button()
-
-    def get_x(self):
-        return self._x
-
-    def get_y(self):
-        return self._y
-
-    def get_modifiers(self):
-        return self._modifiers
-
-    def get_global_x(self):
-        return self._global_x
-
-    def get_global_y(self):
-        return self._global_y
-
-    def get_button(self):
-        return self._button
-
-    def get_type(self):
-        return self._type
+        self.x = e.x()
+        self.y = e.y()
+        self.modifiers = e.modifiers()
+        self.global_x = e.globalX()
+        self.global_y = e.globalY()
+        self.type = _type
+        self.button = e.button()

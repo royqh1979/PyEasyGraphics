@@ -25,11 +25,10 @@ def main():
     is_inactive = True
     while is_run():
         if has_mouse_msg():
-            x, y, _type, buttons,modifiers = get_mouse_msg()
-            print(_type)
-            if _type == MouseMessageType.PRESS_MESSAGE:
+            msg = get_mouse_msg()
+            if msg.type == MouseMessageType.PRESS_MESSAGE:
                 is_inactive = False
-            elif _type == MouseMessageType.RELEASE_MESSAGE:
+            elif msg.type == MouseMessageType.RELEASE_MESSAGE:
                 is_inactive = True
         if is_inactive:
             if spacer > interval:

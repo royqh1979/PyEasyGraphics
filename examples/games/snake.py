@@ -194,16 +194,17 @@ class Snake:
         delay(1000)
 
     def check_keys(self):
-        x,modifiers = get_key()
-        if x == QtCore.Qt.Key_Up:
+        msg = get_key()
+        k=msg.key
+        if k == QtCore.Qt.Key_Up:
             self.now = UP
-        elif x == QtCore.Qt.Key_Right:
+        elif k == QtCore.Qt.Key_Right:
             self.now = RIGHT
-        elif x == QtCore.Qt.Key_Down:
+        elif k == QtCore.Qt.Key_Down:
             self.now = DOWN
-        elif x == QtCore.Qt.Key_Left:
+        elif k == QtCore.Qt.Key_Left:
             self.now = LEFT
-        elif x == QtCore.Qt.Key_E:
+        elif k == QtCore.Qt.Key_E:
             self.caught = True
 
     def generate_egg(self):

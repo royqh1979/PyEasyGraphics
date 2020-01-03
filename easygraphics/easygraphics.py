@@ -10,7 +10,7 @@ import qimage2ndarray as q2n
 from PyQt5 import QtWidgets
 from ._utils import invoke_in_app_thread
 from .consts import *
-from .graphwin import GraphWin
+from .graphwin import GraphWin,KeyMessage,MouseMessage
 from .image import Image
 from .utils3d import *
 
@@ -2202,22 +2202,20 @@ def has_mouse_msg() -> bool:
     return _win.has_mouse_msg()
 
 
-def get_mouse_msg() -> (int, int, int, int, QtCore.Qt.KeyboardModifiers):
+def get_mouse_msg() -> MouseMessage:
     """
     Get the mouse message.
 
     If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait for
     the next mouse message.
 
-    :return: x of the cursor, y of the cursor , type, mouse buttons down
-        ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton),
-        Keyboard Modifiers
+    :return: mouse message
     """
     _check_not_headless_and_in_shell()
     return _win.get_mouse_msg()
 
 
-def get_click() -> (int, int, int):
+def get_click() -> MouseMessage:
     """
     Get the mouse click message.
 
@@ -2229,9 +2227,9 @@ def get_click() -> (int, int, int):
     """
     _check_not_headless_and_in_shell()
     while is_run():
-        x, y, _type, buttons, modifiers = _win.get_mouse_msg()
-        if _type == MouseMessageType.RELEASE_MESSAGE:
-            return x, y, buttons
+        msg = _win.get_mouse_msg()
+        if msg.type == MouseMessageType.RELEASE_MESSAGE and contains_left_button(msg.button):
+            return msg
 
     return 0, 0, QtCore.Qt.NoButton
 
@@ -2308,14 +2306,13 @@ def get_char() -> str:
     return _win.get_char()
 
 
-def get_key() -> (int, int):
+def get_key() -> KeyMessage:
     """
     Get the key inputted by keyboard.
 
     If not any  key is pressed in last 100 ms, the program will stop and wait for the next key hitting.
 
-    :return: `keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ ,
-        `keyboard modifier codes <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-enum)/>`_
+    :return: key message
     """
     _check_not_headless_and_in_shell()
     return _win.get_key()

@@ -5,6 +5,9 @@ History
 1.0.16
 -----------
  * add: set_antialiasing()
+ * change: get_mouse_message() now return a MouseMessage object
+ * change: get_key() now return a KeyMessage object
+
 
 1.0.15
 -----------

@@ -242,6 +242,8 @@ class MouseMessageType:
     NO_MESSAGE = 0
     PRESS_MESSAGE = 1
     RELEASE_MESSAGE = 2
+    DOUBLE_CLICK_MESSAGE = 3
+
 
 
 class FillRule:

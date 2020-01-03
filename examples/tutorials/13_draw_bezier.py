@@ -13,9 +13,13 @@ def main():
     init_graph(800, 600)
     set_render_mode(RenderMode.RENDER_MANUAL)
 
-    x1, y1, buttons = get_click()
+    msg = get_click()
+    x1=msg.x
+    y1=msg.y
     circle(x1, y1, 3)
-    x2, y2, buttons = get_click()
+    msg = get_click()
+    x2=msg.x
+    y2=msg.y
     circle(x2, y2, 3)
     line(x1, y1, x2, y2)
 
@@ -33,25 +37,26 @@ def main():
             draw_bezier(x1, y1, x3, y3, x, y, x2, y2)
 
         if has_mouse_msg():
-            x, y, type, buttons, modifiers = get_mouse_msg()
-            if type == MouseMessageType.PRESS_MESSAGE:
-                if reg1.contains(x, y):
+            # x, y, type, buttons, modifiers = get_mouse_msg()
+            msg = get_mouse_msg()
+            if msg.type == MouseMessageType.PRESS_MESSAGE:
+                if reg1.contains(msg.x, msg.y):
                     draging_which_point = 1
                     set_color(Color.WHITE)
                     set_composition_mode(CompositionMode.SRC_XOR_DEST)
                     x, y = x3, y3
-                elif reg2.contains(x, y):
+                elif reg2.contains(msg.x, msg.y):
                     draging_which_point = 2
                     set_color(Color.WHITE)
                     set_composition_mode(CompositionMode.SRC_XOR_DEST)
                     x, y = x4, y4
                 else:
                     draging_which_point = 0
-            elif type == MouseMessageType.RELEASE_MESSAGE:
+            elif msg.type == MouseMessageType.RELEASE_MESSAGE:
                 if draging_which_point == 1:
-                    x3, y3 = x, y
+                    x3, y3 = msg.x, msg.y
                 elif draging_which_point == 2:
-                    x4, y4 = x, y
+                    x4, y4 = msg.x, msg.y
                 draging_which_point = 0
 
                 set_color(Color.BLACK)
