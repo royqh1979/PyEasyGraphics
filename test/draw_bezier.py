@@ -33,7 +33,7 @@ if __name__ == "__main__":
             draw_bezier(x1, y1, x3, y3, x, y, x2, y2)
 
         if has_mouse_msg():
-            x, y, type, buttons = get_mouse_msg()
+            x, y, type, buttons, modifiers = get_mouse_msg()
             if type == MouseMessageType.PRESS_MESSAGE:
                 if reg1.contains(x, y):
                     draging_which_point = 1

@@ -25,7 +25,7 @@ def main():
     is_inactive = True
     while is_run():
         if has_mouse_msg():
-            x, y, _type, buttons = get_mouse_msg()
+            x, y, _type, buttons,modifiers = get_mouse_msg()
             print(_type)
             if _type == MouseMessageType.PRESS_MESSAGE:
                 is_inactive = False

@@ -2,6 +2,12 @@
 
 History
 ===========
+1.0.15
+-----------
+ * change: use queue to store keyboard/mouse message
+ * remove: set_message_outdate_duration()
+ * change: now get_message() return 5 results instead of 4
+
 1.0.14
 -----------
  * fix: processing not working

@@ -10,7 +10,7 @@ def main():
         fill_rect(0, 580, 390, 600)
         draw_text(0, 600, "%d,%d" % (x, y))
         if has_mouse_msg():
-            x, y, type, buttons = get_mouse_msg()
+            x, y, type, buttons, modifiers = get_mouse_msg()
             if type == MouseMessageType.PRESS_MESSAGE:
                 typestr = "pressed"
             else:

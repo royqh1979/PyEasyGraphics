@@ -13,13 +13,14 @@ def show_welcome():
     set_color("white");
     c = 0
     set_font_size(20)
-    while not has_kb_hit():
+    while is_run():
+        if has_kb_hit():
+            break
         set_color(color_rgb(c, c, c))
         draw_text(180, 400, "Press any key to continue")
         c = (c + 8) % 255;
         delay_fps(30)
     ch = get_char()
-    print(ch)
     clear_device()
 
 

@@ -47,7 +47,7 @@ __all__ = [
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
     # keyboard and mouse functions #
     'has_kb_msg', 'has_kb_hit', 'has_mouse_msg', 'get_key', 'get_char', 'get_mouse_msg', 'get_cursor_pos', 'get_click',
-    "contains_left_button", "contains_right_button", "contains_mid_button","set_message_outdate_duration",
+    "contains_left_button", "contains_right_button", "contains_mid_button",
     # init and close graph window #
     'init_graph', 'close_graph', 'set_caption', 'get_graphics_window', 'show_image',
     # animation
@@ -2139,13 +2139,9 @@ def delay_jfps(fps, max_skip_count=0):
 
 # mouse and keyboards #
 
-def set_message_outdate_duration(milliseconds:int)->None:
-    _check_not_headless_and_in_shell()
-    _win.set_message_outdate_duration(milliseconds)
-
 def has_kb_hit() -> bool:
     """
-    See if any ascii char key is hitted in the last 100 ms.
+    See if any ascii char key hit message in the message queue.
 
     Use it with get_char().
 
@@ -2157,7 +2153,7 @@ def has_kb_hit() -> bool:
 
 def has_kb_msg() -> bool:
     """
-    See if any key is hit in the last 100 ms.
+    See if any key hit message in the message queue.
 
     Use it with get_key().
 
@@ -2169,7 +2165,7 @@ def has_kb_msg() -> bool:
 
 def has_mouse_msg() -> bool:
     """
-    See if there is any mouse message(event) in the last 100 ms.
+    See if there is any mouse message(event) in the message queue.
 
     Use it with get_mouse_msg().
 
@@ -2179,7 +2175,7 @@ def has_mouse_msg() -> bool:
     return _win.has_mouse_msg()
 
 
-def get_mouse_msg() -> (int, int, int, int):
+def get_mouse_msg() -> (int, int, int, int, QtCore.Qt.KeyboardModifiers):
     """
     Get the mouse message.
 
@@ -2187,7 +2183,8 @@ def get_mouse_msg() -> (int, int, int, int):
     the next mouse message.
 
     :return: x of the cursor, y of the cursor , type, mouse buttons down
-        ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
+        ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton),
+        Keyboard Modifiers
     """
     _check_not_headless_and_in_shell()
     return _win.get_mouse_msg()
@@ -2205,7 +2202,7 @@ def get_click() -> (int, int, int):
     """
     _check_not_headless_and_in_shell()
     while is_run():
-        x, y, _type, buttons = _win.get_mouse_msg()
+        x, y, _type, buttons, modifiers = _win.get_mouse_msg()
         if _type == MouseMessageType.RELEASE_MESSAGE:
             return x, y, buttons
 

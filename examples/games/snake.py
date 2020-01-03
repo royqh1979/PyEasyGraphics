@@ -140,7 +140,6 @@ class Snake:
             i-=1
 
     def move(self):
-        set_message_outdate_duration(self.delay_time+20)
         while is_run():
             self.prev = self.now
             if has_kb_msg():

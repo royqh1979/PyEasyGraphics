@@ -87,7 +87,7 @@ The following program continuously check display cursor's postion and mouse butt
             fill_rect(0, 580, 390, 600)
             draw_text(0, 600, "%d,%d" % (x, y))
             if has_mouse_msg():
-                x, y, type, buttons = get_mouse_msg()
+                x, y, type, buttons, modifiers = get_mouse_msg()
                 if type == MouseMessageType.PRESS_MESSAGE:
                     typestr = "pressed"
                 else:
@@ -138,7 +138,7 @@ Then drag from any of the above two control points to set the third and the four
                 draw_bezier(x1, y1, x3, y3, x, y, x2, y2)
 
             if has_mouse_msg():
-                x, y, type, buttons = get_mouse_msg()
+                x, y, type, buttons, modifiers = get_mouse_msg()
                 if type == MouseMessageType.PRESS_MESSAGE:
                     if reg1.contains(x, y):
                         draging_which_point = 1
