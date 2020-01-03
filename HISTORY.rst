@@ -7,6 +7,8 @@ History
  * change: use queue to store keyboard/mouse message
  * remove: set_message_outdate_duration()
  * change: now get_message() return 5 results instead of 4
+ * add: clear_mouse_msg(), clear_key_msg(), clear_char_msg()
+ * add: create_image_from_file()
 
 1.0.14
 -----------

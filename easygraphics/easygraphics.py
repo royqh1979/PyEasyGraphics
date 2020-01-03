@@ -43,11 +43,12 @@ __all__ = [
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
     'set_target', 'get_target', 'create_image','create_image_from_ndarray', 'save_image', 'close_image', 'load_image', 'put_image',
+    "create_image_from_file",
     # time control functions#
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
     # keyboard and mouse functions #
     'has_kb_msg', 'has_kb_hit', 'has_mouse_msg', 'get_key', 'get_char', 'get_mouse_msg', 'get_cursor_pos', 'get_click',
-    "contains_left_button", "contains_right_button", "contains_mid_button",
+    "contains_left_button", "contains_right_button", "contains_mid_button","clear_key_msg","clear_char_msg","clear_mouse_msg",
     # init and close graph window #
     'init_graph', 'close_graph', 'set_caption', 'get_graphics_window', 'show_image',
     # animation
@@ -2207,6 +2208,30 @@ def get_click() -> (int, int, int):
             return x, y, buttons
 
     return 0, 0, QtCore.Qt.NoButton
+
+
+def clear_key_msg():
+    """
+    Clear all keyboard hit messages.
+    """
+    _check_not_headless_and_in_shell()
+    _win.clear_key_msg()
+
+
+def clear_char_msg(self):
+    """
+    Clear all char key hit messages.
+    """
+    _check_not_headless_and_in_shell()
+    _win.clear_char_msg()
+
+
+def clear_mouse_msg(self):
+    """
+    Clear all mouse messages.
+    """
+    _check_not_headless_and_in_shell()
+    _win.clear_mouse_msg()
 
 
 def contains_left_button(buttons) -> bool:

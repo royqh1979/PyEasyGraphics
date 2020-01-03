@@ -353,6 +353,23 @@ class GraphWin(QtWidgets.QWidget):
         p = self.mapFromGlobal(QtGui.QCursor.pos())
         return p.x(), p.y()
 
+    def clear_key_msg(self):
+        """
+        Clear all keyboard hit messages.
+        """
+        self._key_msg_queue.queue.clear()
+
+    def clear_char_msg(self):
+        """
+        Clear all char key hit messages.
+        """
+        self._key_char_msg_queue.queue.clear()
+
+    def clear_mouse_msg(self):
+        """
+        Clear all mouse messages.
+        """
+        self._mouse_msg_queue.queue.clear()
 
 class _KeyMsg:
     """
