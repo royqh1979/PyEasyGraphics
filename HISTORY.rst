@@ -5,6 +5,7 @@ History
 1.0.17
 -----------
  * fix: dialogs dosen't work in normal pyqt program
+ * change: contains_control() -> contains_ctrl()
 
 1.0.16
 -----------
