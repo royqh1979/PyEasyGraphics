@@ -2,7 +2,6 @@ from easygraphics import *
 from easygraphics.turtle import *
 
 create_world(800, 600)
-
 set_speed(5)
 set_color("red")
 set_fill_color("lightyellow")

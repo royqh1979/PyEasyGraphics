@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, Roy Qu
+# This file is distributed under the same license as the EasyGraphics
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyGraphics \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-03 16:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../legacy.rst:2
+msgid "BGI (Borland Graphics Interface) Legacy"
+msgstr ""
+
+#: ../../legacy.rst:5
+msgid "Color"
+msgstr ""
+
+#: ../../legacy.rst:9
+msgid "Name"
+msgstr ""
+
+#: ../../legacy.rst:10
+msgid "Value"
+msgstr ""
+
+#: ../../legacy.rst:11
+msgid "BLACK"
+msgstr ""
+
+#: ../../legacy.rst:12
+msgid "0"
+msgstr ""
+
+#: ../../legacy.rst:13
+msgid "BLUE"
+msgstr ""
+
+#: ../../legacy.rst:14
+msgid "1"
+msgstr ""
+
+#: ../../legacy.rst:15
+msgid "GREEN"
+msgstr ""
+
+#: ../../legacy.rst:16
+msgid "2"
+msgstr ""
+
+#: ../../legacy.rst:17
+msgid "CYAN"
+msgstr ""
+
+#: ../../legacy.rst:18
+msgid "3"
+msgstr ""
+
+#: ../../legacy.rst:19
+msgid "RED"
+msgstr ""
+
+#: ../../legacy.rst:20
+msgid "4"
+msgstr ""
+
+#: ../../legacy.rst:21
+msgid "MAGENTA"
+msgstr ""
+
+#: ../../legacy.rst:22
+msgid "5"
+msgstr ""
+
+#: ../../legacy.rst:23
+msgid "BROWN"
+msgstr ""
+
+#: ../../legacy.rst:24
+msgid "6"
+msgstr ""
+
+#: ../../legacy.rst:25
+msgid "LIGHTGRAY"
+msgstr ""
+
+#: ../../legacy.rst:26
+msgid "7"
+msgstr ""
+
+#: ../../legacy.rst:27
+msgid "DARKGRAY"
+msgstr ""
+
+#: ../../legacy.rst:28
+msgid "8"
+msgstr ""
+
+#: ../../legacy.rst:29
+msgid "LIGHTBLUE"
+msgstr ""
+
+#: ../../legacy.rst:30
+msgid "9"
+msgstr ""
+
+#: ../../legacy.rst:31
+msgid "LIGHTGREEN"
+msgstr ""
+
+#: ../../legacy.rst:32
+msgid "10"
+msgstr ""
+
+#: ../../legacy.rst:33
+msgid "LIGHTCYAN"
+msgstr ""
+
+#: ../../legacy.rst:34
+msgid "11"
+msgstr ""
+
+#: ../../legacy.rst:35
+msgid "LIGHTRED"
+msgstr ""
+
+#: ../../legacy.rst:36
+msgid "12"
+msgstr ""
+
+#: ../../legacy.rst:37
+msgid "LIGHTMAGENTA"
+msgstr ""
+
+#: ../../legacy.rst:38
+msgid "13"
+msgstr ""
+
+#: ../../legacy.rst:39
+msgid "YELLOW"
+msgstr ""
+
+#: ../../legacy.rst:40
+msgid "14"
+msgstr ""
+
+#: ../../legacy.rst:41
+msgid "WHITE"
+msgstr ""
+
+#: ../../legacy.rst:42
+msgid "15"
+msgstr ""
+
+#: ../../legacy.rst:45
+msgid "Fill Pattern"
+msgstr ""
+

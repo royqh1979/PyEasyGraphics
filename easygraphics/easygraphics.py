@@ -1952,7 +1952,7 @@ def show_image(image: Image = None):
 
 def create_image_from_file(filename: str) -> Image:
     """
-    Load image form the specified file.
+    Load image from the specified file.
 
     :param filename: path of the file
     :return: loaded image
@@ -1988,6 +1988,7 @@ def color_rgb(red: int, green: int, blue: int, alpha: int = 255) -> QtGui.QColor
 
 
 rgb = color_rgb
+
 
 
 def color_cmyk(c: int, m: int, y: int, k: int, alpha: int = 255) -> QtGui.QColor:
@@ -2307,6 +2308,7 @@ def get_cursor_pos() -> (int, int):
 
 # init and close graphics #
 
+@invoke_in_app_thread.invoke_in_thread()
 def set_caption(title: str):
     """
     Set the graph window\'s caption
@@ -2333,7 +2335,7 @@ def _init_graph(width:int ,height:int,headless:bool):
         _win = GraphWin(width, height)
         _target_image = _win.get_canvas()
         _win.show()
-        set_caption("Python Easy Graphics")
+        _win.setWindowTitle("Python Easy Graphics")
         set_font_size(18)
     if _in_shell:
         _get_target_image = _get_target_image_in_shell
