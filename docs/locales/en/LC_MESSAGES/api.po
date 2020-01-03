@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-03 19:26+0800\n"
+"POT-Creation-Date: 2020-01-03 20:24+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2065,8 +2065,10 @@ msgstr ""
 #: easygraphics.clear easygraphics.clear_device easygraphics.clear_view_port
 #: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_gray
 #: easygraphics.color_hsl easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
+#: easygraphics.contains_alt easygraphics.contains_control
+#: easygraphics.contains_left_button easygraphics.contains_meta
+#: easygraphics.contains_mid_button easygraphics.contains_right_button
+#: easygraphics.contains_shift easygraphics.create_image
 #: easygraphics.create_image_from_file easygraphics.curve
 #: easygraphics.curve_point easygraphics.curve_tangent
 #: easygraphics.curve_vertex easygraphics.delay easygraphics.delay_fps
@@ -2153,13 +2155,14 @@ msgstr ""
 #: easygraphics.Image.to_bytes easygraphics.bezier_point
 #: easygraphics.bezier_tangent easygraphics.cart2pol easygraphics.cart2sphere
 #: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsl
-#: easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.create_image_from_file easygraphics.curve_point
-#: easygraphics.curve_tangent easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.get_background_color easygraphics.get_char
-#: easygraphics.get_click easygraphics.get_color
+#: easygraphics.color_hsv easygraphics.color_rgb easygraphics.contains_alt
+#: easygraphics.contains_control easygraphics.contains_left_button
+#: easygraphics.contains_meta easygraphics.contains_mid_button
+#: easygraphics.contains_right_button easygraphics.contains_shift
+#: easygraphics.create_image easygraphics.create_image_from_file
+#: easygraphics.curve_point easygraphics.curve_tangent easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.get_background_color
+#: easygraphics.get_char easygraphics.get_click easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
 #: easygraphics.get_drawing_pos easygraphics.get_drawing_x
 #: easygraphics.get_drawing_y easygraphics.get_fill_color
@@ -3750,11 +3753,7 @@ msgid ""
 msgstr ""
 
 #: easygraphics.get_key:5 of
-msgid ""
-"`keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-"
-"enum/>`_ , `keyboard modifier codes "
-"<http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-"
-"enum)/>`_"
+msgid "key message"
 msgstr ""
 
 #: easygraphics.get_char:3 of
@@ -3774,10 +3773,7 @@ msgid ""
 msgstr ""
 
 #: easygraphics.get_mouse_msg:6 of
-msgid ""
-"x of the cursor, y of the cursor , type, mouse buttons down ( "
-"QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or "
-"QtCore.Qt.NoButton), Keyboard Modifiers"
+msgid "mouse message"
 msgstr ""
 
 #: easygraphics.get_cursor_pos:3 of
@@ -3829,6 +3825,43 @@ msgstr ""
 
 #: easygraphics.clear_mouse_msg:1 of
 msgid "Clear all mouse messages."
+msgstr ""
+
+#: easygraphics.contains_alt:1 of
+msgid "Test if the modifiers contains the alt key"
+msgstr ""
+
+#: easygraphics.contains_alt:3 easygraphics.contains_control:3
+#: easygraphics.contains_meta:3 easygraphics.contains_shift:3 of
+msgid "the modifiers to be tested"
+msgstr ""
+
+#: easygraphics.contains_alt:4 of
+msgid "if the modifiers contains the alt key"
+msgstr ""
+
+#: easygraphics.contains_control:1 of
+msgid "Test if the modifiers contains the control key"
+msgstr ""
+
+#: easygraphics.contains_control:4 of
+msgid "if the modifiers contains the control key"
+msgstr ""
+
+#: easygraphics.contains_meta:1 of
+msgid "Test if the modifiers contains the meta key"
+msgstr ""
+
+#: easygraphics.contains_meta:4 of
+msgid "if the modifiers contains the meta key"
+msgstr ""
+
+#: easygraphics.contains_shift:1 of
+msgid "Test if the modifiers contains the shift key"
+msgstr ""
+
+#: easygraphics.contains_shift:4 of
+msgid "if the modifiers contains the shift key"
 msgstr ""
 
 #: easygraphics.init_graph:3 of
@@ -6697,5 +6730,21 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Load image form the specified file."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`keyboard code "
+#~ "<http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ "
+#~ ", `keyboard modifier codes "
+#~ "<http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-"
+#~ "enum)/>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "x of the cursor, y of the "
+#~ "cursor , type, mouse buttons down "
+#~ "( QtCore.Qt.LeftButton or QtCore.Qt.RightButton "
+#~ "or QtCore.Qt.MidButton or QtCore.Qt.NoButton), "
+#~ "Keyboard Modifiers"
 #~ msgstr ""
 

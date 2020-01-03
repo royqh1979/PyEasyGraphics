@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-03 19:26+0800\n"
+"POT-Creation-Date: 2020-01-03 20:24+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -2066,8 +2066,10 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.clear easygraphics.clear_device easygraphics.clear_view_port
 #: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_gray
 #: easygraphics.color_hsl easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
+#: easygraphics.contains_alt easygraphics.contains_control
+#: easygraphics.contains_left_button easygraphics.contains_meta
+#: easygraphics.contains_mid_button easygraphics.contains_right_button
+#: easygraphics.contains_shift easygraphics.create_image
 #: easygraphics.create_image_from_file easygraphics.curve
 #: easygraphics.curve_point easygraphics.curve_tangent
 #: easygraphics.curve_vertex easygraphics.delay easygraphics.delay_fps
@@ -2154,13 +2156,14 @@ msgstr "要获取线型的图片。None表示使用“绘图目标”图片（�
 #: easygraphics.Image.to_bytes easygraphics.bezier_point
 #: easygraphics.bezier_tangent easygraphics.cart2pol easygraphics.cart2sphere
 #: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsl
-#: easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_left_button easygraphics.contains_mid_button
-#: easygraphics.contains_right_button easygraphics.create_image
-#: easygraphics.create_image_from_file easygraphics.curve_point
-#: easygraphics.curve_tangent easygraphics.delay_fps easygraphics.delay_jfps
-#: easygraphics.get_background_color easygraphics.get_char
-#: easygraphics.get_click easygraphics.get_color
+#: easygraphics.color_hsv easygraphics.color_rgb easygraphics.contains_alt
+#: easygraphics.contains_control easygraphics.contains_left_button
+#: easygraphics.contains_meta easygraphics.contains_mid_button
+#: easygraphics.contains_right_button easygraphics.contains_shift
+#: easygraphics.create_image easygraphics.create_image_from_file
+#: easygraphics.curve_point easygraphics.curve_tangent easygraphics.delay_fps
+#: easygraphics.delay_jfps easygraphics.get_background_color
+#: easygraphics.get_char easygraphics.get_click easygraphics.get_color
 #: easygraphics.get_composition_mode easygraphics.get_cursor_pos
 #: easygraphics.get_drawing_pos easygraphics.get_drawing_x
 #: easygraphics.get_drawing_y easygraphics.get_fill_color
@@ -3766,15 +3769,8 @@ msgid ""
 msgstr "如果在前100ms内没有任何键被按下，程序会暂停直到有键被按下为止。"
 
 #: easygraphics.get_key:5 of
-msgid ""
-"`keyboard code <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-"
-"enum/>`_ , `keyboard modifier codes "
-"<http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-"
-"enum)/>`_"
+msgid "key message"
 msgstr ""
-"`键盘码 <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ , "
-"`键盘修饰码 <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-"
-"enum)/>`_"
 
 #: easygraphics.get_char:3 of
 msgid ""
@@ -3794,11 +3790,8 @@ msgstr "如果前100ms内没有任何鼠标按钮按下或松开事件，程序�
 
 #: easygraphics.get_mouse_msg:6 of
 #, fuzzy
-msgid ""
-"x of the cursor, y of the cursor , type, mouse buttons down ( "
-"QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or "
-"QtCore.Qt.NoButton), Keyboard Modifiers"
-msgstr "光标位置x坐标，y坐标，事件类型，按下或松开的鼠标按钮"
+msgid "mouse message"
+msgstr "获取鼠标按钮按下或者松开信息。（阻塞）"
 
 #: easygraphics.get_cursor_pos:3 of
 msgid "position's coordinate values (x,y)"
@@ -3850,6 +3843,43 @@ msgstr "清除所有字符按键消息。"
 #: easygraphics.clear_mouse_msg:1 of
 msgid "Clear all mouse messages."
 msgstr "清除所有鼠标消息"
+
+#: easygraphics.contains_alt:1 of
+msgid "Test if the modifiers contains the alt key"
+msgstr "检查是否包含alt键"
+
+#: easygraphics.contains_alt:3 easygraphics.contains_control:3
+#: easygraphics.contains_meta:3 easygraphics.contains_shift:3 of
+msgid "the modifiers to be tested"
+msgstr "要测试的修饰按钮（modifiers)"
+
+#: easygraphics.contains_alt:4 of
+msgid "if the modifiers contains the alt key"
+msgstr "是否包含alt键"
+
+#: easygraphics.contains_control:1 of
+msgid "Test if the modifiers contains the control key"
+msgstr "检查是否包含control键"
+
+#: easygraphics.contains_control:4 of
+msgid "if the modifiers contains the control key"
+msgstr "是否包含control键"
+
+#: easygraphics.contains_meta:1 of
+msgid "Test if the modifiers contains the meta key"
+msgstr "检查是否包含meta键"
+
+#: easygraphics.contains_meta:4 of
+msgid "if the modifiers contains the meta key"
+msgstr "是否包含meta键"
+
+#: easygraphics.contains_shift:1 of
+msgid "Test if the modifiers contains the shift key"
+msgstr "检查是否包含shift键"
+
+#: easygraphics.contains_shift:4 of
+msgid "if the modifiers contains the shift key"
+msgstr "是否包含shift键"
 
 #: easygraphics.init_graph:3 of
 msgid ""
@@ -5787,4 +5817,24 @@ msgstr "将一个对象注册，程序退出时会对其进行清理（调用其
 #~ "be captured. None means it is the"
 #~ " target image"
 #~ msgstr "要被截取内容的图片。None表示使用“绘图目标”图片"
+
+#~ msgid ""
+#~ "`keyboard code "
+#~ "<http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-enum/>`_ "
+#~ ", `keyboard modifier codes "
+#~ "<http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-"
+#~ "enum)/>`_"
+#~ msgstr ""
+#~ "`键盘码 <http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#Key-"
+#~ "enum/>`_ , `键盘修饰码 "
+#~ "<http://pyqt.sourceforge.net/Docs/PyQt4/qt.html#KeyboardModifier-"
+#~ "enum)/>`_"
+
+#~ msgid ""
+#~ "x of the cursor, y of the "
+#~ "cursor , type, mouse buttons down "
+#~ "( QtCore.Qt.LeftButton or QtCore.Qt.RightButton "
+#~ "or QtCore.Qt.MidButton or QtCore.Qt.NoButton), "
+#~ "Keyboard Modifiers"
+#~ msgstr "光标位置x坐标，y坐标，事件类型，按下或松开的鼠标按钮"
 
