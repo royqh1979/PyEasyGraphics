@@ -70,6 +70,7 @@ class MyWindow(QtWidgets.QWidget):
 
     def on_clear_clicked(self):
         self._pattern_image.clear()
+        self.update_images()
         self.update()
 
     def on_outer_value_changed(self,value):
@@ -114,11 +115,9 @@ class MyWindow(QtWidgets.QWidget):
 
     def on_inner_value_changed(self,value):
         self._sldDistance.setMaximum(value)
-        self.update_inner_circle()
         self.update()
 
     def on_distance_value_changed(self,value):
-        self.update_inner_circle()
         self.update()
 
     def on_toggle_start_clicked(self):
@@ -132,10 +131,17 @@ class MyWindow(QtWidgets.QWidget):
     def closeEvent(self, e: QtGui.QCloseEvent) -> None:
         self._mainFrame.closeEvent(e)
 
+    def update_images(self) -> None:
+
+        self._mainFrame.get_canvas().draw_image(0, 0, self._pattern_image)
+        self._mainFrame.get_canvas().draw_image(0, 0, self._inner_image)
+        self._mainFrame.get_canvas().draw_image(0, 0, self._outer_image)
+
     def run(self):
         self._mainFrame.set_immediate(False)
         self.update_outer_circle()
         self.update_inner_circle()
+        self.update_images()
         while self._mainFrame.is_run():
             if not self._pause:
                 if self._degree > self._sldOuter.value() * 2 * math.pi:
@@ -143,10 +149,8 @@ class MyWindow(QtWidgets.QWidget):
                 self._degree = self._degree+0.01
                 self.update_inner_circle()
                 self.update_pattern()
-                self._mainFrame.get_canvas().draw_image(0,0,self._pattern_image)
-                self._mainFrame.get_canvas().draw_image(0,0,self._inner_image)
-                self._mainFrame.get_canvas().draw_image(0,0,self._outer_image)
-            self._mainFrame.delay_fps(120)
+                self.update_images()
+            self._mainFrame.delay_fps(300)
 
 
 if __name__ == "__main__":

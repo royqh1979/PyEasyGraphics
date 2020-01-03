@@ -220,6 +220,7 @@ class GraphWin(QtWidgets.QWidget):
             self._last_fps_time = time.perf_counter_ns()
         self.real_update()
         tt = time.perf_counter_ns()
+        # print(tt)
         if tt - self._last_fps_time < nanotime:
             QtCore.QThread.usleep((self._last_fps_time + nanotime - tt) // 1000)
         self._last_fps_time = time.perf_counter_ns()
