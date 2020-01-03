@@ -14,7 +14,7 @@ def main():
             if m.type == MouseMessageType.PRESS_MESSAGE:
                 if contains_left_button(m.button):
                     # left button is down
-                    if contains_control(m.modifiers):
+                    if contains_ctrl(m.modifiers):
                         # draw big square
                         rect(m.x-10,m.y-10,m.x+10,m.y+10)
                     else:

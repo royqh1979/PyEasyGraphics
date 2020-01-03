@@ -214,6 +214,10 @@ Keyboard and Mouse
     contains_left_button
     contains_mid_button
     contains_right_button
+    contains_alt
+    contains_ctrl
+    contains_meta
+    contains_shift
     get_char
     get_click
     get_cursor_pos
@@ -232,6 +236,7 @@ Color & utilities
 
     cart2pol
     color_cmyk
+    color_hsl
     color_hsv
     color_rgb
     pol2cart
