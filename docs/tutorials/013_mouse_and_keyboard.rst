@@ -22,14 +22,8 @@ return the x,y coordinates of the position clicked, and buttons that are pressed
         set_render_mode(RenderMode.RENDER_MANUAL)
 
         while is_run():
-            x, y, buttons = get_click()
-            str = "clicked on %d,%d ." % (x, y)
-            if contains_left_button(buttons):
-                str += " left button down"
-            if contains_right_button(buttons):
-                str += " right button down"
-            if contains_mid_button(buttons):
-                str += " mid button down"
+            msg = get_click()
+            str = "clicked on %d,%d ." % (msg.x, msg.y)
             clear_device()
             draw_text(0, 600, str)
 
@@ -87,10 +81,10 @@ The following program continuously check display cursor's postion and mouse butt
             fill_rect(0, 580, 390, 600)
             draw_text(0, 600, "%d,%d" % (x, y))
             if has_mouse_msg():
-                x, y, type, buttons, modifiers = get_mouse_msg()
-                if type == MouseMessageType.PRESS_MESSAGE:
+                msg = get_mouse_msg()
+                if msg.type == MouseMessageType.PRESS_MESSAGE:
                     typestr = "pressed"
-                else:
+                elif msg.type == MouseMessageType.RELEASE_MESSAGE:
                     typestr = "released"
                 fill_rect(400, 580, 800, 600)
                 draw_text(400, 600, "button %s at %d,%d" % (typestr, x, y))
@@ -118,9 +112,13 @@ Then drag from any of the above two control points to set the third and the four
         init_graph(800, 600)
         set_render_mode(RenderMode.RENDER_MANUAL)
 
-        x1, y1, buttons = get_click()
+        msg = get_click()
+        x1=msg.x
+        y1=msg.y
         circle(x1, y1, 3)
-        x2, y2, buttons = get_click()
+        msg = get_click()
+        x2=msg.x
+        y2=msg.y
         circle(x2, y2, 3)
         line(x1, y1, x2, y2)
 
@@ -138,25 +136,26 @@ Then drag from any of the above two control points to set the third and the four
                 draw_bezier(x1, y1, x3, y3, x, y, x2, y2)
 
             if has_mouse_msg():
-                x, y, type, buttons, modifiers = get_mouse_msg()
-                if type == MouseMessageType.PRESS_MESSAGE:
-                    if reg1.contains(x, y):
+                # x, y, type, buttons, modifiers = get_mouse_msg()
+                msg = get_mouse_msg()
+                if msg.type == MouseMessageType.PRESS_MESSAGE:
+                    if reg1.contains(msg.x, msg.y):
                         draging_which_point = 1
                         set_color(Color.WHITE)
                         set_composition_mode(CompositionMode.SRC_XOR_DEST)
                         x, y = x3, y3
-                    elif reg2.contains(x, y):
+                    elif reg2.contains(msg.x, msg.y):
                         draging_which_point = 2
                         set_color(Color.WHITE)
                         set_composition_mode(CompositionMode.SRC_XOR_DEST)
                         x, y = x4, y4
                     else:
                         draging_which_point = 0
-                elif type == MouseMessageType.RELEASE_MESSAGE:
+                elif msg.type == MouseMessageType.RELEASE_MESSAGE:
                     if draging_which_point == 1:
-                        x3, y3 = x, y
+                        x3, y3 = msg.x, msg.y
                     elif draging_which_point == 2:
-                        x4, y4 = x, y
+                        x4, y4 = msg.x, msg.y
                     draging_which_point = 0
 
                     set_color(Color.BLACK)
@@ -194,6 +193,7 @@ The following program is a simple print game.
     from easygraphics import *
     import random
 
+
     def show_welcome():
         clear_device()
         set_color("yellow")
@@ -202,13 +202,14 @@ The following program is a simple print game.
         set_color("white");
         c = 0
         set_font_size(20)
-        while not has_kb_hit():
+        while is_run():
+            if has_kb_hit():
+                break
             set_color(color_rgb(c, c, c))
             draw_text(180, 400, "Press any key to continue")
             c = (c + 8) % 255;
             delay_fps(30)
         ch = get_char()
-        print(ch)
         clear_device()
 
 
