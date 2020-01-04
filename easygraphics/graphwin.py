@@ -108,6 +108,8 @@ class GraphWin(QtWidgets.QWidget):
         self._mouse_msg_queue.queue.clear()
         if self._immediate:
             self._canvas.remove_updated_listener(self.update)
+        self._is_run = False
+        self._wait_event.set()
 
     def is_immediate(self) -> bool:
         """
@@ -122,21 +124,21 @@ class GraphWin(QtWidgets.QWidget):
         mouse_msg=MouseMessage(e, MouseMessageType.PRESS_MESSAGE)
         try:
             self._mouse_msg_queue.put_nowait(mouse_msg)
-        except queue.Full as e:
+        except queue.Full as err:
             pass
 
     def mouseDoubleClickEvent(self, e: QtGui.QMouseEvent) -> None:
         mouse_msg=MouseMessage(e, MouseMessageType.DOUBLE_CLICK_MESSAGE)
         try:
             self._mouse_msg_queue.put_nowait(mouse_msg)
-        except queue.Full as e:
+        except queue.Full as err:
             pass
 
     def mouseReleaseEvent(self, e: QtGui.QMouseEvent):
         mouse_msg=MouseMessage(e, MouseMessageType.RELEASE_MESSAGE)
         try:
             self._mouse_msg_queue.put_nowait(mouse_msg)
-        except queue.Full as e:
+        except queue.Full as err:
             pass
 
     def keyPressEvent(self, e: QtGui.QKeyEvent):
@@ -153,12 +155,12 @@ class GraphWin(QtWidgets.QWidget):
             key_char_msg = _KeyCharMsg(e)
             try:
                 self._key_char_msg_queue.put_nowait(key_char_msg)
-            except queue.Full as e:
+            except queue.Full as err:
                 pass
         key_msg = KeyMessage(e)
         try:
             self._key_msg_queue.put_nowait(key_msg)
-        except queue.Full as e:
+        except queue.Full as err:
             pass
 
     def pause(self):
@@ -172,9 +174,7 @@ class GraphWin(QtWidgets.QWidget):
         self._wait_event.wait()
 
     def closeEvent(self, e: QtGui.QCloseEvent):
-        self._is_run = False
         self.close()
-        self._wait_event.set()
 
     def is_run(self) -> bool:
         return self._is_run

@@ -31,6 +31,7 @@ class MyWindow(QtWidgets.QWidget):
         self._sldOuter.setFixedWidth(150)
         self._sldOuter.setRange(100,300)
         self._sldOuter.setValue(300)
+        self._sldOuter.setTracking(True)
         self._sldOuter.valueChanged.connect(self.on_outer_value_changed)
         formLayout.addRow("Radius of outer circle:",self._sldOuter)
         self._sldInner = QtWidgets.QSlider(QtCore.Qt.Horizontal)
@@ -76,6 +77,7 @@ class MyWindow(QtWidgets.QWidget):
     def on_outer_value_changed(self,value):
         self._sldInner.setMaximum(value)
         self.update_outer_circle()
+        self._pattern_image.clear()
         self.update()
 
     def update_outer_circle(self):
@@ -115,9 +117,11 @@ class MyWindow(QtWidgets.QWidget):
 
     def on_inner_value_changed(self,value):
         self._sldDistance.setMaximum(value)
+        self._pattern_image.clear()
         self.update()
 
     def on_distance_value_changed(self,value):
+        self._pattern_image.clear()
         self.update()
 
     def on_toggle_start_clicked(self):
@@ -132,7 +136,6 @@ class MyWindow(QtWidgets.QWidget):
         self._mainFrame.closeEvent(e)
 
     def update_images(self) -> None:
-
         self._mainFrame.get_canvas().draw_image(0, 0, self._pattern_image)
         self._mainFrame.get_canvas().draw_image(0, 0, self._inner_image)
         self._mainFrame.get_canvas().draw_image(0, 0, self._outer_image)
@@ -156,6 +159,7 @@ class MyWindow(QtWidgets.QWidget):
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     win = MyWindow()
+    win.setWindowTitle("Spirograph")
     win.show()
     thread = threading.Thread(target=win.run)
     thread.start()

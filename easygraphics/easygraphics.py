@@ -1598,7 +1598,7 @@ put_image = draw_image
 
 def capture_screen(left: int, top: int, right: int, bottom: int, target_img: Image):
     """
-    Caputre specified region on the graphics windows to target image.
+    Capture specified region on the graphics windows to target image.
 
     :param left: x coordinate of the capture region\'s upper left corner
     :param top: y coordinate of the capture region\'s upper left corner
