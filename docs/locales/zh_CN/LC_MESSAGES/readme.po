@@ -53,7 +53,7 @@ msgstr "本软件为自由软件：使用GPL v3授权"
 
 #: ../../../README.rst:23
 msgid "Documentation: https://pyeasygraphics.readthedocs.io/en/latest/"
-msgstr "文档：http://easygraphics.royqh.net"
+msgstr "英文文档：https://pyeasygraphics.readthedocs.io/en/latest/"
 
 #: ../../../README.rst:24
 msgid "Documentation (Chinese Version): http://easygraphics.royqh.net"

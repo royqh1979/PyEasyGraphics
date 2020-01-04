@@ -633,7 +633,7 @@ def show_file(file_name: str = None, title: str = "Title", file_type: str = "tex
     :param title: the window title
     :param file_name: the file name, (path) relative to the calling program
     :param file_type: possible values: ``text``, ``code``, ``html``, ``python``.
-        :param width: width of the dialog window
+    :param width: width of the dialog window
     :param height:  height of the dialog window
 
     By default, file_type is assumed to be ``text``; if set to ``code``,

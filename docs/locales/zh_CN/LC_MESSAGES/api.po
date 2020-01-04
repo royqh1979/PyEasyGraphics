@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-03 20:24+0800\n"
+"POT-Creation-Date: 2020-01-04 20:21+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -1162,7 +1162,7 @@ msgid ""
 msgstr ""
 
 #: ../../api.rst:207:<autosummary>:1 easygraphics.capture_screen:1 of
-msgid "Caputre specified region on the graphics windows to target image."
+msgid "Capture specified region on the graphics windows to target image."
 msgstr "在图形窗口上截取指定区域的内容保存到图片中。"
 
 #: ../../api.rst:207:<autosummary>:1
@@ -1258,262 +1258,302 @@ msgstr "设置绘制目标（target）"
 msgid "Keyboard and Mouse"
 msgstr "键盘与鼠标"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ""
 ":obj:`contains_left_button <easygraphics.contains_left_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.contains_left_button:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_left_button:1 of
 msgid "Test if the buttons contains the left mouse button."
 msgstr "检查是否包含鼠标左键。"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ""
 ":obj:`contains_mid_button <easygraphics.contains_mid_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.contains_mid_button:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_mid_button:1 of
 msgid "Test if the buttons contains the middle mouse button."
 msgstr "检查是否包含鼠标中键。"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ""
 ":obj:`contains_right_button <easygraphics.contains_right_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.contains_right_button:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_right_button:1 of
 msgid "Test if the buttons contains the right mouse button."
 msgstr "检查是否包含鼠标右键。"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
+msgid ":obj:`contains_alt <easygraphics.contains_alt>`\\ \\(modifiers\\)"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_alt:1 of
+msgid "Test if the modifiers contains the alt key"
+msgstr "检查是否包含alt键"
+
+#: ../../api.rst:230:<autosummary>:1
+msgid ":obj:`contains_ctrl <easygraphics.contains_ctrl>`\\ \\(modifiers\\)"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_ctrl:1 of
+msgid "Test if the modifiers contains the control key"
+msgstr "检查是否包含control键"
+
+#: ../../api.rst:230:<autosummary>:1
+msgid ":obj:`contains_meta <easygraphics.contains_meta>`\\ \\(modifiers\\)"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_meta:1 of
+msgid "Test if the modifiers contains the meta key"
+msgstr "检查是否包含meta键"
+
+#: ../../api.rst:230:<autosummary>:1
+msgid ":obj:`contains_shift <easygraphics.contains_shift>`\\ \\(modifiers\\)"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_shift:1 of
+msgid "Test if the modifiers contains the shift key"
+msgstr "检查是否包含shift键"
+
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_char <easygraphics.get_char>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_char:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_char:1 of
 msgid "Get the ascii char inputted by keyboard."
 msgstr "读取键盘输入的字符。（阻塞程序）"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_click <easygraphics.get_click>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_click:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_click:1 of
 msgid "Get the mouse click message."
 msgstr "获取鼠标点击信息。（阻塞程序）"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_cursor_pos <easygraphics.get_cursor_pos>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_cursor_pos:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_cursor_pos:1 of
 msgid "Get position of the mouse cursor"
 msgstr "获取鼠标光标的位置。（非阻塞）"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_key <easygraphics.get_key>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_key:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_key:1 of
 msgid "Get the key inputted by keyboard."
 msgstr "获取键盘按下的键信息。（阻塞程序）"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_mouse_msg <easygraphics.get_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_mouse_msg:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_mouse_msg:1 of
 msgid "Get the mouse message."
 msgstr "获取鼠标按钮按下或者松开信息。（阻塞）"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`has_kb_hit <easygraphics.has_kb_hit>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.has_kb_hit:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.has_kb_hit:1 of
 msgid "See if any ascii char key hit message in the message queue."
 msgstr "检查是否有字符从键盘输入。"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`has_kb_msg <easygraphics.has_kb_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.has_kb_msg:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.has_kb_msg:1 of
 msgid "See if any key hit message in the message queue."
 msgstr "检查是否有键被按下。"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`has_mouse_msg <easygraphics.has_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.has_mouse_msg:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.has_mouse_msg:1 of
 msgid "See if there is any mouse message(event) in the message queue."
 msgstr "检查是否有鼠标按钮被按下或者松开。"
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`pause <easygraphics.pause>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.pause:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.pause:1 of
 msgid "Pause the program and wait for mouse clicking or keyboard hitting."
 msgstr "暂停程序，等待鼠标点击或者键盘按任意键继续。"
 
-#: ../../api.rst:228
+#: ../../api.rst:232
 msgid "Color & utilities"
 msgstr "颜色和工具"
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`cart2pol <easygraphics.cart2pol>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.cart2pol:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.cart2pol:1 of
 msgid "Transform a point from cartesian coordinates to polar coordinates."
 msgstr "从笛卡尔坐标转换为极坐标。"
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ""
 ":obj:`color_cmyk <easygraphics.color_cmyk>`\\ \\(c\\, m\\, y\\, k\\, "
 "alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.color_cmyk:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.color_cmyk:1 of
 msgid "Create a color with CMYK color values c,m,y,k."
 msgstr "创建CMYK颜色。"
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
+msgid ":obj:`color_hsl <easygraphics.color_hsl>`\\ \\(h\\, s\\, l\\, alpha\\)"
+msgstr ""
+
+#: ../../api.rst:247:<autosummary>:1 easygraphics.color_hsl:1 of
+msgid "Create a color with HSL color values h,s,l."
+msgstr "创建HSL颜色。"
+
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`color_hsv <easygraphics.color_hsv>`\\ \\(h\\, s\\, v\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.color_hsv:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.color_hsv:1 of
 msgid "Create a color with HSV color values h,s,v."
 msgstr "创建HSV颜色。"
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ""
 ":obj:`color_rgb <easygraphics.color_rgb>`\\ \\(red\\, green\\, blue\\, "
 "alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.color_rgb:1
+#: ../../api.rst:247:<autosummary>:1 easygraphics.color_rgb:1
 #: easygraphics.rgb:1 of
 msgid "Create a color with RGB color values r,g,b."
 msgstr "创建RGB颜色。"
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`pol2cart <easygraphics.pol2cart>`\\ \\(rho\\, theta\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.pol2cart:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.pol2cart:1 of
 msgid "Transform a point from polar coordinates to cartesian coordinates."
 msgstr "从极坐标转换为笛卡尔坐标。"
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`rgb <easygraphics.rgb>`\\ \\(red\\, green\\, blue\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`show_image <easygraphics.show_image>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.show_image:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.show_image:1 of
 msgid "Display the image in ipython console or notebook."
 msgstr "在qtconsole或者notebook中显示图片"
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`to_alpha <easygraphics.to_alpha>`\\ \\(new\\_color\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.to_alpha:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.to_alpha:1 of
 msgid "Get new color based on the given color and alpha."
 msgstr "用所给的颜色和alpha值创建新颜色。"
 
-#: ../../api.rst:244
+#: ../../api.rst:249
 msgid "Constants"
 msgstr "常量"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`Color <easygraphics.Color>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.Color:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.Color:1 of
 msgid "These are the predefined Color constants."
 msgstr "这些是预定义的颜色常量。"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`CompositionMode <easygraphics.CompositionMode>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.CompositionMode:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.CompositionMode:1 of
 msgid "Defines the modes supported for digital image compositing."
 msgstr "定义了绘图时的合成模式。"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`FillStyle <easygraphics.FillStyle>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.FillStyle:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.FillStyle:1 of
 msgid "These are the fill style used by draw and fill functions."
 msgstr "这些是draw_xxx和fill_xxx函数使用的填充模式。"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`FillRule <easygraphics.FillRule>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.FillRule:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.FillRule:1 of
 msgid "The Rule for fill polygons."
 msgstr "填充多边形时用的算法"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`LineStyle <easygraphics.LineStyle>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid "These are the line styles that can be drawn."
 msgstr "这些是绘制线条时的线型。"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`MouseMessageType <easygraphics.MouseMessageType>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.MouseMessageType:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.MouseMessageType:1 of
 msgid "These are the mouse message types."
 msgstr "这些是鼠标信息类型。"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`RenderMode <easygraphics.RenderMode>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.RenderMode:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.RenderMode:1 of
 msgid "These are the graphics window render mode."
 msgstr "这些是图形窗口的渲染模式。"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`TextFlags <easygraphics.TextFlags>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.TextFlags:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.TextFlags:1 of
 msgid "These are the text drawing flags."
 msgstr "这些是文本绘制标志。"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`ShapeMode <easygraphics.ShapeMode>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid "This flag controls how shapes will be drawn."
 msgstr "在绘制形状时，该标志决定各参数的含义。"
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`VertexType <easygraphics.VertexType>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.VertexType:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.VertexType:1 of
 msgid "These are the type of shape defined by a vertex list."
 msgstr "使用顶点定义的形状类型"
 
-#: ../../api.rst:261
+#: ../../api.rst:266
 msgid "API Details"
 msgstr "API详情"
 
@@ -2066,7 +2106,7 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.clear easygraphics.clear_device easygraphics.clear_view_port
 #: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_gray
 #: easygraphics.color_hsl easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_alt easygraphics.contains_control
+#: easygraphics.contains_alt easygraphics.contains_ctrl
 #: easygraphics.contains_left_button easygraphics.contains_meta
 #: easygraphics.contains_mid_button easygraphics.contains_right_button
 #: easygraphics.contains_shift easygraphics.create_image
@@ -2157,7 +2197,7 @@ msgstr "要获取线型的图片。None表示使用“绘图目标”图片（�
 #: easygraphics.bezier_tangent easygraphics.cart2pol easygraphics.cart2sphere
 #: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsl
 #: easygraphics.color_hsv easygraphics.color_rgb easygraphics.contains_alt
-#: easygraphics.contains_control easygraphics.contains_left_button
+#: easygraphics.contains_ctrl easygraphics.contains_left_button
 #: easygraphics.contains_meta easygraphics.contains_mid_button
 #: easygraphics.contains_right_button easygraphics.contains_shift
 #: easygraphics.create_image easygraphics.create_image_from_file
@@ -3844,11 +3884,7 @@ msgstr "清除所有字符按键消息。"
 msgid "Clear all mouse messages."
 msgstr "清除所有鼠标消息"
 
-#: easygraphics.contains_alt:1 of
-msgid "Test if the modifiers contains the alt key"
-msgstr "检查是否包含alt键"
-
-#: easygraphics.contains_alt:3 easygraphics.contains_control:3
+#: easygraphics.contains_alt:3 easygraphics.contains_ctrl:3
 #: easygraphics.contains_meta:3 easygraphics.contains_shift:3 of
 msgid "the modifiers to be tested"
 msgstr "要测试的修饰按钮（modifiers)"
@@ -3857,25 +3893,13 @@ msgstr "要测试的修饰按钮（modifiers)"
 msgid "if the modifiers contains the alt key"
 msgstr "是否包含alt键"
 
-#: easygraphics.contains_control:1 of
-msgid "Test if the modifiers contains the control key"
-msgstr "检查是否包含control键"
-
-#: easygraphics.contains_control:4 of
+#: easygraphics.contains_ctrl:4 of
 msgid "if the modifiers contains the control key"
 msgstr "是否包含control键"
-
-#: easygraphics.contains_meta:1 of
-msgid "Test if the modifiers contains the meta key"
-msgstr "检查是否包含meta键"
 
 #: easygraphics.contains_meta:4 of
 msgid "if the modifiers contains the meta key"
 msgstr "是否包含meta键"
-
-#: easygraphics.contains_shift:1 of
-msgid "Test if the modifiers contains the shift key"
-msgstr "检查是否包含shift键"
 
 #: easygraphics.contains_shift:4 of
 msgid "if the modifiers contains the shift key"
@@ -3927,11 +3951,10 @@ msgid "the filename of the save file."
 msgstr "要保存的文件名"
 
 #: easygraphics.add_record:3 of
-#, fuzzy
 msgid ""
 "the target image whose content will be captured. None means it is the "
 "target image (see set_target() and get_target())."
-msgstr "要保存的图片。None表示使用“绘图目标”图片（参见set_target()和get_target())"
+msgstr "要抓取内容的图片。None表示使用“绘图目标”图片（参见set_target()和get_target())"
 
 #: easygraphics.color_gray:1 of
 msgid "Create a gray color."
@@ -3985,10 +4008,6 @@ msgstr "饱和度(saturation)"
 #: easygraphics.color_hsv:5 of
 msgid "Value"
 msgstr "明度"
-
-#: easygraphics.color_hsl:1 of
-msgid "Create a color with HSL color values h,s,l."
-msgstr "创建HSL颜色。"
 
 #: easygraphics.color_hsl:5 of
 msgid "lightness value"

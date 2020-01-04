@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-03 20:24+0800\n"
+"POT-Creation-Date: 2020-01-04 20:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1161,7 +1161,7 @@ msgid ""
 msgstr ""
 
 #: ../../api.rst:207:<autosummary>:1 easygraphics.capture_screen:1 of
-msgid "Caputre specified region on the graphics windows to target image."
+msgid "Capture specified region on the graphics windows to target image."
 msgstr ""
 
 #: ../../api.rst:207:<autosummary>:1
@@ -1257,262 +1257,302 @@ msgstr ""
 msgid "Keyboard and Mouse"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ""
 ":obj:`contains_left_button <easygraphics.contains_left_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.contains_left_button:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_left_button:1 of
 msgid "Test if the buttons contains the left mouse button."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ""
 ":obj:`contains_mid_button <easygraphics.contains_mid_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.contains_mid_button:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_mid_button:1 of
 msgid "Test if the buttons contains the middle mouse button."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ""
 ":obj:`contains_right_button <easygraphics.contains_right_button>`\\ "
 "\\(buttons\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.contains_right_button:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_right_button:1 of
 msgid "Test if the buttons contains the right mouse button."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
+msgid ":obj:`contains_alt <easygraphics.contains_alt>`\\ \\(modifiers\\)"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_alt:1 of
+msgid "Test if the modifiers contains the alt key"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1
+msgid ":obj:`contains_ctrl <easygraphics.contains_ctrl>`\\ \\(modifiers\\)"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_ctrl:1 of
+msgid "Test if the modifiers contains the control key"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1
+msgid ":obj:`contains_meta <easygraphics.contains_meta>`\\ \\(modifiers\\)"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_meta:1 of
+msgid "Test if the modifiers contains the meta key"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1
+msgid ":obj:`contains_shift <easygraphics.contains_shift>`\\ \\(modifiers\\)"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1 easygraphics.contains_shift:1 of
+msgid "Test if the modifiers contains the shift key"
+msgstr ""
+
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_char <easygraphics.get_char>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_char:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_char:1 of
 msgid "Get the ascii char inputted by keyboard."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_click <easygraphics.get_click>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_click:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_click:1 of
 msgid "Get the mouse click message."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_cursor_pos <easygraphics.get_cursor_pos>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_cursor_pos:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_cursor_pos:1 of
 msgid "Get position of the mouse cursor"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_key <easygraphics.get_key>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_key:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_key:1 of
 msgid "Get the key inputted by keyboard."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`get_mouse_msg <easygraphics.get_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.get_mouse_msg:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.get_mouse_msg:1 of
 msgid "Get the mouse message."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`has_kb_hit <easygraphics.has_kb_hit>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.has_kb_hit:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.has_kb_hit:1 of
 msgid "See if any ascii char key hit message in the message queue."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`has_kb_msg <easygraphics.has_kb_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.has_kb_msg:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.has_kb_msg:1 of
 msgid "See if any key hit message in the message queue."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`has_mouse_msg <easygraphics.has_mouse_msg>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.has_mouse_msg:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.has_mouse_msg:1 of
 msgid "See if there is any mouse message(event) in the message queue."
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1
+#: ../../api.rst:230:<autosummary>:1
 msgid ":obj:`pause <easygraphics.pause>`\\ \\(\\)"
 msgstr ""
 
-#: ../../api.rst:226:<autosummary>:1 easygraphics.pause:1 of
+#: ../../api.rst:230:<autosummary>:1 easygraphics.pause:1 of
 msgid "Pause the program and wait for mouse clicking or keyboard hitting."
 msgstr ""
 
-#: ../../api.rst:228
+#: ../../api.rst:232
 msgid "Color & utilities"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`cart2pol <easygraphics.cart2pol>`\\ \\(x\\, y\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.cart2pol:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.cart2pol:1 of
 msgid "Transform a point from cartesian coordinates to polar coordinates."
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ""
 ":obj:`color_cmyk <easygraphics.color_cmyk>`\\ \\(c\\, m\\, y\\, k\\, "
 "alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.color_cmyk:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.color_cmyk:1 of
 msgid "Create a color with CMYK color values c,m,y,k."
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
+msgid ":obj:`color_hsl <easygraphics.color_hsl>`\\ \\(h\\, s\\, l\\, alpha\\)"
+msgstr ""
+
+#: ../../api.rst:247:<autosummary>:1 easygraphics.color_hsl:1 of
+msgid "Create a color with HSL color values h,s,l."
+msgstr ""
+
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`color_hsv <easygraphics.color_hsv>`\\ \\(h\\, s\\, v\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.color_hsv:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.color_hsv:1 of
 msgid "Create a color with HSV color values h,s,v."
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ""
 ":obj:`color_rgb <easygraphics.color_rgb>`\\ \\(red\\, green\\, blue\\, "
 "alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.color_rgb:1
+#: ../../api.rst:247:<autosummary>:1 easygraphics.color_rgb:1
 #: easygraphics.rgb:1 of
 msgid "Create a color with RGB color values r,g,b."
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`pol2cart <easygraphics.pol2cart>`\\ \\(rho\\, theta\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.pol2cart:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.pol2cart:1 of
 msgid "Transform a point from polar coordinates to cartesian coordinates."
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`rgb <easygraphics.rgb>`\\ \\(red\\, green\\, blue\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`show_image <easygraphics.show_image>`\\ \\(image\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.show_image:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.show_image:1 of
 msgid "Display the image in ipython console or notebook."
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1
+#: ../../api.rst:247:<autosummary>:1
 msgid ":obj:`to_alpha <easygraphics.to_alpha>`\\ \\(new\\_color\\, alpha\\)"
 msgstr ""
 
-#: ../../api.rst:242:<autosummary>:1 easygraphics.to_alpha:1 of
+#: ../../api.rst:247:<autosummary>:1 easygraphics.to_alpha:1 of
 msgid "Get new color based on the given color and alpha."
 msgstr ""
 
-#: ../../api.rst:244
+#: ../../api.rst:249
 msgid "Constants"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`Color <easygraphics.Color>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.Color:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.Color:1 of
 msgid "These are the predefined Color constants."
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`CompositionMode <easygraphics.CompositionMode>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.CompositionMode:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.CompositionMode:1 of
 msgid "Defines the modes supported for digital image compositing."
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`FillStyle <easygraphics.FillStyle>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.FillStyle:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.FillStyle:1 of
 msgid "These are the fill style used by draw and fill functions."
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`FillRule <easygraphics.FillRule>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.FillRule:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.FillRule:1 of
 msgid "The Rule for fill polygons."
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`LineStyle <easygraphics.LineStyle>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid "These are the line styles that can be drawn."
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`MouseMessageType <easygraphics.MouseMessageType>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.MouseMessageType:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.MouseMessageType:1 of
 msgid "These are the mouse message types."
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`RenderMode <easygraphics.RenderMode>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.RenderMode:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.RenderMode:1 of
 msgid "These are the graphics window render mode."
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`TextFlags <easygraphics.TextFlags>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.TextFlags:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.TextFlags:1 of
 msgid "These are the text drawing flags."
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`ShapeMode <easygraphics.ShapeMode>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid "This flag controls how shapes will be drawn."
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1
+#: ../../api.rst:264:<autosummary>:1
 msgid ":obj:`VertexType <easygraphics.VertexType>`\\"
 msgstr ""
 
-#: ../../api.rst:259:<autosummary>:1 easygraphics.VertexType:1 of
+#: ../../api.rst:264:<autosummary>:1 easygraphics.VertexType:1 of
 msgid "These are the type of shape defined by a vertex list."
 msgstr ""
 
-#: ../../api.rst:261
+#: ../../api.rst:266
 msgid "API Details"
 msgstr ""
 
@@ -2065,7 +2105,7 @@ msgstr ""
 #: easygraphics.clear easygraphics.clear_device easygraphics.clear_view_port
 #: easygraphics.close_image easygraphics.color_cmyk easygraphics.color_gray
 #: easygraphics.color_hsl easygraphics.color_hsv easygraphics.color_rgb
-#: easygraphics.contains_alt easygraphics.contains_control
+#: easygraphics.contains_alt easygraphics.contains_ctrl
 #: easygraphics.contains_left_button easygraphics.contains_meta
 #: easygraphics.contains_mid_button easygraphics.contains_right_button
 #: easygraphics.contains_shift easygraphics.create_image
@@ -2156,7 +2196,7 @@ msgstr ""
 #: easygraphics.bezier_tangent easygraphics.cart2pol easygraphics.cart2sphere
 #: easygraphics.color_cmyk easygraphics.color_gray easygraphics.color_hsl
 #: easygraphics.color_hsv easygraphics.color_rgb easygraphics.contains_alt
-#: easygraphics.contains_control easygraphics.contains_left_button
+#: easygraphics.contains_ctrl easygraphics.contains_left_button
 #: easygraphics.contains_meta easygraphics.contains_mid_button
 #: easygraphics.contains_right_button easygraphics.contains_shift
 #: easygraphics.create_image easygraphics.create_image_from_file
@@ -3827,11 +3867,7 @@ msgstr ""
 msgid "Clear all mouse messages."
 msgstr ""
 
-#: easygraphics.contains_alt:1 of
-msgid "Test if the modifiers contains the alt key"
-msgstr ""
-
-#: easygraphics.contains_alt:3 easygraphics.contains_control:3
+#: easygraphics.contains_alt:3 easygraphics.contains_ctrl:3
 #: easygraphics.contains_meta:3 easygraphics.contains_shift:3 of
 msgid "the modifiers to be tested"
 msgstr ""
@@ -3840,24 +3876,12 @@ msgstr ""
 msgid "if the modifiers contains the alt key"
 msgstr ""
 
-#: easygraphics.contains_control:1 of
-msgid "Test if the modifiers contains the control key"
-msgstr ""
-
-#: easygraphics.contains_control:4 of
+#: easygraphics.contains_ctrl:4 of
 msgid "if the modifiers contains the control key"
-msgstr ""
-
-#: easygraphics.contains_meta:1 of
-msgid "Test if the modifiers contains the meta key"
 msgstr ""
 
 #: easygraphics.contains_meta:4 of
 msgid "if the modifiers contains the meta key"
-msgstr ""
-
-#: easygraphics.contains_shift:1 of
-msgid "Test if the modifiers contains the shift key"
 msgstr ""
 
 #: easygraphics.contains_shift:4 of
@@ -3966,10 +3990,6 @@ msgstr ""
 
 #: easygraphics.color_hsv:5 of
 msgid "Value"
-msgstr ""
-
-#: easygraphics.color_hsl:1 of
-msgid "Create a color with HSL color values h,s,l."
 msgstr ""
 
 #: easygraphics.color_hsl:5 of
@@ -6746,5 +6766,8 @@ msgstr ""
 #~ "( QtCore.Qt.LeftButton or QtCore.Qt.RightButton "
 #~ "or QtCore.Qt.MidButton or QtCore.Qt.NoButton), "
 #~ "Keyboard Modifiers"
+#~ msgstr ""
+
+#~ msgid "Caputre specified region on the graphics windows to target image."
 #~ msgstr ""
 

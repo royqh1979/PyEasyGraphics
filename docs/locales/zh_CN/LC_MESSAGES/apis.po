@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-28 23:02+0800\n"
+"POT-Creation-Date: 2020-01-04 20:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -464,10 +464,8 @@ msgid "the file name, (path) relative to the calling program"
 msgstr "文件路径"
 
 #: easygraphics.dialog.show_file:7 of
-#, fuzzy
 msgid ""
-"possible values: ``text``, ``code``, ``html``, ``python``. :param width: "
-"width of the dialog window"
+"possible values: ``text``, ``code``, ``html``, ``python``."
 msgstr "可以的值：``text``, ``code``, ``html``, ``python``。"
 
 #: easygraphics.dialog.show_file:11 of
@@ -1112,7 +1110,7 @@ msgid "fill style, fill color"
 msgstr ""
 
 #: easygraphics.legacy.getimage:1 of
-msgid "Caputre specified region on the graphics windows to target image."
+msgid "Capture specified region on the graphics windows to target image."
 msgstr ""
 
 #: easygraphics.legacy.getimage:3 of
@@ -2680,9 +2678,8 @@ msgid "True the turtle is shown, False the turtle is hiding."
 msgstr "True表示显示海龟，False表示隐藏。"
 
 #: easygraphics.turtle.Turtle.reset:1 of
-#, fuzzy
 msgid "Reset the turtle's state"
-msgstr "获取海龟。"
+msgstr "重置海龟状态。"
 
 #: easygraphics.turtle.TurtleWorld:1 of
 msgid ""
@@ -4786,5 +4783,8 @@ msgstr "要运行的函数或者方法"
 #~ msgid ""
 #~ ":obj:`move_ellipse <easygraphics.turtle.move_ellipse>`\\ "
 #~ "\\(radius\\_left\\, radius\\_top\\[\\, angle\\]\\)"
+#~ msgstr ""
+
+#~ msgid "Caputre specified region on the graphics windows to target image."
 #~ msgstr ""
 
