@@ -284,8 +284,16 @@ class GraphWin(QtWidgets.QWidget):
             return ' '
         nt = time.perf_counter_ns()
         self.real_update()
-        key_char_msg = self._key_char_msg_queue.get()
-        return key_char_msg.get_char()
+        while True:
+            try:
+                key_char_msg = self._key_char_msg_queue.get(True,0.1)
+                return key_char_msg.char
+            except queue.Empty as err:
+                if not self._is_run:
+                    return ''
+                pass
+
+
 
     def get_key(self) -> "KeyMessage":
         """
@@ -299,8 +307,16 @@ class GraphWin(QtWidgets.QWidget):
             return QtCore.Qt.Key_Escape, QtCore.Qt.NoModifier
         nt = time.perf_counter_ns()
         self.real_update()
-        key_msg = self._key_msg_queue.get()
-        return key_msg
+        while True:
+            try:
+                key_msg = self._key_msg_queue.get(True,0.1)
+                return key_msg
+            except queue.Empty as err:
+                if not self._is_run:
+                    return KeyMessage(None)
+                pass
+
+
 
     def get_mouse_msg(self) -> "MouseMessage":
         """
@@ -315,8 +331,14 @@ class GraphWin(QtWidgets.QWidget):
             return 0, 0, 0, QtCore.Qt.NoButton
         nt = time.perf_counter_ns()
         self.real_update()
-        mouse_msg = self._mouse_msg_queue.get()
-        return mouse_msg
+        while True:
+            try:
+                mouse_msg = self._mouse_msg_queue.get(True,0.1)
+                return mouse_msg
+            except queue.Empty as err:
+                if not self._is_run:
+                    return MouseMessage(None,None)
+                pass
 
     def has_kb_hit(self) -> bool:
         """
@@ -381,10 +403,16 @@ class KeyMessage:
     """
 
     def __init__(self,key_event: QtGui.QKeyEvent):
-        self.key = key_event.key()
-        self.char = key_event.text()
-        self.count = key_event.count()
-        self.modifiers = key_event.modifiers()
+        if key_event is None:
+            self.key = None
+            self.char = ''
+            self.count = 0
+            self.modifiers = QtCore.Qt.NoModifier
+        else:
+            self.key = key_event.key()
+            self.char = key_event.text()
+            self.count = key_event.count()
+            self.modifiers = key_event.modifiers()
 
 
 class _KeyCharMsg:
@@ -393,18 +421,23 @@ class _KeyCharMsg:
     """
 
     def __init__(self, key_event: QtGui.QKeyEvent):
-        self._key = key_event.text()
-
-    def get_char(self) -> str:
-        return self._key
+        self.char = key_event.text()
 
 class MouseMessage:
     def __init__(self, e: QtGui.QMouseEvent, _type: MouseMessageType):
-        self._time = time.perf_counter_ns()
-        self.x = e.x()
-        self.y = e.y()
-        self.modifiers = e.modifiers()
-        self.global_x = e.globalX()
-        self.global_y = e.globalY()
-        self.type = _type
-        self.button = e.button()
+        if e is None:
+            self.x = 0
+            self.y = 0
+            self.modifiers = QtCore.Qt.NoModifier
+            self.global_x = 0
+            self.global_y = 0
+            self.type = MouseMessageType.NO_MESSAGE
+            self.button = QtCore.Qt.NoButton
+        else:
+            self.x = e.x()
+            self.y = e.y()
+            self.modifiers = e.modifiers()
+            self.global_x = e.globalX()
+            self.global_y = e.globalY()
+            self.type = _type
+            self.button = e.button()
