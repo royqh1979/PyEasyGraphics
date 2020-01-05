@@ -174,17 +174,18 @@ def play():
     now=B
     print_board()
     print_current()
-    while is_run():
-        msg = get_mouse_msg()
-        if msg.type == MouseMessageType.PRESS_MESSAGE:
-            x=msg.x//60
-            y=msg.y//60
-            if judge(x,y,now):
-                update(x,y,now)
-                now = B if now == W else W
-                print_current()
-            if finised() or losed(W) or losed(B):
-                break
+    while True:
+        msg = get_click()
+        if not is_run():
+            break
+        x=msg.x//60
+        y=msg.y//60
+        if judge(x,y,now):
+            update(x,y,now)
+            now = B if now == W else W
+            print_current()
+        if finised() or losed(W) or losed(B):
+            break
 
 def main():
     init_graph(640,480)

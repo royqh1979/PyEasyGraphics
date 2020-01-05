@@ -2214,19 +2214,12 @@ def get_click() -> MouseMessage:
     """
     Get the mouse click message.
 
-    If there is not any  mouse button is clicked in last 100 ms, the program will stop and wait for
-    the next clicking.
+    If there isn't any clicked event, the program will stop and wait for it.
 
-    :return: x of the cursor, y of the cursor , mouse buttons down
-        ( QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or QtCore.Qt.NoButton)
+    :return: mouse message
     """
     _check_not_headless_and_in_shell()
-    while is_run():
-        msg = _win.get_mouse_msg()
-        if msg.type == MouseMessageType.RELEASE_MESSAGE and contains_left_button(msg.button):
-            return msg
-
-    return 0, 0, QtCore.Qt.NoButton
+    return _win.get_click()
 
 
 def clear_key_msg():

@@ -340,6 +340,21 @@ class GraphWin(QtWidgets.QWidget):
                     return MouseMessage(None,None)
                 pass
 
+    def get_click(self) -> "MouseMessage":
+        """
+        Get the mouse click message.
+
+        If there isn't any clicked event, the program will stop and wait for it.
+
+        :return: mouse message
+        """
+        while self._is_run:
+            msg = self.get_mouse_msg()
+            if msg == MouseMessageType.NO_MESSAGE or\
+                    msg.type == MouseMessageType.RELEASE_MESSAGE and (msg.button & QtCore.Qt.LeftButton) > 0:
+                return msg
+        return MouseMessage(None,None)
+
     def has_kb_hit(self) -> bool:
         """
         See if any ascii char key hit message in the message queue.

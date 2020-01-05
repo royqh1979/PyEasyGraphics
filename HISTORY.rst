@@ -7,6 +7,7 @@ History
  * fix: dialogs dosen't work in normal pyqt program
  * change: contains_control() -> contains_ctrl()
  * add: load_image() throw value error if the image file is not exist
+ * fix: get_mouse_msg() / get_char() / get_key() not quit correctly when the graphics window is closed
 
 1.0.16
 -----------
