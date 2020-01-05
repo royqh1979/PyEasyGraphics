@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-04 20:21+0800\n"
+"POT-Creation-Date: 2020-01-05 21:05+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,797 +34,807 @@ msgstr ""
 msgid "change: contains_control() -> contains_ctrl()"
 msgstr ""
 
-#: ../../../HISTORY.rst:11
-msgid "1.0.16"
+#: ../../../HISTORY.rst:9
+msgid "add: load_image() throw value error if the image file is not exist"
 msgstr ""
 
-#: ../../../HISTORY.rst:12
-msgid "add: set_antialiasing()"
+#: ../../../HISTORY.rst:10
+msgid ""
+"fix: get_mouse_msg() / get_char() / get_key() not quit correctly when the"
+" graphics window is closed"
 msgstr ""
 
 #: ../../../HISTORY.rst:13
-msgid "add: contains_control()/contains_alt()/contains_shit()/contains_meta()"
+msgid "1.0.16"
 msgstr ""
 
 #: ../../../HISTORY.rst:14
-msgid "change: get_mouse_message() now return a MouseMessage object"
+msgid "add: set_antialiasing()"
 msgstr ""
 
 #: ../../../HISTORY.rst:15
+msgid "add: contains_control()/contains_alt()/contains_shit()/contains_meta()"
+msgstr ""
+
+#: ../../../HISTORY.rst:16
+msgid "change: get_mouse_message() now return a MouseMessage object"
+msgstr ""
+
+#: ../../../HISTORY.rst:17
 msgid "change: get_key() now return a KeyMessage object"
 msgstr ""
 
-#: ../../../HISTORY.rst:18
+#: ../../../HISTORY.rst:20
 msgid "1.0.15"
 msgstr ""
 
-#: ../../../HISTORY.rst:19
+#: ../../../HISTORY.rst:21
 msgid "change: use queue to store keyboard/mouse message"
 msgstr ""
 
-#: ../../../HISTORY.rst:20
+#: ../../../HISTORY.rst:22
 msgid "remove: set_message_outdate_duration()"
 msgstr ""
 
-#: ../../../HISTORY.rst:21
+#: ../../../HISTORY.rst:23
 msgid "change: now get_message() return 5 results instead of 4"
 msgstr ""
 
-#: ../../../HISTORY.rst:22
+#: ../../../HISTORY.rst:24
 msgid "add: clear_mouse_msg(), clear_key_msg(), clear_char_msg()"
 msgstr ""
 
-#: ../../../HISTORY.rst:23
+#: ../../../HISTORY.rst:25
 msgid "add: create_image_from_file()"
 msgstr ""
 
-#: ../../../HISTORY.rst:26
+#: ../../../HISTORY.rst:28
 msgid "1.0.14"
 msgstr ""
 
-#: ../../../HISTORY.rst:27
+#: ../../../HISTORY.rst:29
 msgid "fix: processing not working"
 msgstr ""
 
-#: ../../../HISTORY.rst:28
+#: ../../../HISTORY.rst:30
 msgid "fix: get_key() and has_kb_msg() not working"
 msgstr ""
 
-#: ../../../HISTORY.rst:29
+#: ../../../HISTORY.rst:31
 msgid "add: set_message_outdate_duration()"
 msgstr ""
 
-#: ../../../HISTORY.rst:30
+#: ../../../HISTORY.rst:32
 msgid "add: bezier_point and bezier_tangent functions"
 msgstr ""
 
-#: ../../../HISTORY.rst:31
+#: ../../../HISTORY.rst:33
 msgid "add: curve_point and curve_tanget functions"
 msgstr ""
 
-#: ../../../HISTORY.rst:32
+#: ../../../HISTORY.rst:34
 msgid "add more documents and examples"
 msgstr ""
 
-#: ../../../HISTORY.rst:35
+#: ../../../HISTORY.rst:37
 msgid "1.0.13.1"
 msgstr ""
 
-#: ../../../HISTORY.rst:36
+#: ../../../HISTORY.rst:38
 msgid "fix: immediate mode not work"
 msgstr ""
 
-#: ../../../HISTORY.rst:37
+#: ../../../HISTORY.rst:39
 msgid "fix: set_flip_y() dosen't work when reused after reset_transform()"
 msgstr ""
 
-#: ../../../HISTORY.rst:40
+#: ../../../HISTORY.rst:42
 msgid "1.0.13"
 msgstr ""
 
-#: ../../../HISTORY.rst:41
+#: ../../../HISTORY.rst:43
 msgid "add easy_run mode"
 msgstr ""
 
-#: ../../../HISTORY.rst:42
+#: ../../../HISTORY.rst:44
 msgid ""
 "now the easy_run mode is the preferred mode to run easygraphics. It can "
 "work under Linux, macOS and windows."
 msgstr ""
 
-#: ../../../HISTORY.rst:45
+#: ../../../HISTORY.rst:47
 msgid "1.0.12"
 msgstr ""
 
-#: ../../../HISTORY.rst:46
+#: ../../../HISTORY.rst:48
 msgid ""
 "fix: the drawing is not stopped immediately after the turtle window is "
 "closed()"
 msgstr ""
 
-#: ../../../HISTORY.rst:49
+#: ../../../HISTORY.rst:51
 msgid "1.0.11"
 msgstr ""
 
-#: ../../../HISTORY.rst:50
+#: ../../../HISTORY.rst:52
 msgid "fix: dialog get_username_password() hangs."
 msgstr ""
 
-#: ../../../HISTORY.rst:51
+#: ../../../HISTORY.rst:53
 msgid "fix: dialog get_color() not work"
 msgstr ""
 
-#: ../../../HISTORY.rst:52
+#: ../../../HISTORY.rst:54
 msgid "fix: dialog show_html()/show_code()/show_text() not work"
 msgstr ""
 
-#: ../../../HISTORY.rst:55
+#: ../../../HISTORY.rst:57
 msgid "1.0.10"
 msgstr ""
 
-#: ../../../HISTORY.rst:56
+#: ../../../HISTORY.rst:58
 msgid "add: show_objects() now can show a DataFrame."
 msgstr ""
 
-#: ../../../HISTORY.rst:59
+#: ../../../HISTORY.rst:61
 msgid "1.0.9"
 msgstr ""
 
-#: ../../../HISTORY.rst:60
+#: ../../../HISTORY.rst:62
 msgid "add: enable_sorting parameter in show_objects()"
 msgstr ""
 
-#: ../../../HISTORY.rst:63
+#: ../../../HISTORY.rst:65
 msgid "1.0.8"
 msgstr ""
 
-#: ../../../HISTORY.rst:64
+#: ../../../HISTORY.rst:66
 msgid "fix: crash when show_objects() called successively."
 msgstr ""
 
-#: ../../../HISTORY.rst:65
+#: ../../../HISTORY.rst:67
 msgid ""
 "dialogs will close the auto-started qapplication instance when exception "
 "raised."
 msgstr ""
 
-#: ../../../HISTORY.rst:68
+#: ../../../HISTORY.rst:70
 msgid "1.0.7"
 msgstr ""
 
-#: ../../../HISTORY.rst:69
+#: ../../../HISTORY.rst:71
 msgid "fix: show_objects() don't show non-primitive-type properties correctly"
 msgstr ""
 
-#: ../../../HISTORY.rst:72
+#: ../../../HISTORY.rst:74
 msgid "1.0.6"
 msgstr ""
 
-#: ../../../HISTORY.rst:73
+#: ../../../HISTORY.rst:75
 msgid ""
 "change: get_open_file_name()/get_file_names()/get_save_file_name() now "
 "use native dialogs, to avoid crash on pyqt >= 5.11.3"
 msgstr ""
 
-#: ../../../HISTORY.rst:75
+#: ../../../HISTORY.rst:77
 msgid ""
 "add: FileFilter const class, and filter parameter in "
 "get_open_file_name()/get_file_names()/get_save_file_name()"
 msgstr ""
 
-#: ../../../HISTORY.rst:78
+#: ../../../HISTORY.rst:80
 msgid "1.0.5"
 msgstr ""
 
-#: ../../../HISTORY.rst:79
+#: ../../../HISTORY.rst:81
 msgid "add: get_open_file_name() to dialog package."
 msgstr ""
 
-#: ../../../HISTORY.rst:80
+#: ../../../HISTORY.rst:82
 msgid "fix: get_open_file_name()/get_file_names()/get_save_file_name() not work"
 msgstr ""
 
-#: ../../../HISTORY.rst:81
+#: ../../../HISTORY.rst:83
 msgid ""
 "change: get_open_file_name()/get_file_names()/get_save_file_name() return"
 " filename(s), instead of tuple"
 msgstr ""
 
-#: ../../../HISTORY.rst:85
+#: ../../../HISTORY.rst:87
 msgid "1.0.4"
 msgstr ""
 
-#: ../../../HISTORY.rst:86
+#: ../../../HISTORY.rst:88
 msgid ""
 "remove the y-flip setting in ortho_look_at(). If you want to flip y, use "
 "set_flip_y() instead"
 msgstr ""
 
-#: ../../../HISTORY.rst:90
+#: ../../../HISTORY.rst:92
 msgid "1.0.3"
 msgstr ""
 
-#: ../../../HISTORY.rst:91
+#: ../../../HISTORY.rst:93
 msgid "add: ortho_look_at() function to map 3d point to 2d"
 msgstr ""
 
-#: ../../../HISTORY.rst:92
+#: ../../../HISTORY.rst:94
 msgid ""
 "add: isometric_projection() function to map 3d point to 2d from 45degree "
 "view port"
 msgstr ""
 
-#: ../../../HISTORY.rst:95
+#: ../../../HISTORY.rst:97
 msgid "1.0.2"
 msgstr ""
 
-#: ../../../HISTORY.rst:96
+#: ../../../HISTORY.rst:98
 msgid ""
 "add: press ctrl+shift+alt+F10 will create a snapshot of the graphics "
 "window."
 msgstr ""
 
-#: ../../../HISTORY.rst:97
+#: ../../../HISTORY.rst:99
 msgid "The snapshot is saved in the running folder."
 msgstr ""
 
-#: ../../../HISTORY.rst:98
+#: ../../../HISTORY.rst:100
 msgid ""
 "change: close turtle window will automatically close the animation of "
 "turtle moving."
 msgstr ""
 
-#: ../../../HISTORY.rst:101
+#: ../../../HISTORY.rst:103
 msgid "1.0.1"
 msgstr ""
 
-#: ../../../HISTORY.rst:102
+#: ../../../HISTORY.rst:104
 msgid "add: fps settings in easygraphics.processing module"
 msgstr ""
 
-#: ../../../HISTORY.rst:103
+#: ../../../HISTORY.rst:105
 msgid "update: translations"
 msgstr ""
 
-#: ../../../HISTORY.rst:104
+#: ../../../HISTORY.rst:106
 msgid ""
 "change: easygraphics.processing module now use functions in easygraphics "
 "modules to draw. (Remove duplication defines.)"
 msgstr ""
 
-#: ../../../HISTORY.rst:107
+#: ../../../HISTORY.rst:109
 msgid "1.0.0"
 msgstr ""
 
-#: ../../../HISTORY.rst:108
+#: ../../../HISTORY.rst:110
 msgid "fix: hangs in inactive shell when init_graph again after close_graph()"
 msgstr ""
 
-#: ../../../HISTORY.rst:111
+#: ../../../HISTORY.rst:113
 msgid "0.10.1"
 msgstr ""
 
-#: ../../../HISTORY.rst:112
+#: ../../../HISTORY.rst:114
 msgid "add: color_gray() function."
 msgstr ""
 
-#: ../../../HISTORY.rst:113
+#: ../../../HISTORY.rst:115
 msgid "change: change lines/polylines/polygon functions parameters"
 msgstr ""
 
-#: ../../../HISTORY.rst:114
+#: ../../../HISTORY.rst:116
 msgid "add: curve() / draw_curve() to draw Catmull-Rom splines."
 msgstr ""
 
-#: ../../../HISTORY.rst:115
+#: ../../../HISTORY.rst:117
 msgid "add: curve_vertex() to define curve vertices."
 msgstr ""
 
-#: ../../../HISTORY.rst:116
+#: ../../../HISTORY.rst:118
 msgid "fix: crash when close_graph() and init_graph() again"
 msgstr ""
 
-#: ../../../HISTORY.rst:119
+#: ../../../HISTORY.rst:121
 msgid "0.10.0"
 msgstr ""
 
-#: ../../../HISTORY.rst:120
+#: ../../../HISTORY.rst:122
 msgid ""
 "change: reimplement close_graph(), simplifies graphics window close event"
 " processing."
 msgstr ""
 
-#: ../../../HISTORY.rst:121
+#: ../../../HISTORY.rst:123
 msgid ""
 "add: add "
 "begin_shape()/vertex()/bezier_vertex()/quadratic_vertex()/end_shape() "
 "functions to easygraphics."
 msgstr ""
 
-#: ../../../HISTORY.rst:124
+#: ../../../HISTORY.rst:126
 msgid "0.9.24"
 msgstr ""
 
-#: ../../../HISTORY.rst:125
+#: ../../../HISTORY.rst:127
 msgid ""
 "add begin_recording()/add_record()/save_recording()/end_recording() to "
 "create animated png files."
 msgstr ""
 
-#: ../../../HISTORY.rst:126
+#: ../../../HISTORY.rst:128
 msgid "add ShapeMode consts"
 msgstr ""
 
-#: ../../../HISTORY.rst:127
+#: ../../../HISTORY.rst:129
 msgid "add set_ellipse_mode() and set_rect_mode() to Image class"
 msgstr ""
 
-#: ../../../HISTORY.rst:128
+#: ../../../HISTORY.rst:130
 msgid "add easygraphics.processing module"
 msgstr ""
 
-#: ../../../HISTORY.rst:129
+#: ../../../HISTORY.rst:131
 msgid "fix: Image's save_settings()/restore_settings() now save most settings."
 msgstr ""
 
-#: ../../../HISTORY.rst:130
+#: ../../../HISTORY.rst:132
 msgid "update: ellipse_mode apply to arc/chord/pie shape drawings."
 msgstr ""
 
-#: ../../../HISTORY.rst:131
+#: ../../../HISTORY.rst:133
 msgid ""
 "add quadratic()/draw_quadratic() function to Image class and "
 "easygraphics.processing subpackage"
 msgstr ""
 
-#: ../../../HISTORY.rst:132
+#: ../../../HISTORY.rst:134
 msgid ""
 "add begin_shape()/vertex()/bezier_vertex()/quadratic_vertex()/end_shape()"
 " function to Image class and easygraphics.processing subpackage"
 msgstr ""
 
-#: ../../../HISTORY.rst:133
+#: ../../../HISTORY.rst:135
 msgid ""
 "change: bezier()/draw_bezier now use seperate coordinate values as "
 "paramter instead of list."
 msgstr ""
 
-#: ../../../HISTORY.rst:134
+#: ../../../HISTORY.rst:136
 msgid "add VertexType consts"
 msgstr ""
 
-#: ../../../HISTORY.rst:135
+#: ../../../HISTORY.rst:137
 msgid "add: begin_shape() 's type parameter"
 msgstr ""
 
-#: ../../../HISTORY.rst:136
+#: ../../../HISTORY.rst:138
 msgid "add: end_shape()'s close parameter"
 msgstr ""
 
-#: ../../../HISTORY.rst:137
+#: ../../../HISTORY.rst:139
 msgid "fix: succesive dialog calls may crash the program"
 msgstr ""
 
-#: ../../../HISTORY.rst:138
+#: ../../../HISTORY.rst:140
 msgid "add: fill_image() function to Image class"
 msgstr ""
 
-#: ../../../HISTORY.rst:142
+#: ../../../HISTORY.rst:144
 msgid "0.9.23"
 msgstr ""
 
-#: ../../../HISTORY.rst:143
+#: ../../../HISTORY.rst:145
 msgid "fix: frame jumping because of errors in delay_jfps()"
 msgstr ""
 
-#: ../../../HISTORY.rst:146
+#: ../../../HISTORY.rst:148
 msgid "0.9.22"
 msgstr ""
 
-#: ../../../HISTORY.rst:147
+#: ../../../HISTORY.rst:149
 msgid "fix: turtle icon position error when translated."
 msgstr ""
 
-#: ../../../HISTORY.rst:148
+#: ../../../HISTORY.rst:150
 msgid "fix: hangs when running in qtconsole and spyder"
 msgstr ""
 
-#: ../../../HISTORY.rst:151
+#: ../../../HISTORY.rst:153
 msgid "0.9.21"
 msgstr ""
 
-#: ../../../HISTORY.rst:152
+#: ../../../HISTORY.rst:154
 msgid "add: show_lists_table() to display data lists in table"
 msgstr ""
 
-#: ../../../HISTORY.rst:153
+#: ../../../HISTORY.rst:155
 msgid "add: get_transform()/set_transform()/push_transform()/pop_transform()"
 msgstr ""
 
-#: ../../../HISTORY.rst:154
+#: ../../../HISTORY.rst:156
 msgid "change to BSD license"
 msgstr ""
 
-#: ../../../HISTORY.rst:155
+#: ../../../HISTORY.rst:157
 msgid ""
 "fix: close graphics window  when drawing in is_run() and "
 "delay_fps()/delay_jfps() loops not throw exception"
 msgstr ""
 
-#: ../../../HISTORY.rst:158
+#: ../../../HISTORY.rst:160
 msgid "0.9.20"
 msgstr ""
 
-#: ../../../HISTORY.rst:159
+#: ../../../HISTORY.rst:161
 msgid "fix: successive dialog calls may crash program."
 msgstr ""
 
-#: ../../../HISTORY.rst:162
+#: ../../../HISTORY.rst:164
 msgid "0.9.19.2"
 msgstr ""
 
-#: ../../../HISTORY.rst:163
+#: ../../../HISTORY.rst:165
 msgid "fix: license description in readme"
 msgstr ""
 
-#: ../../../HISTORY.rst:166
+#: ../../../HISTORY.rst:168
 msgid "0.9.19.1"
 msgstr ""
 
-#: ../../../HISTORY.rst:167
+#: ../../../HISTORY.rst:169
 msgid "fix: license description in setup.py"
 msgstr ""
 
-#: ../../../HISTORY.rst:170
+#: ../../../HISTORY.rst:172
 msgid "0.9.19"
 msgstr ""
 
-#: ../../../HISTORY.rst:171
+#: ../../../HISTORY.rst:173
 msgid "change to MIT License"
 msgstr ""
 
-#: ../../../HISTORY.rst:174
+#: ../../../HISTORY.rst:176
 msgid "0.9.18"
 msgstr ""
 
-#: ../../../HISTORY.rst:175
+#: ../../../HISTORY.rst:177
 msgid ""
 "add ImageWidget and TurtleWidget classes, to embed easygraphics in Qt "
 "Applications"
 msgstr ""
 
-#: ../../../HISTORY.rst:178
+#: ../../../HISTORY.rst:180
 msgid "0.9.17"
 msgstr ""
 
-#: ../../../HISTORY.rst:179
+#: ../../../HISTORY.rst:181
 msgid "easygraphics.turtle:"
 msgstr ""
 
-#: ../../../HISTORY.rst:181
+#: ../../../HISTORY.rst:183
 msgid ""
 "add: is_out_of_window() to check if the turtle is out of the graphics "
 "window"
 msgstr ""
 
-#: ../../../HISTORY.rst:185
+#: ../../../HISTORY.rst:187
 msgid "0.9.16"
 msgstr ""
 
-#: ../../../HISTORY.rst:186
+#: ../../../HISTORY.rst:188
 msgid "redefine pause() in turtle"
 msgstr ""
 
-#: ../../../HISTORY.rst:187
+#: ../../../HISTORY.rst:189
 msgid "redefine is_run() in turtle"
 msgstr ""
 
-#: ../../../HISTORY.rst:188
+#: ../../../HISTORY.rst:190
 msgid "fix: default turtle speed"
 msgstr ""
 
-#: ../../../HISTORY.rst:189
+#: ../../../HISTORY.rst:191
 msgid "change: meaning of the turtle's move_arc() function's parameters"
 msgstr ""
 
-#: ../../../HISTORY.rst:190
+#: ../../../HISTORY.rst:192
 msgid "add: move_ellipse() function in easygraphics.turtle package"
 msgstr ""
 
-#: ../../../HISTORY.rst:193
+#: ../../../HISTORY.rst:195
 msgid "0.9.15"
 msgstr ""
 
-#: ../../../HISTORY.rst:194
+#: ../../../HISTORY.rst:196
 msgid "fix package error in setup.py"
 msgstr ""
 
-#: ../../../HISTORY.rst:195
+#: ../../../HISTORY.rst:197
 msgid "change turtle's default speed to 10"
 msgstr ""
 
-#: ../../../HISTORY.rst:198
+#: ../../../HISTORY.rst:200
 msgid "0.9.14"
 msgstr ""
 
-#: ../../../HISTORY.rst:199
+#: ../../../HISTORY.rst:201
 msgid "add: move_arc() function to move turtle in arc"
 msgstr ""
 
-#: ../../../HISTORY.rst:202
+#: ../../../HISTORY.rst:204
 msgid "0.9.13"
 msgstr ""
 
-#: ../../../HISTORY.rst:203
+#: ../../../HISTORY.rst:205
 msgid ""
 "add:  set_fill_rule() / get_fill_rule() function, to control how the "
 "polygons are filled."
 msgstr ""
 
-#: ../../../HISTORY.rst:205
+#: ../../../HISTORY.rst:207
 msgid "add:  FillRule consts"
 msgstr ""
 
-#: ../../../HISTORY.rst:206
+#: ../../../HISTORY.rst:208
 msgid "Finish chinese translations for apis."
 msgstr ""
 
-#: ../../../HISTORY.rst:207
+#: ../../../HISTORY.rst:209
 msgid "fix: filling glitches in end_fill()"
 msgstr ""
 
-#: ../../../HISTORY.rst:210
+#: ../../../HISTORY.rst:212
 msgid "0.9.12"
 msgstr ""
 
-#: ../../../HISTORY.rst:211
+#: ../../../HISTORY.rst:213
 msgid ""
 "Revert 0.9.11 's angle system change. Keep arc/pie/chord compatible with "
 "BGI."
 msgstr ""
 
-#: ../../../HISTORY.rst:212
+#: ../../../HISTORY.rst:214
 msgid ""
 "add show_image() function, to display drawings in the jupyter qtconsole "
 "or notebook."
 msgstr ""
 
-#: ../../../HISTORY.rst:213
+#: ../../../HISTORY.rst:215
 msgid "add show_image_dialog() function, to display a qimage in the dialog."
 msgstr ""
 
-#: ../../../HISTORY.rst:216
+#: ../../../HISTORY.rst:218
 msgid "0.9.11"
 msgstr ""
 
-#: ../../../HISTORY.rst:217
+#: ../../../HISTORY.rst:219
 msgid ""
 "fix: now arc/pie/chord drawing functions has the same angle system with "
 "rotate()"
 msgstr ""
 
-#: ../../../HISTORY.rst:220
+#: ../../../HISTORY.rst:222
 msgid "0.9.10"
 msgstr ""
 
-#: ../../../HISTORY.rst:221
+#: ../../../HISTORY.rst:223
 msgid "add: easygraphics.turtle package which implements the turtle graphics."
 msgstr ""
 
-#: ../../../HISTORY.rst:222
+#: ../../../HISTORY.rst:224
 msgid "change: now rotate()/skew() can transform around any point"
 msgstr ""
 
-#: ../../../HISTORY.rst:223
+#: ../../../HISTORY.rst:225
 msgid ""
 "change: now reflect() can using lines not passing the origin as the "
 "reflecting axis."
 msgstr ""
 
-#: ../../../HISTORY.rst:226
+#: ../../../HISTORY.rst:228
 msgid "0.9.9"
 msgstr ""
 
-#: ../../../HISTORY.rst:227
+#: ../../../HISTORY.rst:229
 msgid ""
 "add set_flip_y() to make y-axis grows bottom-up. (use reflect() will make"
 " texts get reflected too.)"
 msgstr ""
 
-#: ../../../HISTORY.rst:232
+#: ../../../HISTORY.rst:234
 msgid "0.9.8.1"
 msgstr ""
 
-#: ../../../HISTORY.rst:233
+#: ../../../HISTORY.rst:235
 msgid "fix: legacy and music subpackage not packed in the binary distributions."
 msgstr ""
 
-#: ../../../HISTORY.rst:236
+#: ../../../HISTORY.rst:238
 msgid "0.9.8"
 msgstr ""
 
-#: ../../../HISTORY.rst:237
+#: ../../../HISTORY.rst:239
 msgid "fix: delay_fps() now work properly in Manual render mode"
 msgstr ""
 
-#: ../../../HISTORY.rst:238
+#: ../../../HISTORY.rst:240
 msgid "finish chinese translations for tutorials"
 msgstr ""
 
-#: ../../../HISTORY.rst:241
+#: ../../../HISTORY.rst:243
 msgid "0.9.7"
 msgstr ""
 
-#: ../../../HISTORY.rst:242
+#: ../../../HISTORY.rst:244
 msgid "add: load_image() to load image from files"
 msgstr ""
 
-#: ../../../HISTORY.rst:243
+#: ../../../HISTORY.rst:245
 msgid "add: to_alpha() to make a transparently color"
 msgstr ""
 
-#: ../../../HISTORY.rst:244
+#: ../../../HISTORY.rst:246
 msgid "change: use Source Over as the default composition mode (the same with Qt)"
 msgstr ""
 
-#: ../../../HISTORY.rst:245 ../../../HISTORY.rst:269
+#: ../../../HISTORY.rst:247 ../../../HISTORY.rst:271
 msgid "more tutorials"
 msgstr ""
 
-#: ../../../HISTORY.rst:246
+#: ../../../HISTORY.rst:248
 msgid "add: show_table() to display table infomation in a dialog"
 msgstr ""
 
-#: ../../../HISTORY.rst:247
+#: ../../../HISTORY.rst:249
 msgid "change: rename mouse_msg() to has_mouse_msg()"
 msgstr ""
 
-#: ../../../HISTORY.rst:248
+#: ../../../HISTORY.rst:250
 msgid "change: rename kb_hit() to has_kb_hit()"
 msgstr ""
 
-#: ../../../HISTORY.rst:249
+#: ../../../HISTORY.rst:251
 msgid "change: rename get_mouse() to get_mouse_msg()"
 msgstr ""
 
-#: ../../../HISTORY.rst:250
+#: ../../../HISTORY.rst:252
 msgid "change: rename kb_msg() to has_kb_msg()"
 msgstr ""
 
-#: ../../../HISTORY.rst:251
+#: ../../../HISTORY.rst:253
 msgid "finish the tutorials."
 msgstr ""
 
-#: ../../../HISTORY.rst:254
+#: ../../../HISTORY.rst:256
 msgid "0.9.6"
 msgstr ""
 
-#: ../../../HISTORY.rst:255
+#: ../../../HISTORY.rst:257
 msgid "add: reflection (mirror/flip) and shear (skew) operations."
 msgstr ""
 
-#: ../../../HISTORY.rst:258
+#: ../../../HISTORY.rst:260
 msgid "0.9.5"
 msgstr ""
 
-#: ../../../HISTORY.rst:259
+#: ../../../HISTORY.rst:261
 msgid ""
 "add: headless mode support (no graphics window mode, use it to draw "
 "pictures)"
 msgstr ""
 
-#: ../../../HISTORY.rst:262
+#: ../../../HISTORY.rst:264
 msgid "0.9.4"
 msgstr ""
 
-#: ../../../HISTORY.rst:263
+#: ../../../HISTORY.rst:265
 msgid ""
 "add: easygraphics.legacy package to better compatible with old BGI "
 "programs."
 msgstr ""
 
-#: ../../../HISTORY.rst:264
+#: ../../../HISTORY.rst:266
 msgid "add: get_click() function to get mouse click event"
 msgstr ""
 
-#: ../../../HISTORY.rst:265
+#: ../../../HISTORY.rst:267
 msgid ""
 "change: background implementation to make set_background_color() work "
 "correctly"
 msgstr ""
 
-#: ../../../HISTORY.rst:266
+#: ../../../HISTORY.rst:268
 msgid ""
 "add: now can use name (\"red\"), color string (\"#ff0000), integer color "
 "rgb value (0xff0000) \\"
 msgstr ""
 
-#: ../../../HISTORY.rst:267
+#: ../../../HISTORY.rst:269
 msgid "in set_color(), set_fill_color(), set_background_color() functions"
 msgstr ""
 
-#: ../../../HISTORY.rst:268
+#: ../../../HISTORY.rst:270
 msgid "add: cymk() and hsv() to get CYMK and HSV format color"
 msgstr ""
 
-#: ../../../HISTORY.rst:272
+#: ../../../HISTORY.rst:274
 msgid "0.9.3"
 msgstr ""
 
-#: ../../../HISTORY.rst:273
+#: ../../../HISTORY.rst:275
 msgid "fix : Readme"
 msgstr ""
 
-#: ../../../HISTORY.rst:276
+#: ../../../HISTORY.rst:278
 msgid "0.9.2"
 msgstr ""
 
-#: ../../../HISTORY.rst:277
+#: ../../../HISTORY.rst:279
 msgid ""
 "add: easygraphics functions can run in the interactive mode (eg. IPython)"
 " correctly"
 msgstr ""
 
-#: ../../../HISTORY.rst:278
+#: ../../../HISTORY.rst:280
 msgid "add: dialogs (in **easygraphics.dialog** package, adopted from"
 msgstr ""
 
-#: ../../../HISTORY.rst:279
+#: ../../../HISTORY.rst:281
 msgid "`easygui_qt <https://github.com/aroberge/easygui_qt/>`_ )"
 msgstr ""
 
-#: ../../../HISTORY.rst:280
+#: ../../../HISTORY.rst:282
 msgid "add: create and save to/from file"
 msgstr ""
 
-#: ../../../HISTORY.rst:281
+#: ../../../HISTORY.rst:283
 msgid "add image transforms (translate/rotate/scale)"
 msgstr ""
 
-#: ../../../HISTORY.rst:282
+#: ../../../HISTORY.rst:284
 msgid "add view port support"
 msgstr ""
 
-#: ../../../HISTORY.rst:283
+#: ../../../HISTORY.rst:285
 msgid "add sphinx docs"
 msgstr ""
 
-#: ../../../HISTORY.rst:284
+#: ../../../HISTORY.rst:286
 msgid "upload docs to readthedocs.org"
 msgstr ""
 
-#: ../../../HISTORY.rst:287
+#: ../../../HISTORY.rst:289
 msgid "0.9.1"
 msgstr ""
 
-#: ../../../HISTORY.rst:288
+#: ../../../HISTORY.rst:290
 msgid "add readme text"
 msgstr ""
 
-#: ../../../HISTORY.rst:289
+#: ../../../HISTORY.rst:291
 msgid "add delay_fps() and rgb() functions"
 msgstr ""
 
-#: ../../../HISTORY.rst:292
+#: ../../../HISTORY.rst:294
 msgid "0.9.0"
 msgstr ""
 
-#: ../../../HISTORY.rst:293
+#: ../../../HISTORY.rst:295
 msgid "add keyboard and mouse message check and handle"
 msgstr ""
 
-#: ../../../HISTORY.rst:294
+#: ../../../HISTORY.rst:296
 msgid ""
 "add simple dialogs ( from EasyGUI-Qt "
 "(https://github.com/aroberge/easygui_qt) and qtutils "
 "(https://bitbucket.org/philipstarkey/qtutils))"
 msgstr ""
 
-#: ../../../HISTORY.rst:298
+#: ../../../HISTORY.rst:300
 msgid "0.1.0"
 msgstr ""
 
-#: ../../../HISTORY.rst:299
+#: ../../../HISTORY.rst:301
 msgid "First release on github"
 msgstr ""
 

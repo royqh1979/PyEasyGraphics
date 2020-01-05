@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-04 20:21+0800\n"
+"POT-Creation-Date: 2020-01-05 21:06+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -1217,7 +1217,7 @@ msgid ":obj:`load_image <easygraphics.load_image>`\\ \\(filename\\)"
 msgstr ""
 
 #: ../../api.rst:207:<autosummary>:1 easygraphics.Image.create_from_file:1
-#: easygraphics.load_image:1 of
+#: easygraphics.create_image_from_file:1 easygraphics.load_image:1 of
 msgid "Load a image from the file."
 msgstr "读取图片文件。"
 
@@ -3706,8 +3706,7 @@ msgid ""
 "want a transparent background."
 msgstr "注意JPEG格式的文件不支持透明色。如果需要背景透明，使用PNG格式。"
 
-#: easygraphics.Image.save:7 easygraphics.create_image_from_file:3
-#: easygraphics.save_image:7 of
+#: easygraphics.Image.save:7 easygraphics.save_image:7 of
 msgid "path of the file"
 msgstr "文件路径"
 
@@ -3726,20 +3725,14 @@ msgstr "要保存的图片。None表示使用“绘图目标”图片（参见se
 msgid "the image to be closed"
 msgstr "要关闭的图片。"
 
-#: easygraphics.Image.create_from_file:3 easygraphics.load_image:3 of
+#: easygraphics.Image.create_from_file:3 easygraphics.create_image_from_file:3
+#: easygraphics.load_image:3 of
 msgid "the image file"
 msgstr "图片文件"
 
-#: easygraphics.Image.create_from_file:4 easygraphics.load_image:4 of
+#: easygraphics.Image.create_from_file:4 easygraphics.create_image_from_file:4
+#: easygraphics.load_image:4 of
 msgid "the loaded image"
-msgstr "读入的图片"
-
-#: easygraphics.create_image_from_file:1 of
-msgid "Load image from the specified file."
-msgstr "读取指定的图片文件。"
-
-#: easygraphics.create_image_from_file:4 of
-msgid "loaded image"
 msgstr "读入的图片"
 
 #: easygraphics.delay:3 of
@@ -3823,32 +3816,20 @@ msgid "the character inputted by keyboard"
 msgstr "键盘输入的字符"
 
 #: easygraphics.get_mouse_msg:3 of
-msgid ""
-"If there is not any  mouse button is pressed or released in last 100 ms, "
-"the program will stop and wait for the next mouse message."
-msgstr "如果前100ms内没有任何鼠标按钮按下或松开事件，程序会暂停，直到有鼠标事件发生。"
+msgid "If there is not any  mouse message, the program will stop and wait for it."
+msgstr "如果没有任何鼠标点击事件，程序会暂停等待。"
 
-#: easygraphics.get_mouse_msg:6 of
-#, fuzzy
+#: easygraphics.get_click:5 easygraphics.get_mouse_msg:5 of
 msgid "mouse message"
-msgstr "获取鼠标按钮按下或者松开信息。（阻塞）"
+msgstr "鼠标消息"
 
 #: easygraphics.get_cursor_pos:3 of
 msgid "position's coordinate values (x,y)"
 msgstr "光标位置坐标(x,y)"
 
 #: easygraphics.get_click:3 of
-msgid ""
-"If there is not any  mouse button is clicked in last 100 ms, the program "
-"will stop and wait for the next clicking."
-msgstr "如果前100ms内没有任何鼠标点击事件，程序会暂停，直到有鼠标点击事件发生。"
-
-#: easygraphics.get_click:6 of
-msgid ""
-"x of the cursor, y of the cursor , mouse buttons down ( "
-"QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or "
-"QtCore.Qt.NoButton)"
-msgstr "光标位置x坐标，y坐标，点击的鼠标按钮"
+msgid "If there isn't any clicked event, the program will stop and wait for it."
+msgstr "如果没有任何鼠标点击事件，程序会暂停等待。"
 
 #: easygraphics.contains_left_button:3 easygraphics.contains_mid_button:3
 #: easygraphics.contains_right_button:3 of
@@ -5856,4 +5837,24 @@ msgstr "将一个对象注册，程序退出时会对其进行清理（调用其
 #~ "or QtCore.Qt.MidButton or QtCore.Qt.NoButton), "
 #~ "Keyboard Modifiers"
 #~ msgstr "光标位置x坐标，y坐标，事件类型，按下或松开的鼠标按钮"
+
+#~ msgid "Load image from the specified file."
+#~ msgstr "读取指定的图片文件。"
+
+#~ msgid "loaded image"
+#~ msgstr "读入的图片"
+
+#~ msgid ""
+#~ "x of the cursor, y of the "
+#~ "cursor , mouse buttons down ( "
+#~ "QtCore.Qt.LeftButton or QtCore.Qt.RightButton or "
+#~ "QtCore.Qt.MidButton or QtCore.Qt.NoButton)"
+#~ msgstr "光标位置x坐标，y坐标，点击的鼠标按钮"
+
+#~ msgid ""
+#~ "If there is not any  mouse button"
+#~ " is pressed or released in last "
+#~ "100 ms, the program will stop and"
+#~ " wait for the next mouse message."
+#~ msgstr "如果前100ms内没有任何鼠标按钮按下或松开事件，程序会暂停，直到有鼠标事件发生。"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-04 20:21+0800\n"
+"POT-Creation-Date: 2020-01-05 21:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1216,7 +1216,7 @@ msgid ":obj:`load_image <easygraphics.load_image>`\\ \\(filename\\)"
 msgstr ""
 
 #: ../../api.rst:207:<autosummary>:1 easygraphics.Image.create_from_file:1
-#: easygraphics.load_image:1 of
+#: easygraphics.create_image_from_file:1 easygraphics.load_image:1 of
 msgid "Load a image from the file."
 msgstr ""
 
@@ -3690,8 +3690,7 @@ msgid ""
 "want a transparent background."
 msgstr ""
 
-#: easygraphics.Image.save:7 easygraphics.create_image_from_file:3
-#: easygraphics.save_image:7 of
+#: easygraphics.Image.save:7 easygraphics.save_image:7 of
 msgid "path of the file"
 msgstr ""
 
@@ -3710,20 +3709,14 @@ msgstr ""
 msgid "the image to be closed"
 msgstr ""
 
-#: easygraphics.Image.create_from_file:3 easygraphics.load_image:3 of
+#: easygraphics.Image.create_from_file:3 easygraphics.create_image_from_file:3
+#: easygraphics.load_image:3 of
 msgid "the image file"
 msgstr ""
 
-#: easygraphics.Image.create_from_file:4 easygraphics.load_image:4 of
+#: easygraphics.Image.create_from_file:4 easygraphics.create_image_from_file:4
+#: easygraphics.load_image:4 of
 msgid "the loaded image"
-msgstr ""
-
-#: easygraphics.create_image_from_file:1 of
-msgid "Load image from the specified file."
-msgstr ""
-
-#: easygraphics.create_image_from_file:4 of
-msgid "loaded image"
 msgstr ""
 
 #: easygraphics.delay:3 of
@@ -3807,12 +3800,10 @@ msgid "the character inputted by keyboard"
 msgstr ""
 
 #: easygraphics.get_mouse_msg:3 of
-msgid ""
-"If there is not any  mouse button is pressed or released in last 100 ms, "
-"the program will stop and wait for the next mouse message."
+msgid "If there is not any  mouse message, the program will stop and wait for it."
 msgstr ""
 
-#: easygraphics.get_mouse_msg:6 of
+#: easygraphics.get_click:5 easygraphics.get_mouse_msg:5 of
 msgid "mouse message"
 msgstr ""
 
@@ -3821,16 +3812,7 @@ msgid "position's coordinate values (x,y)"
 msgstr ""
 
 #: easygraphics.get_click:3 of
-msgid ""
-"If there is not any  mouse button is clicked in last 100 ms, the program "
-"will stop and wait for the next clicking."
-msgstr ""
-
-#: easygraphics.get_click:6 of
-msgid ""
-"x of the cursor, y of the cursor , mouse buttons down ( "
-"QtCore.Qt.LeftButton or QtCore.Qt.RightButton or QtCore.Qt.MidButton or "
-"QtCore.Qt.NoButton)"
+msgid "If there isn't any clicked event, the program will stop and wait for it."
 msgstr ""
 
 #: easygraphics.contains_left_button:3 easygraphics.contains_mid_button:3
@@ -6769,5 +6751,32 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Caputre specified region on the graphics windows to target image."
+#~ msgstr ""
+
+#~ msgid "Load image from the specified file."
+#~ msgstr ""
+
+#~ msgid "loaded image"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If there is not any  mouse button"
+#~ " is clicked in last 100 ms, the"
+#~ " program will stop and wait for "
+#~ "the next clicking."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "x of the cursor, y of the "
+#~ "cursor , mouse buttons down ( "
+#~ "QtCore.Qt.LeftButton or QtCore.Qt.RightButton or "
+#~ "QtCore.Qt.MidButton or QtCore.Qt.NoButton)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If there is not any  mouse button"
+#~ " is pressed or released in last "
+#~ "100 ms, the program will stop and"
+#~ " wait for the next mouse message."
 #~ msgstr ""
 

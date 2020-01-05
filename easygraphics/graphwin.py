@@ -322,8 +322,7 @@ class GraphWin(QtWidgets.QWidget):
         """
         Get the mouse message.
 
-        If there is not any  mouse button is pressed or released in last 100 ms, the program will stop and wait for
-        the next mouse message.
+        If there is not any  mouse message, the program will stop and wait for it.
 
         :return: mouse message
         """
