@@ -5,12 +5,14 @@ import threading
 import time
 from functools import reduce
 from typing import List, Optional, Callable
+
 import apng
 import qimage2ndarray as q2n
 from PyQt5 import QtWidgets
+
 from ._utils import invoke_in_app_thread
 from .consts import *
-from .graphwin import GraphWin,KeyMessage,MouseMessage
+from .graphwin import GraphWin, KeyMessage, MouseMessage
 from .image import Image
 from .utils3d import *
 
@@ -1964,15 +1966,7 @@ def show_image(image: Image = None):
     image.display_in_ipython()
 
 
-def create_image_from_file(filename: str) -> Image:
-    """
-    Load image from the specified file.
-
-    :param filename: path of the file
-    :return: loaded image
-    """
-    image = QtGui.QImage(filename)
-    return Image(image)
+create_image_from_file = load_image
 
 
 # utils

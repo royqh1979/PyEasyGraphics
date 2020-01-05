@@ -1,4 +1,5 @@
 from collections import deque
+from pathlib import Path
 from typing import Union, Callable
 import math
 
@@ -1900,6 +1901,9 @@ class Image:
         :param filename: the image file
         :return: the loaded image
         """
+        p = Path(filename)
+        if not p.exists():
+            raise ValueError(f"File {filename} not exists.")
         image = QtGui.QImage(filename)
         return Image(image)
 
