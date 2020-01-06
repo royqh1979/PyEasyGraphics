@@ -109,7 +109,7 @@ def getfillsettings(img: Image = None):
     return eg.get_fill_style(img), eg.get_fill_color(img)
 
 
-getimage = eg.capture_screen
+getimage = eg.get_image
 
 
 def getlinesettings(img: Image = None):

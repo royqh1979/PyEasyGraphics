@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  EasyGraphics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-05 21:06+0800\n"
+"POT-Creation-Date: 2020-01-06 09:36+0800\n"
 "PO-Revision-Date: 2018-12-31 09:26+0800\n"
 "Last-Translator: \n"
 "Language: zh_CN\n"
@@ -1158,10 +1158,11 @@ msgstr "开始录制PNG格式动画"
 #: ../../api.rst:207:<autosummary>:1
 msgid ""
 ":obj:`capture_screen <easygraphics.capture_screen>`\\ \\(left\\, top\\, "
-"right\\, bottom\\, ...\\)"
+"width\\, height\\, ...\\)"
 msgstr ""
 
-#: ../../api.rst:207:<autosummary>:1 easygraphics.capture_screen:1 of
+#: ../../api.rst:207:<autosummary>:1 easygraphics.capture_screen:1
+#: easygraphics.get_image:1 of
 msgid "Capture specified region on the graphics windows to target image."
 msgstr "在图形窗口上截取指定区域的内容保存到图片中。"
 
@@ -2129,7 +2130,7 @@ msgstr "线型用于画线和形状轮廓。在LineStyle中定义了可用的线
 #: easygraphics.get_drawing_pos easygraphics.get_drawing_x
 #: easygraphics.get_drawing_y easygraphics.get_fill_color
 #: easygraphics.get_fill_rule easygraphics.get_fill_style easygraphics.get_font
-#: easygraphics.get_font_size easygraphics.get_height
+#: easygraphics.get_font_size easygraphics.get_height easygraphics.get_image
 #: easygraphics.get_line_style easygraphics.get_line_width
 #: easygraphics.get_pixel easygraphics.get_transform easygraphics.get_width
 #: easygraphics.get_write_mode easygraphics.init_graph easygraphics.line
@@ -3498,26 +3499,6 @@ msgstr "是否连同背景一起复制"
 msgid "if is None, use dst image's composition mode to copy."
 msgstr "如果是None，则使用目标图片的合成模式进行复制。"
 
-#: easygraphics.capture_screen:3 of
-msgid "x coordinate of the capture region's upper left corner"
-msgstr "截屏区域的左上角x坐标"
-
-#: easygraphics.capture_screen:4 of
-msgid "y coordinate of the capture region's upper left corner"
-msgstr "截屏区域的左上角y坐标"
-
-#: easygraphics.capture_screen:5 of
-msgid "x coordinate of the capture region's bottom right corner"
-msgstr "截屏区域的右下角x坐标"
-
-#: easygraphics.capture_screen:6 of
-msgid "y coordinate of the capture region's bottom right corner"
-msgstr "截屏区域的右上角y坐标"
-
-#: easygraphics.capture_screen:7 of
-msgid "image to save the capture"
-msgstr ""
-
 #: easygraphics.Image.draw_quadratic:3 easygraphics.Image.quadratic:3
 #: easygraphics.draw_quadratic:3 easygraphics.quadratic:3 of
 msgid "points (x0,y0),(x1,y1),(x2,y2) are the control points of the curve,"
@@ -3734,6 +3715,26 @@ msgstr "图片文件"
 #: easygraphics.load_image:4 of
 msgid "the loaded image"
 msgstr "读入的图片"
+
+#: easygraphics.capture_screen:3 easygraphics.get_image:3 of
+msgid "x coordinate of the capture region's upper left corner"
+msgstr "截屏区域的左上角x坐标"
+
+#: easygraphics.capture_screen:4 easygraphics.get_image:4 of
+msgid "y coordinate of the capture region's upper left corner"
+msgstr "截屏区域的左上角y坐标"
+
+#: easygraphics.capture_screen:5 easygraphics.get_image:5 of
+msgid "width of the capture region"
+msgstr "截取区域的宽度"
+
+#: easygraphics.capture_screen:6 easygraphics.get_image:6 of
+msgid "height of the capture region"
+msgstr "截取区域的高度"
+
+#: easygraphics.capture_screen:7 easygraphics.get_image:7 of
+msgid "image to save the capture"
+msgstr ""
 
 #: easygraphics.delay:3 of
 msgid "time to delay"
@@ -5857,4 +5858,15 @@ msgstr "将一个对象注册，程序退出时会对其进行清理（调用其
 #~ "100 ms, the program will stop and"
 #~ " wait for the next mouse message."
 #~ msgstr "如果前100ms内没有任何鼠标按钮按下或松开事件，程序会暂停，直到有鼠标事件发生。"
+
+#~ msgid ""
+#~ ":obj:`capture_screen <easygraphics.capture_screen>`\\ "
+#~ "\\(left\\, top\\, right\\, bottom\\, ...\\)"
+#~ msgstr ""
+
+#~ msgid "x coordinate of the capture region's bottom right corner"
+#~ msgstr "截屏区域的右下角x坐标"
+
+#~ msgid "y coordinate of the capture region's bottom right corner"
+#~ msgstr "截屏区域的右上角y坐标"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-04 20:23+0800\n"
+"POT-Creation-Date: 2020-01-06 09:36+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1115,11 +1115,11 @@ msgid "y coordinate of the capture region's upper left corner"
 msgstr ""
 
 #: easygraphics.legacy.getimage:5 of
-msgid "x coordinate of the capture region's bottom right corner"
+msgid "width of the capture region"
 msgstr ""
 
 #: easygraphics.legacy.getimage:6 of
-msgid "y coordinate of the capture region's bottom right corner"
+msgid "height of the capture region"
 msgstr ""
 
 #: easygraphics.legacy.getimage:7 of
@@ -5915,5 +5915,11 @@ msgstr ""
 #~ "possible values: ``text``, ``code``, ``html``,"
 #~ " ``python``. :param width: width of "
 #~ "the dialog window"
+#~ msgstr ""
+
+#~ msgid "x coordinate of the capture region's bottom right corner"
+#~ msgstr ""
+
+#~ msgid "y coordinate of the capture region's bottom right corner"
 #~ msgstr ""
 

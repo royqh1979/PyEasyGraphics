@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EasyGraphics \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-04 20:21+0800\n"
+"POT-Creation-Date: 2020-01-06 09:36+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -439,9 +439,10 @@ msgstr "对话框标题"
 msgid "a string to display in the window."
 msgstr "要显示在对话框中的内容"
 
-#: easygraphics.dialog.show_code:5 easygraphics.dialog.show_html:5
-#: easygraphics.dialog.show_lists_table:12 easygraphics.dialog.show_objects:18
-#: easygraphics.dialog.show_table:18 easygraphics.dialog.show_text:5 of
+#: easygraphics.dialog.show_code:5 easygraphics.dialog.show_file:8
+#: easygraphics.dialog.show_html:5 easygraphics.dialog.show_lists_table:12
+#: easygraphics.dialog.show_objects:18 easygraphics.dialog.show_table:18
+#: easygraphics.dialog.show_text:5 of
 msgid "width of the dialog window"
 msgstr "对话框窗口宽度"
 
@@ -464,8 +465,7 @@ msgid "the file name, (path) relative to the calling program"
 msgstr "文件路径"
 
 #: easygraphics.dialog.show_file:7 of
-msgid ""
-"possible values: ``text``, ``code``, ``html``, ``python``."
+msgid "possible values: ``text``, ``code``, ``html``, ``python``."
 msgstr "可以的值：``text``, ``code``, ``html``, ``python``。"
 
 #: easygraphics.dialog.show_file:11 of
@@ -1122,12 +1122,12 @@ msgid "y coordinate of the capture region's upper left corner"
 msgstr ""
 
 #: easygraphics.legacy.getimage:5 of
-msgid "x coordinate of the capture region's bottom right corner"
-msgstr ""
+msgid "width of the capture region"
+msgstr "截取区域的宽度"
 
 #: easygraphics.legacy.getimage:6 of
-msgid "y coordinate of the capture region's bottom right corner"
-msgstr ""
+msgid "height of the capture region"
+msgstr "截取区域的高度"
 
 #: easygraphics.legacy.getimage:7 of
 msgid "image to save the capture"
@@ -4786,5 +4786,11 @@ msgstr "要运行的函数或者方法"
 #~ msgstr ""
 
 #~ msgid "Caputre specified region on the graphics windows to target image."
+#~ msgstr ""
+
+#~ msgid "x coordinate of the capture region's bottom right corner"
+#~ msgstr ""
+
+#~ msgid "y coordinate of the capture region's bottom right corner"
 #~ msgstr ""
 

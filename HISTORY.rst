@@ -2,6 +2,11 @@
 
 History
 ===========
+1.0.18
+-----------
+ * add: put_image()
+ * change: capture_screen()'s 3rd and 4th parameter to width and height
+
 1.0.17
 -----------
  * fix: dialogs dosen't work in normal pyqt program

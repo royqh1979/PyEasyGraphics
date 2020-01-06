@@ -510,7 +510,7 @@ def on_sink():
                         g_world[x][y - 1] = g_world[x][y]
                         g_world[x][y] = 0
                 img = create_image(WIDTH * UNIT, (HEIGHT - (g_cur_block.y - i + 1)) * UNIT)
-                capture_screen(220, 20, 220 + WIDTH * UNIT, 20 + (HEIGHT - (g_cur_block.y - i + 1)) * UNIT, img)
+                get_image(220, 20, WIDTH * UNIT, (HEIGHT - (g_cur_block.y - i + 1)) * UNIT, img)
                 draw_image(0, UNIT, img)
 
     # 产生新方块

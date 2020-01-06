@@ -38,7 +38,7 @@ __all__ = [
     'arc', 'draw_arc', 'pie', 'draw_pie', 'fill_pie', 'chord', 'draw_chord', 'fill_chord',
     'bezier', 'draw_bezier', 'lines', 'draw_lines', 'poly_line', 'draw_poly_line', 'polygon', 'draw_polygon',
     'fill_polygon', 'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect',
-    'flood_fill', 'draw_image', 'capture_screen', 'clear_device', 'clear_view_port',
+    'flood_fill', 'draw_image', 'clear_device', 'clear_view_port',
     'quadratic', 'draw_quadratic', 'fill_image', 'clear', 'draw_curve', 'curve',
     'begin_shape', 'end_shape', 'vertex', 'bezier_vertex', 'quadratic_vertex', 'curve_vertex',
     'bezier_point','bezier_tangent','curve_point','curve_tangent',
@@ -46,7 +46,7 @@ __all__ = [
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
     'set_target', 'get_target', 'create_image','create_image_from_ndarray', 'save_image', 'close_image', 'load_image', 'put_image',
-    "create_image_from_file",
+    "create_image_from_file",'capture_screen', 'get_image',
     # time control functions#
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
     # keyboard and mouse functions #
@@ -1598,20 +1598,21 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
 put_image = draw_image
 
 
-def capture_screen(left: int, top: int, right: int, bottom: int, target_img: Image):
+def capture_screen(left: int, top: int, width: int, height: int, target_img: Image):
     """
     Capture specified region on the graphics windows to target image.
 
     :param left: x coordinate of the capture region\'s upper left corner
     :param top: y coordinate of the capture region\'s upper left corner
-    :param right: x coordinate of the capture region\'s bottom right corner
-    :param bottom: y coordinate of the capture region\'s bottom right corner
+    :param width: width of the capture region
+    :param height: height of the capture region
     :param target_img: image to save the capture
     """
     _check_not_headless_and_in_shell()
     draw_image(0, 0, _win.get_canvas(), src_x=left, src_y=top,
-               src_width=right - left, src_height=bottom - top, dst_image=target_img)
+               src_width=width, src_height=height, dst_image=target_img)
 
+get_image = capture_screen
 
 def clear_device(image: Image = None):
     """
