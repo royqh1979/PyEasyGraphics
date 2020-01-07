@@ -148,6 +148,20 @@ class FillStyle:
     """Not fill at all. For example, draw_circle() will not fill."""
     SOLID_FILL = QtCore.Qt.SolidPattern
     """Fill with solid color. see set_fill_color()."""
+    LINE_FILL = QtCore.Qt.HorPattern
+    """Fill with horizontal lines."""
+    LTSLASH_FILL = QtCore.Qt.BDiagPattern
+    SLASH_FILL = QtCore.Qt.BDiagPattern
+    """File with diagonal lines."""
+    BKSLASH_FILL = QtCore.Qt.FDiagPattern
+    LTBKSLASH_FILL = QtCore.Qt.FDiagPattern
+    """File with diagonal lines."""
+    HATCH_FILL = QtCore.Qt.CrossPattern
+    XHATCH_FILL = QtCore.Qt.DiagCrossPattern
+ #   INTERLEAVE_FILL
+    WIDE_DOT_FILL = QtCore.Qt.Dense7Pattern
+    CLOSE_DOT_FILL = QtCore.Qt.Dense6Pattern
+
 
 
 class Color:
