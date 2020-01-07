@@ -18,35 +18,47 @@ class MyWindow(QtWidgets.QWidget):
         layout = QtWidgets.QHBoxLayout()
         self.setLayout(layout)
 
-        self._mainFrame = GraphWin(600,600) # drawing frame
+        self._mainFrame = GraphWin(600, 600)  # drawing frame
         layout.addWidget(self._mainFrame)
         controlPane = QtWidgets.QFrame()
-        controlPane.setLayout(QtWidgets.QVBoxLayout())
+        controlPaneLayout = QtWidgets.QVBoxLayout()
+        controlPane.setLayout(controlPaneLayout)
         layout.addWidget(controlPane)
 
-        radiusForm = QtWidgets.QFrame()
+        self._info = QtWidgets.QLabel("Graph Infos")
+        controlPane.layout().addWidget(self._info)
+
+        inputForm = QtWidgets.QFrame()
         formLayout = QtWidgets.QFormLayout()
-        radiusForm.setLayout(formLayout)
+        inputForm.setLayout(formLayout)
         self._sldOuter = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self._sldOuter.setFixedWidth(150)
-        self._sldOuter.setRange(100,300)
+        self._sldOuter.setRange(100, 300)
         self._sldOuter.setValue(300)
         self._sldOuter.setTracking(True)
         self._sldOuter.valueChanged.connect(self.on_outer_value_changed)
-        formLayout.addRow("Radius of outer circle:",self._sldOuter)
+        formLayout.addRow("Radius of outer circle:", self._sldOuter)
         self._sldInner = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self._sldInner.setFixedWidth(150)
-        self._sldInner.setRange(10,200)
+        self._sldInner.setRange(10, 200)
         self._sldInner.setValue(150)
         self._sldInner.valueChanged.connect(self.on_inner_value_changed)
         formLayout.addRow("Radius of inner circle:", self._sldInner)
         self._sldDistance = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self._sldDistance.setFixedWidth(150)
-        self._sldDistance.setRange(8,150)
+        self._sldDistance.setRange(8, 150)
         self._sldDistance.setValue(100)
         self._sldDistance.valueChanged.connect(self.on_distance_value_changed)
         formLayout.addRow("Distance form draw point to center", self._sldDistance)
-        controlPane.layout().addWidget(radiusForm)
+        self._sldSpeed = QtWidgets.QSlider(QtCore.Qt.Horizontal)
+        self._sldSpeed.setFixedWidth(150)
+        self._sldSpeed.setRange(10, 50000)
+        self._sldSpeed.setValue(100)
+        self._sldSpeed.valueChanged.connect(self.on_speed_changed)
+        formLayout.addRow("Drawing Speed", self._sldSpeed)
+        self._speed = 100
+        controlPane.layout().addWidget(inputForm)
+        controlPaneLayout.addStretch()
         self._btnChangePatternColor = QtWidgets.QPushButton("change color")
         self._btnChangePatternColor.clicked.connect(self.on_change_color_clicked)
         controlPane.layout().addWidget(self._btnChangePatternColor)
@@ -58,13 +70,17 @@ class MyWindow(QtWidgets.QWidget):
         controlPane.layout().addWidget(self._btnClear)
         self._is_run = True
         self._pause = True
-        self._outer_image = create_image(600,600)
+        self._outer_image = create_image(600, 600)
         self._outer_image.set_background_color(Color.TRANSPARENT)
-        self._inner_image = create_image(600,600)
+        self._inner_image = create_image(600, 600)
         self._inner_image.set_background_color(Color.TRANSPARENT)
-        self._pattern_image = create_image(600,600)
+        self._pattern_image = create_image(600, 600)
         self._degree = 0
         self._pattern_color = Color.RED
+        self.update_info()
+
+    def on_speed_changed(self, value):
+        self._speed = value
 
     def on_change_color_clicked(self):
         self._pattern_color = easygraphics.dialog.get_color(self._pattern_color)
@@ -74,11 +90,16 @@ class MyWindow(QtWidgets.QWidget):
         self.update_images()
         self.update()
 
-    def on_outer_value_changed(self,value):
+    def on_outer_value_changed(self, value):
         self._sldInner.setMaximum(value)
         self.update_outer_circle()
         self._pattern_image.clear()
+        self.update_info()
         self.update()
+
+    def update_info(self):
+        self._info.setText(
+            f"Outer R: {self._sldOuter.value()} Inner r: {self._sldInner.value()} distance: {self._sldDistance.value()}")
 
     def update_outer_circle(self):
         R = self._sldOuter.value()
@@ -87,8 +108,8 @@ class MyWindow(QtWidgets.QWidget):
         self._outer_image.ellipse(300, 300, R, R)
 
     def update_inner_circle(self):
-        R=self._sldOuter.value()
-        r=self._sldInner.value()
+        R = self._sldOuter.value()
+        r = self._sldInner.value()
         distance = self._sldDistance.value()
         degree2=-self._degree*r/R
         x1=300+(R-r)*math.cos(degree2)
@@ -118,10 +139,12 @@ class MyWindow(QtWidgets.QWidget):
     def on_inner_value_changed(self,value):
         self._sldDistance.setMaximum(value)
         self._pattern_image.clear()
+        self.update_info()
         self.update()
 
     def on_distance_value_changed(self,value):
         self._pattern_image.clear()
+        self.update_info()
         self.update()
 
     def on_toggle_start_clicked(self):
@@ -149,11 +172,13 @@ class MyWindow(QtWidgets.QWidget):
             if not self._pause:
                 if self._degree > self._sldOuter.value() * 2 * math.pi:
                     self._degree = 0
-                self._degree = self._degree+0.01
-                self.update_inner_circle()
+                self._degree = self._degree + 0.01
                 self.update_pattern()
-                self.update_images()
-            self._mainFrame.delay_fps(300)
+                if self._mainFrame.delay_jfps(self._speed):
+                    self.update_inner_circle()
+                    self.update_images()
+            else:
+                self._mainFrame.delay(30)
 
 
 if __name__ == "__main__":
