@@ -1307,8 +1307,8 @@ class Image:
         self.fill_rect(-1, -1, self.get_width() + 2, self.get_height() + 2)
         self.restore_settings()
 
-    def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = -1,
-                   src_height: int = -1, with_background=True, composition_mode=None):
+    def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = 0,
+                   src_height: int = 0, with_background=True, composition_mode=None):
         """
         Copy part of the source image (src_image) to the destination image (dst_image).
 
@@ -1835,6 +1835,16 @@ class Image:
         img.save(buffer, "PNG")
         buffer.close()
         return ba.data()
+
+    def scaled(self,width:int,height:int) -> "Image":
+        """
+        Create a scaled copy with the specified width and height.
+        :param width: width of the copy
+        :param height:  height of the copy
+        :return: new copy
+        """
+        new_image =  self._image.scaled(width,height,QtCore.Qt.IgnoreAspectRatio, QtCore.Qt.SmoothTransformation)
+        return Image(new_image)
 
     def set_rect_mode(self, mode):
         self._rect_mode = mode

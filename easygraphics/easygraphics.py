@@ -1594,9 +1594,7 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
     dst_image = _get_target_image(dst_image)
     dst_image.draw_image(x, y, src_image, src_x, src_y, src_width, src_height, with_background, composition_mode)
 
-
 put_image = draw_image
-
 
 def capture_screen(left: int, top: int, width: int, height: int, target_img: Image):
     """
