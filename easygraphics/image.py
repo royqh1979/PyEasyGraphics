@@ -1836,6 +1836,19 @@ class Image:
         buffer.close()
         return ba.data()
 
+    def copy(self,x:int,y:int,width:int,height:int) -> "Image":
+        """
+        Create an copy of the image.
+
+        :param x: left-top of the copied area
+        :param y: left-top of the copied area
+        :param width: width of the copy area
+        :param height:  height of the copy area
+        :return: new copy
+        """
+        new_image = self._image.copy(x,y,width,height)
+        return Image(new_image)
+
     def scaled(self,width:int,height:int) -> "Image":
         """
         Create a scaled copy with the specified width and height.

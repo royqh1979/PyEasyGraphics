@@ -2,9 +2,14 @@
 
 History
 ===========
+1.0.20
+-----------
+ * add: Image.copy() method
+
 1.0.19
 -----------
  * add: Image.scaled() method
+
 
 1.0.18
 -----------
