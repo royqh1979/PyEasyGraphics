@@ -1560,17 +1560,19 @@ def flood_fill(x: int, y: int, border_color, image: Image = None):
     image.flood_fill(x, y, border_color)
 
 
-def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0, src_width: int = -1,
+def draw_image(x: int, y: int, src_image: Image, width:int=0, height:int=0, src_x: int = 0, src_y: int = 0, src_width: int = -1,
                src_height: int = -1, with_background=True, composition_mode=None, dst_image: Image = None):
     """
-    Copy part of the source image (src_image) to the destination image (dst_image).
+   Copy part of the source image (src_image) to the destination image (dst_image).
 
     (x, y) specifies the top-left point in the destination image that is to be drawn onto.
 
-    (sx, sy) specifies the top-left point of the part in the source image that is to
+    (width, height) specifies the size of drawing part on the destination image.The default is (0, 0).
+
+    (src_x, src_y) specifies the top-left point of the part in the source image that is to
     be drawn. The default is (0, 0).
 
-    (sw, sh) specifies the size of the part of the source image that is to be drawn.
+    (src_width, src_height) specifies the size of the part of the source image that is to be drawn.
     The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
 
     if with_background is False, the source image's background will not be copied.
@@ -1582,6 +1584,8 @@ def draw_image(x: int, y: int, src_image: Image, src_x: int = 0, src_y: int = 0,
     :param x: x coordinate value of the upper left point on the destination image
     :param y: y coordinate value of the upper left point on the destination image
     :param src_image: the source image to be copied
+    :param width: width of the drawing part on the destination image
+    :param height: height of the drawing part on the destination image
     :param src_x: x coordinate value of the top-left point of of the part to be drawn
     :param src_y: y coordinate value of the top-left point of of the part to be drawn
     :param src_width: witdh of the top-left point of of the part to be drawn

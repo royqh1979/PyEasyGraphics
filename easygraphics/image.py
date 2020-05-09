@@ -1307,17 +1307,19 @@ class Image:
         self.fill_rect(-1, -1, self.get_width() + 2, self.get_height() + 2)
         self.restore_settings()
 
-    def draw_image(self, x: int, y: int, image: "Image", src_x: int = 0, src_y: int = 0, src_width: int = 0,
+    def draw_image(self, x: int, y: int, image: "Image", width:int=0, height:int=0, src_x: int = 0, src_y: int = 0, src_width: int = 0,
                    src_height: int = 0, with_background=True, composition_mode=None):
         """
         Copy part of the source image (src_image) to the destination image (dst_image).
 
         (x, y) specifies the top-left point in the destination image that is to be drawn onto.
 
-        (sx, sy) specifies the top-left point of the part in the source image that is to
+        (width, height) specifies the size of drawing part on the destination image.The default is (0, 0).
+
+        (src_x, src_y) specifies the top-left point of the part in the source image that is to
         be drawn. The default is (0, 0).
 
-        (sw, sh) specifies the size of the part of the source image that is to be drawn.
+        (src_width, src_height) specifies the size of the part of the source image that is to be drawn.
         The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
 
         if with_background is False, the source image's background will not be copied.
@@ -1326,9 +1328,12 @@ class Image:
         In the default mode (CompositionMode.SOURCE_OVER), the transparent background in the source
         will not overwrite the destination.
 
+
         :param x: x coordinate value of the upper left point on the destination image
         :param y: y coordinate value of the upper left point on the destination image
         :param image: the source image to be copied
+        :param width: width of the drawing part on the destination image
+        :param height: height of the drawing part on the destination image
         :param src_x: x coordinate value of the top-left point of of the part to be drawn
         :param src_y: y coordinate value of the top-left point of of the part to be drawn
         :param src_width: witdh of the top-left point of of the part to be drawn
@@ -1342,8 +1347,18 @@ class Image:
             old_mode = p.compositionMode()
             p.setCompositionMode(composition_mode)
         img = _prepare_image_for_copy(image, with_background)
-        p.drawImage(x, y, img, src_x, src_y, src_width, src_height)
-        self._mask_painter.fillRect(x, y, src_width, src_height, QtCore.Qt.color0)
+        if width<1 or height<1:
+            p.drawImage(x, y, img, src_x, src_y, src_width, src_height)
+            self._mask_painter.fillRect(x, y, src_width, src_height, QtCore.Qt.color0)
+        else:
+            if src_width<1:
+                src_width = img.width() - x
+            if src_height<1:
+                src_height = img.height() - y
+            target = QtCore.QRectF(x,y,width,height)
+            source = QtCore.QRectF(src_x,src_y,src_width,src_height)
+            p.drawImage(target,img,source)
+            self._mask_painter.fillRect(x, y, width, height, QtCore.Qt.color0)
         if composition_mode is not None:
             p.setCompositionMode(old_mode)
         self._updated()

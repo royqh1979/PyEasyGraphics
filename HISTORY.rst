@@ -5,6 +5,7 @@ History
 1.0.20
 -----------
  * add: Image.copy() method
+ * change: draw_image() add width/height parameters ( can copy image with scale)
 
 1.0.19
 -----------
