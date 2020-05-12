@@ -1596,7 +1596,7 @@ def draw_image(x: int, y: int, src_image: Image, width:int=0, height:int=0, src_
         (see set_target() and get_target()).
     """
     dst_image = _get_target_image(dst_image)
-    dst_image.draw_image(x, y, src_image, src_x, src_y, src_width, src_height, with_background, composition_mode)
+    dst_image.draw_image(x, y, src_image, width, height, src_x, src_y, src_width, src_height, with_background, composition_mode)
 
 put_image = draw_image
 
