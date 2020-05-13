@@ -37,7 +37,7 @@ class Image:
         self._fill_color = _to_qcolor(Color.WHITE)
         self._fill_style = FillStyle.SOLID_FILL
         self._fill_rule = FillRule.ODD_EVEN_FILL
-        self._background_color = _to_qcolor(Color.WHITE)
+        self._background_color = Color.TRANSPARENT
         self._pen = QtGui.QPen()
         self._pen.setColor(Color.BLACK)
         self._pen.setCapStyle(QtCore.Qt.RoundCap)
@@ -48,7 +48,6 @@ class Image:
         self._y = 0
         self._flip_y = False
         self._painter = QtGui.QPainter()
-        self._mask_painter = QtGui.QPainter()
         self._init_painter()
         self._updated_listeners = []
         self._transform_stack = []
@@ -74,7 +73,7 @@ class Image:
         p = self._painter
         p.begin(self._image)
         p.setCompositionMode(CompositionMode.SOURCE_OVER)
-        # p.setRenderHint(QtGui.QPainter.Antialiasing) # flood fill will not work when anti-aliasing is on
+        p.setRenderHint(QtGui.QPainter.Antialiasing)
         self._default_rect = p.viewport()
 
     def set_antialiasing(self,anti:bool=True):
@@ -1277,16 +1276,17 @@ class Image:
         if composition_mode is not None:
             old_mode = p.compositionMode()
             p.setCompositionMode(composition_mode)
+        img = image.get_image()
         if width<1 or height<1:
-            p.drawImage(x, y, image, src_x, src_y, src_width, src_height)
+            p.drawImage(x, y, img, src_x, src_y, src_width, src_height)
         else:
             if src_width<1:
-                src_width = image.width() - x
+                src_width = img.width() - x
             if src_height<1:
-                src_height = image.height() - y
+                src_height = img.height() - y
             target = QtCore.QRectF(x,y,width,height)
             source = QtCore.QRectF(src_x,src_y,src_width,src_height)
-            p.drawImage(target,image,source)
+            p.drawImage(target,img,source)
         if composition_mode is not None:
             p.setCompositionMode(old_mode)
         self._updated()
@@ -1775,7 +1775,7 @@ class Image:
         :return: the created image
         """
         qimage = QtGui.QImage(width, height, QtGui.QImage.Format_ARGB32_Premultiplied)
-        qimage.fill(Color.WHITE)
+        qimage.fill(Color.TRANSPARENT)
         image = Image(qimage)
         return image
 
@@ -1819,19 +1819,3 @@ def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
         color = QtGui.QColor(val)
     return color
 
-
-def _get_foreground(image):
-    img = QtGui.QImage(image.get_width(), image.get_height(), QtGui.QImage.Format_ARGB32_Premultiplied)
-    img.fill(Color.TRANSPARENT)
-    painter = QtGui.QPainter()
-    painter.begin(img)
-    mask = QtGui.QBitmap.fromImage(image.get_mask().createMaskFromColor(MASK_WHITE.rgba()))
-    region = QtGui.QRegion(mask)
-    painter.setClipRegion(region)
-    painter.drawImage(0, 0, image.get_image())
-    painter.end()
-    return img
-
-
-MASK_WHITE = _to_qcolor(Color.WHITE)
-MASK_BLACK = _to_qcolor(Color.BLACK)

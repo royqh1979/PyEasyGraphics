@@ -293,6 +293,8 @@ class Turtle(object):
         if not self.is_filling():
             return
         image = eg.create_image(self._world.get_width(), self._world.get_height())
+        image.set_background_color(eg.Color.TRANSPARENT)
+        image.clear()
         image.set_pen(QtGui.QPen(self._world.get_world_image().get_pen()))
         image.set_color(eg.Color.TRANSPARENT)
         image.set_line_style(eg.LineStyle.SOLID_LINE)
@@ -303,8 +305,7 @@ class Turtle(object):
         image.set_transform(transform)
         image.draw_polygon(*self._fillpath)
         self._world.get_world_image().reset_transform()
-        self._world.get_world_image().draw_image(0, 0, image, with_background=False,
-                                                 composition_mode=eg.CompositionMode.SOURCE_OVER)
+        self._world.get_world_image().draw_image(0, 0, image, composition_mode=eg.CompositionMode.SOURCE_OVER)
         self._world.get_world_image().set_transform(transform)
         image.close()
         self._fillpath.clear()

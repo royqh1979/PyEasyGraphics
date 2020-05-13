@@ -21,7 +21,7 @@ def main():
         rotate(45)
         translate(-105, -65)
 
-        draw_image(0, 0, img, with_background=False)
+        draw_image(0, 0, img)
         restore_settings()
     pause()
     img.close()
