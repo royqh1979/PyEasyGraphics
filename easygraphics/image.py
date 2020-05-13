@@ -1695,7 +1695,7 @@ class Image:
         ba = QtCore.QByteArray()
         buffer = QtCore.QBuffer(ba)
         buffer.open(QtCore.QIODevice.ReadWrite)
-        self.image.save(buffer, "PNG")
+        self._image.save(buffer, "PNG")
         buffer.close()
         return ba.data()
 

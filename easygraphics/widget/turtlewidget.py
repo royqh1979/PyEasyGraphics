@@ -11,6 +11,8 @@ class TurtleWidget(QtWidgets.QWidget):
     def __init__(self, parent=None, width=600, height=400):
         super().__init__(parent)
         self._image = Image.create(width, height)
+        self._image.set_background_color("white")
+        self._image.clear()
         self._canvas = Image.create(width, height)
         self.setFixedWidth(self._image.get_width())
         self.setFixedHeight(self._image.get_height())

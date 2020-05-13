@@ -10,6 +10,8 @@ class MyWindow(QWidget):
         super().__init__()
 
         self._image = Image.create(800, 600)
+        self._image.set_background_color("white")
+        self._image.clear()
         imageWidget = ImageWidget()
         imageWidget.setImage(self._image)
         area = QScrollArea()

@@ -12,6 +12,7 @@ def main():
     width = get_width()
     height = get_height()
     set_background_color('black')
+    clear_device()
     set_color('white')
 
     random.seed()

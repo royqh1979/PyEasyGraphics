@@ -52,6 +52,8 @@ class ProcessingWidget(QtWidgets.QWidget):
         if self._image is not None:
             raise RuntimeError("set_size and fullscreen() can run only once!")
         self._image = Image.create(width, height)
+        self._image.set_background_color("white")
+        self._image.clear()
         self.setFixedWidth(width)
         self.setFixedHeight(height)
 

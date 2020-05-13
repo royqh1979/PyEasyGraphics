@@ -60,7 +60,6 @@ def set_size(width: int, height: int):
     _widget.set_size(width, height)
     set_target(_widget.get_canvas())
 
-
 def full_screen():
     """
     Open a full screen canvas.

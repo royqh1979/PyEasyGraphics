@@ -159,6 +159,7 @@ class MyWindow(QtWidgets.QWidget):
         self._mainFrame.closeEvent(e)
 
     def update_images(self) -> None:
+        self._mainFrame.get_canvas().clear()
         self._mainFrame.get_canvas().draw_image(0, 0, self._pattern_image)
         self._mainFrame.get_canvas().draw_image(0, 0, self._inner_image)
         self._mainFrame.get_canvas().draw_image(0, 0, self._outer_image)

@@ -23,3 +23,5 @@ def main():
 
     pause()
     close_graph()
+
+easy_run(main)
