@@ -1,6 +1,6 @@
 __author__ = 'Roy Qu'
 __email__ = 'royqh1979@gmail.com'
-__version__ = '1.0.20'
+__version__ = '2.0.0'
 
 from .easygraphics import *
 

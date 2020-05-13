@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='easygraphics',
-    version='1.0.20.3',
+    version='2.0.0-alpha',
     description='"A TC Graphics style like Graphics Library"',
     long_description=readme + '\n\n' + history,
     author='Roy Qu',
@@ -34,7 +34,7 @@ setup(
                      'easygraphics'},
     package_data={'easygraphics.turtle': ['*.png']},
     include_package_data=True,
-    install_requires=['', 'PyQt5', 'pygame', 'qimage2ndarray', 'apng'],
+    install_requires=['', 'PyQt5', 'pygame',  'apng'],
     license="BSD",
     zip_safe=False,
     keywords=['easygraphics', 'computer graphics', 'Turbo C graphics', 'Borland Graphics Interface'],

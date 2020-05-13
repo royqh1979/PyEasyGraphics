@@ -1561,7 +1561,7 @@ def flood_fill(x: int, y: int, border_color, image: Image = None):
 
 
 def draw_image(x: int, y: int, src_image: Image, width:int=0, height:int=0, src_x: int = 0, src_y: int = 0, src_width: int = -1,
-               src_height: int = -1, with_background=True, composition_mode=None, dst_image: Image = None):
+               src_height: int = -1, composition_mode=None, dst_image: Image = None):
     """
    Copy part of the source image (src_image) to the destination image (dst_image).
 
@@ -1574,8 +1574,6 @@ def draw_image(x: int, y: int, src_image: Image, width:int=0, height:int=0, src_
 
     (src_width, src_height) specifies the size of the part of the source image that is to be drawn.
     The default, (0, 0) (and negative) means all the way to the bottom-right of the image.
-
-    if with_background is False, the source image's background will not be copied.
 
     The final result will depend on the composition mode and the source image's background.
     In the default mode (CompositionMode.SOURCE_OVER), the transparent background in the source
@@ -1590,13 +1588,12 @@ def draw_image(x: int, y: int, src_image: Image, width:int=0, height:int=0, src_
     :param src_y: y coordinate value of the top-left point of of the part to be drawn
     :param src_width: witdh of the top-left point of of the part to be drawn
     :param src_height: height of the top-left point of of the part to be drawn
-    :param with_background: if the background should be copied.
     :param composition_mode: if is None, use dst image's composition mode to copy.
     :param dst_image: the target image which will be painted on. None means it is the target image
         (see set_target() and get_target()).
     """
     dst_image = _get_target_image(dst_image)
-    dst_image.draw_image(x, y, src_image, width, height, src_x, src_y, src_width, src_height, with_background, composition_mode)
+    dst_image.draw_image(x, y, src_image, width, height, src_x, src_y, src_width, src_height, composition_mode)
 
 put_image = draw_image
 
@@ -1939,21 +1936,18 @@ def load_image(filename: str) -> Image:
     return Image.create_from_file(filename)
 
 
-def save_image(filename: str, with_background=True, image: Image = None):
+def save_image(filename: str, image: Image = None):
     """
     Save image to file.
-
-    Set with_background to False to get a transparent background image.
 
     Note that JPEG format doesn\'t support transparent. Use PNG format if you want a transparent background.
 
     :param filename: path of the file
-    :param with_background: True to save the background together. False not
     :param image: the target image which will be saved. None means it is the target image
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    image.save(filename, with_background)
+    image.save(filename)
 
 
 def show_image(image: Image = None):

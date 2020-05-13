@@ -2,6 +2,12 @@
 
 History
 ===========
+2.0.0-alpha1
+------------
+ * turn on anti-alias by default
+ * remove floodfill() method (we won't use it)
+ * remove background mask (it's seldom used and will slow down the drawing speed)
+
 1.0.20
 -----------
  * add: Image.copy() method
