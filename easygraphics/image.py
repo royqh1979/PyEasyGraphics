@@ -34,7 +34,7 @@ class Image:
 
     def __init__(self, image: QtGui.QImage):
         self._image = image
-        self._image_view = qn.raw_view(image)
+        self._image_view = None
         self._color = _to_qcolor(Color.BLACK)
         self._line_style = LineStyle.SOLID_LINE
         self._line_width = 1
@@ -1395,6 +1395,8 @@ class Image:
         """
         if self._fill_style == FillStyle.NULL_FILL:  # no need to fill
             return
+        if self._image_view is None:
+            self._image_view = qn.raw_view(self._image)
         queue = deque()
         transform = self._painter.combinedTransform()
         new_pos = transform.map(QtCore.QPoint(x, y))

@@ -6,6 +6,7 @@ History
 -----------
  * add: Image.copy() method
  * change: draw_image() add width/height parameters ( can copy image with scale)
+ * change: only create direct image buffer view when using floodfill()
 
 1.0.19
 -----------
