@@ -2,10 +2,14 @@
 
 History
 ===========
+2.0.0-alpha2
+------------
+ * optimize: polygon drawing functions
+
 2.0.0-alpha1
 ------------
  * turn on anti-alias by default
- * remove floodfill() method (we won't use it)
+ * remove floodfill() method (slow, and not working with shapes drawn with anti-aliasing. we shouldn't use it)
  * remove background mask (it's seldom used and will slow down the drawing speed)
  * set image's default background color to TRANSPARENT
 

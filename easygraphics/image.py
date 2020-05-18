@@ -1012,8 +1012,8 @@ class Image:
         :return:
         """
         numpoints = len(points) // 2
-        if numpoints < 2:
-            raise ValueError
+        # if numpoints < 2:
+        #     raise ValueError
         qpoints = []
         for i in range(numpoints):
             qpoints.append(QtCore.QPointF(points[i * 2], points[i * 2 + 1]))
@@ -1033,9 +1033,9 @@ class Image:
 
         :param vertices: point value list
         """
-        polygon = self._convert_to_qpolygon(vertices)
+        qpoints = self._convert_to_qpoints(vertices)
         p = self._prepare_painter_for_draw_outline()
-        p.drawPolygon(polygon, self._fill_rule)
+        p.drawPolygon(*qpoints, self._fill_rule)
         self._updated()
 
     def draw_polygon(self, *vertices):
@@ -1052,15 +1052,11 @@ class Image:
 
         :param vertices: point value list
         """
-        polygon = self._convert_to_qpolygon(vertices)
+        qpoints = self._convert_to_qpoints(vertices)
         p = self._prepare_painter_for_draw()
-        p.drawPolygon(polygon, self._fill_rule)
+        p.drawPolygon(*qpoints, fillRule = self._fill_rule)
         self._updated()
 
-    def _convert_to_qpolygon(self, vertices):
-        qpoints = self._convert_to_qpoints(vertices)
-        polygon = QtGui.QPolygonF(qpoints)
-        return polygon
 
     def fill_polygon(self, *vertices):
         """
@@ -1076,9 +1072,9 @@ class Image:
 
         :param vertices: point value list
         """
-        polygon = self._convert_to_qpolygon(vertices)
+        qpoints = self._convert_to_qpoints(vertices)
         p = self._prepare_painter_for_fill()
-        p.drawPolygon(polygon, self._fill_rule)
+        p.drawPolygon(*qpoints, self._fill_rule)
         self._updated()
 
     def path(self, path: QtGui.QPainterPath):
