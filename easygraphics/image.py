@@ -76,13 +76,13 @@ class Image:
         p.setRenderHint(QtGui.QPainter.Antialiasing)
         self._default_rect = p.viewport()
 
-    def set_antialiasing(self,anti:bool=True):
+    def set_antialiasing(self, anti: bool = True):
         """
         Set Anti Aliasing
 
         :param anti: if antialiasing should be set
         """
-        self._painter.setRenderHint(QtGui.QPainter.Antialiasing,anti)
+        self._painter.setRenderHint(QtGui.QPainter.Antialiasing, anti)
 
     def get_image(self) -> QtGui.QImage:
         """
@@ -234,7 +234,6 @@ class Image:
 
         background_color = _to_qcolor(background_color)
         self._background_color = background_color
-
 
     def get_line_style(self):
         """
@@ -1035,7 +1034,7 @@ class Image:
         """
         qpoints = self._convert_to_qpoints(vertices)
         p = self._prepare_painter_for_draw_outline()
-        p.drawPolygon(*qpoints, self._fill_rule)
+        p.drawPolygon(*qpoints, fillRule=self._fill_rule)
         self._updated()
 
     def draw_polygon(self, *vertices):
@@ -1054,9 +1053,8 @@ class Image:
         """
         qpoints = self._convert_to_qpoints(vertices)
         p = self._prepare_painter_for_draw()
-        p.drawPolygon(*qpoints, fillRule = self._fill_rule)
+        p.drawPolygon(*qpoints, fillRule=self._fill_rule)
         self._updated()
-
 
     def fill_polygon(self, *vertices):
         """
@@ -1074,7 +1072,7 @@ class Image:
         """
         qpoints = self._convert_to_qpoints(vertices)
         p = self._prepare_painter_for_fill()
-        p.drawPolygon(*qpoints, self._fill_rule)
+        p.drawPolygon(*qpoints, fillRule=self._fill_rule)
         self._updated()
 
     def path(self, path: QtGui.QPainterPath):
@@ -1236,7 +1234,8 @@ class Image:
         self.fill_rect(-1, -1, self.get_width() + 2, self.get_height() + 2)
         self.restore_settings()
 
-    def draw_image(self, x: int, y: int, image: "Image", width:int=0, height:int=0, src_x: int = 0, src_y: int = 0, src_width: int = 0,
+    def draw_image(self, x: int, y: int, image: "Image", width: int = 0, height: int = 0, src_x: int = 0,
+                   src_y: int = 0, src_width: int = 0,
                    src_height: int = 0, composition_mode=None):
         """
         Copy part of the source image (src_image) to the destination image (dst_image).
@@ -1273,16 +1272,16 @@ class Image:
             old_mode = p.compositionMode()
             p.setCompositionMode(composition_mode)
         img = image.get_image()
-        if width<1 or height<1:
+        if width < 1 or height < 1:
             p.drawImage(x, y, img, src_x, src_y, src_width, src_height)
         else:
-            if src_width<1:
+            if src_width < 1:
                 src_width = img.width() - x
-            if src_height<1:
+            if src_height < 1:
                 src_height = img.height() - y
-            target = QtCore.QRectF(x,y,width,height)
-            source = QtCore.QRectF(src_x,src_y,src_width,src_height)
-            p.drawImage(target,img,source)
+            target = QtCore.QRectF(x, y, width, height)
+            source = QtCore.QRectF(src_x, src_y, src_width, src_height)
+            p.drawImage(target, img, source)
         if composition_mode is not None:
             p.setCompositionMode(old_mode)
         self._updated()
@@ -1406,15 +1405,19 @@ class Image:
         self._shape_transformed_vertices.append(point.y())
         if len(self._shape_vertices) >= 8:
             x0, y0 = self._shape_transformed_vertices[-6], self._shape_transformed_vertices[-5]
-            x1 = -self._shape_transformed_vertices[-8] / 6 + self._shape_transformed_vertices[-6] + self._shape_transformed_vertices[-4] / 6
-            y1 = -self._shape_transformed_vertices[-7] / 6 + self._shape_transformed_vertices[-5] + self._shape_transformed_vertices[-3] / 6
-            x2 = self._shape_transformed_vertices[-6] / 6 + self._shape_transformed_vertices[-4] - self._shape_transformed_vertices[-2] / 6
-            y2 = self._shape_transformed_vertices[-5] / 6 + self._shape_transformed_vertices[-3] - self._shape_transformed_vertices[-1] / 6
+            x1 = -self._shape_transformed_vertices[-8] / 6 + self._shape_transformed_vertices[-6] + \
+                 self._shape_transformed_vertices[-4] / 6
+            y1 = -self._shape_transformed_vertices[-7] / 6 + self._shape_transformed_vertices[-5] + \
+                 self._shape_transformed_vertices[-3] / 6
+            x2 = self._shape_transformed_vertices[-6] / 6 + self._shape_transformed_vertices[-4] - \
+                 self._shape_transformed_vertices[-2] / 6
+            y2 = self._shape_transformed_vertices[-5] / 6 + self._shape_transformed_vertices[-3] - \
+                 self._shape_transformed_vertices[-1] / 6
             x3, y3 = self._shape_transformed_vertices[-4], self._shape_transformed_vertices[-3]
 
-            if len(self._shape_vertices)==8:
-                self._shape_path.moveTo(x0,y0)
-            self._shape_path.cubicTo(x1,y1,x2,y2,x3,y3)
+            if len(self._shape_vertices) == 8:
+                self._shape_path.moveTo(x0, y0)
+            self._shape_path.cubicTo(x1, y1, x2, y2, x3, y3)
 
     def vertex(self, x: float, y: float):
         """
@@ -1425,7 +1428,7 @@ class Image:
         """
         if self._is_curve_shape:
             raise RuntimeError("no other vertex can be defined after curve vertex!")
-        self._vertex(x,y)
+        self._vertex(x, y)
 
     def _vertex(self, x: float, y: float):
         self._shape_vertices.append(x)
@@ -1671,7 +1674,7 @@ class Image:
         self._fill_rule = self._old_fill_rule
         self._background_color = self._old_background_color
 
-    def save(self, filename: str,):
+    def save(self, filename: str, ):
         """
         Save image to file.
 
@@ -1695,7 +1698,7 @@ class Image:
         buffer.close()
         return ba.data()
 
-    def copy(self,x:int,y:int,width:int,height:int) -> "Image":
+    def copy(self, x: int, y: int, width: int, height: int) -> "Image":
         """
         Create an copy of the image.
 
@@ -1705,17 +1708,17 @@ class Image:
         :param height:  height of the copy area
         :return: new copy
         """
-        new_image = self._image.copy(x,y,width,height)
+        new_image = self._image.copy(x, y, width, height)
         return Image(new_image)
 
-    def scaled(self,width:int,height:int) -> "Image":
+    def scaled(self, width: int, height: int) -> "Image":
         """
         Create a scaled copy with the specified width and height.
         :param width: width of the copy
         :param height:  height of the copy
         :return: new copy
         """
-        new_image =  self._image.scaled(width,height,QtCore.Qt.IgnoreAspectRatio, QtCore.Qt.SmoothTransformation)
+        new_image = self._image.scaled(width, height, QtCore.Qt.IgnoreAspectRatio, QtCore.Qt.SmoothTransformation)
         return Image(new_image)
 
     def set_rect_mode(self, mode):
@@ -1814,4 +1817,3 @@ def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
     else:
         color = QtGui.QColor(val)
     return color
-
