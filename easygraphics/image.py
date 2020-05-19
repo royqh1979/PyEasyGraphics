@@ -649,6 +649,56 @@ class Image:
 
     line = draw_line
 
+    def circle(self,x:float,y:float, r:float):
+        """
+        Draw a circle outline centered at (x,y) with radius r.
+
+        The circle is not filled.
+
+        :param x: x coordinate value of the circle\'s center
+        :param y: y coordinate value of the circle\'s center
+        :param r: radius of the circle
+        """
+        p = self._painter
+        old_brush = p.brush()
+        p.setBrush(FillStyle.NULL_FILL)
+        p.drawEllipse(x-r,y-r,2*r,2*r)
+        p.setBrush(old_brush)
+        self._updated()
+
+    def draw_circle(self,x:float,y:float, r:float):
+        """
+        Draw a circle centered at (x,y) with radius r.
+
+        The circle is filled and has outline.
+
+        :param x: x coordinate value of the circle\'s center
+        :param y: y coordinate value of the circle\'s center
+        :param r: radius of the circle
+        """
+        p = self._painter
+        p.drawEllipse(x-r,y-r,2*r,2*r)
+        self._updated()
+
+
+    def fill_circle(self,x:float,y:float, r:float):
+        """
+        Draw a circle outline centered at (x,y) with radius r.
+
+        The circle doesn\'t has outline.
+
+        :param x: x coordinate value of the circle\'s center
+        :param y: y coordinate value of the circle\'s center
+        :param r: radius of the circle
+        """
+        p = self._painter
+        old_pen = p.pen()
+        p.setPen(LineStyle.NO_PEN)
+        p.drawEllipse(x-r,y-r,2*r,2*r)
+        p.setPen(old_pen)
+        self._updated()
+
+
     def ellipse(self, x1: float, y1: float, x2: float, y2: float):
         """
         Draw an ellipse outline centered at (x,y) , radius on x-axis is radius_x, radius on y-axis is radius_y.

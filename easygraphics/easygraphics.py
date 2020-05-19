@@ -958,10 +958,7 @@ def circle(x: float, y: float, r: float, image: Image = None):
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    old_mode = image.get_ellipse_mode()
-    image.set_ellipse_mode(ShapeMode.RADIUS)
-    image.ellipse(x, y, r, r)
-    image.set_ellipse_mode(old_mode)
+    image.circle(x,y,r)
 
 
 def draw_circle(x: float, y: float, r: float, image: Image = None):
@@ -977,10 +974,7 @@ def draw_circle(x: float, y: float, r: float, image: Image = None):
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    old_mode = image.get_ellipse_mode()
-    image.set_ellipse_mode(ShapeMode.RADIUS)
-    image.draw_ellipse(x, y, r, r)
-    image.set_ellipse_mode(old_mode)
+    image.draw_circle(x,y,r)
 
 
 def fill_circle(x: float, y: float, r: float, image: Image = None):
@@ -996,10 +990,7 @@ def fill_circle(x: float, y: float, r: float, image: Image = None):
         (see set_target() and get_target()).
     """
     image = _get_target_image(image)
-    old_mode = image.get_ellipse_mode()
-    image.set_ellipse_mode(ShapeMode.RADIUS)
-    image.fill_ellipse(x, y, r, r)
-    image.set_ellipse_mode(old_mode)
+    image.fill_circle(x,y,r)
 
 
 def ellipse(x, y, radius_x, radius_y, image: Image = None):
