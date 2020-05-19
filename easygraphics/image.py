@@ -31,24 +31,24 @@ class Image:
 
     def __init__(self, image: QtGui.QImage):
         self._image = image
-        self._color = _to_qcolor(Color.BLACK)
-        self._line_style = LineStyle.SOLID_LINE
-        self._line_width = 1
-        self._fill_color = _to_qcolor(Color.WHITE)
-        self._fill_style = FillStyle.SOLID_FILL
+        self._painter = QtGui.QPainter()
+        self._init_painter()
+        pen = QtGui.QPen()
+        pen.setColor(Color.BLACK)
+        pen.setCapStyle(QtCore.Qt.RoundCap)
+        pen.setJoinStyle(QtCore.Qt.RoundJoin)
+        pen.setStyle(LineStyle.SOLID_LINE)
+        pen.setWidth(1)
+        pen.setCosmetic(True)
+        self._painter.setPen(pen)
+        brush = QtGui.QBrush(Color.WHITE, FillStyle.SOLID_FILL)
+        self._painter.setBrush(brush)
         self._fill_rule = FillRule.ODD_EVEN_FILL
         self._background_color = Color.TRANSPARENT
-        self._pen = QtGui.QPen()
-        self._pen.setColor(Color.BLACK)
-        self._pen.setCapStyle(QtCore.Qt.RoundCap)
-        self._pen.setJoinStyle(QtCore.Qt.RoundJoin)
-        self._pen.setCosmetic(True)
-        self._brush = QtGui.QBrush(Color.WHITE, FillStyle.SOLID_FILL)
         self._x = 0
         self._y = 0
         self._flip_y = False
-        self._painter = QtGui.QPainter()
-        self._init_painter()
+
         self._updated_listeners = []
         self._transform_stack = []
         self._rect_mode = ShapeMode.CORNERS
@@ -56,11 +56,6 @@ class Image:
         self._old_flip_y = False
         self._old_rect_mode = ShapeMode.CORNERS
         self._old_ellipse_mode = ShapeMode.RADIUS
-        self._old_color = _to_qcolor(Color.BLACK)
-        self._old_line_style = LineStyle.SOLID_LINE
-        self._old_line_width = 1
-        self._old_fill_color = _to_qcolor(Color.WHITE)
-        self._old_fill_style = FillStyle.SOLID_FILL
         self._old_fill_rule = FillRule.ODD_EVEN_FILL
         self._old_background_color = _to_qcolor(Color.WHITE)
         self._shape_path = None
@@ -118,7 +113,7 @@ class Image:
 
         :return: pen
         """
-        return self._pen
+        return self._painter.pen()
 
     def set_pen(self, pen: QtGui.QPen):
         """
@@ -127,7 +122,7 @@ class Image:
         :param pen: the pen to use.
         :return:
         """
-        self._pen = pen
+        self._painter.setPen(pen)
 
     def get_brush(self) -> QtGui.QBrush:
         """
@@ -135,7 +130,7 @@ class Image:
 
         :return: the brush
         """
-        return self._brush
+        return self._painter.brush()
 
     def set_brush(self, brush: QtGui.QBrush):
         """
@@ -143,7 +138,7 @@ class Image:
 
         :param brush: the brush
         """
-        self._brush = brush
+        self._painter.setBrush(brush)
 
     def get_color(self):
         """
@@ -153,7 +148,7 @@ class Image:
 
         :return: foreground color
         """
-        return self._color
+        return self._painter.pen().color()
 
     def set_color(self, color):
         """
@@ -168,8 +163,9 @@ class Image:
         :param color: foreground color
         """
         color = _to_qcolor(color)
-        self._color = color
-        self._pen.setColor(color)
+        pen = self._painter.pen()
+        pen.setColor(color)
+        self._painter.setPen(pen)
 
     def get_fill_color(self):
         """
@@ -179,7 +175,7 @@ class Image:
 
         :return: fill color
         """
-        return self._fill_color
+        return self._painter.brush().color()
 
     def set_fill_color(self, fill_color):
         """
@@ -194,8 +190,9 @@ class Image:
         :param fill_color: fill color
         """
         fill_color = _to_qcolor(fill_color)
-        self._fill_color = fill_color
-        self._brush.setColor(fill_color)
+        brush = self._painter.brush()
+        brush.setColor(fill_color)
+        self._painter.setBrush(brush)
 
     def set_fill_rule(self, rule):
         """
@@ -243,7 +240,7 @@ class Image:
 
         :return: line style
         """
-        return self._line_style
+        return self._painter.pen().style()
 
     def set_line_style(self, line_style):
         """
@@ -254,8 +251,7 @@ class Image:
 
         :param line_style: line style
         """
-        self._line_style = line_style
-        self._pen.setStyle(line_style)
+        self._painter.setPen(line_style)
 
     def get_line_width(self) -> float:
         """
@@ -265,7 +261,7 @@ class Image:
 
         :return: line width
         """
-        return self._line_width
+        return self._painter.pen().widthF()
 
     def set_line_width(self, width: float):
         """
@@ -275,11 +271,12 @@ class Image:
 
         :param width: line width
         """
-        self._line_width = width
+        pen = self._painter.pen()
         if isinstance(width, int):
-            self._pen.setWidth(width)
+            pen.setWidth(width)
         else:
-            self._pen.setWidthF(width)
+            pen.setWidthF(width)
+        self._painter.setPen(pen)
 
     def get_fill_style(self):
         """
@@ -289,7 +286,7 @@ class Image:
 
         :return: fill style
         """
-        return self._fill_style
+        return self._painter.brush().style()
 
     def set_fill_style(self, fill_style):
         """
@@ -300,8 +297,9 @@ class Image:
 
         :param fill_style: fill style
         """
-        self._fill_style = fill_style
-        self._brush.setStyle(fill_style)
+        brush = self._painter.brush()
+        brush.setStyle(fill_style)
+        self._painter.setBrush(brush)
 
     def set_view_port(self, left: int, top: int, right: int, bottom: int):
         """
@@ -618,24 +616,6 @@ class Image:
         """
         return self._y
 
-    def _prepare_painter(self, pen: QtGui.QPen, brush: QtGui.QBrush) -> QtGui.QPainter:
-        p = self._painter
-        p.setPen(pen)
-        p.setBrush(brush)
-        return p
-
-    def _prepare_painter_for_draw_outline(self) -> QtGui.QPainter:
-        """ prepare painter for draw outline """
-        return self._prepare_painter(self._pen, FillStyle.NULL_FILL)
-
-    def _prepare_painter_for_draw(self) -> QtGui.QPainter:
-        """ prepare painter for draw (with outline and fill)"""
-        return self._prepare_painter(self._pen, self._brush)
-
-    def _prepare_painter_for_fill(self) -> QtGui.QPainter:
-        """ prepare painter for fill (without outline)"""
-        return self._prepare_painter(LineStyle.NO_PEN, self._brush)
-
     def draw_point(self, x: float, y: float):
         """
         Draw a point at (x,y) on the specified image.
@@ -643,9 +623,8 @@ class Image:
         :param x: x coordinate value of the drawing point
         :param y: y coordinate value of the drawing point
         """
-        p = self._prepare_painter_for_draw_outline()
         point = QtCore.QPointF(x, y)
-        p.drawPoint(point)
+        self._painter.drawPoint(point)
         self._updated()
 
     def _no_pen(self):
@@ -663,10 +642,9 @@ class Image:
         :param x2: x coordinate value of the end point
         :param y2: y coordinate value of the start point
         """
-        p = self._prepare_painter_for_draw_outline()
         p1 = QtCore.QPointF(x1, y1)
         p2 = QtCore.QPointF(x2, y2)
-        p.drawLine(p1, p2)
+        self._painter.drawLine(p1, p2)
         self._updated()
 
     line = draw_line
@@ -682,8 +660,11 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_draw_outline()
+        p=self._painter
+        old_brush = p.brush()
+        p.setBrush(FillStyle.NULL_FILL)
         self._draw_ellipse(p, x1, y1, x2, y2)
+        p.setBrush(old_brush)
         self._updated()
 
     def _draw_ellipse(self, p, x1, y1, x2, y2):
@@ -701,8 +682,8 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_draw()
-        self._draw_ellipse(p, x1, y1, x2, y2)
+
+        self._draw_ellipse(self._painter, x1, y1, x2, y2)
         self._updated()
 
     def fill_ellipse(self, x1: float, y1: float, x2: float, y2: float):
@@ -716,8 +697,11 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_fill()
+        p = self._painter
+        old_pen = p.pen()
+        p.setPen(LineStyle.NO_PEN)
         self._draw_ellipse(p, x1, y1, x2, y2)
+        p.setPen(old_pen)
         self._updated()
 
     def draw_arc(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
@@ -735,12 +719,15 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_draw_outline()
+        p = self._painter
+        old_brush = p.getBrush()
+        p.setBrush(FillStyle.NULL_FILL)
         angle_len = end_angle - start_angle
         rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawArc(rect, s, al)
+        p.setBrush(old_brush)
         self._updated()
 
     arc = draw_arc
@@ -762,12 +749,15 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_draw_outline()
+        p = self._painter
+        old_brush = p.brush()
+        p.setBrush(FillStyle.NULL_FILL)
         angle_len = end_angle - start_angle
         rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawPie(rect, s, al)
+        p.setBrush(old_brush)
         self._updated()
 
     def draw_pie(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
@@ -787,7 +777,7 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_draw()
+        p = self._painter
         angle_len = end_angle - start_angle
         rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
@@ -812,12 +802,15 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_fill()
+        p = self._painter
+        old_pen = p.pen()
+        p.setPen(LineStyle.NO_PEN)
         angle_len = end_angle - start_angle
         rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawPie(rect, s, al)
+        p.setPen(old_pen)
         self._updated()
 
     def chord(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
@@ -837,12 +830,15 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_draw_outline()
+        p = self._painter
+        old_brush = p.brush()
+        p.setBrush(FillStyle.NULL_FILL)
         angle_len = end_angle - start_angle
         rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawChord(rect, s, al)
+        p.setBrush(old_brush)
         self._updated()
 
     def draw_chord(self, x1: float, y1: float, start_angle: float, end_angle: float, x2: float, y2: float):
@@ -862,7 +858,7 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_draw()
+        p = self._painter
         angle_len = end_angle - start_angle
         rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
@@ -887,12 +883,15 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p = self._prepare_painter_for_fill()
+        p = self._painter
+        old_pen = p.pen()
+        p.setPen(LineStyle.NO_PEN)
         angle_len = end_angle - start_angle
         rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
         s = start_angle * 16
         al = angle_len * 16
         p.drawChord(rect, s, al)
+        p.setPen()
         self._updated()
 
     def draw_bezier(self, x0: float, y0: float, x1: float, y1: float, x2: float, y2: float, x3: float, y3: float):
@@ -912,8 +911,7 @@ class Image:
         """
         path = QtGui.QPainterPath(QtCore.QPointF(x0, y0))
         path.cubicTo(x1, y1, x2, y2, x3, y3)
-        p = self._prepare_painter_for_draw_outline()
-        p.drawPath(path)
+        self._painter.drawPath(path)
         self._updated()
 
     bezier = draw_bezier
@@ -952,8 +950,7 @@ class Image:
         """
         path = QtGui.QPainterPath(QtCore.QPointF(x0, y0))
         path.quadTo(x1, y1, x2, y2)
-        p = self._prepare_painter_for_draw_outline()
-        p.drawPath(path)
+        self._painter.drawPath(path)
         self._updated()
 
     quadratic = draw_quadratic
@@ -977,8 +974,7 @@ class Image:
         qlines = []
         for i in range(0, numpoints, 2):
             qlines.append(QtCore.QLineF(*points[i * 2:i * 2 + 4]))
-        p = self._prepare_painter_for_draw_outline()
-        p.drawLines(qlines)
+        self._painter.drawLines(qlines)
         self._updated()
 
     lines = draw_lines
@@ -997,8 +993,7 @@ class Image:
         :param end_points: point value list
         """
         qpoints = self._convert_to_qpoints(end_points)
-        p = self._prepare_painter_for_draw_outline()
-        p.drawPolyline(*qpoints)
+        self._painter.drawPolyline(*qpoints)
         self._updated()
 
     poly_line = draw_poly_line
@@ -1033,8 +1028,11 @@ class Image:
         :param vertices: point value list
         """
         qpoints = self._convert_to_qpoints(vertices)
-        p = self._prepare_painter_for_draw_outline()
+        p = self._painter
+        old_brush = p.brush()
+        p.setBrush(FillStyle.NULL_FILL)
         p.drawPolygon(*qpoints, fillRule=self._fill_rule)
+        p.setBrush(old_brush)
         self._updated()
 
     def draw_polygon(self, *vertices):
@@ -1052,8 +1050,7 @@ class Image:
         :param vertices: point value list
         """
         qpoints = self._convert_to_qpoints(vertices)
-        p = self._prepare_painter_for_draw()
-        p.drawPolygon(*qpoints, fillRule=self._fill_rule)
+        self._painter.drawPolygon(*qpoints, fillRule=self._fill_rule)
         self._updated()
 
     def fill_polygon(self, *vertices):
@@ -1071,8 +1068,11 @@ class Image:
         :param vertices: point value list
         """
         qpoints = self._convert_to_qpoints(vertices)
-        p = self._prepare_painter_for_fill()
+        p = self._painter
+        old_pen = p.pen()
+        p.setPen(LineStyle.NO_PEN)
         p.drawPolygon(*qpoints, fillRule=self._fill_rule)
+        p.setPen(old_pen)
         self._updated()
 
     def path(self, path: QtGui.QPainterPath):
@@ -1081,8 +1081,11 @@ class Image:
 
         :param path: path to be drawn
         """
-        p = self._prepare_painter_for_draw_outline()
+        p = self._painter
+        old_brush = p.brush()
+        p.setBrush(FillStyle.NULL_FILL)
         p.drawPath(path)
+        p.setBrush(old_brush)
         self._updated()
 
     def draw_path(self, path: QtGui.QPainterPath):
@@ -1091,8 +1094,7 @@ class Image:
 
         :param path: path to drawn and fill
         """
-        p = self._prepare_painter_for_draw()
-        p.drawPath(path)
+        self._painter.drawPath(path)
         self._updated()
 
     def fill_path(self, path: QtGui.QPainterPath):
@@ -1102,8 +1104,10 @@ class Image:
         :param path: the path enclosing the region
         """
         p = self._painter
-        self._prepare_painter_for_fill()
+        old_pen = p.pen()
+        p.setPen(LineStyle.NO_PEN)
         p.fillPath(path, p.brush())
+        p.setPen(old_pen)
         self._updated()
 
     def _draw_rect(self, p, x1, y1, x2, y2):
@@ -1121,8 +1125,11 @@ class Image:
         :param x2: x coordinate value of the lower right corner
         :param y2: y coordinate value of the lower right corner
         """
-        p = self._prepare_painter_for_draw_outline()
+        p = self._painter
+        old_brush = p.brush()
+        p.setBrush(FillStyle.NULL_FILL)
         self._draw_rect(p, x1, y1, x2, y2)
+        p.setBrush(old_brush)
         self._updated()
 
     def draw_rect(self, x1: float, y1: float, x2: float, y2: float):
@@ -1136,7 +1143,7 @@ class Image:
         :param x2: x coordinate value of the lower right corner
         :param y2: y coordinate value of the lower right corner
         """
-        p = self._prepare_painter_for_draw()
+        p = self._painter
         self._draw_rect(p, x1, y1, x2, y2)
         self._updated()
 
@@ -1151,8 +1158,11 @@ class Image:
         :param x2: x coordinate value of the lower right corner
         :param y2: y coordinate value of the lower right corner
         """
-        p = self._prepare_painter_for_fill()
+        p = self._painter
+        old_pen = p.pen()
+        p.setPen(LineStyle.NO_PEN)
         self._draw_rect(p, x1, y1, x2, y2)
+        p.setPen(old_pen)
         self._updated()
 
     def _draw_rounded_rect(self, p, x1, y1, x2, y2, round_x, round_y):
@@ -1174,8 +1184,11 @@ class Image:
         :param round_x: raidus on x-axis of the corner ellipse arc
         :param round_y: radius on y-axis of the corner ellipse arc
         """
-        p = self._prepare_painter_for_draw_outline()
+        p = self._painter
+        old_brush = p.brush()
+        p.setBrush(FillStyle.NULL_FILL)
         self._draw_rounded_rect(p, x1, y1, x2, y2, round_x, round_y)
+        p.setBrush(old_brush)
         self._updated()
 
     def draw_rounded_rect(self, x1: float, y1: float, x2: float, y2: float, round_x: float, round_y: float):
@@ -1192,7 +1205,7 @@ class Image:
         :param round_x: raidus on x-axis of the corner ellipse arc
         :param round_y: radius on y-axis of the corner ellipse arc
         """
-        p = self._prepare_painter_for_draw()
+        p = self._painter
         self._draw_rounded_rect(p, x1, y1, x2, y2, round_x, round_y)
         self._updated()
 
@@ -1210,8 +1223,11 @@ class Image:
         :param round_x: radius on x-axis of the corner ellipse arc
         :param round_y: radius on y-axis of the corner ellipse arc
         """
-        p = self._prepare_painter_for_fill()
+        p = self._painter
+        old_pen = p.pen()
+        p.setPen(LineStyle.NO_PEN)
         self._draw_rounded_rect(p, x1, y1, x2, y2, round_x, round_y)
+        p.setPen(old_pen)
         self._updated()
 
     def clear(self):
@@ -1331,13 +1347,13 @@ class Image:
         """
         msgs = map(str, args)
         msg = sep.join(msgs)
-        p = self._prepare_painter_for_draw()
+        p = self._painter
         if self._flip_y:
-            transform = self._painter.transform()
+            transform = p.transform()
             self.reflect(1, 0)
             y = -(y - self.text_height())
             p.drawText(x, y, msg)
-            self._painter.setTransform(transform)
+            p.setTransform(transform)
         else:
             p.drawText(x, y, msg)
         self._updated()
@@ -1358,13 +1374,13 @@ class Image:
         """
         msgs = map(str, args)
         msg = sep.join(msgs)
-        p = self._prepare_painter_for_draw()
+        p = self._painter
         if self._flip_y:
             transform = self._painter.transform()
             self.reflect(1, 0)
             y = -(y + height)
             p.drawText(x, y, width, height, flags, msg)
-            self._painter.setTransform(transform)
+            p.setTransform(transform)
         else:
             p.drawText(x, y, width, height, flags, msg)
         self._updated()
@@ -1646,11 +1662,6 @@ class Image:
         self._old_flip_y = self._flip_y
         self._old_rect_mode = self._rect_mode
         self._old_ellipse_mode = self._ellipse_mode
-        self._old_color = self._color
-        self._old_line_style = self._line_style
-        self._old_line_width = self._line_width
-        self._old_fill_color = self._fill_color
-        self._old_fill_style = self._fill_style
         self._old_fill_rule = self._fill_rule
         self._old_background_color = self._background_color
 
@@ -1666,11 +1677,6 @@ class Image:
         self._flip_y = self._old_flip_y
         self._rect_mode = self._old_rect_mode
         self._ellipse_mode = self._old_ellipse_mode
-        self._color = self._old_color
-        self._line_style = self._old_line_style
-        self._line_width = self._old_line_width
-        self._fill_color = self._old_fill_color
-        self._fill_style = self._old_fill_style
         self._fill_rule = self._old_fill_rule
         self._background_color = self._old_background_color
 
@@ -1682,7 +1688,7 @@ class Image:
         
         :param filename: path of the file
         """
-        self.image.save(filename)
+        self._image.save(filename)
 
     def to_bytes(self, format: str = "PNG") -> bytes:
         """

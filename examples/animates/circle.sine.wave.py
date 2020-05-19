@@ -44,6 +44,7 @@ def main():
             for i in range(1, len(circle_list)):
                 line(200 + i - 1, circle_list[i - 1], 200 + i, circle_list[i])
 
+
     close_graph()
 
 easy_run(main)
