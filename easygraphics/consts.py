@@ -274,7 +274,15 @@ class FillRule:
 
 class ShapeMode:
     """
-    This flag controls how shapes will be drawn. The framework's default value is RADIUS.
+    This flag controls how rectangle/ellipse shapes will be drawn.
+
+    CORNER interprets the first two parameters of rect() as the upper-left corner of the shape, while the third and fourth parameters are its width and height.
+
+    CORNERS interprets the first two parameters of rect() as the location of one corner, and the third and fourth parameters as the location of the opposite corner.
+
+    CENTER interprets the first two parameters of rect() as the shape's center point, while the third and fourth parameters are its width and height.
+
+    RADIUS also uses the first two parameters of rect() as the shape's center point, but uses the third and fourth parameters to specify half of the shapes's width and height.
     """
     CORNERS = 0
     CORNER = 1

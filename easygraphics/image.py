@@ -649,7 +649,7 @@ class Image:
 
     line = draw_line
 
-    def circle(self,x:float,y:float, r:float):
+    def circle(self, x: float, y: float, r: float):
         """
         Draw a circle outline centered at (x,y) with radius r.
 
@@ -662,11 +662,11 @@ class Image:
         p = self._painter
         old_brush = p.brush()
         p.setBrush(FillStyle.NULL_FILL)
-        p.drawEllipse(x-r,y-r,2*r,2*r)
+        p.drawEllipse(x - r, y - r, 2 * r, 2 * r)
         p.setBrush(old_brush)
         self._updated()
 
-    def draw_circle(self,x:float,y:float, r:float):
+    def draw_circle(self, x: float, y: float, r: float):
         """
         Draw a circle centered at (x,y) with radius r.
 
@@ -677,11 +677,10 @@ class Image:
         :param r: radius of the circle
         """
         p = self._painter
-        p.drawEllipse(x-r,y-r,2*r,2*r)
+        p.drawEllipse(x - r, y - r, 2 * r, 2 * r)
         self._updated()
 
-
-    def fill_circle(self,x:float,y:float, r:float):
+    def fill_circle(self, x: float, y: float, r: float):
         """
         Draw a circle outline centered at (x,y) with radius r.
 
@@ -694,10 +693,9 @@ class Image:
         p = self._painter
         old_pen = p.pen()
         p.setPen(LineStyle.NO_PEN)
-        p.drawEllipse(x-r,y-r,2*r,2*r)
+        p.drawEllipse(x - r, y - r, 2 * r, 2 * r)
         p.setPen(old_pen)
         self._updated()
-
 
     def ellipse(self, x1: float, y1: float, x2: float, y2: float):
         """
@@ -710,7 +708,7 @@ class Image:
         :param x2: radius on x-axis of the ellipse
         :param y2: radius on y-axis of the ellipse
         """
-        p=self._painter
+        p = self._painter
         old_brush = p.brush()
         p.setBrush(FillStyle.NULL_FILL)
         self._draw_ellipse(p, x1, y1, x2, y2)
@@ -1851,20 +1849,25 @@ class Image:
 
 def _calc_rect(x1: float, y1: float, x2: float, y2: float, mode) -> QtCore.QRectF:
     if mode == ShapeMode.RADIUS:
-        p1 = QtCore.QPointF(x1 - x2, y1 - y2)
-        p2 = QtCore.QPointF(x1 + x2, y1 + y2)
-        rect = QtCore.QRectF(p1, p2)
+        """
+        RADIUS uses the first two parameters of rect() as the shape's center point, but uses the third and fourth parameters to specify half of the shapes's width and height
+        """
+        return QtCore.QRectF(x1 - x2, y1 - y2, x2 + x2, y2 + y2)
     elif mode == ShapeMode.CENTER:
-        p1 = QtCore.QPointF(x1 - x2 / 2, y1 - y2 / 2)
-        p2 = QtCore.QPointF(x1 + x2 / 2, y1 + y2 / 2)
-        rect = QtCore.QRectF(p1, p2)
+        """
+        CENTER interprets the first two parameters of rect() as the shape's center point, while the third and fourth parameters are its width and height.
+        """
+        return QtCore.QRectF(x1 - x2 / 2, y1 - y2 / 2, x2, y2)
     elif mode == ShapeMode.CORNER:
-        rect = QtCore.QRectF(x1, y1, x2, y2)
+        """
+        CORNER interprets the first two parameters of rect() as the upper-left corner of the shape, while the third and fourth parameters are its width and height.
+        """
+        return QtCore.QRectF(x1, y1, x2, y2)
     else:
-        p1 = QtCore.QPointF(x1, y1)
-        p2 = QtCore.QPointF(x2, y2)
-        rect = QtCore.QRectF(p1, p2)
-    return rect
+        """
+        CORNERS interprets the first two parameters of rect() as the location of one corner, and the third and fourth parameters as the location of the opposite corner.
+        """
+        return QtCore.QRectF(x1,y1,x2-x1,y2-y1)
 
 
 def _to_qcolor(val: Union[int, str, QtGui.QColor]) -> Union[QtGui.QColor, int]:
