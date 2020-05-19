@@ -5,6 +5,11 @@ History
 2.0.0-alpha2
 ------------
  * optimize: polygon drawing functions
+ * change: we don't reset pen/brush for each draw_* methods
+ * add: circle drawing methods to Image
+ * add some comments
+
+
 
 2.0.0-alpha1
 ------------
