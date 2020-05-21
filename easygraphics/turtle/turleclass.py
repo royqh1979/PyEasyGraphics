@@ -66,6 +66,7 @@ class TurtleWorld(object):
         self._world_image.set_flip_y(True)
 
 
+
     def close(self):
         """
         Close the turtles world.

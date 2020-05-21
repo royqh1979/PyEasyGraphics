@@ -251,7 +251,9 @@ class Image:
 
         :param line_style: line style
         """
-        self._painter.setPen(line_style)
+        pen = self._painter.pen()
+        pen.setStyle(line_style)
+        self._painter.setPen(pen)
 
     def get_line_width(self) -> float:
         """
@@ -623,7 +625,7 @@ class Image:
         :param x: x coordinate value of the drawing point
         :param y: y coordinate value of the drawing point
         """
-        self._painter.drawPoint(x,y)
+        self._painter.drawPoint(QtCore.QPointF(x,y))
         self._updated()
 
     def _no_pen(self):
