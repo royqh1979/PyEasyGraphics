@@ -3,7 +3,7 @@ from easygraphics import *
 def main():
     init_graph(800, 600)
 
-    line(50, 50, 400, 400)
+    line(50.5, 50.5, 400.7, 400.7)
 
     set_line_width(20)
 

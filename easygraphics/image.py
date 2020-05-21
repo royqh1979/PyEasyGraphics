@@ -623,8 +623,7 @@ class Image:
         :param x: x coordinate value of the drawing point
         :param y: y coordinate value of the drawing point
         """
-        point = QtCore.QPointF(x, y)
-        self._painter.drawPoint(point)
+        self._painter.drawPoint(x,y)
         self._updated()
 
     def _no_pen(self):
@@ -645,6 +644,7 @@ class Image:
         p1 = QtCore.QPointF(x1, y1)
         p2 = QtCore.QPointF(x2, y2)
         self._painter.drawLine(p1, p2)
+        # self._painter.drawLine(x1,y1,x2,y2)
         self._updated()
 
     line = draw_line

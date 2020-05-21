@@ -9,8 +9,6 @@ History
  * add: circle drawing methods to Image
  * add some comments
 
-
-
 2.0.0-alpha1
 ------------
  * turn on anti-alias by default
