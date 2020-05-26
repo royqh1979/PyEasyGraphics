@@ -35,9 +35,9 @@ class GraphWin(QtWidgets.QWidget):
         self.setFixedWidth(width)
         self.setFixedHeight(height)
         self._wait_event = threading.Event()
-        self._key_msg_queue = queue.Queue(10)
-        self._key_char_msg_queue = queue.Queue(10)
-        self._mouse_msg_queue = queue.Queue(10)
+        self._key_msg_queue = queue.Queue(50)
+        self._key_char_msg_queue = queue.Queue(50)
+        self._mouse_msg_queue = queue.Queue(50)
         self.setGeometry(100, 100, width, height)
         self._init_screen(width, height)
         self._is_run = True
@@ -138,6 +138,14 @@ class GraphWin(QtWidgets.QWidget):
         mouse_msg=MouseMessage(e, MouseMessageType.RELEASE_MESSAGE)
         try:
             self._mouse_msg_queue.put_nowait(mouse_msg)
+        except queue.Full as err:
+            pass
+
+    def keyReleaseEvent(self, e: QtGui.QKeyEvent) -> None:
+        self._wait_event.set()
+        key_msg = KeyMessage(e)
+        try:
+            self._key_msg_queue.put_nowait(key_msg)
         except queue.Full as err:
             pass
 
@@ -422,11 +430,13 @@ class KeyMessage:
             self.char = ''
             self.count = 0
             self.modifiers = QtCore.Qt.NoModifier
+            self.type = QtCore.QEvent.None_
         else:
             self.key = key_event.key()
             self.char = key_event.text()
             self.count = key_event.count()
             self.modifiers = key_event.modifiers()
+            self.type = key_event.type()
 
 
 class _KeyCharMsg:

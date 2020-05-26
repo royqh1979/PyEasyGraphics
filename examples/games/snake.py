@@ -195,6 +195,8 @@ class Snake:
 
     def check_keys(self):
         msg = get_key()
+        if msg.type != QtCore.QEvent.KeyPress:
+            return
         k=msg.key
         if k == QtCore.Qt.Key_Up:
             self.now = UP
@@ -233,6 +235,7 @@ class Snake:
 def main():
     init_graph(800,600)
     set_background_color(Color.BLACK)
+    clear()
     set_render_mode(RenderMode.RENDER_MANUAL)
     snake = Snake()
     snake.move()

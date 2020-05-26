@@ -219,6 +219,7 @@ def init():
     init_graph(640, 480)
     set_render_mode(RenderMode.RENDER_MANUAL)
     set_background_color(Color.BLACK)
+    clear()
     set_color(Color.WHITE)
     set_fill_color(Color.TRANSPARENT)
     set_caption("Tetris")
@@ -271,21 +272,22 @@ def get_command(frame_count):
     global last_down_frame_count
     if has_kb_msg():
         key = get_key()
-        k = key.key
-        if k == QtCore.Qt.Key_W or k == QtCore.Qt.Key_Up:
-            return CMD.ROTATE
-        elif k == QtCore.Qt.Key_S or k == QtCore.Qt.Key_Down:
-            last_down_frame_count = frame_count
-            return CMD.DOWN
-        elif k == QtCore.Qt.Key_A or k == QtCore.Qt.Key_Left:
-            return CMD.LEFT
-        elif k == QtCore.Qt.Key_D or k == QtCore.Qt.Key_Right:
-            return CMD.RIGHT
-        elif k == QtCore.Qt.Key_Space:
-            last_down_frame_count = frame_count
-            return CMD.SINK
-        elif k == QtCore.Qt.Key_Escape:
-            return CMD.QUIT
+        if key.type == QtCore.QEvent.KeyPress:
+            k = key.key
+            if k == QtCore.Qt.Key_W or k == QtCore.Qt.Key_Up:
+                return CMD.ROTATE
+            elif k == QtCore.Qt.Key_S or k == QtCore.Qt.Key_Down:
+                last_down_frame_count = frame_count
+                return CMD.DOWN
+            elif k == QtCore.Qt.Key_A or k == QtCore.Qt.Key_Left:
+                return CMD.LEFT
+            elif k == QtCore.Qt.Key_D or k == QtCore.Qt.Key_Right:
+                return CMD.RIGHT
+            elif k == QtCore.Qt.Key_Space:
+                last_down_frame_count = frame_count
+                return CMD.SINK
+            elif k == QtCore.Qt.Key_Escape:
+                return CMD.QUIT
     if frame_count - last_down_frame_count > DROP_SPEED:
         last_down_frame_count = frame_count
         return CMD.DOWN

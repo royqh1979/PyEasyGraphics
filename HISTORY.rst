@@ -8,6 +8,7 @@ History
  * change: we don't reset pen/brush for each draw_* methods
  * add: circle drawing methods to Image
  * add some comments
+ * add: KeyMessage now have type property, to distinguish key release and key press message
 
 2.0.0-alpha1
 ------------
