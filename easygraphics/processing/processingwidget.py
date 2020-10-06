@@ -1,7 +1,7 @@
 import os
 
 from PyQt5 import QtCore, QtWidgets, QtGui
-from easygraphics import Image
+from easygraphics import Image, ShapeMode
 import time
 
 __all__ = ['ProcessingWidget']
@@ -56,6 +56,8 @@ class ProcessingWidget(QtWidgets.QWidget):
         self._image.clear()
         self.setFixedWidth(width)
         self.setFixedHeight(height)
+        self._image.set_rect_mode(ShapeMode.CORNER)
+        self._image.set_ellipse_mode(ShapeMode.CORNER)
 
     def full_screen(self):
         """

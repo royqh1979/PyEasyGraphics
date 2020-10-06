@@ -58,7 +58,7 @@ class Image:
         self._old_ellipse_mode = ShapeMode.RADIUS
         self._old_fill_rule = FillRule.ODD_EVEN_FILL
         self._old_background_color = _to_qcolor(Color.WHITE)
-        self._shape_path = None
+        self._shape_path:QtGui.QPainterPath = None
         self._shape_vertext_type = VertexType.POLY_LINE
         self._shape_vertices = []
         self._shape_transformed_vertices = []
@@ -770,7 +770,7 @@ class Image:
         :param y2: radius on y-axis of the ellipse
         """
         p = self._painter
-        old_brush = p.getBrush()
+        old_brush = p.brush()
         p.setBrush(FillStyle.NULL_FILL)
         angle_len = end_angle - start_angle
         rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
@@ -1255,11 +1255,13 @@ class Image:
         :param round_x: raidus on x-axis of the corner ellipse arc
         :param round_y: radius on y-axis of the corner ellipse arc
         """
+        if round_y is None:
+            round_y = round_x
         p = self._painter
         self._draw_rounded_rect(p, x1, y1, x2, y2, round_x, round_y)
         self._updated()
 
-    def fill_rounded_rect(self, x1: float, y1: float, x2: float, y2: float, round_x: float, round_y: float):
+    def fill_rounded_rect(self, x1: float, y1: float, x2: float, y2: float, round_x: float, round_y: float=None):
         """
         Fill a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
         raidus on x-axis of the corner ellipse arc is round_x, radius on y-axis of the corner ellipse arc is round_y.
@@ -1273,6 +1275,8 @@ class Image:
         :param round_x: radius on x-axis of the corner ellipse arc
         :param round_y: radius on y-axis of the corner ellipse arc
         """
+        if round_y is None:
+            round_y = round_x
         p = self._painter
         old_pen = p.pen()
         p.setPen(LineStyle.NO_PEN)
@@ -1484,6 +1488,38 @@ class Image:
             if len(self._shape_vertices) == 8:
                 self._shape_path.moveTo(x0, y0)
             self._shape_path.cubicTo(x1, y1, x2, y2, x3, y3)
+
+    #TODO: more work should be donw for arc_to
+    def arc_to(self,start_angle: float, end_angle: float, x2: float, y2: float):
+        """
+        Draw an elliptical arc from start_angle to end_angle. The base ellipse is centered at (x,y)  \
+        which radius on x-axis is radius_x and radius on y-axis is radius_y.
+
+          Note: Positive values for the angles mean counter-clockwise
+          while negative values mean the clockwise direction. Zero degrees is at the 3 o'clock position.
+
+        :param start_angle: start angle of the arc
+        :param end_angle: end angle of the arc
+        :param x2: radius on x-axis of the ellipse
+        :param y2: radius on y-axis of the ellipse
+        """
+        if self._is_curve_shape:
+            raise RuntimeError("no other vertex can be defined after curve vertex!")
+        if self._shape_path.elementCount() <= 0:
+            raise RuntimeError("Must call vertex() to set the start point before define bezier curve!")
+        if self._shape_vertext_type != VertexType.POLY_LINE:
+            raise RuntimeError("arc_to() can only used with VertexType.POLY_LINE vertices!")
+        transform = self.get_transform()
+
+        angle_len = end_angle - start_angle
+        x1=self._shape_vertices[-2]
+        y1=self._shape_vertices[-1]
+        p2 = transform.map(self._shaQtCore.QPointF(x2, y2))
+        rect = _calc_rect(x1, y1, x2, y2, self._ellipse_mode)
+        s = start_angle * 16
+        al = angle_len * 16
+        self._shape_path.arcTo()
+        self._shape_path.arcTo(rect,s,al);
 
     def vertex(self, x: float, y: float):
         """

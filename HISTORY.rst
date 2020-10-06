@@ -2,6 +2,10 @@
 
 History
 ===========
+2.0.1.1
+ * fix: bug in image.draw_arc
+ * remove: flood_fill
+
 2.0.0-alpha2
 ------------
  * optimize: polygon drawing functions

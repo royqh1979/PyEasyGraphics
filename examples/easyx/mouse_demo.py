@@ -1,7 +1,6 @@
 # a demo from EasyX Library
 # mouse demo
 # https://codebus.cn/yangw/post/mouse-operation
-from qtconsole.qt import QtCore
 
 from easygraphics import *
 

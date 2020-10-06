@@ -7,7 +7,6 @@ from functools import reduce
 from typing import List, Optional, Callable
 
 import apng
-import qimage2ndarray as q2n
 from PyQt5 import QtWidgets
 
 from ._utils import invoke_in_app_thread
@@ -38,14 +37,14 @@ __all__ = [
     'arc', 'draw_arc', 'pie', 'draw_pie', 'fill_pie', 'chord', 'draw_chord', 'fill_chord',
     'bezier', 'draw_bezier', 'lines', 'draw_lines', 'poly_line', 'draw_poly_line', 'polygon', 'draw_polygon',
     'fill_polygon', 'rect', 'draw_rect', 'fill_rect', 'rounded_rect', 'draw_rounded_rect', 'fill_rounded_rect',
-    'flood_fill', 'draw_image', 'clear_device', 'clear_view_port',
+    'draw_image', 'clear_device', 'clear_view_port',
     'quadratic', 'draw_quadratic', 'fill_image', 'clear', 'draw_curve', 'curve',
     'begin_shape', 'end_shape', 'vertex', 'bezier_vertex', 'quadratic_vertex', 'curve_vertex',
     'bezier_point','bezier_tangent','curve_point','curve_tangent',
     # text functions #
     'draw_text', 'draw_rect_text', 'text_width', 'text_height',
     # image functions #
-    'set_target', 'get_target', 'create_image','create_image_from_ndarray', 'save_image', 'close_image', 'load_image', 'put_image',
+    'set_target', 'get_target', 'create_image', 'save_image', 'close_image', 'load_image', 'put_image',
     "create_image_from_file",'capture_screen', 'get_image',
     # time control functions#
     'pause', 'delay', 'delay_fps', 'delay_jfps', 'is_run',
@@ -1493,7 +1492,7 @@ def rounded_rect(left: float, top: float, right: float, bottom: float, round_x: 
     image.rounded_rect(left, top, right, bottom, round_x, round_y)
 
 
-def draw_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
+def draw_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float = None,
                       image: Image = None):
     """
     Draws a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
@@ -1514,7 +1513,7 @@ def draw_rounded_rect(left: float, top: float, right: float, bottom: float, roun
     image.draw_rounded_rect(left, top, right, bottom, round_x, round_y)
 
 
-def fill_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float,
+def fill_rounded_rect(left: float, top: float, right: float, bottom: float, round_x: float, round_y: float = None,
                       image: Image = None):
     """
     Fill a rounded rectangle with upper left corner at (left, top) , lower right corner at (right,bottom).
@@ -1533,22 +1532,6 @@ def fill_rounded_rect(left: float, top: float, right: float, bottom: float, roun
     """
     image = _get_target_image(image)
     image.fill_rounded_rect(left, top, right, bottom, round_x, round_y)
-
-
-def flood_fill(x: int, y: int, border_color, image: Image = None):
-    """
-    Flood fill the image starting from(x,y) and ending at borders with border_color.
-
-    The fill region border must be closed,or the whole image will be filled!
-
-    :param x: x coordinate value of the start point
-    :param y: y coordinate value of the start point
-    :param border_color: color of the fill region border
-    :param image: the target image which will be painted on. None means it is the target image
-        (see set_target() and get_target()).
-    """
-    image = _get_target_image(image)
-    image.flood_fill(x, y, border_color)
 
 
 def draw_image(x: int, y: int, src_image: Image, width:int=0, height:int=0, src_x: int = 0, src_y: int = 0, src_width: int = -1,
@@ -1901,12 +1884,6 @@ def create_image(width, height) -> Image:
     :return: the created image
     """
     return Image.create(width, height)
-
-def create_image_from_ndarray(array) -> Image:
-    """
-    Convert a ndarray (opencv 3.0 image) to an Image object
-    """
-    return Image(q2n.array2qimage(array))
 
 def close_image(image: Image):
     """

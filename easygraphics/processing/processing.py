@@ -24,8 +24,23 @@ __all__ = [
     # keyboard and mouse functions #
     'mouse_x', 'mouse_y', 'mouse_pressed', 'on_mouse_wheel', 'on_mouse_dragged',
     'on_mouse_released', 'on_mouse_pressed', 'on_mouse_clicked', 'prev_mouse_y', 'prev_mouse_x',
-    'ProcessingWidget'
+    'ProcessingWidget',
+    # compatible functions
+    'background',
 ]
+
+### ####
+
+def background(color):
+    """
+    The background() function sets the color used for the background of the Processing window. The default background is light gray. This function is typically used within draw() to clear the display window at the beginning of each frame, but it can be used inside setup() to set the background on the first frame of animation or if the backgound need only be set once.
+    :param color:
+    """
+    set_background_color(color)
+    clear()
+
+
+### ###
 
 
 def setup():
