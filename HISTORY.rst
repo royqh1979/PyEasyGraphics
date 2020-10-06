@@ -3,6 +3,7 @@
 History
 ===========
 2.0.1.1
+-------
  * fix: bug in image.draw_arc
  * remove: flood_fill
 
