@@ -1,6 +1,6 @@
 Animation
 =========
-By rapidly change the painting (frames) on the graphics window, we can make an animation.
+By rapidly changing the painting (frames) on the graphics window, we can make an animation.
 
 
 Time Control
@@ -42,7 +42,7 @@ Ofter we need to make an object move in a background. If the background is compl
 it's not a good idea to recreate the background in each frame.
 
 A common solution is to draw background in one image , and the moving object in another transparent image.
-The final result is made by merge the two images.
+The final result is made by merging the two images.
 
 The following program draws a moving bus on the road (background).Note the use of the is_run() function.
 
@@ -91,10 +91,10 @@ The following program draws a moving bus on the road (background).Note the use o
 
 Skipping Frames
 ^^^^^^^^^^^^^^^
-Sometimes a drawing can be complicated and slow, and we can't finish a frame's drawing
+Sometimes a drawing can be complicated and slow, and we can't finish a frame drawing
 in the specified frame time. This will create lags in the animation.
 
-The delay_jfps() can skip some frames ( if a frame is using too mush time, the successive frames
+The delay_jfps() can skip some frames ( if a frame is using too much time, the successive frames
 will be skipped to keep up with the specified fps).
 
 The following example shows how to use delay_jfps() to control time. Note that we
